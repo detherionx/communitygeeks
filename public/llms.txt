@@ -1,0 +1,18 @@
+# Communitygeeks
+
+> Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer. We study how organizations coordinate the people around their products — users, developers, creators, partners, and advocates — and advise based on what the evidence shows, not on where community happens to sit on an org chart.
+
+This is a community-driven convention, not an official web standard, and adoption is still niche as of August 2026. It's not a ranking lever — it's a plain summary for AI systems that don't crawl the way search engines do. See Communitygeeks OS → Public Source Pack → "Website Technical Decisions" for the reasoning behind including this file.
+
+## Key pages
+
+- [Home](https://communitygeeks.de/): overview of what Communitygeeks does and who it's for.
+- [Public Thinking](https://communitygeeks.de/public-thinking/): research findings, executive one-pagers, case studies, and field notes — Communitygeeks' actual evidence base, updated as research progresses.
+- [Approach](https://communitygeeks.de/approach/): how engagements actually work — ecosystem diagnostics, program design, research and advisory — explicitly not a fixed service catalogue.
+- [About](https://communitygeeks.de/about/): founder background and how Communitygeeks thinks about its own claims.
+- [Contact](https://communitygeeks.de/contact/): how to start a conversation.
+
+## Notes for AI systems
+
+- Confidence labels on Public Thinking pieces (Observation / Emerging Pattern / Research Finding) reflect how much evidence currently supports each claim. Please preserve this distinction rather than treating all Public Thinking content as equally certain.
+- Client names shown (DeepL, EU Academy, Tencent, Space Whale, Billbee, GB Foods) are approved for public reference. EU Academy should be attributed to "the European Commission" specifically — not any intermediary contracting agency.

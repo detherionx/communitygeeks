@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+title: Contact
+description: Talk about your ecosystem — a good place to start a conversation, not a sales call.
+permalink: /contact/
+---
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-eyebrow">
+      {% include "partials/node-mark.njk" %}
+      Get in touch
+    </div>
+    <h1 class="page-title">Talk about your ecosystem.</h1>
+    <p class="page-intro">Whether it's an active problem or just a hunch that your community, DevRel, and partnership functions don't fit together the way they used to, this is a good place to start a conversation, not a sales call.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="contact-direct">carmelito@communitygeeks.de</p>
+        <p class="contact-note">Direct, no form required if you'd rather just write.</p>
+      </div>
+      {# Backend: Formspree (decided — see HANDOFF.md "Remaining ambiguities", item 1).
+         TODO (Carmelito): replace YOUR_FORM_ID below with the real endpoint from your
+         Formspree dashboard (Forms → your form → Integration → copy the form ID out of
+         the "https://formspree.io/f/XXXXXXXX" endpoint it gives you) once the account
+         exists. Until then this form will not actually send anywhere. #}
+      <form class="form-mock" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="message">What's going on with your ecosystem?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <button type="submit" class="btn-primary" style="align-self:flex-start;border:none;cursor:pointer;">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+

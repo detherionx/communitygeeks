@@ -1,0 +1,221 @@
+---
+layout: layouts/base.njk
+title: Communitygeeks — Ecosystem Research & Advisory
+description: Communitygeeks researches how organizations coordinate the people around their products — users, developers, creators, partners — and advises based on what the evidence shows.
+permalink: /
+closingCta:
+  secondaryLabel: "Read the research →"
+  secondaryUrl: "/public-thinking/"
+---
+<section class="hero">
+  <svg class="hero-bg-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="70" cy="100" r="38" stroke="#1F4B4C" stroke-width="2" fill="none"/>
+    <circle cx="140" cy="95" r="34" stroke="#1F4B4C" stroke-width="2" fill="none"/>
+    <line x1="108" y1="98" x2="106" y2="97" stroke="#1F4B4C" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">
+          {% include "partials/node-mark.njk" %}
+          Ecosystem Research &amp; Advisory
+        </div>
+        <h1>The boundaries between community, DevRel, and partnerships are getting harder to draw. We study <em>what comes next.</em></h1>
+        <p class="sub">Communitygeeks researches how organizations coordinate the people around their products — users, developers, creators, partners — and advises based on what the evidence shows, not on where community happens to sit on an org chart.</p>
+        <div class="cta-row">
+          <a href="/contact/" class="btn-primary">Compare notes</a>
+          <a href="/public-thinking/" class="btn-secondary">Read the research →</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="120" cy="110" r="52" stroke="#1B1912" stroke-width="1.6" fill="none" opacity="0.85"/>
+          <circle cx="230" cy="102" r="46" stroke="#1F4B4C" stroke-width="1.6" fill="none" opacity="0.9"/>
+          <line x1="172" y1="107" x2="184" y2="105" stroke="#1B1912" stroke-width="1.6" opacity="0.85"/>
+          <circle cx="120" cy="110" r="3" fill="#B08D57"/>
+          <circle cx="230" cy="102" r="3" fill="#B08D57"/>
+          <line x1="120" y1="110" x2="60" y2="60" stroke="#D9D4C8" stroke-width="1.2"/>
+          <line x1="230" y1="102" x2="300" y2="50" stroke="#D9D4C8" stroke-width="1.2"/>
+          <line x1="120" y1="110" x2="80" y2="180" stroke="#D9D4C8" stroke-width="1.2"/>
+          <line x1="230" y1="102" x2="270" y2="190" stroke="#D9D4C8" stroke-width="1.2"/>
+          <circle cx="60" cy="60" r="2.5" fill="#1F4B4C"/>
+          <circle cx="300" cy="50" r="2.5" fill="#1F4B4C"/>
+          <circle cx="80" cy="180" r="2.5" fill="#1F4B4C"/>
+          <circle cx="270" cy="190" r="2.5" fill="#1F4B4C"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-row">
+      <div class="trust-label">Built ecosystem &amp; community programs at</div>
+      <div class="trust-logos">
+        {% for name in clients.trustStrip %}<span>{{ name }}</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="think">
+  <div class="wrap">
+    <div class="think-head">
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">How Communitygeeks Thinks</span>
+      </div>
+      <h2>Not <span style="color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line);">where does your community run</span> — but who's actually participating, and how.</h2>
+      <p class="think-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
+    </div>
+
+    <div class="q-grid">
+      <div class="q-cell">
+        <span class="q-num">01</span>
+        <div class="q-text">Who participates around your product?</div>
+      </div>
+      <div class="q-cell">
+        <span class="q-num">02</span>
+        <div class="q-text">What value does each group create?</div>
+      </div>
+      <div class="q-cell">
+        <span class="q-num">03</span>
+        <div class="q-text">Where do those groups actually interact?</div>
+      </div>
+      <div class="q-cell">
+        <span class="q-num">04</span>
+        <div class="q-text">What's owned internally versus externally?</div>
+      </div>
+      <div class="q-cell">
+        <span class="q-num">05</span>
+        <div class="q-text">Which relationships matter most right now?</div>
+      </div>
+      <div class="q-cell">
+        <span class="q-num">06</span>
+        <div class="q-text">Where does participation actually break down?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="problem-old">
+        A forum. A Discord server. An engagement calendar.
+      </div>
+      <div class="problem-new">
+        <p>That used to be enough to call something "community." Most organizations are now coordinating several participant groups at once, users, developers, creators, partners, advocates, often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
+        <div class="tag-row">
+          <span class="tag">users</span>
+          <span class="tag">developers</span>
+          <span class="tag">creators</span>
+          <span class="tag">partners</span>
+          <span class="tag">advocates</span>
+        </div>
+        {% include "partials/ecosystem-diagram.njk" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Approach</span>
+      </div>
+      <h2>How we work, not a rate card.</h2>
+    </div>
+    <div class="approach-list">
+      <div class="approach-item">
+        <span class="approach-idx">01</span>
+        <div>
+          <h3 class="approach-name">Ecosystem Strategy &amp; Diagnostics</h3>
+          <p class="approach-desc">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
+        </div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-idx">02</span>
+        <div>
+          <h3 class="approach-name">Program Design</h3>
+          <p class="approach-desc">Community, developer relations, and partner programs, designed around the specific groups your product actually has, not a template org chart.</p>
+        </div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-idx">03</span>
+        <div>
+          <h3 class="approach-name">Research &amp; Advisory</h3>
+          <p class="approach-desc">Ongoing, evidence-based advisory grounded in active interviews and pattern-matching across companies, not a one-off audit.</p>
+        </div>
+      </div>
+    </div>
+    <div class="approach-note">These are exploratory categories, not a fixed service catalogue.</div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="band-head">
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Selected Work</span>
+      </div>
+      <h2>A decade of building the programs we now research.</h2>
+    </div>
+    <div class="work-grid">
+      {% for client in clients.selectedWork %}
+      <div class="work-cell">
+        <div>
+          <div class="work-name">{{ client.name }}</div>
+          <div class="work-desc">{{ client.proof }}</div>
+        </div>
+        <div class="work-tag">{{ client.tag }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Public Thinking</span>
+      </div>
+      <h2>Live findings, not a static portfolio.</h2>
+    </div>
+    <div class="pt-grid">
+      {% for piece in publicThinking %}
+      {% if loop.index <= 2 %}
+      <a href="{{ piece.url }}" class="pt-card" style="text-decoration:none;">
+        <span class="pt-format">{{ piece.format }}</span>
+        <div class="pt-title">{{ piece.title }}</div>
+        <div class="pt-meta"><span>{{ piece.date | readableDate }}</span><span>{{ piece.confidence }}</span></div>
+      </a>
+      {% endif %}
+      {% endfor %}
+      <div class="pt-card placeholder">
+        <div class="pt-title">More research findings, case studies, and field notes are in progress and will publish here as they clear review.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-photo">
+        <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360">
+      </div>
+      <div>
+        <div class="founder-name">Carmelito Bauer</div>
+        <span class="founder-role">Founder, Communitygeeks</span>
+        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving as AI changes how people discover, use, and participate around products.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: publicThinking
+  size: 1
+  alias: piece
+  addAllPagesToCollections: true
+permalink: "{{ piece.url }}"
+eleventyComputed:
+  title: "{{ piece.title }}"
+  description: "{{ piece.summary }}"
+  closingCta:
+    secondaryLabel: "See more Public Thinking →"
+    secondaryUrl: "/public-thinking/"
+---
+<article class="band">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-marker">
+      {% include "partials/node-mark.njk" %}
+      <span class="label">{{ piece.format }}</span>
+    </div>
+    <h1 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.15;margin:20px 0 18px;">{{ piece.title }}</h1>
+    <div class="card-meta" style="border-top:none;padding-top:0;justify-content:flex-start;gap:20px;margin-bottom:8px;">
+      <span>{{ piece.date | readableDate }}</span>
+      <span class="confidence-tag">{{ piece.confidence }}</span>
+      {% if piece.author %}<span>{{ piece.author }}</span>{% endif %}
+      {% if piece.contributor %}<span>with {{ piece.contributor }}</span>{% endif %}
+    </div>
+
+    {% if piece.pdf %}
+    <p><a href="{{ piece.pdf }}" class="btn-secondary">Download PDF →</a></p>
+    {% endif %}
+
+    <div class="piece-body" style="margin-top:32px;font-size:16.5px;line-height:1.75;color:var(--ink);">
+      {{ piece.contentHtml | safe }}
+    </div>
+
+    {% if piece.related and piece.related.length %}
+    <div class="band-head" style="margin-top:64px;padding-top:32px;border-top:1px solid var(--line);">
+      <span class="label" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);">Related</span>
+      <ul style="margin-top:12px;padding-left:0;list-style:none;">
+        {% for rel in piece.related %}
+        <li><a href="/public-thinking/{{ rel.slug }}/" class="btn-secondary">{{ rel.title }} →</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</article>

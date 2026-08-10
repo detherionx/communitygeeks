@@ -1,0 +1,22 @@
+{
+  "name": "communitygeeks-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Communitygeeks marketing site — static Eleventy build, deployable as plain static files (no Node server required in production).",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "luxon": "^3.4.4",
+    "markdown-it": "^15.0.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

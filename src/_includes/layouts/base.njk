@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · Communitygeeks</title>
+<meta name="description" content="{{ description }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ title }} · Communitygeeks">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://communitygeeks.de{{ page.url }}">
+<meta property="og:image" content="https://communitygeeks.de/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+{% for line in extraHead %}{{ line | safe }}{% endfor %}
+</head>
+<body>
+
+{% include "partials/nav.njk" %}
+
+<main id="main-content">
+{{ content | safe }}
+</main>
+
+{% if closingCta %}{% include "partials/closing-cta.njk" %}{% endif %}
+{% include "partials/footer.njk" %}
+
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
+</body>
+</html>

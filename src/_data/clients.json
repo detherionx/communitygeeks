@@ -1,0 +1,40 @@
+{
+  "note": "Source of truth: Communitygeeks OS → Public Source Pack → 'Nameable Organizations' table. Do not add an organization here without checking that table first — several of these have real naming constraints (see notes).",
+  "trustStrip": ["DeepL", "EU Academy", "Tencent", "Space Whale", "Billbee", "GB Foods"],
+  "selectedWork": [
+    {
+      "name": "DeepL",
+      "proof": "Built and launched community, developer, and advocacy programs.",
+      "tag": "SaaS / AI"
+    },
+    {
+      "name": "EU Academy",
+      "proof": "Community and education programs for the European Commission's EU Academy.",
+      "tag": "Public sector",
+      "namingNote": "Always name as 'the European Commission' / 'EU Academy' only. The real contracting chain runs through intermediary subcontractors — never name those, in this file or anywhere else."
+    },
+    {
+      "name": "Tencent",
+      "proof": "Gaming community management on Tower of Fantasy, PUBG Mobile, and Tarisland.",
+      "tag": "Gaming",
+      "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision."
+    },
+    {
+      "name": "Space Whale",
+      "proof": "Community management on Wisdom Watcher through Early Access and Release.",
+      "tag": "Gaming",
+      "namingNote": "Space Whale is the gaming division of parent entity Digital Mosaik. Always use 'Space Whale' publicly, never 'Digital Mosaik'."
+    },
+    {
+      "name": "Billbee",
+      "proof": "SaaS community management.",
+      "tag": "SaaS"
+    },
+    {
+      "name": "GB Foods",
+      "proof": "Prior project.",
+      "tag": "FMCG",
+      "contentNote": "Founder-confirmed nameable, fuller context still pending from founder — do not expand this description beyond 'Prior project' without new source material."
+    }
+  ]
+}

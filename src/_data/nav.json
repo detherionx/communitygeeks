@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "label": "Public Thinking", "url": "/public-thinking/" },
+    { "label": "Approach", "url": "/approach/" },
+    { "label": "About", "url": "/about/" }
+  ],
+  "cta": { "label": "Compare notes", "url": "/contact/" }
+}

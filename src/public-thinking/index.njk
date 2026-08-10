@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+title: Public Thinking
+description: Research findings, executive one-pagers, case studies, and field notes — live, not a static portfolio.
+permalink: /public-thinking/
+extraScripts:
+  - "public-thinking-filter.js"
+closingCta:
+  secondaryLabel: "See how we work →"
+  secondaryUrl: "/approach/"
+---
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-eyebrow">
+      {% include "partials/node-mark.njk" %}
+      Public Thinking
+    </div>
+    <h1 class="page-title">Live findings, not a static portfolio.</h1>
+    <p class="page-intro">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="filter-bar">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="research">Research Findings</button>
+    <button class="filter-pill" data-filter="onepager">Executive One-Pagers</button>
+    <button class="filter-pill" data-filter="case">Case Studies</button>
+    <button class="filter-pill" data-filter="field">Field Notes</button>
+  </div>
+
+  <div class="index-grid">
+    {% for piece in publicThinking %}
+    <a href="{{ piece.url }}" class="index-card" data-type="{{ piece.filterType }}" style="text-decoration:none;">
+      <span class="card-format">{{ piece.format }}</span>
+      <div class="card-title">{{ piece.title }}</div>
+      <div class="card-meta"><span>{{ piece.date | readableDate }}</span><span class="confidence-tag">{{ piece.confidence }}</span></div>
+    </a>
+    {% endfor %}
+    <div class="index-card placeholder" data-type="research">
+      <div class="card-title">More research findings are in progress and will publish here as they clear review.</div>
+    </div>
+  </div>
+
+  <div class="section-note">Case studies below are experience references, not written case studies yet — full write-ups are in progress.</div>
+
+  <div class="index-grid" style="padding-top:0;">
+    {% for client in clients.selectedWork %}
+    <div class="index-card placeholder" data-type="case"><div class="card-title">{{ client.name }} — case study in progress</div></div>
+    {% endfor %}
+  </div>
+
+  <div class="index-grid" style="padding-top:0;">
+    <div class="index-card placeholder" data-type="field" style="grid-column:1/-1;text-align:center;align-items:center;padding:40px 24px;">
+      <div class="card-title">No field notes published yet. Named interview findings will appear here once cleared for public use.</div>
+    </div>
+  </div>
+</div>
+

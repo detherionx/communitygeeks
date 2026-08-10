@@ -1,0 +1,37 @@
+<!--
+  TEMPLATE — copy this to a new file named like your-slug-here.md inside
+  content/public-thinking/, fill in the fields, delete this comment block,
+  and write the body below the second `---`.
+
+  This file is named TEMPLATE.md.example on purpose (not .md) so Eleventy's
+  content/public-thinking/*.md glob never picks it up and accidentally
+  publishes it as a real page.
+-->
+---
+title: "Piece title, written the way a human would say it out loud"
+slug: "url-safe-slug-no-spaces"
+date: 2026-08-01
+format: "Research Finding"          # One of: "Research Finding" | "Executive One-Pager" | "Case Study" | "Field Note"
+filterType: "research"              # Matches the filter buttons on /public-thinking/: research | onepager | case | field
+confidence: "Observation"           # MUST be one of: "Observation" | "Emerging Pattern" | "Research Finding"
+                                     # These are the ONLY public-facing confidence labels — see Communitygeeks OS
+                                     # → Public Source Pack → "Public Thinking — Confidence Vocabulary Map".
+                                     # Never use internal labels (Low/Medium/High/Validated, or Weak/Emerging/Strong)
+                                     # here. The Eleventy build will throw an error if this field has anything else.
+summary: "One or two sentences. This is used as the page <meta description> and nowhere else."
+author: "Carmelito Bauer"           # Or Katharina Siebert / Gaza Vargas if they become bylined authors later
+contributor: null                   # e.g. "Andy Claremont" — ONLY set this once the named person has explicitly
+                                     # consented to being named publicly. See Public Source Pack →
+                                     # "Not Yet Ready for Publication" before ever setting this field.
+heroImage: null                     # Optional. Path like "/assets/images/public-thinking/your-image.jpg" if you add one.
+pdf: null                           # Optional. Path to a downloadable PDF under public/ if this piece has one,
+                                     # e.g. "/downloads/moat-or-funnel.pdf".
+related:                            # Optional. List of {slug, title} pairs for other Public Thinking pieces.
+  - slug: "some-other-piece-slug"
+    title: "That other piece's title"
+---
+
+Write the body here as normal Markdown. Headings, bold, links, lists all work.
+This is what actually renders on the piece's page — check it against the
+Public Source Pack's Governance Rule before publishing: internal OS research
+language is evidence for what you write here, not text to paste in directly.
