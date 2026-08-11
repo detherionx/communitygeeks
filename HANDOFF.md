@@ -111,6 +111,17 @@ Two separate mobile-layout problems, found by actually testing at a 375px viewpo
 
 Verified all of this with real computed-style / `document.documentElement.scrollWidth` checks at a 375px viewport (not just visual inspection) on every page: `/`, `/about/`, `/approach/`, `/contact/`, `/public-thinking/`, and a Public Thinking item page.
 
-## 13. Explicit reminder
+## 13. Structured data added (2026-08-11)
+
+Schema.org JSON-LD, per the OS decision in Public Source Pack → "Website Technical Decisions" (decided 8 Aug, never actually coded until now):
+- **Organization** — `src/_includes/layouts/base.njk`, sitewide, `@id` `https://communitygeeks.de/#organization`. Description reuses the exact approved sentence from `public/llms.txt`; address reuses the exact legal address already public in the footer. No `sameAs` — no verified social profile URLs exist anywhere in this repo or the Public Source Pack, so none were added; don't add one without a real, approved link.
+- **Person** (founder) — `src/about.njk`, via the existing (previously unused) `extraHead` front-matter mechanism. `@id` `https://communitygeeks.de/about/#founder`, `worksFor` links back to the Organization `@id`. Bio text is the exact approved About-page version, not paraphrased.
+- **Article** — one per Public Thinking piece, computed in `src/_data/publicThinking.js` (as a precomputed `articleJsonLd` string, using `JSON.stringify` for safe escaping — deliberately not hand-templated in Nunjucks, see the bug below) and injected via `item.njk`'s `eleventyComputed.extraHead`. `author` links to the founder `@id` when `piece.author` is "Carmelito Bauer", otherwise a plain `Person` with just a name (no fabricated jobTitle/worksFor for people we don't have public data on).
+
+**Bug found and fixed while wiring this up**: `item.njk`'s `eleventyComputed.title` / `description` (`"{{ piece.title }}"` / `"{{ piece.summary }}"`) were being HTML-escaped at that front-matter templating stage, then escaped *again* when `base.njk` wrote them into `<title>`, `og:title`, `description`, `og:og:description`. Any piece title with an apostrophe (e.g. "...where they don't") rendered as literal `don&amp;#39;t` in the actual page source — broken in the browser tab, social previews, and search snippets, for every Public Thinking piece, since before this session. Fixed by adding `| safe` at the `eleventyComputed` stage so escaping happens exactly once, at the real point of writing HTML in `base.njk`. Same root cause hit `extraHead` while adding the Article schema above — fixed the same way.
+
+Verified all three schema types actually parse as valid JSON in a real browser (not just visually) on Home, About, and both Public Thinking item pages, and confirmed the `@id` links between Article→author→Organization actually resolve to the same object rather than duplicating it.
+
+## 14. Explicit reminder
 
 **Do not redesign the approved site unless Carmelito requests it.** If you notice something that looks like it could be improved visually, that's worth a note to Carmelito, not a unilateral change. Content bugs (wrong copy, broken links, accessibility issues) are fine to fix outright — those aren't design decisions.

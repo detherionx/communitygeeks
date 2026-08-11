@@ -38,10 +38,37 @@ module.exports = () => {
       );
     }
 
+    const url = `/public-thinking/${data.slug}/`;
+    const fullUrl = `https://communitygeeks.de${url}`;
+    const author =
+      data.author === "Carmelito Bauer"
+        ? { "@id": "https://communitygeeks.de/about/#founder" }
+        : { "@type": "Person", name: data.author };
+
+    // Precomputed here (not templated in item.njk) so title/summary get
+    // proper JSON string escaping via JSON.stringify rather than risking
+    // broken JSON from a hand-templated Nunjucks string.
+    const articleJsonLd = `<script type="application/ld+json">\n${JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: data.title,
+        description: data.summary,
+        datePublished: data.date,
+        url: fullUrl,
+        mainEntityOfPage: { "@type": "WebPage", "@id": fullUrl },
+        author,
+        publisher: { "@id": "https://communitygeeks.de/#organization" },
+      },
+      null,
+      2
+    )}\n</script>`;
+
     return {
       ...data,
-      url: `/public-thinking/${data.slug}/`,
+      url,
       contentHtml: md.render(content),
+      articleJsonLd,
     };
   });
 

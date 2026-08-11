@@ -7,8 +7,10 @@ pagination:
   addAllPagesToCollections: true
 permalink: "{{ piece.url }}"
 eleventyComputed:
-  title: "{{ piece.title }}"
-  description: "{{ piece.summary }}"
+  title: "{{ piece.title | safe }}"
+  description: "{{ piece.summary | safe }}"
+  extraHead:
+    - "{{ piece.articleJsonLd | safe }}"
   closingCta:
     secondaryLabel: "See more Public Thinking →"
     secondaryUrl: "/public-thinking/"
