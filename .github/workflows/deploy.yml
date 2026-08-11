@@ -32,3 +32,4 @@ jobs:
           sftp_only: true
           local_path: './_site/*'
           remote_path: ${{ secrets.HETZNER_REMOTE_PATH }}
+          delete_remote_files: true

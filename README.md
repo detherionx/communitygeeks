@@ -83,6 +83,8 @@ communitygeeks-website/
 
 Automated via GitHub Actions (`.github/workflows/deploy.yml`): every push to `main` builds the site and uploads `_site/` to the Hetzner host over SFTP.
 
+**This deploy is destructive by design (`delete_remote_files: true`)**: every run empties `HETZNER_REMOTE_PATH` on the server before uploading the fresh build. Decided 2026-08-11 to clear out a stale, unused WordPress install that occupied the target folder — but it means every single push to `main` wipes whatever is currently in that remote folder, no confirmation step. If `HETZNER_REMOTE_PATH` is ever misconfigured to point at a folder for a different live domain, that folder gets wiped too. Treat that secret's value with real care.
+
 Required repository secrets (Settings → Secrets and variables → Actions):
 
 | Secret | Value |
