@@ -1,6 +1,38 @@
 {
   "note": "Source of truth: Communitygeeks OS → Public Source Pack → 'Nameable Organizations' table. Do not add an organization here without checking that table first — several of these have real naming constraints (see notes).",
-  "trustStrip": ["DeepL", "EU Academy", "Tencent", "Space Whale", "Billbee", "GB Foods"],
+  "logoWall": [
+    {
+      "name": "DeepL",
+      "logoPath": "/assets/images/logos/deepl.svg"
+    },
+    {
+      "name": "EU Academy",
+      "logoPath": "/assets/images/logos/european-commission.svg",
+      "logoSourceNote": "European Commission's own logo, used here since EU Academy itself has no logo file — see the selectedWork entry below for the full reasoning."
+    },
+    {
+      "name": "Tencent",
+      "logoPath": "/assets/images/logos/tencent.png"
+    },
+    {
+      "name": "ZAM",
+      "logoPath": "/assets/images/logos/zam.png",
+      "logoSourceNote": "Shown alongside Tencent on purpose (2026-08-11, Carmelito's call) — the actual engagement ran through ZAM even though Selected Work displays it as 'Tencent' for name recognition. White-only mark (zam.com is dark-background, like Space Whale) — works via the mask-based logo-badge component, not displayed as a plain <img>."
+    },
+    {
+      "name": "Space Whale",
+      "logoPath": "/assets/images/logos/space-whale-white.svg",
+      "logoSourceNote": "White-only mark, used as a mask source (see .logo-badge in style.css) rather than a plain <img> — that's what makes it work despite having no light-background variant."
+    },
+    {
+      "name": "Billbee",
+      "logoPath": "/assets/images/logos/billbee.png"
+    },
+    {
+      "name": "GB Foods",
+      "logoPath": "/assets/images/logos/gb-foods.png"
+    }
+  ],
   "selectedWork": [
     {
       "name": "DeepL",
@@ -21,7 +53,7 @@
       "name": "Tencent",
       "proof": "Gaming community management on Tower of Fantasy, PUBG Mobile, and Tarisland.",
       "tag": "Gaming",
-      "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision.",
+      "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision. ZAM is shown separately in the logoWall marquee (see above), not duplicated here as its own Selected Work card.",
       "logoPath": "/assets/images/logos/tencent.png",
       "logoSourceNote": "Official wordmark, from tencent.com's own site header (2026-08-11) — Tencent's own mark, not ZAM's, since this entry displays as 'Tencent' per the naming note above."
     },
@@ -30,7 +62,8 @@
       "proof": "Community management on Wisdom Watcher through Early Access and Release.",
       "tag": "Gaming",
       "namingNote": "Space Whale is the gaming division of parent entity Digital Mosaik. Always use 'Space Whale' publicly, never 'Digital Mosaik'.",
-      "logoSourceNote": "Official mark saved unmodified at src/assets/images/logos/space-whale-white.svg (2026-08-11), but not wired in here yet — it's white-only (space-whale.com is entirely dark-background, no light variant exists) and Carmelito is deciding display treatment separately. No logoPath until that's resolved."
+      "logoPath": "/assets/images/logos/space-whale-white.svg",
+      "logoSourceNote": "White-only official mark (2026-08-11) — rendered via the mask-based .logo-badge component (style.css), never as a plain <img>, since it has no light-background variant. Don't swap this back to a raw <img class=\"work-logo\">, it'll be invisible."
     },
     {
       "name": "Billbee",

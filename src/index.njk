@@ -50,11 +50,23 @@ closingCta:
 
 <section class="trust">
   <div class="wrap">
-    <div class="trust-row">
-      <div class="trust-label">Built ecosystem &amp; community programs at</div>
-      <div class="trust-logos">
-        {% for name in clients.trustStrip %}<span>{{ name }}</span>{% endfor %}
+    <div class="trust-label">Trusted by industry leaders</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      {% for item in clients.logoWall %}
+      <div class="logo-badge" style="--logo-url:url('{{ item.logoPath }}');">
+        <span class="logo-mono"></span>
+        <span class="logo-color"></span>
+        <span class="sr-only">{{ item.name }}</span>
       </div>
+      {% endfor %}
+      {% for item in clients.logoWall %}
+      <div class="logo-badge" aria-hidden="true" style="--logo-url:url('{{ item.logoPath }}');">
+        <span class="logo-mono"></span>
+        <span class="logo-color"></span>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -169,7 +181,13 @@ closingCta:
       {% for client in clients.selectedWork %}
       <div class="work-cell">
         <div>
-          {% if client.logoPath %}<img src="{{ client.logoPath }}" alt="{{ client.name }} logo" class="work-logo">{% endif %}
+          {% if client.logoPath %}
+          <div class="logo-badge logo-badge-sm" style="--logo-url:url('{{ client.logoPath }}');">
+            <span class="logo-mono"></span>
+            <span class="logo-color"></span>
+            <span class="sr-only">{{ client.name }} logo</span>
+          </div>
+          {% endif %}
           <div class="work-name">{{ client.name }}</div>
           <div class="work-desc">{{ client.proof }}</div>
         </div>
