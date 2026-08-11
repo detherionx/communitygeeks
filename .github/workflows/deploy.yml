@@ -23,12 +23,11 @@ jobs:
         run: npm run build
 
       - name: Deploy over SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        uses: wangyucode/sftp-upload-action@v2.0.4
         with:
-          username: ${{ secrets.HETZNER_USERNAME }}
-          server: ${{ secrets.HETZNER_HOST }}
-          password: ${{ secrets.HETZNER_PASSWORD }}
+          host: ${{ secrets.HETZNER_HOST }}
           port: 22
-          sftp_only: true
-          local_path: './_site/*'
-          remote_path: ${{ secrets.HETZNER_REMOTE_PATH }}
+          username: ${{ secrets.HETZNER_USERNAME }}
+          password: ${{ secrets.HETZNER_PASSWORD }}
+          localDir: '_site'
+          remoteDir: '/${{ secrets.HETZNER_REMOTE_PATH }}'
