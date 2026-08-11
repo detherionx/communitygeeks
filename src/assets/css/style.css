@@ -138,6 +138,7 @@
     .approach-item{grid-template-columns:1fr;gap:8px;}
     .work-grid{grid-template-columns:1fr;}
     .pt-grid{grid-template-columns:1fr;}
+  }
 
 /* Shared page-header pattern (About, Approach, Contact, Public Thinking) */
 .page-hero{padding:64px 0 20px;}

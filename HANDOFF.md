@@ -96,6 +96,10 @@ npm run build    # writes production-ready static files to _site/
 
 I ran `npm install` and `npm run build` myself before finishing this handoff, fixed two real bugs I found in the process (see Section 7's pagination note, and a separate Eleventy quirk where only the *first* page of a paginated set is added to `collections.all` by default — fixed via `addAllPagesToCollections: true` in `src/public-thinking/item.njk`), and verified every internal link/asset in the built output actually resolves to a real file. The build works as of this handoff. If it doesn't work for you, something changed — check `npm install` completed cleanly first.
 
-## 11. Explicit reminder
+## 11. Fixed bug (2026-08-11): missing media-query closing brace
+
+`src/assets/css/style.css` had a missing `}` after the `.pt-grid{grid-template-columns:1fr;}` line inside `@media (max-width:860px){...}`. Everything from the "Shared page-header pattern" comment through the end of the file — all of About, Approach, Contact, and the Public Thinking index page's actual styling (`.index-card`, `.index-grid`, `.filter-bar`, `.filter-pill`, `.card-title`, `.form-mock`, `.contact-grid`, `.principle-list`, `.approach-detail`, etc.) — was accidentally nested inside that mobile-only media query, so none of it applied at normal desktop widths. Only discovered after DNS/deploy went live and the real site was checked in a browser; `curl` never caught it because the file transferred byte-identical either way — this was a CSS authoring bug, not a deploy problem. Fixed by closing the media query after the legitimate mobile overrides (line ~140) instead of after all the later content. Verified via computed-style checks in a real browser (not just visual inspection) that `.index-card`, `.contact-grid`, and form inputs pick up their real rules now.
+
+## 12. Explicit reminder
 
 **Do not redesign the approved site unless Carmelito requests it.** If you notice something that looks like it could be improved visually, that's worth a note to Carmelito, not a unilateral change. Content bugs (wrong copy, broken links, accessibility issues) are fine to fix outright — those aren't design decisions.
