@@ -22,23 +22,10 @@ permalink: /contact/
         <p class="contact-direct">carmelito@communitygeeks.de</p>
         <p class="contact-note">Direct, no form required if you'd rather just write.</p>
       </div>
-      {# Backend: Formspree (decided — see HANDOFF.md "Remaining ambiguities", item 1). #}
-      <form class="form-mock" action="https://formspree.io/f/xdengeqk" method="POST">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-row">
-          <label for="message">What's going on with your ecosystem?</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <button type="submit" class="btn-primary" style="align-self:flex-start;border:none;cursor:pointer;">Send</button>
-      </form>
+      {# Backend: Typeform (decided 2026-08-11 — see HANDOFF.md "Remaining ambiguities", item 1). #}
+      <div class="typeform-embed">
+        <iframe src="https://form.typeform.com/to/ScREZMGC" title="Compare notes — contact form" loading="lazy" allow="camera; microphone; autoplay; encrypted-media;"></iframe>
+      </div>
     </div>
   </div>
 </section>
