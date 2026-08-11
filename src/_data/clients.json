@@ -5,36 +5,47 @@
     {
       "name": "DeepL",
       "proof": "Built and launched community, developer, and advocacy programs.",
-      "tag": "SaaS / AI"
+      "tag": "SaaS / AI",
+      "logoPath": "/assets/images/logos/deepl.svg",
+      "logoSourceNote": "Official wordmark SVG, from deepl.com/en/press (2026-08-11)."
     },
     {
       "name": "EU Academy",
       "proof": "Community and education programs for the European Commission's EU Academy.",
       "tag": "Public sector",
-      "namingNote": "Always name as 'the European Commission' / 'EU Academy' only. The real contracting chain runs through intermediary subcontractors — never name those, in this file or anywhere else."
+      "namingNote": "Always name as 'the European Commission' / 'EU Academy' only. The real contracting chain runs through intermediary subcontractors — never name those, in this file or anywhere else.",
+      "logoPath": "/assets/images/logos/european-commission.svg",
+      "logoSourceNote": "EU Academy itself has no logo file (its own header renders 'eu|academy' as styled text, not an image). Using the European Commission's own official 'positive' (light-background) logo instead, since Carmelito confirmed that's the right call given the Commission owns the platform. Source: commission.europa.eu, official theme asset (2026-08-11)."
     },
     {
       "name": "Tencent",
       "proof": "Gaming community management on Tower of Fantasy, PUBG Mobile, and Tarisland.",
       "tag": "Gaming",
-      "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision."
+      "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision.",
+      "logoPath": "/assets/images/logos/tencent.png",
+      "logoSourceNote": "Official wordmark, from tencent.com's own site header (2026-08-11) — Tencent's own mark, not ZAM's, since this entry displays as 'Tencent' per the naming note above."
     },
     {
       "name": "Space Whale",
       "proof": "Community management on Wisdom Watcher through Early Access and Release.",
       "tag": "Gaming",
-      "namingNote": "Space Whale is the gaming division of parent entity Digital Mosaik. Always use 'Space Whale' publicly, never 'Digital Mosaik'."
+      "namingNote": "Space Whale is the gaming division of parent entity Digital Mosaik. Always use 'Space Whale' publicly, never 'Digital Mosaik'.",
+      "logoSourceNote": "Official mark saved unmodified at src/assets/images/logos/space-whale-white.svg (2026-08-11), but not wired in here yet — it's white-only (space-whale.com is entirely dark-background, no light variant exists) and Carmelito is deciding display treatment separately. No logoPath until that's resolved."
     },
     {
       "name": "Billbee",
       "proof": "SaaS community management.",
-      "tag": "SaaS"
+      "tag": "SaaS",
+      "logoPath": "/assets/images/logos/billbee.png",
+      "logoSourceNote": "Official logo, from app.billbee.io (2026-08-11)."
     },
     {
       "name": "GB Foods",
       "proof": "Prior project.",
       "tag": "FMCG",
-      "contentNote": "Founder-confirmed nameable, fuller context still pending from founder — do not expand this description beyond 'Prior project' without new source material."
+      "contentNote": "Founder-confirmed nameable, fuller context still pending from founder — do not expand this description beyond 'Prior project' without new source material.",
+      "logoPath": "/assets/images/logos/gb-foods.png",
+      "logoSourceNote": "Confirmed by Carmelito as the Spanish FMCG multinational (thegbfoods.com), not the unrelated US company at gbfoodinc.com. Only regional marks exist on their site (Europe/Africa) — no unqualified 'GB Foods' logo. Using the Europe variant (2026-08-11)."
     }
   ]
 }

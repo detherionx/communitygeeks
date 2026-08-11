@@ -169,6 +169,7 @@ closingCta:
       {% for client in clients.selectedWork %}
       <div class="work-cell">
         <div>
+          {% if client.logoPath %}<img src="{{ client.logoPath }}" alt="{{ client.name }} logo" class="work-logo">{% endif %}
           <div class="work-name">{{ client.name }}</div>
           <div class="work-desc">{{ client.proof }}</div>
         </div>
