@@ -4,11 +4,16 @@
       <img src="/assets/images/icon.png" alt="" width="28" height="28">
       <span class="brand-name">COMMUNITYGEEKS</span>
     </a>
-    <div class="navlinks">
-      {% for item in nav.items %}
-      <a href="{{ item.url }}" {% if page.url == item.url %}style="color:var(--ink);"{% endif %}>{{ item.label }}</a>
-      {% endfor %}
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <div class="navlinks">
+        {% for item in nav.items %}
+        <a href="{{ item.url }}" {% if page.url == item.url %}style="color:var(--ink);"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </div>
+      <a href="{{ nav.cta.url }}" class="nav-cta" {% if page.url == nav.cta.url %}style="background:var(--ink);color:var(--paper);"{% endif %}>{{ nav.cta.label }}</a>
     </div>
-    <a href="{{ nav.cta.url }}" class="nav-cta" {% if page.url == nav.cta.url %}style="background:var(--ink);color:var(--paper);"{% endif %}>{{ nav.cta.label }}</a>
   </nav>
 </div>
