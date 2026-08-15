@@ -89,8 +89,8 @@ Required repository secrets (Settings → Secrets and variables → Actions):
 
 | Secret | Value |
 |---|---|
-| `HETZNER_HOST` | `www364.your-server.de` |
-| `HETZNER_USERNAME` | `carmelz` |
+| `HETZNER_HOST` | `your_server` |
+| `HETZNER_USERNAME` | `your_username` |
 | `HETZNER_PASSWORD` | Hetzner SFTP password |
 | `HETZNER_REMOTE_PATH` | Web root path on the Hetzner account (confirm in KonsoleH) |
 
