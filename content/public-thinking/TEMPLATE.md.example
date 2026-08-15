@@ -18,7 +18,14 @@ confidence: "Observation"           # MUST be one of: "Observation" | "Emerging 
                                      # → Public Source Pack → "Public Thinking — Confidence Vocabulary Map".
                                      # Never use internal labels (Low/Medium/High/Validated, or Weak/Emerging/Strong)
                                      # here. The Eleventy build will throw an error if this field has anything else.
-summary: "One or two sentences. This is used as the page <meta description> and nowhere else."
+summary: "One or two sentences. Used as the page <meta description> and the Article schema's description."
+topics:                              # Optional but recommended. 2-4 short topic/entity labels this piece is
+                                      # actually about (not the format — that's `filterType` above). Feeds the
+                                      # Article schema's `keywords` field, giving search engines and AI systems a
+                                      # structured signal beyond parsing prose. Derive these from what the piece
+                                      # itself is actually about — don't invent a taxonomy that isn't there yet.
+  - "Example Topic One"
+  - "Example Topic Two"
 author: "Carmelito Bauer"           # Or Katharina Siebert / Gaza Vargas if they become bylined authors later
 contributor: null                   # e.g. "Andy Claremont" — ONLY set this once the named person has explicitly
                                      # consented to being named publicly. See Public Source Pack →
@@ -35,3 +42,8 @@ Write the body here as normal Markdown. Headings, bold, links, lists all work.
 This is what actually renders on the piece's page — check it against the
 Public Source Pack's Governance Rule before publishing: internal OS research
 language is evidence for what you write here, not text to paste in directly.
+
+If the piece makes more than one distinct sub-claim, give each its own `##`
+heading. Not a rigid template to fill in — just makes each claim independently
+findable/linkable, and easier for a reader (human or otherwise) to cite one
+point without needing the whole piece. Skip it for a short, single-point piece.

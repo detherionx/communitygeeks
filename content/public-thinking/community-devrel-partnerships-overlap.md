@@ -6,6 +6,10 @@ format: "Research Finding"
 filterType: "research"
 confidence: "Emerging Pattern"
 summary: "An early look at where community, developer relations, and partnerships functions actually overlap in practice, and where the boundaries are still real."
+topics:
+  - "Community"
+  - "Developer Relations"
+  - "Partnerships"
 author: "Carmelito Bauer"
 contributor: null
 pdf: null

@@ -59,6 +59,7 @@ module.exports = () => {
         mainEntityOfPage: { "@type": "WebPage", "@id": fullUrl },
         author,
         publisher: { "@id": "https://communitygeeks.de/#organization" },
+        ...(data.topics && data.topics.length ? { keywords: data.topics.join(", ") } : {}),
       },
       null,
       2

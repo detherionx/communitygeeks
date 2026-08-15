@@ -6,6 +6,9 @@ format: "Executive One-Pager"
 filterType: "onepager"
 confidence: "Observation"
 summary: "A short diagnostic for telling apart a community that defends retention from one that's mostly acquisition marketing wearing a community label."
+topics:
+  - "Community Strategy"
+  - "Retention vs. Acquisition"
 author: "Carmelito Bauer"
 contributor: null
 pdf: null
