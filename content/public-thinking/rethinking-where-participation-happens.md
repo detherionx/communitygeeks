@@ -3,7 +3,7 @@ title: "Rethinking Where Participation Happens"
 slug: "rethinking-where-participation-happens"
 lang: "en"
 translationKey: "ecosystem-participation-glide-andy"
-date: 2026-08-21
+date: 2026-08-25
 format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
