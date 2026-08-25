@@ -1,0 +1,90 @@
+<svg viewBox="0 0 960 1220" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Archivo, sans-serif" aria-label="Diagram: a company at the center connected to six ecosystem groups — technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events — with illustrative ties drawn between adjacent groups and a dashed halo labeled Community running through all of them. Source: conversation with Andy Claremont, Head of Ecosystem and Community, Glide.">
+
+  <rect x="0" y="0" width="960" height="1220" fill="#F6F4EF"></rect>
+
+  <!-- baked-in caption block -->
+  <text x="60" y="34" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="0.06em" fill="#B08D57">FIELD NOTE &#183; ECOSYSTEM MAPPING</text>
+  <text x="60" y="70" font-family="Archivo, sans-serif" font-weight="600" font-size="25" fill="#1B1912">An ecosystem is a network, not a channel list</text>
+  <text x="60" y="96" font-size="14" fill="#4A473E">Six groups radiate out from the company — the real shift is treating the ties</text>
+  <text x="60" y="114" font-size="14" fill="#4A473E">between them as the map, not just the spokes to the center.</text>
+  <text x="60" y="140" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#B08D57">Community is the dashed halo below — the connective layer, not a seventh group.</text>
+
+  <!-- community halo -->
+  <circle cx="480" cy="620" r="450" fill="none" stroke="#D9D4C8" stroke-width="1.3" stroke-dasharray="2 8" opacity="0.6"></circle>
+
+  <!-- peer edges: illustrative ties between adjacent groups, not verified for any single company -->
+  <path d="M480,320 Q627.5,364.7 740,470" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+  <path d="M740,470 Q775,620 740,770" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+  <path d="M740,770 Q627.5,875.3 480,920" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+  <path d="M480,920 Q332.5,875.3 220,770" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+  <path d="M220,770 Q185,620 220,470" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+  <path d="M220,470 Q332.5,364.7 480,320" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.32"></path>
+
+  <!-- direct edges: every group also touches the company -->
+  <path d="M480,620 Q458,470 480,320" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M480,620 Q599,526 740,470" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M480,620 Q621,676 740,770" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M480,620 Q502,770 480,920" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M480,620 Q361,714 220,770" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M480,620 Q339,564 220,470" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+
+  <circle cx="480" cy="320" r="3" fill="#1F4B4C"></circle>
+  <circle cx="740" cy="470" r="3" fill="#1F4B4C"></circle>
+  <circle cx="740" cy="770" r="3" fill="#1F4B4C"></circle>
+  <circle cx="480" cy="920" r="3" fill="#1F4B4C"></circle>
+  <circle cx="220" cy="770" r="3" fill="#1F4B4C"></circle>
+  <circle cx="220" cy="470" r="3" fill="#1F4B4C"></circle>
+
+  <!-- hub -->
+  <rect x="385" y="578" width="190" height="84" rx="15" fill="#1B1912"></rect>
+  <text x="480" y="616" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-size="16" letter-spacing="0.02em" fill="#F6F4EF">COMPANY</text>
+  <text x="480" y="635" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" fill="#F6F4EF" opacity="0.65" letter-spacing="0.04em">AT THE CENTER OF THE NETWORK</text>
+
+  <!-- entity cards: identical size, no implied hierarchy -->
+  <rect x="375" y="280" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="389" cy="294" r="2.5" fill="#B08D57"></circle>
+  <text x="480" y="316" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Technology Partners</text>
+  <text x="480" y="336" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">integrations &#183; tooling</text>
+
+  <rect x="635" y="430" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="649" cy="444" r="2.5" fill="#B08D57"></circle>
+  <text x="740" y="454" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Service &amp; Solution</text>
+  <text x="740" y="470" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Partners</text>
+  <text x="740" y="490" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">delivery &#183; implementation</text>
+
+  <rect x="635" y="730" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="649" cy="744" r="2.5" fill="#B08D57"></circle>
+  <text x="740" y="754" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Affiliate &amp; Referral</text>
+  <text x="740" y="770" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Partners</text>
+  <text x="740" y="790" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">referrals &#183; commission</text>
+
+  <rect x="375" y="880" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="389" cy="894" r="2.5" fill="#B08D57"></circle>
+  <text x="480" y="904" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Influencers &amp; Content</text>
+  <text x="480" y="920" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Creators</text>
+  <text x="480" y="940" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">content &#183; reach</text>
+
+  <rect x="115" y="730" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="129" cy="744" r="2.5" fill="#B08D57"></circle>
+  <text x="220" y="754" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Customer Advocates &amp;</text>
+  <text x="220" y="770" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Ambassadors</text>
+  <text x="220" y="790" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">trust &#183; word of mouth</text>
+
+  <rect x="115" y="430" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="129" cy="444" r="2.5" fill="#B08D57"></circle>
+  <text x="220" y="466" text-anchor="middle" font-weight="500" font-size="13.5" fill="#1B1912">Sponsored Events</text>
+  <text x="220" y="486" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#4A473E">visibility &#183; presence</text>
+
+  <!-- legend -->
+  <line x1="60" y1="1096" x2="82" y2="1096" stroke="#1F4B4C" stroke-width="1.6" opacity="0.85"></line>
+  <text x="92" y="1100" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#4A473E">direct — every group also touches the company</text>
+
+  <line x1="60" y1="1122" x2="82" y2="1122" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 4" opacity="0.7"></line>
+  <text x="92" y="1126" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#4A473E">peer — illustrative ties between groups, not verified for any single company</text>
+
+  <circle cx="71" cy="1148" r="9" fill="none" stroke="#D9D4C8" stroke-width="1.3" stroke-dasharray="1 3"></circle>
+  <text x="92" y="1152" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#4A473E">community — the connective layer running through every group (the halo)</text>
+
+  <line x1="60" y1="1172" x2="900" y2="1172" stroke="#D9D4C8" stroke-width="1"></line>
+  <text x="60" y="1198" font-family="'IBM Plex Mono', monospace" font-size="10.5" fill="#4A473E">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug 2026.</text>
+</svg>

@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+lang: de
+title: Public Thinking
+description: Forschungsergebnisse, Executive One-Pager, Case Studies und Feldnotizen — live, nicht als statisches Portfolio.
+permalink: /de/public-thinking/
+extraHead:
+  - "<link rel='alternate' hreflang='de' href='https://communitygeeks.de/de/public-thinking/'><link rel='alternate' hreflang='en' href='https://communitygeeks.de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.de/public-thinking/'>"
+extraScripts:
+  - "public-thinking-filter.js"
+closingCta:
+  secondaryLabel: "See how we work →"
+  secondaryUrl: "/approach/"
+---
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-row">
+      <div class="page-eyebrow">
+        {% include "partials/node-mark.njk" %}
+        Public Thinking
+      </div>
+      <div class="pt-lang-switch">
+        <a href="/public-thinking/">EN</a> <span class="active">DE</span>
+      </div>
+    </div>
+    <h1 class="page-title">Laufende Erkenntnisse, kein statisches Portfolio.</h1>
+    <p class="page-intro">Forschungsergebnisse, Executive One-Pager, Case Studies und Feldnotizen, im jeweils passenden Format. Jedes Stück ist nach Format und danach gekennzeichnet, wie viel Evidenz die Aussage aktuell trägt.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="filter-bar">
+    <button class="filter-pill active" data-filter="all">Alle</button>
+    <button class="filter-pill" data-filter="research">Forschungsergebnisse</button>
+    <button class="filter-pill" data-filter="onepager">Executive One-Pager</button>
+    <button class="filter-pill" data-filter="case">Case Studies</button>
+    <button class="filter-pill" data-filter="field">Feldnotizen</button>
+  </div>
+
+  <ul class="pt-index-list">
+    {% for piece in publicThinkingDe %}
+    <li class="pt-index-row" data-type="{{ piece.filterType }}">
+      <a href="{{ piece.url }}">
+        <span class="pt-index-title">{{ piece.title }}</span>
+        {% if piece.deck %}<span class="pt-index-deck">{{ piece.deck }}</span>{% endif %}
+        <span class="pt-index-meta">
+          <span>{{ piece.format }}</span>
+          <span>{{ piece.date | readableDate("de") }}</span>
+          <span class="confidence-tag">{{ piece.confidence }}</span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="pt-index-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
+</div>

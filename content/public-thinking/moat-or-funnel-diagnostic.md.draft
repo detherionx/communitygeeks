@@ -9,8 +9,8 @@ summary: "A short diagnostic for telling apart a community that defends retentio
 topics:
   - "Community Strategy"
   - "Retention vs. Acquisition"
-author: "Carmelito Bauer"
-contributor: null
+authors:
+  - "Carmelito Bauer"
 pdf: null
 related: []
 ---

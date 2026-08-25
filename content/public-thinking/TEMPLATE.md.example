@@ -26,11 +26,19 @@ topics:                              # Optional but recommended. 2-4 short topic
                                       # itself is actually about — don't invent a taxonomy that isn't there yet.
   - "Example Topic One"
   - "Example Topic Two"
-author: "Carmelito Bauer"           # Or Katharina Siebert / Gaza Vargas if they become bylined authors later
-contributor: null                   # e.g. "Andy Claremont" — ONLY set this once the named person has explicitly
-                                     # consented to being named publicly. See Public Source Pack →
-                                     # "Not Yet Ready for Publication" before ever setting this field.
+authors:                            # One or more names, byline order. Each name is looked up in
+                                     # src/_data/people.js for a linked profile, photo, and bio in the article's
+                                     # author box and structured data — a name with no entry there still renders
+                                     # as a plain byline. Only add someone here once they've explicitly consented
+                                     # to being named publicly (same rule the old `contributor` field carried —
+                                     # see Public Source Pack → "Not Yet Ready for Publication"), and only add
+                                     # a real people.js entry once they're actually a bylined public author.
+  - "Carmelito Bauer"
 heroImage: null                     # Optional. Path like "/assets/images/public-thinking/your-image.jpg" if you add one.
+                                     # Also becomes the Article schema's `image` — falls back to the sitewide
+                                     # og-image when not set.
+dateModified: null                  # Optional. Set only when a published piece gets a substantive revision —
+                                     # falls back to `date` otherwise.
 pdf: null                           # Optional. Path to a downloadable PDF under public/ if this piece has one,
                                      # e.g. "/downloads/moat-or-funnel.pdf".
 related:                            # Optional. List of {slug, title} pairs for other Public Thinking pieces.

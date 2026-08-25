@@ -1,8 +1,11 @@
 ---
 layout: layouts/base.njk
+lang: en
 title: Public Thinking
 description: Research findings, executive one-pagers, case studies, and field notes — live, not a static portfolio.
 permalink: /public-thinking/
+extraHead:
+  - "<link rel='alternate' hreflang='en' href='https://communitygeeks.de/public-thinking/'><link rel='alternate' hreflang='de' href='https://communitygeeks.de/de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.de/public-thinking/'>"
 extraScripts:
   - "public-thinking-filter.js"
 closingCta:
@@ -11,9 +14,14 @@ closingCta:
 ---
 <section class="page-hero">
   <div class="wrap">
-    <div class="page-eyebrow">
-      {% include "partials/node-mark.njk" %}
-      Public Thinking
+    <div class="page-hero-row">
+      <div class="page-eyebrow">
+        {% include "partials/node-mark.njk" %}
+        Public Thinking
+      </div>
+      <div class="pt-lang-switch">
+        <span class="active">EN</span> <a href="/de/public-thinking/">DE</a>
+      </div>
     </div>
     <h1 class="page-title">Live findings, not a static portfolio.</h1>
     <p class="page-intro">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
@@ -29,31 +37,25 @@ closingCta:
     <button class="filter-pill" data-filter="field">Field Notes</button>
   </div>
 
-  <div class="index-grid">
+  <ul class="pt-index-list">
     {% for piece in publicThinking %}
-    <a href="{{ piece.url }}" class="index-card" data-type="{{ piece.filterType }}" style="text-decoration:none;">
-      <span class="card-format">{{ piece.format }}</span>
-      <div class="card-title">{{ piece.title }}</div>
-      <div class="card-meta"><span>{{ piece.date | readableDate }}</span><span class="confidence-tag">{{ piece.confidence }}</span></div>
-    </a>
+    <li class="pt-index-row" data-type="{{ piece.filterType }}">
+      <a href="{{ piece.url }}">
+        <span class="pt-index-title">{{ piece.title }}</span>
+        {% if piece.deck %}<span class="pt-index-deck">{{ piece.deck }}</span>{% endif %}
+        <span class="pt-index-meta">
+          <span>{{ piece.format }}</span>
+          <span>{{ piece.date | readableDate }}</span>
+          <span class="confidence-tag">{{ piece.confidence }}</span>
+        </span>
+      </a>
+    </li>
     {% endfor %}
-    <div class="index-card placeholder" data-type="research">
-      <div class="card-title">More research findings are in progress and will publish here as they clear review.</div>
-    </div>
-  </div>
+  </ul>
 
-  <div class="section-note">Case studies below are experience references, not written case studies yet — full write-ups are in progress.</div>
+  <div class="pt-index-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>
 
-  <div class="index-grid" style="padding-top:0;">
-    {% for client in clients.selectedWork %}
-    <div class="index-card placeholder" data-type="case"><div class="card-title">{{ client.name }} — case study in progress</div></div>
-    {% endfor %}
-  </div>
-
-  <div class="index-grid" style="padding-top:0;">
-    <div class="index-card placeholder" data-type="field" style="grid-column:1/-1;text-align:center;align-items:center;padding:40px 24px;">
-      <div class="card-title">No field notes published yet. Named interview findings will appear here once cleared for public use.</div>
-    </div>
-  </div>
+  {% if clients.selectedWork and clients.selectedWork.length %}
+  <div class="pt-index-empty" data-type="case">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
+  {% endif %}
 </div>
-

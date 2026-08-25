@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
-lang: en
+lang: de
 pagination:
-  data: publicThinking
+  data: publicThinkingDe
   size: 1
   alias: piece
   addAllPagesToCollections: true
@@ -12,7 +12,7 @@ eleventyComputed:
   description: "{{ piece.summary | safe }}"
   extraHead:
     - "{{ piece.articleJsonLd | safe }}"
-    - "{% if piece.translations.de %}<link rel='alternate' hreflang='en' href='https://communitygeeks.de{{ piece.url }}'><link rel='alternate' hreflang='de' href='https://communitygeeks.de{{ piece.translations.de }}'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.de{{ piece.url }}'>{% endif %}"
+    - "{% if piece.translations.en %}<link rel='alternate' hreflang='de' href='https://communitygeeks.de{{ piece.url }}'><link rel='alternate' hreflang='en' href='https://communitygeeks.de{{ piece.translations.en }}'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.de{{ piece.translations.en }}'>{% endif %}"
 extraScripts:
   - "figure-lightbox.js"
 ---
@@ -24,9 +24,9 @@ extraScripts:
           {% include "partials/node-mark.njk" %}
           <span>Public Thinking &middot; {{ piece.format }}</span>
         </div>
-        {% if piece.translations.de %}
+        {% if piece.translations.en %}
         <div class="pt-lang-switch">
-          <span class="active">EN</span> <a href="{{ piece.translations.de }}">DE</a>
+          <a href="{{ piece.translations.en }}">EN</a> <span class="active">DE</span>
         </div>
         {% endif %}
       </div>
@@ -34,10 +34,10 @@ extraScripts:
       {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
       <div class="pt-meta">
         <span class="pt-meta-confidence">{{ piece.confidence }}</span>
-        <span>{{ piece.date | readableDate }}</span>
+        <span>{{ piece.date | readableDate("de") }}</span>
         <span>{% for name in piece.authors %}{{ name }}{% if not loop.last %} &amp; {% endif %}{% endfor %}</span>
       </div>
-      {% if piece.pdf %}<p class="pt-pdf-link"><a href="{{ piece.pdf }}">Download PDF →</a></p>{% endif %}
+      {% if piece.pdf %}<p class="pt-pdf-link"><a href="{{ piece.pdf }}">PDF herunterladen →</a></p>{% endif %}
     </header>
 
     <div class="pt-body">
@@ -48,17 +48,17 @@ extraScripts:
       {% if piece.openQuestion %}
       <p class="pt-closing-question">{{ piece.openQuestion }}</p>
       {% endif %}
-      <p class="pt-closing-thread">Part of our ongoing research into {{ piece.researchThread or "how participation is organized around companies" }}.</p>
+      <p class="pt-closing-thread">Teil unserer laufenden Recherche zu {{ piece.researchThread or "Teilhabe rund um Unternehmen" }}.</p>
 
       {% if piece.related and piece.related.length %}
       <ul class="pt-related-list">
         {% for rel in piece.related %}
-        <li><a href="/public-thinking/{{ rel.slug }}/">{{ rel.title }} →</a></li>
+        <li><a href="/de/public-thinking/{{ rel.slug }}/">{{ rel.title }} →</a></li>
         {% endfor %}
       </ul>
       {% endif %}
 
-      <p class="pt-closing-invite">See it differently? <a href="/contact/">We'd like to hear it →</a></p>
+      <p class="pt-closing-invite">Sehen Sie das anders? <a href="/contact/">Wir würden es gerne hören →</a></p>
     </footer>
 
     {% for name in piece.authors %}
@@ -68,8 +68,8 @@ extraScripts:
       <div>
         <div class="pt-author-name">{% if person and person.url %}<a href="{{ person.url }}">{{ name }}</a>{% else %}{{ name }}{% endif %}</div>
         {% if person and person.role %}<div class="pt-author-role">{{ person.role }}</div>{% endif %}
-        {% if person and person.bio %}<p class="pt-author-bio">{{ person.bio }}</p>{% endif %}
-        <div class="pt-author-links"><a href="/about/">About</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/public-thinking/">More Public Thinking</a></div>
+        {% if person and person.bioDe %}<p class="pt-author-bio">{{ person.bioDe }}</p>{% endif %}
+        <div class="pt-author-links"><a href="/about/">Mehr über {{ name }}</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/de/public-thinking/">Weitere Public Thinking-Beiträge</a></div>
       </div>
     </div>
     {% endfor %}

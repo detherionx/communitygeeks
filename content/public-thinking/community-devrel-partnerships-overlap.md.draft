@@ -10,8 +10,8 @@ topics:
   - "Community"
   - "Developer Relations"
   - "Partnerships"
-author: "Carmelito Bauer"
-contributor: null
+authors:
+  - "Carmelito Bauer"
 pdf: null
 related: []
 ---

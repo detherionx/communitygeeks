@@ -1,0 +1,61 @@
+<svg viewBox="0 0 860 920" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Archivo, sans-serif" aria-label="Diagram: a continuous loop of four verbs — Identify, Understand, Shape, Strengthen — arranged in a ring with no fixed start point, framed as a possible lens for ecosystem work rather than a fixed method. Source: conversation with Andy Claremont, Head of Ecosystem and Community, Glide.">
+
+  <rect x="0" y="0" width="860" height="920" fill="#F6F4EF"></rect>
+
+  <!-- baked-in caption block -->
+  <text x="60" y="34" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="0.06em" fill="#B08D57">FIELD NOTE &#183; A POSSIBLE LENS</text>
+  <text x="60" y="70" font-family="Archivo, sans-serif" font-weight="600" font-size="25" fill="#1B1912">Identify. Understand. Shape. Strengthen.</text>
+  <text x="60" y="96" font-size="14" fill="#4A473E">A possible lens for ecosystem work, not a fixed four-step method —</text>
+  <text x="60" y="114" font-size="14" fill="#4A473E">read it as a continuous loop, and start wherever makes sense.</text>
+
+  <!-- guide ring -->
+  <circle cx="430" cy="500" r="230" fill="none" stroke="#D9D4C8" stroke-width="1.3" stroke-dasharray="2 8" opacity="0.6"></circle>
+
+  <!-- loop edges: connect each verb to the next, no arrowhead — no fixed direction -->
+  <path d="M430,270 Q564.8,365.2 660,500" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M660,500 Q564.8,634.8 430,730" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M430,730 Q295.2,634.8 200,500" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+  <path d="M200,500 Q295.2,365.2 430,270" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"></path>
+
+  <circle cx="430" cy="270" r="3" fill="#1F4B4C"></circle>
+  <circle cx="660" cy="500" r="3" fill="#1F4B4C"></circle>
+  <circle cx="430" cy="730" r="3" fill="#1F4B4C"></circle>
+  <circle cx="200" cy="500" r="3" fill="#1F4B4C"></circle>
+
+  <!-- center: this is a lens, not a hub the verbs report to -->
+  <rect x="345" y="460" width="170" height="80" rx="15" fill="#1B1912"></rect>
+  <text x="430" y="492" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-size="14" letter-spacing="0.02em" fill="#F6F4EF">A POSSIBLE LENS</text>
+  <text x="430" y="510" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#F6F4EF" opacity="0.65">READ IN ANY ORDER —</text>
+  <text x="430" y="524" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="#F6F4EF" opacity="0.65">NOT A FIXED SEQUENCE</text>
+
+  <!-- verb cards: identical size, no implied order -->
+  <rect x="330" y="232" width="200" height="76" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="344" cy="246" r="2.5" fill="#B08D57"></circle>
+  <text x="430" y="266" text-anchor="middle" font-weight="500" font-size="14.5" fill="#1B1912">Identify</text>
+  <text x="430" y="286" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#4A473E">which groups actually matter</text>
+
+  <rect x="560" y="462" width="200" height="76" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="574" cy="476" r="2.5" fill="#B08D57"></circle>
+  <text x="660" y="496" text-anchor="middle" font-weight="500" font-size="14.5" fill="#1B1912">Understand</text>
+  <text x="660" y="516" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#4A473E">how they relate to each other</text>
+
+  <rect x="330" y="692" width="200" height="76" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="344" cy="706" r="2.5" fill="#B08D57"></circle>
+  <text x="430" y="726" text-anchor="middle" font-weight="500" font-size="14.5" fill="#1B1912">Shape</text>
+  <text x="430" y="746" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#4A473E">programs that support each group</text>
+
+  <rect x="100" y="462" width="200" height="76" rx="10" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"></rect>
+  <circle cx="114" cy="476" r="2.5" fill="#B08D57"></circle>
+  <text x="200" y="496" text-anchor="middle" font-weight="500" font-size="14.5" fill="#1B1912">Strengthen</text>
+  <text x="200" y="516" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#4A473E">the ties already there</text>
+
+  <!-- legend -->
+  <line x1="60" y1="796" x2="82" y2="796" stroke="#1F4B4C" stroke-width="1.6" opacity="0.85"></line>
+  <text x="92" y="800" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#4A473E">loop — connects each verb to the next; no fixed direction, no fixed start</text>
+
+  <circle cx="71" cy="822" r="9" fill="none" stroke="#D9D4C8" stroke-width="1.3" stroke-dasharray="1 3"></circle>
+  <text x="92" y="826" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#4A473E">guide ring — a wheel, not a checklist</text>
+
+  <line x1="60" y1="846" x2="800" y2="846" stroke="#D9D4C8" stroke-width="1"></line>
+  <text x="60" y="872" font-family="'IBM Plex Mono', monospace" font-size="10.5" fill="#4A473E">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug 2026.</text>
+</svg>

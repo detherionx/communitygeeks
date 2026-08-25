@@ -9,8 +9,8 @@ module.exports = function (eleventyConfig) {
   // of a collection — see that file for why (Eleventy collections can't see
   // files outside the configured input directory, which content/ deliberately is).
 
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLL yyyy");
+  eleventyConfig.addFilter("readableDate", (dateObj, locale) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLL yyyy", { locale: locale || "en" });
   });
 
   eleventyConfig.addFilter("isoDate", (dateObj) => {
