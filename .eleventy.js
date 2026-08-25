@@ -10,7 +10,10 @@ module.exports = function (eleventyConfig) {
   // files outside the configured input directory, which content/ deliberately is).
 
   eleventyConfig.addFilter("readableDate", (dateObj, locale) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLL yyyy", { locale: locale || "en" });
+    const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+    // German convention is numeric dd.mm.yyyy; everywhere else gets a spelled-out
+    // month specifically to avoid the day/month ambiguity between DD/MM and MM/DD.
+    return locale === "de" ? dt.toFormat("dd.LL.yyyy", { locale: "de" }) : dt.toFormat("d LLL yyyy", { locale: locale || "en" });
   });
 
   eleventyConfig.addFilter("isoDate", (dateObj) => {
