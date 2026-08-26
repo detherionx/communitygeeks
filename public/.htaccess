@@ -1,0 +1,9 @@
+# Canonical-URL redirect. The one invariant is: scheme=https AND
+# host=communitygeeks.ai. Anything else (plain HTTP, www., or any of the
+# .de/.xyz/.net legacy domains sharing this docroot) gets a single-hop
+# permanent redirect to the canonical HTTPS bare-.ai equivalent.
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^communitygeeks\.ai$ [NC]
+RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
