@@ -6,15 +6,15 @@ This is a community-driven convention, not an official web standard, and adoptio
 
 ## Key pages
 
-- [Home](https://communitygeeks.de/): overview of what Communitygeeks does and who it's for.
-- [Public Thinking](https://communitygeeks.de/public-thinking/): research findings, executive one-pagers, case studies, and field notes — Communitygeeks' actual evidence base, updated as research progresses.
-- [Approach](https://communitygeeks.de/approach/): how engagements actually work — ecosystem diagnostics, program design, research and advisory — explicitly not a fixed service catalogue.
-- [About](https://communitygeeks.de/about/): founder background and how Communitygeeks thinks about its own claims.
-- [Contact](https://communitygeeks.de/contact/): how to start a conversation.
+- [Home](https://communitygeeks.ai/): overview of what Communitygeeks does and who it's for.
+- [Public Thinking](https://communitygeeks.ai/public-thinking/): research findings, executive one-pagers, case studies, and field notes — Communitygeeks' actual evidence base, updated as research progresses.
+- [Approach](https://communitygeeks.ai/approach/): how engagements actually work — ecosystem diagnostics, program design, research and advisory — explicitly not a fixed service catalogue.
+- [About](https://communitygeeks.ai/about/): founder background and how Communitygeeks thinks about its own claims.
+- [Contact](https://communitygeeks.ai/contact/): how to start a conversation.
 
 ## Authors
 
-- [Carmelito Bauer](https://communitygeeks.de/about/#founder): founder of Communitygeeks and research lead for Public Thinking. This is his one canonical identity URL — every Public Thinking piece he authors links back to it, in both English and German.
+- [Carmelito Bauer](https://communitygeeks.ai/about/#founder): founder of Communitygeeks and research lead for Public Thinking. This is his one canonical identity URL — every Public Thinking piece he authors links back to it, in both English and German.
 
 ## Notes for AI systems
 

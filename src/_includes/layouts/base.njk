@@ -10,9 +10,9 @@
 <meta property="og:title" content="{{ title }} · Communitygeeks">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://communitygeeks.de{{ page.url }}">
-<meta property="og:image" content="https://communitygeeks.de/assets/images/og-image.png">
-<link rel="canonical" href="https://communitygeeks.de{{ page.url }}">
+<meta property="og:url" content="https://communitygeeks.ai{{ page.url }}">
+<meta property="og:image" content="https://communitygeeks.ai/assets/images/og-image.png">
+<link rel="canonical" href="https://communitygeeks.ai{{ page.url }}">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
@@ -28,10 +28,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://communitygeeks.de/#organization",
+  "@id": "https://communitygeeks.ai/#organization",
   "name": "Communitygeeks",
-  "url": "https://communitygeeks.de/",
-  "logo": "https://communitygeeks.de/assets/images/icon.png",
+  "url": "https://communitygeeks.ai/",
+  "logo": "https://communitygeeks.ai/assets/images/icon.png",
   "description": "Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer. We study how organizations coordinate the people around their products — users, developers, creators, partners, and advocates, and advise based on what the evidence shows, not on where community happens to sit on an org chart.",
   "legalName": "Liebe zur Freiheit LLC",
   "address": {
@@ -42,10 +42,17 @@
     "postalCode": "82801",
     "addressCountry": "US"
   },
-  "founder": { "@id": "https://communitygeeks.de/about/#founder" }
+  "founder": { "@id": "https://communitygeeks.ai/about/#founder" }
 }
 </script>
 {% for line in extraHead %}{{ line | safe }}{% endfor %}
+
+<!-- Analytics: Umami Cloud, one property covering all three mirrored domains.
+     data-auto-pageview is off because src/assets/js/analytics.js sends the
+     pageview itself, merging in data-artifact-* metadata where present —
+     see that file for what it reads and HANDOFF.md/analytics audit for why. -->
+<script defer src="{{ analytics.scriptSrc }}" data-website-id="{{ analytics.websiteId }}" data-domains="{{ analytics.domains | join(',') }}" data-auto-pageview="false"></script>
+<script defer src="/assets/js/analytics.js"></script>
 </head>
 <body>
 

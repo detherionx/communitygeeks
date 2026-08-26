@@ -12,11 +12,11 @@ eleventyComputed:
   description: "{{ piece.summary | safe }}"
   extraHead:
     - "{{ piece.articleJsonLd | safe }}"
-    - "{% if piece.translations.en %}<link rel='alternate' hreflang='de' href='https://communitygeeks.de{{ piece.url }}'><link rel='alternate' hreflang='en' href='https://communitygeeks.de{{ piece.translations.en }}'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.de{{ piece.translations.en }}'>{% endif %}"
+    - "{% if piece.translations.en %}<link rel='alternate' hreflang='de' href='https://communitygeeks.ai{{ piece.url }}'><link rel='alternate' hreflang='en' href='https://communitygeeks.ai{{ piece.translations.en }}'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai{{ piece.translations.en }}'>{% endif %}"
 extraScripts:
   - "figure-lightbox.js"
 ---
-<article class="pt-article">
+<article class="pt-article" data-artifact-slug="{{ piece.slug }}" data-artifact-lang="{{ piece.lang }}" data-artifact-translation-key="{{ piece.translationKey }}" data-artifact-format="{{ piece.format }}" data-artifact-confidence="{{ piece.confidence }}">
   <div class="wrap pt-article-wrap">
     <header class="pt-header">
       <div class="pt-header-row">

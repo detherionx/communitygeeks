@@ -12,7 +12,7 @@ const people = require("../_data/people.js");
 
 const ALLOWED_CONFIDENCE = ["Observation", "Emerging Pattern", "Research Finding"];
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "public-thinking");
-const DEFAULT_IMAGE = "https://communitygeeks.de/assets/images/og-image.png";
+const DEFAULT_IMAGE = "https://communitygeeks.ai/assets/images/og-image.png";
 
 // A content file's `authors` list is plain names — src/_data/people.js is the
 // single source of truth for url/image/bio, so an identity never forks across
@@ -51,10 +51,10 @@ function loadAll() {
 
     const lang = data.lang || "en";
     const url = lang === "de" ? `/de/public-thinking/${data.slug}/` : `/public-thinking/${data.slug}/`;
-    const fullUrl = `https://communitygeeks.de${url}`;
+    const fullUrl = `https://communitygeeks.ai${url}`;
     const authorNames = data.authors && data.authors.length ? data.authors : [];
     const authorNodes = authorNames.map(personNode);
-    const image = data.heroImage ? `https://communitygeeks.de${data.heroImage}` : DEFAULT_IMAGE;
+    const image = data.heroImage ? `https://communitygeeks.ai${data.heroImage}` : DEFAULT_IMAGE;
 
     // Precomputed here (not templated in item.njk) so title/summary get
     // proper JSON string escaping via JSON.stringify rather than risking
@@ -72,7 +72,7 @@ function loadAll() {
         url: fullUrl,
         mainEntityOfPage: { "@type": "WebPage", "@id": fullUrl },
         ...(authorNodes.length === 1 ? { author: authorNodes[0] } : authorNodes.length > 1 ? { author: authorNodes } : {}),
-        publisher: { "@id": "https://communitygeeks.de/#organization" },
+        publisher: { "@id": "https://communitygeeks.ai/#organization" },
         ...(data.topics && data.topics.length ? { keywords: data.topics.join(", ") } : {}),
       },
       null,
