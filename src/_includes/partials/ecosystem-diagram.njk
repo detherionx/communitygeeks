@@ -1,44 +1,40 @@
-        <svg class="ecosystem-diagram" viewBox="0 0 640 510" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing a product at the center connected to five participant groups — users, developers, creators, partners, and advocates — with one illustrative peer relationship between creators and advocates.">
-          <path d="M457,435 Q272.6,351.5 135,203" fill="none" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="1 5" opacity="0.35"/>
+        <svg class="ecosystem-diagram" viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing five equally-weighted, overlapping participant-group fields — users, developers, creators, partners, and advocates — each intersecting a shared product band by the same amount, and overlapping one another, illustrating one connected participation system rather than five independent audiences.">
 
-          <path d="M318,270 Q279.3,175.2 284,73" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"/>
-          <path d="M318,270 Q400.7,201.1 504,171" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"/>
-          <path d="M318,270 Q404.3,338.3 457,435" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"/>
-          <path d="M318,270 Q269.4,362.6 187,427" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"/>
-          <path d="M318,270 Q218.9,257.2 135,203" fill="none" stroke="#1F4B4C" stroke-width="1.6" opacity="0.75"/>
+          <!-- label zone (y 0–170) is kept entirely free of panel geometry,
+               so names and descriptors never compete with the shapes below -->
 
-          <circle cx="284" cy="73" r="3" fill="#1F4B4C"/>
-          <circle cx="504" cy="171" r="3" fill="#1F4B4C"/>
-          <circle cx="457" cy="435" r="3" fill="#1F4B4C"/>
-          <circle cx="187" cy="427" r="3" fill="#1F4B4C"/>
-          <circle cx="135" cy="203" r="3" fill="#1F4B4C"/>
+          <!-- five participant groups: identical size and fill, each straddling
+               the product band by the same fixed amount (equal intersection),
+               and overlapping their neighbors (group-to-group intersection).
+               Rotation is now subtle (2–4°) — a controlled skew, not a fold. -->
+          <g fill="#1F4B4C" fill-opacity="0.14" stroke="#1B1912" stroke-width="2">
+            <rect x="35" y="170" width="190" height="210" transform="rotate(-3 130 275)"/>
+            <rect x="175" y="170" width="190" height="210" transform="rotate(2 270 275)"/>
+            <rect x="320" y="170" width="190" height="210" transform="rotate(-2 415 275)"/>
+            <rect x="470" y="170" width="190" height="210" transform="rotate(3 565 275)"/>
+            <rect x="615" y="170" width="190" height="210" transform="rotate(-4 710 275)"/>
+          </g>
 
-          <rect x="218" y="228" width="200" height="84" rx="2" fill="#1B1912"/>
-          <text class="ed-title" x="318" y="266" text-anchor="middle" font-weight="600" font-size="16" letter-spacing="0.02em" fill="#F6F4EF">YOUR PRODUCT</text>
-          <text x="318" y="285" text-anchor="middle" font-size="10.5" fill="#F6F4EF" opacity="0.65" letter-spacing="0.04em">PARTICIPATION SYSTEM</text>
+          <!-- product: the one shared, privileged object every group overlaps
+               by an identical amount — taller now, with real room for its type -->
+          <rect x="40" y="210" width="760" height="130" fill="#1B1912"/>
+          <rect x="40" y="210" width="8" height="130" fill="#B08D57"/>
+          <text class="ed-title" x="420" y="268" text-anchor="middle" font-weight="700" font-size="18" letter-spacing="0.01em" fill="#F6F4EF">YOUR PRODUCT</text>
+          <text x="420" y="292" text-anchor="middle" font-size="11" fill="#F6F4EF" opacity="0.65" letter-spacing="0.06em">PARTICIPATION SYSTEM</text>
 
-          <rect x="189" y="40" width="190" height="66" rx="2" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"/>
-          <circle cx="203" cy="54" r="2.5" fill="#B08D57"/>
-          <text class="ed-title" x="284" y="70" text-anchor="middle" font-weight="500" font-size="14" fill="#1B1912">Users</text>
-          <text x="284" y="88" text-anchor="middle" font-size="10" fill="#4A473E">adoption · usage · feedback</text>
-
-          <rect x="409" y="138" width="190" height="66" rx="2" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"/>
-          <circle cx="423" cy="152" r="2.5" fill="#B08D57"/>
-          <text class="ed-title" x="504" y="168" text-anchor="middle" font-weight="500" font-size="14" fill="#1B1912">Developers</text>
-          <text x="504" y="186" text-anchor="middle" font-size="10" fill="#4A473E">integrations · tooling</text>
-
-          <rect x="362" y="402" width="190" height="66" rx="2" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"/>
-          <circle cx="376" cy="416" r="2.5" fill="#B08D57"/>
-          <text class="ed-title" x="457" y="432" text-anchor="middle" font-weight="500" font-size="14" fill="#1B1912">Creators</text>
-          <text x="457" y="450" text-anchor="middle" font-size="10" fill="#4A473E">content · education</text>
-
-          <rect x="92" y="394" width="190" height="66" rx="2" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"/>
-          <circle cx="106" cy="408" r="2.5" fill="#B08D57"/>
-          <text class="ed-title" x="187" y="424" text-anchor="middle" font-weight="500" font-size="14" fill="#1B1912">Partners</text>
-          <text x="187" y="442" text-anchor="middle" font-size="10" fill="#4A473E">distribution · services</text>
-
-          <rect x="40" y="170" width="190" height="66" rx="2" fill="#FFFFFF" stroke="#D9D4C8" stroke-width="1"/>
-          <circle cx="54" cy="184" r="2.5" fill="#B08D57"/>
-          <text class="ed-title" x="135" y="200" text-anchor="middle" font-weight="500" font-size="14" fill="#1B1912">Advocates</text>
-          <text x="135" y="218" text-anchor="middle" font-size="10" fill="#4A473E">trust · referrals</text>
+          <!-- labels: fully clear of the panels beneath them, generous padding -->
+          <g font-weight="700" font-size="15" letter-spacing="0.02em" fill="#1B1912" text-anchor="middle">
+            <text class="ed-title" x="130" y="110">USERS</text>
+            <text class="ed-title" x="270" y="110">DEVELOPERS</text>
+            <text class="ed-title" x="415" y="110">CREATORS</text>
+            <text class="ed-title" x="565" y="110">PARTNERS</text>
+            <text class="ed-title" x="710" y="110">ADVOCATES</text>
+          </g>
+          <g font-size="9.5" fill="#4A473E" text-anchor="middle">
+            <text x="130" y="130">adoption &#183; usage</text>
+            <text x="270" y="130">integrations &#183; tooling</text>
+            <text x="415" y="130">content &#183; education</text>
+            <text x="565" y="130">distribution &#183; services</text>
+            <text x="710" y="130">trust &#183; referrals</text>
+          </g>
         </svg>
