@@ -26,6 +26,11 @@ topics:                              # Optional but recommended. 2-4 short topic
                                       # itself is actually about — don't invent a taxonomy that isn't there yet.
   - "Example Topic One"
   - "Example Topic Two"
+accentColor: petrol                 # Optional. One of: petrol | brass | ink. Controls the one substantial
+                                     # color field this piece uses on the Public Thinking index (if it becomes
+                                     # the featured record) and on its own article masthead — same field drives
+                                     # both, so a piece keeps one identity across surfaces. Omit to default to
+                                     # petrol. Pick deliberately per piece; don't assign colors on rotation.
 authors:                            # One or more names, byline order. Each name is looked up in
                                      # src/_data/people.js for a linked profile, photo, and bio in the article's
                                      # author box and structured data — a name with no entry there still renders
@@ -44,6 +49,30 @@ pdf: null                           # Optional. Path to a downloadable PDF under
 related:                            # Optional. List of {slug, title} pairs for other Public Thinking pieces.
   - slug: "some-other-piece-slug"
     title: "That other piece's title"
+geometry:                           # Optional. This piece's own background geometry (see geo-plate.njk) —
+                                     # positioned behind/beside the OPENING of the body as an environmental
+                                     # field, not a standalone graphic the reader is meant to stop and read.
+                                     # It's absolutely positioned and width-clamped (never width:100% of the
+                                     # article column — that's what makes it a quiet field rather than a
+                                     # dominant object), so it adds zero document height: hiding it changes
+                                     # nothing about the body's own flow or spacing. Omit entirely for a piece
+                                     # with no geometry — a normal, allowed choice, not a missing feature. Do
+                                     # not assign a fixed shape-to-meaning mapping (e.g. "circle always means
+                                     # X") — compose each piece's field on its own editorial merits, favoring
+                                     # asymmetry, cropping, and unequal scale over anything that reads like an
+                                     # infographic (e.g. two same-size overlapping circles reads as a Venn
+                                     # diagram — avoid that specific shape unless deliberately intended).
+                                     # shapes: type (circle | semicircle | rect | triangle | line), the type's own
+                                     # geometry fields (cx/cy/r for circle, x/y/w/h for rect, points for triangle,
+                                     # x1/y1/x2/y2 for line, d for semicircle), color (petrol | brass | ink only),
+                                     # and opacity (keep it very low — this is a watermark, not an illustration).
+                                     # viewBox just needs internally-consistent proportions for your shapes; the
+                                     # CSS host clamps rendered width to ~220–360px regardless, so there's no
+                                     # square-viewBox trap here the way there was for the old boxed layout.
+  viewBox: "0 0 320 420"
+  shapes:
+    - { type: circle, cx: 300, cy: 50, r: 150, color: ink, opacity: 0.06 }
+    - { type: rect, x: 30, y: 190, w: 230, h: 170, color: petrol, opacity: 0.09 }
 ---
 
 Write the body here as normal Markdown. Headings, bold, links, lists all work.

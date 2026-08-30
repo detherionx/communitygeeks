@@ -8,8 +8,8 @@ module.exports = {
   "Carmelito Bauer": {
     url: "https://communitygeeks.ai/about/#founder",
     role: "Founder, Communitygeeks",
-    bio: "Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving as AI changes how people discover, use, and participate around products.",
-    bioDe: "Sein Fokus liegt heute darauf, wie sich Community, Developer Relations, Partnerschaften und Ökosystem-Strategie verändern, während KI beeinflusst, wie Menschen Produkte entdecken, nutzen und sich daran beteiligen.",
+    bio: "Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.",
+    bioDe: "Sein Fokus liegt heute darauf, wie sich Community, Developer Relations, Partnerschaften und Ökosystem-Strategie verändern.",
     image: "/assets/images/founder.jpg",
     sameAs: ["https://www.linkedin.com/in/carmelitob/"],
   },

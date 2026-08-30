@@ -15,6 +15,12 @@ topics:
   - "Partnerschaften"
 authors:
   - "Carmelito Bauer"
+geometry:
+  viewBox: "0 0 320 420"
+  shapes:
+    - { type: circle, cx: 300, cy: 50, r: 150, color: ink, opacity: 0.06 }
+    - { type: rect, x: 30, y: 190, w: 230, h: 170, color: petrol, opacity: 0.09 }
+    - { type: line, x1: 10, y1: 205, x2: 310, y2: 205, color: brass, opacity: 0.3 }
 pdf: null
 related: []
 openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt — wo findet Teilhabe heute eigentlich statt?"

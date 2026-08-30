@@ -1,12 +1,13 @@
 ---
 layout: layouts/base.njk
 title: Approach
-description: These are exploratory categories, not a fixed service catalogue. Every engagement starts from the same diagnostic questions.
+description: How Communitygeeks approaches community, developer relations (DevRel), partnerships and participation strategy through research, diagnostics, program design and advisory.
 permalink: /approach/
 closingCta:
   secondaryLabel: "Read the research →"
   secondaryUrl: "/public-thinking/"
 ---
+{% from "partials/geo-plate.njk" import geoPlate %}
 <section class="page-hero">
   <div class="wrap">
     <div class="page-eyebrow">
@@ -38,7 +39,12 @@ closingCta:
   </div>
 </section>
 
-<section class="band">
+<section class="band approach-plate-host">
+  {{ geoPlate(shapes=[
+    { type: "circle", cx: 210, cy: 130, r: 120, color: "brass", opacity: 0.12 },
+    { type: "rect", x: 60, y: 220, w: 190, h: 230, color: "petrol", opacity: 0.08 },
+    { type: "line", x1: 20, y1: 230, x2: 280, y2: 230, color: "ink", opacity: 0.3 }
+  ], viewBox="0 0 300 540", extraClass="approach-plate") }}
   <div class="wrap">
     <div class="band-head">
       <div class="section-marker">
@@ -49,7 +55,7 @@ closingCta:
     <div class="approach-detail">
       <span class="approach-idx">01</span>
       <div>
-        <h3>Ecosystem Strategy &amp; Diagnostics</h3>
+        <h3>Participation Strategy &amp; Diagnostics</h3>
         <p>Mapping who actually participates around your product, where value gets created, where it's owned internally versus externally, and where things break down, before recommending any structure.</p>
         <span class="for-tag">For: leadership deciding how to invest in community, DevRel, or partnerships</span>
       </div>

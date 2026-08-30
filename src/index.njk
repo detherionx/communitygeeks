@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Communitygeeks — Ecosystem Research & Advisory
-description: Communitygeeks researches how organizations coordinate the people around their products — users, developers, creators, partners — and advises based on what the evidence shows.
+title: Communitygeeks — Community, DevRel & Participation Research
+description: Communitygeeks researches how community, developer relations (DevRel), partnerships and other forms of participation work around products — and advises organizations based on what the evidence shows.
 permalink: /
 extraScripts:
   - marquee.js
@@ -9,42 +9,34 @@ closingCta:
   secondaryLabel: "Read the research →"
   secondaryUrl: "/public-thinking/"
 ---
+{% from "partials/geo-plate.njk" import geoPlate %}
 <section class="hero">
-  <svg class="hero-bg-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="70" cy="100" r="38" stroke="#1F4B4C" stroke-width="2" fill="none"/>
-    <circle cx="140" cy="95" r="34" stroke="#1F4B4C" stroke-width="2" fill="none"/>
-    <line x1="108" y1="98" x2="106" y2="97" stroke="#1F4B4C" stroke-width="2"/>
-  </svg>
+  {% include "partials/geometric-field.njk" %}
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
+    <h1>Participation rarely fits neatly into an org chart. We study <em>how organizations actually coordinate the people around their product.</em></h1>
+    <div class="mast-strip">
+      <div class="mast-block panel-ink">
         <div class="eyebrow">
           {% include "partials/node-mark.njk" %}
-          Ecosystem Research &amp; Advisory
+          Participation Research &amp; Advisory
         </div>
-        <h1>The boundaries between community, DevRel, and partnerships are getting harder to draw. We study <em>what comes next.</em></h1>
-        <p class="sub">Communitygeeks researches how organizations coordinate the people around their products — users, developers, creators, partners — and advises based on what the evidence shows, not on where community happens to sit on an org chart.</p>
         <div class="cta-row">
-          <a href="/contact/" class="btn-primary">Compare notes</a>
+          <a href="/contact/" class="btn-primary">{% include "partials/node-mark.njk" %}Compare notes</a>
           <a href="/public-thinking/" class="btn-secondary">Read the research →</a>
         </div>
       </div>
-      <div class="hero-art">
-        <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="120" cy="110" r="52" stroke="#1B1912" stroke-width="1.6" fill="none" opacity="0.85"/>
-          <circle cx="230" cy="102" r="46" stroke="#1F4B4C" stroke-width="1.6" fill="none" opacity="0.9"/>
-          <line x1="172" y1="107" x2="184" y2="105" stroke="#1B1912" stroke-width="1.6" opacity="0.85"/>
-          <circle cx="120" cy="110" r="3" fill="#B08D57"/>
-          <circle cx="230" cy="102" r="3" fill="#B08D57"/>
-          <line x1="120" y1="110" x2="60" y2="60" stroke="#D9D4C8" stroke-width="1.2"/>
-          <line x1="230" y1="102" x2="300" y2="50" stroke="#D9D4C8" stroke-width="1.2"/>
-          <line x1="120" y1="110" x2="80" y2="180" stroke="#D9D4C8" stroke-width="1.2"/>
-          <line x1="230" y1="102" x2="270" y2="190" stroke="#D9D4C8" stroke-width="1.2"/>
-          <circle cx="60" cy="60" r="2.5" fill="#1F4B4C"/>
-          <circle cx="300" cy="50" r="2.5" fill="#1F4B4C"/>
-          <circle cx="80" cy="180" r="2.5" fill="#1F4B4C"/>
-          <circle cx="270" cy="190" r="2.5" fill="#1F4B4C"/>
-        </svg>
+      <div class="mast-block">
+        <p>Communitygeeks researches how organizations coordinate the people around their products — users, developers, creators, partners, and the parts of that work that never got a name at all — and advises based on what the evidence shows, not on where community happens to sit on an org chart.</p>
+      </div>
+      <div class="mast-block panel-petrol">
+        <span class="mast-ledger-label">Groups that keep showing up</span>
+        <div class="mast-ledger">
+          <div class="mast-ledger-row"><span class="mast-ledger-idx">01</span><span class="mast-ledger-name">Users</span></div>
+          <div class="mast-ledger-row"><span class="mast-ledger-idx">02</span><span class="mast-ledger-name">Developers</span></div>
+          <div class="mast-ledger-row"><span class="mast-ledger-idx">03</span><span class="mast-ledger-name">Creators</span></div>
+          <div class="mast-ledger-row"><span class="mast-ledger-idx">04</span><span class="mast-ledger-name">Partners</span></div>
+          <div class="mast-ledger-row"><span class="mast-ledger-idx">05</span><span class="mast-ledger-name">Advocates</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -78,7 +70,7 @@ closingCta:
         {% include "partials/node-mark.njk" %}
         <span class="label">How Communitygeeks Thinks</span>
       </div>
-      <h2>Not <span style="color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line);">where does your community run</span> — but who's actually participating, and how.</h2>
+      <h2>Not <span class="old">where does your community run</span> — but who's actually participating, and how.</h2>
       <p class="think-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
     </div>
 
@@ -113,10 +105,10 @@ closingCta:
 
 <section class="band alt">
   <div class="wrap">
-    <div class="problem-grid">
-      <div class="problem-old">
-        A forum. A Discord server. An engagement calendar.
-      </div>
+    <div class="problem-old">
+      A forum. A Discord server. An engagement calendar.
+    </div>
+    <div class="problem-composition">
       <div class="problem-new">
         <p>That used to be enough to call something "community." Most organizations are now coordinating several participant groups at once, users, developers, creators, partners, advocates, often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
         <div class="tag-row">
@@ -126,13 +118,20 @@ closingCta:
           <span class="tag">partners</span>
           <span class="tag">advocates</span>
         </div>
+      </div>
+      <div class="problem-diagram">
         {% include "partials/ecosystem-diagram.njk" %}
       </div>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band hww-field-host">
+  {{ geoPlate(shapes=[
+    { type: "circle", cx: 300, cy: 110, r: 140, color: "petrol", opacity: 0.11 },
+    { type: "rect", x: 40, y: 240, w: 200, h: 200, color: "brass", opacity: 0.09 },
+    { type: "triangle", points: "20,460 140,460 80,340", color: "ink", opacity: 0.22 }
+  ], viewBox="0 0 320 460", extraClass="hww-field") }}
   <div class="wrap">
     <div class="band-head">
       <div class="section-marker">
@@ -145,7 +144,7 @@ closingCta:
       <div class="approach-item">
         <span class="approach-idx">01</span>
         <div>
-          <h3 class="approach-name">Ecosystem Strategy &amp; Diagnostics</h3>
+          <h3 class="approach-name">Participation Strategy &amp; Diagnostics</h3>
           <p class="approach-desc">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
         </div>
       </div>
@@ -153,7 +152,7 @@ closingCta:
         <span class="approach-idx">02</span>
         <div>
           <h3 class="approach-name">Program Design</h3>
-          <p class="approach-desc">Community, developer relations, and partner programs, designed around the specific groups your product actually has, not a template org chart.</p>
+          <p class="approach-desc">Community, developer relations (DevRel), and partnership programs, designed around the specific groups your product actually has, not a template org chart.</p>
         </div>
       </div>
       <div class="approach-item">
@@ -206,18 +205,46 @@ closingCta:
       </div>
       <h2>Live findings, not a static portfolio.</h2>
     </div>
-    <div class="pt-grid">
+    <div class="pt-home-grid">
       {% for piece in publicThinking %}
-      {% if loop.index <= 2 %}
-      <a href="{{ piece.url }}" class="pt-card" style="text-decoration:none;">
-        <span class="pt-format">{{ piece.format }}</span>
-        <div class="pt-title">{{ piece.title }}</div>
-        <div class="pt-meta"><span>{{ piece.date | readableDate }}</span><span>{{ piece.confidence }}</span></div>
-      </a>
+      {% if loop.first %}
+      <div class="pt-feature accent-{{ piece.accentColor or 'petrol' }}">
+        <div class="pt-feature-field"></div>
+        <div class="pt-feature-inner">
+          <span class="pt-feature-num">01</span>
+          <div class="pt-feature-meta">
+            <span class="pt-format">{{ piece.format }}</span>
+            <span class="pt-meta-confidence">{{ piece.confidence }}</span>
+          </div>
+          <a href="{{ piece.url }}" class="pt-feature-title">{{ piece.title }}</a>
+          {% if piece.deck %}<p class="pt-feature-deck">{{ piece.deck }}</p>{% endif %}
+          {% if piece.topics and piece.topics.length %}
+          <div class="pt-feature-tags">
+            {% for topic in piece.topics %}<span class="pt-feature-tag">{{ topic }}</span>{% endfor %}
+          </div>
+          {% endif %}
+          <div class="pt-feature-foot">
+            <span>{{ piece.date | readableDate }}</span>
+            <a href="{{ piece.url }}">Read {{ piece.format | lower }} →</a>
+          </div>
+        </div>
+      </div>
       {% endif %}
       {% endfor %}
-      <div class="pt-card placeholder">
-        <div class="pt-title">More research findings, case studies, and field notes are in progress and will publish here as they clear review.</div>
+      <div class="pt-info">
+        <h3 class="pt-info-label">What Public Thinking covers</h3>
+        <ul class="pt-info-formats">
+          <li>Research Findings</li>
+          <li>Executive One-Pagers</li>
+          <li>Case Studies</li>
+          <li>Field Notes</li>
+        </ul>
+        <p class="pt-info-status">More research findings are in progress and will publish here as they clear review.</p>
+        <p class="pt-info-status">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+        {% if publicThinking.length and publicThinking[0].researchThread %}
+        <p class="pt-info-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
+        {% endif %}
+        <a href="/public-thinking/" class="pt-info-link">See all Public Thinking →</a>
       </div>
     </div>
   </div>
@@ -232,7 +259,7 @@ closingCta:
       <div>
         <div class="founder-name">Carmelito Bauer</div>
         <span class="founder-role">Founder, Communitygeeks</span>
-        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving as AI changes how people discover, use, and participate around products.</p>
+        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
       </div>
     </div>
   </div>

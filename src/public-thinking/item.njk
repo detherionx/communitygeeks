@@ -16,32 +16,53 @@ eleventyComputed:
 extraScripts:
   - "figure-lightbox.js"
 ---
+{% from "partials/geo-plate.njk" import geoPlate %}
 <article class="pt-article" data-artifact-slug="{{ piece.slug }}" data-artifact-lang="{{ piece.lang }}" data-artifact-translation-key="{{ piece.translationKey }}" data-artifact-format="{{ piece.format }}" data-artifact-confidence="{{ piece.confidence }}">
   <div class="wrap pt-article-wrap">
-    <header class="pt-header">
-      <div class="pt-header-row">
-        <div class="pt-kicker">
-          {% include "partials/node-mark.njk" %}
-          <span>Public Thinking &middot; {{ piece.format }}</span>
+    <div class="pt-topbar">
+      <div class="pt-kicker">
+        {% include "partials/node-mark.njk" %}
+        <span>Public Thinking &middot; {{ piece.format }}</span>
+      </div>
+      {% if piece.translations.de %}
+      <div class="pt-lang-switch">
+        <span class="active">EN</span> <a href="{{ piece.translations.de }}">DE</a>
+      </div>
+      {% endif %}
+    </div>
+
+    {% set hasSide = (piece.topics and piece.topics.length) or piece.openQuestion %}
+    <header class="pt-masthead{% if not hasSide %} pt-masthead-solo{% endif %}">
+      <div class="pt-masthead-main">
+        <h1 class="pt-title">{{ piece.title }}</h1>
+        {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
+        <div class="pt-meta">
+          <span class="pt-meta-confidence">{{ piece.confidence }}</span>
+          <span>{{ piece.date | readableDate }}</span>
+          <span>{% for name in piece.authors %}{{ name }}{% if not loop.last %} &amp; {% endif %}{% endfor %}</span>
         </div>
-        {% if piece.translations.de %}
-        <div class="pt-lang-switch">
-          <span class="active">EN</span> <a href="{{ piece.translations.de }}">DE</a>
+        {% if piece.pdf %}<p class="pt-pdf-link"><a href="{{ piece.pdf }}">Download PDF →</a></p>{% endif %}
+      </div>
+      {% if hasSide %}
+      <div class="pt-masthead-side accent-{{ piece.accentColor or 'petrol' }}">
+        {% if piece.topics and piece.topics.length %}
+        <span class="pt-side-label">Topics</span>
+        <div class="pt-side-tags">
+          {% for topic in piece.topics %}<span class="pt-side-tag">{{ topic }}</span>{% endfor %}
         </div>
         {% endif %}
+        {% if piece.openQuestion %}<p class="pt-side-oq">&ldquo;{{ piece.openQuestion }}&rdquo;</p>{% endif %}
       </div>
-      <h1 class="pt-title">{{ piece.title }}</h1>
-      {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
-      <div class="pt-meta">
-        <span class="pt-meta-confidence">{{ piece.confidence }}</span>
-        <span>{{ piece.date | readableDate }}</span>
-        <span>{% for name in piece.authors %}{{ name }}{% if not loop.last %} &amp; {% endif %}{% endfor %}</span>
-      </div>
-      {% if piece.pdf %}<p class="pt-pdf-link"><a href="{{ piece.pdf }}">Download PDF →</a></p>{% endif %}
+      {% endif %}
     </header>
 
-    <div class="pt-body">
-      {{ piece.contentHtml | safe }}
+    <div class="pt-body-field">
+      {% if piece.geometry and piece.geometry.shapes %}
+      {{ geoPlate(shapes=piece.geometry.shapes, viewBox=piece.geometry.viewBox or "0 0 300 300", extraClass="pt-field-geo") }}
+      {% endif %}
+      <div class="pt-body">
+        {{ piece.contentHtml | safe }}
+      </div>
     </div>
 
     <footer class="pt-closing">

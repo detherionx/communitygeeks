@@ -1,12 +1,12 @@
-<section class="closing">
+<section class="closing panel-ink">
   <div class="wrap">
-    <div class="section-marker" style="justify-content:center;">
+    <div class="section-marker center">
       {% include "partials/node-mark.njk" %}
       <span class="label">Get in touch</span>
     </div>
-    <h2>Talk about your ecosystem.</h2>
+    <h2>Talk about what's actually happening.</h2>
     <div class="cta-row">
-      <a href="{{ nav.cta.url }}" class="btn-primary">{{ nav.cta.label }}</a>
+      <a href="{{ nav.cta.url }}" class="btn-primary">{% include "partials/node-mark.njk" %}{{ nav.cta.label }}</a>
       <a href="{{ closingCta.secondaryUrl }}" class="btn-secondary">{{ closingCta.secondaryLabel }}</a>
     </div>
   </div>

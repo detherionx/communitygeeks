@@ -37,21 +37,47 @@ closingCta:
     <button class="filter-pill" data-filter="field">Feldnotizen</button>
   </div>
 
-  <ul class="pt-index-list">
-    {% for piece in publicThinkingDe %}
-    <li class="pt-index-row" data-type="{{ piece.filterType }}">
-      <a href="{{ piece.url }}">
-        <span class="pt-index-title">{{ piece.title }}</span>
-        {% if piece.deck %}<span class="pt-index-deck">{{ piece.deck }}</span>{% endif %}
-        <span class="pt-index-meta">
-          <span>{{ piece.format }}</span>
-          <span>{{ piece.date | readableDate("de") }}</span>
-          <span class="confidence-tag">{{ piece.confidence }}</span>
-        </span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
+  {% for piece in publicThinkingDe %}
+  {% if loop.first %}
+  <div class="pt-feature accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
+    <div class="pt-feature-field"></div>
+    <div class="pt-feature-inner">
+      <span class="pt-feature-num">01</span>
+      <div class="pt-feature-meta">
+        <span class="pt-format">{{ piece.format }}</span>
+        <span class="pt-meta-confidence">{{ piece.confidence }}</span>
+      </div>
+      <a href="{{ piece.url }}" class="pt-feature-title">{{ piece.title }}</a>
+      {% if piece.deck %}<p class="pt-feature-deck">{{ piece.deck }}</p>{% endif %}
+      {% if piece.topics and piece.topics.length %}
+      <div class="pt-feature-tags">
+        {% for topic in piece.topics %}<span class="pt-feature-tag">{{ topic }}</span>{% endfor %}
+      </div>
+      {% endif %}
+      <div class="pt-feature-foot">
+        <span>{{ piece.date | readableDate("de") }}</span>
+        <a href="{{ piece.url }}">{{ piece.format }} lesen →</a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
 
-  <div class="pt-index-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
+  <div class="pt-compact-list">
+    {% for piece in publicThinkingDe %}
+    {% if not loop.first %}
+    <div class="pt-compact-row" data-type="{{ piece.filterType }}">
+      <a href="{{ piece.url }}">
+        <span class="pt-compact-left">
+          <span class="pt-compact-type">{{ piece.format }}</span>
+          <span class="pt-compact-title">{{ piece.title }}</span>
+        </span>
+        <span class="pt-compact-date">{{ piece.date | readableDate("de") }}</span>
+      </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div class="pt-compact-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
+  </div>
 </div>

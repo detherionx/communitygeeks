@@ -10,10 +10,10 @@
     <div class="nav-menu" id="nav-menu">
       <div class="navlinks">
         {% for item in nav.items %}
-        <a href="{{ item.url }}" {% if page.url == item.url %}style="color:var(--ink);"{% endif %}>{{ item.label }}</a>
+        <a href="{{ item.url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.label }}</a>
         {% endfor %}
       </div>
-      <a href="{{ nav.cta.url }}" class="nav-cta" {% if page.url == nav.cta.url %}style="background:var(--ink);color:var(--paper);"{% endif %}>{{ nav.cta.label }}</a>
+      <a href="{{ nav.cta.url }}" class="nav-cta{% if page.url == nav.cta.url %} active{% endif %}">{% include "partials/node-mark.njk" %}{{ nav.cta.label }}</a>
     </div>
   </nav>
 </div>

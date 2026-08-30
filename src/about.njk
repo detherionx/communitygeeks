@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: About
-description: Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer.
+description: Communitygeeks is a participation research and advisory practice studying community, developer relations, partnerships and how organizations coordinate people around their products.
 permalink: /about/
 closingCta:
   secondaryLabel: "Read the research →"
@@ -16,7 +16,7 @@ extraHead:
       "name": "Carmelito Bauer",
       "jobTitle": "Founder",
       "worksFor": { "@id": "https://communitygeeks.ai/#organization" },
-      "description": "Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving as AI changes how people discover, use, and participate around products.",
+      "description": "Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.",
       "url": "https://communitygeeks.ai/about/",
       "image": "https://communitygeeks.ai/assets/images/founder.jpg",
       "sameAs": ["https://www.linkedin.com/in/carmelitob/"]
@@ -33,6 +33,7 @@ extraHead:
     }
     </script>
 ---
+{% from "partials/geo-plate.njk" import geoPlate %}
 <section class="page-hero">
   <div class="wrap">
     <div class="page-eyebrow">
@@ -40,7 +41,7 @@ extraHead:
       About
     </div>
     <h1 class="page-title">Studying how participation around products is changing.</h1>
-    <p class="page-intro">Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer. We study how companies build relationships with the people around their products, users, developers, creators, partners, and advocates, and how AI is changing those relationships.</p>
+    <p class="page-intro">Communitygeeks is a participation research and advisory practice founded by Carmelito Bauer. We study how companies build relationships with the people around their products, users, developers, creators, partners, and advocates.</p>
   </div>
 </section>
 
@@ -53,13 +54,17 @@ extraHead:
       <div>
         <div class="founder-name">Carmelito Bauer</div>
         <span class="founder-role">Founder, Communitygeeks</span>
-        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving as AI changes how people discover, use, and participate around products.</p>
+        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band principle-field-host">
+  {{ geoPlate(shapes=[
+    { type: "circle", cx: 250, cy: 30, r: 110, color: "petrol", opacity: 0.08 },
+    { type: "rect", x: 60, y: 280, w: 170, h: 140, color: "brass", opacity: 0.08 }
+  ], viewBox="0 0 260 420", extraClass="principle-field") }}
   <div class="wrap">
     <div class="band-head">
       <div class="section-marker">
