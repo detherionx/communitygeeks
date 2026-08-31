@@ -82,29 +82,28 @@
   .btn-secondary:hover{color:var(--petrol);border-color:var(--petrol);}
 
   /* HERO CONSTRUCTION — one compound object, not three components: cream,
-     petrol and brass meet edge-to-edge (no gutters), bound by two heavy
-     ink rules that are their own drawn elements, not CSS borders. Each
-     rule overshoots the fields it separates and both cross at a single
-     point, per the reference grammar — a construction the fields were
-     produced by, not a container the fields sit inside. The rules carry
-     a slight independent tilt, so they read as drawn rather than laid.
-     Ink is reserved for the rules themselves — a filled ink plane would
-     swallow the rule wherever it crosses that plane, breaking the line
-     into disconnected protrusions instead of one continuous stroke. */
+     petrol and brass meet edge-to-edge (no gutters), separated by two
+     heavy ink rules. The rules are structural boundaries of the fields
+     themselves — they terminate exactly at the construction's edges, no
+     overshoot — with Bauhaus tension coming from unequal rule weight
+     (vertical heavier than horizontal), not from clipped/dangling ends.
+     Ink is reserved for the rules — a filled ink plane would swallow the
+     rule wherever it crosses that plane, breaking the line into
+     disconnected protrusions instead of one continuous stroke. */
   .hero-construct{position:relative;display:grid;grid-template-columns:26% 74%;margin-top:40px;}
   .hc-ink{background:var(--paper);color:var(--ink);display:flex;align-items:center;padding:24px;}
-  .hc-ink .eyebrow{display:flex;align-items:center;gap:10px;width:170px;margin-left:50px;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);}
+  .hc-ink .eyebrow{display:flex;align-items:center;gap:10px;width:170px;margin-left:50px;font-family:'Archivo',sans-serif;font-weight:600;font-size:14.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);}
   .hc-right{display:flex;flex-direction:column;}
   .hc-petrol{height:230px;background:var(--petrol);color:var(--paper);display:flex;align-items:flex-end;padding:26px 26px 62px;}
   .hc-brass{height:160px;background:var(--brass);color:var(--ink);display:flex;align-items:flex-start;padding:20px 26px;}
   .hc-rule{position:absolute;background:var(--ink);pointer-events:none;}
-  .hc-rule-v{left:26%;top:-24px;bottom:-24px;width:7px;transform:translateX(-3.5px) rotate(1.4deg);}
-  .hc-rule-h{top:230px;left:26%;right:-28px;height:7px;transform:translateY(-3.5px) rotate(-0.9deg);}
+  .hc-rule-v{left:26%;top:0;bottom:0;width:9px;transform:translateX(-4.5px);}
+  .hc-rule-h{top:230px;left:26%;right:0;height:6px;transform:translateY(-3px);}
   /* Fraunces (H1) + Archivo (everything functional) — hierarchy between
      the two actions comes from size/weight/field mass, not a third face. */
   .mast-action{font-family:'Archivo',sans-serif;text-transform:uppercase;}
   .hc-petrol .mast-action{font-size:26px;font-weight:700;letter-spacing:0.01em;}
-  .hc-brass .mast-action{font-size:13px;font-weight:600;letter-spacing:0.06em;line-height:1.4;}
+  .hc-brass .mast-action{font-size:14.5px;font-weight:600;letter-spacing:0.06em;line-height:1.4;}
   .mast-arrow{display:inline-block;transition:transform .15s ease;}
   .hc-petrol:hover .mast-arrow,.hc-brass:hover .mast-arrow{transform:translateX(5px);}
   .hc-petrol:focus-visible{outline:2px solid var(--paper);outline-offset:-4px;}
