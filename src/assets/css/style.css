@@ -49,7 +49,7 @@
      color dominating with the others reduced to tiny annotations. */
   .hero{position:relative;overflow:hidden;padding:64px 0 96px;}
   .hero .wrap{position:relative;z-index:1;}
-  h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:500;font-size:clamp(38px,5.2vw,64px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 40px;max-width:20ch;}
+  h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:500;font-size:clamp(38px,5.2vw,64px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 40px;}
   h1 em{font-style:italic;font-weight:400;color:var(--petrol);}
 
   /* GEOMETRIC FIELD — a quiet Bauhaus-primitive watermark, not an
@@ -81,20 +81,34 @@
   .btn-secondary{font-weight:600;font-size:14.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);padding-bottom:2px;}
   .btn-secondary:hover{color:var(--petrol);border-color:var(--petrol);}
 
-  .mast-strip{display:grid;grid-template-columns:0.9fr 1.3fr 1fr;border-top:var(--rule-heavy) solid var(--ink);margin-top:44px;}
-  .mast-block{padding:32px 34px;border-right:2px solid var(--ink);}
-  .mast-block:last-child{border-right:none;}
-  .mast-block .eyebrow{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);}
-  .mast-block.panel-ink{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:220px;}
-  .mast-block.panel-ink .eyebrow{color:var(--brass);}
-  .mast-block.panel-ink .cta-row{flex-direction:column;align-items:flex-start;gap:14px;}
-  .mast-block p{font-size:15px;line-height:1.7;color:var(--ink-soft);margin:0;max-width:38ch;}
-  .mast-ledger-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(246,244,239,0.65);margin-bottom:16px;display:block;}
-  .mast-ledger{display:flex;flex-direction:column;}
-  .mast-ledger-row{display:flex;align-items:baseline;gap:14px;padding:9px 0;border-top:1px solid rgba(246,244,239,0.2);}
-  .mast-ledger-row:first-child{border-top:none;padding-top:0;}
-  .mast-ledger-idx{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:var(--brass);}
-  .mast-ledger-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:0.02em;color:var(--paper);}
+  /* HERO CONSTRUCTION — one compound object, not three components: cream,
+     petrol and brass meet edge-to-edge (no gutters), bound by two heavy
+     ink rules that are their own drawn elements, not CSS borders. Each
+     rule overshoots the fields it separates and both cross at a single
+     point, per the reference grammar — a construction the fields were
+     produced by, not a container the fields sit inside. The rules carry
+     a slight independent tilt, so they read as drawn rather than laid.
+     Ink is reserved for the rules themselves — a filled ink plane would
+     swallow the rule wherever it crosses that plane, breaking the line
+     into disconnected protrusions instead of one continuous stroke. */
+  .hero-construct{position:relative;display:grid;grid-template-columns:26% 74%;margin-top:40px;}
+  .hc-ink{background:var(--paper);color:var(--ink);display:flex;align-items:center;padding:24px;}
+  .hc-ink .eyebrow{display:flex;align-items:center;gap:10px;width:170px;margin-left:50px;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);}
+  .hc-right{display:flex;flex-direction:column;}
+  .hc-petrol{height:230px;background:var(--petrol);color:var(--paper);display:flex;align-items:flex-end;padding:26px 26px 62px;}
+  .hc-brass{height:160px;background:var(--brass);color:var(--ink);display:flex;align-items:flex-start;padding:20px 26px;}
+  .hc-rule{position:absolute;background:var(--ink);pointer-events:none;}
+  .hc-rule-v{left:26%;top:-24px;bottom:-24px;width:7px;transform:translateX(-3.5px) rotate(1.4deg);}
+  .hc-rule-h{top:230px;left:26%;right:-28px;height:7px;transform:translateY(-3.5px) rotate(-0.9deg);}
+  /* Fraunces (H1) + Archivo (everything functional) — hierarchy between
+     the two actions comes from size/weight/field mass, not a third face. */
+  .mast-action{font-family:'Archivo',sans-serif;text-transform:uppercase;}
+  .hc-petrol .mast-action{font-size:26px;font-weight:700;letter-spacing:0.01em;}
+  .hc-brass .mast-action{font-size:13px;font-weight:600;letter-spacing:0.06em;line-height:1.4;}
+  .mast-arrow{display:inline-block;transition:transform .15s ease;}
+  .hc-petrol:hover .mast-arrow,.hc-brass:hover .mast-arrow{transform:translateX(5px);}
+  .hc-petrol:focus-visible{outline:2px solid var(--paper);outline-offset:-4px;}
+  .hc-brass:focus-visible{outline:2px solid var(--ink);outline-offset:-4px;}
 
   /* TRUST STRIP / LOGO MARQUEE */
   .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0 40px;background:var(--paper-alt);overflow:hidden;}
@@ -287,10 +301,13 @@
     .navlinks a{padding:14px 20px;border-top:1px solid var(--line);}
     .nav-cta{margin:14px 20px 0;align-self:flex-start;}
     .geo-field{display:none;}
-    .mast-strip{grid-template-columns:1fr;margin-top:32px;}
-    .mast-block{border-right:none;border-bottom:2px solid var(--ink);}
-    .mast-block:last-child{border-bottom:none;}
-    .mast-block.panel-ink{min-height:0;}
+    /* Temporary unstyled fallback — the desktop lockup is still being
+       composed; mobile gets its own pass once that's approved. */
+    .hero-construct{display:flex;flex-direction:column;max-width:none;margin-top:28px;}
+    .hc-rule{display:none;}
+    .hc-petrol{height:auto;}
+    .hc-brass{height:auto;}
+    .hc-ink,.hc-petrol,.hc-brass{padding:20px;}
     .q-grid{grid-template-columns:1fr;}
     .problem-composition{grid-template-columns:1fr;gap:40px;}
     .approach-item{grid-template-columns:1fr;gap:8px;}
