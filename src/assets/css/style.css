@@ -151,6 +151,13 @@
   section.band{padding:100px 0;}
   section.band.alt{background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .band-head{max-width:640px;margin-bottom:56px;}
+  /* The bridge line between the participation diagram above and the
+     service list below carries real conceptual weight — it's the reason
+     the services exist — so it gets an editorial (Fraunces) register at
+     roughly 1.5x body size, not a small explanatory intro paragraph.
+     Still clearly subordinate to the h2 above it: lighter weight, muted
+     color, tighter measure. */
+  .approach-bridge{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(20px,2.4vw,24px);line-height:1.35;color:var(--ink-soft);max-width:42ch;margin-top:6px;}
 
   /* PROBLEM — one editorial spread, not four stacked modules. The opening
      statement reads first, on its own, at the upper left. Below it, the
