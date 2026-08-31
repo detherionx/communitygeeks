@@ -300,13 +300,21 @@
     .navlinks a{padding:14px 20px;border-top:1px solid var(--line);}
     .nav-cta{margin:14px 20px 0;align-self:flex-start;}
     .geo-field{display:none;}
-    /* Temporary unstyled fallback — the desktop lockup is still being
-       composed; mobile gets its own pass once that's approved. */
+    /* Mobile translates the same material system into a vertical
+       construction rather than shrinking the desktop 26/74 layout — a
+       narrow viewport has no room for that horizontal relationship. Same
+       three fields, same edge-to-edge/no-gutter rule, same ink-rules-only
+       logic, restacked top to bottom: cream (shortest) -> petrol
+       (dominant) -> brass (secondary). No vertical rule for this first
+       pass; proportion and separator weight alone carry the asymmetry. */
     .hero-construct{display:flex;flex-direction:column;max-width:none;margin-top:28px;}
-    .hc-rule{display:none;}
-    .hc-petrol{height:auto;}
-    .hc-brass{height:auto;}
-    .hc-ink,.hc-petrol,.hc-brass{padding:20px;}
+    .hc-right{display:contents;}
+    .hc-ink{order:1;height:76px;padding:16px 20px;}
+    .hc-ink .eyebrow{width:auto;margin-left:0;}
+    .hc-petrol{order:2;height:160px;padding:22px;}
+    .hc-brass{order:3;height:100px;padding:18px 20px;}
+    .hc-rule-v{top:76px;left:0;right:0;bottom:auto;width:auto;height:8px;transform:none;}
+    .hc-rule-h{top:236px;left:0;right:0;height:5px;transform:none;}
     .q-grid{grid-template-columns:1fr;}
     .problem-composition{grid-template-columns:1fr;gap:40px;}
     .approach-item{grid-template-columns:1fr;gap:8px;}
