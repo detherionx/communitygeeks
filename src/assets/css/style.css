@@ -153,7 +153,16 @@
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
   /* HOW WE THINK */
-  .think{padding:110px 0 120px;}
+  /* HOMEPAGE SECTION RHYTHM — spacing alone, not a redesign: dense
+     sections (the question grid, Selected Work, Public Thinking) get more
+     room to breathe before/after them; simpler sections (Approach's list,
+     Founder) get less, so the page reads as tension/release rather than
+     one repeated padding value announcing every section identically.
+     Desktop-only for the increases — mobile is already a long single
+     column, so extra vertical gaps there cost scroll length without the
+     same payoff; the reductions apply on both, since a shorter mobile
+     page is a pure win. */
+  .think{padding:130px 0 150px;}
   .think-head{max-width:640px;margin-bottom:64px;}
   .section-marker{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
   .section-marker.center{justify-content:center;}
@@ -170,7 +179,25 @@
   /* SHARED SECTION RHYTHM */
   section.band{padding:100px 0;}
   section.band.alt{background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  /* Rhythm overrides (see .think above) — targeted via :has() on each
+     section's already-distinct content rather than adding new markup
+     classes, since several homepage sections currently share the bare
+     "band alt" class with nothing else to key off. */
+  .band.alt:has(.work-grid){padding:140px 0 130px;}
+  .band:has(.pt-home-grid){padding:130px 0 140px;}
+  .band.alt:has(.founder-grid){padding:70px 0 90px;}
   .band-head{max-width:640px;margin-bottom:56px;}
+
+  /* SECTION-EYEBROW HIERARCHY — two levels, not a sitewide simplification.
+     A prototype (icon removal vs. eyebrow-typography quieting, tested in
+     isolation on two sections) showed the icon contributes almost nothing
+     to the "every section announces itself identically" feeling — the
+     eyebrow's typography (all-caps + wide tracking + accent color) does
+     essentially all of that work. So icons stay everywhere at full
+     strength; only the eyebrow gets a second, quieter register for
+     sections that are connective beats rather than major chapters
+     (currently: Approach). Don't invent a third variation of this. */
+  .hww-field-host .section-marker .label{text-transform:none;letter-spacing:0.02em;color:var(--ink-soft);font-weight:400;}
   /* The bridge line between the participation diagram above and the
      service list below carries real conceptual weight — it's the reason
      the services exist — so it gets an editorial (Fraunces) register at
@@ -212,6 +239,7 @@
      (geo-plate.njk), a distinct arrangement so the two read as related,
      not repeated. Sits behind the approach list, clear of the text column. */
   .hww-field-host{position:relative;overflow:hidden;}
+  .band.hww-field-host{padding:70px 0;}
   .hww-field-host .wrap{position:relative;z-index:1;}
   .hww-field{position:absolute;top:0;right:0;z-index:0;pointer-events:none;width:clamp(200px,24vw,340px);height:auto;}
   @media (max-width:860px){.hww-field{display:none;}}
@@ -348,6 +376,15 @@
     .work-grid{grid-template-columns:1fr;}
     .pt-home-grid{grid-template-columns:1fr;}
     .pt-home-grid .pt-feature{border-right:none;border-bottom:1px solid var(--line);}
+    /* Section rhythm, dampened for mobile: the reductions carry over in
+       full (a shorter mobile page is a pure win), but the increases don't
+       — mobile is already one long column, so the same extra gaps that
+       read as "breathing room" on desktop just cost scroll length here. */
+    .think{padding:105px 0 115px;}
+    .band.hww-field-host{padding:80px 0;}
+    .band.alt:has(.work-grid){padding:115px 0 110px;}
+    .band:has(.pt-home-grid){padding:110px 0 115px;}
+    .band.alt:has(.founder-grid){padding:80px 0 85px;}
   }
 
 /* Shared page-header pattern (About, Approach, Contact, Public Thinking) */
