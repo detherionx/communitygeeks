@@ -15,6 +15,26 @@
     --maxw:1180px;
     --radius:2px;
     --rule-heavy:3px;
+
+    /* TYPOGRAPHY TOKENS — collapses body-copy sizes and mono-label
+       tracking that had drifted into one-off per-component numbers with
+       no shared scale. Deliberately only two body-copy roles: primary
+       reading content (prose) and everything supporting/secondary
+       (compact). Headings and display numerals (q-num, approach-idx,
+       pt-feature-num) keep their own per-context sizing — those
+       differences are load-bearing depth cues (home > subpage > article),
+       not accidental drift, so they're not tokenized here. */
+    --fs-prose:17px;
+    --lh-prose:1.75;
+    --fs-compact:14.5px;
+    --lh-compact:1.6;
+    --lh-editorial-italic:1.5;
+    /* Two mono-label tracking roles, not one: uppercase eyebrows/tags read
+       better with more open tracking than natural-case meta/caption text
+       does — collapsing both down to a single value would over-tighten
+       the eyebrows or over-space the captions. */
+    --tracking-label-caps:0.06em;
+    --tracking-label-natural:0.03em;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;}
@@ -111,7 +131,7 @@
 
   /* TRUST STRIP / LOGO MARQUEE */
   .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0 40px;background:var(--paper-alt);overflow:hidden;}
-  .trust-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);text-align:center;margin-bottom:28px;}
+  .trust-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--ink-soft);text-align:center;margin-bottom:28px;}
   .marquee{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
   .marquee-track{display:flex;align-items:center;gap:28px;width:max-content;animation:marquee-scroll 32s linear infinite;}
   .marquee:hover .marquee-track{animation-play-state:paused;}
@@ -137,9 +157,9 @@
   .think-head{max-width:640px;margin-bottom:64px;}
   .section-marker{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
   .section-marker.center{justify-content:center;}
-  .section-marker .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass);}
+  .section-marker .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);}
   h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.4vw,40px);line-height:1.18;margin:0 0 18px;letter-spacing:-0.005em;}
-  .think-intro{font-size:16.5px;line-height:1.7;color:var(--ink-soft);max-width:56ch;}
+  .think-intro{font-size:var(--fs-prose);line-height:var(--lh-prose);color:var(--ink-soft);max-width:56ch;}
   .old{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line);text-decoration-thickness:1.5px;}
 
   .q-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -172,9 +192,9 @@
      own before the diagram needs any attention at all. */
   .problem-old{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--ink-soft);line-height:1.5;border-left:2px solid var(--line);padding-left:24px;max-width:480px;margin-bottom:48px;}
   .problem-composition{display:grid;grid-template-columns:minmax(280px,38%) 1fr;gap:56px;align-items:start;}
-  .problem-new p{font-size:17px;line-height:1.75;color:var(--ink);max-width:52ch;}
+  .problem-new p{font-size:var(--fs-prose);line-height:var(--lh-prose);color:var(--ink);max-width:52ch;}
   .tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
-  .tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;border:1px solid var(--line);color:var(--ink-soft);padding:6px 12px;border-radius:20px;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:var(--tracking-label-natural);border:1px solid var(--line);color:var(--ink-soft);padding:6px 12px;border-radius:20px;}
   .ecosystem-diagram{width:100%;max-width:100%;}
   .ecosystem-diagram text{font-family:'IBM Plex Mono',monospace;}
   .ecosystem-diagram .ed-title{font-family:'Archivo',sans-serif;}
@@ -185,8 +205,8 @@
   .approach-item:last-child{border-bottom:1px solid var(--line);}
   .approach-idx{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:var(--brass);}
   .approach-name{font-family:'Fraunces',serif;font-size:23px;font-weight:500;margin:0 0 8px;}
-  .approach-desc{font-size:15.5px;color:var(--ink-soft);line-height:1.6;max-width:56ch;}
-  .approach-note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);margin-top:26px;letter-spacing:0.02em;}
+  .approach-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:56ch;}
+  .approach-note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);margin-top:26px;letter-spacing:var(--tracking-label-natural);}
 
   /* Secondary geometric composition — same vocabulary as the hero field
      (geo-plate.njk), a distinct arrangement so the two read as related,
@@ -205,8 +225,8 @@
      classification (see HANDOFF.md for why that distinction matters here). */
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .work-cell{background:var(--paper);padding:36px 32px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;}
-  .work-desc{font-size:14px;color:var(--ink-soft);line-height:1.55;}
-  .work-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--petrol);letter-spacing:0.04em;text-transform:uppercase;margin-top:16px;}
+  .work-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);}
+  .work-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--petrol);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;margin-top:16px;}
 
   /* Logo is the only identity marker per cell now — no written company name
      underneath it (logo → description → sector, not logo → name → desc →
@@ -246,15 +266,15 @@
   /* PUBLIC THINKING PREVIEW — homepage: the same featured-record component
      used on /public-thinking/ (see PUBLIC THINKING INDEX PAGE below), paired
      with a real information panel instead of an empty placeholder card. */
-  .pt-format{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--petrol);}
+  .pt-format{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
   .pt-home-grid{display:grid;grid-template-columns:1.4fr 1fr;border:1px solid var(--line);}
   .pt-home-grid .pt-feature{border:none;border-right:1px solid var(--line);margin-bottom:0;}
   .pt-info{padding:36px 34px;display:flex;flex-direction:column;}
-  .pt-info-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;color:var(--brass);margin:0 0 18px;}
+  .pt-info-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:400;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);margin:0 0 18px;}
   .pt-info-formats{list-style:none;margin:0 0 24px;padding:0;}
   .pt-info-formats li{font-family:'Fraunces',serif;font-size:15px;font-weight:500;padding:10px 0;border-top:1px solid var(--line);}
   .pt-info-formats li:first-child{border-top:none;}
-  .pt-info-status{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0 0 14px;}
+  .pt-info-status{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);margin:0 0 14px;}
   .pt-info-thread{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--petrol);margin:0 0 20px;padding-top:16px;border-top:1px solid var(--line);}
   .pt-info-link{margin-top:auto;font-weight:600;font-size:13.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);align-self:flex-start;}
   .pt-info-link:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
@@ -265,7 +285,7 @@
   .founder-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.15) contrast(1.03);display:block;}
   .founder-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin:0 0 4px;}
   .founder-role{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);margin-bottom:20px;display:block;}
-  .founder-bio{font-size:16px;line-height:1.75;color:var(--ink-soft);max-width:58ch;}
+  .founder-bio{font-size:var(--fs-prose);line-height:var(--lh-prose);color:var(--ink-soft);max-width:58ch;}
 
   /* CLOSING CTA */
   .closing{padding:120px 0;text-align:center;}
@@ -333,16 +353,16 @@
 /* Shared page-header pattern (About, Approach, Contact, Public Thinking) */
 .page-hero{padding:64px 0 20px;}
 .page-hero-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--petrol);margin-bottom:20px;}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);margin-bottom:20px;}
 .page-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,4.4vw,52px);line-height:1.1;letter-spacing:-0.01em;margin:0 0 22px;max-width:20ch;}
-.page-intro{font-size:17px;line-height:1.7;color:var(--ink-soft);max-width:60ch;}
+.page-intro{font-size:var(--fs-prose);line-height:var(--lh-prose);color:var(--ink-soft);max-width:60ch;}
 
 /* ===== ABOUT PAGE ===== */
   .principle-list{display:flex;flex-direction:column;}
   .principle-item{padding:26px 0;border-top:1px solid var(--line);}
   .principle-item:last-child{border-bottom:1px solid var(--line);}
   .principle-title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin:0 0 8px;}
-  .principle-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;max-width:60ch;}
+  .principle-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:60ch;}
 
   /* Quiet geometric field — same vocabulary as the hero and homepage
      compositions, fewer shapes and lower opacity so it reads as a trace,
@@ -356,8 +376,8 @@
   .approach-detail{padding:44px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:80px 1fr;gap:28px;}
   .approach-detail:last-child{border-bottom:1px solid var(--line);}
   .approach-detail h3{font-family:'Fraunces',serif;font-size:24px;font-weight:500;margin:0 0 10px;}
-  .approach-detail p{font-size:15.5px;color:var(--ink-soft);line-height:1.7;max-width:62ch;margin:0 0 14px;}
-  .approach-detail .for-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:var(--petrol);}
+  .approach-detail p{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:62ch;margin:0 0 14px;}
+  .approach-detail .for-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
 
   /* Second geometric composition — same vocabulary as the homepage field
      (geo-plate.njk), a deliberately different arrangement, sitting in the
@@ -371,14 +391,14 @@
 /* ===== CONTACT PAGE ===== */
   .contact-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:64px;align-items:start;}
   .contact-direct{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--petrol);margin:0 0 8px;}
-  .contact-note{font-size:14.5px;color:var(--ink-soft);line-height:1.6;max-width:40ch;}
+  .contact-note{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:40ch;}
   .typeform-embed{border:1px solid var(--line);background:var(--paper);}
   .typeform-embed iframe{display:block;width:100%;height:600px;border:none;}
 
 /* ===== PUBLIC THINKING INDEX PAGE ===== */
 
   .filter-bar{display:flex;gap:10px;flex-wrap:wrap;padding:28px 0 40px;border-bottom:1px solid var(--line);}
-  .filter-pill{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.03em;padding:8px 16px;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-soft);background:none;cursor:pointer;transition:all .15s ease;}
+  .filter-pill{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-natural);padding:8px 16px;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-soft);background:none;cursor:pointer;transition:all .15s ease;}
   .filter-pill:hover{border-color:var(--petrol);color:var(--ink);}
   .filter-pill.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 
@@ -399,15 +419,20 @@
   .pt-feature-inner{padding:36px 38px;position:relative;}
   .pt-feature-inner > *{position:relative;z-index:1;}
   .pt-feature-inner .pt-feature-num{position:absolute;top:22px;right:30px;font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:500;color:var(--paper-alt);line-height:1;z-index:0;}
-  .pt-feature-meta{display:flex;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:18px;}
+  .pt-feature-meta{display:flex;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:var(--tracking-label-caps);margin-bottom:18px;}
   .pt-feature-meta .pt-meta-confidence{color:var(--brass);}
   .pt-feature-title{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.28;max-width:20ch;margin-bottom:16px;transition:color .15s ease;}
   .pt-feature-title:hover{color:var(--petrol);}
-  .pt-feature-deck{font-size:15px;line-height:1.65;color:var(--ink-soft);max-width:60ch;margin-bottom:20px;}
+  .pt-feature-deck{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);max-width:60ch;margin-bottom:20px;}
   .pt-feature-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
   .pt-feature-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid var(--line);padding:5px 11px;}
   .pt-feature-foot{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:16px;border-top:1px solid var(--line);}
-  .pt-feature-foot a{color:var(--ink);border-bottom:1.5px solid var(--brass);font-weight:600;}
+  /* 500, not 600 — IBM Plex Mono is only loaded at 400/500 (see base.njk's
+     font link), so 600 here was requesting a weight the browser has to
+     synthesize (fake-bold), rendering visibly different from every other
+     mono element on the site even though the CSS "looked" like a small
+     emphasis bump. */
+  .pt-feature-foot a{color:var(--ink);border-bottom:1.5px solid var(--brass);font-weight:500;}
   .pt-feature-foot a:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
 
   /* COMPACT LIST — everything that isn't the featured record: older pieces
@@ -418,7 +443,7 @@
   .pt-compact-row a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:16px 0;}
   .pt-compact-row a:hover .pt-compact-title{color:var(--petrol);}
   .pt-compact-left{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
-  .pt-compact-type{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--brass);flex-shrink:0;}
+  .pt-compact-type{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:var(--tracking-label-caps);color:var(--brass);flex-shrink:0;}
   .pt-compact-title{font-family:'Fraunces',serif;font-weight:500;font-size:15.5px;color:var(--ink);transition:color .15s ease;}
   .pt-compact-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);flex-shrink:0;}
   .pt-compact-empty{padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;font-style:italic;}
@@ -436,9 +461,14 @@
 
   .pt-article-wrap{max-width:1000px;}
   .pt-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:56px 0 22px;border-bottom:1px solid var(--line);}
-  .pt-kicker{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass);}
-  .pt-lang-switch{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--ink-soft);display:flex;gap:6px;flex-shrink:0;}
-  .pt-lang-switch .active{color:var(--ink);font-weight:600;}
+  /* pt-kicker is this page's page-level identity eyebrow — the same role
+     .page-eyebrow plays on About/Approach/Contact/PT-index — so it now
+     shares that convention's color (petrol) instead of the brass used by
+     mid-page section markers, which are a different, repeated-per-section
+     role and are left as-is. */
+  .pt-kicker{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
+  .pt-lang-switch{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-natural);color:var(--ink-soft);display:flex;gap:6px;flex-shrink:0;}
+  .pt-lang-switch .active{color:var(--ink);font-weight:500;}
   .pt-lang-switch a{color:var(--ink-soft);border-bottom:1px solid var(--line);}
   .pt-lang-switch a:hover{color:var(--petrol);border-color:var(--petrol);}
 
@@ -453,7 +483,7 @@
   .pt-masthead-solo .pt-masthead-main{padding:44px 0;}
   .pt-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.16;letter-spacing:-0.01em;margin:0 0 22px;max-width:19ch;}
   .pt-deck{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(17px,1.8vw,19px);line-height:1.55;color:var(--ink-soft);max-width:52ch;margin:0 0 28px;}
-  .pt-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.02em;color:var(--ink-soft);padding-top:22px;border-top:1px solid var(--line);}
+  .pt-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:var(--tracking-label-natural);color:var(--ink-soft);padding-top:22px;border-top:1px solid var(--line);}
   .pt-meta-confidence{color:var(--brass);}
   .pt-pdf-link{margin:20px 0 0;font-family:'IBM Plex Mono',monospace;font-size:13px;}
   .pt-pdf-link a{border-bottom:1.5px solid var(--brass);}
@@ -462,10 +492,10 @@
   .pt-masthead-side.accent-petrol{background:var(--petrol);color:var(--paper);}
   .pt-masthead-side.accent-ink{background:var(--ink);color:var(--paper);}
   .pt-masthead-side.accent-brass{background:var(--brass);color:var(--ink);}
-  .pt-side-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:16px;}
+  .pt-side-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;margin-bottom:16px;}
   .pt-side-tags{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
-  .pt-side-tag{font-family:'Archivo',sans-serif;font-weight:600;font-size:13.5px;}
-  .pt-side-oq{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:16px;line-height:1.55;border-top:1px solid rgba(246,244,239,0.25);padding-top:20px;margin:0;}
+  .pt-side-tag{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:var(--tracking-label-natural);}
+  .pt-side-oq{font-size:16px;border-top:1px solid rgba(246,244,239,0.25);padding-top:20px;margin:0;}
   .pt-masthead-side.accent-brass .pt-side-oq{border-top-color:rgba(27,25,18,0.15);}
 
   /* BODY FIELD — a piece's geometry (see geo-plate.njk) as environmental
@@ -480,7 +510,7 @@
   .pt-field-geo{position:absolute;top:-10px;right:-30px;z-index:0;pointer-events:none;width:clamp(220px,30vw,360px);height:auto;}
   @media (max-width:860px){.pt-field-geo{display:none;}}
 
-  .pt-body{max-width:700px;margin:56px auto 0;font-size:17px;line-height:1.8;color:var(--ink);}
+  .pt-body{max-width:700px;margin:56px auto 0;font-size:var(--fs-prose);line-height:var(--lh-prose);color:var(--ink);}
   .pt-body > *{max-width:700px;}
   .pt-body > p{margin:0 0 26px;}
   .pt-body > h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.25;margin:56px 0 20px;}
@@ -490,19 +520,27 @@
   .pt-body a{border-bottom:1.5px solid var(--brass);}
   .pt-body a:hover{color:var(--petrol);border-color:var(--petrol);}
 
-  .pt-pullquote{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(21px,2.6vw,26px);line-height:1.45;color:var(--petrol);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;margin:44px 0;max-width:640px;}
+  /* EDITORIAL ITALIC — one shared voice for the three places a piece
+     pauses to state something directly: a mid-article pull-quote, a
+     sidebar's open question, an article's closing question. Shared via a
+     selector list rather than a markup class, because .pt-pullquote is
+     authored directly inside published Field Note content and that
+     content is never edited — each still overrides only what genuinely
+     differs: size, color, border, spacing. */
+  .pt-pullquote,.pt-side-oq,.pt-closing-question{font-family:'Fraunces',serif;font-weight:400;font-style:italic;line-height:var(--lh-editorial-italic);}
+  .pt-pullquote{font-size:clamp(21px,2.6vw,26px);color:var(--petrol);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;margin:44px 0;max-width:640px;}
 
   .pt-note{border-left:2px solid var(--brass);padding:4px 0 4px 22px;margin:36px 0 40px;}
-  .pt-note-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--brass);margin-bottom:8px;}
-  .pt-note p{font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .pt-note-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);margin-bottom:8px;}
+  .pt-note p{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);margin:0;}
 
   .pt-figure{max-width:920px !important;margin:48px auto;}
   .pt-figure-link{display:block;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:16px;overflow-x:auto;cursor:zoom-in;transition:border-color .15s ease;}
   .pt-figure-link:hover{border-color:var(--petrol);}
   .pt-figure img{display:block;width:100%;height:auto;min-width:420px;}
   .pt-figure figcaption{display:flex;flex-direction:column;gap:6px;margin-top:16px;max-width:640px;}
-  .pt-figure-num{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--brass);}
-  .pt-figure-cap{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .pt-figure-num{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);}
+  .pt-figure-cap{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink);}
   .pt-figure-source{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);}
 
   .pt-lightbox-overlay{position:fixed;inset:0;background:rgba(27,25,18,0.92);display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;visibility:hidden;transition:opacity .2s ease;z-index:100;cursor:zoom-out;}
@@ -510,8 +548,8 @@
   .pt-lightbox-img{max-width:100%;max-height:100%;border-radius:6px;}
 
   .pt-closing{max-width:700px;margin:64px auto 100px;padding-top:36px;border-top:1px solid var(--line);}
-  .pt-closing-question{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);margin:0 0 18px;}
-  .pt-closing-thread{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.03em;color:var(--brass);margin:0 0 28px;}
+  .pt-closing-question{font-size:20px;color:var(--ink);margin:0 0 18px;}
+  .pt-closing-thread{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:var(--tracking-label-natural);color:var(--brass);margin:0 0 28px;}
   .pt-related-list{list-style:none;margin:0 0 28px;padding:0;}
   .pt-related-list li{margin-bottom:10px;}
   .pt-related-list a{font-size:14.5px;border-bottom:1.5px solid var(--brass);}
@@ -523,8 +561,8 @@
   .pt-author-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;}
   .pt-author-name{font-family:'Fraunces',serif;font-weight:500;font-size:15.5px;}
   .pt-author-name a:hover{color:var(--petrol);}
-  .pt-author-role{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;color:var(--brass);margin-top:2px;}
-  .pt-author-bio{font-size:14px;line-height:1.6;color:var(--ink-soft);max-width:56ch;margin:8px 0 10px;}
+  .pt-author-role{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:var(--tracking-label-natural);color:var(--brass);margin-top:2px;}
+  .pt-author-bio{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);max-width:56ch;margin:8px 0 10px;}
   .pt-author-links{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
   .pt-author-links a{border-bottom:1px solid var(--line);}
   .pt-author-links a:hover{color:var(--petrol);border-color:var(--petrol);}
