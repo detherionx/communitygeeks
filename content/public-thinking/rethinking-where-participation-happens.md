@@ -17,7 +17,7 @@ topics:
 authors:
   - "Carmelito Bauer"
 geometry:
-  viewBox: "0 0 320 420"
+  viewBox: "-10 -120 480 500"
   shapes:
     - { type: circle, cx: 300, cy: 50, r: 150, color: ink, opacity: 0.06 }
     - { type: rect, x: 30, y: 190, w: 230, h: 170, color: petrol, opacity: 0.09 }
@@ -30,16 +30,16 @@ researchThread: "participation and ecosystems in the age of AI"
 
 Where does "real" community interaction fit in, in an online communication landscape that's increasingly driven by AI? Is it still relevant? These are the questions currently on our minds here at Communitygeeks. During our research, we came across the concept of ecosystems, used at Glide among others. Andy Claremont is Head of Ecosystem and Community there, and was willing to have an inspiring conversation about it.
 
-His working definition of "ecosystem" was very illuminating for us. All groups associated with a company — technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events — are part of the ecosystem. So this is about a wide-reaching network that nevertheless captures the spirit of community.
+His working definition of "ecosystem" was very illuminating for us. All groups associated with a company, technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events, are part of the ecosystem. So this is about a wide-reaching network that nevertheless captures the spirit of community.
 
 <figure class="pt-figure">
   <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" data-lightbox aria-label="Enlarge Figure 1">
-    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagram: a company at the center, surrounded by six ecosystem groups — technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events — with community as a connective layer running through all of them." loading="lazy">
+    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagram: a company at the center, surrounded by six ecosystem groups, technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events, with community as a connective layer running through all of them." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>
     <span class="pt-figure-cap">Andy Claremont's working definition of "ecosystem": six contact groups around the company, with community as a connective layer rather than a seventh group of its own.</span>
-    <span class="pt-figure-source">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug 2026.</span>
+    <span class="pt-figure-source">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug 2026.</span>
   </figcaption>
 </figure>
 
@@ -56,12 +56,12 @@ From this conversation, a possible approach to working with such ecosystems emer
 
 <figure class="pt-figure">
   <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop.svg" data-lightbox aria-label="Enlarge Figure 2">
-    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagram: a continuous loop of four verbs — Identify, Understand, Shape, Strengthen — framed as a possible lens for ecosystem work, not a fixed method with a fixed starting point." loading="lazy">
+    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagram: a continuous loop of four verbs, Identify, Understand, Shape, Strengthen, framed as a possible lens for ecosystem work, not a fixed method with a fixed starting point." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 2</span>
-    <span class="pt-figure-cap">The four steps as a ring, not a numbered sequence — deliberately without a fixed starting point, since this Field Note treats it as a lens rather than a finished methodology.</span>
-    <span class="pt-figure-source">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug 2026.</span>
+    <span class="pt-figure-cap">The four steps as a ring, not a numbered sequence: deliberately without a fixed starting point, since this Field Note treats it as a lens rather than a finished methodology.</span>
+    <span class="pt-figure-source">Source: conversation with Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug 2026.</span>
   </figcaption>
 </figure>
 

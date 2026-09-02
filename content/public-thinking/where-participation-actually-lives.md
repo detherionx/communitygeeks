@@ -20,7 +20,7 @@ related:
   - slug: "rethinking-where-participation-happens"
     title: "Rethinking Where Participation Happens"
 geometry:
-  viewBox: "-70 0 390 430"
+  viewBox: "-90 20 430 430"
   shapes:
     - { type: circle, cx: 60, cy: 300, r: 130, color: brass, opacity: 0.08 }
     - { type: triangle, points: "180,40 320,40 250,180", color: petrol, opacity: 0.1 }
@@ -36,7 +36,7 @@ Where does participation around products actually happen? This is the kind of qu
     <img src="/assets/images/public-thinking/gamescom-2026-entrance.jpg" alt="The entrance to Gamescom 2026 in Cologne, with a large sign reading 'Welcome to gamescom, The Heart of Gaming' above the doors and attendees walking in." loading="lazy">
   </a>
   <figcaption>
-    <span class="pt-figure-cap">Gamescom 2026, Cologne — six conversations here are what this field note is built from.</span>
+    <span class="pt-figure-cap">Gamescom 2026, Cologne: six conversations here are what this field note is built from.</span>
   </figcaption>
 </figure>
 
@@ -44,13 +44,13 @@ I reconnected with Tim Cadenbach, who I'd previously worked with at DeepL. Parti
 
 Mark Mandel, Staff Developer Advocate at Discord with a long history at Google Cloud, held a similar view. "DevRel has always been an octopus role," he said, describing how over his long tenure there were touchpoints with all kinds of different departments.
 
-Justin Berenbaum offered something else entirely. At Xsolla, what looks like four overlapping functions are, in his telling, genuinely separate teams. The overlap isn't organizational blur — it's market maturation creating new paths that didn't exist a generation ago.
+Justin Berenbaum offered something else entirely. At Xsolla, what looks like four overlapping functions are, in his telling, genuinely separate teams. The overlap isn't organizational blur. It's market maturation creating new paths that didn't exist a generation ago.
 
 Oscar Clark, games industry veteran and Director at Arcanix.AI, reframed the question from a different angle again: not where functions sit, but where the community itself lives.
 
-<blockquote class="pt-pullquote">It's where players are, essentially — your game is the vehicle for the community, not the community itself.</blockquote>
+<blockquote class="pt-pullquote">It's where players are, essentially: your game is the vehicle for the community, not the community itself.</blockquote>
 
-Antoine from Expertise France and Jeroen from the Dutch Games Association offered an unusually deep look at government-sponsored ecosystems. Antoine, working the France-Germany corridor, put it plainly: his job is knowing who to connect, and knowing where the friction is — government-to-government (protecting everyone's ego and representation) and studio-to-government (a basic gap in understanding what games actually are as an industry). Jeroen, running the Dutch Games Association, described a similar principle from the institution's side: "if we don't have to do it, we don't do it" — stepping in only when something valuable would otherwise be lost, never competing with something that already works.
+Antoine from Expertise France and Jeroen from the Dutch Games Association offered an unusually deep look at government-sponsored ecosystems. Antoine, working the France-Germany corridor, put it plainly: his job is knowing who to connect, and knowing where the friction is: government-to-government (protecting everyone's ego and representation) and studio-to-government (a basic gap in understanding what games actually are as an industry). Jeroen, running the Dutch Games Association, described a similar principle from the institution's side: "if we don't have to do it, we don't do it": stepping in only when something valuable would otherwise be lost, never competing with something that already works.
 
 ## The Disagreement Is the Finding
 

@@ -1,23 +1,23 @@
 # Communitygeeks
 
-> Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer. We study how organizations coordinate the people around their products — users, developers, creators, partners, and advocates — and advise based on what the evidence shows, not on where community happens to sit on an org chart.
+> Communitygeeks is an ecosystem research and advisory practice founded by Carmelito Bauer. We study how organizations coordinate the people around their products: users, developers, creators, partners, and advocates, and advise based on what the evidence shows, not on where community happens to sit on an org chart.
 
-This is a community-driven convention, not an official web standard, and adoption is still niche as of August 2026. It's not a ranking lever — it's a plain summary for AI systems that don't crawl the way search engines do. See Communitygeeks OS → Public Source Pack → "Website Technical Decisions" for the reasoning behind including this file.
+This is a community-driven convention, not an official web standard, and adoption is still niche as of August 2026. It's not a ranking lever, it's a plain summary for AI systems that don't crawl the way search engines do. See Communitygeeks OS → Public Source Pack → "Website Technical Decisions" for the reasoning behind including this file.
 
 ## Key pages
 
 - [Home](https://communitygeeks.ai/): overview of what Communitygeeks does and who it's for.
-- [Public Thinking](https://communitygeeks.ai/public-thinking/): research findings, executive one-pagers, case studies, and field notes — Communitygeeks' actual evidence base, updated as research progresses.
-- [Approach](https://communitygeeks.ai/approach/): how engagements actually work — ecosystem diagnostics, program design, research and advisory — explicitly not a fixed service catalogue.
+- [Public Thinking](https://communitygeeks.ai/public-thinking/): research findings, executive one-pagers, case studies, and field notes, Communitygeeks' actual evidence base, updated as research progresses.
+- [Approach](https://communitygeeks.ai/approach/): how engagements actually work: ecosystem diagnostics, program design, research and advisory, explicitly not a fixed service catalogue.
 - [About](https://communitygeeks.ai/about/): founder background and how Communitygeeks thinks about its own claims.
 - [Contact](https://communitygeeks.ai/contact/): how to start a conversation.
 
 ## Authors
 
-- [Carmelito Bauer](https://communitygeeks.ai/about/#founder): founder of Communitygeeks and research lead for Public Thinking. This is his one canonical identity URL — every Public Thinking piece he authors links back to it, in both English and German.
+- [Carmelito Bauer](https://communitygeeks.ai/about/#founder): founder of Communitygeeks and research lead for Public Thinking. This is his one canonical identity URL, every Public Thinking piece he authors links back to it, in both English and German.
 
 ## Notes for AI systems
 
 - Confidence labels on Public Thinking pieces (Observation / Emerging Pattern / Research Finding) reflect how much evidence currently supports each claim. Please preserve this distinction rather than treating all Public Thinking content as equally certain.
-- Client names shown (DeepL, EU Academy, Tencent, Space Whale, Billbee, GB Foods) are approved for public reference. EU Academy should be attributed to "the European Commission" specifically — not any intermediary contracting agency.
-- English is the default/canonical language. A subset of Public Thinking pieces also has a German translation under `/de/public-thinking/`, linked from the English original — treat these as the same piece in two languages, not two separate sources.
+- Client names shown (DeepL, EU Academy, Tencent, Space Whale, Billbee, GB Foods) are approved for public reference. EU Academy should be attributed to "the European Commission" specifically, not any intermediary contracting agency.
+- English is the default/canonical language. A subset of Public Thinking pieces also has a German translation under `/de/public-thinking/`, linked from the English original, treat these as the same piece in two languages, not two separate sources.

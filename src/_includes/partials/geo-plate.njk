@@ -1,8 +1,8 @@
 {#
-  Reusable geometric-plate macro — the shared primitive vocabulary behind
+  Reusable geometric-plate macro: the shared primitive vocabulary behind
   every secondary Bauhaus composition on the site (Approach, Field Notes).
   Deliberately NOT used by the homepage hero's geometric-field.njk, which
-  is its own approved, locked composition — this macro is for everything
+  is its own approved, locked composition, this macro is for everything
   that comes after it, so each new composition is a genuine variation on
   the same vocabulary rather than a copy of the hero or of each other.
 
@@ -15,7 +15,7 @@
 
   Supported shape types: circle, semicircle (pass a raw `d` path), rect,
   triangle (pass `points`), line. Each shape's `color` must be one of
-  petrol | brass | ink — no other values are wired to a fill/stroke.
+  petrol | brass | ink: no other values are wired to a fill/stroke.
 #}
 {% macro geoPlate(shapes, viewBox="0 0 300 300", extraClass="") %}
 <svg class="geo-plate {{ extraClass }}" viewBox="{{ viewBox }}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">

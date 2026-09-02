@@ -1,7 +1,7 @@
 // Sends the pageview (auto-pageview is off in base.njk so this is the only
 // pageview call) and tracks outbound clicks. Reads plain data-artifact-*
 // attributes off the page rather than any Umami-specific markup, so the
-// analytics provider can be swapped later by rewriting only this file —
+// analytics provider can be swapped later by rewriting only this file:
 // no content template needs to know Umami exists.
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.umami) return; // e.g. blocked by an ad/tracker blocker

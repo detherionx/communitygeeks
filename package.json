@@ -2,7 +2,7 @@
   "name": "communitygeeks-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Communitygeeks marketing site — static Eleventy build, deployable as plain static files (no Node server required in production).",
+  "description": "Communitygeeks marketing site: static Eleventy build, deployable as plain static files (no Node server required in production).",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy",

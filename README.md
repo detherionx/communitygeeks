@@ -1,6 +1,6 @@
 # Communitygeeks Website
 
-Static site, built with [Eleventy](https://www.11ty.dev/). Deploys as plain static files — no server-side runtime required in production.
+Static site, built with [Eleventy](https://www.11ty.dev/). Deploys as plain static files: no server-side runtime required in production.
 
 See `HANDOFF.md` for full context (design source, architecture rationale, content model, known limitations, unresolved decisions). This file is just the quick technical reference.
 
@@ -28,7 +28,7 @@ Runs a local server with live reload at `http://localhost:8080`.
 npm run build
 ```
 
-Output goes to `_site/`. That directory is the entire deployable artifact — copy its contents to the web root on the Hetzner host.
+Output goes to `_site/`. That directory is the entire deployable artifact, copy its contents to the web root on the Hetzner host.
 
 ## Adding a new Public Thinking piece
 
@@ -37,7 +37,7 @@ Output goes to `_site/`. That directory is the entire deployable artifact — co
 3. Write the body in Markdown below the second `---`.
 4. Run `npm run build` (or `npm run dev` and check locally first).
 
-The new piece appears automatically on `/public-thinking/`, gets its own page, joins the sitemap, and — if it's one of the two newest by date — shows on the Home page preview. No template or code changes needed.
+The new piece appears automatically on `/public-thinking/`, gets its own page, joins the sitemap, and, if it's one of the two newest by date, shows on the Home page preview. No template or code changes needed.
 
 **Confidence field must be exactly** `Observation`, `Emerging Pattern`, or `Research Finding`. Anything else fails the build on purpose.
 
@@ -81,9 +81,9 @@ communitygeeks-website/
 
 ## Deployment
 
-Automated via GitHub Actions (`.github/workflows/deploy.yml`): every push to `main` builds the site and uploads `_site/` to the Hetzner host over SFTP, additively (it does not delete files already on the server — see below).
+Automated via GitHub Actions (`.github/workflows/deploy.yml`): every push to `main` builds the site and uploads `_site/` to the Hetzner host over SFTP, additively (it does not delete files already on the server, see below).
 
-**Deploy action history (2026-08-11):** originally used `wlixcc/SFTP-Deploy-Action`, dropped after two real incompatibilities with this account (SFTP-only, no SSH shell/exec access) — its `delete_remote_files` option needs an exec channel (`exec request failed on channel 0`), and separately, its `sftp_only` mode never actually `cd`s into `remote_path` before uploading, so nested folders failed to resolve (`realpath ... No such file`). Neither is a config mistake; both are hard limitations of that action under a no-exec host. Now using `wangyucode/sftp-upload-action`, which operates purely over the SFTP protocol with no exec dependency at all — including for deletion, via its `removeExtraFilesOnServer` input (not currently enabled; the target folder's old WordPress install was cleared manually via konsoleH's File Manager once, before the first real deploy). If a wipe-before-upload workflow is wanted later, `removeExtraFilesOnServer` is the way to do it on this host, not `delete_remote_files` on the old action.
+**Deploy action history (2026-08-11):** originally used `wlixcc/SFTP-Deploy-Action`, dropped after two real incompatibilities with this account (SFTP-only, no SSH shell/exec access): its `delete_remote_files` option needs an exec channel (`exec request failed on channel 0`), and separately, its `sftp_only` mode never actually `cd`s into `remote_path` before uploading, so nested folders failed to resolve (`realpath ... No such file`). Neither is a config mistake; both are hard limitations of that action under a no-exec host. Now using `wangyucode/sftp-upload-action`, which operates purely over the SFTP protocol with no exec dependency at all, including for deletion, via its `removeExtraFilesOnServer` input (not currently enabled; the target folder's old WordPress install was cleared manually via konsoleH's File Manager once, before the first real deploy). If a wipe-before-upload workflow is wanted later, `removeExtraFilesOnServer` is the way to do it on this host, not `delete_remote_files` on the old action.
 
 Required repository secrets (Settings → Secrets and variables → Actions):
 

@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 lang: en
 title: Public Thinking
-description: Research findings, executive one-pagers, case studies, and field notes — live, not a static portfolio.
+description: Research findings, executive one-pagers, case studies, and field notes, live, not a static portfolio.
 permalink: /public-thinking/
 eleventyComputed:
   extraHead:
@@ -47,6 +47,6 @@ closingCta:
   <div class="pt-compact-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>
 
   {% if clients.selectedWork and clients.selectedWork.length %}
-  <div class="pt-compact-empty" data-type="case">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
+  <div class="pt-compact-empty" data-type="case">Case studies are experience references for now: full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
   {% endif %}
 </div>

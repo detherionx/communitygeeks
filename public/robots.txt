@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Explicit AI-crawler allowances — decided 8 Aug 2026, logged in Communitygeeks OS
+# Explicit AI-crawler allowances: decided 8 Aug 2026, logged in Communitygeeks OS
 # → Public Source Pack → "Website Technical Decisions". Being findable by AI
 # systems is directly on-brand for a firm researching how AI changes discovery;
 # these are listed explicitly rather than left to default behavior, since

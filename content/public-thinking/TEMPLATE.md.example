@@ -1,5 +1,5 @@
 <!--
-  TEMPLATE — copy this to a new file named like your-slug-here.md inside
+  TEMPLATE: copy this to a new file named like your-slug-here.md inside
   content/public-thinking/, fill in the fields, delete this comment block,
   and write the body below the second `---`.
 
@@ -11,70 +11,70 @@
 title: "Piece title, written the way a human would say it out loud"
 slug: "url-safe-slug-no-spaces"
 date: 2026-08-01
-format: "Research Finding"          # Must match a "format" value in src/_data/publicThinkingFormats.js — that
+format: "Research Finding"          # Must match a "format" value in src/_data/publicThinkingFormats.js, that
                                      # file is the single source of truth for the format taxonomy (also drives
                                      # the archive's filter pills), so add a new format there first if needed.
-filterType: "research"              # Must match that same entry's "filterType" — see src/_data/publicThinkingFormats.js
+filterType: "research"              # Must match that same entry's "filterType": see src/_data/publicThinkingFormats.js
 confidence: "Observation"           # MUST be one of: "Observation" | "Emerging Pattern" | "Research Finding"
-                                     # These are the ONLY public-facing confidence labels — see Communitygeeks OS
-                                     # → Public Source Pack → "Public Thinking — Confidence Vocabulary Map".
+                                     # These are the ONLY public-facing confidence labels, see Communitygeeks OS
+                                     # → Public Source Pack → "Public Thinking: Confidence Vocabulary Map".
                                      # Never use internal labels (Low/Medium/High/Validated, or Weak/Emerging/Strong)
                                      # here. The Eleventy build will throw an error if this field has anything else.
 summary: "One or two sentences. Used as the page <meta description> and the Article schema's description."
 topics:                              # Optional but recommended. 2-4 short topic/entity labels this piece is
-                                      # actually about (not the format — that's `filterType` above). Feeds the
+                                      # actually about (not the format, that's `filterType` above). Feeds the
                                       # Article schema's `keywords` field, giving search engines and AI systems a
                                       # structured signal beyond parsing prose. Derive these from what the piece
-                                      # itself is actually about — don't invent a taxonomy that isn't there yet.
+                                      # itself is actually about, don't invent a taxonomy that isn't there yet.
   - "Example Topic One"
   - "Example Topic Two"
 accentColor: petrol                 # Optional. One of: petrol | brass | ink. Controls the one substantial
                                      # color field this piece uses on the Public Thinking index (if it becomes
-                                     # the featured record) and on its own article masthead — same field drives
+                                     # the featured record) and on its own article masthead: same field drives
                                      # both, so a piece keeps one identity across surfaces. Omit to default to
                                      # petrol. Pick deliberately per piece; don't assign colors on rotation.
 motif: null                         # Optional. A restrained Bauhaus watermark rendered low-opacity behind the
-                                     # card on the homepage rail and archive grid — editorial cover art derived
+                                     # card on the homepage rail and archive grid: editorial cover art derived
                                      # from the piece's actual subject, not a thumbnail or an icon. Must match a
                                      # slug defined in src/_includes/partials/pt-motifs.njk (e.g. "gaming",
                                      # "people-beyond-container"); add a new motif there before using its slug
-                                     # here. Omit entirely for a piece with no motif yet — the card still renders
+                                     # here. Omit entirely for a piece with no motif yet, the card still renders
                                      # correctly without one, this is not a required field.
 authors:                            # One or more names, byline order. Each name is looked up in
                                      # src/_data/people.js for a linked profile, photo, and bio in the article's
-                                     # author box and structured data — a name with no entry there still renders
+                                     # author box and structured data: a name with no entry there still renders
                                      # as a plain byline. Only add someone here once they've explicitly consented
-                                     # to being named publicly (same rule the old `contributor` field carried —
+                                     # to being named publicly (same rule the old `contributor` field carried,
                                      # see Public Source Pack → "Not Yet Ready for Publication"), and only add
                                      # a real people.js entry once they're actually a bylined public author.
   - "Carmelito Bauer"
 heroImage: null                     # Optional. Path like "/assets/images/public-thinking/your-image.jpg" if you add one.
-                                     # Also becomes the Article schema's `image` — falls back to the sitewide
+                                     # Also becomes the Article schema's `image`, falls back to the sitewide
                                      # og-image when not set.
-dateModified: null                  # Optional. Set only when a published piece gets a substantive revision —
+dateModified: null                  # Optional. Set only when a published piece gets a substantive revision,
                                      # falls back to `date` otherwise.
 pdf: null                           # Optional. Path to a downloadable PDF under public/ if this piece has one,
                                      # e.g. "/downloads/moat-or-funnel.pdf".
 related:                            # Optional. List of {slug, title} pairs for other Public Thinking pieces.
   - slug: "some-other-piece-slug"
     title: "That other piece's title"
-geometry:                           # Optional. This piece's own background geometry (see geo-plate.njk) —
+geometry:                           # Optional. This piece's own background geometry (see geo-plate.njk),
                                      # positioned behind/beside the OPENING of the body as an environmental
                                      # field, not a standalone graphic the reader is meant to stop and read.
                                      # It's absolutely positioned and width-clamped (never width:100% of the
-                                     # article column — that's what makes it a quiet field rather than a
+                                     # article column, that's what makes it a quiet field rather than a
                                      # dominant object), so it adds zero document height: hiding it changes
                                      # nothing about the body's own flow or spacing. Omit entirely for a piece
-                                     # with no geometry — a normal, allowed choice, not a missing feature. Do
+                                     # with no geometry, a normal, allowed choice, not a missing feature. Do
                                      # not assign a fixed shape-to-meaning mapping (e.g. "circle always means
-                                     # X") — compose each piece's field on its own editorial merits, favoring
+                                     # X"), compose each piece's field on its own editorial merits, favoring
                                      # asymmetry, cropping, and unequal scale over anything that reads like an
                                      # infographic (e.g. two same-size overlapping circles reads as a Venn
-                                     # diagram — avoid that specific shape unless deliberately intended).
+                                     # diagram, avoid that specific shape unless deliberately intended).
                                      # shapes: type (circle | semicircle | rect | triangle | line), the type's own
                                      # geometry fields (cx/cy/r for circle, x/y/w/h for rect, points for triangle,
                                      # x1/y1/x2/y2 for line, d for semicircle), color (petrol | brass | ink only),
-                                     # and opacity (keep it very low — this is a watermark, not an illustration).
+                                     # and opacity (keep it very low, this is a watermark, not an illustration).
                                      # viewBox just needs internally-consistent proportions for your shapes; the
                                      # CSS host clamps rendered width to ~220–360px regardless, so there's no
                                      # square-viewBox trap here the way there was for the old boxed layout.
@@ -85,11 +85,11 @@ geometry:                           # Optional. This piece's own background geom
 ---
 
 Write the body here as normal Markdown. Headings, bold, links, lists all work.
-This is what actually renders on the piece's page — check it against the
+This is what actually renders on the piece's page: check it against the
 Public Source Pack's Governance Rule before publishing: internal OS research
 language is evidence for what you write here, not text to paste in directly.
 
 If the piece makes more than one distinct sub-claim, give each its own `##`
-heading. Not a rigid template to fill in — just makes each claim independently
+heading. Not a rigid template to fill in, just makes each claim independently
 findable/linkable, and easier for a reader (human or otherwise) to cite one
 point without needing the whole piece. Skip it for a short, single-point piece.

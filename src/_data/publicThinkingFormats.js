@@ -1,6 +1,6 @@
 // Single enum for Public Thinking's format taxonomy. Previously hand-typed in
 // three places (homepage sidebar list, archive filter pills, template
-// comment) with no shared source — this is now the one place that changes
+// comment) with no shared source, this is now the one place that changes
 // when a format is added, renamed, or reordered. `filterType` values must
 // match a content file's `filterType` frontmatter field exactly, since that's
 // what src/assets/js/public-thinking-filter.js matches against.

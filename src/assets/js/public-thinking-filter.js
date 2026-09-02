@@ -1,4 +1,4 @@
-// Public Thinking format filter. Progressive enhancement only — every row is
+// Public Thinking format filter. Progressive enhancement only: every row is
 // real server-rendered HTML with real links; this just toggles visibility.
 // No filter selected still shows everything, so this is safe with JS disabled.
 document.addEventListener('DOMContentLoaded', () => {

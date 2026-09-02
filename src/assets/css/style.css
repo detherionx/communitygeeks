@@ -1,4 +1,4 @@
-/* Communitygeeks — global stylesheet
+/* Communitygeeks: global stylesheet
    Source: Figma 'Design Tokens & Components' page + all approved page frames.
    Structure: base tokens/components shared across every page, then one
    section per page for rules that are genuinely page-specific. */
@@ -16,12 +16,12 @@
     --radius:2px;
     --rule-heavy:3px;
 
-    /* TYPOGRAPHY TOKENS — collapses body-copy sizes and mono-label
+    /* TYPOGRAPHY TOKENS: collapses body-copy sizes and mono-label
        tracking that had drifted into one-off per-component numbers with
        no shared scale. Deliberately only two body-copy roles: primary
        reading content (prose) and everything supporting/secondary
        (compact). Headings and display numerals (q-num, approach-idx)
-       keep their own per-context sizing — those
+       keep their own per-context sizing: those
        differences are load-bearing depth cues (home > subpage > article),
        not accidental drift, so they're not tokenized here. */
     --fs-prose:17px;
@@ -31,16 +31,16 @@
     --lh-editorial-italic:1.5;
     /* Two mono-label tracking roles, not one: uppercase eyebrows/tags read
        better with more open tracking than natural-case meta/caption text
-       does — collapsing both down to a single value would over-tighten
+       does: collapsing both down to a single value would over-tighten
        the eyebrows or over-space the captions. */
     --tracking-label-caps:0.06em;
     --tracking-label-natural:0.03em;
 
-    /* HEADING TOKENS — three depth tiers each for H1-equivalent and
+    /* HEADING TOKENS: three depth tiers each for H1-equivalent and
        H2-equivalent headings, preserved exactly as they already render
        (home > subpage > article; section > closing-CTA > in-article
        subsection). Family/weight/tracking are shared within each tier
-       group — only size genuinely varies by depth, which is why depth is
+       group: only size genuinely varies by depth, which is why depth is
        tokenized rather than flattened to one value. */
     --tracking-display:-0.01em;
     --fs-display-home:clamp(38px,5.2vw,64px);
@@ -62,7 +62,7 @@
 
     /* Four genuinely different sub-heading registers, not one flattened
        "H3": service/approach items (item), identity/contact names
-       (identity), About's deliberately quieter principles (minor — kept
+       (identity), About's deliberately quieter principles (minor: kept
        distinct on purpose, not accidental drift), and small Fraunces
        list-row labels (title-compact). */
     --fs-heading-item:24px;
@@ -70,7 +70,7 @@
     --fs-heading-minor:18px;
     --fs-title-compact:15.5px;
 
-    /* METADATA — two roles, not one flattened size, classified by what a
+    /* METADATA: two roles, not one flattened size, classified by what a
        selector actually DOES: label orients the reader to a whole content
        block (an eyebrow, a page/section/panel identity); caption is
        everything supporting or describing content already in view (dates,
@@ -99,15 +99,15 @@
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;padding:0;background:none;border:none;cursor:pointer;flex-shrink:0;}
   .nav-toggle span{display:block;width:100%;height:2px;background:var(--ink);}
 
-  /* STRUCTURAL MARK — two unequal planes, solid + open, off-center division.
+  /* STRUCTURAL MARK: two unequal planes, solid + open, off-center division.
      Color keys to the surface immediately behind the mark, not to whatever
-     section it happens to be nested in — see .panel-ink/.panel-petrol below,
+     section it happens to be nested in: see .panel-ink/.panel-petrol below,
      and the reset rule for a paper surface sitting on either of them. */
   .node-mark{display:inline-block;vertical-align:middle;flex-shrink:0;}
   .node-mark .solid{fill:var(--petrol);}
   .node-mark .open{fill:none;stroke:var(--ink);stroke-width:1.6;}
 
-  /* HERO — SPLIT MASTHEAD: a full-width headline, then a block strip where
+  /* HERO, SPLIT MASTHEAD: a full-width headline, then a block strip where
      ink, paper and petrol each carry real structural weight instead of one
      color dominating with the others reduced to tiny annotations. */
   .hero{position:relative;overflow:hidden;padding:64px 0 96px;}
@@ -115,16 +115,16 @@
   h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:500;font-size:var(--fs-display-home);line-height:var(--lh-display-home);letter-spacing:var(--tracking-display);margin:0 0 40px;}
   h1 em{font-style:italic;font-weight:400;color:var(--petrol);}
 
-  /* GEOMETRIC FIELD — a quiet Bauhaus-primitive watermark, not an
+  /* GEOMETRIC FIELD: a quiet Bauhaus-primitive watermark, not an
      illustration: three large muted shapes sitting behind the headline in
-     the negative space, cropped against the hero's own edge. Reusable —
+     the negative space, cropped against the hero's own edge. Reusable:
      not a one-off scattered directly into the hero markup. */
   .geo-field{position:absolute;top:0;right:0;z-index:0;pointer-events:none;width:clamp(220px,26vw,400px);height:auto;}
   .geo-dome{fill:var(--ink);opacity:0.07;}
   .geo-block{fill:var(--brass);opacity:0.14;}
   .geo-wedge{fill:var(--petrol);opacity:0.1;}
 
-  /* GEOMETRIC PLATE SYSTEM — the shared primitive vocabulary for every
+  /* GEOMETRIC PLATE SYSTEM: the shared primitive vocabulary for every
      secondary composition beyond the homepage hero (see geo-plate.njk).
      One set of color classes, reused by each call site's own arrangement,
      so Approach and every Field Note plate are visibly the same language
@@ -144,13 +144,13 @@
   .btn-secondary{font-weight:600;font-size:14.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);padding-bottom:2px;}
   .btn-secondary:hover{color:var(--petrol);border-color:var(--petrol);}
 
-  /* HERO CONSTRUCTION — one compound object, not three components: cream,
+  /* HERO CONSTRUCTION: one compound object, not three components: cream,
      petrol and brass meet edge-to-edge (no gutters), separated by two
      heavy ink rules. The rules are structural boundaries of the fields
-     themselves — they terminate exactly at the construction's edges, no
-     overshoot — with Bauhaus tension coming from unequal rule weight
+     themselves: they terminate exactly at the construction's edges, no
+     overshoot: with Bauhaus tension coming from unequal rule weight
      (vertical heavier than horizontal), not from clipped/dangling ends.
-     Ink is reserved for the rules — a filled ink plane would swallow the
+     Ink is reserved for the rules: a filled ink plane would swallow the
      rule wherever it crosses that plane, breaking the line into
      disconnected protrusions instead of one continuous stroke. */
   .hero-construct{position:relative;display:grid;grid-template-columns:26% 74%;margin-top:40px;}
@@ -162,7 +162,7 @@
   .hc-rule{position:absolute;background:var(--ink);pointer-events:none;}
   .hc-rule-v{left:26%;top:0;bottom:0;width:9px;transform:translateX(-4.5px);}
   .hc-rule-h{top:230px;left:26%;right:0;height:6px;transform:translateY(-3px);}
-  /* Fraunces (H1) + Archivo (everything functional) — hierarchy between
+  /* Fraunces (H1) + Archivo (everything functional): hierarchy between
      the two actions comes from size/weight/field mass, not a third face. */
   .mast-action{font-family:'Archivo',sans-serif;text-transform:uppercase;}
   .hc-petrol .mast-action{font-size:26px;font-weight:700;letter-spacing:0.01em;}
@@ -181,13 +181,13 @@
   @keyframes marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
 
-  /* LOGO BADGE — shared by the marquee above and Selected Work below.
+  /* LOGO BADGE: shared by the marquee above and Selected Work below.
      Always monochrome via mask-image (works on any logo regardless of its
-     real colors — this is what lets white-only marks like Space Whale and
+     real colors: this is what lets white-only marks like Space Whale and
      ZAM display at all without editing their artwork; no color-reveal state
      means no risk of them vanishing against a light background either).
      Hover is deliberately subtle: border darkens and the badge lifts a
-     touch. No background flip, no color cross-fade — that approach caused
+     touch. No background flip, no color cross-fade: that approach caused
      real problems (see HANDOFF.md) and Carmelito asked to drop it. */
   .logo-badge{position:relative;flex-shrink:0;display:block;width:120px;height:56px;background:var(--paper);border:1px solid var(--line);transition:border-color .2s ease,transform .2s ease;}
   .logo-badge .logo-mono{position:absolute;inset:10%;background-color:var(--ink-soft);-webkit-mask-image:var(--logo-url);mask-image:var(--logo-url);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;}
@@ -196,12 +196,12 @@
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
   /* HOW WE THINK */
-  /* HOMEPAGE SECTION RHYTHM — spacing alone, not a redesign: dense
+  /* HOMEPAGE SECTION RHYTHM: spacing alone, not a redesign: dense
      sections (the question grid, Selected Work, Public Thinking) get more
      room to breathe before/after them; simpler sections (Approach's list,
      Founder) get less, so the page reads as tension/release rather than
      one repeated padding value announcing every section identically.
-     Desktop-only for the increases — mobile is already a long single
+     Desktop-only for the increases: mobile is already a long single
      column, so extra vertical gaps there cost scroll length without the
      same payoff; the reductions apply on both, since a shorter mobile
      page is a pure win. */
@@ -222,7 +222,7 @@
   /* SHARED SECTION RHYTHM */
   section.band{padding:100px 0;}
   section.band.alt{background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  /* Rhythm overrides (see .think above) — targeted via :has() on each
+  /* Rhythm overrides (see .think above): targeted via :has() on each
      section's already-distinct content rather than adding new markup
      classes, since several homepage sections currently share the bare
      "band alt" class with nothing else to key off. */
@@ -231,10 +231,10 @@
   .band.alt:has(.founder-grid){padding:70px 0 90px;}
   .band-head{max-width:640px;margin-bottom:56px;}
 
-  /* SECTION-EYEBROW HIERARCHY — two levels, not a sitewide simplification.
+  /* SECTION-EYEBROW HIERARCHY: two levels, not a sitewide simplification.
      A prototype (icon removal vs. eyebrow-typography quieting, tested in
      isolation on two sections) showed the icon contributes almost nothing
-     to the "every section announces itself identically" feeling — the
+     to the "every section announces itself identically" feeling: the
      eyebrow's typography (all-caps + wide tracking + accent color) does
      essentially all of that work. So icons stay everywhere at full
      strength; only the eyebrow gets a second, quieter register for
@@ -242,23 +242,23 @@
      (currently: Approach). Don't invent a third variation of this. */
   .hww-field-host .section-marker .label{text-transform:none;letter-spacing:0.02em;color:var(--ink-soft);font-weight:400;}
   /* The bridge line between the participation diagram above and the
-     service list below carries real conceptual weight — it's the reason
-     the services exist — so it gets an editorial (Fraunces) register at
+     service list below carries real conceptual weight: it's the reason
+     the services exist: so it gets an editorial (Fraunces) register at
      roughly 1.5x body size, not a small explanatory intro paragraph.
      Still clearly subordinate to the h2 above it: lighter weight, muted
      color, tighter measure. */
   .approach-bridge{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(20px,2.4vw,24px);line-height:1.35;color:var(--ink-soft);max-width:42ch;margin-top:6px;}
 
-  /* PROBLEM — one editorial spread, not four stacked modules. The opening
+  /* PROBLEM: one editorial spread, not four stacked modules. The opening
      statement reads first, on its own, at the upper left. Below it, the
-     argument/tags and the diagram share a single top-aligned row — the
+     argument/tags and the diagram share a single top-aligned row: the
      diagram begins at the same height as the argument (no gap between
      "finish reading" and "the visual starts"), and because it's taller and
      wider than the text column, it naturally extends further down and
      across, becoming the section's visual anchor without ever competing
      with the text for the same reading position. Semantic order (statement
      → argument → tags → diagram) is unchanged; only the SPATIAL
-     relationship changes — text stays fully readable top-to-bottom on its
+     relationship changes: text stays fully readable top-to-bottom on its
      own before the diagram needs any attention at all. */
   .problem-old{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--ink-soft);line-height:1.5;border-left:2px solid var(--line);padding-left:24px;max-width:480px;margin-bottom:48px;}
   .problem-composition{display:grid;grid-template-columns:minmax(280px,38%) 1fr;gap:56px;align-items:start;}
@@ -278,7 +278,7 @@
   .approach-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:56ch;}
   .approach-note{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--brass);margin-top:26px;letter-spacing:var(--tracking-label-natural);}
 
-  /* Secondary geometric composition — same vocabulary as the hero field
+  /* Secondary geometric composition: same vocabulary as the hero field
      (geo-plate.njk), a distinct arrangement so the two read as related,
      not repeated. Sits behind the approach list, clear of the text column. */
   .hww-field-host{position:relative;overflow:hidden;}
@@ -287,30 +287,30 @@
   .hww-field{position:absolute;top:0;right:0;z-index:0;pointer-events:none;width:clamp(200px,24vw,340px);height:auto;}
   @media (max-width:860px){.hww-field{display:none;}}
 
-  /* SELECTED WORK — one composed color field made of six cells, not six
+  /* SELECTED WORK: one composed color field made of six cells, not six
      independently-styled cards. The 1px grid gap (see .work-grid) keeps
      showing through as a thin rule regardless of each cell's own fill, so
      the structural grid survives the color pass unchanged. Color/position
      is assigned by grid position (nth-child), not by client identity or
-     sector — this is what keeps it a composition rather than a
+     sector: this is what keeps it a composition rather than a
      classification (see HANDOFF.md for why that distinction matters here). */
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .work-cell{background:var(--paper);padding:36px 32px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;}
   .work-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);}
   .work-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--petrol);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;margin-top:16px;}
 
-  /* Logo is the only identity marker per cell now — no written company name
+  /* Logo is the only identity marker per cell now: no written company name
      underneath it (logo → description → sector, not logo → name → desc →
      tag). Six source marks vary wildly in native proportions (DeepL/Billbee
      wide and strong, the Commission's mark tiny, Space Whale compact, GB
-     Foods tall-ish, Tencent a typographic wordmark) — rather than force them
+     Foods tall-ish, Tencent a typographic wordmark): rather than force them
      to a common size, they get a common FRAME: fixed box, thin rule, modest
      padding, logo scaled by mask-size:contain so it keeps its own aspect
      ratio inside that frame. The frame is consistent; the mark is not. */
   .work-grid .logo-badge.logo-badge-sm{width:150px;height:52px;margin:0 0 32px;border:1px solid var(--line);background:rgba(27,25,18,0.025);}
   .work-grid .logo-badge .logo-mono{inset:18% 14%;}
 
-  /* three of six cells carry a strong flat plane (positions 1, 3, 5 — a
+  /* three of six cells carry a strong flat plane (positions 1, 3, 5: a
      diagonal/checkerboard rhythm across the 3×2 grid, not a row, column,
      or any grouping that could be mistaken for a category) */
   .work-grid .work-cell:nth-child(1){background:var(--petrol);}
@@ -334,13 +334,13 @@
   /* one neutral cell carries a quiet paper-alt tint, purely for rhythm */
   .work-grid .work-cell:nth-child(2){background:var(--paper-alt);}
 
-  /* PUBLIC THINKING RAIL — homepage: an editorial carousel built on the same
+  /* PUBLIC THINKING RAIL, homepage: an editorial carousel built on the same
      .pt-card component used on /public-thinking/ (see PUBLIC THINKING CARDS
      below). Native overflow-x + scroll-snap is still the actual scroll
      mechanism (touch/trackpad/keyboard all work with pt-rail.js absent);
      the script layers a slow auto-advance and the prev/next buttons on top
      of that, never replacing it (see pt-rail.js). The native scrollbar is
-     hidden here on purpose — scrolling itself is fully intact, this only
+     hidden here on purpose: scrolling itself is fully intact, this only
      removes the visual "here's an overflowing div" cue so the rail reads
      as a deliberate carousel rather than a leftover overflow container. */
   .pt-format{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
@@ -376,9 +376,9 @@
   .closing h2{font-size:var(--fs-heading-cta);max-width:16ch;margin:0 auto 32px;}
   .closing .cta-row{justify-content:center;}
 
-  /* FLAT COLOR PANELS — bounded, deliberate solid-fill blocks, the system's
+  /* FLAT COLOR PANELS: bounded, deliberate solid-fill blocks, the system's
      borrowing of the Tripo proposal's block-of-color device. Used where
-     composition and hierarchy justify it (closing CTA, hero strip) — not a
+     composition and hierarchy justify it (closing CTA, hero strip): not a
      default background to reach for on every section. */
   .panel-ink{background:var(--ink);color:var(--paper);}
   .panel-ink .node-mark .solid{fill:var(--brass);}
@@ -393,7 +393,7 @@
   .panel-petrol .node-mark .open{stroke:var(--paper);}
 
   /* A paper-colored surface nested inside either flat panel resets the mark
-     back to its on-paper treatment — color keys to what's immediately
+     back to its on-paper treatment: color keys to what's immediately
      behind the mark, never to the section it happens to be nested in. */
   .panel-ink .btn-primary .node-mark .solid,.panel-petrol .btn-primary .node-mark .solid{fill:var(--petrol);}
   .panel-ink .btn-primary .node-mark .open,.panel-petrol .btn-primary .node-mark .open{stroke:var(--ink);}
@@ -412,7 +412,7 @@
     .nav-cta{margin:14px 20px 0;align-self:flex-start;}
     .geo-field{display:none;}
     /* Mobile translates the same material system into a vertical
-       construction rather than shrinking the desktop 26/74 layout — a
+       construction rather than shrinking the desktop 26/74 layout: a
        narrow viewport has no room for that horizontal relationship. Same
        three fields, same edge-to-edge/no-gutter rule, same ink-rules-only
        logic, restacked top to bottom: cream (shortest) -> petrol
@@ -433,8 +433,8 @@
     .pt-rail .pt-card{flex-basis:87vw;}
     .pt-rail-nav{display:none;}
     /* Section rhythm, dampened for mobile: the reductions carry over in
-       full (a shorter mobile page is a pure win), but the increases don't
-       — mobile is already one long column, so the same extra gaps that
+       full (a shorter mobile page is a pure win), but the increases don't:
+       mobile is already one long column, so the same extra gaps that
        read as "breathing room" on desktop just cost scroll length here. */
     .think{padding:105px 0 115px;}
     .band.hww-field-host{padding:80px 0;}
@@ -461,7 +461,7 @@
   .principle-title{font-family:'Fraunces',serif;font-weight:500;font-size:var(--fs-heading-minor);margin:0 0 8px;}
   .principle-desc{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:60ch;}
 
-  /* Quiet geometric field — same vocabulary as the hero and homepage
+  /* Quiet geometric field: same vocabulary as the hero and homepage
      compositions, fewer shapes and lower opacity so it reads as a trace,
      not a repeat. Sits behind the principle list, clear of the text. */
   .principle-field-host{position:relative;overflow:hidden;}
@@ -476,7 +476,7 @@
   .approach-detail p{font-size:var(--fs-compact);color:var(--ink-soft);line-height:var(--lh-compact);max-width:62ch;margin:0 0 14px;}
   .approach-detail .for-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
 
-  /* Second geometric composition — same vocabulary as the homepage field
+  /* Second geometric composition: same vocabulary as the homepage field
      (geo-plate.njk), a deliberately different arrangement, sitting in the
      space the three-row text never reaches. Quieter than the hero: smaller
      scale, lower peak opacity, no heavy rule above it. */
@@ -501,13 +501,13 @@
 
   .confidence-tag{color:var(--brass);}
 
-  /* PUBLIC THINKING CARDS — one component, used identically for every
+  /* PUBLIC THINKING CARDS: one component, used identically for every
      published piece on both the homepage rail and the archive grid. Every
      piece gets the same structure and typography; accent-* controls which
      material (petrol/brass/ink) is doing the work for THIS particular piece
      (set via its own accentColor frontmatter field, defaulting to petrol),
      which is also what keeps a grid of many cards from reading as flat
-     repetition — recency is expressed only through ordering, never by
+     repetition: recency is expressed only through ordering, never by
      giving any one card a different class or richer treatment. */
   .pt-card{border:1px solid var(--line);margin-bottom:8px;position:relative;overflow:hidden;background:var(--paper);}
   .pt-card-field{height:5px;}
@@ -517,15 +517,15 @@
   .pt-card.accent-petrol .pt-format,.pt-card.accent-petrol .pt-card-tag{color:var(--petrol);}
   .pt-card.accent-brass .pt-format,.pt-card.accent-brass .pt-card-tag{color:var(--brass);}
   .pt-card.accent-ink .pt-format,.pt-card.accent-ink .pt-card-tag{color:var(--ink);}
-  /* Subject-derived watermark, not decorative numbering — see pt-motifs.njk.
+  /* Subject-derived watermark, not decorative numbering: see pt-motifs.njk.
      .pt-motif is the shared base (used on both .pt-card and the article
      hero); --card/--hero context modifiers carry the position/scale/opacity
      that differs per surface, and .pt-motif-<name> carries per-motif nudges
      within a context. The underlying SVG (ptMotif() in pt-motifs.njk) is
-     identical everywhere — only these wrapper classes change. */
+     identical everywhere: only these wrapper classes change. */
   .pt-motif{position:absolute;pointer-events:none;}
   .pt-motif svg{display:block;width:100%;height:100%;}
-  /* CARD context — a direct child of .pt-card (not .pt-card-inner), so it
+  /* CARD context: a direct child of .pt-card (not .pt-card-inner), so it
      sits behind everything without needing to fight .pt-card-inner > *'s
      z-index:1. Large and upper-right by default so it has room to bleed/
      crop against the card edges; opacity stays low enough that text is
@@ -545,7 +545,7 @@
   .pt-card-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
   .pt-card-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);border:1px solid var(--line);padding:5px 11px;}
   .pt-card-foot{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--ink-soft);padding-top:16px;border-top:1px solid var(--line);}
-  /* 500, not 600 — IBM Plex Mono is only loaded at 400/500 (see base.njk's
+  /* 500, not 600: IBM Plex Mono is only loaded at 400/500 (see base.njk's
      font link), so 600 here was requesting a weight the browser has to
      synthesize (fake-bold), rendering visibly different from every other
      mono element on the site even though the CSS "looked" like a small
@@ -554,7 +554,7 @@
   .pt-card-foot a:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
   .pt-card-foot a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;}
 
-  /* ARCHIVE GRID — /public-thinking/: every piece gets the same .pt-card,
+  /* ARCHIVE GRID, /public-thinking/: every piece gets the same .pt-card,
      newest first by array order alone. 2-up desktop matches the bordered-
      cell idiom already used by .q-grid/.work-grid elsewhere on the site. */
   .pt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:8px;}
@@ -569,12 +569,12 @@
     .approach-detail{grid-template-columns:1fr;}
   }
 
-/* ===== PUBLIC THINKING — ARTICLE ===== */
+/* ===== PUBLIC THINKING: ARTICLE ===== */
 
   .pt-article-wrap{max-width:1000px;}
   .pt-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:56px 0 22px;border-bottom:1px solid var(--line);}
-  /* pt-kicker is this page's page-level identity eyebrow — the same role
-     .page-eyebrow plays on About/Approach/Contact/PT-index — so it now
+  /* pt-kicker is this page's page-level identity eyebrow: the same role
+     .page-eyebrow plays on About/Approach/Contact/PT-index: so it now
      shares that convention's color (petrol) instead of the brass used by
      mid-page section markers, which are a different, repeated-per-section
      role and are left as-is. */
@@ -584,7 +584,7 @@
   .pt-lang-switch a{color:var(--ink-soft);border-bottom:1px solid var(--line);}
   .pt-lang-switch a:hover{color:var(--petrol);border-color:var(--petrol);}
 
-  /* ARTICLE MASTHEAD — asymmetric: paper reading column + one substantial
+  /* ARTICLE MASTHEAD, asymmetric: paper reading column + one substantial
      secondary field carrying real content (topics, the open question),
      not the homepage hero repeated. accent-* mirrors the same optional
      accentColor field used by the Public Thinking index's featured record,
@@ -605,10 +605,10 @@
   .pt-meta-confidence{color:var(--brass);}
   .pt-pdf-link{margin:20px 0 0;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);}
   .pt-pdf-link a{border-bottom:1.5px solid var(--brass);}
-  /* HERO context — same .pt-motif base/SVG as the card version, sized up
+  /* HERO context: same .pt-motif base/SVG as the card version, sized up
      and quieter: this sits behind a full title+deck column, not a small
      card, so it earns more room but needs less opacity to stay subordinate.
-     z-index:0 here is a label, not the mechanism — .pt-masthead-content's
+     z-index:0 here is a label, not the mechanism: .pt-masthead-content's
      explicit z-index:1 is what actually keeps text on top (see above). */
   .pt-motif--hero{bottom:-10%;right:-6%;width:58%;height:82%;opacity:0.05;z-index:0;}
   @media (max-width:860px){.pt-motif--hero{opacity:0.04;width:70%;height:60%;bottom:-6%;right:-8%;}}
@@ -623,14 +623,14 @@
   .pt-side-oq{font-size:16px;border-top:1px solid rgba(246,244,239,0.25);padding-top:20px;margin:0;}
   .pt-masthead-side.accent-brass .pt-side-oq{border-top-color:rgba(27,25,18,0.15);}
 
-  /* CLOSING FIELD — a piece's geometry (see geo-plate.njk) as environmental
+  /* CLOSING FIELD: a piece's geometry (see geo-plate.njk) as environmental
      background around the close of the piece, not a standalone inserted
      graphic. Lives behind the closing section now rather than the top of
      the body, so it reads as a deliberate sign-off rather than competing
      with the masthead's own motif for the reader's first few seconds on
      the page. Absolutely positioned and clamped to a modest width (the
      same technique as the homepage hero field) so it never dictates
-     document height — hiding it changes nothing about the closing
+     document height: hiding it changes nothing about the closing
      section's own flow or spacing. Optional, via a piece's own `geometry`
      frontmatter; a piece with none renders no field at all. */
   .pt-closing-field{position:relative;overflow:hidden;}
@@ -648,12 +648,12 @@
   .pt-body a{border-bottom:1.5px solid var(--brass);}
   .pt-body a:hover{color:var(--petrol);border-color:var(--petrol);}
 
-  /* EDITORIAL ITALIC — one shared voice for the three places a piece
+  /* EDITORIAL ITALIC: one shared voice for the three places a piece
      pauses to state something directly: a mid-article pull-quote, a
      sidebar's open question, an article's closing question. Shared via a
      selector list rather than a markup class, because .pt-pullquote is
      authored directly inside published Field Note content and that
-     content is never edited — each still overrides only what genuinely
+     content is never edited: each still overrides only what genuinely
      differs: size, color, border, spacing. */
   .pt-pullquote,.pt-side-oq,.pt-closing-question{font-family:'Fraunces',serif;font-weight:400;font-style:italic;line-height:var(--lh-editorial-italic);}
   .pt-pullquote{font-size:clamp(21px,2.6vw,26px);color:var(--petrol);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;margin:44px 0;max-width:640px;}

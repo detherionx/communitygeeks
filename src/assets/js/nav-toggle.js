@@ -1,5 +1,5 @@
 // Mobile nav menu toggle. Below the 860px breakpoint, style.css hides
-// .nav-menu until this adds the .open class — every link inside is still a
+// .nav-menu until this adds the .open class: every link inside is still a
 // real, server-rendered <a>, this only controls whether it's shown.
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');

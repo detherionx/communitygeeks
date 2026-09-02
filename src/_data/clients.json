@@ -1,5 +1,5 @@
 {
-  "note": "Source of truth: Communitygeeks OS → Public Source Pack → 'Nameable Organizations' table. Do not add an organization here without checking that table first — several of these have real naming constraints (see notes).",
+  "note": "Source of truth: Communitygeeks OS → Public Source Pack → 'Nameable Organizations' table. Do not add an organization here without checking that table first, several of these have real naming constraints (see notes).",
   "logoWall": [
     {
       "name": "DeepL",
@@ -8,7 +8,7 @@
     {
       "name": "EU Academy",
       "logoPath": "/assets/images/logos/european-commission.svg",
-      "logoSourceNote": "European Commission's own logo, used here since EU Academy itself has no logo file — see the selectedWork entry below for the full reasoning."
+      "logoSourceNote": "European Commission's own logo, used here since EU Academy itself has no logo file, see the selectedWork entry below for the full reasoning."
     },
     {
       "name": "Tencent",
@@ -17,12 +17,12 @@
     {
       "name": "ZAM",
       "logoPath": "/assets/images/logos/zam.png",
-      "logoSourceNote": "Shown alongside Tencent on purpose (2026-08-11, Carmelito's call) — the actual engagement ran through ZAM even though Selected Work displays it as 'Tencent' for name recognition. White-only mark (zam.com is dark-background, like Space Whale) — works via the mask-based logo-badge component, not displayed as a plain <img>."
+      "logoSourceNote": "Shown alongside Tencent on purpose (2026-08-11, Carmelito's call): the actual engagement ran through ZAM even though Selected Work displays it as 'Tencent' for name recognition. White-only mark (zam.com is dark-background, like Space Whale), works via the mask-based logo-badge component, not displayed as a plain <img>."
     },
     {
       "name": "Space Whale",
       "logoPath": "/assets/images/logos/space-whale-white.svg",
-      "logoSourceNote": "White-only mark, used as a mask source (see .logo-badge in style.css) rather than a plain <img> — that's what makes it work despite having no light-background variant."
+      "logoSourceNote": "White-only mark, used as a mask source (see .logo-badge in style.css) rather than a plain <img>, that's what makes it work despite having no light-background variant."
     },
     {
       "name": "Billbee",
@@ -45,7 +45,7 @@
       "name": "EU Academy",
       "proof": "Community and education programs for the European Commission's EU Academy.",
       "tag": "Public sector",
-      "namingNote": "Always name as 'the European Commission' / 'EU Academy' only. The real contracting chain runs through intermediary subcontractors — never name those, in this file or anywhere else.",
+      "namingNote": "Always name as 'the European Commission' / 'EU Academy' only. The real contracting chain runs through intermediary subcontractors, never name those, in this file or anywhere else.",
       "logoPath": "/assets/images/logos/european-commission.svg",
       "logoSourceNote": "EU Academy itself has no logo file (its own header renders 'eu|academy' as styled text, not an image). Using the European Commission's own official 'positive' (light-background) logo instead, since Carmelito confirmed that's the right call given the Commission owns the platform. Source: commission.europa.eu, official theme asset (2026-08-11)."
     },
@@ -55,7 +55,7 @@
       "tag": "Gaming",
       "namingNote": "Engagement ran through ZAM; listed as Tencent for name recognition per founder decision. ZAM is shown separately in the logoWall marquee (see above), not duplicated here as its own Selected Work card.",
       "logoPath": "/assets/images/logos/tencent.png",
-      "logoSourceNote": "Official wordmark, from tencent.com's own site header (2026-08-11) — Tencent's own mark, not ZAM's, since this entry displays as 'Tencent' per the naming note above."
+      "logoSourceNote": "Official wordmark, from tencent.com's own site header (2026-08-11): Tencent's own mark, not ZAM's, since this entry displays as 'Tencent' per the naming note above."
     },
     {
       "name": "Space Whale",
@@ -63,7 +63,7 @@
       "tag": "Gaming",
       "namingNote": "Space Whale is the gaming division of parent entity Digital Mosaik. Always use 'Space Whale' publicly, never 'Digital Mosaik'.",
       "logoPath": "/assets/images/logos/space-whale-white.svg",
-      "logoSourceNote": "White-only official mark (2026-08-11) — rendered via the mask-based .logo-badge component (style.css), never as a plain <img>, since it has no light-background variant. Don't swap this back to a raw <img class=\"work-logo\">, it'll be invisible."
+      "logoSourceNote": "White-only official mark (2026-08-11): rendered via the mask-based .logo-badge component (style.css), never as a plain <img>, since it has no light-background variant. Don't swap this back to a raw <img class=\"work-logo\">, it'll be invisible."
     },
     {
       "name": "Billbee",
@@ -76,9 +76,9 @@
       "name": "GB Foods",
       "proof": "Prior project.",
       "tag": "FMCG",
-      "contentNote": "Founder-confirmed nameable, fuller context still pending from founder — do not expand this description beyond 'Prior project' without new source material.",
+      "contentNote": "Founder-confirmed nameable, fuller context still pending from founder, do not expand this description beyond 'Prior project' without new source material.",
       "logoPath": "/assets/images/logos/gb-foods.png",
-      "logoSourceNote": "Confirmed by Carmelito as the Spanish FMCG multinational (thegbfoods.com), not the unrelated US company at gbfoodinc.com. Only regional marks exist on their site (Europe/Africa) — no unqualified 'GB Foods' logo. Using the Europe variant (2026-08-11)."
+      "logoSourceNote": "Confirmed by Carmelito as the Spanish FMCG multinational (thegbfoods.com), not the unrelated US company at gbfoodinc.com. Only regional marks exist on their site (Europe/Africa), no unqualified 'GB Foods' logo. Using the Europe variant (2026-08-11)."
     }
   ]
 }

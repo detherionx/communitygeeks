@@ -7,14 +7,14 @@ const people = require("../_data/people.js");
 
 // Shared by src/_data/publicThinking.js (EN) and src/_data/publicThinkingDe.js
 // (DE) so the content-file parsing and cross-language linking logic exists
-// exactly once. Not itself an Eleventy global data file — it lives outside
+// exactly once. Not itself an Eleventy global data file, it lives outside
 // _data/ on purpose, so Eleventy doesn't also try to expose it as one.
 
 const ALLOWED_CONFIDENCE = ["Observation", "Emerging Pattern", "Research Finding"];
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "public-thinking");
 const DEFAULT_IMAGE = "https://communitygeeks.ai/assets/images/og-image.png";
 
-// A content file's `authors` list is plain names — src/_data/people.js is the
+// A content file's `authors` list is plain names: src/_data/people.js is the
 // single source of truth for url/image/bio, so an identity never forks across
 // pieces or across EN/DE. A name with no entry there still works as a byline,
 // just without a linked profile (a contributor who isn't a public author yet).
@@ -45,7 +45,7 @@ function loadAll() {
       throw new Error(
         `Public Thinking item "${data.title}" (${filename}) has confidence "${data.confidence}", ` +
           `which is not an approved public-facing label (${ALLOWED_CONFIDENCE.join(", ")}). ` +
-          `See Public Source Pack → "Public Thinking — Confidence Vocabulary Map" before publishing.`
+          `See Public Source Pack → "Public Thinking: Confidence Vocabulary Map" before publishing.`
       );
     }
 
@@ -106,7 +106,7 @@ function loadAll() {
   return items;
 }
 
-// Minimal CollectionPage/ItemList JSON-LD for the archive index — generated
+// Minimal CollectionPage/ItemList JSON-LD for the archive index: generated
 // from the same items array the index page already renders, so it never
 // drifts out of sync as pieces are added. Deliberately thin: the archive's
 // real SEO signal is the crawlable HTML itself (real <a href> per card,

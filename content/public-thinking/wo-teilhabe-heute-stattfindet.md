@@ -23,7 +23,7 @@ geometry:
     - { type: line, x1: 10, y1: 205, x2: 310, y2: 205, color: brass, opacity: 0.3 }
 pdf: null
 related: []
-openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt — wo findet Teilhabe heute eigentlich statt?"
+openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt: wo findet Teilhabe heute eigentlich statt?"
 researchThread: "Teilhabe und Ökosysteme im Zeitalter der KI"
 ---
 
@@ -33,12 +33,12 @@ Seine Arbeitsdefinition von „Ökosystem" war für uns sehr aufschlussreich. Al
 
 <figure class="pt-figure">
   <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" data-lightbox aria-label="Abbildung 1 vergrößern">
-    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagramm: ein Unternehmen im Zentrum, umgeben von sechs Ökosystem-Gruppen — Technologiepartner, Service- und Lösungspartner, Affiliate- und Empfehlungspartner, Influencer und Content-Ersteller, Kundenfürsprecher und -botschafter, gesponserte Veranstaltungen — mit Community als verbindender Schicht durch alle Gruppen." loading="lazy">
+    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagramm: ein Unternehmen im Zentrum, umgeben von sechs Ökosystem-Gruppen, Technologiepartner, Service- und Lösungspartner, Affiliate- und Empfehlungspartner, Influencer und Content-Ersteller, Kundenfürsprecher und -botschafter, gesponserte Veranstaltungen, mit Community als verbindender Schicht durch alle Gruppen." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 1</span>
     <span class="pt-figure-cap">Andy Claremonts Arbeitsdefinition von „Ökosystem": sechs Kontaktgruppen rund um das Unternehmen, mit Community als verbindender Schicht statt als eigener, siebter Gruppe.</span>
-    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug. 2026.</span>
+    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug. 2026.</span>
   </figcaption>
 </figure>
 
@@ -55,12 +55,12 @@ Aus diesem Gespräch ergibt sich für uns ein möglicher Ansatz für die Arbeit 
 
 <figure class="pt-figure">
   <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop.svg" data-lightbox aria-label="Abbildung 2 vergrößern">
-    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagramm: ein fortlaufender Kreis aus vier Verben — Identifizieren, Verstehen, Gestalten, Stärken — als möglicher Blick auf Ökosystem-Arbeit, nicht als feste Methodik mit festem Startpunkt." loading="lazy">
+    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagramm: ein fortlaufender Kreis aus vier Verben, Identifizieren, Verstehen, Gestalten, Stärken, als möglicher Blick auf Ökosystem-Arbeit, nicht als feste Methodik mit festem Startpunkt." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 2</span>
-    <span class="pt-figure-cap">Die vier Schritte als Kreis, nicht als nummerierte Abfolge — bewusst ohne festen Startpunkt, weil dieses Field Note sie als Linse versteht, nicht als abgeschlossene Methodik.</span>
-    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide — Communitygeeks Field Note, Aug. 2026.</span>
+    <span class="pt-figure-cap">Die vier Schritte als Kreis, nicht als nummerierte Abfolge: bewusst ohne festen Startpunkt, weil dieses Field Note sie als Linse versteht, nicht als abgeschlossene Methodik.</span>
+    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug. 2026.</span>
   </figcaption>
 </figure>
 

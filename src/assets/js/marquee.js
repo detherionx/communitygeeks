@@ -3,7 +3,7 @@
 // runs out of content before wrapping and shows a visible gap. Server-side
 // we can only render a fixed number of logo sets (7 clients x 2 for the
 // loop), which isn't enough on very wide screens. This tops the track up at
-// runtime by cloning whole existing sets (decorative, aria-hidden — the one
+// runtime by cloning whole existing sets (decorative, aria-hidden, the one
 // real accessible set from the server is never touched) until each half is
 // wide enough, keeping the two-halves-of-equal-width invariant the CSS loop
 // depends on.

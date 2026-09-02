@@ -1,4 +1,4 @@
-// Public Thinking figure lightbox. Progressive enhancement only — every
+// Public Thinking figure lightbox. Progressive enhancement only: every
 // figure link points at the real image file, so this still works (as a
 // normal navigation) with JS disabled.
 document.addEventListener('DOMContentLoaded', () => {

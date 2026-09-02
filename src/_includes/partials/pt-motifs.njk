@@ -1,11 +1,11 @@
-{# One piece's editorial watermark — a restrained Bauhaus motif derived from
+{# One piece's editorial watermark: a restrained Bauhaus motif derived from
    its subject, not a thumbnail or a network diagram. This macro returns
    only the bare SVG; every context that uses it (.pt-card on the homepage
    rail/archive grid, the article hero) wraps it in its own .pt-motif--card
    / .pt-motif--hero container with its own position/scale/opacity in
    style.css. The SVG itself is never duplicated per context.
 
-   Extending this — two cases:
+   Extending this, two cases:
    - A new piece reusing an existing motif slug: frontmatter-only change,
      nothing here or in style.css needs to move.
    - A genuinely new motif design: add a new {% elif motif == "your-slug" %}

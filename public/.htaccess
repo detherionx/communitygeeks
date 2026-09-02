@@ -8,11 +8,11 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^communitygeeks\.ai$ [NC]
 RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 
-# Security headers — hardening pass 2026-09-02. Origin inventory this is
+# Security headers: hardening pass 2026-09-02. Origin inventory this is
 # built from: self (assets, JSON-LD script blocks are exempt from CSP),
 # fonts.googleapis.com + fonts.gstatic.com (Google Fonts CSS + font files),
 # cloud.umami.is (analytics script tag) + gateway.umami.is (Umami Cloud's
-# separate send-beacon endpoint — confirmed live via report-only violations
+# separate send-beacon endpoint, confirmed live via report-only violations
 # in production; the script and the ingestion host are different
 # subdomains), and form.typeform.com (the /contact page's embedded iframe).
 # No other third-party origins, no native <form action>, no data: URIs in use.
@@ -27,7 +27,7 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 # <script> in the templated site is proposals/tripo/index.html's print-layout
 # helper. That page is noindex/nofollow and not linked from nav or the
 # sitemap, so it's left to report a CSP violation rather than loosening the
-# policy for the rest of the site — see HANDOFF.md if that page needs a
+# policy for the rest of the site, see HANDOFF.md if that page needs a
 # scoped exception later.
 <IfModule mod_headers.c>
   # HSTS: apex only for now. No includeSubDomains/preload until every
@@ -41,12 +41,12 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
   Header always set X-Frame-Options "SAMEORIGIN"
 
   # Conservative deny-list: capabilities with zero use in src/assets/js or
-  # any template (confirmed by grep — no navigator.geolocation, no payment
+  # any template (confirmed by grep: no navigator.geolocation, no payment
   # request, no camera/mic capture, no WebUSB/MIDI/sensor APIs, no
   # requestFullscreen). The Typeform contact iframe requests camera/mic/
   # autoplay itself via its own allow="" attribute, but no Permissions-Policy
   # header existed before this change either, so cross-origin delegation of
-  # those features was already governed by the browser default ('self') —
+  # those features was already governed by the browser default ('self'),
   # this header does not newly restrict anything Typeform previously had.
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), midi=(), fullscreen=()"
 

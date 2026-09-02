@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Communitygeeks — Community, DevRel & Participation Research
-description: Communitygeeks researches how community, developer relations (DevRel), partnerships and other forms of participation work around products — and advises organizations based on what the evidence shows.
+title: "Communitygeeks: Community, DevRel & Participation Research"
+description: Communitygeeks researches how community, developer relations (DevRel), partnerships and other forms of participation work around products, and advises organizations based on what the evidence shows.
 permalink: /
 extraScripts:
   - marquee.js
@@ -65,7 +65,7 @@ closingCta:
         {% include "partials/node-mark.njk" %}
         <span class="label">How Communitygeeks Thinks</span>
       </div>
-      <h2>Not <span class="old">where does your community run</span> — but who's actually participating, and how.</h2>
+      <h2>Not <span class="old">where does your community run</span>, but who's actually participating, and how.</h2>
       <p class="think-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
     </div>
 
@@ -201,7 +201,7 @@ closingCta:
       <h2>Live findings, not a static portfolio.</h2>
     </div>
     <div class="pt-rail-wrap">
-      <div class="pt-rail" tabindex="0" role="region" aria-label="Public Thinking — latest research">
+      <div class="pt-rail" tabindex="0" role="region" aria-label="Public Thinking: latest research">
         {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 3) }}{% endfor %}
       </div>
       <button type="button" class="pt-rail-nav prev" aria-label="Previous"{% if publicThinking.length < 2 %} disabled{% endif %}>‹</button>
