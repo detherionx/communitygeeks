@@ -623,15 +623,18 @@
   .pt-side-oq{font-size:16px;border-top:1px solid rgba(246,244,239,0.25);padding-top:20px;margin:0;}
   .pt-masthead-side.accent-brass .pt-side-oq{border-top-color:rgba(27,25,18,0.15);}
 
-  /* BODY FIELD — a piece's geometry (see geo-plate.njk) as environmental
-     background around the opening of the body, not a standalone inserted
-     graphic. Absolutely positioned and clamped to a modest width (the same
-     technique as the homepage hero field) so it never dictates document
-     height — hiding it changes nothing about the body's own flow or
-     spacing. Optional, via a piece's own `geometry` frontmatter; a piece
-     with none renders no field at all. */
-  .pt-body-field{position:relative;overflow:hidden;}
-  .pt-body-field .pt-body{position:relative;z-index:1;}
+  /* CLOSING FIELD — a piece's geometry (see geo-plate.njk) as environmental
+     background around the close of the piece, not a standalone inserted
+     graphic. Lives behind the closing section now rather than the top of
+     the body, so it reads as a deliberate sign-off rather than competing
+     with the masthead's own motif for the reader's first few seconds on
+     the page. Absolutely positioned and clamped to a modest width (the
+     same technique as the homepage hero field) so it never dictates
+     document height — hiding it changes nothing about the closing
+     section's own flow or spacing. Optional, via a piece's own `geometry`
+     frontmatter; a piece with none renders no field at all. */
+  .pt-closing-field{position:relative;overflow:hidden;}
+  .pt-closing-field .pt-closing{position:relative;z-index:1;}
   .pt-field-geo{position:absolute;top:-10px;right:-30px;z-index:0;pointer-events:none;width:clamp(220px,30vw,360px);height:auto;}
   @media (max-width:860px){.pt-field-geo{display:none;}}
 

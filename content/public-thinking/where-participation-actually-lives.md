@@ -19,6 +19,12 @@ pdf: null
 related:
   - slug: "rethinking-where-participation-happens"
     title: "Rethinking Where Participation Happens"
+geometry:
+  viewBox: "-70 0 390 430"
+  shapes:
+    - { type: circle, cx: 60, cy: 300, r: 130, color: brass, opacity: 0.08 }
+    - { type: triangle, points: "180,40 320,40 250,180", color: petrol, opacity: 0.1 }
+    - { type: line, x1: 20, y1: 120, x2: 300, y2: 120, color: ink, opacity: 0.25 }
 openQuestion: "What actually happens at the boundaries between community, DevRel, marketing, partnerships, product, sales, and executive strategy?"
 researchThread: "participation and organizational boundaries in gaming ecosystems"
 ---

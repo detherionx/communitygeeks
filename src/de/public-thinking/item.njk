@@ -56,31 +56,31 @@ extraScripts:
       {% endif %}
     </header>
 
-    <div class="pt-body-field">
+    <div class="pt-body">
+      {{ piece.contentHtml | safe }}
+    </div>
+
+    <div class="pt-closing-field">
       {% if piece.geometry and piece.geometry.shapes %}
       {{ geoPlate(shapes=piece.geometry.shapes, viewBox=piece.geometry.viewBox or "0 0 300 300", extraClass="pt-field-geo") }}
       {% endif %}
-      <div class="pt-body">
-        {{ piece.contentHtml | safe }}
-      </div>
+      <footer class="pt-closing">
+        {% if piece.openQuestion %}
+        <p class="pt-closing-question">{{ piece.openQuestion }}</p>
+        {% endif %}
+        <p class="pt-closing-thread">Teil unserer laufenden Recherche zu {{ piece.researchThread or "Teilhabe rund um Unternehmen" }}.</p>
+
+        {% if piece.related and piece.related.length %}
+        <ul class="pt-related-list">
+          {% for rel in piece.related %}
+          <li><a href="/de/public-thinking/{{ rel.slug }}/">{{ rel.title }} →</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <p class="pt-closing-invite">Sehen Sie das anders? <a href="/contact/">Wir würden es gerne hören →</a></p>
+      </footer>
     </div>
-
-    <footer class="pt-closing">
-      {% if piece.openQuestion %}
-      <p class="pt-closing-question">{{ piece.openQuestion }}</p>
-      {% endif %}
-      <p class="pt-closing-thread">Teil unserer laufenden Recherche zu {{ piece.researchThread or "Teilhabe rund um Unternehmen" }}.</p>
-
-      {% if piece.related and piece.related.length %}
-      <ul class="pt-related-list">
-        {% for rel in piece.related %}
-        <li><a href="/de/public-thinking/{{ rel.slug }}/">{{ rel.title }} →</a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-
-      <p class="pt-closing-invite">Sehen Sie das anders? <a href="/contact/">Wir würden es gerne hören →</a></p>
-    </footer>
 
     {% for name in piece.authors %}
     {% set person = people[name] %}
