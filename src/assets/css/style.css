@@ -706,3 +706,41 @@
     .pt-meta{gap:14px 20px;}
     .pt-pullquote{padding:24px 0;margin:32px 0;}
   }
+
+/* ===== PUBLIC THINKING: OG CARD (generated social image) ===== */
+
+  /* Fixed 1200x630 composition, screenshotted by scripts/generate-og-images.js
+     — never viewed in an actual browser by a visitor. Deliberately reuses
+     this same stylesheet, the site's real Google Fonts link, node-mark.njk,
+     and pt-motifs.njk's ptMotif() macro rather than re-declaring colors/type
+     in a parallel system, so the card can never visually drift from the
+     site: change a token here and both the site and every future generated
+     card pick it up together. Fixed px throughout (not the fluid --fs-*
+     tokens used elsewhere) because this is one exact-pixel export target,
+     never a responsive viewport. */
+  .og-card{width:1200px;height:630px;position:relative;overflow:hidden;background:var(--paper);font-family:'Archivo',sans-serif;}
+  .og-kicker{position:absolute;top:80px;left:84px;display:flex;align-items:center;gap:14px;z-index:1;}
+  .og-kicker .node-mark{width:24px;height:15px;}
+  .og-kicker-label{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--petrol);}
+  .og-card.accent-brass .og-kicker-label{color:var(--brass);}
+  .og-card.accent-ink .og-kicker-label{color:var(--ink);}
+  .og-card.accent-brass .og-kicker .node-mark .solid{fill:var(--brass);}
+  .og-card.accent-ink .og-kicker .node-mark .solid{fill:var(--ink);}
+  .og-rule{position:absolute;top:132px;left:84px;width:300px;height:2.5px;background:var(--ink);z-index:1;}
+  .og-headline{position:absolute;top:174px;left:84px;right:460px;max-width:16ch;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:66px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);}
+  .og-deck{position:absolute;top:400px;left:86px;right:480px;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:22px;line-height:1.5;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .og-sig{position:absolute;bottom:56px;left:86px;display:flex;align-items:center;gap:12px;z-index:1;}
+  .og-sig .node-mark .solid{fill:var(--brass);}
+  .og-sig .node-mark .open{stroke:var(--brass);}
+  .og-sig-label{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;letter-spacing:0.1em;color:var(--brass);}
+  /* Reuses .pt-motif/ptMotif() exactly as-is; only this context's position/
+     scale/opacity is new, following the same --card/--hero precedent above.
+     Solid-shape motifs (e.g. "gaming") and thin-line motifs (e.g.
+     "people-beyond-container") don't carry the same visual weight at equal
+     opacity, so — same as --card already does for "gaming" — each motif
+     gets its own tuned opacity here rather than one shared value forcing a
+     compromise, and rather than an accentColor-adjacent field on the piece
+     itself doing this per-article. */
+  .pt-motif--og{bottom:-8%;right:-4%;width:62%;height:88%;z-index:0;}
+  .pt-motif--og.pt-motif-gaming{opacity:0.13;}
+  .pt-motif--og.pt-motif-people-beyond-container{opacity:0.26;}

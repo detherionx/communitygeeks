@@ -12,7 +12,15 @@ const people = require("../_data/people.js");
 
 const ALLOWED_CONFIDENCE = ["Observation", "Emerging Pattern", "Research Finding"];
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "public-thinking");
-const DEFAULT_IMAGE = "https://communitygeeks.ai/assets/images/og-image.png";
+
+// Where scripts/generate-og-images.js writes a piece's generated card, and
+// therefore also the deterministic URL used below — computed from `slug`
+// alone, before that file necessarily exists on disk. Screenshot generation
+// runs as a separate step after this build, so the file only has to exist
+// by the time the site is actually deployed, not at template-render time.
+function generatedOgImagePath(slug) {
+  return `/assets/images/public-thinking/og/${slug}.png`;
+}
 
 // A content file's `authors` list is plain names: src/_data/people.js is the
 // single source of truth for url/image/bio, so an identity never forks across
@@ -54,7 +62,15 @@ function loadAll() {
     const fullUrl = `https://communitygeeks.ai${url}`;
     const authorNames = data.authors && data.authors.length ? data.authors : [];
     const authorNodes = authorNames.map(personNode);
-    const image = data.heroImage ? `https://communitygeeks.ai${data.heroImage}` : DEFAULT_IMAGE;
+
+    // ogImage: purely a social/Article-schema asset, never rendered on the
+    // page itself (confirmed nothing in item.njk displays it) — so it's
+    // named for what it does, not "hero". Explicit frontmatter override >
+    // this piece's own generated card (the normal case, once motif/title/
+    // deck give the generator something to compose) > the sitewide default,
+    // which stays reserved for pages with no piece-level identity at all.
+    const ogImageIsExplicit = Boolean(data.ogImage);
+    const image = ogImageIsExplicit ? `https://communitygeeks.ai${data.ogImage}` : `https://communitygeeks.ai${generatedOgImagePath(data.slug)}`;
 
     // Precomputed here (not templated in item.njk) so title/summary get
     // proper JSON string escaping via JSON.stringify rather than risking
@@ -86,6 +102,8 @@ function loadAll() {
       authors: authorNames,
       contentHtml: md.render(content),
       articleJsonLd,
+      ogImage: image,
+      ogImageIsExplicit,
     };
   });
 

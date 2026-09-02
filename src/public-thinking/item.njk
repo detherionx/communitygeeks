@@ -10,6 +10,8 @@ permalink: "{{ piece.url }}"
 eleventyComputed:
   title: "{{ piece.title | safe }}"
   description: "{{ piece.summary | safe }}"
+  ogImage: "{{ piece.ogImage }}"
+  ogImageAlt: "{{ piece.title | safe }} · Communitygeeks"
   extraHead:
     - "{{ piece.articleJsonLd | safe }}"
     - "{% if piece.translations.de %}<link rel='alternate' hreflang='en' href='https://communitygeeks.ai{{ piece.url }}'><link rel='alternate' hreflang='de' href='https://communitygeeks.ai{{ piece.translations.de }}'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai{{ piece.url }}'>{% endif %}"

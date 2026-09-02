@@ -48,9 +48,14 @@ authors:                            # One or more names, byline order. Each name
                                      # see Public Source Pack → "Not Yet Ready for Publication"), and only add
                                      # a real people.js entry once they're actually a bylined public author.
   - "Carmelito Bauer"
-heroImage: null                     # Optional. Path like "/assets/images/public-thinking/your-image.jpg" if you add one.
-                                     # Also becomes the Article schema's `image`, falls back to the sitewide
-                                     # og-image when not set.
+ogImage: null                       # Optional. Manual override for this piece's social-card image (og:image,
+                                     # twitter:image, and the Article schema's `image`) — path like
+                                     # "/assets/images/public-thinking/your-image.jpg". Leave unset for the normal
+                                     # case: every piece otherwise gets a 1200x630 card auto-generated at build
+                                     # time from its title/deck/format/motif/accentColor (see
+                                     # scripts/generate-og-images.js), so you don't need to make one by hand. This
+                                     # is not a visible on-page hero image — nothing on the article page itself
+                                     # renders it.
 dateModified: null                  # Optional. Set only when a published piece gets a substantive revision,
                                      # falls back to `date` otherwise.
 pdf: null                           # Optional. Path to a downloadable PDF under public/ if this piece has one,

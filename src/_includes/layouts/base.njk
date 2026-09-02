@@ -11,16 +11,16 @@
 <meta property="og:description" content="{{ description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://communitygeeks.ai{{ page.url }}">
-<meta property="og:image" content="https://communitygeeks.ai/assets/images/og-image.png">
+<meta property="og:image" content="{{ ogImage or 'https://communitygeeks.ai/assets/images/og-image.png' }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Communitygeeks: Participation Research &amp; Advisory">
+<meta property="og:image:alt" content="{{ ogImageAlt or 'Communitygeeks: Participation Research & Advisory' }}">
 <link rel="canonical" href="https://communitygeeks.ai{{ page.url }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }} · Communitygeeks">
 <meta name="twitter:description" content="{{ description }}">
-<meta name="twitter:image" content="https://communitygeeks.ai/assets/images/og-image.png">
+<meta name="twitter:image" content="{{ ogImage or 'https://communitygeeks.ai/assets/images/og-image.png' }}">
 
 <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
