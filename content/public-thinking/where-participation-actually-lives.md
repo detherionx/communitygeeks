@@ -25,6 +25,15 @@ researchThread: "participation and organizational boundaries in gaming ecosystem
 
 Where does participation around products actually happen? This is the kind of question I went into this year's Gamescom with. I remember the gaming communities I've been a part of since my childhood days rather fondly: World of Warcraft and Lineage 2 forums, later fantasy sports leagues, then the emergence of Teamspeak servers and finally Discord. Community has always been a strong part of gaming, so this seemed like a good field lab for the research.
 
+<figure class="pt-figure">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-2026-entrance.jpg" data-lightbox aria-label="Enlarge photo">
+    <img src="/assets/images/public-thinking/gamescom-2026-entrance.jpg" alt="The entrance to Gamescom 2026 in Cologne, with a large sign reading 'Welcome to gamescom, The Heart of Gaming' above the doors and attendees walking in." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-cap">Gamescom 2026, Cologne — six conversations here are what this field note is built from.</span>
+  </figcaption>
+</figure>
+
 I reconnected with Tim Cadenbach, who I'd previously worked with at DeepL. Participation spilling out of a community container or forum isn't a new concept to him. "That's always been the case," he replied as I laid out my thinking.
 
 Mark Mandel, Staff Developer Advocate at Discord with a long history at Google Cloud, held a similar view. "DevRel has always been an octopus role," he said, describing how over his long tenure there were touchpoints with all kinds of different departments.
@@ -45,12 +54,12 @@ None of that resolves into one answer, and I don't think it should. I went in pa
 
 <figure class="pt-figure">
   <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-participation-field.svg" data-lightbox aria-label="Enlarge Figure 1">
-    <img class="pt-figure-desktop" src="/assets/images/public-thinking/gamescom-participation-field.svg" alt="Diagram: the product sits at the center of a porous company field containing community, marketing, devrel, partnerships, sales, strategy and product as plain labels, with players, creators, developers, studios, partners and institutions outside that field. Several participation paths cross the boundary and pass through multiple functions on their way to the product, and one path connects institutions to partners while only brushing the company field." loading="lazy">
-    <img class="pt-figure-mobile" src="/assets/images/public-thinking/gamescom-participation-field-mobile.svg" alt="Diagram: the ecosystem sits at the top, the porous company field in the middle contains community, marketing, devrel, partnerships, sales, strategy and product as plain labels, and the product sits at the bottom. Participation paths run down through the composition, crossing the boundary and multiple functions, and one path connects institutions to partners while only brushing the company field." loading="lazy">
+    <img class="pt-figure-desktop" src="/assets/images/public-thinking/gamescom-participation-field.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting directly above one continuous petrol field labelled Participation that runs the full width, well beyond the register on both sides." loading="lazy">
+    <img class="pt-figure-mobile" src="/assets/images/public-thinking/gamescom-participation-field-mobile.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting above one continuous petrol field labelled Participation." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>
-    <span class="pt-figure-cap">Not a Venn diagram and not an org chart: the product sits inside one porous company field, and participation reaches it by several crossing routes &mdash; including one that connects institutions and partners while only brushing the company itself.</span>
+    <span class="pt-figure-cap">Community, DevRel, Product, Marketing, Partnerships &mdash; a few of the functions participation runs through, not the boxes it's contained by.</span>
     <span class="pt-figure-source">Source: conversations with Tim Cadenbach, Mark Mandel, Justin Berenbaum, Oscar Clark, and representatives of Expertise France and the Dutch Games Association &mdash; Communitygeeks Field Note, Gamescom 2026.</span>
   </figcaption>
 </figure>

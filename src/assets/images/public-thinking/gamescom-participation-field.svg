@@ -1,95 +1,35 @@
-<svg viewBox="0 0 1040 1340" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Archivo, sans-serif" aria-label="Diagram: a boundary-field map showing the game or product at the center, seven internal organizational functions — community, developer relations, marketing, partnerships, product, sales, and executive strategy — arranged asymmetrically around it as overlapping, permeable zones inside a porous company boundary, with players, creators, developers, studios, partners, and government or institutions positioned outside that boundary, connected by several participation paths that cross multiple functions and the boundary itself, including one path that reaches the product through executive strategy without passing through community, and an associations node sitting between two external groups rather than inside the company.">
+<svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img" font-family="'Archivo', sans-serif" aria-label="Editorial illustration: a light register labelled SELECTED FUNCTIONS lists five illustrative organizational functions — community, devrel, product, marketing, and partnerships — followed by a plus and more, sitting directly above one continuous petrol field labelled PARTICIPATION that runs the full width, well beyond the register on both sides, expressing that participation is the larger, continuous phenomenon and these functions are only some of the territories it runs through.">
 
-  <rect x="0" y="0" width="1040" height="1340" fill="#F6F4EF"></rect>
+  <rect x="0" y="0" width="1000" height="300" fill="#F6F4EF"></rect>
 
-  <line x1="0" y1="2" x2="1040" y2="2" stroke="#1B1912" stroke-width="3"></line>
+  <!-- metadata label: explicitly names these as selected, not exhaustive -->
+  <text x="60" y="66" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="11" letter-spacing="0.08em" fill="#B08D57">SELECTED FUNCTIONS</text>
 
-  <!-- caption block -->
-  <text x="60" y="46" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#B08D57">EDITORIAL DIAGRAM &#183; GAMESCOM 2026</text>
-  <line x1="60" y1="57" x2="270" y2="57" stroke="#B08D57" stroke-width="2.5"></line>
-  <text x="60" y="90" font-family="Archivo, sans-serif" font-weight="700" font-size="25" fill="#1B1912">Participation moves across boundaries, not within one box</text>
-  <text x="60" y="116" font-size="14.5" fill="#4A473E">Seven functions overlap around the product; players, creators, developers, studios, partners</text>
-  <text x="60" y="134" font-size="14.5" fill="#4A473E">and institutions sit outside the company &#8212; participation runs through all of it at once.</text>
+  <!-- function register: a light rule-and-tick territory system, occupying
+       ~68% of the width — not boxes, not table cells -->
+  <line x1="60" y1="100" x2="740" y2="100" stroke="#1B1912" stroke-width="1.3"></line>
+  <g stroke="#1B1912" stroke-width="1.3">
+    <line x1="60"  y1="100" x2="60"  y2="114"></line>
+    <line x1="190" y1="100" x2="190" y2="114"></line>
+    <line x1="290" y1="100" x2="290" y2="114"></line>
+    <line x1="410" y1="100" x2="410" y2="114"></line>
+    <line x1="540" y1="100" x2="540" y2="114"></line>
+    <line x1="740" y1="100" x2="740" y2="114"></line>
+  </g>
+  <g font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="12.5" letter-spacing="0.03em" fill="#1B1912" text-anchor="middle">
+    <text x="125" y="136">COMMUNITY</text>
+    <text x="240" y="136">DEVREL</text>
+    <text x="350" y="136">PRODUCT</text>
+    <text x="475" y="136">MARKETING</text>
+    <text x="640" y="136">PARTNERSHIPS</text>
+  </g>
+  <text x="755" y="136" font-family="'IBM Plex Mono', monospace" font-weight="700" font-size="13" letter-spacing="0.03em" fill="#B08D57">+ AND MORE</text>
 
-  <!-- ================= porous company boundary (drawn first, behind everything) ================= -->
-  <polyline points="630.2,779.9 598.0,803.2 561.1,822.2 520.0,835.0 475.8,839.8 430.5,834.8 387.1,819.2 348.3,793.7 315.8,760.3" fill="none" stroke="#1F4B4C" stroke-width="1.4" stroke-dasharray="2 8" opacity="0.5"></polyline>
-  <polyline points="247.3,589.0 247.4,540.9 257.8,493.6 279.1,449.9 310.1,412.9 347.8,383.8 389.4,362.8 432.6,348.8 476.2,340.7 520.0,338.1 563.7,341.1 606.9,350.3 648.4,366.5" fill="none" stroke="#1F4B4C" stroke-width="1.4" stroke-dasharray="2 8" opacity="0.5"></polyline>
-  <polyline points="758.8,502.1 762.7,546.2 756.8,589.0 743.4,628.4 725.4,663.8" fill="none" stroke="#1F4B4C" stroke-width="1.4" stroke-dasharray="2 8" opacity="0.5"></polyline>
+  <!-- participation: the dominant field, full-bleed, extending well beyond
+       the function register on both sides; the word is centered on the
+       register's own span (60–740), not the full canvas, so the
+       alignment reads as deliberate rather than incidental -->
+  <rect x="0" y="172" width="1000" height="90" fill="#1F4B4C"></rect>
+  <text x="400" y="230" text-anchor="middle" font-weight="700" font-size="42" letter-spacing="0.01em" fill="#F6F4EF">PARTICIPATION</text>
 
-  <!-- ================= seven internal functions: irregular, overlapping, equal weight ================= -->
-  <polygon points="482.7,539.5 336.0,461.1 296.8,568.6 459.6,603.0" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- community -->
-  <polygon points="528.8,539.7 502.1,415.7 422.3,444.7 481.6,556.9" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- devrel -->
-  <polygon points="560.6,563.5 638.6,450.8 568.2,413.4 518.5,541.1" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- marketing -->
-  <polygon points="568.8,602.0 720.1,579.4 694.8,491.1 554.5,552.1" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- partnerships -->
-  <polygon points="546.0,621.9 627.9,669.0 653.2,606.4 561.5,583.4" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- product (function) -->
-  <polygon points="515.9,638.3 552.1,754.9 621.8,723.9 559.4,618.9" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- sales -->
-  <polygon points="468.9,615.2 362.0,733.3 445.4,789.6 514.9,646.2" fill="#1F4B4C" fill-opacity="0.12" stroke="#1B1912" stroke-width="1.3"></polygon> <!-- executive strategy -->
-
-  <!-- ================= participation paths: cross functions and the boundary ================= -->
-  <polyline points="232.6,395.1 421.6,553.2 425.0,554.4" fill="none" stroke="#1F4B4C" stroke-width="3" opacity="0.85"></polyline> <!-- players -> community -> product -->
-  <polyline points="481.0,218.4 491.4,510.5 560.0,513.8 543.9,544.0" fill="none" stroke="#1F4B4C" stroke-width="3" opacity="0.85"></polyline> <!-- creators -> devrel -> marketing -> product -->
-  <polyline points="520.0,944.4 463.7,672.5 489.7,634.0" fill="none" stroke="#1F4B4C" stroke-width="3" opacity="0.85"></polyline> <!-- government -> executive strategy -> product, never touching community -->
-  <polyline points="880.5,538.3 608.3,563.7 553.4,664.1 540.0,634.0" fill="none" stroke="#1F4B4C" stroke-width="3" opacity="0.85"></polyline> <!-- studios -> partnerships -> sales -> product -->
-
-  <!-- associations: a connector sitting between two external groups, not inside the company -->
-  <line x1="703.3" y1="1000.7" x2="798.8" y2="823.0" stroke="#B08D57" stroke-width="1.6" stroke-dasharray="2 6" opacity="0.7"></line>
-  <line x1="703.3" y1="1000.7" x2="520.0" y2="944.4" stroke="#B08D57" stroke-width="1.6" stroke-dasharray="2 6" opacity="0.7"></line>
-
-  <!-- ================= product / game hub (drawn on top, the one privileged mass) ================= -->
-  <rect x="425" y="544" width="190" height="90" fill="#1B1912"></rect>
-  <rect x="425" y="544" width="10" height="90" fill="#B08D57"></rect>
-  <text x="520" y="583" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="19" letter-spacing="0.02em" fill="#F6F4EF">PRODUCT / GAME</text>
-  <text x="520" y="604" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" fill="#F6F4EF" opacity="0.7" letter-spacing="0.02em">THE VEHICLE, NOT THE COMMUNITY</text>
-
-  <!-- ================= zone labels (set after the hub, so never covered) ================= -->
-  <text x="347.3" y="522" text-anchor="middle" font-weight="700" font-size="16" letter-spacing="0.02em" fill="#1B1912">COMMUNITY</text>
-  <text x="470.8" y="450" text-anchor="middle" font-weight="700" font-size="16" letter-spacing="0.02em" fill="#1B1912">DEVREL</text>
-  <text x="590.6" y="453" text-anchor="middle" font-weight="700" font-size="16" letter-spacing="0.02em" fill="#1B1912">MARKETING</text>
-  <text x="678.3" y="540" text-anchor="middle" font-weight="700" font-size="16" letter-spacing="0.02em" fill="#1B1912">PARTNERSHIPS</text>
-  <text x="654" y="649" text-anchor="middle" font-weight="700" font-size="14.5" letter-spacing="0.02em" fill="#1B1912">PRODUCT</text>
-  <text x="577.1" y="714" text-anchor="middle" font-weight="700" font-size="16" letter-spacing="0.02em" fill="#1B1912">SALES</text>
-  <text x="421.3" y="729" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">EXECUTIVE</text>
-  <text x="421.3" y="748" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">STRATEGY</text>
-
-  <!-- ================= external ecosystem nodes (outside the boundary) ================= -->
-  <rect x="132.6" y="363.1" width="200" height="64" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="232.6" y="401.8" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">PLAYERS / USERS</text>
-
-  <rect x="401.0" y="186.4" width="160" height="64" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="481.0" y="225.1" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">CREATORS</text>
-
-  <rect x="645.9" y="283.8" width="175" height="64" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="733.4" y="322.5" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">DEVELOPERS</text>
-
-  <rect x="805.5" y="506.3" width="150" height="64" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="880.5" y="545" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">STUDIOS</text>
-
-  <rect x="721.3" y="791.0" width="155" height="64" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="798.8" y="829.7" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">PARTNERS</text>
-
-  <rect x="410.0" y="900.4" width="220" height="88" fill="#EFEBE1" stroke="#1B1912" stroke-width="1.5"></rect>
-  <text x="520.0" y="936.5" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">GOVERNMENT /</text>
-  <text x="520.0" y="958.5" text-anchor="middle" font-weight="700" font-size="15.5" letter-spacing="0.02em" fill="#1B1912">INSTITUTIONS</text>
-
-  <!-- associations: a connector, drawn as a circle rather than a box, to mark it as a bridge rather than a peer group -->
-  <circle cx="703.3" cy="1000.7" r="56" fill="#F6F4EF" stroke="#B08D57" stroke-width="1.6" stroke-dasharray="2 5"></circle>
-  <text x="703.3" y="1005.5" text-anchor="middle" font-weight="700" font-size="13" letter-spacing="0.01em" fill="#1B1912">ASSOCIATIONS</text>
-
-  <!-- ================= editorial synthesis lines ================= -->
-  <text x="520" y="1075" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="20" fill="#1B1912">Participation is distributed across the system, not owned by one function.</text>
-  <text x="520" y="1102" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13.5" fill="#4A473E">The boundaries matter more than the boxes.</text>
-
-  <!-- ================= legend + source ================= -->
-  <line x1="60" y1="1152" x2="86" y2="1152" stroke="#1F4B4C" stroke-width="3" opacity="0.85"></line>
-  <text x="96" y="1157" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="#1B1912">participation path &#8212; illustrative, crossing multiple functions and the boundary</text>
-
-  <line x1="60" y1="1186" x2="86" y2="1186" stroke="#1F4B4C" stroke-width="1.4" stroke-dasharray="2 8" opacity="0.5"></line>
-  <text x="96" y="1191" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="#1B1912">company boundary &#8212; porous, not a hard edge</text>
-
-  <line x1="60" y1="1220" x2="86" y2="1220" stroke="#B08D57" stroke-width="1.6" stroke-dasharray="2 6" opacity="0.7"></line>
-  <text x="96" y="1225" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="#1B1912">connector &#8212; an institution sitting between external groups, not inside the company</text>
-
-  <text x="60" y="1267" font-family="'IBM Plex Mono', monospace" font-size="12.5" fill="#4A473E">Source: Gamescom 2026 roundtable on where participation actually lives &#8212; Communitygeeks Field Note.</text>
-
-  <line x1="0" y1="1312" x2="1040" y2="1312" stroke="#1B1912" stroke-width="3"></line>
 </svg>
