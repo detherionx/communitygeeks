@@ -1,0 +1,29 @@
+name: Notify OS capture
+
+# Deliberately its own tiny, decoupled workflow — not a step inside
+# deploy.yml. A push to main triggers this and deploy.yml as two
+# independent jobs; this one failing (or being slow, or GitHub being
+# down) can never affect the site deploy. If the dispatch itself fails,
+# nothing here retries it — the OS-capture reconciliation sweep
+# (detherionx/community-os-checks, every 3h) picks up any missed range
+# on its own, so a soft failure here is fine.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch capture event to community-os-checks
+        env:
+          TOKEN: ${{ secrets.OS_CAPTURE_DISPATCH_TOKEN }}
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/detherionx/community-os-checks/dispatches \
+            -d '{"event_type":"os-capture","client_payload":{"repo":"detherionx/communitygeeks"}}' \
+          || echo "::warning::OS capture dispatch failed — the reconciliation sweep will pick this up within 3h"
+        continue-on-error: true
