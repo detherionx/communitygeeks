@@ -11,9 +11,11 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 # Security headers — hardening pass 2026-09-02. Origin inventory this is
 # built from: self (assets, JSON-LD script blocks are exempt from CSP),
 # fonts.googleapis.com + fonts.gstatic.com (Google Fonts CSS + font files),
-# cloud.umami.is (analytics script + its own send-beacon endpoint), and
-# form.typeform.com (the /contact page's embedded iframe). No other
-# third-party origins, no native <form action>, no data: URIs in use.
+# cloud.umami.is (analytics script tag) + gateway.umami.is (Umami Cloud's
+# separate send-beacon endpoint — confirmed live via report-only violations
+# in production; the script and the ingestion host are different
+# subdomains), and form.typeform.com (the /contact page's embedded iframe).
+# No other third-party origins, no native <form action>, no data: URIs in use.
 #
 # style-src needs 'unsafe-inline': index.njk and the geo-plate SVG partial
 # set per-element CSS custom properties via style="" attributes, and
@@ -50,5 +52,5 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 
   # Report-only: observe before enforcing. See HANDOFF.md for the plan to
   # move this to an enforced Content-Security-Policy once verified clean.
-  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloud.umami.is; frame-src https://form.typeform.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; object-src 'none'"
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloud.umami.is https://gateway.umami.is; frame-src https://form.typeform.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; object-src 'none'"
 </IfModule>
