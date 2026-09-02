@@ -7,3 +7,48 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^communitygeeks\.ai$ [NC]
 RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
+
+# Security headers — hardening pass 2026-09-02. Origin inventory this is
+# built from: self (assets, JSON-LD script blocks are exempt from CSP),
+# fonts.googleapis.com + fonts.gstatic.com (Google Fonts CSS + font files),
+# cloud.umami.is (analytics script + its own send-beacon endpoint), and
+# form.typeform.com (the /contact page's embedded iframe). No other
+# third-party origins, no native <form action>, no data: URIs in use.
+#
+# style-src needs 'unsafe-inline': index.njk and the geo-plate SVG partial
+# set per-element CSS custom properties via style="" attributes, and
+# proposals/tripo/index.html (an unlinked, noindex client one-pager) has a
+# <style> block. Refactoring those to external stylesheets is out of scope
+# for this pass.
+#
+# script-src is intentionally left WITHOUT 'unsafe-inline': the only inline
+# <script> in the templated site is proposals/tripo/index.html's print-layout
+# helper. That page is noindex/nofollow and not linked from nav or the
+# sitemap, so it's left to report a CSP violation rather than loosening the
+# policy for the rest of the site — see HANDOFF.md if that page needs a
+# scoped exception later.
+<IfModule mod_headers.c>
+  # HSTS: apex only for now. No includeSubDomains/preload until every
+  # subdomain sharing this domain is confirmed permanently HTTPS-only.
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Kept alongside CSP frame-ancestors for browsers that don't honor CSP.
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Conservative deny-list: capabilities with zero use in src/assets/js or
+  # any template (confirmed by grep — no navigator.geolocation, no payment
+  # request, no camera/mic capture, no WebUSB/MIDI/sensor APIs, no
+  # requestFullscreen). The Typeform contact iframe requests camera/mic/
+  # autoplay itself via its own allow="" attribute, but no Permissions-Policy
+  # header existed before this change either, so cross-origin delegation of
+  # those features was already governed by the browser default ('self') —
+  # this header does not newly restrict anything Typeform previously had.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), midi=(), fullscreen=()"
+
+  # Report-only: observe before enforcing. See HANDOFF.md for the plan to
+  # move this to an enforced Content-Security-Policy once verified clean.
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloud.umami.is; frame-src https://form.typeform.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; object-src 'none'"
+</IfModule>
