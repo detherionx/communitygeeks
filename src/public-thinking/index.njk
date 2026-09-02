@@ -4,14 +4,18 @@ lang: en
 title: Public Thinking
 description: Research findings, executive one-pagers, case studies, and field notes — live, not a static portfolio.
 permalink: /public-thinking/
-extraHead:
-  - "<link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
+eleventyComputed:
+  extraHead:
+    - "<link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
+    - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Public Thinking\",\"item\":\"https://communitygeeks.ai/public-thinking/\"}]}</script>"
+    - "{{ publicThinkingCollection | safe }}"
 extraScripts:
   - "public-thinking-filter.js"
 closingCta:
   secondaryLabel: "See how we work →"
   secondaryUrl: "/approach/"
 ---
+{% from "partials/pt-card.njk" import ptCard %}
 <section class="page-hero">
   <div class="wrap">
     <div class="page-hero-row">
@@ -31,57 +35,18 @@ closingCta:
 <div class="wrap">
   <div class="filter-bar">
     <button class="filter-pill active" data-filter="all">All</button>
-    <button class="filter-pill" data-filter="research">Research Findings</button>
-    <button class="filter-pill" data-filter="onepager">Executive One-Pagers</button>
-    <button class="filter-pill" data-filter="case">Case Studies</button>
-    <button class="filter-pill" data-filter="field">Field Notes</button>
-  </div>
-
-  {% for piece in publicThinking %}
-  {% if loop.first %}
-  <div class="pt-feature accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
-    <div class="pt-feature-field"></div>
-    <div class="pt-feature-inner">
-      <span class="pt-feature-num">01</span>
-      <div class="pt-feature-meta">
-        <span class="pt-format">{{ piece.format }}</span>
-        <span class="pt-meta-confidence">{{ piece.confidence }}</span>
-      </div>
-      <a href="{{ piece.url }}" class="pt-feature-title">{{ piece.title }}</a>
-      {% if piece.deck %}<p class="pt-feature-deck">{{ piece.deck }}</p>{% endif %}
-      {% if piece.topics and piece.topics.length %}
-      <div class="pt-feature-tags">
-        {% for topic in piece.topics %}<span class="pt-feature-tag">{{ topic }}</span>{% endfor %}
-      </div>
-      {% endif %}
-      <div class="pt-feature-foot">
-        <span>{{ piece.date | readableDate }}</span>
-        <a href="{{ piece.url }}">Read {{ piece.format | lower }} →</a>
-      </div>
-    </div>
-  </div>
-  {% endif %}
-  {% endfor %}
-
-  <div class="pt-compact-list">
-    {% for piece in publicThinking %}
-    {% if not loop.first %}
-    <div class="pt-compact-row" data-type="{{ piece.filterType }}">
-      <a href="{{ piece.url }}">
-        <span class="pt-compact-left">
-          <span class="pt-compact-type">{{ piece.format }}</span>
-          <span class="pt-compact-title">{{ piece.title }}</span>
-        </span>
-        <span class="pt-compact-date">{{ piece.date | readableDate }}</span>
-      </a>
-    </div>
-    {% endif %}
+    {% for f in publicThinkingFormats %}
+    <button class="filter-pill" data-filter="{{ f.filterType }}">{{ f.labelEn }}</button>
     {% endfor %}
-
-    <div class="pt-compact-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>
-
-    {% if clients.selectedWork and clients.selectedWork.length %}
-    <div class="pt-compact-empty" data-type="case">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
-    {% endif %}
   </div>
+
+  <div class="pt-grid">
+    {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 2) }}{% endfor %}
+  </div>
+
+  <div class="pt-compact-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>
+
+  {% if clients.selectedWork and clients.selectedWork.length %}
+  <div class="pt-compact-empty" data-type="case">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
+  {% endif %}
 </div>

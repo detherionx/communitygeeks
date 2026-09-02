@@ -4,14 +4,18 @@ lang: de
 title: Public Thinking
 description: Forschungsergebnisse, Executive One-Pager, Case Studies und Feldnotizen — live, nicht als statisches Portfolio.
 permalink: /de/public-thinking/
-extraHead:
-  - "<link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
+eleventyComputed:
+  extraHead:
+    - "<link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
+    - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Public Thinking\",\"item\":\"https://communitygeeks.ai/de/public-thinking/\"}]}</script>"
+    - "{{ publicThinkingCollectionDe | safe }}"
 extraScripts:
   - "public-thinking-filter.js"
 closingCta:
   secondaryLabel: "See how we work →"
   secondaryUrl: "/approach/"
 ---
+{% from "partials/pt-card.njk" import ptCard %}
 <section class="page-hero">
   <div class="wrap">
     <div class="page-hero-row">
@@ -31,53 +35,14 @@ closingCta:
 <div class="wrap">
   <div class="filter-bar">
     <button class="filter-pill active" data-filter="all">Alle</button>
-    <button class="filter-pill" data-filter="research">Forschungsergebnisse</button>
-    <button class="filter-pill" data-filter="onepager">Executive One-Pager</button>
-    <button class="filter-pill" data-filter="case">Case Studies</button>
-    <button class="filter-pill" data-filter="field">Feldnotizen</button>
-  </div>
-
-  {% for piece in publicThinkingDe %}
-  {% if loop.first %}
-  <div class="pt-feature accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
-    <div class="pt-feature-field"></div>
-    <div class="pt-feature-inner">
-      <span class="pt-feature-num">01</span>
-      <div class="pt-feature-meta">
-        <span class="pt-format">{{ piece.format }}</span>
-        <span class="pt-meta-confidence">{{ piece.confidence }}</span>
-      </div>
-      <a href="{{ piece.url }}" class="pt-feature-title">{{ piece.title }}</a>
-      {% if piece.deck %}<p class="pt-feature-deck">{{ piece.deck }}</p>{% endif %}
-      {% if piece.topics and piece.topics.length %}
-      <div class="pt-feature-tags">
-        {% for topic in piece.topics %}<span class="pt-feature-tag">{{ topic }}</span>{% endfor %}
-      </div>
-      {% endif %}
-      <div class="pt-feature-foot">
-        <span>{{ piece.date | readableDate("de") }}</span>
-        <a href="{{ piece.url }}">{{ piece.format }} lesen →</a>
-      </div>
-    </div>
-  </div>
-  {% endif %}
-  {% endfor %}
-
-  <div class="pt-compact-list">
-    {% for piece in publicThinkingDe %}
-    {% if not loop.first %}
-    <div class="pt-compact-row" data-type="{{ piece.filterType }}">
-      <a href="{{ piece.url }}">
-        <span class="pt-compact-left">
-          <span class="pt-compact-type">{{ piece.format }}</span>
-          <span class="pt-compact-title">{{ piece.title }}</span>
-        </span>
-        <span class="pt-compact-date">{{ piece.date | readableDate("de") }}</span>
-      </a>
-    </div>
-    {% endif %}
+    {% for f in publicThinkingFormats %}
+    <button class="filter-pill" data-filter="{{ f.filterType }}">{{ f.labelDe }}</button>
     {% endfor %}
-
-    <div class="pt-compact-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
   </div>
+
+  <div class="pt-grid">
+    {% for piece in publicThinkingDe %}{{ ptCard(piece, loop.index, 2, "de") }}{% endfor %}
+  </div>
+
+  <div class="pt-compact-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
 </div>

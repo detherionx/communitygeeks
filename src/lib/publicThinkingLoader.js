@@ -106,4 +106,31 @@ function loadAll() {
   return items;
 }
 
-module.exports = { loadAll };
+// Minimal CollectionPage/ItemList JSON-LD for the archive index — generated
+// from the same items array the index page already renders, so it never
+// drifts out of sync as pieces are added. Deliberately thin: the archive's
+// real SEO signal is the crawlable HTML itself (real <a href> per card,
+// title/deck text, canonical/OG tags), not this schema.
+function buildCollectionJsonLd(items, url, name) {
+  const fullUrl = `https://communitygeeks.ai${url}`;
+  return `<script type="application/ld+json">\n${JSON.stringify(
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name,
+      url: fullUrl,
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: items.map((item, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          url: `https://communitygeeks.ai${item.url}`,
+        })),
+      },
+    },
+    null,
+    2
+  )}\n</script>`;
+}
+
+module.exports = { loadAll, buildCollectionJsonLd };

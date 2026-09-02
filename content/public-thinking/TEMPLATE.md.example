@@ -11,8 +11,10 @@
 title: "Piece title, written the way a human would say it out loud"
 slug: "url-safe-slug-no-spaces"
 date: 2026-08-01
-format: "Research Finding"          # One of: "Research Finding" | "Executive One-Pager" | "Case Study" | "Field Note"
-filterType: "research"              # Matches the filter buttons on /public-thinking/: research | onepager | case | field
+format: "Research Finding"          # Must match a "format" value in src/_data/publicThinkingFormats.js — that
+                                     # file is the single source of truth for the format taxonomy (also drives
+                                     # the archive's filter pills), so add a new format there first if needed.
+filterType: "research"              # Must match that same entry's "filterType" — see src/_data/publicThinkingFormats.js
 confidence: "Observation"           # MUST be one of: "Observation" | "Emerging Pattern" | "Research Finding"
                                      # These are the ONLY public-facing confidence labels — see Communitygeeks OS
                                      # → Public Source Pack → "Public Thinking — Confidence Vocabulary Map".

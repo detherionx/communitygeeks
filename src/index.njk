@@ -5,11 +5,13 @@ description: Communitygeeks researches how community, developer relations (DevRe
 permalink: /
 extraScripts:
   - marquee.js
+  - pt-rail.js
 closingCta:
   secondaryLabel: "Read the research →"
   secondaryUrl: "/public-thinking/"
 ---
 {% from "partials/geo-plate.njk" import geoPlate %}
+{% from "partials/pt-card.njk" import ptCard %}
 <section class="hero">
   {% include "partials/geometric-field.njk" %}
   <div class="wrap">
@@ -198,47 +200,18 @@ closingCta:
       </div>
       <h2>Live findings, not a static portfolio.</h2>
     </div>
-    <div class="pt-home-grid">
-      {% for piece in publicThinking %}
-      {% if loop.first %}
-      <div class="pt-feature accent-{{ piece.accentColor or 'petrol' }}">
-        <div class="pt-feature-field"></div>
-        <div class="pt-feature-inner">
-          <span class="pt-feature-num">01</span>
-          <div class="pt-feature-meta">
-            <span class="pt-format">{{ piece.format }}</span>
-            <span class="pt-meta-confidence">{{ piece.confidence }}</span>
-          </div>
-          <a href="{{ piece.url }}" class="pt-feature-title">{{ piece.title }}</a>
-          {% if piece.deck %}<p class="pt-feature-deck">{{ piece.deck }}</p>{% endif %}
-          {% if piece.topics and piece.topics.length %}
-          <div class="pt-feature-tags">
-            {% for topic in piece.topics %}<span class="pt-feature-tag">{{ topic }}</span>{% endfor %}
-          </div>
-          {% endif %}
-          <div class="pt-feature-foot">
-            <span>{{ piece.date | readableDate }}</span>
-            <a href="{{ piece.url }}">Read {{ piece.format | lower }} →</a>
-          </div>
-        </div>
+    <div class="pt-rail-wrap">
+      <div class="pt-rail" tabindex="0" role="region" aria-label="Public Thinking — latest research">
+        {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 3) }}{% endfor %}
       </div>
+      <button type="button" class="pt-rail-nav prev" aria-label="Previous"{% if publicThinking.length < 2 %} disabled{% endif %}>‹</button>
+      <button type="button" class="pt-rail-nav next" aria-label="Next"{% if publicThinking.length < 2 %} disabled{% endif %}>›</button>
+    </div>
+    <div class="pt-rail-foot">
+      {% if publicThinking.length and publicThinking[0].researchThread %}
+      <p class="pt-rail-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
       {% endif %}
-      {% endfor %}
-      <div class="pt-info">
-        <h3 class="pt-info-label">What Public Thinking covers</h3>
-        <ul class="pt-info-formats">
-          <li>Research Findings</li>
-          <li>Executive One-Pagers</li>
-          <li>Case Studies</li>
-          <li>Field Notes</li>
-        </ul>
-        <p class="pt-info-status">More research findings are in progress and will publish here as they clear review.</p>
-        <p class="pt-info-status">Case studies are experience references for now — full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
-        {% if publicThinking.length and publicThinking[0].researchThread %}
-        <p class="pt-info-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
-        {% endif %}
-        <a href="/public-thinking/" class="pt-info-link">See all Public Thinking →</a>
-      </div>
+      <a href="/public-thinking/" class="pt-info-link">See all Public Thinking →</a>
     </div>
   </div>
 </section>

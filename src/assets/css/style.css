@@ -21,7 +21,7 @@
        no shared scale. Deliberately only two body-copy roles: primary
        reading content (prose) and everything supporting/secondary
        (compact). Headings and display numerals (q-num, approach-idx,
-       pt-feature-num) keep their own per-context sizing — those
+       pt-card-num) keep their own per-context sizing — those
        differences are load-bearing depth cues (home > subpage > article),
        not accidental drift, so they're not tokenized here. */
     --fs-prose:17px;
@@ -227,7 +227,7 @@
      classes, since several homepage sections currently share the bare
      "band alt" class with nothing else to key off. */
   .band.alt:has(.work-grid){padding:140px 0 130px;}
-  .band:has(.pt-home-grid){padding:130px 0 140px;}
+  .band:has(.pt-rail-wrap){padding:130px 0 140px;}
   .band.alt:has(.founder-grid){padding:70px 0 90px;}
   .band-head{max-width:640px;margin-bottom:56px;}
 
@@ -334,20 +334,28 @@
   /* one neutral cell carries a quiet paper-alt tint, purely for rhythm */
   .work-grid .work-cell:nth-child(2){background:var(--paper-alt);}
 
-  /* PUBLIC THINKING PREVIEW — homepage: the same featured-record component
-     used on /public-thinking/ (see PUBLIC THINKING INDEX PAGE below), paired
-     with a real information panel instead of an empty placeholder card. */
+  /* PUBLIC THINKING RAIL — homepage: an editorial carousel built on the same
+     .pt-card component used on /public-thinking/ (see PUBLIC THINKING CARDS
+     below). Native overflow-x + scroll-snap is still the actual scroll
+     mechanism (touch/trackpad/keyboard all work with pt-rail.js absent);
+     the script layers a slow auto-advance and the prev/next buttons on top
+     of that, never replacing it (see pt-rail.js). The native scrollbar is
+     hidden here on purpose — scrolling itself is fully intact, this only
+     removes the visual "here's an overflowing div" cue so the rail reads
+     as a deliberate carousel rather than a leftover overflow container. */
   .pt-format{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--petrol);}
-  .pt-home-grid{display:grid;grid-template-columns:1.4fr 1fr;border:1px solid var(--line);}
-  .pt-home-grid .pt-feature{border:none;border-right:1px solid var(--line);margin-bottom:0;}
-  .pt-info{padding:36px 34px;display:flex;flex-direction:column;}
-  .pt-info-label{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-label);font-weight:400;letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);margin:0 0 18px;}
-  .pt-info-formats{list-style:none;margin:0 0 24px;padding:0;}
-  .pt-info-formats li{font-family:'Fraunces',serif;font-size:var(--fs-title-compact);font-weight:500;padding:10px 0;border-top:1px solid var(--line);}
-  .pt-info-formats li:first-child{border-top:none;}
-  .pt-info-status{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);margin:0 0 14px;}
-  .pt-info-thread{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--petrol);margin:0 0 20px;padding-top:16px;border-top:1px solid var(--line);}
-  .pt-info-link{margin-top:auto;font-weight:600;font-size:13.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);align-self:flex-start;}
+  .pt-rail-wrap{position:relative;}
+  .pt-rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding-bottom:4px;scrollbar-width:none;-ms-overflow-style:none;}
+  .pt-rail::-webkit-scrollbar{display:none;height:0;}
+  .pt-rail .pt-card{flex:0 0 clamp(300px,42vw,420px);scroll-snap-align:start;margin-bottom:0;}
+  .pt-rail-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:50%;font-size:18px;line-height:1;cursor:pointer;transition:opacity .15s ease,border-color .15s ease,color .15s ease;}
+  .pt-rail-nav:hover{border-color:var(--petrol);color:var(--petrol);}
+  .pt-rail-nav:disabled{opacity:0.3;cursor:default;pointer-events:none;}
+  .pt-rail-nav.prev{left:-20px;}
+  .pt-rail-nav.next{right:-20px;}
+  .pt-rail-foot{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-top:28px;}
+  .pt-rail-thread{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--petrol);margin:0;}
+  .pt-info-link{font-weight:600;font-size:13.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);margin-left:auto;}
   .pt-info-link:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
 
   /* FOUNDER */
@@ -417,8 +425,8 @@
     .problem-composition{grid-template-columns:1fr;gap:40px;}
     .approach-item{grid-template-columns:1fr;gap:8px;}
     .work-grid{grid-template-columns:1fr;}
-    .pt-home-grid{grid-template-columns:1fr;}
-    .pt-home-grid .pt-feature{border-right:none;border-bottom:1px solid var(--line);}
+    .pt-rail .pt-card{flex-basis:87vw;}
+    .pt-rail-nav{display:none;}
     /* Section rhythm, dampened for mobile: the reductions carry over in
        full (a shorter mobile page is a pure win), but the increases don't
        — mobile is already one long column, so the same extra gaps that
@@ -426,7 +434,7 @@
     .think{padding:105px 0 115px;}
     .band.hww-field-host{padding:80px 0;}
     .band.alt:has(.work-grid){padding:115px 0 110px;}
-    .band:has(.pt-home-grid){padding:110px 0 115px;}
+    .band:has(.pt-rail-wrap){padding:110px 0 115px;}
     .band.alt:has(.founder-grid){padding:80px 0 85px;}
   }
 
@@ -488,55 +496,56 @@
 
   .confidence-tag{color:var(--brass);}
 
-  /* FEATURED RECORD — the one published piece with real editorial weight.
-     accent-* controls which material (petrol/brass/ink) is doing the work
-     for this particular piece — set via a piece's optional accentColor
-     frontmatter field, defaulting to petrol when unset. */
-  .pt-feature{border:1px solid var(--line);margin-bottom:8px;position:relative;overflow:hidden;}
-  .pt-feature-field{height:5px;}
-  .pt-feature.accent-petrol .pt-feature-field{background:var(--petrol);}
-  .pt-feature.accent-brass .pt-feature-field{background:var(--brass);}
-  .pt-feature.accent-ink .pt-feature-field{background:var(--ink);}
-  .pt-feature.accent-petrol .pt-format,.pt-feature.accent-petrol .pt-feature-tag{color:var(--petrol);}
-  .pt-feature.accent-brass .pt-format,.pt-feature.accent-brass .pt-feature-tag{color:var(--brass);}
-  .pt-feature.accent-ink .pt-format,.pt-feature.accent-ink .pt-feature-tag{color:var(--ink);}
-  .pt-feature-inner{padding:36px 38px;position:relative;}
-  .pt-feature-inner > *{position:relative;z-index:1;}
-  .pt-feature-inner .pt-feature-num{position:absolute;top:22px;right:30px;font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:500;color:var(--paper-alt);line-height:1;z-index:0;}
-  .pt-feature-meta{display:flex;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);text-transform:uppercase;letter-spacing:var(--tracking-label-caps);margin-bottom:18px;}
-  .pt-feature-meta .pt-meta-confidence{color:var(--brass);}
-  .pt-feature-title{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.28;max-width:20ch;margin-bottom:16px;transition:color .15s ease;}
-  .pt-feature-title:hover{color:var(--petrol);}
-  .pt-feature-deck{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);max-width:60ch;margin-bottom:20px;}
-  .pt-feature-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
-  .pt-feature-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);border:1px solid var(--line);padding:5px 11px;}
-  .pt-feature-foot{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--ink-soft);padding-top:16px;border-top:1px solid var(--line);}
+  /* PUBLIC THINKING CARDS — one component, used identically for every
+     published piece on both the homepage rail and the archive grid. Every
+     piece gets the same structure and typography; accent-* controls which
+     material (petrol/brass/ink) is doing the work for THIS particular piece
+     (set via its own accentColor frontmatter field, defaulting to petrol),
+     which is also what keeps a grid of many cards from reading as flat
+     repetition — recency is expressed only through ordering, never by
+     giving any one card a different class or richer treatment. */
+  .pt-card{border:1px solid var(--line);margin-bottom:8px;position:relative;overflow:hidden;background:var(--paper);}
+  .pt-card-field{height:5px;}
+  .pt-card.accent-petrol .pt-card-field{background:var(--petrol);}
+  .pt-card.accent-brass .pt-card-field{background:var(--brass);}
+  .pt-card.accent-ink .pt-card-field{background:var(--ink);}
+  .pt-card.accent-petrol .pt-format,.pt-card.accent-petrol .pt-card-tag{color:var(--petrol);}
+  .pt-card.accent-brass .pt-format,.pt-card.accent-brass .pt-card-tag{color:var(--brass);}
+  .pt-card.accent-ink .pt-format,.pt-card.accent-ink .pt-card-tag{color:var(--ink);}
+  .pt-card-inner{padding:36px 38px;position:relative;}
+  .pt-card-inner > *{position:relative;z-index:1;}
+  .pt-card-inner .pt-card-num{position:absolute;top:22px;right:30px;font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:500;color:var(--paper-alt);line-height:1;z-index:0;}
+  .pt-card-meta{display:flex;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);text-transform:uppercase;letter-spacing:var(--tracking-label-caps);margin-bottom:18px;}
+  .pt-card-meta .pt-meta-confidence{color:var(--brass);}
+  .pt-card-title{margin:0 0 16px;font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.28;max-width:20ch;}
+  .pt-card-title a{display:block;font-family:'Fraunces',serif;font-weight:500;color:inherit;transition:color .15s ease;}
+  .pt-card-title a:hover{color:var(--petrol);}
+  .pt-card-title a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;}
+  .pt-card-deck{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink-soft);max-width:60ch;margin-bottom:20px;}
+  .pt-card-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+  .pt-card-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);border:1px solid var(--line);padding:5px 11px;}
+  .pt-card-foot{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--ink-soft);padding-top:16px;border-top:1px solid var(--line);}
   /* 500, not 600 — IBM Plex Mono is only loaded at 400/500 (see base.njk's
      font link), so 600 here was requesting a weight the browser has to
      synthesize (fake-bold), rendering visibly different from every other
      mono element on the site even though the CSS "looked" like a small
      emphasis bump. */
-  .pt-feature-foot a{color:var(--ink);border-bottom:1.5px solid var(--brass);font-weight:500;}
-  .pt-feature-foot a:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
+  .pt-card-foot a{color:var(--ink);border-bottom:1.5px solid var(--brass);font-weight:500;}
+  .pt-card-foot a:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
+  .pt-card-foot a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;}
 
-  /* COMPACT LIST — everything that isn't the featured record: older pieces
-     and the unpublished-work placeholders, deliberately subordinate so an
-     empty state never carries the same visual weight as real research. */
-  .pt-compact-list{border-top:1px solid var(--line);margin-top:8px;}
-  .pt-compact-row{border-bottom:1px solid var(--line);}
-  .pt-compact-row a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:16px 0;}
-  .pt-compact-row a:hover .pt-compact-title{color:var(--petrol);}
-  .pt-compact-left{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
-  .pt-compact-type{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);text-transform:uppercase;letter-spacing:var(--tracking-label-caps);color:var(--brass);flex-shrink:0;}
-  .pt-compact-title{font-family:'Fraunces',serif;font-weight:500;font-size:var(--fs-title-compact);color:var(--ink);transition:color .15s ease;}
-  .pt-compact-date{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--ink-soft);flex-shrink:0;}
+  /* ARCHIVE GRID — /public-thinking/: every piece gets the same .pt-card,
+     newest first by array order alone. 2-up desktop matches the bordered-
+     cell idiom already used by .q-grid/.work-grid elsewhere on the site. */
+  .pt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:8px;}
+  .pt-grid .pt-card{border:none;margin-bottom:0;}
   .pt-compact-empty{padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;font-style:italic;}
   .pt-compact-empty:last-child{border-bottom:none;}
 
   @media (max-width:860px){
-    .pt-feature-inner{padding:26px 24px;}
-    .pt-feature-inner .pt-feature-num{font-size:44px;top:16px;right:20px;}
-    .pt-compact-row a{flex-direction:column;align-items:flex-start;gap:4px;padding:14px 0;}
+    .pt-card-inner{padding:26px 24px;}
+    .pt-card-inner .pt-card-num{font-size:44px;top:16px;right:20px;}
+    .pt-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;gap:40px;}
     .approach-detail{grid-template-columns:1fr;}
   }
