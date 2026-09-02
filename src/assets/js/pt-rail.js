@@ -12,6 +12,10 @@ function initPtRail() {
   const rail = wrap.querySelector('.pt-rail');
   const prev = wrap.querySelector('.pt-rail-nav.prev');
   const next = wrap.querySelector('.pt-rail-nav.next');
+  // .pt-rail-playpause lives in .pt-rail-foot, a sibling of .pt-rail-wrap
+  // (not a descendant of it) — queried from the document since there is
+  // only ever one rail on the page.
+  const playPause = document.querySelector('.pt-rail-playpause');
   if (!rail || !prev || !next) return;
 
   const cards = Array.from(rail.querySelectorAll('.pt-card'));
@@ -26,6 +30,7 @@ function initPtRail() {
   let currentIndex = 0;
   let timer = null;
   let paused = false;
+  let manuallyPaused = false;
 
   function nearestIndex() {
     let closest = 0;
@@ -60,7 +65,7 @@ function initPtRail() {
 
   function armAutoAdvance() {
     clearTimeout(timer);
-    if (paused || reduceMotion) return;
+    if (paused || manuallyPaused || reduceMotion) return;
     timer = setTimeout(() => {
       step(1, 'smooth');
       armAutoAdvance();
@@ -70,7 +75,10 @@ function initPtRail() {
   // pause() always just stops the pending tick. resume() always schedules
   // a fresh full-length wait — never "continues" a partially elapsed one —
   // so any interaction (a glance, a click, a swipe) buys a whole quiet
-  // interval before the rail considers moving again.
+  // interval before the rail considers moving again. resume() defers to an
+  // explicit manual pause (the Pause/Play button below): incidental hover/
+  // focus/touch churn must not silently override a reader's deliberate
+  // "stop moving" choice.
   function pause() {
     paused = true;
     clearTimeout(timer);
@@ -78,7 +86,28 @@ function initPtRail() {
 
   function resume() {
     paused = false;
+    if (manuallyPaused) return;
     armAutoAdvance();
+  }
+
+  function updatePlayPauseUI() {
+    if (!playPause) return;
+    playPause.textContent = manuallyPaused ? 'Resume' : 'Pause';
+    playPause.setAttribute('aria-pressed', manuallyPaused ? 'true' : 'false');
+    playPause.setAttribute('aria-label', manuallyPaused ? 'Resume automatic advance' : 'Pause automatic advance');
+  }
+
+  if (playPause) {
+    playPause.addEventListener('click', () => {
+      manuallyPaused = !manuallyPaused;
+      updatePlayPauseUI();
+      if (manuallyPaused) {
+        pause();
+      } else {
+        resume();
+      }
+    });
+    updatePlayPauseUI();
   }
 
   prev.addEventListener('click', () => {

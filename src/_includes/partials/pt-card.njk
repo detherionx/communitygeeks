@@ -1,10 +1,10 @@
+{% from "partials/pt-motifs.njk" import ptMotif %}
 {% macro ptCard(piece, index, headingLevel, lang) %}
 {% set lang = lang or "en" %}
 <article class="pt-card accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
   <div class="pt-card-field"></div>
+  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptMotif(piece.motif) }}</div>{% endif %}
   <div class="pt-card-inner">
-    {% set displayIndex = "0" ~ index if index < 10 else index %}
-    <span class="pt-card-num" aria-hidden="true">{{ displayIndex }}</span>
     <div class="pt-card-meta">
       <span class="pt-format">{{ piece.format }}</span>
       <span class="pt-meta-confidence">{{ piece.confidence }}</span>

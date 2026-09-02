@@ -20,8 +20,8 @@
        tracking that had drifted into one-off per-component numbers with
        no shared scale. Deliberately only two body-copy roles: primary
        reading content (prose) and everything supporting/secondary
-       (compact). Headings and display numerals (q-num, approach-idx,
-       pt-card-num) keep their own per-context sizing — those
+       (compact). Headings and display numerals (q-num, approach-idx)
+       keep their own per-context sizing — those
        differences are load-bearing depth cues (home > subpage > article),
        not accidental drift, so they're not tokenized here. */
     --fs-prose:17px;
@@ -353,7 +353,12 @@
   .pt-rail-nav:disabled{opacity:0.3;cursor:default;pointer-events:none;}
   .pt-rail-nav.prev{left:-20px;}
   .pt-rail-nav.next{right:-20px;}
-  .pt-rail-foot{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-top:28px;}
+  .pt-rail-foot{display:flex;justify-content:space-between;align-items:baseline;gap:14px 24px;flex-wrap:wrap;margin-top:28px;}
+  .pt-rail-playpause{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);letter-spacing:var(--tracking-label-natural);padding:6px 14px;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-soft);background:none;cursor:pointer;transition:border-color .15s ease,color .15s ease;}
+  .pt-rail-playpause:hover{border-color:var(--petrol);color:var(--ink);}
+  .pt-rail-playpause:disabled{opacity:0.3;cursor:default;}
+  /* Nothing to pause when auto-advance never runs in the first place. */
+  @media (prefers-reduced-motion:reduce){.pt-rail-playpause{display:none;}}
   .pt-rail-thread{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);color:var(--petrol);margin:0;}
   .pt-info-link{font-weight:600;font-size:13.5px;color:var(--ink);border-bottom:1.5px solid var(--brass);margin-left:auto;}
   .pt-info-link:hover{color:var(--petrol);border-bottom-color:var(--petrol);}
@@ -512,9 +517,24 @@
   .pt-card.accent-petrol .pt-format,.pt-card.accent-petrol .pt-card-tag{color:var(--petrol);}
   .pt-card.accent-brass .pt-format,.pt-card.accent-brass .pt-card-tag{color:var(--brass);}
   .pt-card.accent-ink .pt-format,.pt-card.accent-ink .pt-card-tag{color:var(--ink);}
+  /* Subject-derived watermark, not decorative numbering — see pt-motifs.njk.
+     .pt-motif is the shared base (used on both .pt-card and the article
+     hero); --card/--hero context modifiers carry the position/scale/opacity
+     that differs per surface, and .pt-motif-<name> carries per-motif nudges
+     within a context. The underlying SVG (ptMotif() in pt-motifs.njk) is
+     identical everywhere — only these wrapper classes change. */
+  .pt-motif{position:absolute;pointer-events:none;}
+  .pt-motif svg{display:block;width:100%;height:100%;}
+  /* CARD context — a direct child of .pt-card (not .pt-card-inner), so it
+     sits behind everything without needing to fight .pt-card-inner > *'s
+     z-index:1. Large and upper-right by default so it has room to bleed/
+     crop against the card edges; opacity stays low enough that text is
+     always the layer a reader actually reads. */
+  .pt-motif--card{top:-8%;right:-8%;width:65%;height:75%;opacity:0.08;z-index:0;}
+  .pt-motif--card.pt-motif-gaming{top:-14%;right:-14%;opacity:0.065;}
+  .pt-motif--card.pt-motif-people-beyond-container{width:72%;height:82%;}
   .pt-card-inner{padding:36px 38px;position:relative;}
   .pt-card-inner > *{position:relative;z-index:1;}
-  .pt-card-inner .pt-card-num{position:absolute;top:22px;right:30px;font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:500;color:var(--paper-alt);line-height:1;z-index:0;}
   .pt-card-meta{display:flex;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);text-transform:uppercase;letter-spacing:var(--tracking-label-caps);margin-bottom:18px;}
   .pt-card-meta .pt-meta-confidence{color:var(--brass);}
   .pt-card-title{margin:0 0 16px;font-weight:500;font-size:clamp(22px,2.6vw,28px);line-height:1.28;max-width:20ch;}
@@ -544,7 +564,6 @@
 
   @media (max-width:860px){
     .pt-card-inner{padding:26px 24px;}
-    .pt-card-inner .pt-card-num{font-size:44px;top:16px;right:20px;}
     .pt-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;gap:40px;}
     .approach-detail{grid-template-columns:1fr;}
@@ -572,14 +591,27 @@
      so a piece keeps one identity across both surfaces. */
   .pt-masthead{display:grid;grid-template-columns:1.7fr 1fr;}
   .pt-masthead.pt-masthead-solo{grid-template-columns:1fr;}
-  .pt-masthead-main{padding:44px 48px 44px 0;}
+  /* position:relative + overflow:hidden turns this column into the hero
+     motif's crop frame (see .pt-motif--hero below); .pt-masthead-content
+     is explicitly stacked above it (z-index:1) rather than relying on
+     paint order, since title/deck/meta are otherwise plain non-positioned
+     elements that would paint UNDER a positioned sibling by default. */
+  .pt-masthead-main{padding:44px 48px 44px 0;position:relative;overflow:hidden;}
   .pt-masthead-solo .pt-masthead-main{padding:44px 0;}
+  .pt-masthead-content{position:relative;z-index:1;}
   .pt-title{font-family:'Fraunces',serif;font-weight:500;font-size:var(--fs-display-article);line-height:var(--lh-display-article);letter-spacing:var(--tracking-display);margin:0 0 22px;max-width:19ch;}
   .pt-deck{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(17px,1.8vw,19px);line-height:1.55;color:var(--ink-soft);max-width:52ch;margin:0 0 28px;}
   .pt-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);letter-spacing:var(--tracking-label-natural);color:var(--ink-soft);padding-top:22px;border-top:1px solid var(--line);}
   .pt-meta-confidence{color:var(--brass);}
   .pt-pdf-link{margin:20px 0 0;font-family:'IBM Plex Mono',monospace;font-size:var(--fs-caption);}
   .pt-pdf-link a{border-bottom:1.5px solid var(--brass);}
+  /* HERO context — same .pt-motif base/SVG as the card version, sized up
+     and quieter: this sits behind a full title+deck column, not a small
+     card, so it earns more room but needs less opacity to stay subordinate.
+     z-index:0 here is a label, not the mechanism — .pt-masthead-content's
+     explicit z-index:1 is what actually keeps text on top (see above). */
+  .pt-motif--hero{bottom:-10%;right:-6%;width:58%;height:82%;opacity:0.05;z-index:0;}
+  @media (max-width:860px){.pt-motif--hero{opacity:0.04;width:70%;height:60%;bottom:-6%;right:-8%;}}
 
   .pt-masthead-side{padding:44px 40px;}
   .pt-masthead-side.accent-petrol{background:var(--petrol);color:var(--paper);}

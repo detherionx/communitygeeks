@@ -7,6 +7,7 @@ date: 2026-08-25
 format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
+motif: "people-beyond-container"
 summary: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
 deck: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
 topics:

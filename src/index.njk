@@ -208,6 +208,7 @@ closingCta:
       <button type="button" class="pt-rail-nav next" aria-label="Next"{% if publicThinking.length < 2 %} disabled{% endif %}>›</button>
     </div>
     <div class="pt-rail-foot">
+      <button type="button" class="pt-rail-playpause" aria-pressed="false"{% if publicThinking.length < 2 %} disabled{% endif %}>Pause</button>
       {% if publicThinking.length and publicThinking[0].researchThread %}
       <p class="pt-rail-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
       {% endif %}
