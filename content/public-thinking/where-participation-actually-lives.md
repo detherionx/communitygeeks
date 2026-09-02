@@ -65,8 +65,8 @@ None of that resolves into one answer, and I don't think it should. I went in pa
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>
-    <span class="pt-figure-cap">Community, DevRel, Product, Marketing, Partnerships &mdash; a few of the functions participation runs through, not the boxes it's contained by.</span>
-    <span class="pt-figure-source">Source: conversations with Tim Cadenbach, Mark Mandel, Justin Berenbaum, Oscar Clark, and representatives of Expertise France and the Dutch Games Association &mdash; Communitygeeks Field Note, Gamescom 2026.</span>
+    <span class="pt-figure-cap">Community, DevRel, Product, Marketing, Partnerships: a few of the functions participation runs through, not the boxes it's contained by.</span>
+    <span class="pt-figure-source">Source: conversations with Tim Cadenbach, Mark Mandel, Justin Berenbaum, Oscar Clark, and representatives of Expertise France and the Dutch Games Association: Communitygeeks Field Note, Gamescom 2026.</span>
   </figcaption>
 </figure>
 <style>

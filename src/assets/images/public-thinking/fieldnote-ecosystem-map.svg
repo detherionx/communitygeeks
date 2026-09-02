@@ -17,7 +17,7 @@
   <!-- community frame: one continuous, uniform stroke around all six node
        boxes, equally — no per-edge distinction -->
   <polygon points="520,200 927,435 927,905 520,1140 113,905 113,435" fill="none" stroke="#1B1912" stroke-width="1.3" stroke-dasharray="2 8" opacity="0.5"></polygon>
-  <text x="520" y="180" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.07em" fill="#B08D57">COMMUNITY &#8212; CONNECTIVE LAYER, NOT A SEVENTH GROUP</text>
+  <text x="520" y="180" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.07em" fill="#B08D57">COMMUNITY: CONNECTIVE LAYER, NOT A SEVENTH GROUP</text>
 
   <!-- peer ties: the network between node boxes — the dominant, structural
        shape. Each segment runs edge-to-edge, terminating where it meets the
