@@ -8,21 +8,22 @@ eleventyExcludeFromCollections: true
 navActive: about
 ---
 {# =========================================================================
-   ABOUT · OPERATOR DOSSIER → RESEARCH NAVIGATION CHART (pre-launch pass).
-   One continuous coordinate system: a registration axis at the portrait's
-   left edge (--course-x) runs from the operator module through the dossier
-   into the dark field, where the plotted course leaves it, visits the three
-   principles in reading order and continues toward the handoff. Copy is the
-   approved About copy, unchanged. Geometry is decorative and aria-hidden;
-   about.js draws the course as the chart enters and moves the coral signal.
+   ABOUT · OPERATOR DOSSIER → ONE RESEARCH NAVIGATION INSTRUMENT (2026-09-03).
+   Governing idea: the research practice is the central instrument through
+   which three principles are plotted. The page therefore carries exactly one
+   constellation-style element, the instrument in section C. The hero is a
+   calm identification screen (headline + definition left, rectangular portrait
+   plate right, one registration axis at the portrait's left edge). The founder
+   dossier is a cream editorial pause. Copy is the approved About copy,
+   unchanged. All geometry is decorative and aria-hidden; about.js lays the
+   instrument out for wide/narrow viewports and lets it calibrate once when it
+   enters the viewport (reduced motion: finished composition immediately).
    ========================================================================= #}
 <div class="dossier" id="dossier">
 
 {# ----------------------------------------- A OPERATOR IDENTIFICATION FIELD #}
 <section class="deck" id="deck" aria-labelledby="deck-h1">
   <span class="axis axis-deck" aria-hidden="true"></span>
-  {# the practice's field: four labelled coordinates, three supporting points, one course. Not the homepage's participant map. #}
-  <svg class="field-chart" id="field-chart" viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
   <div class="deck-grid">
     <div class="deck-copy">
       <p class="mod-label">About</p>
@@ -44,7 +45,6 @@ navActive: about
 
 {# ---------------------------------------------------- B OPERATOR DOSSIER #}
 <section class="founder-sec" id="founder" aria-labelledby="founder-h2">
-  <span class="axis axis-founder" aria-hidden="true"><i class="axis-mark axis-mark-top"></i><i class="axis-mark axis-mark-mid"></i><i class="axis-signal"></i></span>
   <div class="founder-grid">
     <div class="founder-id">
       <p class="mod-label mod-label-ink">Founder</p>
@@ -58,15 +58,54 @@ navActive: about
   </div>
 </section>
 
-{# ------------------------------------------- C RESEARCH NAVIGATION CHART #}
+{# ------------------------------------ C THE ONE RESEARCH NAVIGATION INSTRUMENT #}
 <section class="think" id="how-we-think" aria-labelledby="think-h2">
-  <div class="think-chart" id="think-chart">
-    <svg class="course" id="course" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
+  <div class="think-inner">
     <div class="think-head">
-      <p class="mod-label">How we think</p>
-      <h2 class="think-h2" id="think-h2">What is genuinely changing, and what isn&rsquo;t.</h2>
+      <div class="think-title">
+        <p class="mod-label">How we think</p>
+        <h2 class="think-h2" id="think-h2">What is genuinely changing, and what isn&rsquo;t.</h2>
+      </div>
       <p class="think-intro">The same few ideas shape every engagement, translated here rather than stated as internal methodology.</p>
     </div>
+
+    {# One instrument: a calibrated hub (the practice) with three nodes plotted on one orbit; each node sits above its
+       principle column. The wide geometry is server-rendered; about.js re-lays it out for narrow viewports. #}
+    <div class="instrument" id="instrument" aria-hidden="true">
+      <div class="inst-meta"><span>Research navigation</span><span class="inst-cal" id="inst-cal">HUB 500 · 150 &nbsp;/&nbsp; ORBIT 400 × 120 &nbsp;/&nbsp; 03 NODES</span></div>
+      <div class="inst-plot" id="inst-plot">
+        <svg class="inst-svg" id="inst-svg" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <ellipse class="i-orbit" data-k="orbit" cx="500" cy="150" rx="400" ry="120"></ellipse>
+          <line class="i-axis" data-k="ax" x1="60" y1="150" x2="940" y2="150"></line>
+          <line class="i-axis" data-k="ay" x1="500" y1="8" x2="500" y2="292"></line>
+          <line class="i-tick" data-k="o0" x1="100" y1="144" x2="100" y2="156"></line>
+          <line class="i-tick" data-k="o1" x1="900" y1="144" x2="900" y2="156"></line>
+          <line class="i-tick" data-k="o2" x1="494" y1="270" x2="506" y2="270"></line>
+          <circle class="i-cal" data-k="c0" cx="500" cy="150" r="30"></circle>
+          <circle class="i-cal i-cal-2" data-k="c1" cx="500" cy="150" r="46"></circle>
+          <line class="i-tick" data-k="t0" x1="500" y1="120" x2="500" y2="112"></line>
+          <line class="i-tick" data-k="t1" x1="530" y1="150" x2="538" y2="150"></line>
+          <line class="i-tick" data-k="t2" x1="500" y1="180" x2="500" y2="188"></line>
+          <line class="i-tick" data-k="t3" x1="470" y1="150" x2="462" y2="150"></line>
+          <line class="i-spoke" data-k="s1" pathLength="1" x1="500" y1="150" x2="166.7" y2="216.3"></line>
+          <line class="i-spoke" data-k="s2" pathLength="1" x1="500" y1="150" x2="500" y2="30"></line>
+          <line class="i-spoke" data-k="s3" pathLength="1" x1="500" y1="150" x2="833.3" y2="216.3"></line>
+          <circle class="i-ring" data-k="r1" cx="166.7" cy="216.3" r="22"></circle>
+          <circle class="i-ring" data-k="r2" cx="500" cy="30" r="22"></circle>
+          <circle class="i-ring" data-k="r3" cx="833.3" cy="216.3" r="22"></circle>
+          <circle class="i-node" data-k="n1" cx="166.7" cy="216.3" r="6"></circle>
+          <circle class="i-node" data-k="n2" cx="500" cy="30" r="6"></circle>
+          <circle class="i-node" data-k="n3" cx="833.3" cy="216.3" r="6"></circle>
+          <rect class="i-hub" data-k="hub" x="491" y="141" width="18" height="18"></rect>
+          <circle class="i-signal" data-k="sig" cx="500" cy="150" r="4"></circle>
+        </svg>
+        <span class="i-label i-label-c" data-k="l1" style="--x:16.667%;--y:82%">01 · Ecosystem</span>
+        <span class="i-label i-label-r" data-k="l2" style="--x:52.4%;--y:10%">02 · Research</span>
+        <span class="i-label i-label-c" data-k="l3" style="--x:83.333%;--y:82%">03 · Change</span>
+        <span class="i-label i-label-c i-label-hub" data-k="lh" style="--x:50%;--y:70.5%">Research practice</span>
+      </div>
+    </div>
+
     <ol class="principles" id="principles">
       <li class="principle" data-node="1">
         <span class="p-idx" aria-hidden="true">01</span>
@@ -91,7 +130,6 @@ navActive: about
 
 {# ------------------------------------------------------------ D HANDOFF #}
 <section class="handoff" id="handoff" aria-labelledby="handoff-h2">
-  <span class="course-tail" aria-hidden="true"></span>
   <div class="handoff-grid">
     <div>
       <p class="mod-label">Handoff</p>
