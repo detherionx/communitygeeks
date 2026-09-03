@@ -512,12 +512,13 @@
     const obstacleTop = tops.length ? Math.min(...tops) : pr.height * 0.45;
     // extents of the fully rotated assembly at unit scale; they scale linearly with k
     const [, cym] = heroCentroid(HERO_DESKTOP);
-    const rot1 = heroHubs(false, 1, 1); const rMinY = Math.min(...rot1.map((h) => h[1])), rMaxY = Math.max(...rot1.map((h) => h[1]));
-    const available = (obstacleTop - 16) - (barH + 8);
-    g.k1 = Math.max(0.5, Math.min(0.88, (available / sc - 116) / (rMaxY - rMinY)));
+    // worst case over the whole rotation sweep, so intermediate frames clear the bar and the copy too
+    const sweep = [0, 0.2, 0.4, 0.6, 0.8, 1].flatMap((e) => heroHubs(false, e, 1)); const rMinY = Math.min(...sweep.map((h) => h[1])), rMaxY = Math.max(...sweep.map((h) => h[1]));
+    const available = (obstacleTop - 16) - (barH + 14);
+    g.k1 = Math.max(0.42, Math.min(0.88, (available / sc - 116) / (rMaxY - rMinY)));
     const botPx = cTop + (cym + (rMaxY - cym) * g.k1 + 46) * sc;
     const topPx = cTop + (cym - (cym - rMinY) * g.k1 - 70) * sc;
-    g.U = Math.max(0, Math.min(botPx - (obstacleTop - 16), topPx - (barH + 8)));
+    g.U = Math.max(0, Math.min(botPx - (obstacleTop - 16), topPx - (barH + 14)));
     const hubsEnd = heroHubs(false, 1, g.k1); const minXu = Math.min(...hubsEnd.map((h) => h[0]));
     g.T = Math.max(0, Math.min(window.innerWidth * 0.42, cLeft + (minXu - 116) * sc - 12));
     heroPin.style.setProperty('--hx', prevX || '0px'); heroPin.style.setProperty('--hy', prevY || '0px');
