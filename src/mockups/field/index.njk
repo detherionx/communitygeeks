@@ -6,6 +6,7 @@ permalink: /mockups/field/
 eleventyExcludeFromCollections: true
 chapters: "07"
 footerInline: true
+extraScripts: ["researcher.js"]
 ---
 {# =========================================================================
    CONCEPT: PARTICIPATION IS A LIVING SYSTEM, refinement pass 2.
@@ -249,21 +250,22 @@ footerInline: true
 </section>
 
 {# ------------------------------------------- PUBLIC THINKING: PREVIEW #}
-<section class="pt chapter" id="thinking" data-chapter="06" data-title="Public Thinking">
+<section class="pt pt-cel chapter" id="thinking" data-chapter="06" data-title="Public Thinking">
+  {# THE CELESTIAL RESEARCHER (review build, static): a presence built only from
+     constellations holds an open field journal and writes into it. Background
+     star field behind the whole section, the scene in the left 59%, the
+     findings in the right column. Geometry: researcher.js. Decorative SVGs are
+     aria-hidden; all editorial content is HTML text. Not animated yet. #}
+  <svg class="cel-bg" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
+  <div class="pt-field" aria-hidden="true"><svg class="cel-fig" id="researcher-scene" data-researcher='{"part":"scene"}' focusable="false"></svg></div>
+  <div class="pt-edit">
   <div class="pt-head">
     <div>
       <p class="kicker"><span class="node-dot node-dot-ochre"></span>Public Thinking</p>
       <h2 class="pt-h2">Live findings,<br>not a static portfolio.</h2>
-    </div>
-    <div class="pt-head-side">
-      <p class="pt-sub">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
+      <p class="pt-sub">Research findings, executive one-pagers, case studies and field notes&mdash;tagged by format and by how much evidence currently supports them.</p>
     </div>
   </div>
-  {# Live research signal: a rail along the ledger. On entry the coral trace
-     travels down the rail and resolves at the newest finding; hovering or
-     focusing a row moves it there; the beacon at the foot marks "See all".
-     Decorative only: hidden from assistive technology, static under
-     reduced motion. Geometry is measured from the DOM by field.js. #}
   <div class="pt-body" id="pt-body">
     <svg class="pt-signal" id="pt-signal" aria-hidden="true" focusable="false"></svg>
   <ol class="ledger" id="ledger">
@@ -283,6 +285,7 @@ footerInline: true
   <div class="pt-foot">
     {% if publicThinking.length and publicThinking[0].researchThread %}<p class="pt-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>{% endif %}
     <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/mockups/field/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+  </div>
   </div>
   </div>
 </section>
