@@ -1,36 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ lang or 'en' }}">
-<head>
+{# Shared <head> for every production layout (home, about, contact, pt). One place for titles, Open Graph / Twitter
+   cards, canonical, favicons, fonts, structured data and analytics. Pages override per front matter:
+   ogTitle / ogDescription (share copy), ogImage + ogImageAlt (a piece's generated 1200x630 card; the site card is
+   1200x627), extraHead (JSON-LD, hreflang alternates). Stylesheets are added by each layout after this include. #}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} · Communitygeeks</title>
 <meta name="description" content="{{ description }}">
-
-<!-- Open Graph -->
-<meta property="og:title" content="{{ title }} · Communitygeeks">
-<meta property="og:description" content="{{ description }}">
+{% set siteOgImage = 'https://communitygeeks.ai/assets/images/communitygeeks-2-og-2026.png' %}
+{% set siteOgAlt = 'Communitygeeks 2.0. Participation has changed. We rebuilt the observatory. Deep teal field with the constellation Reticulum and a coral signal.' %}
+<meta property="og:title" content="{{ ogTitle or (title ~ ' · Communitygeeks') }}">
+<meta property="og:description" content="{{ ogDescription or description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://communitygeeks.ai{{ page.url }}">
-<meta property="og:image" content="{{ ogImage or 'https://communitygeeks.ai/assets/images/og-image.png' }}">
+<meta property="og:image" content="{{ ogImage or siteOgImage }}">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:height" content="{{ '630' if ogImage else '627' }}">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="{{ ogImageAlt or 'Communitygeeks: Participation Research & Advisory' }}">
+<meta property="og:image:alt" content="{{ ogImageAlt or siteOgAlt }}">
 <link rel="canonical" href="https://communitygeeks.ai{{ page.url }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ title }} · Communitygeeks">
-<meta name="twitter:description" content="{{ description }}">
-<meta name="twitter:image" content="{{ ogImage or 'https://communitygeeks.ai/assets/images/og-image.png' }}">
-
+<meta name="twitter:title" content="{{ ogTitle or (title ~ ' · Communitygeeks') }}">
+<meta name="twitter:description" content="{{ ogDescription or description }}">
+<meta name="twitter:image" content="{{ ogImage or siteOgImage }}">
+<meta name="twitter:image:alt" content="{{ ogImageAlt or siteOgAlt }}">
+<meta name="theme-color" content="#1F4B4C">
 <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,26 +52,7 @@
 }
 </script>
 {% for line in extraHead %}{{ line | safe }}{% endfor %}
-
-<!-- Analytics: Umami Cloud, one property covering all three mirrored domains.
-     data-auto-pageview is off because src/assets/js/analytics.js sends the
-     pageview itself, merging in data-artifact-* metadata where present,
-     see that file for what it reads and HANDOFF.md/analytics audit for why. -->
+{# Analytics: Umami Cloud. Auto-pageview is off because assets/js/analytics.js sends the pageview itself, merging in
+   data-artifact-* metadata on article pages (see that file). #}
 <script defer src="{{ analytics.scriptSrc }}" data-website-id="{{ analytics.websiteId }}" data-domains="{{ analytics.domains | join(',') }}" data-auto-pageview="false"></script>
 <script defer src="/assets/js/analytics.js"></script>
-</head>
-<body>
-
-{% include "partials/nav.njk" %}
-
-<main id="main-content">
-{{ content | safe }}
-</main>
-
-{% if closingCta %}{% include "partials/closing-cta.njk" %}{% endif %}
-{% include "partials/footer.njk" %}
-
-<script src="/assets/js/nav-toggle.js"></script>
-{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
-</body>
-</html>

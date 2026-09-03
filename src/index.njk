@@ -1,233 +1,352 @@
 ---
-layout: layouts/base.njk
+layout: layouts/home.njk
 title: "Communitygeeks: Community, DevRel & Participation Research"
-description: Communitygeeks researches how community, developer relations (DevRel), partnerships and other forms of participation work around products, and advises organizations based on what the evidence shows.
+description: "Communitygeeks researches how community, developer relations (DevRel), partnerships and other forms of participation work around products, and advises organizations based on what the evidence shows."
 permalink: /
-extraScripts:
-  - marquee.js
-  - pt-rail.js
-closingCta:
-  secondaryLabel: "Read the research →"
-  secondaryUrl: "/public-thinking/"
+chapters: "07"
+footerInline: true
+extraScripts: ["researcher.js"]
+ogTitle: "Communitygeeks 2.0 · Participation research & advisory"
+ogDescription: "Participation has changed. We rebuilt the observatory: research, advisory and live findings on how people gather, contribute, connect and create value around products."
 ---
-{% from "partials/geo-plate.njk" import geoPlate %}
-{% from "partials/pt-card.njk" import ptCard %}
-<section class="hero">
-  {% include "partials/geometric-field.njk" %}
-  <div class="wrap">
-    <h1>Participation rarely fits neatly into an org chart. We study <em>what happens around products: how people gather, contribute, connect and create value.</em></h1>
-    <div class="hero-construct">
-      <div class="hc-ink">
-        <div class="eyebrow">
-          {% include "partials/node-mark.njk" %}
-          Participation Research &amp; Advisory
-        </div>
+{# =========================================================================
+   CONCEPT: PARTICIPATION IS A LIVING SYSTEM, refinement pass 2.
+   One SVG "field map" engine (field.js). The System sequence is the page's
+   single scroll-controlled reveal; the hero connects itself on load, the
+   questions are a compact instrument, the approach path draws once on
+   entry. All copy is existing approved text (homepage, Approach, About,
+   Contact, published Field Notes), reordered and occasionally shortened;
+   nothing is invented.
+   ========================================================================= #}
+
+{% from "partials/pt-motifs.njk" import ptConstellation %}
+{# ---------------------------------------------------------------- HERO #}
+<section class="hero chapter" id="field" data-chapter="01" data-title="Field">
+  <div class="hero-pin">
+    <div class="layer layer-topo" aria-hidden="true">
+      <svg class="topo" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+        <path d="M-40,620 C180,560 300,700 520,640 S900,520 1120,610 S1380,700 1500,640"/>
+        <path d="M-40,700 C200,640 340,790 560,720 S920,600 1140,700 S1390,790 1500,720"/>
+        <path d="M-40,540 C160,480 320,610 540,560 S880,440 1100,530 S1370,610 1500,560"/>
+        <path d="M-40,460 C150,410 330,520 550,480 S870,370 1090,450 S1360,520 1500,480"/>
+        <path class="topo-fore" d="M600,-20 C640,120 560,260 640,400 S760,600 700,760 S640,900 680,940"/>
+        <path class="topo-fore" d="M980,-20 C1020,140 940,300 1010,440 S1120,640 1060,800 S1000,900 1040,940"/>
+      </svg>
+    </div>
+    <div class="layer layer-map" aria-hidden="true">
+      <svg class="field-svg" id="hero-field" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="layer layer-ui">
+      <p class="hero-readout"><span class="node-dot node-dot-ochre"></span><span>Participation Research &amp; Advisory</span></p>
+      <h1 class="hero-h1">
+        <span class="h1-line"><span>Participation rarely fits</span></span>
+        <span class="h1-line"><span>neatly into an org chart.</span></span>
+      </h1>
+      <p class="hero-sub">We study what happens around products: how people <em data-verb="gather">gather</em>, <em data-verb="contribute">contribute</em>, <em data-verb="connect">connect</em> and <em data-verb="create">create value</em>.</p>
+      <div class="hero-controls">
+        <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+        <a href="/public-thinking/" class="kctl kctl-secondary"><span class="kctl-row"><span class="kctl-label">Read the research</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
       </div>
-      <div class="hc-right">
-        <a href="/contact/" class="hc-petrol">
-          <span class="mast-action">Compare notes <span class="mast-arrow">→</span></span>
-        </a>
-        <a href="/public-thinking/" class="hc-brass">
-          <span class="mast-action">Read the research <span class="mast-arrow">→</span></span>
-        </a>
-      </div>
-      <span class="hc-rule hc-rule-v" aria-hidden="true"></span>
-      <span class="hc-rule hc-rule-h" aria-hidden="true"></span>
+      <p class="hero-for">For leadership deciding how to invest in community, DevRel, or partnerships.</p>
+    </div>
+    <div class="layer layer-fore" aria-hidden="true">
+      <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
     </div>
   </div>
 </section>
 
-<section class="trust">
-  <div class="wrap">
-    <div class="trust-label">Trusted by industry leaders</div>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track">
+{# ---------------------------------------------------------- TRUST RAIL #}
+<section class="trust" aria-labelledby="trust-label">
+  <p class="trust-label" id="trust-label">Trusted by industry leaders</p>
+  <div class="rail">
+    <ul class="rail-track">
       {% for item in clients.logoWall %}
-      <div class="logo-badge" style="--logo-url:url('{{ item.logoPath }}');">
-        <span class="logo-mono"></span>
-        <span class="sr-only">{{ item.name }}</span>
-      </div>
+      <li class="logo" tabindex="0" role="img" aria-label="{{ item.name }}" style="--logo-url:url('{{ item.logoPath }}');"><span class="logo-mask"></span><span class="logo-name">{{ item.name }}</span></li>
       {% endfor %}
-      {% for item in clients.logoWall %}
-      <div class="logo-badge" aria-hidden="true" style="--logo-url:url('{{ item.logoPath }}');">
-        <span class="logo-mono"></span>
+    </ul>
+  </div>
+</section>
+
+{# ----------------------------------------------------- PINNED NARRATIVE #}
+<section class="narrative chapter" id="system" data-chapter="02" data-title="System" data-stage="0">
+  <div class="nar-pin">
+    <div class="nar-stage">
+    <p class="nar-caption" id="nar-caption" aria-hidden="true"></p>
+    {# System sequence, orbital vocabulary (approved A-11, Study D): geometry
+       in the SVG, every label in the HTML layer beside it, both sized by the
+       same box so coordinates map one to one. #}
+    <div class="nar-box">
+      <svg class="field-svg ob-svg" id="nar-field" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      <div class="nar-labels" id="nar-labels" aria-hidden="true"></div>
+    </div>
+    <div class="nar-hud" aria-hidden="true">
+      <span class="nar-stage-num"><b id="nar-num">01</b> / 06</span>
+      <ol class="nar-stage-list">
+        <li>Three channels, no coordination</li>
+        <li>Many participant groups, overlapping</li>
+        <li>Ownership unclear</li>
+        <li>The system mapped</li>
+        <li>Relationships legible</li>
+        <li>Participation as value</li>
+      </ol>
+    </div>
+    </div>
+    {# F3 · phones: the six views are direct controls (tabs + Next). Hidden on desktop, where the pinned stage is a
+       scroll narrative with the visible state list. field.js wires them and keeps the note, figure and label in step. #}
+    <div class="nar-tabs" id="nar-tabs" role="tablist" aria-label="System views">
+      <button type="button" role="tab" id="nar-tab-1" aria-selected="true" aria-controls="nar-note-1">01</button>
+      <button type="button" role="tab" id="nar-tab-2" aria-selected="false" aria-controls="nar-note-2" tabindex="-1">02</button>
+      <button type="button" role="tab" id="nar-tab-3" aria-selected="false" aria-controls="nar-note-3" tabindex="-1">03</button>
+      <button type="button" role="tab" id="nar-tab-4" aria-selected="false" aria-controls="nar-note-4" tabindex="-1">04</button>
+      <button type="button" role="tab" id="nar-tab-5" aria-selected="false" aria-controls="nar-note-5" tabindex="-1">05</button>
+      <button type="button" role="tab" id="nar-tab-6" aria-selected="false" aria-controls="nar-note-6" tabindex="-1">06</button>
+      <button type="button" class="nar-tab-next" id="nar-tab-next">Next<span class="kctl-mark" aria-hidden="true"></span></button>
+    </div>
+    <p class="nar-tabs-label" id="nar-tabs-label" aria-live="polite"></p>
+    <div class="nar-notes">
+      <article class="note" data-note="0" id="nar-note-1">
+        <span class="note-kicker">System view 01 · The old container</span>
+        <p class="note-lead">A forum. A Discord server. An engagement calendar.</p>
+        <p>That used to be enough to call something &ldquo;community.&rdquo;</p>
+      </article>
+      <article class="note" data-note="1" id="nar-note-2">
+        <span class="note-kicker">System view 02 · Many groups at once</span>
+        <p class="note-lead">Most organizations coordinate many participant groups at once: users, developers, creators, partners, advocates, and others specific to the product.</p>
+        <p class="note-tags"><span>users</span><span>developers</span><span>creators</span><span>partners</span><span>advocates</span><span class="note-tag-open">and others …</span></p>
+      </article>
+      <article class="note" data-note="2" id="nar-note-3">
+        <span class="note-kicker">System view 03 · Nobody owns the overlap</span>
+        <p class="note-lead">Often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
+        <p class="note-q">What&rsquo;s owned internally versus externally?</p>
+      </article>
+      <article class="note" data-note="3" id="nar-note-4">
+        <span class="note-kicker">System view 04 · Diagnostics</span>
+        <p class="note-lead">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
+        <p class="note-verbs"><span class="on">Identify.</span> <span>Understand.</span> <span>Shape.</span> <span>Strengthen.</span></p>
+      </article>
+      <article class="note" data-note="4" id="nar-note-5">
+        <span class="note-kicker">System view 05 · The question changes</span>
+        <p class="note-lead">Not <s>where does your community run</s>, but who&rsquo;s actually participating, and how.</p>
+        <p class="note-verbs"><span>Identify.</span> <span class="on">Understand.</span> <span class="on">Shape.</span> <span>Strengthen.</span></p>
+      </article>
+      <article class="note" data-note="5" id="nar-note-6">
+        <span class="note-kicker">System view 06 · One connected system</span>
+        <p class="note-lead">How people gather, contribute, connect and create value.</p>
+        <p>Participation around a product rarely fits one team, channel or program. Neither does the work.</p>
+        <a class="note-link" href="#approach">How we work →</a>
+      </article>
+    </div>
+  </div>
+  <div class="nar-steps" aria-hidden="true">
+    <div class="nar-step"></div><div class="nar-step"></div><div class="nar-step"></div>
+    <div class="nar-step"></div><div class="nar-step"></div><div class="nar-step"></div>
+  </div>
+</section>
+
+{# ------------------------------------------------------ HOW WE WORK PATH #}
+<section class="pathway chapter" id="approach" data-chapter="03" data-title="Approach">
+  <div class="path-wrap">
+    <div class="path-head">
+      <p class="kicker"><span class="node-dot node-dot-ochre"></span>How we work</p>
+      <h2 class="path-h2">One investigation,<br>not a rate card.</h2>
+      <p class="path-bridge">Participation around a product rarely fits one team, channel or program. Neither does the work.</p>
+      <p class="path-note">These are exploratory categories, not a fixed service catalogue.</p>
+      <a class="path-more" href="/#approach">Full approach →</a>
+    </div>
+    <div class="path-stage">
+      {# Approach V2 (approved 2026-09-03, Study D): three modes of work on one
+         rising path. Stage names are HTML rows (one for the horizontal
+         layout, one positioned over the vertical layout); the drawings are
+         generated by field.js drawApproachV2() and hidden from assistive
+         technology. Legend and panels below are unchanged. #}
+      <ol class="stage-row stage-row-d" aria-label="Three modes of work">
+        <li><i>01</i>Diagnostics</li><li><i>02</i>Program design</li><li><i>03</i>Research &amp; advisory</li>
+      </ol>
+      <svg class="path-svg v2-desktop" id="v2-desktop" viewBox="0 0 960 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"></svg>
+      <div class="v2-mobile-wrap">
+        <ol class="stage-row stage-row-m" aria-label="Three modes of work">
+          <li style="--y:67.5%"><i>01</i>Diagnostics</li><li style="--y:40.7%"><i>02</i>Program design</li><li style="--y:13.9%"><i>03</i>Research &amp; advisory</li>
+        </ol>
+        <svg class="path-svg v2-mobile" id="v2-mobile" viewBox="0 0 390 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"></svg>
       </div>
-      {% endfor %}
+      {# Process legend: the four verbs of the loop (from the published Field
+         Note), in reading order, matched to the loop's ticks clockwise. #}
+      <ol class="process-legend" aria-label="The loop: Identify, Understand, Shape, Strengthen">
+        <li><span class="pl-idx">01</span><span class="pl-tick" aria-hidden="true"></span><span class="pl-word">Identify</span></li>
+        <li><span class="pl-idx">02</span><span class="pl-tick" aria-hidden="true"></span><span class="pl-word">Understand</span></li>
+        <li><span class="pl-idx">03</span><span class="pl-tick" aria-hidden="true"></span><span class="pl-word">Shape</span></li>
+        <li><span class="pl-idx">04</span><span class="pl-tick" aria-hidden="true"></span><span class="pl-word">Strengthen</span></li>
+      </ol>
+      <ol class="path-panels">
+        <li class="path-panel">
+          <span class="pp-idx">Stage 01</span>
+          <h3>Participation Strategy &amp; Diagnostics</h3>
+          <p>Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
+          <span class="pp-for">For leadership deciding how to invest in community, DevRel, or partnerships</span>
+        </li>
+        <li class="path-panel">
+          <span class="pp-idx">Stage 02</span>
+          <h3>Program Design</h3>
+          <p>Community, developer relations (DevRel), and partnership programs, designed around the specific groups your product actually has, not a template org chart.</p>
+          <span class="pp-for">For teams building or restructuring a community, DevRel, or partner function</span>
+        </li>
+        <li class="path-panel">
+          <span class="pp-idx">Stage 03</span>
+          <h3>Research &amp; Advisory</h3>
+          <p>Ongoing, evidence-based advisory grounded in active interviews and pattern-matching across companies, not a one-off audit.</p>
+          <span class="pp-for">For organizations wanting a standing research partner, not a single engagement</span>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="think">
-  <div class="wrap">
-    <div class="think-head">
-      <div class="section-marker">
-        {% include "partials/node-mark.njk" %}
-        <span class="label">How Communitygeeks Thinks</span>
-      </div>
-      <h2>Not <span class="old">where does your community run</span>, but who's actually participating, and how.</h2>
-      <p class="think-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
+{# ------------------------------------------------ QUESTIONS: INSTRUMENT #}
+<section class="diagnostic chapter" id="questions" data-chapter="04" data-title="Questions" data-q="0">
+  <div class="diag-grid">
+    <div class="diag-copy">
+      <p class="kicker"><span class="node-dot node-dot-ochre"></span>How Communitygeeks thinks</p>
+      <h2 class="diag-h2">Not <s>where does your community run</s>, but who&rsquo;s actually participating, and how.</h2>
+      <p class="diag-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
+      <ol class="qlist" role="group" aria-label="Diagnostic questions">
+        <li><button class="qnode" type="button" data-q="0" aria-pressed="true"><span class="qnode-dot"></span><span class="qnode-idx">01</span><span class="qnode-text">Who participates around your product?</span></button></li>
+        <li><button class="qnode" type="button" data-q="1" aria-pressed="false"><span class="qnode-dot"></span><span class="qnode-idx">02</span><span class="qnode-text">What value does each group create?</span></button></li>
+        <li><button class="qnode" type="button" data-q="2" aria-pressed="false"><span class="qnode-dot"></span><span class="qnode-idx">03</span><span class="qnode-text">Where do those groups actually interact?</span></button></li>
+        <li><button class="qnode" type="button" data-q="3" aria-pressed="false"><span class="qnode-dot"></span><span class="qnode-idx">04</span><span class="qnode-text">What&rsquo;s owned internally versus externally?</span></button></li>
+        <li><button class="qnode" type="button" data-q="4" aria-pressed="false"><span class="qnode-dot"></span><span class="qnode-idx">05</span><span class="qnode-text">Which relationships matter most right now?</span></button></li>
+        <li><button class="qnode" type="button" data-q="5" aria-pressed="false"><span class="qnode-dot"></span><span class="qnode-idx">06</span><span class="qnode-text">Where does participation actually break down?</span></button></li>
+      </ol>
     </div>
-
-    <div class="q-grid">
-      <div class="q-cell">
-        <span class="q-num">01</span>
-        <div class="q-text">Who participates around your product?</div>
-      </div>
-      <div class="q-cell">
-        <span class="q-num">02</span>
-        <div class="q-text">What value does each group create?</div>
-      </div>
-      <div class="q-cell">
-        <span class="q-num">03</span>
-        <div class="q-text">Where do those groups actually interact?</div>
-      </div>
-      <div class="q-cell">
-        <span class="q-num">04</span>
-        <div class="q-text">What's owned internally versus externally?</div>
-      </div>
-      <div class="q-cell">
-        <span class="q-num">05</span>
-        <div class="q-text">Which relationships matter most right now?</div>
-      </div>
-      <div class="q-cell">
-        <span class="q-num">06</span>
-        <div class="q-text">Where does participation actually break down?</div>
+    <div class="diag-instrument">
+      <div class="diag-instrument-head"><span>Participation <span class="diag-head-long">around a product</span></span><span id="diag-q-label">Question 01</span></div>
+      {# A Bauhaus orrery, built by field.js: the product at the centre,
+         participant groups on offset elliptical orbits, a faint outer orbit
+         for groups specific to the product. Each question sets a distinct
+         state of the same system. The viewBox holds every state with
+         clearance; nothing meaningful is clipped. #}
+      <svg class="orrery-svg" id="orrery-field" viewBox="-60 16 800 568" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Orrery instrument: your product at the centre, with users, developers, creators, partners and advocates on offset orbits and a faint outer orbit for other participant groups. Selecting a question changes the state of the instrument."></svg>
+      <div class="q-explain" aria-live="polite">
+        <div class="q-card" data-q="0"><span class="q-src">Reading · from About</span><p>We begin with the people around a product and the relationships between them, not with the assumption that the answer is another Discord, forum, or community platform.</p></div>
+        <div class="q-card" data-q="1"><span class="q-src">Reading · from Approach</span><p>Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p></div>
+        <div class="q-card" data-q="2"><span class="q-src">Reading · Field Note, Aug 2026</span><p>Instead of asking which channels need to be served next, the focus shifts to the interplay between different stakeholders around a company.</p></div>
+        <div class="q-card" data-q="3"><span class="q-src">Reading · from Approach</span><p>Where it&rsquo;s owned internally versus externally, and where things break down, before recommending any structure.</p></div>
+        <div class="q-card" data-q="4"><span class="q-src">Reading · from About</span><p>Community, DevRel, partnerships, and advocacy increasingly overlap. We look at how participation actually works before recommending where teams, programs, or platforms should sit.</p></div>
+        <div class="q-card" data-q="5"><span class="q-src">Reading · Field Note, Sep 2026</span><p>Participation is moving across the boundaries between community, DevRel, marketing, partnerships, product, sales, and executive strategy.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band alt">
-  <div class="wrap">
-    <div class="problem-old">
-      A forum. A Discord server. An engagement calendar.
+{# --------------------------------------------- SELECTED WORK: VIGNETTES #}
+<section class="cases chapter" id="cases" data-chapter="05" data-title="Selected work">
+  {# ENGAGEMENT MANIFEST (approved): the six selected engagements as one indexed instrument rail. The logos are
+     selectable coordinates (tabs); one shared record below shows the active engagement's description and sector with
+     its index. No autoplay: hover previews on pointer devices, click or keyboard selects, arrow keys move along the
+     rail. All six records stay in the document; without JavaScript they stack as a compact list. Logos are optically
+     normalised per mark (--lh), never stretched; company names live only in the accessible names. #}
+  <div class="exp-grid">
+    <div class="exp-head">
+      <p class="kicker"><span class="node-dot node-dot-ochre"></span>Selected work</p>
+      <h2 class="cases-h2">A decade of building the programs we now research.</h2>
+      <p class="cases-lead">Selected engagements across SaaS and AI, the public sector, gaming and FMCG, shown with what was actually done.</p>
     </div>
-    <div class="problem-composition">
-      <div class="problem-new">
-        <p>That used to be enough to call something "community." Most organizations are now coordinating several participant groups at once, users, developers, creators, partners, advocates, often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
-        <div class="tag-row">
-          <span class="tag">users</span>
-          <span class="tag">developers</span>
-          <span class="tag">creators</span>
-          <span class="tag">partners</span>
-          <span class="tag">advocates</span>
-        </div>
+    <div class="manifest" id="manifest">
+      <div class="mani-index" role="tablist" aria-label="Selected engagements">
+        {% for client in clients.selectedWork %}
+        <button type="button" role="tab" class="mani-logo" id="mani-tab-{{ loop.index }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="mani-rec-{{ loop.index }}" tabindex="{% if loop.first %}0{% else %}-1{% endif %}" aria-label="{{ client.name }}" data-logo="{{ client.name | lower | replace(' ', '-') }}" style="--logo-url:url('{{ client.logoPath }}');"><span class="mani-mark" aria-hidden="true"></span></button>
+        {% endfor %}
+        <span class="mani-cursor" aria-hidden="true"></span>
       </div>
-      <div class="problem-diagram">
-        {% include "partials/ecosystem-diagram.njk" %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band hww-field-host">
-  {{ geoPlate(shapes=[
-    { type: "circle", cx: 300, cy: 110, r: 140, color: "petrol", opacity: 0.11 },
-    { type: "rect", x: 40, y: 240, w: 200, h: 200, color: "brass", opacity: 0.09 },
-    { type: "triangle", points: "20,460 140,460 80,340", color: "ink", opacity: 0.22 }
-  ], viewBox="0 0 320 460", extraClass="hww-field") }}
-  <div class="wrap">
-    <div class="band-head">
-      <div class="section-marker">
-        {% include "partials/node-mark.njk" %}
-        <span class="label">Approach</span>
-      </div>
-      <h2>How we work, not a rate card.</h2>
-      <p class="approach-bridge">Participation around a product rarely fits one team, channel or program. Neither does the work.</p>
-    </div>
-    <div class="approach-list">
-      <div class="approach-item">
-        <span class="approach-idx">01</span>
-        <div>
-          <h3 class="approach-name">Participation Strategy &amp; Diagnostics</h3>
-          <p class="approach-desc">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
-        </div>
-      </div>
-      <div class="approach-item">
-        <span class="approach-idx">02</span>
-        <div>
-          <h3 class="approach-name">Program Design</h3>
-          <p class="approach-desc">Community, developer relations (DevRel), and partnership programs, designed around the specific groups your product actually has, not a template org chart.</p>
-        </div>
-      </div>
-      <div class="approach-item">
-        <span class="approach-idx">03</span>
-        <div>
-          <h3 class="approach-name">Research &amp; Advisory</h3>
-          <p class="approach-desc">Ongoing, evidence-based advisory grounded in active interviews and pattern-matching across companies, not a one-off audit.</p>
-        </div>
-      </div>
-    </div>
-    <div class="approach-note">These are exploratory categories, not a fixed service catalogue.</div>
-  </div>
-</section>
-
-<section class="band alt">
-  <div class="wrap">
-    <div class="band-head">
-      <div class="section-marker">
-        {% include "partials/node-mark.njk" %}
-        <span class="label">Selected Work</span>
-      </div>
-      <h2>A decade of building the programs we now research.</h2>
-    </div>
-    <div class="work-grid">
-      {% for client in clients.selectedWork %}
-      <div class="work-cell">
-        <div>
-          {% if client.logoPath %}
-          <div class="logo-badge logo-badge-sm" style="--logo-url:url('{{ client.logoPath }}');">
-            <span class="logo-mono"></span>
-            <span class="sr-only">{{ client.name }} logo</span>
-          </div>
-          {% endif %}
-          <div class="work-desc">{{ client.proof }}</div>
-        </div>
-        <div class="work-tag">{{ client.tag }}</div>
-      </div>
-      {% endfor %}
+      <ol class="mani-records" id="mani-records">
+        {% for client in clients.selectedWork %}
+        <li class="mani-rec{% if loop.first %} on{% endif %}" id="mani-rec-{{ loop.index }}" role="tabpanel" aria-labelledby="mani-tab-{{ loop.index }}">
+          <span class="mani-no"><b>0{{ loop.index }}</b> / 06</span>
+          <p class="mani-proof">{{ client.proof }}</p>
+          <span class="mani-tag">{{ client.tag }}</span>
+        </li>
+        {% endfor %}
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="band">
-  <div class="wrap">
-    <div class="band-head">
-      <div class="section-marker">
-        {% include "partials/node-mark.njk" %}
-        <span class="label">Public Thinking</span>
+{# ------------------------------------------- PUBLIC THINKING: PREVIEW #}
+<section class="pt pt-cel chapter" id="thinking" data-chapter="06" data-title="Public Thinking">
+  {# THE CELESTIAL RESEARCHER (production): a presence built only from
+     constellations holds an open field journal and writes into it. Background
+     star field behind the whole section, the scene in the left 59%, the
+     findings in the right column. Geometry: researcher.js. Decorative SVGs are
+     aria-hidden; all editorial content is HTML text. Not animated yet. #}
+  <svg class="cel-bg" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
+  <div class="pt-field" aria-hidden="true"><svg class="cel-fig" id="researcher-scene" data-researcher='{"part":"scene","animate":true}' focusable="false"></svg></div>
+  <div class="pt-edit">
+  <div class="pt-head">
+    <div>
+      <p class="kicker"><span class="node-dot node-dot-ochre"></span>Public Thinking</p>
+      <h2 class="pt-h2">Live findings,<br>not a static portfolio.</h2>
+      <p class="pt-sub">Research findings, executive one-pagers, case studies and field notes&mdash;tagged by format and by how much evidence currently supports them.</p>
+    </div>
+  </div>
+  <div class="pt-body" id="pt-body">
+    <svg class="pt-signal" id="pt-signal" aria-hidden="true" focusable="false"></svg>
+  <ol class="ledger" id="ledger">
+    {% for piece in publicThinking %}
+    <li class="ledger-row">
+      <span class="ledger-date">{{ piece.date | readableDate }}</span>
+      <span class="ledger-meta"><span class="entry-format">{{ piece.format }}</span><span class="entry-conf">{{ piece.confidence }}</span></span>
+      <div class="ledger-main">
+        <h3 class="ledger-title"><a href="{{ piece.url }}">{{ piece.title }}</a></h3>
+        {% if piece.deck %}<p class="ledger-deck">{{ piece.deck }}</p>{% endif %}
+        <span class="entry-topics">{% for t in piece.topics %}<span>{{ t }}</span>{% endfor %}</span>
       </div>
-      <h2>Live findings, not a static portfolio.</h2>
-    </div>
-    <div class="pt-rail-wrap">
-      <div class="pt-rail" tabindex="0" role="region" aria-label="Public Thinking: latest research">
-        {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 3) }}{% endfor %}
-      </div>
-      <button type="button" class="pt-rail-nav prev" aria-label="Previous"{% if publicThinking.length < 2 %} disabled{% endif %}>‹</button>
-      <button type="button" class="pt-rail-nav next" aria-label="Next"{% if publicThinking.length < 2 %} disabled{% endif %}>›</button>
-    </div>
-    <div class="pt-rail-foot">
-      <button type="button" class="pt-rail-playpause" aria-pressed="false"{% if publicThinking.length < 2 %} disabled{% endif %}>Pause</button>
-      {% if publicThinking.length and publicThinking[0].researchThread %}
-      <p class="pt-rail-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
-      {% endif %}
-      <a href="/public-thinking/" class="pt-info-link">See all Public Thinking →</a>
-    </div>
+      <a class="entry-link ledger-link" href="{{ piece.url }}">Read {{ piece.format | lower }} →</a>
+      {# the finding's own constellation: one identified object inside the larger field, crossing the record's edge #}
+      {% if piece.motif %}<div class="rec-motif" aria-hidden="true">{{ ptConstellation(piece.motif, 'record', 'dark') }}</div>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  <div class="pt-foot">
+    {% if publicThinking.length and publicThinking[0].researchThread %}<p class="pt-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>{% endif %}
+    <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+  </div>
+  </div>
   </div>
 </section>
 
-<section class="band alt">
-  <div class="wrap">
-    <div class="founder-grid">
-      <div class="founder-photo">
-        <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360">
-      </div>
+{# ------------------------------------------- FOUNDER: warm human surface #}
+<section class="founder" id="founder-section" aria-labelledby="founder-name">
+  <article class="author-note" id="founder">
+    <div class="author-row">
+      <figure class="author-fig">
+        <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy">
+        <span class="tick tick-tl"></span><span class="tick tick-br"></span>
+      </figure>
       <div>
-        <div class="founder-name">Carmelito Bauer</div>
-        <span class="founder-role">Founder, Communitygeeks</span>
-        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
+        <span class="note-kicker">Founder · The person behind the work</span>
+        <h3 class="author-name" id="founder-name">Carmelito Bauer</h3>
+        <p class="author-role">Founder, Communitygeeks</p>
+        <p class="author-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
+        <a class="entry-link" href="/about/">About Communitygeeks →</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+{# ------------------------------------------------------------- CLOSE #}
+<section class="close chapter" id="talk" data-chapter="07" data-title="Talk">
+  <div class="close-grid">
+    <div>
+      <p class="kicker close-kicker"><span class="node-dot node-dot-ochre"></span>Get in touch</p>
+      <h2 class="close-h2">Talk about what&rsquo;s actually happening.</h2>
+    </div>
+    <div class="close-side">
+      <p class="close-sub">Whether it&rsquo;s an active problem or just a hunch that your community, DevRel, and partnership functions don&rsquo;t fit together the way they used to, this is a good place to start a conversation, not a sales call.</p>
+      <div class="close-actions">
+        <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+        <p class="close-mail-row"><span>Direct, no form required if you&rsquo;d rather just write:</span><a href="mailto:carmelito@communitygeeks.de" class="close-mail">carmelito@communitygeeks.de</a></p>
+        <a href="/public-thinking/" class="close-secondary">Read the research →</a>
       </div>
     </div>
   </div>
+  {% set inline = true %}{% include "partials/field-shell-foot.njk" %}
 </section>

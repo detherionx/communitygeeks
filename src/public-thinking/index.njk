@@ -1,30 +1,33 @@
 ---
-layout: layouts/base.njk
+layout: layouts/pt.njk
 lang: en
 title: Public Thinking
-description: Research findings, executive one-pagers, case studies, and field notes, live, not a static portfolio.
+description: "Research findings, executive one-pagers, case studies, and field notes, live, not a static portfolio."
 permalink: /public-thinking/
+navActive: pt
 eleventyComputed:
   extraHead:
     - "<link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
     - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Public Thinking\",\"item\":\"https://communitygeeks.ai/public-thinking/\"}]}</script>"
     - "{{ publicThinkingCollection | safe }}"
 extraScripts:
-  - "public-thinking-filter.js"
-closingCta:
-  secondaryLabel: "See how we work →"
-  secondaryUrl: "/approach/"
+  - public-thinking-filter.js
 ---
-{% from "partials/pt-card.njk" import ptCard %}
+{# PUBLIC THINKING INDEX (EN) inside the concept shell. This is the live
+   index's own composition (page-hero, format filters, card grid, honest
+   status lines), untouched except for: the new global bar/footer around
+   it, links pointing at the concept article pages, and a breadcrumb. #}
+{% from "partials/pt-card-base.njk" import ptCardBase %}
 <section class="page-hero">
   <div class="wrap">
+    <nav class="pt-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Public Thinking</span></nav>
     <div class="page-hero-row">
       <div class="page-eyebrow">
         {% include "partials/node-mark.njk" %}
         Public Thinking
       </div>
       <div class="pt-lang-switch">
-        <span class="active">EN</span> <a href="/de/public-thinking/">DE</a>
+        <span class="active" aria-current="page">EN</span> <a href="/de/public-thinking/" hreflang="de" lang="de">DE</a>
       </div>
     </div>
     <h1 class="page-title">Live findings, not a static portfolio.</h1>
@@ -33,15 +36,15 @@ closingCta:
 </section>
 
 <div class="wrap">
-  <div class="filter-bar">
-    <button class="filter-pill active" data-filter="all">All</button>
+  <div class="filter-bar" role="group" aria-label="Filter by format">
+    <button class="filter-pill active" type="button" data-filter="all" aria-pressed="true">All</button>
     {% for f in publicThinkingFormats %}
-    <button class="filter-pill" data-filter="{{ f.filterType }}">{{ f.labelEn }}</button>
+    <button class="filter-pill" type="button" data-filter="{{ f.filterType }}" aria-pressed="false">{{ f.labelEn }}</button>
     {% endfor %}
   </div>
 
   <div class="pt-grid">
-    {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 2) }}{% endfor %}
+    {% for piece in publicThinking %}{{ ptCardBase(piece, loop.index, 2, "en", "") }}{% endfor %}
   </div>
 
   <div class="pt-compact-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>
@@ -49,4 +52,15 @@ closingCta:
   {% if clients.selectedWork and clients.selectedWork.length %}
   <div class="pt-compact-empty" data-type="case">Case studies are experience references for now: full write-ups are in progress: {% for client in clients.selectedWork %}{{ client.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>
   {% endif %}
+  <p class="pt-compact-empty pt-none" id="ledger-empty" hidden>Nothing published in this format yet.</p>
 </div>
+
+<section class="pt-shell-close">
+  <div class="wrap pt-shell-close-row">
+    <p class="pt-shell-close-h">Talk about what&rsquo;s actually happening.</p>
+    <div class="pt-shell-close-actions">
+      <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+      <a href="/#approach" class="pt-shell-quiet">See how we work →</a>
+    </div>
+  </div>
+</section>

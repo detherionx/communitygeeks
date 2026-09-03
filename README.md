@@ -4,6 +4,8 @@ Static site, built with [Eleventy](https://www.11ty.dev/). Deploys as plain stat
 
 See `HANDOFF.md` for full context (design source, architecture rationale, content model, known limitations, unresolved decisions). This file is just the quick technical reference.
 
+**Production since 2026-09-03 is the redesigned Communitygeeks 2.0 site** (layouts `home`, `about`, `contact`, `pt` on a shared `partials/head.njk`). The previous site is preserved as git tag `pre-2026-redesign`. Start with HANDOFF.md section 0.
+
 ## Prerequisites
 
 - Node.js 18+

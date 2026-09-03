@@ -1,30 +1,31 @@
 ---
-layout: layouts/base.njk
+layout: layouts/pt.njk
 lang: de
 title: Public Thinking
-description: Forschungsergebnisse, Executive One-Pager, Case Studies und Feldnotizen, live, nicht als statisches Portfolio.
+description: "Forschungsergebnisse, Executive One-Pager, Case Studies und Feldnotizen, live, nicht als statisches Portfolio."
 permalink: /de/public-thinking/
+navActive: pt
 eleventyComputed:
   extraHead:
     - "<link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
     - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Public Thinking\",\"item\":\"https://communitygeeks.ai/de/public-thinking/\"}]}</script>"
     - "{{ publicThinkingCollectionDe | safe }}"
 extraScripts:
-  - "public-thinking-filter.js"
-closingCta:
-  secondaryLabel: "See how we work →"
-  secondaryUrl: "/approach/"
+  - public-thinking-filter.js
 ---
-{% from "partials/pt-card.njk" import ptCard %}
+{# PUBLIC THINKING INDEX (DE) inside the concept shell: the live German
+   index's composition and texts, links pointing at concept article pages. #}
+{% from "partials/pt-card-base.njk" import ptCardBase %}
 <section class="page-hero">
   <div class="wrap">
+    <nav class="pt-crumb" aria-label="Brotkrumen"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Public Thinking</span></nav>
     <div class="page-hero-row">
       <div class="page-eyebrow">
         {% include "partials/node-mark.njk" %}
         Public Thinking
       </div>
       <div class="pt-lang-switch">
-        <a href="/public-thinking/">EN</a> <span class="active">DE</span>
+        <a href="/public-thinking/" hreflang="en" lang="en">EN</a> <span class="active" aria-current="page">DE</span>
       </div>
     </div>
     <h1 class="page-title">Laufende Erkenntnisse, kein statisches Portfolio.</h1>
@@ -33,16 +34,27 @@ closingCta:
 </section>
 
 <div class="wrap">
-  <div class="filter-bar">
-    <button class="filter-pill active" data-filter="all">Alle</button>
+  <div class="filter-bar" role="group" aria-label="Nach Format filtern">
+    <button class="filter-pill active" type="button" data-filter="all" aria-pressed="true">Alle</button>
     {% for f in publicThinkingFormats %}
-    <button class="filter-pill" data-filter="{{ f.filterType }}">{{ f.labelDe }}</button>
+    <button class="filter-pill" type="button" data-filter="{{ f.filterType }}" aria-pressed="false">{{ f.labelDe }}</button>
     {% endfor %}
   </div>
 
   <div class="pt-grid">
-    {% for piece in publicThinkingDe %}{{ ptCard(piece, loop.index, 2, "de") }}{% endfor %}
+    {% for piece in publicThinkingDe %}{{ ptCardBase(piece, loop.index, 2, "de", "") }}{% endfor %}
   </div>
 
   <div class="pt-compact-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>
+  <p class="pt-compact-empty pt-none" id="ledger-empty" hidden>In diesem Format ist noch nichts veröffentlicht.</p>
 </div>
+
+<section class="pt-shell-close">
+  <div class="wrap pt-shell-close-row">
+    <p class="pt-shell-close-h">Talk about what&rsquo;s actually happening.</p>
+    <div class="pt-shell-close-actions">
+      <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+      <a href="/#approach" class="pt-shell-quiet">See how we work →</a>
+    </div>
+  </div>
+</section>

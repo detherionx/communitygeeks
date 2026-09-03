@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+{% include "partials/head.njk" %}
+{# PUBLIC THINKING LAYOUT (archive + articles, EN and DE). Integration through shared foundations: style.css still
+   renders the archive and the article body as approved; shell.css adds the global bar and footer; pt-shell.css is the
+   bridge (offset for the fixed bar, accents, the constellation masthead, focus states). #}
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/shell.css">
+<link rel="stylesheet" href="/assets/css/pt-shell.css">
+</head>
+<body class="pt-shell">
+{% include "partials/field-shell-bar.njk" %}
+<main id="main">
+{{ content | safe }}
+</main>
+{% include "partials/field-shell-foot.njk" %}
+<script src="/assets/js/nav-toggle.js"></script>
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
+<script src="/assets/js/pt-shell.js"></script>
+</body>
+</html>

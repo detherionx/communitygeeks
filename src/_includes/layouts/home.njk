@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+{% include "partials/head.njk" %}
+{# HOMEPAGE LAYOUT ("Participation is a living system", production since 2026-09-03). shell.css carries the bar and
+   footer shared with every page; field.css is the homepage's own system. It deliberately does not load style.css:
+   the homepage is built from the brand tokens and real content only. #}
+<link rel="stylesheet" href="/assets/css/shell.css">
+<link rel="stylesheet" href="/assets/css/field.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="field-body{% if bodyClass %} {{ bodyClass }}{% endif %}">
+{% include "partials/field-shell-bar.njk" %}
+<main id="main">
+{{ content | safe }}
+</main>
+{% if not footerInline %}{% include "partials/field-shell-foot.njk" %}{% endif %}
+<script src="/assets/js/nav-toggle.js"></script>
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
+<script src="/assets/js/field.js"></script>
+</body>
+</html>

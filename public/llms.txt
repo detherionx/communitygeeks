@@ -8,7 +8,7 @@ This is a community-driven convention, not an official web standard, and adoptio
 
 - [Home](https://communitygeeks.ai/): overview of what Communitygeeks does and who it's for.
 - [Public Thinking](https://communitygeeks.ai/public-thinking/): research findings, executive one-pagers, case studies, and field notes, Communitygeeks' actual evidence base, updated as research progresses.
-- [Approach](https://communitygeeks.ai/approach/): how engagements actually work: ecosystem diagnostics, program design, research and advisory, explicitly not a fixed service catalogue.
+- [Approach](https://communitygeeks.ai/#approach): how engagements actually work: ecosystem diagnostics, program design, research and advisory, explicitly not a fixed service catalogue. Since September 2026 this is a chapter of the homepage, alongside System (how participation works around a product) and Work (selected engagements); `/approach/` redirects there.
 - [About](https://communitygeeks.ai/about/): founder background and how Communitygeeks thinks about its own claims.
 - [Contact](https://communitygeeks.ai/contact/): how to start a conversation.
 

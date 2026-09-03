@@ -8,6 +8,17 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^communitygeeks\.ai$ [NC]
 RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 
+# Website 2.0 cutover (2026-09-03). The redesigned site replaced the previous pages at the same routes. Two kinds of
+# path moved: the review build lived under /mockups/field/ (shared with testers; every link keeps working), and the
+# former Approach page became the #approach chapter of the homepage. System, Work and Questions are chapters too and
+# get short routes for the same reason. mod_alias, independent of the rewrite above; fragments survive the redirect.
+RedirectMatch 301 ^/mockups/field/(.*)$ https://communitygeeks.ai/$1
+RedirectMatch 301 ^/mockups/home/?(.*)$ https://communitygeeks.ai/
+RedirectMatch 301 ^/approach/?$ https://communitygeeks.ai/#approach
+RedirectMatch 301 ^/system/?$ https://communitygeeks.ai/#system
+RedirectMatch 301 ^/work/?$ https://communitygeeks.ai/#cases
+RedirectMatch 301 ^/questions/?$ https://communitygeeks.ai/#questions
+
 # Security headers: hardening pass 2026-09-02. Origin inventory this is
 # built from: self (assets, JSON-LD script blocks are exempt from CSP),
 # fonts.googleapis.com + fonts.gstatic.com (Google Fonts CSS + font files),
