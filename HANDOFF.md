@@ -554,3 +554,7 @@ Founder feedback on §42: the scattered constellation graphics read as decoratio
 **Server.** `.htaccess` gained 301s: `/mockups/field/(.*) → /$1`, `/mockups/home/ → /`, `/approach/ → /#approach`, `/system/ → /#system`, `/work/ → /#cases`, `/questions/ → /#questions`. `llms.txt` points Approach at the chapter. The SFTP action does not delete remote files, so the old `/approach/index.html` and `/mockups/**` still exist on disk but are never served (redirects win).
 
 **Untracked, deliberately not committed:** `Communitygeeks-Tripo-EMEA-Sprint.pdf`, `_preview_thread.html`, `src/proposals/tripo/` (a client one-pager; it only appears in local builds, never in CI output).
+
+## 46. Typography audit after launch: the closing invitation (2026-09-03, production)
+
+Tester feedback (Darlene, laptop): the homepage's closing "Talk about what's actually happening." ran at hero scale. Measured hierarchy before the fix at 1366 / 1440 / 1920: hero h1 86 / 91 / 96px, chapter h2s 40–58px, closing h2 85 / 89 / 92px. `.close-h2` now uses `clamp(38px,4.4vw,62px)` (60 / 62 / 62px), the same scale as the sub-page h1s, so the closing is the second-loudest moment on the page rather than a second hero. Phones unchanged (43px at 390). No other heading needed correction.

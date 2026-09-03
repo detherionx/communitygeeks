@@ -466,7 +466,9 @@ html:not(.js) .mani-cursor{display:none;}
 .close{position:relative;background:var(--ink);color:var(--cream);padding:0 var(--gutter);overflow:hidden;}
 .close-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,0.8fr);gap:6vw;align-items:end;padding:16vh 0 11vh;border-bottom:1px solid var(--cream-12);}
 .close-kicker .node-dot{box-shadow:0 0 0 3px var(--ink),0 0 0 4px var(--cream-25);}
-.close-h2{margin-top:22px;font-family:var(--display);font-weight:400;font-size:clamp(40px,6.2vw,92px);line-height:0.98;letter-spacing:-0.02em;max-width:12ch;}
+/* Typography audit 2026-09-03 (tester feedback, Darlene): the closing invitation ran at hero scale (85–92px on desktop). It
+   now sits on the sub-page h1 scale (about 60px), the second-loudest moment on the page; chapter h2s stay at 40–58px. */
+.close-h2{margin-top:22px;font-family:var(--display);font-weight:400;font-size:clamp(38px,4.4vw,62px);line-height:1.02;letter-spacing:-0.02em;max-width:14ch;}
 .close-side{max-width:42ch;}
 .close-sub{font-size:15.5px;line-height:1.65;color:var(--cream-80);}
 .close-actions{margin-top:30px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;}
