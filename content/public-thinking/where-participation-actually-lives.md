@@ -2,6 +2,7 @@
 title: "Where Participation Actually Lives"
 slug: "where-participation-actually-lives"
 lang: "en"
+translationKey: "gamescom-2026-participation-boundaries"
 date: 2026-09-02
 format: "Field Note"
 filterType: "field"

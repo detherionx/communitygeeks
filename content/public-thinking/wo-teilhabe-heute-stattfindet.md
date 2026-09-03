@@ -1,5 +1,5 @@
 ---
-title: "Wo Teilhabe heute eigentlich stattfindet"
+title: "Wo Partizipation heute eigentlich stattfindet"
 slug: "wo-teilhabe-heute-stattfindet"
 lang: "de"
 translationKey: "ecosystem-participation-glide-andy"
@@ -8,8 +8,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "people-beyond-container"
-summary: "Ein Field Note, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
-deck: "Ein Field Note, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
+summary: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
+deck: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
 topics:
   - "Ökosysteme"
   - "Community-Strategie"
@@ -23,9 +23,11 @@ geometry:
     - { type: rect, x: 30, y: 190, w: 230, h: 170, color: petrol, opacity: 0.09 }
     - { type: line, x1: 10, y1: 205, x2: 310, y2: 205, color: brass, opacity: 0.3 }
 pdf: null
-related: []
-openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt: wo findet Teilhabe heute eigentlich statt?"
-researchThread: "Teilhabe und Ökosysteme im Zeitalter der KI"
+related:
+  - slug: "wo-partizipation-tatsaechlich-stattfindet"
+    title: "Wo Partizipation tatsächlich stattfindet"
+openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt: wo findet Partizipation heute eigentlich statt?"
+researchThread: "Partizipation und Ökosysteme im Zeitalter der KI"
 ---
 
 Wo findet „echter" Community-Austausch noch statt, in einer Online-Kommunikation, die zunehmend von KI geprägt ist? Ist er überhaupt noch relevant? Das sind die Fragen, die uns bei Communitygeeks derzeit beschäftigen. Im Rahmen unserer Recherche sind wir auf das Konzept von Ökosystemen gestoßen, das unter anderem bei Glide verwendet wird. Andy Claremont ist dort Head of Ecosystem and Community und war zu einem inspirierenden Gespräch darüber bereit.
@@ -39,7 +41,7 @@ Seine Arbeitsdefinition von „Ökosystem" war für uns sehr aufschlussreich. Al
   <figcaption>
     <span class="pt-figure-num">Abbildung 1</span>
     <span class="pt-figure-cap">Andy Claremonts Arbeitsdefinition von „Ökosystem": sechs Kontaktgruppen rund um das Unternehmen, mit Community als verbindender Schicht statt als eigener, siebter Gruppe.</span>
-    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug. 2026.</span>
+    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Feldnotiz, Aug. 2026.</span>
   </figcaption>
 </figure>
 
@@ -60,8 +62,8 @@ Aus diesem Gespräch ergibt sich für uns ein möglicher Ansatz für die Arbeit 
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 2</span>
-    <span class="pt-figure-cap">Die vier Schritte als Kreis, nicht als nummerierte Abfolge: bewusst ohne festen Startpunkt, weil dieses Field Note sie als Linse versteht, nicht als abgeschlossene Methodik.</span>
-    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Field Note, Aug. 2026.</span>
+    <span class="pt-figure-cap">Die vier Schritte als Kreis, nicht als nummerierte Abfolge: bewusst ohne festen Startpunkt, weil diese Feldnotiz sie als Linse versteht, nicht als abgeschlossene Methodik.</span>
+    <span class="pt-figure-source">Quelle: Gespräch mit Andy Claremont, Head of Ecosystem &amp; Community, Glide: Communitygeeks Feldnotiz, Aug. 2026.</span>
   </figcaption>
 </figure>
 
@@ -69,4 +71,4 @@ Das Geflecht aus Partnern, Bauenden und Nutzenden will gepflegt werden. In klein
 
 Vielleicht liegt genau darin eine interessante Spur für unsere Ausgangsfrage. Wenn sich der Austausch rund um Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt, müssen wir womöglich weniger danach fragen, auf welcher Plattform „Community" als Nächstes stattfindet. Interessanter könnte sein, welche Menschen und Gruppen rund um ein Unternehmen tatsächlich miteinander in Beziehung stehen – und wo Methoden aus dem Community-Management helfen können, diese Beziehungen zu unterstützen.
 
-Ökosysteme wären dann etwas Eigenständiges: eine von mehreren Möglichkeiten, neu darüber nachzudenken, wo die Teilhabe rund um Unternehmen heute eigentlich stattfindet.
+Ökosysteme wären dann etwas Eigenständiges: eine von mehreren Möglichkeiten, neu darüber nachzudenken, wo Partizipation rund um Unternehmen heute eigentlich stattfindet.
