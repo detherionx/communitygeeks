@@ -25,22 +25,23 @@
   const T = [442, 512], U = [0.62, 0.78], S = [0.78, -0.62];
   const P = (a, b) => [T[0] + U[0] * a + S[0] * b, T[1] + U[1] * a + S[1] * b];
   const HOLD = {
-    // thumb in front of the left page, base below the corner
-    thumb: [[192, 704], [232, 650], [266, 608], [296, 576]], thumbW: [34, 28, 24],
-    // the four fingers lie behind the paper (they point up behind the left page and never reach an edge);
-    // what shows of them is the little-finger side of the palm, just past the page's left edge
-    pinkyMcp: [174, 552],
-    wristA: [236, 770], wristB: [162, 760],
-    palm: [[174, 548], [164, 600], [166, 660], [170, 706], [162, 760], [236, 770], [250, 700], [252, 650], [262, 600], [242, 560], [206, 544]],
-    forearm: [[162, 760], [236, 770], [190, 1010], [96, 1000]],
+    // thumb: metacarpal inside the thenar mass (CMC near the wrist, MCP just below the page edge),
+    // then a short, slightly bowed digit in front of the page with its pad pressing the paper
+    thumb: [[240, 752], [248, 658], [270, 626], [286, 590]], thumbW: [40, 30, 26], pad: { c: [286, 590], rx: 15, ry: 12, rot: -55 },
+    // the four fingers lie behind the paper; what shows of them is the little-finger side of the palm past the left edge
+    pinkyMcp: [176, 568],
+    wristA: [234, 770], wristB: [168, 772],
+    // one continuous silhouette, forearm to palm (clockwise from the ulnar exit): forearm taper, narrow wrist,
+    // hypothenar bulge on the little-finger side, thenar mass feeding the thumb on the radial side
+    outline: [[98, 1000], [150, 884], [168, 772], [160, 712], [165, 642], [176, 568], [206, 540], [246, 556], [268, 600], [274, 650], [262, 708], [234, 770], [222, 884], [194, 1010]],
     armPts: [[214, 880], [150, 900]],
   };
   const WRITE = {
     thumb: [P(126, -10), P(90, -24), P(52, -22), P(30, -7)], thumbW: [30, 26, 22],
     index: [P(98, 44), P(70, 30), P(46, 15), P(26, 7)], indexW: 24,
-    middle: [P(110, 60), P(86, 32), P(62, 12), P(42, 3)], middleW: 25,
-    ring: [P(118, 80), P(94, 84), P(80, 78), P(84, 66)], ringW: 22,
-    pinky: [P(124, 98), P(104, 104), P(92, 100), P(94, 90)], pinkyW: 19,
+    middle: [P(108, 60), P(86, 32), P(62, 12), P(42, 3)], middleW: 25,
+    ring: [P(114, 80), P(98, 84), P(90, 74), P(98, 68)], ringW: 22,
+    pinky: [P(116, 98), P(108, 102), P(102, 94), P(108, 88)], pinkyW: 19,
     wristA: P(158, 24), wristB: P(158, 92), web: P(60, 10),
     armEnd: [[770, 850], [810, 770]], armPts: [[690, 730], [700, 800]],
     penLen: 150, penAngle: Math.atan2(U[1], U[0]) * 180 / Math.PI,
@@ -48,7 +49,7 @@
   WRITE.palm = [WRITE.thumb[1], WRITE.thumb[0], WRITE.wristA, WRITE.wristB, WRITE.pinky[0], WRITE.ring[0], WRITE.middle[0], WRITE.index[0], WRITE.web];
   WRITE.forearm = [WRITE.wristA, WRITE.wristB, WRITE.armEnd[1], WRITE.armEnd[0]];
 
-  const VIEWS = { full: '0 0 760 1000', mobile: '150 330 500 520', a: '90 440 320 400', b: '400 470 320 260' };
+  const VIEWS = { full: '0 0 760 1000', mobile: '150 330 500 520', a: '90 460 320 400', b: '400 470 320 260' };
 
   // ---- drawing helpers ----------------------------------------------------------
   function scene(svg, opts) {
@@ -67,6 +68,7 @@
     const line = (a, b, cls, p) => el('line', { class: cls, x1: a[0].toFixed(1), y1: a[1].toFixed(1), x2: b[0].toFixed(1), y2: b[1].toFixed(1) }, p);
     const chain = (pts, cls, p) => { for (let i = 1; i < pts.length; i++) line(pts[i - 1], pts[i], cls, p); };
     const poly = (pts, cls, p) => el('polygon', { class: cls, points: pts.map((q) => q[0].toFixed(1) + ',' + q[1].toFixed(1)).join(' ') }, p);
+    const smooth = (pts, cls, p) => { const n = pts.length; let d = 'M' + pts[0][0].toFixed(1) + ',' + pts[0][1].toFixed(1); for (let i = 0; i < n; i++) { const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n]; const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6]; d += ' C' + c1[0].toFixed(1) + ',' + c1[1].toFixed(1) + ' ' + c2[0].toFixed(1) + ',' + c2[1].toFixed(1) + ' ' + p2[0].toFixed(1) + ',' + p2[1].toFixed(1); } return el('path', { class: cls, d: d + ' Z' }, p); };
     const node = (q, r, cls, p) => el('circle', { class: 'node' + (cls ? ' ' + cls : ''), cx: q[0].toFixed(1), cy: q[1].toFixed(1), r }, p);
     const star = (q, r, p) => { node(q, r, 'big', p); const L = r * 3.4; line([q[0] - L, q[1]], [q[0] + L, q[1]], 'ray', p); line([q[0], q[1] - L], [q[0], q[1] + L], 'ray', p); el('circle', { class: 'ring', cx: q[0].toFixed(1), cy: q[1].toFixed(1), r: (r * 2.6).toFixed(1) }, p); el('circle', { class: 'ring r2', cx: q[0].toFixed(1), cy: q[1].toFixed(1), r: (r * 4.6).toFixed(1) }, p); };
     // a finger or forearm volume: a thick round-capped polyline (widths per segment) inside the silhouette group
@@ -76,11 +78,12 @@
 
     // ===== holding hand, the parts behind the paper (forearm, palm heel, thumb base)
     const hb = g('hand hand-hold back');
-    const hbVol = g('sil', hb); poly(HOLD.forearm, 'vol-fill', hbVol); poly(HOLD.palm, 'vol-fill', hbVol); volume([HOLD.thumb[0], HOLD.thumb[1]], HOLD.thumbW[0], hbVol);
+    const hbVol = g('sil', hb); smooth(HOLD.outline, 'vol-fill', hbVol);
     const hbStruct = g('struct', hb);
-    line(HOLD.wristA, HOLD.wristB, 'bone', hbStruct); line(HOLD.wristA, HOLD.forearm[2], 'bone faint', hbStruct); line(HOLD.wristB, HOLD.forearm[3], 'bone faint', hbStruct);
-    line(HOLD.armPts[0], HOLD.armPts[1], 'bone faint', hbStruct); line(HOLD.wristA, HOLD.thumb[0], 'bone faint', hbStruct); line(HOLD.thumb[0], HOLD.thumb[1], 'bone', hbStruct); line(HOLD.wristB, HOLD.pinkyMcp, 'bone faint', hbStruct);
-    if (!construction) { dust(HOLD.forearm.slice(0, 1).concat([HOLD.forearm[3]]), 0, 0, hbStruct); dust([[199, 765], [143, 1005]], 70, 14, hbStruct); dust([[199, 765], [220, 690]], 60, 5, hbStruct); }
+    line(HOLD.wristA, HOLD.wristB, 'bone', hbStruct); line(HOLD.wristA, HOLD.outline[13], 'bone faint', hbStruct); line(HOLD.wristB, HOLD.outline[0], 'bone faint', hbStruct);
+    line(HOLD.armPts[0], HOLD.armPts[1], 'bone faint', hbStruct); line(HOLD.wristA, HOLD.thumb[0], 'bone faint', hbStruct); line(HOLD.thumb[0], HOLD.thumb[1], 'bone', hbStruct);
+    line(HOLD.wristB, HOLD.pinkyMcp, 'bone faint', hbStruct); line(HOLD.pinkyMcp, [204, 548], 'bone faint', hbStruct); // the palm's contour disappearing behind the paper
+    if (!construction) { dust([[201, 771], [146, 1005]], 66, 14, hbStruct); dust([[201, 771], [218, 690]], 60, 5, hbStruct); }
     const hbNodes = g('nodes', hb); star(HOLD.wristA, 4.4, hbNodes); node(HOLD.wristB, 3.2, 'big', hbNodes); node(HOLD.thumb[0], 3, '', hbNodes); node(HOLD.pinkyMcp, 2.6, '', hbNodes); HOLD.armPts.forEach((q) => node(q, 2.2, '', hbNodes));
 
     // ===== the journal
@@ -88,6 +91,8 @@
     el('rect', { class: 'page-edge', x: -192, y: -128, width: 384, height: 262 }, J); // the block of pages: visible thickness along the bottom and outer edges
     el('rect', { class: 'page', x: -190, y: -130, width: 188, height: 260 }, J); el('rect', { class: 'page', x: 2, y: -130, width: 188, height: 260 }, J);
     el('rect', { class: 'spine', x: -2, y: -130, width: 4, height: 260 }, J);
+    el('rect', { class: 'contact', x: -190, y: 132, width: 128, height: 7 }, J); // the book's edge resting on the palm below
+    el('ellipse', { class: 'contact-pad', cx: -104, cy: 78, rx: 19, ry: 14, transform: 'rotate(-50 -104 78)' }, J); // pressure under the thumb pad
     for (let y = -104; y < 130; y += 18) { line([-178, y], [-14, y], 'rule', J); line([14, y], [178, y], 'rule', J); }
     line([-166, -130], [-166, 130], 'margin', J); line([24, -130], [24, 130], 'margin', J);
     const text = (x, y, s, cls, anchor) => { const t = el('text', { class: cls, x, y, 'text-anchor': anchor || 'start' }, J); t.textContent = s; return t; };
@@ -105,7 +110,7 @@
 
     // ===== holding hand, the parts in front of the paper: thumb over the page, finger tips over the left edge
     const hf = g('hand hand-hold front');
-    const hfVol = g('sil', hf); volume(HOLD.thumb.slice(1), HOLD.thumbW.slice(1), hfVol);
+    const hfVol = g('sil', hf); volume(HOLD.thumb.slice(1), HOLD.thumbW.slice(1), hfVol); el('ellipse', { class: 'vol-fill', cx: HOLD.pad.c[0], cy: HOLD.pad.c[1], rx: HOLD.pad.rx, ry: HOLD.pad.ry, transform: `rotate(${HOLD.pad.rot} ${HOLD.pad.c[0]} ${HOLD.pad.c[1]})` }, hfVol);
     const hfStruct = g('struct', hf); chain(HOLD.thumb.slice(1), 'bone', hfStruct);
     if (!construction) dust(HOLD.thumb.slice(1), 18, 6, hfStruct);
     const hfNodes = g('nodes', hf); node(HOLD.thumb[1], 3, '', hfNodes); node(HOLD.thumb[2], 2.6, '', hfNodes); node(HOLD.thumb[3], 2.6, 'tip', hfNodes);
@@ -113,7 +118,7 @@
 
     // ===== writing hand: forearm, palm, middle/ring/pinky behind the pen
     const wb = g('hand hand-write back');
-    const wbVol = g('sil', wb); poly(WRITE.forearm, 'vol-fill', wbVol); poly(WRITE.palm, 'vol-fill', wbVol);
+    const wbVol = g('sil', wb); poly(WRITE.forearm, 'vol-fill', wbVol); smooth(WRITE.palm, 'vol-fill', wbVol);
     volume(WRITE.middle, WRITE.middleW, wbVol); volume(WRITE.ring, WRITE.ringW, wbVol); volume(WRITE.pinky, WRITE.pinkyW, wbVol);
     const wbStruct = g('struct', wb);
     line(WRITE.wristA, WRITE.wristB, 'bone', wbStruct); line(WRITE.wristA, WRITE.armEnd[0], 'bone faint', wbStruct); line(WRITE.wristB, WRITE.armEnd[1], 'bone faint', wbStruct); line(WRITE.armPts[0], WRITE.armPts[1], 'bone faint', wbStruct);

@@ -29,6 +29,8 @@ footerInline: true
 .rv-frame .cel-bgc{position:absolute;inset:0;width:100%;height:100%;}
 .rv-frame .rv-svg{position:relative;}
 .rv-a .rv-svg{aspect-ratio:320/400;} .rv-b .rv-svg{aspect-ratio:320/260;}
+.rv-c{grid-template-columns:minmax(0,1fr) 390px;align-items:start;} .rv-full .rv-svg{aspect-ratio:760/1000;} .rv-mob{width:390px;max-width:100%;} .rv-mob .rv-svg{aspect-ratio:500/520;}
+@media (max-width:860px){.rv-c{grid-template-columns:1fr;}}
 .rv-check{margin-top:2vh;padding:22px 26px;border-left:3px solid var(--signal);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--cream-80);}
 .rv-check b{color:var(--cream);}
 @media (max-width:860px){.rv-pair{grid-template-columns:1fr;}}
@@ -42,17 +44,23 @@ footerInline: true
 
   <div class="rv-pair rv-a">
     <h2>A · The hand that holds the journal</h2>
-    <p class="rv-note">First-person hold, the way one holds a notebook up to read: the thumb lies on the front of the left page pointing up from the lower-left corner, the four fingers point up behind the paper and stay hidden, the palm is behind the page with its heel visible below the bottom edge and its little-finger side just past the left edge. The forearm leaves the frame at the bottom left.</p>
+    <p class="rv-note">First-person hold, the way one holds a notebook up to read. One continuous silhouette from the forearm (tapering to a narrow wrist) into the palm: the thenar mass on the thumb side feeds a short, slightly bowed thumb whose pad presses the front of the left page; the hypothenar side shows just past the page's left edge, with one knuckle hint and a contour disappearing behind the paper. The four fingers stay behind the page. The book's edge casts a thin contact shadow onto the palm below; the thumb pad leaves a faint pressure mark.</p>
     <div class="rv-frame"><svg class="cel-bgc" data-researcher='{"part":"bg"}'></svg><svg class="rv-svg" data-researcher='{"part":"scene","view":"a"}'></svg><span class="rv-cap">celestial</span></div>
     <div class="rv-frame"><svg class="rv-svg" data-researcher='{"part":"scene","view":"a","mode":"construction"}'></svg><span class="rv-cap">construction</span></div>
   </div>
 
   <div class="rv-pair rv-b">
     <h2>B · The hand that writes</h2>
-    <p class="rv-note">Right hand seen from behind the writer: the pen leans down-right toward the elbow, the thumb runs along the lower-left side of the barrel, the index finger arcs over its upper side to meet the tip, the middle finger supports from below, ring and little finger are curled toward the palm and rest on the page. The wrist sits right of the page, the forearm leaves the frame at the lower right.</p>
+    <p class="rv-note">Right hand seen from behind the writer: the pen leans down-right toward the elbow, the thumb runs along the lower-left side of the barrel, the index finger arcs over its upper side to meet the tip, the middle finger supports from below. Ring and little finger curl back toward the palm with different lengths and rest lightly on the page; the four knuckles form one arc. The wrist sits right of the page, the forearm leaves the frame at the lower right. Unchanged in this pass: pen direction, tripod, wrist, forearm.</p>
     <div class="rv-frame"><svg class="cel-bgc" data-researcher='{"part":"bg"}'></svg><svg class="rv-svg" data-researcher='{"part":"scene","view":"b"}'></svg><span class="rv-cap">celestial</span></div>
     <div class="rv-frame"><svg class="rv-svg" data-researcher='{"part":"scene","view":"b","mode":"construction"}'></svg><span class="rv-cap">construction</span></div>
   </div>
 
-  <div class="rv-check"><b>C · Full composition:</b> the section itself on the <a href="/mockups/field/#thinking" style="color:var(--cream);border-bottom:1px solid var(--signal)">concept homepage</a>, desktop and mobile. Static scene, no animation yet; the pen rests mid-stroke on the relationship sketch of observation 002.</div>
+  <div class="rv-pair rv-c">
+    <h2>C · Full composition (desktop scene) · D · 390px composition</h2>
+    <p class="rv-note">The scene as the section shows it at desktop widths, and the mobile crop used below 860px. The live section is on the <a href="/mockups/field/#thinking" style="color:var(--cream);border-bottom:1px solid var(--signal)">concept homepage</a>; static, no animation yet.</p>
+    <div class="rv-frame rv-full"><svg class="cel-bgc" data-researcher='{"part":"bg"}'></svg><svg class="rv-svg" data-researcher='{"part":"scene","view":"full"}'></svg><span class="rv-cap">C · desktop scene</span></div>
+    <div class="rv-frame rv-mob"><svg class="cel-bgc" data-researcher='{"part":"bg"}'></svg><svg class="rv-svg" data-researcher='{"part":"scene","view":"mobile"}'></svg><span class="rv-cap">D · 390px crop</span></div>
+  </div>
+  <div class="rv-check"><b>Pass/fail.</b> If all stars, constellation lines and cosmic context disappeared, would an ordinary viewer immediately recognise plausible human arms and hands holding a journal and writing with a pen? And when the celestial treatment returns, does it become mysterious without becoming less human? Both must pass before the scroll choreography is built.</div>
 </section>
