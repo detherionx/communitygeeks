@@ -12,11 +12,21 @@
 return [
     // where messages land
     'to'        => 'carmelito@communitygeeks.de',
-    // the sending mailbox at Hetzner and its display name
+    // the sender address and display name. The domain of 'from' must be one
+    // the delivery route is allowed to send for (verified in Resend, or a
+    // real Hetzner mailbox for SMTP).
     'from'      => 'contact@communitygeeks.ai',
     'from_name' => 'Communitygeeks contact form',
-    // Hetzner SMTP for the sending mailbox: the mail server of the account,
-    // e.g. 'mail.your-server.de' or the wwwNNN.your-server.de host; 465 (TLS) or 587 (STARTTLS)
+
+    // ---- Delivery route A (used when set): Resend HTTP API.
+    // Create the key at resend.com → API Keys (sending access is enough) and
+    // verify communitygeeks.ai under Domains (add the DNS records at Hetzner).
+    'resend_api_key' => '',
+
+    // ---- Delivery route B (used when resend_api_key is empty): authenticated SMTP.
+    // Hetzner mailbox: host 'mail.your-server.de', 465 (TLS) or 587 (STARTTLS),
+    // user = full address. Resend also offers SMTP: host 'smtp.resend.com',
+    // port 465, user 'resend', password = the API key.
     'smtp_host' => 'mail.your-server.de',
     'smtp_port' => 465,
     'smtp_user' => 'contact@communitygeeks.ai',

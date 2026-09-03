@@ -35,9 +35,16 @@ if (!is_file($configFile)) {
     respond(503, ['ok' => false, 'error' => 'not_configured']);
 }
 $cfg = require $configFile;
-$required = ['to', 'from', 'from_name', 'smtp_host', 'smtp_port', 'smtp_user', 'smtp_pass', 'allowed_origins'];
+$required = ['to', 'from', 'from_name', 'allowed_origins'];
 foreach ($required as $k) {
     if (!array_key_exists($k, $cfg)) respond(503, ['ok' => false, 'error' => 'not_configured']);
+}
+// delivery route: Resend's HTTP API when a key is configured, otherwise authenticated SMTP
+$useResend = !empty($cfg['resend_api_key']);
+if (!$useResend) {
+    foreach (['smtp_host', 'smtp_port', 'smtp_user', 'smtp_pass'] as $k) {
+        if (empty($cfg[$k])) respond(503, ['ok' => false, 'error' => 'not_configured']);
+    }
 }
 $turnstileSecret = $cfg['turnstile_secret'] ?? '';
 $rateLimit = (int)($cfg['rate_limit'] ?? 5);
@@ -123,12 +130,33 @@ if (mt_rand(1, 20) === 1) { foreach ((array)glob($store . DIRECTORY_SEPARATOR . 
 // ---------------------------------------------------------------- deliver
 $subject = 'Contact: ' . preg_replace('/\s+/', ' ', $name);
 $bodyText = "Name: {$name}\nEmail: {$email}\n\n{$context}\n\n—\nSent from the Communitygeeks contact form.";
-$ok = smtp_send($cfg, $subject, $bodyText, $email, $name);
+$ok = $useResend ? resend_send($cfg, $subject, $bodyText, $email, $name) : smtp_send($cfg, $subject, $bodyText, $email, $name);
 if (!$ok) respond(502, ['ok' => false, 'error' => 'delivery']);
 
 $hits[] = $now; @file_put_contents($ipKey, json_encode(array_values($hits)), LOCK_EX);
 if ($id !== '') @file_put_contents($idKey, '1', LOCK_EX);
 respond(200, ['ok' => true]);
+
+// ---------------------------------------------------------------- Resend HTTP API (https://resend.com/docs/api-reference/emails/send-email)
+function resend_send(array $cfg, string $subject, string $text, string $replyTo, string $replyName): bool {
+    if (!function_exists('curl_init')) return false;
+    $payload = json_encode([
+        'from' => $cfg['from_name'] . ' <' . $cfg['from'] . '>',
+        'to' => [$cfg['to']],
+        'reply_to' => $replyName !== '' ? $replyName . ' <' . $replyTo . '>' : $replyTo,
+        'subject' => $subject,
+        'text' => $text,
+    ], JSON_UNESCAPED_UNICODE);
+    $ch = curl_init('https://api.resend.com/emails');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true, CURLOPT_POSTFIELDS => $payload, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 12,
+        CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $cfg['resend_api_key'], 'Content-Type: application/json'],
+    ]);
+    $res = curl_exec($ch); $status = (int)curl_getinfo($ch, CURLINFO_RESPONSE_CODE); curl_close($ch);
+    if ($res === false || $status < 200 || $status >= 300) return false;
+    $data = json_decode((string)$res, true);
+    return is_array($data) && !empty($data['id']);
+}
 
 // ---------------------------------------------------------------- minimal SMTP client (implicit TLS on 465, or STARTTLS on 587)
 function smtp_send(array $cfg, string $subject, string $text, string $replyTo, string $replyName): bool {
