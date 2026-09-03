@@ -130,8 +130,10 @@ if (mt_rand(1, 20) === 1) { foreach ((array)glob($store . DIRECTORY_SEPARATOR . 
 // ---------------------------------------------------------------- deliver
 $subject = 'Contact: ' . preg_replace('/\s+/', ' ', $name);
 $bodyText = "Name: {$name}\nEmail: {$email}\n\n{$context}\n\n—\nSent from the Communitygeeks contact form.";
+$GLOBALS['cg_delivery_detail'] = '';
 $ok = $useResend ? resend_send($cfg, $subject, $bodyText, $email, $name) : smtp_send($cfg, $subject, $bodyText, $email, $name);
-if (!$ok) respond(502, ['ok' => false, 'error' => 'delivery']);
+// on failure, say which route failed and why, without ever echoing credentials
+if (!$ok) respond(502, ['ok' => false, 'error' => 'delivery', 'route' => $useResend ? 'resend' : 'smtp', 'detail' => (string)$GLOBALS['cg_delivery_detail']]);
 
 $hits[] = $now; @file_put_contents($ipKey, json_encode(array_values($hits)), LOCK_EX);
 if ($id !== '') @file_put_contents($idKey, '1', LOCK_EX);
@@ -152,10 +154,12 @@ function resend_send(array $cfg, string $subject, string $text, string $replyTo,
         CURLOPT_POST => true, CURLOPT_POSTFIELDS => $payload, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 12,
         CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $cfg['resend_api_key'], 'Content-Type: application/json'],
     ]);
-    $res = curl_exec($ch); $status = (int)curl_getinfo($ch, CURLINFO_RESPONSE_CODE); curl_close($ch);
-    if ($res === false || $status < 200 || $status >= 300) return false;
+    $res = curl_exec($ch); $status = (int)curl_getinfo($ch, CURLINFO_RESPONSE_CODE); $curlErr = curl_error($ch); curl_close($ch);
+    if ($res === false) { $GLOBALS['cg_delivery_detail'] = 'curl: ' . $curlErr; return false; }
     $data = json_decode((string)$res, true);
-    return is_array($data) && !empty($data['id']);
+    if ($status < 200 || $status >= 300) { $GLOBALS['cg_delivery_detail'] = 'resend http ' . $status . ': ' . (is_array($data) ? (($data['name'] ?? '') . ' ' . ($data['message'] ?? '')) : substr((string)$res, 0, 160)); return false; }
+    if (!is_array($data) || empty($data['id'])) { $GLOBALS['cg_delivery_detail'] = 'resend: unexpected response'; return false; }
+    return true;
 }
 
 // ---------------------------------------------------------------- minimal SMTP client (implicit TLS on 465, or STARTTLS on 587)
@@ -163,10 +167,10 @@ function smtp_send(array $cfg, string $subject, string $text, string $replyTo, s
     $host = (string)$cfg['smtp_host']; $port = (int)$cfg['smtp_port'];
     $implicitTls = $port === 465;
     $fp = @stream_socket_client(($implicitTls ? 'ssl://' : 'tcp://') . $host . ':' . $port, $errno, $errstr, 10, STREAM_CLIENT_CONNECT, stream_context_create(['ssl' => ['verify_peer' => true, 'verify_peer_name' => true, 'SNI_enabled' => true]]));
-    if (!$fp) return false;
+    if (!$fp) { $GLOBALS['cg_delivery_detail'] = 'smtp connect ' . $host . ':' . $port . ' failed (' . $errno . ' ' . $errstr . ')'; return false; }
     stream_set_timeout($fp, 10);
     $read = static function () use ($fp): array { $code = 0; $lines = []; while (($line = fgets($fp, 1024)) !== false) { $lines[] = rtrim($line); $code = (int)substr($line, 0, 3); if (isset($line[3]) && $line[3] === ' ') break; } return [$code, $lines]; };
-    $cmd = static function (string $c, array $okCodes) use ($fp, $read): bool { fwrite($fp, $c . "\r\n"); [$code] = $read(); return in_array($code, $okCodes, true); };
+    $cmd = static function (string $c, array $okCodes) use ($fp, $read): bool { fwrite($fp, $c . "\r\n"); [$code, $lines] = $read(); $ok = in_array($code, $okCodes, true); if (!$ok) $GLOBALS['cg_delivery_detail'] = 'smtp ' . (strpos($c, 'AUTH') === 0 || preg_match('/^[A-Za-z0-9+\/=]+$/', $c) ? 'auth' : strtok($c, ' ')) . ' failed: ' . substr(implode(' ', $lines), 0, 140); return $ok; };
     [$code] = $read(); if ($code !== 220) { fclose($fp); return false; }
     $ehloHost = $cfg['ehlo'] ?? 'communitygeeks.ai';
     if (!$cmd('EHLO ' . $ehloHost, [250])) { fclose($fp); return false; }
