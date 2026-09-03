@@ -603,50 +603,203 @@
     hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (((e.clientX - r.left) / r.width - 0.5) * 14).toFixed(1) + 'px'); hero.style.setProperty('--my', (((e.clientY - r.top) / Math.min(r.height, window.innerHeight) - 0.5) * 10).toFixed(1) + 'px'); });
   }
 
-  // ======================================================= PUBLIC THINKING SIGNAL
-  // A rail left of the ledger. Geometry is measured from the DOM (one point per
-  // row at its title's centre, a beacon at "See all"). On entry the coral
-  // trace draws down to the newest finding; hover or focus on a row moves it
-  // there. Purely decorative (aria-hidden); reduced motion shows the resolved state.
+  // ============================================ PUBLIC THINKING: FIELD JOURNAL + RAIL
+  // A research officer's field notebook set into the console. As the section
+  // enters, the journal registers into position (panel, page, grid, then the
+  // pen approaches its first coordinate). As the visitor scrolls, a geometric
+  // pen writes an abstract notation: an observation index, a short ruled note,
+  // a circled observation (recorded as the first finding becomes active), a
+  // connection into an emerging-pattern symbol (the second finding), and an
+  // arrow leading toward "See all Public Thinking". The rail left of the ledger
+  // records the same states. Decorative only (aria-hidden); reduced motion shows
+  // the completed notation with the pen resting at the dock.
   const ptSection = document.querySelector('.pt');
   const ptSvg = document.getElementById('pt-signal');
-  if (ptSection && ptSvg) {
-    const body = document.getElementById('pt-body');
+  const jrSvg = document.getElementById('journal-svg');
+  let journal = null;
+  if (ptSection && jrSvg) {
     const rows = Array.from(ptSection.querySelectorAll('.ledger-row'));
     const seeAll = document.getElementById('pt-seeall');
-    const sel = mk(ptSvg);
-    const rail = sel('line', { class: 'sig-rail', x1: 14, x2: 14 });
-    const tail = sel('line', { class: 'sig-rail-tail', x1: 14, x2: 14 });
-    const trace = sel('line', { class: 'sig-trace', x1: 14, x2: 14 });
-    const pulses = rows.map(() => sel('rect', { class: 'sig-pulse', width: 9, height: 9 }));
-    const pts = rows.map(() => sel('rect', { class: 'sig-pt', width: 9, height: 9 }));
-    const beaconRing = sel('rect', { class: 'sig-beacon-ring', width: 11, height: 11 });
-    const beacon = sel('rect', { class: 'sig-beacon', width: 7, height: 7 });
-    let ys = [], beaconY = 0, top = 0, target = 0, entered = false;
+    const head = ptSection.querySelector('.pt-head');
+    const jrWrap = jrSvg.parentElement;
+    const J = mk(jrSvg);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const ease = (x) => x * x * (3 - 2 * x);
+    const stroke = (u) => 0.45 * u + 0.55 * ease(u); // authored rhythm: each stroke settles in and out
+    const variant = () => (window.innerWidth <= 860 ? 'mobile' : window.innerWidth <= 1100 ? 'tablet' : 'desktop');
+    let V = null, marks = [], segs = [], total = 0, tObs = 0, tPat = 0, approach = [0, 0], dockPt = [0, 0];
+    let panel, gPage, gridG, regG, pen, penTip, cores = {};
+
+    // ---- geometry -------------------------------------------------------------
+    function build() {
+      V = variant(); while (jrSvg.firstChild) jrSvg.removeChild(jrSvg.firstChild);
+      const m = V === 'mobile', t = V === 'tablet';
+      const W = m ? 360 : 520, H = m ? 212 : 320; jrSvg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      const P = m ? { x: 28, y: 18, w: 292, h: 172 } : { x: 72, y: 26, w: 392, h: 268 };
+      // console: a tonal panel behind the page's lower-right, an approach rail from the left edge
+      panel = J('rect', { class: 'jr-panel', x: P.x + (m ? 40 : 64), y: P.y + (m ? 60 : 96), width: P.w - (m ? 20 : 34), height: P.h - (m ? 36 : 64) });
+      J('line', { class: 'jr-rail', x1: 0, y1: P.y + (m ? 40 : 64), x2: P.x - 10, y2: P.y + (m ? 40 : 64) });
+      J('rect', { class: 'jr-rail-node', x: P.x - 14, y: P.y + (m ? 37 : 61), width: 6, height: 6 });
+      // the page and its grid
+      gPage = J('g', { class: 'jr-page' });
+      J('rect', { class: 'jr-paper', x: P.x, y: P.y, width: P.w, height: P.h }, gPage);
+      gridG = J('g', { class: 'jr-grid' }, gPage);
+      const mx = P.x + (m ? 34 : 44);
+      J('line', { class: 'jr-margin', x1: mx, y1: P.y, x2: mx, y2: P.y + P.h }, gridG);
+      for (let y = P.y + 24; y < P.y + P.h - 8; y += 24) J('line', { class: 'jr-rule', x1: P.x + 12, y1: y, x2: P.x + P.w - 12, y2: y }, gridG);
+      if (!m) for (let x = P.x + 24, i = 0; x < P.x + P.w; x += 24, i++) J('line', { class: 'jr-tick', x1: x, y1: P.y, x2: x, y2: P.y + (i % 4 === 3 ? 9 : 4) }, gridG);
+      // registration: corner marks and a measurement scale (desktop only)
+      regG = J('g', { class: 'jr-reg' });
+      const corner = (x, y, sx, sy) => J('path', { class: 'jr-corner', d: `M${x + 12 * sx},${y} H${x} V${y + 12 * sy}` }, regG);
+      corner(P.x - 8, P.y - 8, 1, 1); corner(P.x + P.w + 8, P.y - 8, -1, 1); corner(P.x - 8, P.y + P.h + 8, 1, -1);
+      if (!m && !t) for (let i = 0; i < 10; i++) J('line', { class: 'jr-scale', x1: P.x - 14, y1: P.y + 20 + i * 24, x2: P.x - (i % 3 === 0 ? 24 : 18), y2: P.y + 20 + i * 24 }, regG);
+      // the dock: where the pen rests once the notation is complete
+      const D = { x: P.x + P.w + 16, y: P.y + P.h - 10 };
+      J('path', { class: 'jr-dock', d: `M${D.x - 8},${D.y - 18} V${D.y + 8} H${D.x + 12}` });
+      J('rect', { class: 'jr-status', x: D.x - 3, y: D.y - 9, width: 5, height: 5 });
+      dockPt = [D.x - 1, D.y - 2]; approach = [W + 16, -12];
+      // ink marks in writing order
+      const ink = J('g', { class: 'jr-ink' });
+      const nx = mx + 14;
+      const defs = m ? [
+        { role: 'note', d: `M${nx},${P.y + 46} c14,-2 26,3 40,1 s28,-3 44,-1 s24,3 36,1` },
+        { role: 'obs', d: `M${nx + 172},${P.y + 54} a17,17 0 1 1 -12,-16 a17,17 0 0 1 12,16 a17,17 0 0 1 -7,11` },
+        { role: 'conn', d: `M${nx + 160},${P.y + 68} c-12,26 -46,30 -74,42` },
+        { role: 'pattern', d: `M${nx + 70},${P.y + 124} l16,-26 l16,26 z` },
+        { role: 'arrow', d: `M${nx},${P.y + 150} H${P.x + P.w - 44} v-6 l10,6 l-10,6` },
+      ] : [
+        { role: 'index', d: `M${nx},${P.y + 36} h9 M${nx + 16},${P.y + 36} h28 M${nx},${P.y + 50} h9 M${nx + 16},${P.y + 50} h20 M${nx},${P.y + 64} h9 M${nx + 16},${P.y + 64} h24` },
+        { role: 'note', d: `M${nx},${P.y + 98} c16,-3 30,4 48,1 s34,-3 54,-1 s28,3 44,1 s22,-2 34,0 M${nx},${P.y + 122} c14,-2 28,3 42,1 s26,-3 40,-1 s22,3 32,1` },
+        { role: 'obs', d: `M${nx + 262},${P.y + 112} a20,20 0 1 1 -14,-19 a20,20 0 0 1 14,19 a20,20 0 0 1 -9,13` },
+        { role: 'conn', d: `M${nx + 250},${P.y + 130} c-14,34 -58,36 -96,52` },
+        { role: 'pattern', d: `M${nx + 136},${P.y + 206} l18,-30 l18,30 z` },
+        { role: 'arrow', d: `M${nx},${P.y + 238} H${P.x + P.w - 46} v-6 l12,6 l-12,6` },
+      ];
+      marks = defs.map((def) => { const el = J('path', { class: 'jr-mark jr-' + def.role, d: def.d }, ink); const len = el.getTotalLength(); el.style.strokeDasharray = len.toFixed(1); el.style.strokeDashoffset = len.toFixed(1); return { role: def.role, el, len, p0: el.getPointAtLength(0), p1: el.getPointAtLength(len) }; });
+      // cores: the filled signal inside the observation circle and at the pattern's centroid
+      cores = {};
+      const ob = marks.find((k) => k.role === 'obs'), pa = marks.find((k) => k.role === 'pattern');
+      const oc = ob.el.getPointAtLength(ob.len * 0.5), oc2 = ob.el.getPointAtLength(0); const ocx = (oc.x + oc2.x) / 2, ocy = (oc.y + oc2.y) / 2;
+      cores.obs = J('rect', { class: 'jr-core', x: ocx - 4, y: ocy - 4, width: 8, height: 8 }, ink);
+      const pc = pa.el.getPointAtLength(pa.len * 0.62); cores.pattern = J('rect', { class: 'jr-core', x: pc.x - 3, y: pc.y - 3, width: 6, height: 6, transform: `rotate(45 ${pc.x} ${pc.y})` }, ink);
+      // timeline: alternating moves (pen lifted) and strokes, in path units
+      segs = []; total = 0; let prev = approach;
+      marks.forEach((k) => { const d = Math.hypot(k.p0.x - prev[0], k.p0.y - prev[1]) * 0.7; segs.push({ kind: 'move', from: prev, to: [k.p0.x, k.p0.y], start: total, len: d }); total += d; segs.push({ kind: 'ink', mark: k, start: total, len: k.len }); total += k.len; if (k.role === 'obs') tObs = total; if (k.role === 'pattern') tPat = total; prev = [k.p1.x, k.p1.y]; });
+      const dd = Math.hypot(dockPt[0] - prev[0], dockPt[1] - prev[1]) * 0.7; segs.push({ kind: 'move', from: prev, to: dockPt, start: total, len: dd, dock: true }); total += dd;
+      // the pen: engineered, tip at the origin, body along -y; rotated per frame
+      pen = J('g', { class: 'jr-pen' });
+      penTip = J('path', { class: 'jr-pen-tip', d: 'M0,0 L-4,-13 L4,-13 Z' }, pen);
+      J('rect', { class: 'jr-pen-body', x: -4, y: -13, width: 8, height: m ? 62 : 84, transform: 'translate(0,-' + (m ? 62 : 84) + ')' }, pen);
+      J('rect', { class: 'jr-pen-band', x: -5, y: -34, width: 10, height: 4 }, pen);
+      J('rect', { class: 'jr-pen-cap', x: -3, y: m ? -83 : -105, width: 6, height: 8 }, pen);
+      lastR = -1; lastT = -1; if (state) applyState(state.r, state.T, true);
+    }
+
+    // ---- state -----------------------------------------------------------------
+    let lastR = -1, lastT = -1, state = null, reach = 0, done = false;
+    function setPen(x, y, tx, ty, lift, opacity) {
+      const ang = 34 + clamp(tx * 12, -12, 12) - clamp(ty * 10, -10, 10);
+      pen.setAttribute('transform', `translate(${(x + lift * 4).toFixed(1)},${(y - lift * 9).toFixed(1)}) rotate(${ang.toFixed(1)})`);
+      pen.style.opacity = opacity.toFixed(2); penTip.style.opacity = (1 - 0.35 * lift).toFixed(2);
+    }
+    function applyState(r, T, force) {
+      const newReach = T >= tPat ? 2 : T >= tObs ? 1 : 0; const newDone = T >= total;
+      if (!force && newReach === reach && newDone === done && Math.abs(r - lastR) < 0.002 && Math.abs(T - lastT) < 0.25) return;
+      lastR = r; lastT = T;
+      // registration: three restrained movements, then the pen approaches
+      const e1 = ease(clamp(r / 0.5, 0, 1)), e2 = ease(clamp((r - 0.15) / 0.5, 0, 1)), e3 = ease(clamp((r - 0.4) / 0.45, 0, 1)), e4 = ease(clamp((r - 0.55) / 0.45, 0, 1));
+      panel.setAttribute('transform', `translate(${((1 - e1) * 30).toFixed(1)},0)`); panel.style.opacity = e1.toFixed(2);
+      gPage.setAttribute('transform', `translate(${((1 - e2) * 22).toFixed(1)},${(-(1 - e2) * 14).toFixed(1)})`); gPage.style.opacity = e2.toFixed(2);
+      gridG.style.opacity = e3.toFixed(2); regG.style.opacity = e3.toFixed(2);
+      // writing
+      let penPt = null;
+      marks.forEach((k) => { k.el.style.strokeDashoffset = k.len.toFixed(1); });
+      for (const s of segs) {
+        if (T >= s.start + s.len) { if (s.kind === 'ink') s.mark.el.style.strokeDashoffset = '0'; continue; }
+        if (T < s.start) break;
+        const u = (T - s.start) / s.len;
+        if (s.kind === 'ink') {
+          const L = s.mark.len * stroke(u); s.mark.el.style.strokeDashoffset = (s.mark.len - L).toFixed(1);
+          const p = s.mark.el.getPointAtLength(L), q = s.mark.el.getPointAtLength(Math.max(0, L - 3)); const dx = p.x - q.x, dy = p.y - q.y, n = Math.hypot(dx, dy) || 1;
+          penPt = [p.x, p.y, dx / n, dy / n, 0];
+        } else {
+          const w = ease(u); const x = s.from[0] + (s.to[0] - s.from[0]) * w, y = s.from[1] + (s.to[1] - s.from[1]) * w; const dx = s.to[0] - s.from[0], dy = s.to[1] - s.from[1], n = Math.hypot(dx, dy) || 1;
+          penPt = s.dock ? [x, y, -0.9 * w + (dx / n) * (1 - w), 0.6 * w + (dy / n) * (1 - w), Math.sin(Math.PI * u)] : [x, y, dx / n, dy / n, Math.sin(Math.PI * u)]; // toward the dock the pen straightens into its resting pose
+        }
+        break;
+      }
+      if (T >= total) { const p = dockPt; setPen(p[0], p[1], -0.9, 0.6, 0, 1); } // resting pose: upright against the dock
+      else if (penPt) setPen(penPt[0], penPt[1], penPt[2], penPt[3], penPt[4], 1);
+      else { const a = approach, b = segs[0].to; const w = e4; setPen(a[0] + (b[0] - a[0]) * w, a[1] + (b[1] - a[1]) * w, 0.6, 0.8, 1 - w, e4); }
+      cores.obs.classList.toggle('on', T >= tObs); cores.pattern.classList.toggle('on', T >= tPat);
+      if (newReach !== reach || newDone !== done || force) { reach = newReach; done = newDone; rows.forEach((row, i) => row.classList.toggle('rec', i < reach)); jrWrap.classList.toggle('done', done); ptSection.classList.toggle('in', done); railApply(true); }
+    }
+
+    // ---- scroll mapping (document coordinates, measured once per layout) --------
+    let S = null;
     function measure() {
-      const b = body.getBoundingClientRect(); top = 0;
-      ptSvg.setAttribute('viewBox', '0 0 28 ' + Math.round(b.height)); ptSvg.setAttribute('width', 28); ptSvg.setAttribute('height', Math.round(b.height));
-      ys = rows.map((r) => { const t = r.querySelector('.ledger-title') || r; const tb = t.getBoundingClientRect(); return tb.top - b.top + tb.height / 2; });
-      const sb = (seeAll || body).getBoundingClientRect(); beaconY = sb.top - b.top + sb.height / 2;
-      const lastY = ys.length ? ys[ys.length - 1] : 0;
-      rail.setAttribute('y1', 0); rail.setAttribute('y2', lastY.toFixed(1));
-      tail.setAttribute('y1', lastY.toFixed(1)); tail.setAttribute('y2', (beaconY - 12).toFixed(1));
-      pts.forEach((p, i) => { p.setAttribute('x', 9.5); p.setAttribute('y', (ys[i] - 4.5).toFixed(1)); pulses[i].setAttribute('x', 9.5); pulses[i].setAttribute('y', (ys[i] - 4.5).toFixed(1)); });
-      beacon.setAttribute('x', 10.5); beacon.setAttribute('y', (beaconY - 3.5).toFixed(1)); beaconRing.setAttribute('x', 8.5); beaconRing.setAttribute('y', (beaconY - 5.5).toFixed(1));
-      const total = beaconY; trace.setAttribute('y1', 0); trace.setAttribute('y2', total.toFixed(1)); trace.style.strokeDasharray = total.toFixed(1);
-      apply(false);
+      if (variant() !== V) build();
+      const sy = window.scrollY, vh = window.innerHeight, maxS = Math.max(0, document.documentElement.scrollHeight - vh);
+      const top = (el) => el.getBoundingClientRect().top + sy, bottom = (el) => el.getBoundingClientRect().bottom + sy;
+      const r0 = top(head) - vh * 0.92, r1 = r0 + vh * 0.32;
+      let s1 = rows[0] ? top(rows[0]) - vh * 0.74 : r1 + vh * 0.3, s2 = rows[1] ? top(rows[1]) - vh * 0.74 : s1 + vh * 0.3, s3 = (seeAll ? bottom(seeAll) : bottom(ptSection)) - vh;
+      s1 = Math.max(s1, r1 + vh * 0.1); s2 = Math.max(s2, s1 + vh * 0.1); s3 = Math.max(s3, s2 + vh * 0.1);
+      if (s3 > maxS) { const k = Math.max(0.2, (maxS - r1) / (s3 - r1)); s1 = r1 + (s1 - r1) * k; s2 = r1 + (s2 - r1) * k; s3 = maxS; }
+      S = { r0, r1, s1, s2, s3 };
+      railMeasure(); lastR = -1; lastT = -1; if (state) applyState(state.r, state.T, true); else journal.update(sy, vh);
     }
-    function apply(animate) {
-      const y = ys[target] || 0; const total = beaconY || 1;
-      if (!animate) trace.style.transition = 'none';
-      trace.style.strokeDashoffset = entered || reduceMotion ? (total - y).toFixed(1) : total.toFixed(1);
-      if (!animate) requestAnimationFrame(() => { trace.style.transition = ''; });
-      pts.forEach((p, i) => { p.classList.toggle('on', (entered || reduceMotion) && i === target); pulses[i].classList.toggle('on', (entered || reduceMotion) && i === target); });
+    journal = {
+      update(sy, vh) {
+        if (!S) return;
+        if (reduceMotion) { if (!state) { state = { r: 1, T: total }; applyState(1, total, true); } return; }
+        if (sy < S.r0 - vh) { if (state && state.r === 0) return; state = { r: 0, T: 0 }; applyState(0, 0); return; }
+        if (sy > S.s3 + vh * 1.5) { if (state && state.T === total) return; state = { r: 1, T: total }; applyState(1, total); return; }
+        const r = clamp((sy - S.r0) / (S.r1 - S.r0), 0, 1);
+        let T = 0;
+        if (sy > S.r1) { if (sy <= S.s1) T = tObs * (sy - S.r1) / (S.s1 - S.r1); else if (sy <= S.s2) T = tObs + (tPat - tObs) * (sy - S.s1) / (S.s2 - S.s1); else T = tPat + (total - tPat) * clamp((sy - S.s2) / (S.s3 - S.s2), 0, 1); }
+        state = { r, T }; applyState(r, T);
+      },
+    };
+
+    // ---- the rail beside the ledger: the same states as a timeline --------------
+    let railMeasure = () => {}, railApply = () => {};
+    if (ptSvg) {
+      const body = document.getElementById('pt-body'); const sel = mk(ptSvg);
+      const rail = sel('line', { class: 'sig-rail', x1: 14, x2: 14 }); const tail = sel('line', { class: 'sig-rail-tail', x1: 14, x2: 14 }); const trace = sel('line', { class: 'sig-trace', x1: 14, x2: 14 });
+      const pulses = rows.map(() => sel('rect', { class: 'sig-pulse', width: 9, height: 9 })); const pts = rows.map(() => sel('rect', { class: 'sig-pt', width: 9, height: 9 }));
+      const beaconRing = sel('rect', { class: 'sig-beacon-ring', width: 11, height: 11 }); const beacon = sel('rect', { class: 'sig-beacon', width: 7, height: 7 });
+      let ys = [], beaconY = 0, hover = -1;
+      railMeasure = () => {
+        const b = body.getBoundingClientRect();
+        ptSvg.setAttribute('viewBox', '0 0 28 ' + Math.round(b.height)); ptSvg.setAttribute('width', 28); ptSvg.setAttribute('height', Math.round(b.height));
+        ys = rows.map((r) => { const t = r.querySelector('.ledger-title') || r; const tb = t.getBoundingClientRect(); return tb.top - b.top + tb.height / 2; });
+        const sb = (seeAll || body).getBoundingClientRect(); beaconY = sb.top - b.top + sb.height / 2;
+        const lastY = ys.length ? ys[ys.length - 1] : 0;
+        rail.setAttribute('y1', 0); rail.setAttribute('y2', lastY.toFixed(1)); tail.setAttribute('y1', lastY.toFixed(1)); tail.setAttribute('y2', (beaconY - 12).toFixed(1));
+        pts.forEach((p, i) => { p.setAttribute('x', 9.5); p.setAttribute('y', (ys[i] - 4.5).toFixed(1)); pulses[i].setAttribute('x', 9.5); pulses[i].setAttribute('y', (ys[i] - 4.5).toFixed(1)); });
+        beacon.setAttribute('x', 10.5); beacon.setAttribute('y', (beaconY - 3.5).toFixed(1)); beaconRing.setAttribute('x', 8.5); beaconRing.setAttribute('y', (beaconY - 5.5).toFixed(1));
+        trace.setAttribute('y1', 0); trace.setAttribute('y2', beaconY.toFixed(1)); trace.style.strokeDasharray = beaconY.toFixed(1);
+        railApply(false);
+      };
+      railApply = (animate) => {
+        const target = hover >= 0 ? hover : reach - 1; const totalL = beaconY || 1;
+        const y = done && hover < 0 ? totalL : target >= 0 ? ys[target] || 0 : 0;
+        if (!animate) trace.style.transition = 'none';
+        trace.style.strokeDashoffset = (totalL - y).toFixed(1);
+        if (!animate) requestAnimationFrame(() => { trace.style.transition = ''; });
+        pts.forEach((p, i) => { const on = i < reach || i === hover; p.classList.toggle('on', on); pulses[i].classList.toggle('on', on && i === target); });
+      };
+      // hover or focus on a finding re-activates its journal mark and moves the trace, without replaying the sequence
+      const roleFor = [['obs'], ['conn', 'pattern']];
+      rows.forEach((r, i) => {
+        const go = () => { hover = i; railApply(true); (roleFor[i] || []).forEach((role) => { const k = marks.find((q) => q.role === role); if (k && k.el.style.strokeDashoffset === '0') { k.el.classList.remove('hot'); void k.el.getBoundingClientRect(); k.el.classList.add('hot'); } }); };
+        const back = () => { hover = -1; railApply(true); };
+        r.addEventListener('mouseenter', go); r.addEventListener('mouseleave', back); r.addEventListener('focusin', go); r.addEventListener('focusout', (e) => { if (!r.contains(e.relatedTarget)) back(); });
+      });
     }
-    rows.forEach((r, i) => { const go = () => { target = i; apply(true); }; const back = () => { target = 0; apply(true); }; r.addEventListener('mouseenter', go); r.addEventListener('mouseleave', back); r.addEventListener('focusin', go); r.addEventListener('focusout', (e) => { if (!r.contains(e.relatedTarget)) back(); }); });
-    const enter = () => { entered = true; ptSection.classList.add('in'); apply(true); };
-    if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { enter(); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(body); } else enter();
-    measure(); window.addEventListener('resize', measure); if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure); window.addEventListener('load', measure);
+
+    build(); measure();
+    window.addEventListener('resize', measure); if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure); window.addEventListener('load', measure);
   }
 
   const ledgerEmpty = document.getElementById('ledger-empty');
@@ -673,6 +826,7 @@
       verbs.forEach((v, i) => v.classList.toggle('lit', i < Math.floor(e * 4.999)));
     }
     if (nar) { let i = 0; if (mobile) notes.forEach((n, k) => { if (n.getBoundingClientRect().top < vh * 0.62) i = k; }); else narSteps.forEach((s, k) => { if (s.getBoundingClientRect().top <= vh * 0.5) i = k; }); setNarStage(i); }
+    if (journal) journal.update(window.scrollY, vh);
   }
   let last = performance.now();
   function frame(now) { const dt = Math.min(0.05, (now - last) / 1000); last = now; update(now); for (const k in fields) fields[k].step(dt); if (orbitField) orbitField.step(dt); if (orrery) orrery.step(dt); requestAnimationFrame(frame); }
