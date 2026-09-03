@@ -8,37 +8,43 @@ eleventyExcludeFromCollections: true
 navActive: about
 ---
 {# =========================================================================
-   ABOUT: four movements on the live About page's content. Colour by
-   function only: teal = command environment, near-black = structural field
-   (portrait plate, console, handoff), cream = human reading surface, ochre
-   = active signal. Each fact appears once. Nothing biographical is invented.
+   ABOUT · OPERATOR DOSSIER → RESEARCH NAVIGATION CHART (pre-launch pass).
+   One continuous coordinate system: a registration axis at the portrait's
+   left edge (--course-x) runs from the operator module through the dossier
+   into the dark field, where the plotted course leaves it, visits the three
+   principles in reading order and continues toward the handoff. Copy is the
+   approved About copy, unchanged. Geometry is decorative and aria-hidden;
+   about.js draws the course as the chart enters and moves the coral signal.
    ========================================================================= #}
+<div class="dossier" id="dossier">
 
-{# ------------------------------------------------------ A MISSION HERO #}
+{# ----------------------------------------- A OPERATOR IDENTIFICATION FIELD #}
 <section class="deck" id="deck" aria-labelledby="deck-h1">
+  <span class="axis axis-deck" aria-hidden="true"></span>
+  {# the practice's field: four labelled coordinates, three supporting points, one course. Not the homepage's participant map. #}
+  <svg class="field-chart" id="field-chart" viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
   <div class="deck-grid">
     <div class="deck-copy">
       <p class="mod-label">About</p>
       <h1 class="deck-h1" id="deck-h1">Studying how participation around products is changing.</h1>
       <p class="deck-def">Communitygeeks is a participation research and advisory practice founded by Carmelito Bauer. We study how companies build relationships with the people around their products: users, developers, creators, partners, and advocates.</p>
     </div>
-    {# Rectangular editorial portrait, natural colour, full bleed inside a
-       near-black plate; registration marks sit outside the image. #}
     <figure class="portrait" id="portrait">
       <div class="portrait-plate">
-        <span class="reg reg-tl" aria-hidden="true"></span><span class="reg reg-tr" aria-hidden="true"></span><span class="reg reg-bl" aria-hidden="true"></span><span class="reg reg-br" aria-hidden="true"></span>
+        <span class="reg reg-tl" aria-hidden="true"></span><span class="reg reg-tr" aria-hidden="true"></span><span class="reg reg-bl reg-signal" aria-hidden="true"></span><span class="reg reg-br" aria-hidden="true"></span>
         <div class="portrait-frame">
           <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360">
         </div>
-        <span class="portrait-tag" aria-hidden="true">Founder</span>
+        <div class="portrait-id" aria-hidden="true"><span class="portrait-tag">Founder</span><span class="portrait-idx">OP · 01 · REG CGK-A</span></div>
       </div>
       <figcaption class="portrait-caption"><span>Carmelito Bauer</span><span>Founder, Communitygeeks</span></figcaption>
     </figure>
   </div>
 </section>
 
-{# ------------------------------------------------------------ B FOUNDER #}
+{# ---------------------------------------------------- B OPERATOR DOSSIER #}
 <section class="founder-sec" id="founder" aria-labelledby="founder-h2">
+  <span class="axis axis-founder" aria-hidden="true"><i class="axis-mark axis-mark-top"></i><i class="axis-mark axis-mark-mid"></i><i class="axis-signal"></i></span>
   <div class="founder-grid">
     <div class="founder-id">
       <p class="mod-label mod-label-ink">Founder</p>
@@ -52,36 +58,40 @@ navActive: about
   </div>
 </section>
 
-{# ------------------------------------------------------- C HOW WE THINK #}
+{# ------------------------------------------- C RESEARCH NAVIGATION CHART #}
 <section class="think" id="how-we-think" aria-labelledby="think-h2">
-  <div class="think-head">
-    <p class="mod-label">How we think</p>
-    <h2 class="think-h2" id="think-h2">What is genuinely changing, and what isn&rsquo;t.</h2>
-    <p class="think-intro">The same few ideas shape every engagement, translated here rather than stated as internal methodology.</p>
+  <div class="think-chart" id="think-chart">
+    <svg class="course" id="course" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
+    <div class="think-head">
+      <p class="mod-label">How we think</p>
+      <h2 class="think-h2" id="think-h2">What is genuinely changing, and what isn&rsquo;t.</h2>
+      <p class="think-intro">The same few ideas shape every engagement, translated here rather than stated as internal methodology.</p>
+    </div>
+    <ol class="principles" id="principles">
+      <li class="principle" data-node="1">
+        <span class="p-idx" aria-hidden="true">01</span>
+        <h3>Start with the ecosystem, not the platform</h3>
+        <p>We begin with the people around a product and the relationships between them, not with the assumption that the answer is another Discord, forum, or community platform.</p>
+      </li>
+      <li class="principle" data-node="2">
+        <span class="p-idx" aria-hidden="true">02</span>
+        <h3>Research before prescription</h3>
+        <p>Community, DevRel, partnerships, and advocacy increasingly overlap. We look at how participation actually works before recommending where teams, programs, or platforms should sit.</p>
+      </li>
+      <li class="principle" data-node="3">
+        <span class="p-idx" aria-hidden="true">03</span>
+        <h3>Build for what is changing</h3>
+        <p>AI is changing discovery, support, content creation, and product adoption. We combine hands-on operating experience with ongoing practitioner research to understand what is genuinely changing, and what isn&rsquo;t.</p>
+      </li>
+    </ol>
   </div>
-  {# One console: a continuous near-black field with a shared signal rail;
-     three numbered zones, one ochre marker each, cream type on the field. #}
-  <ol class="console">
-    <li class="zone">
-      <div class="zone-rail"><span class="zone-idx">01</span><span class="zone-marker" aria-hidden="true"></span></div>
-      <h3>Start with the ecosystem, not the platform</h3>
-      <p>We begin with the people around a product and the relationships between them, not with the assumption that the answer is another Discord, forum, or community platform.</p>
-    </li>
-    <li class="zone">
-      <div class="zone-rail"><span class="zone-idx">02</span><span class="zone-marker" aria-hidden="true"></span></div>
-      <h3>Research before prescription</h3>
-      <p>Community, DevRel, partnerships, and advocacy increasingly overlap. We look at how participation actually works before recommending where teams, programs, or platforms should sit.</p>
-    </li>
-    <li class="zone">
-      <div class="zone-rail"><span class="zone-idx">03</span><span class="zone-marker" aria-hidden="true"></span></div>
-      <h3>Build for what is changing</h3>
-      <p>AI is changing discovery, support, content creation, and product adoption. We combine hands-on operating experience with ongoing practitioner research to understand what is genuinely changing, and what isn&rsquo;t.</p>
-    </li>
-  </ol>
 </section>
+
+</div>
 
 {# ------------------------------------------------------------ D HANDOFF #}
 <section class="handoff" id="handoff" aria-labelledby="handoff-h2">
+  <span class="course-tail" aria-hidden="true"></span>
   <div class="handoff-grid">
     <div>
       <p class="mod-label">Handoff</p>

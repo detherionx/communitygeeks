@@ -40,7 +40,7 @@ h1,h2,h3,p,dl,dd{margin:0;}
 h1,h2,h3{text-wrap:balance;}
 p,li,figcaption{text-wrap:pretty;}
 /* short copy (≤ ~5 lines) is balanced so no line ends in a lone word */
-.note-lead,.note p,.ledger-deck,.path-bridge,.path-panel p,.exp-proof,.cases-lead,.q-card p,.pt-sub,.close-sub,.author-bio,.diag-intro,.hero-for{text-wrap:balance;}
+.note-lead,.note p,.ledger-deck,.path-bridge,.path-panel p,.mani-proof,.cases-lead,.q-card p,.pt-sub,.close-sub,.author-bio,.diag-intro,.hero-for{text-wrap:balance;}
 .hero-sub em{white-space:nowrap;}
 ol,ul{margin:0;padding:0;list-style:none;}
 s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55;}
@@ -329,20 +329,44 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 /* Colour rhythm for the closing run of the page: warm sand (work) → ink
    (research log) → cream (founder) → ink (contact). Sand is the existing
    cream2 quietened with a little ink, not a new hue. */
-.cases{background:color-mix(in srgb,var(--cream2) 88%,var(--ink) 12%);color:var(--ink);padding:88px var(--gutter) 92px;}
-.exp-row{border-bottom-color:rgba(27,25,18,0.14);}
-.exp-row:hover{background:rgba(246,244,239,0.35);}
+.cases{background:color-mix(in srgb,var(--cream2) 88%,var(--ink) 12%);color:var(--ink);padding:64px var(--gutter) 68px;}
 .exp-grid{display:grid;grid-template-columns:minmax(260px,34%) 1fr;gap:5vw;align-items:start;}
 .exp-head{position:sticky;top:calc(var(--bar-h) + 40px);}
 .cases-h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,2.9vw,40px);line-height:1.08;letter-spacing:-0.012em;margin-top:16px;max-width:16ch;}
 .cases-lead{margin-top:14px;font-size:14.5px;line-height:1.6;color:var(--ink-soft);max-width:38ch;}
-.exp-rows{border-top:1px solid var(--ink);}
-.exp-row{display:grid;grid-template-columns:100px 1fr 110px;gap:22px;align-items:center;padding:17px 0;min-height:68px;border-bottom:1px solid var(--line);transition:background .2s;}
-.exp-row:hover{background:rgba(246,244,239,0.5);}
-.exp-logo{display:block;width:90px;height:26px;background:var(--ink-soft);-webkit-mask:var(--logo-url) no-repeat left center / contain;mask:var(--logo-url) no-repeat left center / contain;}
-.exp-name{font-family:var(--body);font-weight:600;font-size:14.5px;}
-.exp-proof{font-size:14.5px;line-height:1.5;color:var(--ink-soft);max-width:72ch;}
-.exp-tag{font-family:var(--body);font-weight:600;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right;}
+/* ENGAGEMENT MANIFEST: one indexed rail of six logo coordinates, one shared record plane */
+.manifest{position:relative;padding-top:4px;}
+.mani-index{position:relative;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink-12);}
+.mani-logo{appearance:none;background:none;border:0;border-radius:0;margin:0;padding:0;height:78px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:background .25s var(--ease);}
+.mani-logo .mani-mark{display:block;width:78%;height:44px;background:var(--ink-soft);opacity:0.5;-webkit-mask:var(--logo-url) no-repeat center / auto var(--lh,22px);mask:var(--logo-url) no-repeat center / auto var(--lh,22px);transition:opacity .25s var(--ease),background .25s var(--ease);}
+/* optical normalisation per mark: wordmarks and emblems get their own internal height */
+.mani-logo[data-logo="deepl"]{--lh:22px;} .mani-logo[data-logo="eu-academy"]{--lh:30px;} .mani-logo[data-logo="tencent"]{--lh:19px;} .mani-logo[data-logo="space-whale"]{--lh:40px;} .mani-logo[data-logo="billbee"]{--lh:22px;} .mani-logo[data-logo="gb-foods"]{--lh:24px;}
+.mani-logo:hover .mani-mark,.mani-logo:focus-visible .mani-mark{opacity:0.85;}
+.mani-logo[aria-selected="true"]{background:var(--bone);}
+.mani-logo[aria-selected="true"] .mani-mark{opacity:1;background:var(--ink);}
+.mani-logo:focus-visible{outline:2px solid var(--signal);outline-offset:-2px;}
+/* the coral coordinate: a rule under the active position with a registration square at its centre */
+.mani-cursor{position:absolute;left:calc(var(--i,0) * 100% / 6);bottom:-1px;width:calc(100% / 6);height:2px;background:var(--signal);transition:left .32s var(--ease);pointer-events:none;}
+.mani-cursor::after{content:"";position:absolute;left:50%;bottom:-3px;width:7px;height:7px;transform:translateX(-50%);background:var(--signal);}
+.mani-records{position:relative;min-height:var(--mani-h,120px);padding-top:26px;}
+.mani-rec{display:grid;grid-template-columns:72px 1fr auto;gap:24px;align-items:start;}
+.js .mani-rec{position:absolute;left:0;right:0;top:26px;}
+.js .mani-rec:not(.on){display:none;}
+.js .mani-rec.on{animation:mani-in .22s var(--ease);}
+@keyframes mani-in{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.mani-no{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);padding-top:5px;} .mani-no b{font-weight:500;color:var(--ink);}
+.mani-proof{font-size:17px;line-height:1.5;color:var(--ink);max-width:56ch;}
+.mani-tag{font-family:var(--body);font-weight:600;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right;white-space:nowrap;padding-top:5px;}
+/* no JavaScript: a compact readable list of all six */
+html:not(.js) .mani-rec{padding:12px 0;border-bottom:1px solid var(--line);}
+html:not(.js) .mani-cursor{display:none;}
+/* entrance, once: the logos register along the rail */
+.js .cases .mani-logo .mani-mark{opacity:0.15;transform:translateY(6px);transition:opacity .5s var(--ease),transform .6s var(--ease),background .25s var(--ease);}
+.js .cases.in .mani-logo .mani-mark{opacity:0.5;transform:none;}
+.js .cases.in .mani-logo[aria-selected="true"] .mani-mark{opacity:1;}
+.js .cases.in .mani-logo:hover .mani-mark,.js .cases.in .mani-logo:focus-visible .mani-mark{opacity:0.85;}
+.cases .mani-logo:nth-child(2) .mani-mark{transition-delay:.06s;} .cases .mani-logo:nth-child(3) .mani-mark{transition-delay:.12s;} .cases .mani-logo:nth-child(4) .mani-mark{transition-delay:.18s;} .cases .mani-logo:nth-child(5) .mani-mark{transition-delay:.24s;} .cases .mani-logo:nth-child(6) .mani-mark{transition-delay:.3s;}
+.cases.in .mani-logo .mani-mark{transition-delay:0s;}
 
 /* ===== PUBLIC THINKING (home preview: a dark research log) ===== */
 .pt{background:var(--ink);color:var(--cream);padding:11vh var(--gutter) 10vh;}
@@ -542,6 +566,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .note,.q-card,.hero-sub em,.hero-sub em::after,.v2-vector,.v2-head,.v2-mark,.pt-signal .sig-trace,.pt-signal .sig-pt,.pt .ledger-row{transition:none;}
   .pt.in .pt-signal .sig-pulse.on,.pt.in .pt-signal .sig-beacon-ring{animation:none;}
   .pt-signal .sig-trace{stroke-dashoffset:0 !important;}
+  .js .cases .mani-logo .mani-mark{opacity:0.5;transform:none;transition:none;} .js .cases .mani-logo[aria-selected="true"] .mani-mark{opacity:1;} .js .mani-rec.on{animation:none;} .mani-cursor{transition:none;}
   .path-svg .v2-head,.path-svg .v2-mark{opacity:1;}
   .rail{-webkit-mask-image:none;mask-image:none;}
   .rail-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:28px 48px;padding:6px var(--gutter);}
@@ -632,7 +657,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .diagnostic{padding:10vh var(--gutter) 8vh;}
   .qnode{font-size:15px;}
   .diag-instrument{padding:14px 14px 16px;}
-  .exp-proof,.ledger-deck,.note p:not(.note-lead),.path-panel p,.pt-sub,.q-card p,.author-bio,.close-sub,.diag-intro,.cases-lead{font-size:16px;}
+  .ledger-deck,.note p:not(.note-lead),.path-panel p,.pt-sub,.q-card p,.author-bio,.close-sub,.diag-intro,.cases-lead{font-size:16px;}
   .qnode{font-size:16px;}
   .orrery-svg{max-height:none;}
   .diag-head-long{display:none;}
@@ -640,14 +665,19 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .orrery-svg .o-extra-label,.orrery-svg .o-caption{font-size:13px;}
   .orrery-svg .o-region-label{font-size:12px;}
 
-  .cases{padding:56px var(--gutter) 60px;}
+  .cases{padding:48px var(--gutter) 52px;}
   .exp-grid{grid-template-columns:1fr;gap:26px;}
   .exp-head{position:static;}
   .cases-h2{max-width:none;}
-  .exp-row{grid-template-columns:96px 1fr;gap:4px 16px;padding:12px 0;min-height:0;}
-  .exp-logo{width:84px;height:24px;grid-row:1 / span 2;align-self:start;margin-top:2px;}
-  .exp-proof{grid-column:2;font-size:14px;}
-  .exp-tag{grid-column:2;text-align:left;}
+  .mani-index{grid-template-columns:repeat(3,1fr);}
+  .mani-logo{height:64px;}
+  .mani-logo .mani-mark{width:82%;height:40px;}
+  .mani-logo[data-logo="space-whale"]{--lh:36px;} .mani-logo[data-logo="eu-academy"]{--lh:26px;}
+  .mani-cursor{display:none;}
+  .mani-logo[aria-selected="true"]::after{content:"";position:absolute;left:12%;right:12%;bottom:0;height:2px;background:var(--signal);}
+  .mani-rec{grid-template-columns:56px 1fr;gap:10px 16px;}
+  .mani-tag{grid-column:2;text-align:left;padding-top:0;}
+  .mani-proof{font-size:16px;}
 
   .pt{padding:10vh var(--gutter) 8vh;}
   .pt-signal{display:none;}

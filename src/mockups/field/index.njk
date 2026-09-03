@@ -238,24 +238,34 @@ extraScripts: ["researcher.js"]
 
 {# --------------------------------------------- SELECTED WORK: VIGNETTES #}
 <section class="cases chapter" id="cases" data-chapter="05" data-title="Selected work">
-  {# Compact credibility, not a chapter: headline left, one index of six selected
-     real engagements right. Order is the data order (DeepL, EU Academy,
-     Tencent first); every description is the existing `proof` text. #}
+  {# ENGAGEMENT MANIFEST (approved): the six selected engagements as one indexed instrument rail. The logos are
+     selectable coordinates (tabs); one shared record below shows the active engagement's description and sector with
+     its index. No autoplay: hover previews on pointer devices, click or keyboard selects, arrow keys move along the
+     rail. All six records stay in the document; without JavaScript they stack as a compact list. Logos are optically
+     normalised per mark (--lh), never stretched; company names live only in the accessible names. #}
   <div class="exp-grid">
     <div class="exp-head">
       <p class="kicker"><span class="node-dot node-dot-ochre"></span>Selected work</p>
       <h2 class="cases-h2">A decade of building the programs we now research.</h2>
       <p class="cases-lead">Selected engagements across SaaS and AI, the public sector, gaming and FMCG, shown with what was actually done.</p>
     </div>
-    <ol class="exp-rows">
-      {% for client in clients.selectedWork %}
-      <li class="exp-row">
-        <span class="exp-logo" role="img" aria-label="{{ client.name }}" title="{{ client.name }}" style="--logo-url:url('{{ client.logoPath }}');"></span>
-        <span class="exp-proof">{{ client.proof }}</span>
-        <span class="exp-tag">{{ client.tag }}</span>
-      </li>
-      {% endfor %}
-    </ol>
+    <div class="manifest" id="manifest">
+      <div class="mani-index" role="tablist" aria-label="Selected engagements">
+        {% for client in clients.selectedWork %}
+        <button type="button" role="tab" class="mani-logo" id="mani-tab-{{ loop.index }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="mani-rec-{{ loop.index }}" tabindex="{% if loop.first %}0{% else %}-1{% endif %}" aria-label="{{ client.name }}" data-logo="{{ client.name | lower | replace(' ', '-') }}" style="--logo-url:url('{{ client.logoPath }}');"><span class="mani-mark" aria-hidden="true"></span></button>
+        {% endfor %}
+        <span class="mani-cursor" aria-hidden="true"></span>
+      </div>
+      <ol class="mani-records" id="mani-records">
+        {% for client in clients.selectedWork %}
+        <li class="mani-rec{% if loop.first %} on{% endif %}" id="mani-rec-{{ loop.index }}" role="tabpanel" aria-labelledby="mani-tab-{{ loop.index }}">
+          <span class="mani-no"><b>0{{ loop.index }}</b> / 06</span>
+          <p class="mani-proof">{{ client.proof }}</p>
+          <span class="mani-tag">{{ client.tag }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
   </div>
 </section>
 

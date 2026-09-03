@@ -1,7 +1,8 @@
-/* Communitygeeks concept: ABOUT. Four functional colours only:
-   teal = command environment, near-black = structural field, cream = human
-   reading surface, ochre = active signal. Layout, typography, coordinates
-   and framing carry the command-deck character; no diagrams, no avatars. */
+/* Communitygeeks concept: ABOUT · operator dossier → research navigation chart.
+   Four functional colours only: teal = command environment, near-black = structural field, cream = human reading
+   surface, coral = active signal. One coordinate system: --course-x is the registration axis (the portrait's left
+   edge, column 9 of 12) that runs through the hero and the dossier and into the dark field, where the plotted course
+   departs from it. Geometry never carries content; the copy is the approved About copy. */
 
 body.about-body{margin:0;background:var(--teal);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 .about-body *{box-sizing:border-box;}
@@ -10,88 +11,116 @@ body.about-body{margin:0;background:var(--teal);color:var(--cream);font-family:v
 .about-body ol,.about-body ul{margin:0;padding:0;list-style:none;}
 .about-body :focus-visible{outline:2px solid var(--signal);outline-offset:4px;}
 .about-body .nowrap{white-space:nowrap;}
-
-/* ===== atoms (labels ≥12px; ochre text only on near-black) ===== */
-.mod-label{display:flex;align-items:center;gap:12px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);white-space:nowrap;}
-.mod-label-ink{color:var(--ink-soft);}
 .about-body h1,.about-body h2,.about-body h3{text-wrap:balance;}
 .about-body p{text-wrap:pretty;}
-.about-body .founder-bio,.about-body .zone p,.about-body .deck-def,.about-body .think-intro{text-wrap:balance;}
 
-/* ===== A MISSION HERO: 12-column editorial split, ~80svh ===== */
-.deck{position:relative;padding:calc(var(--bar-h) + 7vh) var(--gutter) 8vh;min-height:min(82svh,760px);display:flex;align-items:center;}
-.deck-grid{position:relative;width:100%;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 clamp(16px,2vw,32px);align-items:center;}
-.deck-copy{grid-column:1 / span 7;}
+/* the shared grid and the registration axis */
+.dossier{--g:clamp(16px,2vw,32px);--cols:12;--axis-col:8;--course-x:calc(var(--gutter) + (100% - 2 * var(--gutter) - 11 * var(--g)) / 12 * var(--axis-col) + var(--axis-col) * var(--g) - var(--g) / 2);}
+.axis{position:absolute;left:var(--course-x);top:0;bottom:0;width:1px;pointer-events:none;}
+.axis-deck{background:linear-gradient(180deg,transparent 0,var(--cream-25) 30%,var(--cream-25) 100%);}
+.axis-founder{background:var(--ink-12);}
+.axis-mark{position:absolute;left:-6px;width:13px;height:1px;background:var(--ink-soft);opacity:0.7;}
+.axis-mark-top{top:0;} .axis-mark-mid{top:50%;}
+.axis-signal{position:absolute;left:-3px;bottom:22%;width:7px;height:7px;background:var(--signal);}
+
+/* ===== atoms ===== */
+.mod-label{display:flex;align-items:center;gap:12px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);white-space:nowrap;}
+.mod-label-ink{color:var(--ink-soft);}
+.about-body .founder-bio,.about-body .principle p,.about-body .deck-def,.about-body .think-intro{text-wrap:balance;}
+
+/* ===== A OPERATOR IDENTIFICATION FIELD ===== */
+.deck{position:relative;padding:calc(var(--bar-h) + 7vh) var(--gutter) 8vh;min-height:min(84svh,780px);display:flex;align-items:center;overflow:hidden;}
+.field-chart{position:absolute;left:var(--gutter);right:calc(var(--gutter) + 34%);top:calc(var(--bar-h) + 10px);height:min(22vh,190px);width:auto;pointer-events:none;overflow:visible;}
+.field-chart .fc-line{stroke:var(--cream);stroke-opacity:0.42;stroke-width:1;fill:none;vector-effect:non-scaling-stroke;}
+.field-chart .fc-line.faint{stroke-opacity:0.2;}
+.field-chart .fc-node{fill:var(--cream);}
+.field-chart .fc-node.minor{fill:var(--cream);fill-opacity:0.6;}
+.field-chart .fc-ring{fill:none;stroke:#A9E4E1;stroke-opacity:0.45;stroke-width:1;vector-effect:non-scaling-stroke;}
+.field-chart .fc-signal{fill:var(--signal);}
+.field-chart .fc-tick{stroke:var(--cream);stroke-opacity:0.5;stroke-width:1;vector-effect:non-scaling-stroke;}
+.fc-label{position:absolute;font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream-80);white-space:nowrap;pointer-events:none;}
+.fc-label i{display:block;font-family:var(--mono);font-style:normal;font-weight:400;font-size:10.5px;letter-spacing:0.04em;text-transform:none;color:var(--cream-55);margin-top:2px;}
+.deck-grid{position:relative;width:100%;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 var(--g);align-items:end;margin-top:min(20vh,170px);}
+.deck-copy{grid-column:1 / span 7;padding-bottom:12px;}
 .deck-h1{margin-top:24px;font-family:var(--display);font-weight:400;font-size:clamp(34px,4.3vw,64px);line-height:1.04;letter-spacing:-0.02em;max-width:14ch;}
-.deck-copy .deck-def{margin-top:40px;font-size:16.5px;line-height:1.6;color:var(--cream-80);max-width:54ch;}
-.portrait{grid-column:9 / span 4;}
-.portrait-plate{position:relative;background:var(--ink);padding:34px 30px 46px;}
+.deck-copy .deck-def{margin-top:36px;font-size:16.5px;line-height:1.6;color:var(--cream-80);max-width:54ch;}
+.portrait{grid-column:9 / span 4;position:relative;}
+.portrait-plate{position:relative;background:var(--ink);padding:34px 30px 52px;}
 .portrait-frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink);}
 .portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;}
 .js .portrait-frame img{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease);}
 .js .deck.ready .portrait-frame img{clip-path:inset(0);}
 .reg{position:absolute;width:22px;height:22px;border:0 solid var(--cream-55);}
-.reg::after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:var(--signal);}
-.reg-tl{top:10px;left:10px;border-top-width:1px;border-left-width:1px;} .reg-tl::after{right:-2px;bottom:-2px;}
-.reg-tr{top:10px;right:10px;border-top-width:1px;border-right-width:1px;} .reg-tr::after{left:-2px;bottom:-2px;}
-.reg-bl{bottom:10px;left:10px;border-bottom-width:1px;border-left-width:1px;} .reg-bl::after{right:-2px;top:-2px;}
-.reg-br{bottom:10px;right:10px;border-bottom-width:1px;border-right-width:1px;} .reg-br::after{left:-2px;top:-2px;}
+.reg-tl{top:10px;left:10px;border-top-width:1px;border-left-width:1px;}
+.reg-tr{top:10px;right:10px;border-top-width:1px;border-right-width:1px;}
+.reg-bl{bottom:10px;left:10px;border-bottom-width:1px;border-left-width:1px;}
+.reg-br{bottom:10px;right:10px;border-bottom-width:1px;border-right-width:1px;}
+/* one coral registration point: the course's origin at the plate's lower-left corner */
+.reg-signal::after{content:"";position:absolute;left:-4px;bottom:-4px;width:7px;height:7px;background:var(--signal);}
 .js .reg-tl{transform:translate(-8px,-8px);} .js .reg-tr{transform:translate(8px,-8px);} .js .reg-bl{transform:translate(-8px,8px);} .js .reg-br{transform:translate(8px,8px);}
 .js .reg{transition:transform .9s var(--ease);}
 .js .deck.ready .reg{transform:none;}
-.portrait-tag{position:absolute;left:30px;bottom:16px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream-80);}
+.portrait-id{position:absolute;left:30px;right:30px;bottom:16px;display:flex;justify-content:space-between;gap:12px;}
+.portrait-tag{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream-80);}
+.portrait-idx{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--cream-55);}
 .portrait-caption{margin-top:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--cream-80);}
 .portrait-caption span:first-child{color:var(--cream);}
 
-/* ===== B FOUNDER: the human surface, one paragraph, no duplicate table ===== */
-.founder-sec{background:var(--cream);color:var(--ink);padding:72px var(--gutter) 76px;border-top:3px solid var(--ink);}
-.founder-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 clamp(16px,2vw,32px);align-items:start;}
-.founder-id{grid-column:1 / span 4;}
-.founder-body{grid-column:6 / span 7;}
+/* ===== B OPERATOR DOSSIER: asymmetric record along the same axis ===== */
+.founder-sec{position:relative;background:var(--cream);color:var(--ink);padding:72px var(--gutter) 84px;}
+.founder-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 var(--g);align-items:start;}
+.founder-id{grid-column:1 / span 5;}
+.founder-body{grid-column:9 / span 4;}
 .founder-h2{margin-top:20px;font-family:var(--display);font-weight:400;font-size:clamp(34px,3.8vw,54px);line-height:1;letter-spacing:-0.02em;}
 .founder-id .founder-role{margin-top:12px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}
-.founder-bio{font-size:18px;line-height:1.6;color:var(--ink);max-width:60ch;}
-.founder-body .founder-links{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--body);font-weight:500;font-size:13.5px;letter-spacing:0.01em;}
+.founder-bio{font-size:17.5px;line-height:1.6;color:var(--ink);max-width:60ch;}
+.founder-body .founder-links{margin-top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-family:var(--body);font-weight:500;font-size:13.5px;letter-spacing:0.01em;}
 .founder-links a{color:var(--ink);border-bottom:1.5px solid var(--signal);}
 .founder-links a:hover{color:var(--teal);border-color:var(--teal);}
 
-/* ===== C + D: ONE CONTINUOUS NEAR-BLACK FIELD =====
-   How We Think, the handoff and the footer share one background. Only
-   cream, muted cream, ochre numbering and thin tonal rules are in play. */
-/* Rhythm of the closing chapter (desktop): heading block → 76px → three
-   principles → 152px pause with one rule → handoff → 128px → rule → 40px
-   → footer. One background throughout; proportion does the work. */
-.think{background:var(--ink);color:var(--cream);padding:96px var(--gutter) 0;}
-.think-head{max-width:760px;}
-.think-h2{margin-top:22px;font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:1.06;letter-spacing:-0.015em;text-wrap:balance;max-width:18ch;}
-.about-body .think-intro{margin-top:24px;font-size:17px;line-height:1.6;color:var(--cream-80);max-width:52ch;}
-/* the three principles: one grid, thin rules, no boxes, no controls */
-.think .console{margin-top:76px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--cream-25);}
-.zone{padding:48px 56px 56px 0;border-right:1px solid var(--cream-12);}
-.zone + .zone{padding-left:56px;}
-.zone:last-child{border-right:0;padding-right:0;}
-.zone-rail{display:flex;align-items:center;gap:12px;}
-.zone-idx{font-family:var(--mono);font-size:13px;letter-spacing:0.1em;color:var(--signal);}
-.zone-marker{display:none;}
-.zone h3{margin-top:26px;min-height:2.4em;font-family:var(--display);font-weight:400;font-size:clamp(21px,1.7vw,26px);line-height:1.2;letter-spacing:-0.005em;color:var(--cream);text-wrap:balance;max-width:20ch;}
-.zone p{margin-top:18px;font-size:16px;line-height:1.65;color:var(--cream-80);max-width:52ch;text-wrap:pretty;}
+/* ===== C RESEARCH NAVIGATION CHART: the course leaves the axis, plots three coordinates ===== */
+.think{background:var(--ink);color:var(--cream);padding:0 var(--gutter);}
+.think-chart{position:relative;min-height:880px;padding:96px 0 120px;}
+.course{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+.course .c-axis{stroke:var(--cream);stroke-opacity:0.16;stroke-width:1;vector-effect:non-scaling-stroke;}
+.course .c-route{stroke:var(--cream);stroke-opacity:0.62;stroke-width:1.2;fill:none;vector-effect:non-scaling-stroke;}
+.course .c-route.c-ghost{stroke-opacity:0.14;}
+.course .c-tail{stroke:var(--cream);stroke-opacity:0.32;stroke-width:1;fill:none;vector-effect:non-scaling-stroke;stroke-dasharray:3 6;}
+.course .c-node{fill:var(--ink);stroke:var(--cream);stroke-width:1.5;vector-effect:non-scaling-stroke;transition:fill .5s var(--ease);}
+.course .c-node.on{fill:var(--cream);}
+.course .c-ring{fill:none;stroke:var(--cream);stroke-opacity:0.35;stroke-width:1;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .6s var(--ease);}
+.course .c-ring.on{opacity:1;}
+.course .c-pt{fill:var(--cream);fill-opacity:0.55;}
+.course .c-tick{stroke:var(--cream);stroke-opacity:0.4;stroke-width:1;vector-effect:non-scaling-stroke;}
+.course .c-signal{fill:var(--signal);}
+.course .c-signal-ring{fill:none;stroke:var(--signal);stroke-width:1;vector-effect:non-scaling-stroke;opacity:0.7;}
+.think-head{position:relative;z-index:1;max-width:44%;}
+.think-h2{margin-top:22px;font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,50px);line-height:1.06;letter-spacing:-0.015em;max-width:16ch;}
+.about-body .think-intro{margin-top:22px;font-size:16.5px;line-height:1.6;color:var(--cream-80);max-width:44ch;}
+/* the three coordinates: absolutely placed on the chart on desktop, in reading order 01 → 02 → 03 */
+.principles{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.principle{position:absolute;width:var(--w);left:var(--x);top:var(--y);pointer-events:auto;}
+.principle[data-node="1"]{--x:6%;--y:63%;--w:32%;}
+.principle[data-node="2"]{--x:40%;--y:44%;--w:26%;}
+.principle[data-node="3"]{--x:70%;--y:23%;--w:28%;}
+.p-idx{display:block;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--signal);}
+.principle h3{margin-top:12px;font-family:var(--display);font-weight:400;font-size:clamp(21px,1.7vw,26px);line-height:1.2;letter-spacing:-0.005em;color:var(--cream);max-width:20ch;}
+.principle p{margin-top:14px;font-size:16px;line-height:1.65;color:var(--cream-80);max-width:44ch;}
+/* activation: each group appears with its node (reduced motion: all visible) */
+.js .principle{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.js .principle.on{opacity:1;transform:none;}
 
-/* handoff: the final movement of the same field, set apart by one rule,
-   spacing and a change of scale */
-/* the pause lives as padding on the section, so no body colour can show
-   through a collapsed margin */
-.handoff{position:relative;background:var(--ink);color:var(--cream);padding:152px var(--gutter) 0;}
-.handoff-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,0.8fr);gap:6vw;align-items:end;padding:88px 0 128px;border-top:1px solid var(--cream-12);}
+/* ===== D HANDOFF: the course's tail arrives, then the beige footer ===== */
+.handoff{position:relative;background:var(--ink);color:var(--cream);padding:0 var(--gutter) 0;}
+.course-tail{position:absolute;left:calc(100% - var(--gutter) - 6%);top:0;height:88px;width:1px;background:var(--cream-25);}
+.course-tail::after{content:"";position:absolute;left:-3px;bottom:-1px;width:7px;height:7px;background:var(--signal);}
+.handoff-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,0.8fr);gap:6vw;align-items:end;padding:120px 0 128px;border-top:1px solid var(--cream-12);}
 .handoff-h2{margin-top:22px;font-family:var(--display);font-weight:400;font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-0.02em;max-width:12ch;}
 .handoff-links{display:flex;flex-direction:column;align-items:flex-start;gap:20px;}
 .handoff-link{font-family:var(--body);font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream-80);border-bottom:1px solid var(--cream-25);padding-bottom:2px;transition:color .2s,border-color .2s;white-space:nowrap;}
 .handoff-link:hover,.handoff-link:focus-visible{color:var(--signal);border-color:var(--signal);}
 
-/* ===== ABOUT FOOTER: warm beige after the near-black handoff =====
-   Approved change (audit pass): the About footer becomes the human
-   surface again. Full-bleed via negative gutters, ink/teal text, ochre
-   only for the active-language underline, teal focus rings (ochre on
-   cream would fall below 3:1 for a UI indicator). Content unchanged. */
+/* ===== ABOUT FOOTER: warm beige after the near-black handoff (approved) ===== */
 .handoff .foot{margin:0 calc(-1 * var(--gutter));padding:44px var(--gutter) 40px;background:var(--cream);color:var(--ink-soft);border-top:0;}
 .handoff .foot-brand{color:var(--ink);}
 .handoff .foot-brand img{filter:none;}
@@ -107,40 +136,60 @@ body.about-body{margin:0;background:var(--teal);color:var(--cream);font-family:v
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion:reduce){
   .js .portrait-frame img,.js .reg{clip-path:none;transform:none;transition:none;}
+  .js .principle{opacity:1;transform:none;transition:none;}
+  .course .c-node,.course .c-ring{transition:none;}
 }
 
-/* ===== TABLET ===== */
+/* ===== TABLET: an intermediate diagonal course ===== */
 @media (max-width:1100px){
+  .dossier{--axis-col:7;}
   .deck{min-height:0;}
-  .deck-copy{grid-column:1 / span 7;}
+  .deck-grid{margin-top:min(16vh,140px);}
+  .deck-copy{grid-column:1 / span 6;}
   .portrait{grid-column:8 / span 5;}
   .deck-h1{font-size:clamp(32px,4.6vw,52px);}
-  .founder-id{grid-column:1 / span 12;}
-  .founder-body{grid-column:1 / span 12;margin-top:22px;}
-  .think .console{grid-template-columns:1fr;}
-  .zone{border-right:0;border-bottom:1px solid var(--cream-12);padding:44px 0;}
-  .zone + .zone{padding-left:0;}
-  .zone:last-child{border-bottom:0;}
-  .zone h3{margin-top:16px;min-height:0;max-width:none;}
-  .handoff{padding-top:112px;}
-  .handoff-grid{padding:72px 0 96px;}
+  .field-chart{right:calc(var(--gutter) + 40%);height:min(18vh,150px);}
+  .founder-id{grid-column:1 / span 6;}
+  .founder-body{grid-column:8 / span 5;}
+  .think-chart{min-height:980px;}
+  .think-head{max-width:52%;}
+  .principle[data-node="1"]{--x:4%;--y:60%;--w:36%;}
+  .principle[data-node="2"]{--x:44%;--y:48%;--w:36%;}
+  .principle[data-node="3"]{--x:60%;--y:26%;--w:38%;}
+  .handoff-grid{padding:96px 0 96px;}
 }
 
-/* ===== MOBILE ===== */
+/* ===== PHONES: one vertical sequence; the course becomes a vertical plotted rail ===== */
 @media (max-width:860px){
-  .deck{padding:calc(var(--bar-h) + 4vh) var(--gutter) 6vh;}
-  .deck-grid{grid-template-columns:1fr;gap:28px;}
+  .dossier{--course-x:22px;}
+  .deck{display:block;padding:calc(var(--bar-h) + 4vh) var(--gutter) 6vh;overflow:visible;}
+  .axis-deck{display:none;}
+  .field-chart{position:relative;left:auto;right:auto;top:auto;width:100%;height:132px;margin:0 0 36px;}
+  .fc-label-minor{display:none;}
+  .deck-grid{grid-template-columns:1fr;gap:28px;margin-top:0;align-items:start;}
   .deck-copy,.portrait{grid-column:1;}
+  .deck-copy{padding-bottom:0;}
   .deck-h1{font-size:clamp(34px,10vw,46px);max-width:none;}
   .portrait{max-width:340px;}
-  .portrait-plate{padding:26px 22px 40px;}
-  .portrait-tag{left:22px;bottom:12px;}
-  .founder-sec{padding:56px var(--gutter);}
+  .portrait-plate{padding:26px 22px 44px;}
+  .portrait-id{left:22px;right:22px;bottom:12px;}
+  .founder-sec{padding:56px var(--gutter) 64px;}
+  .axis-founder{left:var(--gutter);}
+  .founder-grid{grid-template-columns:1fr;gap:22px;padding-left:28px;}
+  .founder-id,.founder-body{grid-column:1;}
   .about-body .founder-bio{font-size:17px;text-wrap:pretty;}
-  .think{padding:64px var(--gutter) 0;}
-  .think .console{margin-top:56px;}
-  .zone{padding:40px 0;}
-  .handoff{padding-top:88px;}
+  .think{padding:0 var(--gutter);}
+  .think-chart{min-height:0;padding:64px 0 72px;}
+  .course{display:none;}
+  .think-head{max-width:none;}
+  .principles{position:relative;inset:auto;margin-top:44px;padding-left:36px;border-left:1px solid var(--cream-25);}
+  .principle{position:relative;width:auto;left:auto;top:auto;padding:0 0 40px;}
+  .principle:last-child{padding-bottom:0;}
+  .principle::before{content:"";position:absolute;left:-42px;top:4px;width:11px;height:11px;border:1.5px solid var(--cream);border-radius:50%;background:var(--ink);transition:background .5s var(--ease);}
+  .principle.on::before{background:var(--cream);}
+  .principle h3{max-width:none;} .principle p{max-width:none;}
+  .think-signal{position:absolute;left:-40px;top:0;width:7px;height:7px;background:var(--signal);transform:translateY(-3px);}
+  .course-tail{left:calc(var(--gutter) + 22px);height:56px;}
   .handoff-grid{grid-template-columns:1fr;gap:26px;padding:56px 0 80px;align-items:start;}
   .handoff .foot{padding-top:32px;}
   .handoff-h2{font-size:clamp(34px,10vw,48px);max-width:none;}

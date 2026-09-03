@@ -564,6 +564,24 @@
     if (narNext) narNext.addEventListener('click', () => setNarStage((narStage + 1) % narTabs.length));
   }
   if (nar) setNarStage(0); // phones start on view 01; desktop is re-driven by scroll on the first frame
+  // ENGAGEMENT MANIFEST · six logo coordinates on one rail, one shared record. Click/keyboard selects, hover previews
+  // on pointer devices, arrow keys move along the rail; the record plane keeps the height of its tallest record.
+  const manifest = document.getElementById('manifest');
+  if (manifest) {
+    const tabs = Array.from(manifest.querySelectorAll('[role="tab"]')); const recs = Array.from(manifest.querySelectorAll('.mani-rec')); const cursor = manifest.querySelector('.mani-cursor'); const list = document.getElementById('mani-records');
+    let selected = 0, shown = 0;
+    const show = (i) => { shown = i; recs.forEach((r, k) => r.classList.toggle('on', k === i)); if (cursor) cursor.style.setProperty('--i', i); };
+    const select = (i, focus) => { selected = i; tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; }); show(i); if (focus) tabs[i].focus({ preventScroll: true }); };
+    const fitHeight = () => { let h = 0; recs.forEach((r) => { const was = r.classList.contains('on'); r.classList.add('on'); r.style.animation = 'none'; h = Math.max(h, r.offsetHeight); r.style.animation = ''; r.classList.toggle('on', was); }); list.style.setProperty('--mani-h', (h + 26) + 'px'); };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => { const n = tabs.length; let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % n; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; if (j !== null) { e.preventDefault(); select(j, true); } });
+      if (finePointer) { t.addEventListener('mouseenter', () => show(i)); t.addEventListener('mouseleave', () => show(selected)); }
+    });
+    fitHeight(); window.addEventListener('resize', fitHeight); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeight);
+    const cases = manifest.closest('.cases'); const enter = () => cases.classList.add('in');
+    if (cases) { if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { enter(); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(cases); } else enter(); }
+  }
   // F6 · the logo band: the logos slide into place once, when the band enters view
   const trust = document.querySelector('.trust');
   if (trust) { const show = () => trust.classList.add('in'); if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { show(); io.disconnect(); } }); }, { threshold: 0.2 }); io.observe(trust); } else show(); }
