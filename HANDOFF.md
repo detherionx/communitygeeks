@@ -4,6 +4,21 @@
 
 ---
 
+## 0. Production status (read first)
+
+**Since 2026-09-03 the production site at https://communitygeeks.ai is the redesigned "Participation is a living system" site** (Communitygeeks 2.0). Sections 1–33 below describe the previous site and remain as history; sections 34–44 describe how the redesign was built on the review build (`/mockups/field/`); section 45 records the cutover.
+
+- **Deployed from:** `main`, cutover commit `9016a8b` (tag `website-2.0-launch`). Deploys run automatically on push to `main` via `.github/workflows/deploy.yml` (npm ci → `npm run build` → SFTP to Hetzner).
+- **Previous production preserved as:** git tag `pre-2026-redesign` = commit `610654a`. No local archive: the old site is fully reproducible from that commit (`git checkout pre-2026-redesign && npm ci && npm run build`).
+- **Rollback:** `git revert` the cutover commit (or `git checkout pre-2026-redesign -- src public && commit`) and push; the workflow redeploys. Server-side redirects in `public/.htaccess` would need the same treatment.
+- **Layouts:** `layouts/home.njk`, `about.njk`, `contact.njk`, `pt.njk`, all sharing `partials/head.njk` (title, description, canonical, Open Graph / Twitter, favicons, fonts, Organization JSON-LD, extraHead, Umami analytics). There is no `base.njk` any more.
+- **Routes:** `/` (chapters `#field #system #approach #questions #cases #thinking #founder-section #talk`), `/about/`, `/contact/` (native form → `/api/contact.php`), `/public-thinking/`, `/public-thinking/<slug>/`, `/de/public-thinking/`, `/de/public-thinking/<slug>/`, `/sitemap.xml`. `/approach/`, `/system/`, `/work/`, `/questions/`, `/mockups/field/*`, `/mockups/home/` redirect (301, `.htaccess`).
+- **Visual system:** shell.css tokens: teal `#1F4B4C` (command environment), ink `#1B1912` (structural field), cream `#F6F4EF`, bone `#EDE5D3`, mist `#C0CFCC` (`--constructed`), coral `#E8735A` (`--signal`, the one active colour); Fraunces (display), Archivo (interface/body), IBM Plex Mono (coordinates, indexes). No yellow/ochre on the redesigned pages.
+- **Public Thinking identity:** one frontmatter `motif` per piece → `src/lib/constellationMotifs.js` renders it for record | catalogue | masthead | og on dark | paper grounds. Hierarchy: celestial researcher = the practice (animated), constellation motif = one finding (static), journal notation = how findings are recorded. Motifs: `gaming` (canonical controller), `reticulum` (the real constellation; alias `people-beyond-container`). `item.obs` = publication-order number, persistent.
+- **Motion grammar (design-system rule):** A ambient/decorative · B narrative/reveal (once, then hold) · C stateful/user-controlled · D task feedback. The trigger must match what the interface appears to be. Reduced motion shows finished states.
+- **Deliberate constraints:** static hosting (no server runtime except the PHP contact endpoint); `public/api/contact.config.php` lives only on the server; SFTP deploy does not delete remote files (retired paths are covered by redirects, orphaned assets are harmless); CSP is report-only and the layouts contain one inline `<script>` (the `.js` class) that it would flag if enforced.
+- **Where future work starts:** copy comes from the Public Source Pack (Notion); new Public Thinking pieces = one Markdown file in `content/public-thinking/` with `motif`, OG card generated at build; design changes go through prototype → audit → implementation (see the OS Website Changelog for the full history).
+
 ## 1. What this project is
 
 Communitygeeks is Carmelito Bauer's ecosystem research and advisory practice. This repo is its public marketing website: a small, static, mostly-text site (five pages) whose main job is to look like a credible boutique research consultancy and to host a growing "Public Thinking" body of research findings, one-pagers, case studies, and field notes.
@@ -24,7 +39,7 @@ Other options considered and rejected: Astro (more capable, but more opinionated
 
 **No database, no CMS, no server-side runtime.** Content is Markdown files with frontmatter. This is deliberate, not a shortcut, the brief was explicit about this constraint and there's no concrete requirement here that needs more than that.
 
-## 4. Page inventory
+## 4. Page inventory (previous site; see section 0 for current routes)
 
 | Page | Route | Template | Notes |
 |---|---|---|---|
@@ -527,3 +542,15 @@ Founder feedback on §42: the scattered constellation graphics read as decoratio
 **Calibration routine (CSS transitions, `.ready` added once by IntersectionObserver at 30%):** 0–0.7s orbit, axes, calibration, notation resolve → 0.35s hub + signal → 0.55/0.75/0.95s spokes draw hub→node (`pathLength=1` dash) → 1.1/1.3/1.5s nodes, rings, labels 01/02/03 → 1.15/1.35/1.55s principle columns. Holds afterwards (verified scroll-away/back). Reduced motion: complete composition immediately (`ready`, opacity 1, dashoffset 0, portrait unclipped).
 
 **QA** (`scratchpad/verify-about-final.js`, 1920×1080 / 1440×900 / 1366×768 / 768×1024 / 390×844 / 360×800 / 683×384 = 200%): one SVG on the page, no overflow, first content below the bar, portrait 4:5 and fully covered, zero text/label/geometry overlaps, reading order 01>02>03, footer cream, no JS errors; tab order bar → founder links → handoff → footer.
+
+## 45. Website 2.0 cutover: the review build becomes production (2026-09-03)
+
+**What happened.** The approved review build (`/mockups/field/*`, sections 34–44) was promoted to the production routes in one commit; the previous templates were retired. Old production = tag `pre-2026-redesign` (`610654a`). New production = `9016a8b` (tag `website-2.0-launch`). Deployed by the existing GitHub Actions workflow; verified on the live domain afterwards (desktop 1366/1440/1920, phone 390/360, tablet 768, 200%% zoom; metadata, OG images, console, links).
+
+**Moves.** `mockups/field/index.njk → index.njk`, `about.njk → about.njk`, `contact.njk → contact.njk`, `public-thinking.njk → public-thinking/index.njk`, `de-public-thinking.njk → de/public-thinking/index.njk`, `pt-item.njk → public-thinking/item.njk`, `de-pt-item.njk → de/public-thinking/item.njk`; layouts `mockup-field/about/contact/pt.njk → home/about/contact/pt.njk` on a new shared `partials/head.njk` (SEO metadata, JSON-LD, hreflang alternates and analytics ported from the old `base.njk`). Internal links lost their `/mockups/field` prefix; `noindex` and "not for publication" titles are gone; pages are back in `collections.all`, so the sitemap lists them.
+
+**Removed.** `src/mockups/` (field review pages incl. `researcher.njk`, and the earlier `/mockups/home/` proposal), `approach.njk` (now the `#approach` chapter), `layouts/base.njk` + the five mockup layouts, partials `nav`, `footer`, `closing-cta`, `ecosystem-diagram(-staged)`, `geometric-field`, `pt-card` (old card), assets `home-mockup.css/js`, `marquee.js`, `pt-rail.js`. All of it is in git history at `pre-2026-redesign`. Kept: `style.css` (archive and article body still render from it), `pt-motifs.njk` (the old `ptMotif()` watermark is still the article hero), `geo-plate.njk`, `node-mark.njk`.
+
+**Server.** `.htaccess` gained 301s: `/mockups/field/(.*) → /$1`, `/mockups/home/ → /`, `/approach/ → /#approach`, `/system/ → /#system`, `/work/ → /#cases`, `/questions/ → /#questions`. `llms.txt` points Approach at the chapter. The SFTP action does not delete remote files, so the old `/approach/index.html` and `/mockups/**` still exist on disk but are never served (redirects win).
+
+**Untracked, deliberately not committed:** `Communitygeeks-Tripo-EMEA-Sprint.pdf`, `_preview_thread.html`, `src/proposals/tripo/` (a client one-pager; it only appears in local builds, never in CI output).
