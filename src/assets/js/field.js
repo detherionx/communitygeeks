@@ -60,7 +60,7 @@
 
     const cur = { containers: containers.map(() => ({ x: 0, y: 0, w: 0, h: 0, o: 0 })), halos: GROUPS.map(() => ({ x: 500, y: 310, r: 0, fo: 0, so: 0 })), boundary: { o: 0, r: 0 }, product: { x: 500, y: 310, o: 0 }, labels: GROUPS.map(() => ({ x: 500, y: 310, o: 0, doff: 0, ido: 0 })), marks: marks.map(() => ({ x: 500, y: 310, o: 0 })), annots: annots.map(() => ({ x: 500, y: 310, o: 0 })), grid: 0, open: 0 };
     let target = null, time = 0, activity = 0;
-    function resolve(ref) { if (ref === 'product') return cur.product; if (typeof ref === 'object') return ref; if (ref.startsWith('hub:')) return hubs[+ref.slice(4)]; return members.find((m) => m.id === ref) || cur.product; }
+    function resolve(ref) { if (ref === 'product') return cur.product; if (typeof ref === 'object') return ref; const n = ref.startsWith('hub:') ? hubs[+ref.slice(4)] : members.find((m) => m.id === ref); if (!n) return cur.product; return { x: n.x + (n.dx || 0), y: n.y + (n.dy || 0) }; }
     function step(dt) {
       if (!target) return;
       time += dt;
@@ -71,9 +71,13 @@
         let o = tg.o;
         if (activity > 0.01 && !reduceMotion) { const blink = 0.5 + 0.5 * Math.sin(time * (1.5 + seed(m.gi * 7 + m.k) * 3) + seed(m.k * 13 + m.gi) * 6.28); o = o * (1 - activity * 0.7) + o * activity * blink; }
         m.o = L(m.o, o, t);
-        m.el.setAttribute('cx', m.x.toFixed(1)); m.el.setAttribute('cy', m.y.toFixed(1)); m.el.setAttribute('r', m.r.toFixed(2)); m.el.setAttribute('fill-opacity', m.o.toFixed(3));
+        // slow drift (hero only): each dot breathes on its own phase, ±2.8 units, never idle-looping as a whole
+        const drift = reduceMotion ? 0 : (target.drift || 0);
+        m.dx = drift ? Math.sin(time * (0.35 + seed(m.gi * 7 + m.k) * 0.4) + seed(m.k * 13 + m.gi) * 6.28) * 2.8 * drift : 0;
+        m.dy = drift ? Math.cos(time * (0.3 + seed(m.gi * 5 + m.k * 3) * 0.4) + seed(m.k * 17 + m.gi * 3) * 6.28) * 2.8 * drift : 0;
+        m.el.setAttribute('cx', (m.x + m.dx).toFixed(1)); m.el.setAttribute('cy', (m.y + m.dy).toFixed(1)); m.el.setAttribute('r', m.r.toFixed(2)); m.el.setAttribute('fill-opacity', m.o.toFixed(3));
       });
-      hubs.forEach((h) => { const tg = target.hubs[h.gi]; h.x = L(h.x, tg.x, t); h.y = L(h.y, tg.y, t); h.r = L(h.r, tg.r, t); h.o = L(h.o, tg.o, t); h.el.setAttribute('cx', h.x.toFixed(1)); h.el.setAttribute('cy', h.y.toFixed(1)); h.el.setAttribute('r', h.r.toFixed(2)); h.el.setAttribute('opacity', h.o.toFixed(3)); });
+      hubs.forEach((h) => { const tg = target.hubs[h.gi]; h.x = L(h.x, tg.x, t); h.y = L(h.y, tg.y, t); h.r = L(h.r, tg.r, t); h.o = L(h.o, tg.o, t); const drift = reduceMotion ? 0 : (target.drift || 0); h.dx = drift ? Math.sin(time * 0.28 + seed(h.gi * 11) * 6.28) * 1.4 * drift : 0; h.dy = drift ? Math.cos(time * 0.24 + seed(h.gi * 19) * 6.28) * 1.4 * drift : 0; h.el.setAttribute('cx', (h.x + h.dx).toFixed(1)); h.el.setAttribute('cy', (h.y + h.dy).toFixed(1)); h.el.setAttribute('r', h.r.toFixed(2)); h.el.setAttribute('opacity', h.o.toFixed(3)); });
       extras.forEach((x, i) => { const tg = (target.extras && target.extras[i]) || { x: x.x, y: x.y, r: 2.5, o: 0 }; x.x = L(x.x, tg.x, t); x.y = L(x.y, tg.y, t); x.r = L(x.r, tg.r, t); x.o = L(x.o, tg.o, t); x.el.setAttribute('cx', x.x.toFixed(1)); x.el.setAttribute('cy', x.y.toFixed(1)); x.el.setAttribute('r', x.r.toFixed(2)); x.el.setAttribute('opacity', x.o.toFixed(3)); });
       links.forEach((ln, i) => {
         const tg = target.links[i];
@@ -217,6 +221,7 @@
       l.links.push({ a: 'hub:' + gi, b: 'hub:' + ((gi + 2) % 5), o: 0.18 * Math.max(0, (p - 0.5) / 0.5), w: 1 });
     });
     l.grid = 0.25 + 0.55 * p;
+    l.drift = p; // the field keeps breathing after it has connected
     return l;
   }
 
@@ -533,9 +538,14 @@
     if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { reveal(); io.disconnect(); } }); }, { threshold: 0.35 }); io.observe(pathway.querySelector('.path-stage')); } else reveal();
   }
 
-  // No chapter readout and no pointer tilt (approvals A-14, A-05). The hero
-  // keeps its load-time self-connection and scroll parallax pending the
-  // hero prototype review.
+  // No chapter readout (A-14). The hero is locked as-is (A-09): it keeps its
+  // load-time self-connection, the scroll parallax, the pointer parallax
+  // (restored 2026-09-03 on Carmelito's review: without it the hero read as a
+  // still image) and a slow drift of the member dots. Reduced motion disables
+  // all of it.
+  if (hero && finePointer && !reduceMotion) {
+    hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (((e.clientX - r.left) / r.width - 0.5) * 14).toFixed(1) + 'px'); hero.style.setProperty('--my', (((e.clientY - r.top) / Math.min(r.height, window.innerHeight) - 0.5) * 10).toFixed(1) + 'px'); });
+  }
 
   const ledgerEmpty = document.getElementById('ledger-empty');
   if (ledgerEmpty) { document.querySelectorAll('.filter-pill').forEach((pill) => pill.addEventListener('click', () => { document.querySelectorAll('.filter-pill').forEach((p) => p.setAttribute('aria-pressed', p === pill ? 'true' : 'false')); requestAnimationFrame(() => { ledgerEmpty.hidden = Array.from(document.querySelectorAll('.ledger-row')).some((r) => r.style.display !== 'none'); }); })); }
