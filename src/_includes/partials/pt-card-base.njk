@@ -1,4 +1,4 @@
-{% from "partials/pt-motifs.njk" import ptMotif %}
+{% from "partials/pt-motifs.njk" import ptConstellation %}
 {# Same card as partials/pt-card.njk (structure, classes, copy untouched),
    with a `base` prefix so the concept index can link to the concept
    article pages under /mockups/field/ instead of the live routes. #}
@@ -6,7 +6,9 @@
 {% set lang = lang or "en" %}
 <article class="pt-card accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
   <div class="pt-card-field"></div>
-  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptMotif(piece.motif) }}</div>{% endif %}
+  {# catalogue entry: the piece's constellation as a specimen glyph, with its persistent observation number #}
+  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'catalogue', 'paper') }}</div>{% endif %}
+  {% if piece.obs %}<span class="cat-no">OBS. {{ piece.obs }}</span>{% endif %}
   <div class="pt-card-inner">
     <div class="pt-card-meta">
       <span class="pt-format">{{ piece.format }}</span>

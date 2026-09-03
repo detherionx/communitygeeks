@@ -356,7 +356,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .pt .entry-format{color:var(--cream-55);}
 .pt .entry-conf{color:var(--signal);}
 .pt .ledger-title a{color:var(--cream);}
-.pt .ledger-title a:hover{color:var(--signal);}
+.pt .ledger-title a:hover{color:var(--cream);text-decoration:underline;text-decoration-color:var(--signal);text-underline-offset:4px;}
 .pt .ledger-deck{color:var(--cream-80);}
 .pt .entry-topics span{border-color:var(--cream-25);color:var(--cream-80);}
 .pt .pt-thread{color:var(--signal);}
@@ -474,8 +474,24 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .pt-cel .ledger-title{font-size:clamp(22px,1.75vw,27px);}
 .pt-cel .ledger-link{grid-column:1;justify-self:start;}
 .pt-cel .pt-foot{flex-direction:column;align-items:flex-start;gap:18px;margin-top:26px;}
-.pt-cel .ledger-row:hover,.pt-cel .ledger-row:focus-within{box-shadow:inset 3px 0 0 var(--signal);padding-left:14px;}
 .pt-cel .kicker{color:var(--cream);}
+/* V2 records: one component; the finding's constellation sits behind and past the right edge. The record's response to
+   pointer hover (only where hover exists) and keyboard focus (only :focus-visible): the constellation gains presence and the
+   CTA underline firms. Nothing moves, nothing persists after a tap. */
+.pt-cel .ledger-row{position:relative;overflow:visible;}
+.pt-cel .ledger-row > *{position:relative;z-index:1;}
+.pt-cel .ledger-row > .rec-motif{position:absolute;right:-14%;top:-6px;width:min(52%,300px);aspect-ratio:300/230;z-index:0;pointer-events:none;opacity:0.92;}
+.rec-motif .cm .cm-vol{fill-opacity:0.05;}
+.rec-motif .cm .cm-line,.rec-motif .cm .cm-node,.rec-motif .cm .cm-obs,.rec-motif .cm .cm-vol{transition:stroke-opacity .35s var(--ease),fill-opacity .35s var(--ease),stroke-width .35s var(--ease),fill .35s var(--ease);}
+.pt-cel .ledger-link{transition:border-bottom-width .2s var(--ease),border-bottom-color .2s var(--ease);}
+@media (hover:hover){
+  .pt-cel .ledger-row:hover > .rec-motif{opacity:1;} .pt-cel .ledger-row:hover .cm .cm-line{stroke-opacity:0.9;} .pt-cel .ledger-row:hover .cm .cm-line.cm-faint{stroke-opacity:0.55;} .pt-cel .ledger-row:hover .cm .cm-vol{fill-opacity:0.11;} .pt-cel .ledger-row:hover .cm .cm-obs{stroke-width:2.2;} .pt-cel .ledger-row:hover .cm .cm-node{fill:#fff;}
+  .pt-cel .ledger-row:hover .ledger-link{border-bottom-width:2px;}
+}
+.pt-cel .ledger-row:has(a:focus-visible) > .rec-motif{opacity:1;} .pt-cel .ledger-row:has(a:focus-visible) .cm .cm-line{stroke-opacity:0.9;} .pt-cel .ledger-row:has(a:focus-visible) .cm .cm-line.cm-faint{stroke-opacity:0.55;} .pt-cel .ledger-row:has(a:focus-visible) .cm .cm-vol{fill-opacity:0.11;} .pt-cel .ledger-row:has(a:focus-visible) .cm .cm-obs{stroke-width:2.2;} .pt-cel .ledger-row:has(a:focus-visible) .cm .cm-node{fill:#fff;}
+.pt-cel .ledger-row:has(a:focus-visible) .ledger-link{border-bottom-width:2px;}
+.pt-cel .ledger-row .ledger-deck,.pt-cel .ledger-row .entry-topics{max-width:62%;}
+@media (max-width:860px){.pt-cel .ledger-row > .rec-motif{right:-8%;top:2px;width:54%;opacity:0.7;} .pt-cel .ledger-row .ledger-deck,.pt-cel .ledger-row .entry-topics{max-width:none;}}
 /* celestial layers */
 .cel .bs{fill:#F6F4EF;} .cel .bs.cy{fill:#A9E4E1;}
 .cel .cons line{stroke:#F6F4EF;stroke-opacity:0.22;stroke-width:0.8;} .cel .cons circle{fill:#A9E4E1;opacity:0.5;} .cel .cons circle.cb{fill:#F6F4EF;opacity:0.85;}
@@ -636,7 +652,6 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .pt{padding:10vh var(--gutter) 8vh;}
   .pt-signal{display:none;}
   .pt .ledger,.pt .pt-foot{padding-left:0;}
-  .pt .ledger-row:hover,.pt .ledger-row:focus-within{box-shadow:inset 3px 0 0 var(--signal);padding-left:14px;}
   .ledger-row{grid-template-columns:1fr;gap:10px;padding:22px 0;}
   .ledger-meta{flex-direction:row;flex-wrap:wrap;gap:12px;padding-top:0;}
   .ledger-link{grid-column:1;justify-self:start;}
@@ -662,3 +677,17 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .close-h2{font-size:clamp(36px,11vw,52px);max-width:none;}
   .close-actions{margin-top:22px;}
 }
+
+/* ===== CONSTELLATION MOTIFS (Public Thinking V2): one geometry per piece, material by ground and context ===== */
+.cm{display:block;width:100%;height:100%;overflow:visible;}
+.cm .cm-vol{fill:#A9E4E1;fill-opacity:0.06;stroke:none;} .cm .cm-vol.cm-body{fill-opacity:0.09;} .cm .cm-node.cm-minor{opacity:0.6;} .cm .cm-contour{fill:none;}
+.cm .cm-line{stroke:#F6F4EF;stroke-opacity:0.55;stroke-width:1;stroke-linecap:round;} .cm .cm-line.cm-faint{stroke-opacity:0.28;}
+.cm .cm-frame{stroke:#A9E4E1;stroke-opacity:0.42;stroke-width:1;} .cm .cm-frame.cm-faint{stroke-opacity:0.18;}
+.cm .cm-node{fill:#E4F6F4;} .cm .cm-node.cm-major{fill:#F6F4EF;} .cm .cm-ray{stroke:#A9E4E1;stroke-opacity:0.7;stroke-width:0.8;} .cm .cm-ring{fill:none;stroke:#A9E4E1;stroke-opacity:0.35;stroke-width:0.8;}
+.cm .cm-dust{fill:#A9E4E1;} .cm .cm-obs{fill:none;stroke:#E8735A;stroke-width:1.3;} .cm .cm-obs-core{fill:#E8735A;}
+.cm.cm--paper .cm-vol{fill:#1F4B4C;fill-opacity:0.05;} .cm.cm--paper .cm-vol.cm-body{fill-opacity:0.075;}
+.cm.cm--paper .cm-line{stroke:#1F4B4C;stroke-opacity:0.6;} .cm.cm--paper .cm-line.cm-faint{stroke-opacity:0.3;}
+.cm.cm--paper .cm-frame{stroke:#1F4B4C;stroke-opacity:0.45;} .cm.cm--paper .cm-frame.cm-faint{stroke-opacity:0.2;}
+.cm.cm--paper .cm-node,.cm.cm--paper .cm-node.cm-major{fill:#1F4B4C;} .cm.cm--paper .cm-ray{stroke:#1F4B4C;stroke-opacity:0.5;} .cm.cm--paper .cm-ring{stroke:#1F4B4C;stroke-opacity:0.3;}
+.cm.cm--paper .cm-dust{fill:#1F4B4C;opacity:0.35 !important;}
+.cm.cm--catalogue .cm-dust,.cm.cm--catalogue .cm-vol,.cm.cm--catalogue .cm-ring,.cm.cm--catalogue .cm-ray{display:none;} .cm.cm--catalogue .cm-line{stroke-width:1.2;}

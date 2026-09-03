@@ -26,10 +26,10 @@ permalink: "/og-cards/{{ piece.slug }}/index.html"
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-{% from "partials/pt-motifs.njk" import ptMotif %}
+{% from "partials/pt-motifs.njk" import ptConstellation %}
 <body>
 <div class="og-card accent-{{ piece.accentColor or 'petrol' }}">
-  {% if piece.motif %}<div class="pt-motif pt-motif--og pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptMotif(piece.motif) }}</div>{% endif %}
+  {% if piece.motif %}<div class="pt-motif pt-motif--og pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'og', 'paper') }}</div>{% endif %}
 
   <div class="og-kicker">
     {% include "partials/node-mark.njk" %}

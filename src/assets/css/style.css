@@ -727,8 +727,8 @@
   .og-card.accent-brass .og-kicker .node-mark .solid{fill:var(--brass);}
   .og-card.accent-ink .og-kicker .node-mark .solid{fill:var(--ink);}
   .og-rule{position:absolute;top:132px;left:84px;width:300px;height:2.5px;background:var(--ink);z-index:1;}
-  .og-headline{position:absolute;top:174px;left:84px;right:460px;max-width:16ch;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:66px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);}
-  .og-deck{position:absolute;top:400px;left:86px;right:480px;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:22px;line-height:1.5;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .og-headline{position:absolute;top:174px;left:84px;right:520px;max-width:16ch;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:66px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);}
+  .og-deck{position:absolute;top:400px;left:86px;right:600px;z-index:1;margin:0;font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:22px;line-height:1.5;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
   .og-sig{position:absolute;bottom:56px;left:86px;display:flex;align-items:center;gap:12px;z-index:1;}
   .og-sig .node-mark .solid{fill:var(--brass);}
   .og-sig .node-mark .open{stroke:var(--brass);}
@@ -741,6 +741,19 @@
      gets its own tuned opacity here rather than one shared value forcing a
      compromise, and rather than an accentColor-adjacent field on the piece
      itself doing this per-article. */
-  .pt-motif--og{bottom:-8%;right:-4%;width:62%;height:88%;z-index:0;}
-  .pt-motif--og.pt-motif-gaming{opacity:0.13;}
-  .pt-motif--og.pt-motif-people-beyond-container{opacity:0.26;}
+  /* V2: the piece's constellation at full presence on the paper ground (see constellationMotifs.js) */
+  .pt-motif--og{bottom:-16%;right:-3%;width:56%;height:auto;aspect-ratio:300/230;opacity:1;z-index:0;}
+
+/* ===== CONSTELLATION MOTIFS (Public Thinking V2): one geometry per piece, material by ground and context ===== */
+.cm{display:block;width:100%;height:100%;overflow:visible;}
+.cm .cm-vol{fill:#A9E4E1;fill-opacity:0.06;stroke:none;} .cm .cm-vol.cm-body{fill-opacity:0.09;} .cm .cm-node.cm-minor{opacity:0.6;} .cm .cm-contour{fill:none;}
+.cm .cm-line{stroke:#F6F4EF;stroke-opacity:0.55;stroke-width:1;stroke-linecap:round;} .cm .cm-line.cm-faint{stroke-opacity:0.28;}
+.cm .cm-frame{stroke:#A9E4E1;stroke-opacity:0.42;stroke-width:1;} .cm .cm-frame.cm-faint{stroke-opacity:0.18;}
+.cm .cm-node{fill:#E4F6F4;} .cm .cm-node.cm-major{fill:#F6F4EF;} .cm .cm-ray{stroke:#A9E4E1;stroke-opacity:0.7;stroke-width:0.8;} .cm .cm-ring{fill:none;stroke:#A9E4E1;stroke-opacity:0.35;stroke-width:0.8;}
+.cm .cm-dust{fill:#A9E4E1;} .cm .cm-obs{fill:none;stroke:#E8735A;stroke-width:1.3;} .cm .cm-obs-core{fill:#E8735A;}
+.cm.cm--paper .cm-vol{fill:#1F4B4C;fill-opacity:0.05;} .cm.cm--paper .cm-vol.cm-body{fill-opacity:0.075;}
+.cm.cm--paper .cm-line{stroke:#1F4B4C;stroke-opacity:0.6;} .cm.cm--paper .cm-line.cm-faint{stroke-opacity:0.3;}
+.cm.cm--paper .cm-frame{stroke:#1F4B4C;stroke-opacity:0.45;} .cm.cm--paper .cm-frame.cm-faint{stroke-opacity:0.2;}
+.cm.cm--paper .cm-node,.cm.cm--paper .cm-node.cm-major{fill:#1F4B4C;} .cm.cm--paper .cm-ray{stroke:#1F4B4C;stroke-opacity:0.5;} .cm.cm--paper .cm-ring{stroke:#1F4B4C;stroke-opacity:0.3;}
+.cm.cm--paper .cm-dust{fill:#1F4B4C;opacity:0.35 !important;}
+.cm.cm--catalogue .cm-dust,.cm.cm--catalogue .cm-vol,.cm.cm--catalogue .cm-ring,.cm.cm--catalogue .cm-ray{display:none;} .cm.cm--catalogue .cm-line{stroke-width:1.2;}

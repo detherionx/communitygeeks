@@ -34,3 +34,9 @@
 </svg>
 {% endif %}
 {% endmacro %}
+
+{# Public Thinking V2 (approved 2026-09-03): the same motif slug rendered as a constellation by the
+   `constellation` filter (src/lib/constellationMotifs.js). Contexts: record (homepage, dark ground),
+   catalogue (archive glyph, paper), masthead (article specimen, paper), og (social card, paper).
+   The watermark macro above stays for the live pages until they move to the concept shell. #}
+{% macro ptConstellation(motif, ctx, ground) %}{{ motif | constellation(ctx, ground) | safe }}{% endmacro %}

@@ -120,6 +120,14 @@ function loadAll() {
     });
   });
 
+  // Observation numbers follow publication order and are persistent: OBS. 001 is the first observation
+  // Communitygeeks published, whatever a page sorts by. Translations share their observation's number.
+  const groups = new Map();
+  items.forEach((item) => { const key = item.translationKey || item.slug; const d = new Date(item.date); const g = groups.get(key) || { key, date: d }; if (d < g.date) g.date = d; groups.set(key, g); });
+  const ordered = [...groups.values()].sort((a, b) => a.date - b.date || a.key.localeCompare(b.key));
+  const numberByKey = new Map(ordered.map((g, i) => [g.key, String(i + 1).padStart(3, "0")]));
+  items.forEach((item) => { item.obs = numberByKey.get(item.translationKey || item.slug); });
+
   items.sort((a, b) => new Date(b.date) - new Date(a.date));
   return items;
 }

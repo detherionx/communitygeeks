@@ -19,7 +19,7 @@ extraScripts:
    with only a breadcrumb added and internal Public Thinking links pointed
    at the concept routes. No motion, no diagrams: reading stays quiet. #}
 {% from "partials/geo-plate.njk" import geoPlate %}
-{% from "partials/pt-motifs.njk" import ptMotif %}
+{% from "partials/pt-motifs.njk" import ptConstellation %}
 <article class="pt-article" data-artifact-slug="{{ piece.slug }}" data-artifact-lang="{{ piece.lang }}" data-artifact-translation-key="{{ piece.translationKey }}" data-artifact-format="{{ piece.format }}" data-artifact-confidence="{{ piece.confidence }}">
   <div class="wrap pt-article-wrap">
     <div class="pt-topbar">
@@ -34,11 +34,11 @@ extraScripts:
       {% endif %}
     </div>
 
-    {% set hasSide = (piece.topics and piece.topics.length) or piece.openQuestion %}
+    {% set hasSide = (piece.topics and piece.topics.length) or piece.openQuestion or piece.motif %}
     <header class="pt-masthead{% if not hasSide %} pt-masthead-solo{% endif %}">
       <div class="pt-masthead-main">
-        {% if piece.motif %}<div class="pt-motif pt-motif--hero pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptMotif(piece.motif) }}</div>{% endif %}
         <div class="pt-masthead-content">
+          {% if piece.obs %}<p class="obs-label"><b>OBS. {{ piece.obs }}</b> · {{ piece.date | readableDate }} · transferred from the field</p>{% endif %}
           <h1 class="pt-title">{{ piece.title }}</h1>
           {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
           <div class="pt-meta">
@@ -51,6 +51,8 @@ extraScripts:
       </div>
       {% if hasSide %}
       <div class="pt-masthead-side accent-{{ piece.accentColor or 'petrol' }}">
+        {# the observation transferred into the journal: the piece's constellation heads the notation column #}
+        {% if piece.motif %}<div class="pt-motif pt-motif--spec pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'masthead', 'paper') }}</div>{% endif %}
         {% if piece.topics and piece.topics.length %}
         <span class="pt-side-label">Topics</span>
         <div class="pt-side-tags">

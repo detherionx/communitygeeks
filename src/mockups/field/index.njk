@@ -18,6 +18,7 @@ extraScripts: ["researcher.js"]
    nothing is invented.
    ========================================================================= #}
 
+{% from "partials/pt-motifs.njk" import ptConstellation %}
 {# ---------------------------------------------------------------- HERO #}
 <section class="hero chapter" id="field" data-chapter="01" data-title="Field">
   <div class="hero-pin">
@@ -288,6 +289,8 @@ extraScripts: ["researcher.js"]
         <span class="entry-topics">{% for t in piece.topics %}<span>{{ t }}</span>{% endfor %}</span>
       </div>
       <a class="entry-link ledger-link" href="/mockups/field{{ piece.url }}">Read {{ piece.format | lower }} →</a>
+      {# the finding's own constellation: one identified object inside the larger field, crossing the record's edge #}
+      {% if piece.motif %}<div class="rec-motif" aria-hidden="true">{{ ptConstellation(piece.motif, 'record', 'dark') }}</div>{% endif %}
     </li>
     {% endfor %}
   </ol>
