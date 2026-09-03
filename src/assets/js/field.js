@@ -498,9 +498,11 @@
   let heroGeomCache = null;
   function heroGeom(mobile) {
     if (heroGeomCache && heroGeomCache.w === window.innerWidth && heroGeomCache.h === window.innerHeight) return heroGeomCache;
-    const g = { w: window.innerWidth, h: window.innerHeight, k1: 1, U: 0, T: 0 };
+    const g = { w: window.innerWidth, h: window.innerHeight, k1: 1, U: 0, T: 0, pinned: false };
     if (!heroPin || !heroSvg) return (heroGeomCache = g);
-    if (mobile) { g.k1 = 0.8; g.U = 0; g.T = Math.round(window.innerWidth * 0.04); return (heroGeomCache = g); }
+    g.pinned = getComputedStyle(heroPin).position === 'sticky';
+    // small phones that cannot pin: a fixed contraction, no rise, a little travel
+    if (mobile && !g.pinned) { g.k1 = 0.8; g.U = 0; g.T = Math.round(window.innerWidth * 0.04); return (heroGeomCache = g); }
     const prevX = heroPin.style.getPropertyValue('--hx'), prevY = heroPin.style.getPropertyValue('--hy');
     heroPin.style.setProperty('--hx', '0px'); heroPin.style.setProperty('--hy', '0px');
     const pr = heroPin.getBoundingClientRect(), sr = heroSvg.getBoundingClientRect();
@@ -511,16 +513,17 @@
     const tops = []; ['.hero-readout', '.hero-h1'].forEach((s) => { const el = hero.querySelector(s); if (el) tops.push(el.getBoundingClientRect().top - pr.top); });
     const obstacleTop = tops.length ? Math.min(...tops) : pr.height * 0.45;
     // extents of the fully rotated assembly at unit scale; they scale linearly with k
-    const [, cym] = heroCentroid(HERO_DESKTOP);
+    const [, cym] = heroCentroid(mobile ? HERO_MOBILE : HERO_DESKTOP);
     // worst case over the whole rotation sweep, so intermediate frames clear the bar and the copy too
-    const sweep = [0, 0.2, 0.4, 0.6, 0.8, 1].flatMap((e) => heroHubs(false, e, 1)); const rMinY = Math.min(...sweep.map((h) => h[1])), rMaxY = Math.max(...sweep.map((h) => h[1]));
+    const sweep = [0, 0.2, 0.4, 0.6, 0.8, 1].flatMap((e) => heroHubs(mobile, e, 1)); const rMinY = Math.min(...sweep.map((h) => h[1])), rMaxY = Math.max(...sweep.map((h) => h[1]));
     const available = (obstacleTop - 16) - (barH + 14);
-    g.k1 = Math.max(0.42, Math.min(0.88, (available / sc - 116) / (rMaxY - rMinY)));
+    g.k1 = Math.max(0.42, Math.min(mobile ? 0.92 : 0.88, (available / sc - 116) / (rMaxY - rMinY)));
     const botPx = cTop + (cym + (rMaxY - cym) * g.k1 + 46) * sc;
     const topPx = cTop + (cym - (cym - rMinY) * g.k1 - 70) * sc;
     g.U = Math.max(0, Math.min(botPx - (obstacleTop - 16), topPx - (barH + 14)));
-    const hubsEnd = heroHubs(false, 1, g.k1); const minXu = Math.min(...hubsEnd.map((h) => h[0]));
+    const hubsEnd = heroHubs(mobile, 1, g.k1); const minXu = Math.min(...hubsEnd.map((h) => h[0]));
     g.T = Math.max(0, Math.min(window.innerWidth * 0.42, cLeft + (minXu - 116) * sc - 12));
+    if (mobile) g.T = 0;
     heroPin.style.setProperty('--hx', prevX || '0px'); heroPin.style.setProperty('--hy', prevY || '0px');
     return (heroGeomCache = g);
   }
@@ -663,9 +666,9 @@
         const pinH = heroPin ? heroPin.offsetHeight : vh;
         // mobile: the hero is not pinned, so the turn happens over the first half of the hero's own height (while the
         // constellation is still on screen) and a slow ambient breath keeps it alive when the page is not moving
-        const range = mobile ? heroH * 0.5 : Math.max(1, heroH - pinH);
-        const raw = reduceMotion ? 0 : clamp01(sy / range); const amb = mobile && !reduceMotion ? Math.sin(now / 1000 * 0.4) * 0.07 : 0; const es = raw * raw * (3 - 2 * raw) + amb;
         const g = heroGeom(mobile);
+        const range = mobile && !g.pinned ? heroH * 0.5 : Math.max(1, heroH - pinH);
+        const raw = reduceMotion ? 0 : clamp01(sy / range); const amb = mobile && !reduceMotion ? Math.sin(now / 1000 * 0.4) * 0.07 : 0; const es = raw * raw * (3 - 2 * raw) + amb;
         const rise = smooth(clamp01(es / 0.4)), travel = smooth(clamp01((es - 0.3) / 0.7));
         const k = 1 - (1 - g.k1) * rise;
         fields['hero-field'].setTarget(layoutHero(e, mobile, es, k));

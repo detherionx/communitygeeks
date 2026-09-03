@@ -622,6 +622,15 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 
   .close-grid{grid-template-columns:1fr;gap:28px;padding:10vh 0 8vh;align-items:start;}
 }
+/* ===== PHONES AND TABLETS TALL ENOUGH TO PIN THE HERO: the constellation turns while it is on screen ===== */
+@media (max-width:860px) and (min-height:740px){
+  .hero{height:160svh;}
+  .hero-pin{position:sticky;top:0;height:100svh;min-height:0;}
+  .layer-map .field-svg{top:calc(var(--bar-h) + 12px);height:34svh;}
+  .layer-ui{position:absolute;inset:0;min-height:0;justify-content:flex-end;padding:calc(var(--bar-h) + 12px) var(--gutter) 4vh;}
+  .hero-readout{margin-bottom:14px;}
+  .hero-h1{font-size:clamp(36px,10.6vw,54px);}
+}
 @media (max-width:480px){
   .process-legend{grid-template-columns:1fr;gap:10px;}
   .close-h2{font-size:clamp(36px,11vw,52px);max-width:none;}
