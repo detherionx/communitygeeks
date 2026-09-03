@@ -468,3 +468,16 @@ Anatomy signed off; the Public Thinking scene is now scroll-driven (`researcher.
 **Follow-up (2026-09-03, deployed).** Public Thinking: six faint constellation clusters in the background star field on two layers (`.cons-a`, `.cons-b`) that drift with the section's scroll progress (−46/−92 viewBox units vertically, slight horizontal counter-drift), driven from the same controller; static under reduced motion. Hero on mobile: the constellation now turns 40° (was 10°) over the first half of the hero's height, contracts to k 0.8, travels 4vw, and breathes with a slow ±2.5° ambient oscillation when the page is still; desktop unchanged.
 
 **Mobile hero pinned (2026-09-03, deployed).** On viewports ≤860px wide and ≥740px tall the hero is pinned like the desktop one (`.hero` 160svh, `.hero-pin` sticky 100svh, copy bottom-aligned, constellation box 34svh under the bar); `heroGeom()` now measures the mobile case too (base HERO_MOBILE, k1 ≤ 0.92, no horizontal travel) so the 40° turn and contraction stay clear of the readout (≥17px at 360×800). Shorter phones keep the unpinned flow with the turn over the first half of the hero. QA: `scratchpad/verify-mobile-pin.js`.
+
+## 40. UX/logic audit fixes (2026-09-03, review build)
+
+Audit (report in the session's `scratchpad/pkg-audit.html`, decisions by the founder): F1, F2, F3, F5, F4a, F7, F6 implemented; P3 chapter index HELD; F8 observe only.
+
+- **F1 System stage, height-aware** (`field.css .nar-box`): `width:min(88vw,1200px,calc((100svh − bar − 44px) × 1000/620))`, centred in the space under the bar, at 58% from the left below 1700px (52% above); notes `min(400px,30vw)`. 1366×768: 1200×744 (97% vh, 33px under the bar) → 1071×664 with 28/16px clearance; 1920 unchanged.
+- **F2 pinned distance**: `.nar-step` 64vh → 52vh, tail 40vh → 30vh. 1366: pinned 2765 → 2227px; page 12.1 → 11.4 vh.
+- **F3 mobile System = stateful instrument**: `#nar-tabs` tablist (01–06 buttons, mono numerals with a coral square marker on a baseline rule) + Next control (`.nar-tab-next`, Concept-3 mark) + live label "View 0N of 06 · name"; figure in normal flow (44svh, min 230px, `overflow:hidden`); one note shown (`.js .note:not(.on){display:none}` + `hidden`); arrow/Home/End keys; scroll never changes state on phones (`update()` only drives stages when `!narrow()`); `setNarStage(0)` at init; no-JS: tabs hidden, notes stack. 390: section 1975 → 658px; page 10604 → 9521px.
+- **F5 200% reflow**: mobile `.nar-box{height:calc(100% − 64px);width:auto;max-width:calc(100% − 24px)}` inside a clipped stage; 683×384 box 268×166 inside the stage.
+- **F4a anchors**: `#approach,#questions,#cases,#thinking,#founder-section,#talk{scroll-margin-top:var(--bar-h)}` (not #system, whose pinned stage is built to sit under the bar). Bar links land at 60px.
+- **F7 tablet hero**: constellation box 44svh at 700–860px width (768×1024: 451px, 90px above the readout).
+- **F6 logo band settles**: marquee, mask and duplicate copies removed; the seven logos wrap centred and slide into place once (`.trust.in` via IntersectionObserver, staggered 60ms); reduced motion: present immediately.
+- **QA**: `scratchpad/verify-impl.js` (laptop geometry, mobile tap/Next/keyboard/scroll, 200%, no-JS, reduced motion, anchors, tablet hero, logo band) and `verify-anim.js` regression: all pass, no JS errors, no overflow.

@@ -61,9 +61,6 @@ extraScripts: ["researcher.js"]
       {% for item in clients.logoWall %}
       <li class="logo" tabindex="0" role="img" aria-label="{{ item.name }}" style="--logo-url:url('{{ item.logoPath }}');"><span class="logo-mask"></span><span class="logo-name">{{ item.name }}</span></li>
       {% endfor %}
-      {% for copy in [1, 2] %}{% for item in clients.logoWall %}
-      <li class="logo" aria-hidden="true" style="--logo-url:url('{{ item.logoPath }}');"><span class="logo-mask"></span></li>
-      {% endfor %}{% endfor %}
     </ul>
   </div>
 </section>
@@ -80,6 +77,18 @@ extraScripts: ["researcher.js"]
       <svg class="field-svg ob-svg" id="nar-field" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
       <div class="nar-labels" id="nar-labels" aria-hidden="true"></div>
     </div>
+    {# F3 · phones: the six views are direct controls (tabs + Next). Hidden on desktop, where the pinned stage is a
+       scroll narrative with the visible state list. field.js wires them and keeps the note, figure and label in step. #}
+    <div class="nar-tabs" id="nar-tabs" role="tablist" aria-label="System views">
+      <button type="button" role="tab" id="nar-tab-1" aria-selected="true" aria-controls="nar-note-1">01</button>
+      <button type="button" role="tab" id="nar-tab-2" aria-selected="false" aria-controls="nar-note-2" tabindex="-1">02</button>
+      <button type="button" role="tab" id="nar-tab-3" aria-selected="false" aria-controls="nar-note-3" tabindex="-1">03</button>
+      <button type="button" role="tab" id="nar-tab-4" aria-selected="false" aria-controls="nar-note-4" tabindex="-1">04</button>
+      <button type="button" role="tab" id="nar-tab-5" aria-selected="false" aria-controls="nar-note-5" tabindex="-1">05</button>
+      <button type="button" role="tab" id="nar-tab-6" aria-selected="false" aria-controls="nar-note-6" tabindex="-1">06</button>
+      <button type="button" class="nar-tab-next" id="nar-tab-next">Next<span class="kctl-mark" aria-hidden="true"></span></button>
+    </div>
+    <p class="nar-tabs-label" id="nar-tabs-label" aria-live="polite"></p>
     <div class="nar-hud" aria-hidden="true">
       <span class="nar-stage-num"><b id="nar-num">01</b> / 06</span>
       <ol class="nar-stage-list">
@@ -93,32 +102,32 @@ extraScripts: ["researcher.js"]
     </div>
     </div>
     <div class="nar-notes">
-      <article class="note" data-note="0">
+      <article class="note" data-note="0" id="nar-note-1">
         <span class="note-kicker">System view 01 · The old container</span>
         <p class="note-lead">A forum. A Discord server. An engagement calendar.</p>
         <p>That used to be enough to call something &ldquo;community.&rdquo;</p>
       </article>
-      <article class="note" data-note="1">
+      <article class="note" data-note="1" id="nar-note-2">
         <span class="note-kicker">System view 02 · Many groups at once</span>
         <p class="note-lead">Most organizations coordinate many participant groups at once: users, developers, creators, partners, advocates, and others specific to the product.</p>
         <p class="note-tags"><span>users</span><span>developers</span><span>creators</span><span>partners</span><span>advocates</span><span class="note-tag-open">and others …</span></p>
       </article>
-      <article class="note" data-note="2">
+      <article class="note" data-note="2" id="nar-note-3">
         <span class="note-kicker">System view 03 · Nobody owns the overlap</span>
         <p class="note-lead">Often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
         <p class="note-q">What&rsquo;s owned internally versus externally?</p>
       </article>
-      <article class="note" data-note="3">
+      <article class="note" data-note="3" id="nar-note-4">
         <span class="note-kicker">System view 04 · Diagnostics</span>
         <p class="note-lead">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
         <p class="note-verbs"><span class="on">Identify.</span> <span>Understand.</span> <span>Shape.</span> <span>Strengthen.</span></p>
       </article>
-      <article class="note" data-note="4">
+      <article class="note" data-note="4" id="nar-note-5">
         <span class="note-kicker">System view 05 · The question changes</span>
         <p class="note-lead">Not <s>where does your community run</s>, but who&rsquo;s actually participating, and how.</p>
         <p class="note-verbs"><span>Identify.</span> <span class="on">Understand.</span> <span class="on">Shape.</span> <span>Strengthen.</span></p>
       </article>
-      <article class="note" data-note="5">
+      <article class="note" data-note="5" id="nar-note-6">
         <span class="note-kicker">System view 06 · One connected system</span>
         <p class="note-lead">How people gather, contribute, connect and create value.</p>
         <p>Participation around a product rarely fits one team, channel or program. Neither does the work.</p>

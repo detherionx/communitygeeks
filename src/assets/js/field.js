@@ -545,7 +545,28 @@
     // on narrow screens the HTML label layer is hidden and the in-figure
     // annotation becomes the caption above the graphic
     if (narCaption) narCaption.textContent = st ? (st.annots[1].o ? st.annots[1].text : st.annots[0].o ? st.annots[0].text : '') : '';
+    syncNarTabs(i);
   }
+  // F3 · the phone controls: a tablist of six views and a Next control. Tabs, figure, note and label move together;
+  // arrow keys, Home and End move between views. Desktop never shows them.
+  const narTabs = nar ? Array.from(nar.querySelectorAll('#nar-tabs [role="tab"]')) : [];
+  const narTabsLabel = document.getElementById('nar-tabs-label'); const narNext = document.getElementById('nar-tab-next');
+  const narNames = nar ? Array.from(nar.querySelectorAll('.nar-stage-list li')).map((li) => li.textContent.trim()) : [];
+  function syncNarTabs(i) {
+    narTabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
+    if (narTabsLabel) narTabsLabel.textContent = 'View 0' + (i + 1) + ' of 06 · ' + (narNames[i] || '');
+    // the tab semantics only apply where the tabs are shown (phones); on desktop the notes are a scroll narrative
+    const phone = narrow(); notes.forEach((n, k) => { if (phone) { n.setAttribute('role', 'tabpanel'); n.setAttribute('aria-labelledby', 'nar-tab-' + (k + 1)); if (k !== i) n.setAttribute('hidden', ''); else n.removeAttribute('hidden'); } else { n.removeAttribute('role'); n.removeAttribute('aria-labelledby'); n.removeAttribute('hidden'); } });
+  }
+  window.addEventListener('resize', () => { if (nar && narStage >= 0) syncNarTabs(narStage); });
+  if (nar && narTabs.length) {
+    narTabs.forEach((t, k) => { t.addEventListener('click', () => setNarStage(k)); t.addEventListener('keydown', (e) => { const n = narTabs.length; let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (k + 1) % n; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (k - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; if (j !== null) { e.preventDefault(); setNarStage(j); narTabs[j].focus(); } }); });
+    if (narNext) narNext.addEventListener('click', () => setNarStage((narStage + 1) % narTabs.length));
+  }
+  if (nar) setNarStage(0); // phones start on view 01; desktop is re-driven by scroll on the first frame
+  // F6 · the logo band: the logos slide into place once, when the band enters view
+  const trust = document.querySelector('.trust');
+  if (trust) { const show = () => trust.classList.add('in'); if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { show(); io.disconnect(); } }); }, { threshold: 0.2 }); io.observe(trust); } else show(); }
 
   const qnodes = diag ? Array.from(diag.querySelectorAll('.qnode')) : [];
   const qcards = diag ? Array.from(diag.querySelectorAll('.q-card')) : [];
@@ -677,7 +698,7 @@
       }
       verbs.forEach((v, i) => v.classList.toggle('lit', i < Math.floor(e * 4.999)));
     }
-    if (nar) { let i = 0; if (mobile) notes.forEach((n, k) => { if (n.getBoundingClientRect().top < vh * 0.62) i = k; }); else narSteps.forEach((s, k) => { if (s.getBoundingClientRect().top <= vh * 0.5) i = k; }); setNarStage(i); }
+    if (nar && !mobile) { let i = 0; narSteps.forEach((s, k) => { if (s.getBoundingClientRect().top <= vh * 0.5) i = k; }); setNarStage(i); }
   }
   let last = performance.now();
   function frame(now) { const dt = Math.min(0.05, (now - last) / 1000); last = now; update(now); for (const k in fields) fields[k].step(dt); if (orbitField) orbitField.step(dt); if (orrery) orrery.step(dt); requestAnimationFrame(frame); }

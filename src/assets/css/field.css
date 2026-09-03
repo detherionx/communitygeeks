@@ -164,16 +164,16 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 /* ===== TRUST RAIL ===== */
 .trust{padding:34px 0 30px;border-top:1px solid var(--cream-12);border-bottom:1px solid var(--cream-12);background:rgba(27,25,18,0.12);}
 .trust-label{text-align:center;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream-80);margin-bottom:22px;}
-.rail{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);}
-.rail-track{display:flex;align-items:center;gap:56px;width:max-content;padding:6px 28px;animation:rail-scroll 48s linear infinite;}
-.rail:hover .rail-track,.rail:focus-within .rail-track{animation-play-state:paused;}
-@keyframes rail-scroll{from{transform:translateX(0);}to{transform:translateX(-33.3333%);}}
+.rail{overflow:hidden;}
+.rail-track{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:28px 52px;padding:6px var(--gutter);}
+/* F6: entry motion that settles. Each logo slides into its place once the band is in view, then nothing moves. */
+.js .trust .logo{opacity:0;transform:translateX(22px);transition:opacity .7s var(--ease),transform .9s var(--ease);}
+.js .trust.in .logo{opacity:1;transform:none;}
+.trust .logo:nth-child(2){transition-delay:.06s;} .trust .logo:nth-child(3){transition-delay:.12s;} .trust .logo:nth-child(4){transition-delay:.18s;} .trust .logo:nth-child(5){transition-delay:.24s;} .trust .logo:nth-child(6){transition-delay:.3s;} .trust .logo:nth-child(7){transition-delay:.36s;} .trust .logo:nth-child(8){transition-delay:.42s;} .trust .logo:nth-child(n+9){transition-delay:.48s;}
 /* P-06: under reduced motion the rail is a static, centred, wrapped row of
    the seven real logos; the aria-hidden loop copies disappear. */
 @media (prefers-reduced-motion:reduce){
-  .rail{-webkit-mask-image:none;mask-image:none;}
-  .rail-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:28px 48px;padding:6px var(--gutter);}
-  .rail-track .logo[aria-hidden="true"]{display:none;}
+  .js .trust .logo{opacity:1;transform:none;transition:none;}
 }
 .logo{position:relative;flex-shrink:0;width:128px;height:44px;}
 .logo-mask{display:block;width:100%;height:100%;background:var(--cream);opacity:0.72;-webkit-mask:var(--logo-url) no-repeat center / contain;mask:var(--logo-url) no-repeat center / contain;transition:opacity .3s;}
@@ -184,9 +184,13 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 
 /* ===== PINNED NARRATIVE (the one scroll-driven reveal) ===== */
 .narrative{background:var(--teal);}
+#approach,#questions,#cases,#thinking,#founder-section,#talk{scroll-margin-top:var(--bar-h);}
 .nar-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;}
 .nar-stage{position:absolute;inset:0;}
-.nar-box{position:absolute;left:52%;top:52%;width:min(88vw,1200px);aspect-ratio:1000/620;transform:translate(-50%,-50%);}
+/* F1: the stage is sized by the viewport's height as well as its width, so a 1366x768 laptop gets a composed
+   drawing instead of a 97%-tall one; on screens under 1700px it sits right of centre so the notes have a lane */
+.nar-box{position:absolute;left:58%;top:calc(var(--bar-h) + (100svh - var(--bar-h)) / 2 + 6px);width:min(88vw,1200px,calc((100svh - var(--bar-h) - 44px) * 1000 / 620));aspect-ratio:1000/620;transform:translate(-50%,-50%);}
+@media (min-width:1700px){.nar-box{left:52%;top:52%;}}
 .nar-box .field-svg{width:100%;height:100%;display:block;overflow:visible;}
 .nar-labels{position:absolute;inset:0;pointer-events:none;}
 .nl{position:absolute;white-space:nowrap;color:var(--cream);transition:opacity .4s var(--ease);}
@@ -210,8 +214,9 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .ob-svg .ob-disc{fill:var(--cream);}
 .nar-caption{display:none;}
 .nar-steps{display:flex;flex-direction:column;}
-.nar-step{height:64vh;}
-.nar-step:last-child{height:40vh;}
+/* F2: 52vh per stage keeps each state on screen for more than a wheel-page while cutting the pinned distance by a fifth */
+.nar-step{height:52vh;}
+.nar-step:last-child{height:30vh;}
 .nar-hud{position:absolute;top:calc(var(--bar-h) + 28px);left:var(--gutter);font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream-80);}
 .nar-stage-num{display:block;font-size:13px;margin-bottom:14px;}
 .nar-stage-num b{font-weight:500;color:var(--cream);font-size:22px;letter-spacing:0;}
@@ -220,7 +225,9 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .nar-stage-list li::before{content:"";position:absolute;left:-17.5px;top:5px;width:6px;height:6px;border-radius:50%;background:var(--cream-25);transition:background .4s;}
 .narrative[data-stage="0"] li:nth-child(1),.narrative[data-stage="1"] li:nth-child(2),.narrative[data-stage="2"] li:nth-child(3),.narrative[data-stage="3"] li:nth-child(4),.narrative[data-stage="4"] li:nth-child(5),.narrative[data-stage="5"] li:nth-child(6){color:var(--cream);}
 .narrative[data-stage="0"] li:nth-child(1)::before,.narrative[data-stage="1"] li:nth-child(2)::before,.narrative[data-stage="2"] li:nth-child(3)::before,.narrative[data-stage="3"] li:nth-child(4)::before,.narrative[data-stage="4"] li:nth-child(5)::before,.narrative[data-stage="5"] li:nth-child(6)::before{background:var(--signal);}
-.nar-notes{position:absolute;left:var(--gutter);bottom:7vh;width:min(440px,40vw);}
+.nar-notes{position:absolute;left:var(--gutter);bottom:6vh;width:min(400px,30vw);}
+/* F3: the mobile stage controls exist in the markup for every width; only phones show them */
+.nar-tabs,.nar-tabs-label{display:none;}
 /* system-view notes: D-1 tonal panel, one step above the field, ivory text, one
    coral rule (approved R-02). Ivory on #285A5A measures 7.3:1. */
 .note{position:absolute;left:0;bottom:0;width:100%;background:var(--panel-teal);color:var(--cream);padding:22px 26px 24px;border-left:3px solid var(--signal);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none;}
@@ -562,8 +569,23 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   /* Mobile figure: the full drawing fits the stage (no crop); in-figure
      annotations become an HTML caption above it; labels step up so they
      read at this scale, descriptors are dropped. */
-  .nar-stage{position:sticky;top:var(--bar-h);height:46svh;background:var(--teal);z-index:2;border-bottom:1px solid var(--cream-12);}
-  .nar-box{width:calc(100% - 24px);left:50%;top:56%;}
+  /* F3: on phones the six views are chosen directly (tabs + Next); the figure sits in the flow, one note shows at a time,
+     ordinary scrolling only scrolls. Without JavaScript the notes simply stack. F5: the stage clips and the drawing is
+     sized by the stage's height as well as its width, so 200% zoom cannot push the orbits over the text. */
+  .nar-stage{position:relative;top:auto;height:44svh;min-height:230px;background:var(--teal);z-index:2;overflow:hidden;}
+  .nar-box{height:calc(100% - 64px);width:auto;max-width:calc(100% - 24px);left:50%;top:56%;}
+  .js .nar-tabs{display:flex;align-items:flex-end;margin:0 var(--gutter);border-bottom:1px solid var(--cream-25);}
+  .nar-tabs [role="tab"]{appearance:none;background:none;border:0;border-radius:0;flex:1 1 0;min-width:40px;height:44px;padding:0;position:relative;font-family:var(--mono);font-size:13.5px;letter-spacing:0.04em;color:var(--cream-55);cursor:pointer;transition:color .3s;}
+  .nar-tabs [role="tab"]::after{content:"";position:absolute;left:50%;bottom:-4px;width:7px;height:7px;transform:translateX(-50%);background:var(--cream-25);transition:background .3s;}
+  .nar-tabs [role="tab"][aria-selected="true"]{color:var(--cream);font-weight:500;}
+  .nar-tabs [role="tab"][aria-selected="true"]::after{background:var(--signal);}
+  .nar-tabs [role="tab"]:focus-visible{outline:2px solid var(--signal);outline-offset:-2px;}
+  .nar-tab-next{appearance:none;background:none;border:0;cursor:pointer;flex:0 0 auto;height:44px;padding:0 0 0 14px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);white-space:nowrap;}
+  .nar-tab-next .kctl-mark{display:inline-block;width:22px;height:1.5px;background:currentColor;position:relative;vertical-align:middle;margin-left:8px;}
+  .nar-tab-next .kctl-mark::after{content:"";position:absolute;right:0;top:-3.5px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);}
+  .nar-tab-next:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+  .js .nar-tabs-label{display:block;margin:12px var(--gutter) 0;font-family:var(--display);font-style:italic;font-size:14px;color:var(--cream-80);}
+  .js .note:not(.on){display:none;}
   .nar-labels{display:none;}
   /* the figure is ~360px wide here: SVG text would render below 8px, so
      the names live in the notes and the annotation in the caption */
@@ -574,7 +596,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .nar-caption{display:block;position:absolute;left:var(--gutter);right:var(--gutter);top:44px;margin:0;font-family:var(--display);font-style:italic;font-size:13px;line-height:1.4;color:var(--cream-80);text-align:right;max-width:60%;margin-left:auto;}
   .nar-hud{top:12px;left:var(--gutter);}
   .nar-stage-list{display:none;}
-  .nar-notes{position:relative;left:auto;bottom:auto;z-index:1;width:auto;padding:16px var(--gutter) 8vh;display:flex;flex-direction:column;gap:14px;}
+  .nar-notes{position:relative;left:auto;bottom:auto;z-index:1;width:auto;padding:14px var(--gutter) 8vh;display:flex;flex-direction:column;gap:14px;min-height:34svh;}
   .note{position:relative;opacity:1;transform:none;pointer-events:auto;margin:0;transition:border-color .3s;}
   .note:not(.on){border-left-color:var(--cream-25);}
   .nar-steps{display:none;}
@@ -627,6 +649,9 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .hero{height:160svh;}
   .hero-pin{position:sticky;top:0;height:100svh;min-height:0;}
   .layer-map .field-svg{top:calc(var(--bar-h) + 12px);height:34svh;}
+}
+@media (min-width:700px) and (max-width:860px) and (min-height:740px){
+  .layer-map .field-svg{height:44svh;}
   .layer-ui{position:absolute;inset:0;min-height:0;justify-content:flex-end;padding:calc(var(--bar-h) + 12px) var(--gutter) 4vh;}
   .hero-readout{margin-bottom:14px;}
   .hero-h1{font-size:clamp(36px,10.6vw,54px);}
