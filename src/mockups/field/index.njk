@@ -77,18 +77,6 @@ extraScripts: ["researcher.js"]
       <svg class="field-svg ob-svg" id="nar-field" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
       <div class="nar-labels" id="nar-labels" aria-hidden="true"></div>
     </div>
-    {# F3 · phones: the six views are direct controls (tabs + Next). Hidden on desktop, where the pinned stage is a
-       scroll narrative with the visible state list. field.js wires them and keeps the note, figure and label in step. #}
-    <div class="nar-tabs" id="nar-tabs" role="tablist" aria-label="System views">
-      <button type="button" role="tab" id="nar-tab-1" aria-selected="true" aria-controls="nar-note-1">01</button>
-      <button type="button" role="tab" id="nar-tab-2" aria-selected="false" aria-controls="nar-note-2" tabindex="-1">02</button>
-      <button type="button" role="tab" id="nar-tab-3" aria-selected="false" aria-controls="nar-note-3" tabindex="-1">03</button>
-      <button type="button" role="tab" id="nar-tab-4" aria-selected="false" aria-controls="nar-note-4" tabindex="-1">04</button>
-      <button type="button" role="tab" id="nar-tab-5" aria-selected="false" aria-controls="nar-note-5" tabindex="-1">05</button>
-      <button type="button" role="tab" id="nar-tab-6" aria-selected="false" aria-controls="nar-note-6" tabindex="-1">06</button>
-      <button type="button" class="nar-tab-next" id="nar-tab-next">Next<span class="kctl-mark" aria-hidden="true"></span></button>
-    </div>
-    <p class="nar-tabs-label" id="nar-tabs-label" aria-live="polite"></p>
     <div class="nar-hud" aria-hidden="true">
       <span class="nar-stage-num"><b id="nar-num">01</b> / 06</span>
       <ol class="nar-stage-list">
@@ -101,6 +89,18 @@ extraScripts: ["researcher.js"]
       </ol>
     </div>
     </div>
+    {# F3 · phones: the six views are direct controls (tabs + Next). Hidden on desktop, where the pinned stage is a
+       scroll narrative with the visible state list. field.js wires them and keeps the note, figure and label in step. #}
+    <div class="nar-tabs" id="nar-tabs" role="tablist" aria-label="System views">
+      <button type="button" role="tab" id="nar-tab-1" aria-selected="true" aria-controls="nar-note-1">01</button>
+      <button type="button" role="tab" id="nar-tab-2" aria-selected="false" aria-controls="nar-note-2" tabindex="-1">02</button>
+      <button type="button" role="tab" id="nar-tab-3" aria-selected="false" aria-controls="nar-note-3" tabindex="-1">03</button>
+      <button type="button" role="tab" id="nar-tab-4" aria-selected="false" aria-controls="nar-note-4" tabindex="-1">04</button>
+      <button type="button" role="tab" id="nar-tab-5" aria-selected="false" aria-controls="nar-note-5" tabindex="-1">05</button>
+      <button type="button" role="tab" id="nar-tab-6" aria-selected="false" aria-controls="nar-note-6" tabindex="-1">06</button>
+      <button type="button" class="nar-tab-next" id="nar-tab-next">Next<span class="kctl-mark" aria-hidden="true"></span></button>
+    </div>
+    <p class="nar-tabs-label" id="nar-tabs-label" aria-live="polite"></p>
     <div class="nar-notes">
       <article class="note" data-note="0" id="nar-note-1">
         <span class="note-kicker">System view 01 · The old container</span>
