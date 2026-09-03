@@ -235,7 +235,8 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .note-kicker{display:block;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.8;margin-bottom:12px;}
 .note-lead{font-family:var(--display);font-weight:400;font-size:clamp(19px,1.6vw,24px);line-height:1.25;letter-spacing:-0.005em;color:var(--cream);}
 .note p + p{margin-top:12px;}
-.note p:not(.note-lead){font-size:14.5px;line-height:1.55;color:var(--cream);opacity:0.88;}
+/* the System's explanatory copy reads at the site's paragraph size; only notation (kicker, tags, verbs) stays small */
+.note p:not(.note-lead){font-size:15.5px;line-height:1.6;color:var(--cream);opacity:1;}
 .note-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .note-tags span{font-family:var(--mono);font-size:12px;letter-spacing:0.04em;border:1px solid var(--cream-25);padding:4px 9px;color:var(--cream);}
 .note-q{font-family:var(--display);font-style:italic;color:var(--cream) !important;}
@@ -594,7 +595,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .ob-svg .ob-q{font-size:40px;} .ob-svg .ob-mark{stroke-width:2.6;}
   .ob-svg .ob-product text{font-size:16px;}
   .nar-caption{display:block;position:absolute;left:var(--gutter);right:var(--gutter);top:44px;margin:0;font-family:var(--display);font-style:italic;font-size:13px;line-height:1.4;color:var(--cream-80);text-align:right;max-width:60%;margin-left:auto;}
-  .nar-hud{top:12px;left:var(--gutter);}
+  .nar-hud{display:none;} /* the scale and the label under the figure carry the state on phones; the corner counter would sit under the header */
   .nar-stage-list{display:none;}
   .nar-notes{position:relative;left:auto;bottom:auto;z-index:1;width:auto;padding:14px var(--gutter) 8vh;display:flex;flex-direction:column;gap:14px;min-height:34svh;}
   .note{position:relative;opacity:1;transform:none;pointer-events:auto;margin:0;transition:border-color .3s;}
