@@ -76,7 +76,8 @@
     const e = ease(p);
     if (!narrow()) {
       const L = total * e; route.style.strokeDashoffset = (total - L).toFixed(1);
-      const q = route.getPointAtLength(Math.min(L, built.rest)); signal.setAttribute('cx', q.x.toFixed(1)); // the signal resolves on 03; the course alone continues to the handoff signal.setAttribute('cy', q.y.toFixed(1)); signalRing.setAttribute('cx', q.x.toFixed(1)); signalRing.setAttribute('cy', q.y.toFixed(1));
+      // the signal resolves on 03; the course alone continues to the handoff
+      const q = route.getPointAtLength(Math.min(L, built.rest)); signal.setAttribute('cx', q.x.toFixed(1)); signal.setAttribute('cy', q.y.toFixed(1)); signalRing.setAttribute('cx', q.x.toFixed(1)); signalRing.setAttribute('cy', q.y.toFixed(1));
       nodes.forEach((n, i) => { const on = e >= built.at[i] - 0.01; n.classList.toggle('on', on); rings[i].classList.toggle('on', on); principles[i].classList.toggle('on', on); });
       signal.style.opacity = p > 0 && p < 1 ? '1' : p >= 1 ? '1' : '0'; signalRing.style.opacity = p > 0 ? '0.7' : '0';
     } else {
