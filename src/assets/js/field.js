@@ -221,7 +221,7 @@
   const heroCentroid = (base) => [base.reduce((a, c) => a + c[0], 0) / base.length, base.reduce((a, c) => a + c[1], 0) / base.length];
   function heroHubs(mobile, e, k) {
     const base = mobile ? HERO_MOBILE : HERO_DESKTOP; const [cxm, cym] = heroCentroid(base);
-    const rot = (mobile ? 10 : 42) * e * Math.PI / 180, cosR = Math.cos(rot), sinR = Math.sin(rot);
+    const rot = (mobile ? 40 : 42) * e * Math.PI / 180, cosR = Math.cos(rot), sinR = Math.sin(rot);
     return base.map(([x, y]) => { const rx = (x - cxm) * k, ry = (y - cym) * k; return [cxm + rx * cosR - ry * sinR, cym + rx * sinR + ry * cosR]; });
   }
   function layoutHero(p, mobile, e, k) {
@@ -500,7 +500,7 @@
     if (heroGeomCache && heroGeomCache.w === window.innerWidth && heroGeomCache.h === window.innerHeight) return heroGeomCache;
     const g = { w: window.innerWidth, h: window.innerHeight, k1: 1, U: 0, T: 0 };
     if (!heroPin || !heroSvg) return (heroGeomCache = g);
-    if (mobile) { g.k1 = 0.9; g.U = 0; g.T = Math.round(window.innerWidth * 0.06); return (heroGeomCache = g); }
+    if (mobile) { g.k1 = 0.8; g.U = 0; g.T = Math.round(window.innerWidth * 0.04); return (heroGeomCache = g); }
     const prevX = heroPin.style.getPropertyValue('--hx'), prevY = heroPin.style.getPropertyValue('--hy');
     heroPin.style.setProperty('--hx', '0px'); heroPin.style.setProperty('--hy', '0px');
     const pr = heroPin.getBoundingClientRect(), sr = heroSvg.getBoundingClientRect();
@@ -661,8 +661,10 @@
       const heroH = hero.offsetHeight || vh; const sy = window.scrollY;
       if (sy < heroH + vh) {
         const pinH = heroPin ? heroPin.offsetHeight : vh;
-        const range = mobile ? heroH * 0.85 : Math.max(1, heroH - pinH);
-        const raw = reduceMotion ? 0 : clamp01(sy / range); const es = raw * raw * (3 - 2 * raw);
+        // mobile: the hero is not pinned, so the turn happens over the first half of the hero's own height (while the
+        // constellation is still on screen) and a slow ambient breath keeps it alive when the page is not moving
+        const range = mobile ? heroH * 0.5 : Math.max(1, heroH - pinH);
+        const raw = reduceMotion ? 0 : clamp01(sy / range); const amb = mobile && !reduceMotion ? Math.sin(now / 1000 * 0.4) * 0.07 : 0; const es = raw * raw * (3 - 2 * raw) + amb;
         const g = heroGeom(mobile);
         const rise = smooth(clamp01(es / 0.4)), travel = smooth(clamp01((es - 0.3) / 0.7));
         const k = 1 - (1 - g.k1) * rise;

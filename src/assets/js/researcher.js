@@ -239,6 +239,12 @@
     svg.setAttribute('viewBox', '0 0 1400 900'); svg.setAttribute('preserveAspectRatio', 'xMidYMid slice'); svg.classList.add('cel');
     const rnd = mkRnd(11);
     for (let i = 0; i < 190; i++) { const x = rnd() * 1400, y = rnd() * 900; const t = rnd(); const r = t > 0.94 ? 1.9 : t > 0.7 ? 1.3 : 0.7; const o = t > 0.94 ? 0.95 : 0.12 + rnd() * 0.55; el('circle', { class: 'bs' + (rnd() < 0.5 ? ' cy' : ''), cx: x.toFixed(1), cy: y.toFixed(1), r, style: 'opacity:' + o.toFixed(2) }, svg); }
+    // faint constellation clusters in the dark space, on two layers that drift at different rates with scroll
+    const CONS = {
+      a: [[[120, 140], [168, 110], [214, 132], [236, 182], [190, 200]], [[1180, 200], [1230, 170], [1290, 196], [1310, 250], [1262, 268]], [[700, 800], [748, 770], [800, 790], [790, 846]]],
+      b: [[[640, 90], [690, 70], [736, 104], [720, 150]], [[240, 690], [290, 650], [336, 672], [350, 720]], [[1210, 620], [1260, 592], [1318, 614], [1332, 668], [1284, 690]]],
+    };
+    ['a', 'b'].forEach((k) => { const g = el('g', { class: 'cons cons-' + k }, svg); CONS[k].forEach((pts) => { for (let i = 1; i < pts.length; i++) el('line', { x1: pts[i - 1][0], y1: pts[i - 1][1], x2: pts[i][0], y2: pts[i][1] }, g); pts.forEach((q, i) => el('circle', { class: i === 1 ? 'cb' : '', cx: q[0], cy: q[1], r: i === 1 ? 2.3 : 1.5 }, g)); }); });
   }
 
   // ---- scroll controller: progress from the field's position, measured once per layout ----
@@ -249,7 +255,9 @@
     // 1 when it has risen to 10%. So the arm resolves and the book settles while they are in view.
     let top = 0, startT = 1, endT = 0, lastP = -1, queued = false;
     const progress = () => { const t = top - window.scrollY; return clamp01((startT - t) / (startT - endT)); };
-    const tick = () => { queued = false; const p = progress(); if (Math.abs(p - lastP) < 0.0005) return; lastP = p; built.apply(p); };
+    const section = field.parentElement; const bg = section ? section.querySelector('.cel-bg') : null; const consA = bg && bg.querySelector('.cons-a'), consB = bg && bg.querySelector('.cons-b');
+    const drift = (p) => { if (consA) consA.setAttribute('transform', `translate(${(-8 * p).toFixed(1)},${(-46 * p).toFixed(1)})`); if (consB) consB.setAttribute('transform', `translate(${(12 * p).toFixed(1)},${(-92 * p).toFixed(1)})`); };
+    const tick = () => { queued = false; const p = progress(); if (Math.abs(p - lastP) < 0.0005) return; lastP = p; built.apply(p); drift(p); };
     const measureLayout = () => { const r = field.getBoundingClientRect(); top = r.top + window.scrollY; const H = r.height, vh = window.innerHeight; const jf = svg.dataset.view === 'mobile' ? 0.035 : 0.346; startT = 0.98 * vh - jf * H; endT = 0.10 * vh - jf * H; built.measure(); lastP = -1; tick(); };
     const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(tick); } };
     window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', measureLayout); window.addEventListener('load', measureLayout);

@@ -470,6 +470,8 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .pt-cel .kicker{color:var(--cream);}
 /* celestial layers */
 .cel .bs{fill:#F6F4EF;} .cel .bs.cy{fill:#A9E4E1;}
+.cel .cons line{stroke:#F6F4EF;stroke-opacity:0.22;stroke-width:0.8;} .cel .cons circle{fill:#A9E4E1;opacity:0.5;} .cel .cons circle.cb{fill:#F6F4EF;opacity:0.85;}
+.cel .cons-b{opacity:0.7;} .cel .cons{will-change:transform;}
 .cel .sil{opacity:0.11;} .cel .sil .vol,.cel .sil .vol-fill{fill:#A9E4E1;stroke:#A9E4E1;stroke-linecap:round;stroke-linejoin:round;} .cel .sil .vol-fill{stroke-width:0;}
 .cel .bone{stroke:#F6F4EF;stroke-opacity:0.62;stroke-width:1.1;fill:none;stroke-linecap:round;} .cel .bone.faint{stroke-opacity:0.3;}
 .cel .node{fill:#E4F6F4;} .cel .node.tip{fill:#F6F4EF;} .cel .node.big{fill:#F6F4EF;}
