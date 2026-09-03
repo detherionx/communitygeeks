@@ -118,13 +118,22 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 
 /* ===== HERO (one viewport, connects itself on load) ===== */
 .chapter{position:relative;}
-.hero-pin{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--teal);}
+/* The hero is pinned for 70svh of scroll on desktop: the constellation
+   reorients (rises, shrinks slightly, rotates, then travels left across the
+   open field) while the headline stays put, then the hero leaves with the
+   page. --hx/--hy are the constellation's route in px, set by field.js from
+   normalised progress and measured geometry; the contour layer follows at a
+   slower depth, two foreground contours slightly faster. */
+.hero{height:170svh;}
+.hero-pin{position:sticky;top:0;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--teal);--hx:0px;--hy:0px;}
 .hero-pin::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,25,18,0) 55%,var(--teal-deep) 100%);pointer-events:none;}
 .layer{position:absolute;inset:0;will-change:transform;}
-.layer-topo{transform:translate3d(calc(var(--mx) * 0.4),calc(var(--my) * 0.4 + var(--py,0px) * 0.5),0);}
+.layer-topo{transform:translate3d(calc(var(--mx) * 0.4 + var(--hx) * 0.28),calc(var(--my) * 0.4 + var(--hy) * 0.28),0);}
+.layer-topo .topo-fore{transform:translate(calc(var(--hx) * 0.95),calc(var(--hy) * 0.6));will-change:transform;}
 .layer-topo .topo{width:100%;height:100%;}
 .layer-topo path{fill:none;stroke:var(--cream);stroke-opacity:0.08;stroke-width:1;}
-.layer-map{transform:translate3d(var(--mx),calc(var(--my) + var(--py,0px)),0);}
+.layer-map{transform:translate3d(var(--mx),var(--my),0);}
+.layer-map .field-svg{transform:translate3d(var(--hx),var(--hy),0) !important;will-change:transform;}
 /* The field sits in a safe box: 72px below the bar, 56px from the right and
    bottom edges. preserveAspectRatio=meet keeps the whole viewBox inside the
    box at every width; the layout itself keeps ≥40 units of clearance inside
@@ -466,7 +475,8 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 
 /* ===== MOBILE INTERPRETATION ===== */
 @media (max-width:860px){
-  .hero-pin{height:auto;min-height:100svh;}
+  .hero{height:auto;}
+  .hero-pin{position:relative;height:auto;min-height:100svh;}
   /* Mobile: the field is recomposed across the full width above the text
      (its own layout in field.js), never a cropped desktop graphic. */
   .layer-map .field-svg{left:16px;right:auto;top:calc(var(--bar-h) + 40px);bottom:auto;width:calc(100% - 32px);height:38svh;max-height:none;opacity:0.85;}

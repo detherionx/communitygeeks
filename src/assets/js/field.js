@@ -213,16 +213,23 @@
   // leaves). The assembly rotates about its centroid and rides a shallow arc
   // across the empty field; labels and relationships follow. Sanitize keeps
   // every label inside the frame in every state.
-  function layoutHero(p, mobile, s) {
+  // Orbital choreography. e = eased scroll progress, k = internal scale about
+  // the centroid. The assembly rotates about its own centre (42° desktop, 10°
+  // mobile) while the route (--hx/--hy, computed in update()) carries the
+  // whole SVG up and then left across the open field. Labels stay upright
+  // because they are positioned per hub, never rotated.
+  const heroCentroid = (base) => [base.reduce((a, c) => a + c[0], 0) / base.length, base.reduce((a, c) => a + c[1], 0) / base.length];
+  function heroHubs(mobile, e, k) {
+    const base = mobile ? HERO_MOBILE : HERO_DESKTOP; const [cxm, cym] = heroCentroid(base);
+    const rot = (mobile ? 10 : 42) * e * Math.PI / 180, cosR = Math.cos(rot), sinR = Math.sin(rot);
+    return base.map(([x, y]) => { const rx = (x - cxm) * k, ry = (y - cym) * k; return [cxm + rx * cosR - ry * sinR, cym + rx * sinR + ry * cosR]; });
+  }
+  function layoutHero(p, mobile, e, k) {
     const l = blank();
-    s = s || 0;
-    const base = mobile ? HERO_MOBILE : HERO_DESKTOP;
-    const cxm = base.reduce((a, c) => a + c[0], 0) / base.length, cym = base.reduce((a, c) => a + c[1], 0) / base.length;
-    const rot = (mobile ? 9 : 14) * s * Math.PI / 180, cosR = Math.cos(rot), sinR = Math.sin(rot);
-    const dx = (mobile ? 24 * Math.sin(s * Math.PI) : 40 * Math.sin(s * Math.PI)), dy = (mobile ? -44 : -50) * s;
-    const moved = base.map(([x, y]) => { const rx = x - cxm, ry = y - cym; return [cxm + rx * cosR - ry * sinR + dx, cym + rx * sinR + ry * cosR + dy]; });
+    e = e || 0; k = k == null ? 1 : k;
+    const moved = heroHubs(mobile, e, k);
     moved.forEach(([cx, cy], gi) => {
-      const spread = 80 - 34 * p;
+      const spread = (80 - 34 * p) * (0.72 + 0.28 * k);
       ring(l, gi, cx, cy, spread, 0.5, 3.2, 0.55 + 0.4 * p);
       l.hubs[gi] = { x: cx, y: cy, r: 7, o: p };
       l.labels[gi] = { x: cx, y: cy - 62, o: Math.max(0, (p - 0.55) / 0.45), desc: true };
@@ -468,6 +475,7 @@
   // ------------------------------------------------------------ mount
   const fields = {};
   const heroSvg = document.getElementById('hero-field'); if (heroSvg) fields['hero-field'] = createField(heroSvg);
+  // eslint-disable-next-line no-use-before-define -- heroGeom is defined below and only called from the frame loop
   const narSvg = document.getElementById('nar-field');
   const orbitField = narSvg ? createOrbitField(narSvg, document.getElementById('nar-labels')) : null;
   const orrerySvg = document.getElementById('orrery-field');
@@ -479,6 +487,43 @@
   const pathway = document.querySelector('.pathway');
 
   const heroStart = performance.now() + 350;
+  const heroPin = hero ? hero.querySelector('.hero-pin') : null;
+  const smooth = (x) => x * x * (3 - 2 * x);
+  let lastHx = null, lastHy = null;
+  // Route geometry, measured (not guessed) once per viewport size:
+  //  k1: internal scale at the end of the rise so the assembly fits the band
+  //      between the bar and the hero copy;
+  //  U:  px to rise so the assembly clears the copy before travelling left;
+  //  T:  px to travel left, up to 42% of the viewport, never past the left edge.
+  let heroGeomCache = null;
+  function heroGeom(mobile) {
+    if (heroGeomCache && heroGeomCache.w === window.innerWidth && heroGeomCache.h === window.innerHeight) return heroGeomCache;
+    const g = { w: window.innerWidth, h: window.innerHeight, k1: 1, U: 0, T: 0 };
+    if (!heroPin || !heroSvg) return (heroGeomCache = g);
+    if (mobile) { g.k1 = 0.9; g.U = 0; g.T = Math.round(window.innerWidth * 0.06); return (heroGeomCache = g); }
+    const prevX = heroPin.style.getPropertyValue('--hx'), prevY = heroPin.style.getPropertyValue('--hy');
+    heroPin.style.setProperty('--hx', '0px'); heroPin.style.setProperty('--hy', '0px');
+    const pr = heroPin.getBoundingClientRect(), sr = heroSvg.getBoundingClientRect();
+    const sc = Math.min(sr.width / 1000, sr.height / 620);
+    const cLeft = sr.left - pr.left + (sr.width - 1000 * sc) / 2, cTop = sr.top - pr.top + (sr.height - 620 * sc) / 2;
+    const barH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bar-h')) || 60;
+    // obstacle: the top of the hero copy block (readout or headline, whichever is higher)
+    const tops = []; ['.hero-readout', '.hero-h1'].forEach((s) => { const el = hero.querySelector(s); if (el) tops.push(el.getBoundingClientRect().top - pr.top); });
+    const obstacleTop = tops.length ? Math.min(...tops) : pr.height * 0.45;
+    // extents of the fully rotated assembly at unit scale; they scale linearly with k
+    const [, cym] = heroCentroid(HERO_DESKTOP);
+    const rot1 = heroHubs(false, 1, 1); const rMinY = Math.min(...rot1.map((h) => h[1])), rMaxY = Math.max(...rot1.map((h) => h[1]));
+    const available = (obstacleTop - 16) - (barH + 8);
+    g.k1 = Math.max(0.5, Math.min(0.88, (available / sc - 116) / (rMaxY - rMinY)));
+    const botPx = cTop + (cym + (rMaxY - cym) * g.k1 + 46) * sc;
+    const topPx = cTop + (cym - (cym - rMinY) * g.k1 - 70) * sc;
+    g.U = Math.max(0, Math.min(botPx - (obstacleTop - 16), topPx - (barH + 8)));
+    const hubsEnd = heroHubs(false, 1, g.k1); const minXu = Math.min(...hubsEnd.map((h) => h[0]));
+    g.T = Math.max(0, Math.min(window.innerWidth * 0.42, cLeft + (minXu - 116) * sc - 12));
+    heroPin.style.setProperty('--hx', prevX || '0px'); heroPin.style.setProperty('--hy', prevY || '0px');
+    return (heroGeomCache = g);
+  }
+  window.addEventListener('resize', () => { heroGeomCache = null; });
   const verbs = Array.from(document.querySelectorAll('.hero-sub em'));
   if (hero) requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('ready')));
   const easeOut = (x) => 1 - Math.pow(1 - x, 3);
@@ -611,14 +656,20 @@
     const vh = window.innerHeight; const mobile = narrow();
     if (hero && fields['hero-field']) {
       const p = reduceMotion ? 1 : clamp01((now - heroStart) / 2600); const e = easeOut(p);
-      // scroll-linked movement: only while the hero is in range, eased, off under reduced motion
+      // scroll-linked choreography: only while the hero is in range, eased, off under reduced motion
       const heroH = hero.offsetHeight || vh; const sy = window.scrollY;
       if (sy < heroH + vh) {
-        const raw = reduceMotion ? 0 : clamp01(sy / (heroH * 0.85)); const s = raw * raw * (3 - 2 * raw);
-        fields['hero-field'].setTarget(layoutHero(e, mobile, s));
+        const pinH = heroPin ? heroPin.offsetHeight : vh;
+        const range = mobile ? heroH * 0.85 : Math.max(1, heroH - pinH);
+        const raw = reduceMotion ? 0 : clamp01(sy / range); const es = raw * raw * (3 - 2 * raw);
+        const g = heroGeom(mobile);
+        const rise = smooth(clamp01(es / 0.4)), travel = smooth(clamp01((es - 0.3) / 0.7));
+        const k = 1 - (1 - g.k1) * rise;
+        fields['hero-field'].setTarget(layoutHero(e, mobile, es, k));
+        const hx = -g.T * travel, hy = -g.U * rise;
+        if (hx !== lastHx || hy !== lastHy) { heroPin.style.setProperty('--hx', hx.toFixed(1) + 'px'); heroPin.style.setProperty('--hy', hy.toFixed(1) + 'px'); lastHx = hx; lastHy = hy; }
       }
       verbs.forEach((v, i) => v.classList.toggle('lit', i < Math.floor(e * 4.999)));
-      if (!mobile && !reduceMotion && sy < heroH + vh) hero.style.setProperty('--py', (sy * 0.12).toFixed(1) + 'px');
     }
     if (nar) { let i = 0; if (mobile) notes.forEach((n, k) => { if (n.getBoundingClientRect().top < vh * 0.62) i = k; }); else narSteps.forEach((s, k) => { if (s.getBoundingClientRect().top <= vh * 0.5) i = k; }); setNarStage(i); }
   }

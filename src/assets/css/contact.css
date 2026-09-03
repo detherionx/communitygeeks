@@ -41,8 +41,17 @@ ol,ul{margin:0;padding:0;list-style:none;}
    drawing uses (760 normally; 1240 on wide screens where the composition
    gains a longer approach on the left and a margin on the right), --st-ox the
    viewBox units between the opening's right edge and the box's right edge */
-.approach-hero{--st-w:min(760px,56vw);--st-vb:760;--st-ox:52;}
+/* --dock-w is the form's width (the control panel); the station box scales
+   from it so the drawing and the form share one geometry: the form is 300
+   viewBox units wide, the box --st-vb units, and --st-ox units separate the
+   form's right edge from the box's right edge. */
+.approach-hero{--dock-w:clamp(15rem,24vw,28rem);--st-vb:760;--st-ox:60;--st-w:calc(var(--dock-w) * var(--st-vb) / 300);}
 .station{position:absolute;right:0;top:50%;width:var(--st-w);aspect-ratio:760/620;transform:translateY(-50%);pointer-events:none;}
+.station-svg .st-rail{stroke:var(--cream);stroke-width:1.5;stroke-opacity:0.85;}
+.station-svg .st-node{fill:var(--cream);}
+.station-svg .st-mark{stroke:var(--cream);stroke-opacity:0.55;stroke-width:1.5;transition:stroke .35s,stroke-opacity .35s;}
+.station-svg .st-mark.on{stroke:var(--signal);stroke-opacity:1;}
+.station-svg .st-mark.cur{stroke:var(--signal);stroke-opacity:1;stroke-width:3;}
 .station-svg{display:block;width:100%;height:100%;overflow:visible;}
 .station-m{display:none;}
 .station-svg .st-ring{fill:none;stroke:var(--cream);stroke-width:1.5;stroke-opacity:0.85;}
@@ -63,19 +72,20 @@ ol,ul{margin:0;padding:0;list-style:none;}
 .station-svg.sent .st-vec{opacity:0;}
 .station-svg.sent .st-edge{opacity:1;}
 /* the form lives in the station opening: 308 x 380 at 760 wide */
-.dock{position:absolute;z-index:3;right:calc(var(--st-w) * var(--st-ox) / var(--st-vb));top:50%;transform:translateY(calc(-50% + var(--st-w) * 20 / var(--st-vb)));width:calc(var(--st-w) * 308 / var(--st-vb));min-height:calc(var(--st-w) * 380 / var(--st-vb));background:var(--cream);color:var(--ink);padding:22px 24px 20px;display:flex;flex-direction:column;}
-/* wide and ultra-wide: the whole composition (approach path, station, form)
-   grows and moves inward together; the form becomes the destination of the
-   flight path rather than an object parked at the edge */
+.dock{position:absolute;z-index:3;right:calc(var(--dock-w) * var(--st-ox) / 300);top:50%;transform:translateY(calc(-50% + var(--dock-w) * 20 / 300));width:var(--dock-w);min-height:calc(var(--dock-w) * 380 / 300);background:var(--cream);color:var(--ink);padding:22px 24px 20px;display:flex;flex-direction:column;}
+/* wide and ultra-wide: a longer approach on the left and a margin on the
+   right; the form stays 22–28rem, the docking geometry carries the presence */
 @media (min-width:1600px){
-  .approach-hero{--st-w:min(64vw,1900px);--st-vb:1120;--st-ox:292;}
-  .station{aspect-ratio:1120/620;}
-  .dock{padding:28px 30px 26px;}
+  .approach-hero{--st-vb:1000;--st-ox:180;}
+  .station{aspect-ratio:1000/620;}
+  .dock{padding:26px 28px 24px;}
   .dock .stage label{font-size:14px;}
   .dock .in{font-size:17px;}
-  .dock .help,.dock .errmsg{font-size:13.5px;}
-  .dock .kctl{font-size:16px;}
-  .dock-done .done-h{font-size:34px;}
+}
+/* ultra-wide: a little more inward again, so the assembly does not read as parked at the edge */
+@media (min-width:2400px){
+  .approach-hero{--st-vb:1080;--st-ox:260;}
+  .station{aspect-ratio:1080/620;}
 }
 .dock-head{margin-bottom:8px;}
 .dock-idx{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);}

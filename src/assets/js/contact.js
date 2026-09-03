@@ -26,29 +26,28 @@
       reg(268, 78, 1, 1); reg(268, 178, 1, -1);
       el('rect', { class: 'st-rule', x: 0, y: 244, width: 390, height: 3 }, g);
       T = { x1: -10, y1: 236, x2: 262, y2: 128, cp: 5, vec: 16, edge: { x: 259, y: 72, w: 3, h: 112 } };
-    } else if (wide()) {
-      // ultra-wide composition: longer approach on the left, the station whole and inward with a margin on the right
-      svg.setAttribute('viewBox', '-120 0 1120 620');
-      el('circle', { class: 'st-ring', cx: 660, cy: 310, r: 280 }, g);
-      [[-165, -140], [-95, -70], [150, 170], [100, 125]].forEach(([a0, a1]) => arc(660, 310, 280, a0, a1, 'st-seg'));
-      el('rect', { class: 'st-plane', x: 360, y: 100, width: 580, height: 460 }, g);
-      el('rect', { class: 'st-opening', x: 400, y: 140, width: 308, height: 380 }, g);
-      reg(406, 146, 1, 1); reg(702, 146, -1, 1); reg(406, 514, 1, -1); reg(702, 514, -1, -1);
-      el('rect', { class: 'st-rule', x: -120, y: 560, width: 1120, height: 3 }, g);
-      T = { x1: -110, y1: 470, x2: 400, y2: 330, cp: 6, vec: 22, edge: { x: 396, y: 140, w: 4, h: 380 } };
     } else {
-      svg.setAttribute('viewBox', '0 0 760 620');
-      el('circle', { class: 'st-ring', cx: 640, cy: 300, r: 330 }, g);
-      [[-165, -140], [-95, -70], [150, 170], [100, 125]].forEach(([a0, a1]) => arc(640, 300, 330, a0, a1, 'st-seg'));
-      el('rect', { class: 'st-plane', x: 360, y: 100, width: 440, height: 460 }, g);
-      el('rect', { class: 'st-opening', x: 400, y: 140, width: 308, height: 380 }, g);
+      // Docking assembly (desktop). The cream form (HTML, 300 x 380 units at
+      // x 400..700, y 140..520) is the control panel; around it: a partial
+      // docking ring behind, one strong horizontal approach line ending at
+      // the docking point on the form's left edge, a vertical registration
+      // rail with four stage marks, and one asymmetric support plate under the
+      // form's lower-left. Wide screens extend the approach on the left and
+      // leave a margin on the right.
+      const w = wide(); const vb = w ? (parseInt(getComputedStyle(document.querySelector('.approach-hero')).getPropertyValue('--st-vb'), 10) || 1000) : 760;
+      svg.setAttribute('viewBox', (w ? '-120' : '0') + ' 0 ' + vb + ' 620'); svg.dataset.vb = String(vb);
+      el('rect', { class: 'st-plane', x: 330, y: 400, width: 250, height: 200 }, g);
+      el('circle', { class: 'st-ring', cx: 515, cy: 330, r: 215 }, g);
+      [[-158, -134], [22, 46]].forEach(([a0, a1]) => arc(515, 330, 215, a0, a1, 'st-seg'));
+      el('line', { class: 'st-rail', x1: 372, y1: 126, x2: 372, y2: 546 }, g);
+      el('rect', { class: 'st-node', x: 368, y: 326, width: 8, height: 8 }, g);
       reg(406, 146, 1, 1); reg(702, 146, -1, 1); reg(406, 514, 1, -1); reg(702, 514, -1, -1);
-      el('rect', { class: 'st-rule', x: 0, y: 560, width: 760, height: 3 }, g);
-      T = { x1: -20, y1: 470, x2: 400, y2: 330, cp: 6, vec: 20, edge: { x: 396, y: 140, w: 4, h: 380 } };
+      T = { x1: w ? -110 : -20, y1: 330, x2: 400, y2: 330, cp: 6, vec: 20, edge: { x: 396, y: 140, w: 4, h: 380 }, rail: [330, 390, 450, 510] };
     }
     const traj = el('line', { class: 'st-traj', x1: T.x1, y1: T.y1, x2: T.x2, y2: T.y2 }, g);
     const done = el('line', { class: 'st-done', x1: T.x1, y1: T.y1, x2: T.x1, y2: T.y1 }, g);
     const cps = [0.25, 0.5, 0.75, 1].map((c) => { const cx = T.x1 + (T.x2 - T.x1) * c, cy = T.y1 + (T.y2 - T.y1) * c; return el('rect', { class: 'st-cp', x: cx - T.cp, y: cy - T.cp, width: T.cp * 2, height: T.cp * 2 }, g); });
+    const rails = (T.rail || []).map((y) => el('line', { class: 'st-mark', x1: 362, y1: y, x2: 382, y2: y }, g));
     const ang = Math.atan2(T.y2 - T.y1, T.x2 - T.x1); const hw = T.vec * 0.42;
     const vec = el('polygon', { class: 'st-vec', points: '0,0 ' + (-T.vec) + ',' + hw + ' ' + (-T.vec) + ',' + (-hw), transform: 'translate(' + T.x1 + ' ' + T.y1 + ') rotate(' + (ang * 180 / Math.PI).toFixed(2) + ')' }, g);
     el('rect', { class: 'st-edge', x: T.edge.x, y: T.edge.y, width: T.edge.w, height: T.edge.h }, g);
@@ -58,6 +57,7 @@
         done.setAttribute('x2', vx.toFixed(1)); done.setAttribute('y2', vy.toFixed(1));
         vec.setAttribute('transform', 'translate(' + vx.toFixed(1) + ' ' + vy.toFixed(1) + ') rotate(' + (ang * 180 / Math.PI).toFixed(2) + ')');
         cps.forEach((c, i) => { c.classList.toggle('on', state === 'sent' || i < step); c.classList.toggle('cur', state !== 'sent' && i === step); });
+        rails.forEach((m, i) => { m.classList.toggle('on', state === 'sent' || i < step); m.classList.toggle('cur', state !== 'sent' && i === step); });
         svg.classList.toggle('sent', state === 'sent');
       },
     };
@@ -72,6 +72,8 @@
   // the desktop drawing changes geometry across the 1600px breakpoint: redraw and restore its state
   const onWideChange = () => { if (!sD) return; stations[0] = drawStation(sD, false); paint(lastStep, lastState); };
   if (wideQuery.addEventListener) wideQuery.addEventListener('change', onWideChange); else if (wideQuery.addListener) wideQuery.addListener(onWideChange);
+  // the viewBox width also steps at the ultra-wide breakpoint (CSS --st-vb): redraw when it changes
+  window.addEventListener('resize', () => { if (!sD || !wide()) return; const vb = parseInt(getComputedStyle(document.querySelector('.approach-hero')).getPropertyValue('--st-vb'), 10); if (vb && String(vb) !== sD.dataset.vb) onWideChange(); });
 
   // ---------------------------------------------------------------- form
   const stages = Array.from(form.querySelectorAll('.stage'));
