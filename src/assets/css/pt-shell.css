@@ -11,6 +11,8 @@ body.pt-shell{padding-top:var(--bar-h);}
    heavy rule, space-between). The shell's navs are not that masthead. */
 .pt-shell nav.bar-nav,.pt-shell nav.foot-nav,.pt-shell nav.pt-crumb{padding:0;border-bottom:0;justify-content:flex-start;position:static;}
 .pt-shell nav.bar-nav{margin-left:auto;}
+/* phones: the reset above must not defeat shell.css's dropdown, or the open menu is laid out inside the bar row */
+@media (max-width:860px){.pt-shell nav.bar-nav{position:absolute;margin-left:0;padding:6px 0 14px;border-bottom:1px solid var(--cream-25);}}
 .pt-shell nav.pt-crumb{margin-bottom:26px;}
 .pt-shell nav.pt-crumb-inline{margin:0;}
 .pt-shell .page-hero{padding-top:44px;}
