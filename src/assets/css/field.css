@@ -212,7 +212,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .narrative[data-stage="0"] li:nth-child(1),.narrative[data-stage="1"] li:nth-child(2),.narrative[data-stage="2"] li:nth-child(3),.narrative[data-stage="3"] li:nth-child(4),.narrative[data-stage="4"] li:nth-child(5),.narrative[data-stage="5"] li:nth-child(6){color:var(--cream);}
 .narrative[data-stage="0"] li:nth-child(1)::before,.narrative[data-stage="1"] li:nth-child(2)::before,.narrative[data-stage="2"] li:nth-child(3)::before,.narrative[data-stage="3"] li:nth-child(4)::before,.narrative[data-stage="4"] li:nth-child(5)::before,.narrative[data-stage="5"] li:nth-child(6)::before{background:var(--signal);}
 .nar-notes{position:absolute;left:var(--gutter);bottom:7vh;width:min(440px,40vw);}
-/* field notes: D-1 tonal panel, one step above the field, ivory text, one
+/* system-view notes: D-1 tonal panel, one step above the field, ivory text, one
    coral rule (approved R-02). Ivory on #285A5A measures 7.3:1. */
 .note{position:absolute;left:0;bottom:0;width:100%;background:var(--panel-teal);color:var(--cream);padding:22px 26px 24px;border-left:3px solid var(--signal);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none;}
 .note.on{opacity:1;transform:none;pointer-events:auto;}
@@ -306,7 +306,7 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .q-card p{font-size:15px;line-height:1.55;color:var(--ink);}
 
 /* ===== SELECTED WORK: COMPACT EXPERIENCE INDEX =====
-   Credibility, not a chapter. Headline left, one index of all six real
+   Credibility, not a chapter. Headline left, one index of six selected real
    engagements right. Logos sit in a 90x26 frame (mask-size:contain, the
    site's silhouette treatment), never enlarged, never repeated. */
 /* Colour rhythm for the closing run of the page: warm sand (work) → ink
@@ -343,6 +343,26 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 .pt .ledger-deck{color:var(--cream-80);}
 .pt .entry-topics span{border-color:var(--cream-25);color:var(--cream-80);}
 .pt .pt-thread{color:var(--signal);}
+/* live research signal: a rail in a reserved column left of the ledger */
+.pt-body{position:relative;}
+.pt-signal{position:absolute;left:0;top:0;width:28px;height:100%;overflow:visible;display:block;}
+.pt-signal .sig-rail{stroke:var(--cream);stroke-opacity:0.25;stroke-width:1;}
+.pt-signal .sig-rail-tail{stroke:var(--cream);stroke-opacity:0.25;stroke-width:1;stroke-dasharray:2 6;}
+.pt-signal .sig-trace{stroke:var(--signal);stroke-width:2;fill:none;transition:stroke-dashoffset .9s var(--ease);}
+.pt-signal .sig-pt{fill:var(--ink);stroke:var(--cream);stroke-opacity:0.7;stroke-width:1.2;transition:fill .3s,stroke .3s;}
+.pt-signal .sig-pt.on{fill:var(--signal);stroke:var(--signal);}
+.pt-signal .sig-pulse{fill:none;stroke:var(--signal);stroke-width:1;opacity:0;transform-box:fill-box;transform-origin:center;}
+.pt.in .pt-signal .sig-pulse.on{animation:sig-pulse 6s var(--ease) 1.4s infinite;}
+@keyframes sig-pulse{0%,78%{transform:scale(1);opacity:0;}80%{opacity:0.9;}100%{transform:scale(2.6);opacity:0;}}
+.pt-signal .sig-beacon{fill:var(--signal);}
+.pt-signal .sig-beacon-ring{fill:none;stroke:var(--signal);stroke-width:1;opacity:0.7;transform-box:fill-box;transform-origin:center;}
+.pt.in .pt-signal .sig-beacon-ring{animation:sig-beacon 5s var(--ease) 2s infinite;}
+@keyframes sig-beacon{0%,70%{transform:scale(1);opacity:0.7;}100%{transform:scale(2.2);opacity:0;}}
+.pt .ledger,.pt .pt-foot{padding-left:56px;}
+.pt .ledger-row{position:relative;transition:background-color .3s;}
+.pt-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap;margin-top:26px;}
+.pt-foot .pt-thread{margin-top:0;max-width:60ch;}
+.pt .pt-seeall{color:var(--cream);}
 .pt .kicker .node-dot{box-shadow:0 0 0 3px var(--ink),0 0 0 4px var(--cream-25);}
 /* founder: the warm human surface between the two dark fields */
 .founder{background:var(--cream);color:var(--ink);padding:10vh var(--gutter) 11vh;}
@@ -420,7 +440,9 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
 @media (prefers-reduced-motion:reduce){
   .js .h1-line > span{transform:none;transition:none;}
   .layer{transform:none !important;}
-  .note,.q-card,.hero-sub em,.hero-sub em::after,.v2-vector,.v2-head,.v2-mark{transition:none;}
+  .note,.q-card,.hero-sub em,.hero-sub em::after,.v2-vector,.v2-head,.v2-mark,.pt-signal .sig-trace,.pt-signal .sig-pt,.pt .ledger-row{transition:none;}
+  .pt.in .pt-signal .sig-pulse.on,.pt.in .pt-signal .sig-beacon-ring{animation:none;}
+  .pt-signal .sig-trace{stroke-dashoffset:0 !important;}
   .path-svg .v2-head,.path-svg .v2-mark{opacity:1;}
   .rail{-webkit-mask-image:none;mask-image:none;}
   .rail-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:28px 48px;padding:6px var(--gutter);}
@@ -513,6 +535,9 @@ s{text-decoration-color:var(--signal);text-decoration-thickness:2px;opacity:0.55
   .exp-tag{grid-column:2;text-align:left;}
 
   .pt{padding:10vh var(--gutter) 8vh;}
+  .pt-signal{display:none;}
+  .pt .ledger,.pt .pt-foot{padding-left:0;}
+  .pt .ledger-row:hover,.pt .ledger-row:focus-within{box-shadow:inset 3px 0 0 var(--signal);padding-left:14px;}
   .ledger-row{grid-template-columns:1fr;gap:10px;padding:22px 0;}
   .ledger-meta{flex-direction:row;flex-wrap:wrap;gap:12px;padding-top:0;}
   .ledger-link{grid-column:1;justify-self:start;}

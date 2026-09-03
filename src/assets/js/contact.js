@@ -12,6 +12,7 @@
 
   // ---------------------------------------------------------------- station
   function drawStation(svg, mobile) {
+    // desktop geometry depends on the viewport class (wide() is defined below; hoisted)
     svg.innerHTML = '';
     const g = el('g', {}, svg);
     const arc = (cx, cy, r, a0, a1, cls) => { let d = ''; for (let i = 0; i <= 16; i++) { const a = (a0 + (a1 - a0) * i / 16) * Math.PI / 180; d += (i ? 'L' : 'M') + (cx + Math.cos(a) * r).toFixed(1) + ' ' + (cy + Math.sin(a) * r).toFixed(1); } return el('path', { class: cls, d }, g); };
@@ -25,7 +26,18 @@
       reg(268, 78, 1, 1); reg(268, 178, 1, -1);
       el('rect', { class: 'st-rule', x: 0, y: 244, width: 390, height: 3 }, g);
       T = { x1: -10, y1: 236, x2: 262, y2: 128, cp: 5, vec: 16, edge: { x: 259, y: 72, w: 3, h: 112 } };
+    } else if (wide()) {
+      // ultra-wide composition: longer approach on the left, the station whole and inward with a margin on the right
+      svg.setAttribute('viewBox', '-120 0 1120 620');
+      el('circle', { class: 'st-ring', cx: 660, cy: 310, r: 280 }, g);
+      [[-165, -140], [-95, -70], [150, 170], [100, 125]].forEach(([a0, a1]) => arc(660, 310, 280, a0, a1, 'st-seg'));
+      el('rect', { class: 'st-plane', x: 360, y: 100, width: 580, height: 460 }, g);
+      el('rect', { class: 'st-opening', x: 400, y: 140, width: 308, height: 380 }, g);
+      reg(406, 146, 1, 1); reg(702, 146, -1, 1); reg(406, 514, 1, -1); reg(702, 514, -1, -1);
+      el('rect', { class: 'st-rule', x: -120, y: 560, width: 1120, height: 3 }, g);
+      T = { x1: -110, y1: 470, x2: 400, y2: 330, cp: 6, vec: 22, edge: { x: 396, y: 140, w: 4, h: 380 } };
     } else {
+      svg.setAttribute('viewBox', '0 0 760 620');
       el('circle', { class: 'st-ring', cx: 640, cy: 300, r: 330 }, g);
       [[-165, -140], [-95, -70], [150, 170], [100, 125]].forEach(([a0, a1]) => arc(640, 300, 330, a0, a1, 'st-seg'));
       el('rect', { class: 'st-plane', x: 360, y: 100, width: 440, height: 460 }, g);
@@ -50,10 +62,16 @@
       },
     };
   }
+  const wideQuery = window.matchMedia('(min-width: 1600px)');
+  function wide() { return wideQuery.matches; }
   const stations = [];
   const sD = document.getElementById('station-svg'); if (sD) stations.push(drawStation(sD, false));
   const sM = document.getElementById('station-svg-m'); if (sM) stations.push(drawStation(sM, true));
-  const paint = (step, state) => stations.forEach((s) => s.set(step, state));
+  let lastStep = 0, lastState = 'idle';
+  const paint = (step, state) => { lastStep = step; lastState = state; stations.forEach((s) => s.set(step, state)); };
+  // the desktop drawing changes geometry across the 1600px breakpoint: redraw and restore its state
+  const onWideChange = () => { if (!sD) return; stations[0] = drawStation(sD, false); paint(lastStep, lastState); };
+  if (wideQuery.addEventListener) wideQuery.addEventListener('change', onWideChange); else if (wideQuery.addListener) wideQuery.addListener(onWideChange);
 
   // ---------------------------------------------------------------- form
   const stages = Array.from(form.querySelectorAll('.stage'));

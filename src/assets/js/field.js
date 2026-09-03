@@ -209,9 +209,19 @@
   // spread across the full width because no text sits beside it there.
   const HERO_DESKTOP = [[600, 140], [860, 240], [840, 480], [600, 485], [470, 320]];
   const HERO_MOBILE = [[190, 150], [500, 110], [820, 160], [320, 450], [720, 470]];
-  function layoutHero(p, mobile) {
+  // s = normalised scroll progress through the hero (0 at the top, 1 as it
+  // leaves). The assembly rotates about its centroid and rides a shallow arc
+  // across the empty field; labels and relationships follow. Sanitize keeps
+  // every label inside the frame in every state.
+  function layoutHero(p, mobile, s) {
     const l = blank();
-    (mobile ? HERO_MOBILE : HERO_DESKTOP).forEach(([cx, cy], gi) => {
+    s = s || 0;
+    const base = mobile ? HERO_MOBILE : HERO_DESKTOP;
+    const cxm = base.reduce((a, c) => a + c[0], 0) / base.length, cym = base.reduce((a, c) => a + c[1], 0) / base.length;
+    const rot = (mobile ? 9 : 14) * s * Math.PI / 180, cosR = Math.cos(rot), sinR = Math.sin(rot);
+    const dx = (mobile ? 24 * Math.sin(s * Math.PI) : 40 * Math.sin(s * Math.PI)), dy = (mobile ? -44 : -50) * s;
+    const moved = base.map(([x, y]) => { const rx = x - cxm, ry = y - cym; return [cxm + rx * cosR - ry * sinR + dx, cym + rx * sinR + ry * cosR + dy]; });
+    moved.forEach(([cx, cy], gi) => {
       const spread = 80 - 34 * p;
       ring(l, gi, cx, cy, spread, 0.5, 3.2, 0.55 + 0.4 * p);
       l.hubs[gi] = { x: cx, y: cy, r: 7, o: p };
@@ -547,6 +557,52 @@
     hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (((e.clientX - r.left) / r.width - 0.5) * 14).toFixed(1) + 'px'); hero.style.setProperty('--my', (((e.clientY - r.top) / Math.min(r.height, window.innerHeight) - 0.5) * 10).toFixed(1) + 'px'); });
   }
 
+  // ======================================================= PUBLIC THINKING SIGNAL
+  // A rail left of the ledger. Geometry is measured from the DOM (one point per
+  // row at its title's centre, a beacon at "See all"). On entry the coral
+  // trace draws down to the newest finding; hover or focus on a row moves it
+  // there. Purely decorative (aria-hidden); reduced motion shows the resolved state.
+  const ptSection = document.querySelector('.pt');
+  const ptSvg = document.getElementById('pt-signal');
+  if (ptSection && ptSvg) {
+    const body = document.getElementById('pt-body');
+    const rows = Array.from(ptSection.querySelectorAll('.ledger-row'));
+    const seeAll = document.getElementById('pt-seeall');
+    const sel = mk(ptSvg);
+    const rail = sel('line', { class: 'sig-rail', x1: 14, x2: 14 });
+    const tail = sel('line', { class: 'sig-rail-tail', x1: 14, x2: 14 });
+    const trace = sel('line', { class: 'sig-trace', x1: 14, x2: 14 });
+    const pulses = rows.map(() => sel('rect', { class: 'sig-pulse', width: 9, height: 9 }));
+    const pts = rows.map(() => sel('rect', { class: 'sig-pt', width: 9, height: 9 }));
+    const beaconRing = sel('rect', { class: 'sig-beacon-ring', width: 11, height: 11 });
+    const beacon = sel('rect', { class: 'sig-beacon', width: 7, height: 7 });
+    let ys = [], beaconY = 0, top = 0, target = 0, entered = false;
+    function measure() {
+      const b = body.getBoundingClientRect(); top = 0;
+      ptSvg.setAttribute('viewBox', '0 0 28 ' + Math.round(b.height)); ptSvg.setAttribute('width', 28); ptSvg.setAttribute('height', Math.round(b.height));
+      ys = rows.map((r) => { const t = r.querySelector('.ledger-title') || r; const tb = t.getBoundingClientRect(); return tb.top - b.top + tb.height / 2; });
+      const sb = (seeAll || body).getBoundingClientRect(); beaconY = sb.top - b.top + sb.height / 2;
+      const lastY = ys.length ? ys[ys.length - 1] : 0;
+      rail.setAttribute('y1', 0); rail.setAttribute('y2', lastY.toFixed(1));
+      tail.setAttribute('y1', lastY.toFixed(1)); tail.setAttribute('y2', (beaconY - 12).toFixed(1));
+      pts.forEach((p, i) => { p.setAttribute('x', 9.5); p.setAttribute('y', (ys[i] - 4.5).toFixed(1)); pulses[i].setAttribute('x', 9.5); pulses[i].setAttribute('y', (ys[i] - 4.5).toFixed(1)); });
+      beacon.setAttribute('x', 10.5); beacon.setAttribute('y', (beaconY - 3.5).toFixed(1)); beaconRing.setAttribute('x', 8.5); beaconRing.setAttribute('y', (beaconY - 5.5).toFixed(1));
+      const total = beaconY; trace.setAttribute('y1', 0); trace.setAttribute('y2', total.toFixed(1)); trace.style.strokeDasharray = total.toFixed(1);
+      apply(false);
+    }
+    function apply(animate) {
+      const y = ys[target] || 0; const total = beaconY || 1;
+      if (!animate) trace.style.transition = 'none';
+      trace.style.strokeDashoffset = entered || reduceMotion ? (total - y).toFixed(1) : total.toFixed(1);
+      if (!animate) requestAnimationFrame(() => { trace.style.transition = ''; });
+      pts.forEach((p, i) => { p.classList.toggle('on', (entered || reduceMotion) && i === target); pulses[i].classList.toggle('on', (entered || reduceMotion) && i === target); });
+    }
+    rows.forEach((r, i) => { const go = () => { target = i; apply(true); }; const back = () => { target = 0; apply(true); }; r.addEventListener('mouseenter', go); r.addEventListener('mouseleave', back); r.addEventListener('focusin', go); r.addEventListener('focusout', (e) => { if (!r.contains(e.relatedTarget)) back(); }); });
+    const enter = () => { entered = true; ptSection.classList.add('in'); apply(true); };
+    if ('IntersectionObserver' in window && !reduceMotion) { const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { enter(); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(body); } else enter();
+    measure(); window.addEventListener('resize', measure); if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure); window.addEventListener('load', measure);
+  }
+
   const ledgerEmpty = document.getElementById('ledger-empty');
   if (ledgerEmpty) { document.querySelectorAll('.filter-pill').forEach((pill) => pill.addEventListener('click', () => { document.querySelectorAll('.filter-pill').forEach((p) => p.setAttribute('aria-pressed', p === pill ? 'true' : 'false')); requestAnimationFrame(() => { ledgerEmpty.hidden = Array.from(document.querySelectorAll('.ledger-row')).some((r) => r.style.display !== 'none'); }); })); }
 
@@ -555,9 +611,14 @@
     const vh = window.innerHeight; const mobile = narrow();
     if (hero && fields['hero-field']) {
       const p = reduceMotion ? 1 : clamp01((now - heroStart) / 2600); const e = easeOut(p);
-      fields['hero-field'].setTarget(layoutHero(e, mobile));
+      // scroll-linked movement: only while the hero is in range, eased, off under reduced motion
+      const heroH = hero.offsetHeight || vh; const sy = window.scrollY;
+      if (sy < heroH + vh) {
+        const raw = reduceMotion ? 0 : clamp01(sy / (heroH * 0.85)); const s = raw * raw * (3 - 2 * raw);
+        fields['hero-field'].setTarget(layoutHero(e, mobile, s));
+      }
       verbs.forEach((v, i) => v.classList.toggle('lit', i < Math.floor(e * 4.999)));
-      if (!mobile && !reduceMotion) hero.style.setProperty('--py', (window.scrollY * 0.08).toFixed(1) + 'px');
+      if (!mobile && !reduceMotion && sy < heroH + vh) hero.style.setProperty('--py', (sy * 0.12).toFixed(1) + 'px');
     }
     if (nar) { let i = 0; if (mobile) notes.forEach((n, k) => { if (n.getBoundingClientRect().top < vh * 0.62) i = k; }); else narSteps.forEach((s, k) => { if (s.getBoundingClientRect().top <= vh * 0.5) i = k; }); setNarStage(i); }
   }

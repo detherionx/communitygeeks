@@ -37,7 +37,12 @@ ol,ul{margin:0;padding:0;list-style:none;}
 .approach-direct a{color:var(--cream);font-weight:600;border-bottom:1px solid var(--cream);}
 .approach-direct a:hover{border-color:var(--signal);}
 /* the station: a 760x620 drawing anchored to the right half of the viewport */
-.station{position:absolute;right:0;top:50%;width:min(760px,56vw);aspect-ratio:760/620;transform:translateY(-50%);pointer-events:none;}
+/* the station box: --st-w is the box width, --st-vb the viewBox width the
+   drawing uses (760 normally; 1240 on wide screens where the composition
+   gains a longer approach on the left and a margin on the right), --st-ox the
+   viewBox units between the opening's right edge and the box's right edge */
+.approach-hero{--st-w:min(760px,56vw);--st-vb:760;--st-ox:52;}
+.station{position:absolute;right:0;top:50%;width:var(--st-w);aspect-ratio:760/620;transform:translateY(-50%);pointer-events:none;}
 .station-svg{display:block;width:100%;height:100%;overflow:visible;}
 .station-m{display:none;}
 .station-svg .st-ring{fill:none;stroke:var(--cream);stroke-width:1.5;stroke-opacity:0.85;}
@@ -58,7 +63,20 @@ ol,ul{margin:0;padding:0;list-style:none;}
 .station-svg.sent .st-vec{opacity:0;}
 .station-svg.sent .st-edge{opacity:1;}
 /* the form lives in the station opening: 308 x 380 at 760 wide */
-.dock{position:absolute;z-index:3;right:calc((min(760px,56vw)) * (52 / 760));top:50%;transform:translateY(calc(-50% + (min(760px,56vw)) * (20 / 760)));width:calc(min(760px,56vw) * (308 / 760));min-height:calc(min(760px,56vw) * (380 / 760));background:var(--cream);color:var(--ink);padding:22px 24px 20px;display:flex;flex-direction:column;}
+.dock{position:absolute;z-index:3;right:calc(var(--st-w) * var(--st-ox) / var(--st-vb));top:50%;transform:translateY(calc(-50% + var(--st-w) * 20 / var(--st-vb)));width:calc(var(--st-w) * 308 / var(--st-vb));min-height:calc(var(--st-w) * 380 / var(--st-vb));background:var(--cream);color:var(--ink);padding:22px 24px 20px;display:flex;flex-direction:column;}
+/* wide and ultra-wide: the whole composition (approach path, station, form)
+   grows and moves inward together; the form becomes the destination of the
+   flight path rather than an object parked at the edge */
+@media (min-width:1600px){
+  .approach-hero{--st-w:min(64vw,1900px);--st-vb:1120;--st-ox:292;}
+  .station{aspect-ratio:1120/620;}
+  .dock{padding:28px 30px 26px;}
+  .dock .stage label{font-size:14px;}
+  .dock .in{font-size:17px;}
+  .dock .help,.dock .errmsg{font-size:13.5px;}
+  .dock .kctl{font-size:16px;}
+  .dock-done .done-h{font-size:34px;}
+}
 .dock-head{margin-bottom:8px;}
 .dock-idx{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);}
 .dock-idx b{font-weight:500;color:var(--ink);}

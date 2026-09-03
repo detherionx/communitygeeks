@@ -93,32 +93,32 @@ footerInline: true
     </div>
     <div class="nar-notes">
       <article class="note" data-note="0">
-        <span class="note-kicker">Field note 01 · The old container</span>
+        <span class="note-kicker">System view 01 · The old container</span>
         <p class="note-lead">A forum. A Discord server. An engagement calendar.</p>
         <p>That used to be enough to call something &ldquo;community.&rdquo;</p>
       </article>
       <article class="note" data-note="1">
-        <span class="note-kicker">Field note 02 · Many groups at once</span>
+        <span class="note-kicker">System view 02 · Many groups at once</span>
         <p class="note-lead">Most organizations coordinate many participant groups at once: users, developers, creators, partners, advocates, and others specific to the product.</p>
         <p class="note-tags"><span>users</span><span>developers</span><span>creators</span><span>partners</span><span>advocates</span><span class="note-tag-open">and others …</span></p>
       </article>
       <article class="note" data-note="2">
-        <span class="note-kicker">Field note 03 · Nobody owns the overlap</span>
+        <span class="note-kicker">System view 03 · Nobody owns the overlap</span>
         <p class="note-lead">Often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
         <p class="note-q">What&rsquo;s owned internally versus externally?</p>
       </article>
       <article class="note" data-note="3">
-        <span class="note-kicker">Field note 04 · Diagnostics</span>
+        <span class="note-kicker">System view 04 · Diagnostics</span>
         <p class="note-lead">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
         <p class="note-verbs"><span class="on">Identify.</span> <span>Understand.</span> <span>Shape.</span> <span>Strengthen.</span></p>
       </article>
       <article class="note" data-note="4">
-        <span class="note-kicker">Field note 05 · The question changes</span>
+        <span class="note-kicker">System view 05 · The question changes</span>
         <p class="note-lead">Not <s>where does your community run</s>, but who&rsquo;s actually participating, and how.</p>
         <p class="note-verbs"><span>Identify.</span> <span class="on">Understand.</span> <span class="on">Shape.</span> <span>Strengthen.</span></p>
       </article>
       <article class="note" data-note="5">
-        <span class="note-kicker">Field note 06 · One connected system</span>
+        <span class="note-kicker">System view 06 · One connected system</span>
         <p class="note-lead">How people gather, contribute, connect and create value.</p>
         <p>Participation around a product rarely fits one team, channel or program. Neither does the work.</p>
         <a class="note-link" href="#approach">How we work →</a>
@@ -227,14 +227,14 @@ footerInline: true
 
 {# --------------------------------------------- SELECTED WORK: VIGNETTES #}
 <section class="cases chapter" id="cases" data-chapter="05" data-title="Selected work">
-  {# Compact credibility, not a chapter: headline left, one index of all six
+  {# Compact credibility, not a chapter: headline left, one index of six selected
      real engagements right. Order is the data order (DeepL, EU Academy,
      Tencent first); every description is the existing `proof` text. #}
   <div class="exp-grid">
     <div class="exp-head">
       <p class="kicker"><span class="node-dot node-dot-ochre"></span>Selected work</p>
       <h2 class="cases-h2">A decade of building the programs we now research.</h2>
-      <p class="cases-lead">Six engagements across SaaS and AI, the public sector, gaming and FMCG, listed with what was actually done.</p>
+      <p class="cases-lead">Selected engagements across SaaS and AI, the public sector, gaming and FMCG, shown with what was actually done.</p>
     </div>
     <ol class="exp-rows">
       {% for client in clients.selectedWork %}
@@ -257,10 +257,16 @@ footerInline: true
     </div>
     <div class="pt-head-side">
       <p class="pt-sub">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
-      <a class="entry-link" href="/mockups/field/public-thinking/">See all Public Thinking →</a>
     </div>
   </div>
-  <ol class="ledger">
+  {# Live research signal: a rail along the ledger. On entry the coral trace
+     travels down the rail and resolves at the newest finding; hovering or
+     focusing a row moves it there; the beacon at the foot marks "See all".
+     Decorative only: hidden from assistive technology, static under
+     reduced motion. Geometry is measured from the DOM by field.js. #}
+  <div class="pt-body" id="pt-body">
+    <svg class="pt-signal" id="pt-signal" aria-hidden="true" focusable="false"></svg>
+  <ol class="ledger" id="ledger">
     {% for piece in publicThinking %}
     <li class="ledger-row">
       <span class="ledger-date">{{ piece.date | readableDate }}</span>
@@ -274,7 +280,11 @@ footerInline: true
     </li>
     {% endfor %}
   </ol>
-  {% if publicThinking.length and publicThinking[0].researchThread %}<p class="pt-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>{% endif %}
+  <div class="pt-foot">
+    {% if publicThinking.length and publicThinking[0].researchThread %}<p class="pt-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>{% endif %}
+    <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/mockups/field/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+  </div>
+  </div>
 </section>
 
 {# ------------------------------------------- FOUNDER: warm human surface #}
@@ -286,7 +296,7 @@ footerInline: true
         <span class="tick tick-tl"></span><span class="tick tick-br"></span>
       </figure>
       <div>
-        <span class="note-kicker">Field note · The person behind the work</span>
+        <span class="note-kicker">Founder · The person behind the work</span>
         <h3 class="author-name" id="founder-name">Carmelito Bauer</h3>
         <p class="author-role">Founder, Communitygeeks</p>
         <p class="author-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
