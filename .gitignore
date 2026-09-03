@@ -2,3 +2,6 @@ node_modules/
 _site/
 .DS_Store
 *.log
+
+# server-side secrets for the contact endpoint (lives only on the server)
+public/api/contact.config.php
