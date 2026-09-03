@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
 
   // Public Thinking V2: a piece's motif rendered as a constellation for a context (record | catalogue | masthead | og)
   // on a ground (dark | paper). Pure string output; mark it safe where used. See src/lib/constellationMotifs.js.
-  eleventyConfig.addFilter("constellation", (motif, ctx, ground) => (motif ? motifSvg(motif, ctx, ground) : ""));
+  eleventyConfig.addFilter("constellation", (motif, ctx, ground, lang) => (motif ? motifSvg(motif, ctx, ground, lang) : ""));
 
   eleventyConfig.addFilter("isoDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISODate();

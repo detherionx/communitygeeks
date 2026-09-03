@@ -52,7 +52,7 @@ extraScripts:
       {% if hasSide %}
       <div class="pt-masthead-side accent-{{ piece.accentColor or 'petrol' }}">
         {# the observation transferred into the journal: the piece's constellation heads the notation column #}
-        {% if piece.motif %}<div class="pt-motif pt-motif--spec pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'masthead', 'paper') }}</div>{% endif %}
+        {% if piece.motif %}<div class="pt-motif pt-motif--spec pt-motif-{{ piece.motif }}">{{ ptConstellation(piece.motif, 'masthead', 'paper', 'en') }}</div>{% endif %}
         {% if piece.topics and piece.topics.length %}
         <span class="pt-side-label">Topics</span>
         <div class="pt-side-tags">

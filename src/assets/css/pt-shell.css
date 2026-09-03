@@ -82,7 +82,7 @@ body.pt-shell{padding-top:var(--bar-h);}
 .pt-shell .pt-masthead-main{overflow:visible;}
 .pt-shell .pt-masthead-content,.pt-shell .pt-masthead-side{position:relative;z-index:1;}
 .pt-shell .pt-masthead-side{background:transparent;color:var(--ink);padding:36px 0 44px 36px;border-left:1px solid var(--line);display:flex;flex-direction:column;}
-.pt-shell .pt-motif--spec{position:relative;display:block;width:138%;margin:-14px -24% 22px -14%;height:auto;aspect-ratio:300/230;opacity:1;z-index:0;pointer-events:none;}
+.pt-shell .pt-motif--spec{position:relative;display:block;width:100%;margin:-6px 0 22px;height:auto;aspect-ratio:300/230;opacity:1;z-index:0;pointer-events:none;}
 .pt-shell .pt-masthead-side .pt-side-label{color:var(--petrol);}
 .pt-shell .pt-masthead-side .pt-side-tag{color:var(--ink);}
 .pt-shell .pt-masthead-side .pt-side-oq{position:relative;padding-top:18px;color:var(--ink-soft);}
@@ -93,5 +93,5 @@ html[lang="de"] .pt-shell .pt-masthead-side .pt-side-oq::after{content:"Offene F
 .pt-shell .obs-label b{font-weight:500;color:var(--petrol);}
 @media (max-width:860px){
   .pt-shell .pt-masthead-side{border-left:0;border-top:1px solid var(--line);padding:28px 0 0;}
-  .pt-shell .pt-motif--spec{width:100%;margin:0 -4% 18px auto;}
+  .pt-shell .pt-motif--spec{width:84%;margin:0 0 18px auto;}
 }

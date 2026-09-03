@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} · Communitygeeks</title>
 <meta name="description" content="{{ description }}">
+<meta property="og:title" content="{{ ogTitle or (title ~ ' · Communitygeeks') }}">
+<meta property="og:description" content="{{ ogDescription or description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://communitygeeks.ai{{ page.url }}">
+<meta property="og:image" content="https://communitygeeks.ai/assets/images/communitygeeks-2-og-2026.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Communitygeeks 2.0. Participation has changed. We rebuilt the observatory. Deep teal field with the constellation Reticulum and a coral signal.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ ogTitle or (title ~ ' · Communitygeeks') }}">
+<meta name="twitter:description" content="{{ ogDescription or description }}">
+<meta name="twitter:image" content="https://communitygeeks.ai/assets/images/communitygeeks-2-og-2026.png">
+<meta name="twitter:image:alt" content="Communitygeeks 2.0. Participation has changed. We rebuilt the observatory.">
 {# MOCKUP LAYOUT ("Participation is a living system" concept homepage).
    Unindexed, excluded from collections/sitemap by the page's front matter,
    no analytics tag. Loads shell.css (bar + footer, shared with the concept

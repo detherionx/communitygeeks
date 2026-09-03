@@ -108,6 +108,19 @@ async function main() {
       await card.screenshot({ path: outputPath });
       console.log(`Generated OG card: ${path.relative(SITE_DIR, outputPath)}`);
     }
+
+    // The site's own social preview (Communitygeeks 2.0): 1200x627 (LinkedIn's 1.91:1), a new filename on purpose so
+    // LinkedIn/Buffer caches keyed to the old URL cannot serve the previous artwork. Source: src/og-cards/site.njk.
+    const sitePage = await browser.newPage({ viewport: { width: 1200, height: 627 }, deviceScaleFactor: 1 });
+    const siteUrl = `http://127.0.0.1:${port}/og-cards/site/`;
+    const siteRes = await sitePage.goto(siteUrl, { waitUntil: "networkidle" });
+    if (!siteRes || !siteRes.ok()) throw new Error(`Site OG page did not load (${siteUrl}).`);
+    await sitePage.evaluate(() => document.fonts.ready);
+    const siteBox = await sitePage.locator(".og-site").boundingBox();
+    if (!siteBox || Math.round(siteBox.width) !== 1200 || Math.round(siteBox.height) !== 627) throw new Error(`Site OG card rendered at ${siteBox ? `${siteBox.width}x${siteBox.height}` : "no size"}, expected 1200x627.`);
+    const siteOut = path.join(SITE_DIR, "assets", "images", "communitygeeks-2-og-2026.png");
+    await sitePage.locator(".og-site").screenshot({ path: siteOut });
+    console.log(`Generated site OG image: ${path.relative(SITE_DIR, siteOut)}`);
   } finally {
     await browser.close();
     server.close();

@@ -7,7 +7,7 @@ date: 2026-08-25
 format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
-motif: "people-beyond-container"
+motif: "reticulum"  # the real constellation Reticulum (the Reticle); see src/lib/constellationMotifs.js
 summary: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
 deck: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
 topics:
