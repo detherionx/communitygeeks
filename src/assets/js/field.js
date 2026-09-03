@@ -232,7 +232,7 @@
       const spread = (80 - 34 * p) * (0.72 + 0.28 * k);
       ring(l, gi, cx, cy, spread, 0.5, 3.2, 0.55 + 0.4 * p);
       l.hubs[gi] = { x: cx, y: cy, r: 7, o: p };
-      l.labels[gi] = { x: cx, y: cy - 62, o: Math.max(0, (p - 0.55) / 0.45), desc: true };
+      l.labels[gi] = { x: cx, y: cy - 62, o: Math.max(0, (p - 0.55) / 0.45), desc: k > 0.6 }; // descriptors fade out once the assembly is compact, so names never collide with them
       hubLink(l, gi, 0.35 * p);
       l.links.push({ a: 'hub:' + gi, b: 'hub:' + ((gi + 1) % 5), o: 0.35 * Math.max(0, (p - 0.3) / 0.7), w: 1 });
       l.links.push({ a: 'hub:' + gi, b: 'hub:' + ((gi + 2) % 5), o: 0.18 * Math.max(0, (p - 0.5) / 0.5), w: 1 });
