@@ -133,7 +133,7 @@ $bodyText = "Name: {$name}\nEmail: {$email}\n\n{$context}\n\n—\nSent from the 
 $GLOBALS['cg_delivery_detail'] = '';
 $ok = $useResend ? resend_send($cfg, $subject, $bodyText, $email, $name) : smtp_send($cfg, $subject, $bodyText, $email, $name);
 // on failure, say which route failed and why, without ever echoing credentials
-if (!$ok) respond(502, ['ok' => false, 'error' => 'delivery', 'route' => $useResend ? 'resend' : 'smtp', 'detail' => (string)$GLOBALS['cg_delivery_detail']]);
+if (!$ok) respond(502, ['ok' => false, 'error' => 'delivery', 'route' => $useResend ? 'resend' : 'smtp', 'detail' => (string)$GLOBALS['cg_delivery_detail'], 'config_keys' => array_keys($cfg), 'config_file' => basename($configFile) . ' (' . date('Y-m-d H:i', (int)filemtime($configFile)) . ')']);
 
 $hits[] = $now; @file_put_contents($ipKey, json_encode(array_values($hits)), LOCK_EX);
 if ($id !== '') @file_put_contents($idKey, '1', LOCK_EX);
