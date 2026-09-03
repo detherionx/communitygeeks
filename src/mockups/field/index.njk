@@ -254,24 +254,16 @@ footerInline: true
     <div>
       <p class="kicker"><span class="node-dot node-dot-ochre"></span>Public Thinking</p>
       <h2 class="pt-h2">Live findings,<br>not a static portfolio.</h2>
-      <p class="pt-sub">Research findings, executive one-pagers, case studies and field notes&mdash;tagged by format and by how much evidence currently supports them.</p>
     </div>
-    {# Field journal: a research officer's notebook set into the console. The
-       page registers into position as the section enters, then a geometric pen
-       writes an abstract notation as the visitor scrolls (index, ruled note,
-       circled observation for the first finding, connection into an
-       emerging-pattern symbol for the second, arrow toward "See all").
-       Decorative only: hidden from assistive technology, completed state under
-       reduced motion. Geometry and choreography live in field.js. #}
     <div class="pt-head-side">
-      <div class="journal" id="journal" aria-hidden="true">
-        <svg class="journal-svg" id="journal-svg" viewBox="0 0 520 320" focusable="false"></svg>
-      </div>
+      <p class="pt-sub">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
     </div>
   </div>
-  {# Rail along the ledger: the journal's states as a timeline. The trace
-     reaches each finding as the pen records it; hovering or focusing a row
-     moves it there; the beacon at the foot marks "See all". Decorative only. #}
+  {# Live research signal: a rail along the ledger. On entry the coral trace
+     travels down the rail and resolves at the newest finding; hovering or
+     focusing a row moves it there; the beacon at the foot marks "See all".
+     Decorative only: hidden from assistive technology, static under
+     reduced motion. Geometry is measured from the DOM by field.js. #}
   <div class="pt-body" id="pt-body">
     <svg class="pt-signal" id="pt-signal" aria-hidden="true" focusable="false"></svg>
   <ol class="ledger" id="ledger">
