@@ -92,6 +92,9 @@ html[lang="de"] .pt-shell .pt-masthead-side .pt-side-oq::after{content:"Offene F
 .pt-shell .obs-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px;}
 .pt-shell .obs-label b{font-weight:500;color:var(--petrol);}
 @media (max-width:860px){
-  .pt-shell .pt-masthead-side{border-left:0;border-top:1px solid var(--line);padding:28px 0 0;}
-  .pt-shell .pt-motif--spec{width:84%;margin:0 0 18px auto;}
+  .pt-shell .pt-masthead-side{position:static;border-left:0;border-top:1px solid var(--line);padding:28px 0 0;} /* static so the specimen positions against the masthead */
+  /* phones: the notation column stacks below the title, so the specimen leaves it and becomes the title's background,
+     upper right inside the masthead (which clips nothing: the drawing keeps its full contour inside the box) */
+  .pt-shell .pt-motif--spec{position:absolute;top:22px;right:0;width:min(64%,270px);margin:0;opacity:0.5;z-index:0;}
+  .pt-shell .pt-motif--spec .cm-label{display:none;} /* the notation label would sit behind running text here */
 }
