@@ -19,13 +19,13 @@
     const reg = (x, y, sx, sy) => el('path', { class: 'st-reg', d: 'M' + x + ' ' + (y + sy * 10) + ' V' + y + ' H' + (x + sx * 10) }, g);
     let T;
     if (mobile) {
-      el('circle', { class: 'st-ring', cx: 330, cy: 128, r: 150 }, g);
-      [[-150, -120], [-60, -30], [40, 70]].forEach(([a0, a1]) => arc(330, 128, 150, a0, a1, 'st-seg'));
-      el('rect', { class: 'st-plane', x: 236, y: 48, width: 200, height: 160 }, g);
-      el('rect', { class: 'st-opening', x: 262, y: 72, width: 160, height: 112 }, g);
-      reg(268, 78, 1, 1); reg(268, 178, 1, -1);
-      el('rect', { class: 'st-rule', x: 0, y: 244, width: 390, height: 3 }, g);
-      T = { x1: -10, y1: 236, x2: 262, y2: 128, cp: 5, vec: 16, edge: { x: 259, y: 72, w: 3, h: 112 } };
+      // Phones (2026-09-03, tester feedback): no empty bay above the form. The station is the ring segment and the
+      // approach trajectory only; the trajectory descends to the bottom edge of the drawing, which is the top edge
+      // of the cream form card directly beneath it, so the form itself is the opening the vector docks into.
+      // The st-edge bar sits on that seam and turns coral on success.
+      el('circle', { class: 'st-ring', cx: 330, cy: 54, r: 124 }, g);
+      [[-150, -120], [-60, -30], [40, 70]].forEach(([a0, a1]) => arc(330, 54, 124, a0, a1, 'st-seg'));
+      T = { x1: -10, y1: 28, x2: 292, y2: 167, cp: 5, vec: 16, edge: { x: 254, y: 165, w: 76, h: 5 } };
     } else {
       // Docking assembly (desktop). The cream form (HTML, 300 x 380 units at
       // x 400..700, y 140..520) is the control panel; around it: a partial

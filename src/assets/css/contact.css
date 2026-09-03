@@ -160,7 +160,7 @@ html:not(.js) .dock-head,html:not(.js) .review{display:none;}
   .approach-intro{max-width:none;font-size:16px;}
   .approach-direct{display:none;}
   .station{display:none;}
-  .station-m{display:block;margin:28px calc(-1 * var(--gutter)) 0;width:calc(100% + 2 * var(--gutter));aspect-ratio:390/260;}
+  .station-m{display:block;margin:20px calc(-1 * var(--gutter)) 0;width:calc(100% + 2 * var(--gutter));aspect-ratio:390/170;}
   .station-svg-m{display:block;width:100%;height:100%;}
   .station-m .st-ring{fill:none;stroke:var(--cream);stroke-width:1.5;stroke-opacity:0.85;}
   .station-m .st-seg{fill:none;stroke:var(--cream);stroke-width:6;}
@@ -176,7 +176,10 @@ html:not(.js) .dock-head,html:not(.js) .review{display:none;}
   .station-m .st-vec{fill:var(--signal);}
   .station-m .st-edge{fill:var(--signal);opacity:0;}
   .station-svg-m.sent .st-traj{stroke-dasharray:none;stroke-opacity:1;} .station-svg-m.sent .st-done{stroke-width:3;} .station-svg-m.sent .st-vec{opacity:0;} .station-svg-m.sent .st-edge{opacity:1;}
-  .dock{position:relative;right:auto;top:auto;transform:none;width:100%;min-height:0;margin-top:20px;padding:20px 20px 20px;}
+  .dock{position:relative;right:auto;top:auto;transform:none;width:100%;min-height:0;margin-top:0;padding:24px 20px 20px;}
+  /* the card is the opening: registration corners at its top edge, where the trajectory docks */
+  .dock::before,.dock::after{content:"";position:absolute;top:8px;width:14px;height:14px;border-top:1px solid var(--ink);pointer-events:none;}
+  .dock::before{left:8px;border-left:1px solid var(--ink);} .dock::after{right:8px;border-right:1px solid var(--ink);}
   .dock .kctl{min-width:0;width:100%;font-size:16px;}
   .dock .kctl .kctl-row{width:100%;justify-content:space-between;padding:14px 0 6px;}
   .dock-acts{flex-wrap:wrap;gap:14px;}
