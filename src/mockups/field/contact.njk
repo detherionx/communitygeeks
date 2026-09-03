@@ -1,0 +1,111 @@
+---
+layout: layouts/mockup-contact.njk
+title: "Contact, docking-clearance concept (not for publication)"
+description: "Design exploration: the Communitygeeks contact page as an approach and clearance sequence. Unindexed."
+permalink: /mockups/field/contact/
+eleventyExcludeFromCollections: true
+navActive: contact
+---
+{# =========================================================================
+   CONTACT · A BAUHAUS SPACEPORT DOCKING-CLEARANCE SEQUENCE
+   Headline and copy left, the station right: one cropped circle with heavy
+   segments, one constructed plane, one cream opening that holds the form,
+   one stage at a time. The trajectory carries four checkpoints (the four
+   stages); a small vector advances after each valid stage. Plain labels
+   stay plain; the metaphor is annotation only. Backend: the site's own
+   endpoint at /api/contact.php (decision C-1). All copy is the approved
+   Contact copy. Decorative geometry is hidden from assistive technology.
+   ========================================================================= #}
+<section class="approach-hero" id="approach" aria-labelledby="contact-h1">
+  <div class="approach-copy">
+    <p class="ck">Get in touch</p>
+    <h1 class="approach-h1" id="contact-h1">Talk about what&rsquo;s actually happening.</h1>
+    <p class="approach-intro">Whether it&rsquo;s an active problem or just a hunch that your community, DevRel, and partnership functions don&rsquo;t fit together the way they used to, this is a good place to start a conversation, not a sales call.</p>
+    <p class="approach-direct">Direct, no form required if you&rsquo;d rather just write: <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
+  </div>
+
+  <div class="station" aria-hidden="true">
+    <svg class="station-svg" id="station-svg" viewBox="0 0 760 620" preserveAspectRatio="xMidYMid meet" focusable="false"></svg>
+  </div>
+  <div class="station-m" aria-hidden="true">
+    <svg class="station-svg-m" id="station-svg-m" viewBox="0 0 390 260" preserveAspectRatio="xMidYMid meet" focusable="false"></svg>
+  </div>
+
+  {# The form: one <form>, four fieldsets, one visible at a time. Without
+     JavaScript every fieldset is visible and the form posts normally. #}
+  <form class="dock" id="dock" action="/api/contact.php" method="post" novalidate data-endpoint="/api/contact.php" data-turnstile-key="{{ contact.turnstileSiteKey or '' }}">
+    <div class="dock-head">
+      <p class="dock-idx" id="dock-idx" aria-live="polite" aria-atomic="true"><span class="sr-only">Step </span><b id="dock-step">1</b> / 4 <span class="sr-only">, </span><span class="dock-stage" id="dock-stage">Identify</span></p>
+      <ol class="dock-prog" id="dock-prog" aria-hidden="true"><li class="cur"></li><li></li><li></li><li></li></ol>
+    </div>
+
+    <fieldset class="stage" data-stage="1">
+      <legend class="sr-only">Step 1 of 4, Identify</legend>
+      <label for="c-name">Name</label>
+      <input class="in" id="c-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="c-name-help c-name-err">
+      <p class="help" id="c-name-help">Required. So the reply can address you.</p>
+      <p class="errmsg" id="c-name-err" hidden></p>
+    </fieldset>
+
+    <fieldset class="stage" data-stage="2" hidden>
+      <legend class="sr-only">Step 2 of 4, Open channel</legend>
+      <label for="c-email">Email</label>
+      <input class="in" id="c-email" name="email" type="email" autocomplete="email" required maxlength="200" inputmode="email" aria-describedby="c-email-help c-email-err">
+      <p class="help" id="c-email-help">Required. Replies go here.</p>
+      <p class="errmsg" id="c-email-err" hidden></p>
+    </fieldset>
+
+    <fieldset class="stage" data-stage="3" hidden>
+      <legend class="sr-only">Step 3 of 4, Transmit context</legend>
+      <label for="c-context">What&rsquo;s going on with your ecosystem?</label>
+      <textarea class="in in-area" id="c-context" name="context" required maxlength="4000" rows="4" aria-describedby="c-context-help c-context-err"></textarea>
+      <p class="help" id="c-context-help">A problem, a hunch, or a question. Required.</p>
+      <p class="errmsg" id="c-context-err" hidden></p>
+    </fieldset>
+
+    <fieldset class="stage stage-review" data-stage="4" hidden>
+      <legend class="sr-only">Step 4 of 4, Request clearance: review and send</legend>
+      <dl class="review" id="review">
+        <dt>Name</dt><dd><span id="r-name"></span> <button type="button" class="edit" data-goto="1">Edit</button></dd>
+        <dt>Email</dt><dd><span id="r-email"></span> <button type="button" class="edit" data-goto="2">Edit</button></dd>
+        <dt>Context</dt><dd><span id="r-context"></span> <button type="button" class="edit" data-goto="3">Edit</button></dd>
+      </dl>
+      <p class="errmsg errmsg-form" id="form-err" hidden></p>
+    </fieldset>
+
+    {# spam defences: a honeypot nobody should fill, and the time the form was opened #}
+    <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="t" id="c-t" value="">
+    <input type="hidden" name="id" id="c-id" value="">
+    <div class="turnstile" id="turnstile"></div>
+
+    <div class="dock-acts">
+      <button type="button" class="back" id="dock-back" hidden>Back</button>
+      <button type="button" class="kctl kctl-on-cream" id="dock-next"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Continue</span><span class="kctl-mark" aria-hidden="true"></span></span></button>
+      <button type="submit" class="kctl kctl-on-cream" id="dock-send" hidden><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Send message</span><span class="kctl-mark" aria-hidden="true"></span></span><span class="kctl-ann" aria-hidden="true">Request clearance</span></button>
+    </div>
+
+    <div class="dock-done" id="dock-done" hidden tabindex="-1">
+      <p class="dock-idx"><b>4</b> / 4 <span class="dock-stage">Clearance granted</span></p>
+      <p class="done-h">Message sent.</p>
+      <p class="done-p">It goes straight to Carmelito. Replies come by email to the address you entered.</p>
+      <p class="done-p">Prefer to add something now? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
+    </div>
+    <div class="sr-only" id="dock-live" aria-live="assertive" aria-atomic="true"></div>
+  </form>
+</section>
+
+<section class="direct-band" aria-labelledby="direct-h2">
+  <div>
+    <h2 class="direct-h2" id="direct-h2"><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></h2>
+    <p class="direct-note">Direct, no form required if you&rsquo;d rather just write. Same inbox, same person.</p>
+  </div>
+  <ol class="seq" aria-label="The four steps of the form">
+    <li><i>01</i><b>Identify</b><span>Name</span></li>
+    <li><i>02</i><b>Open channel</b><span>Email</span></li>
+    <li><i>03</i><b>Transmit context</b><span>What&rsquo;s going on with your ecosystem?</span></li>
+    <li><i>04</i><b>Request clearance</b><span>Review and send</span></li>
+  </ol>
+</section>
+
+{% include "partials/field-shell-foot.njk" %}

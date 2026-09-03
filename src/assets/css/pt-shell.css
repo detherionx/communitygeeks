@@ -1,0 +1,66 @@
+/* Communitygeeks concept: PUBLIC THINKING BRIDGE.
+   A small layer over the live style.css so the approved Public Thinking
+   index and article compositions sit inside the new shell. It only: makes
+   room for the fixed bar, adds the breadcrumb, moves the active filter and
+   focus states onto the shared teal/ochre accents, and gives the pages a
+   quiet teal sign-off band above the footer. Nothing about the reading
+   layout itself changes. */
+
+body.pt-shell{padding-top:var(--bar-h);}
+/* style.css styles the bare `nav` element as the live masthead (padding,
+   heavy rule, space-between). The shell's navs are not that masthead. */
+.pt-shell nav.bar-nav,.pt-shell nav.foot-nav,.pt-shell nav.pt-crumb{padding:0;border-bottom:0;justify-content:flex-start;position:static;}
+.pt-shell nav.bar-nav{margin-left:auto;}
+.pt-shell nav.pt-crumb{margin-bottom:26px;}
+.pt-shell nav.pt-crumb-inline{margin:0;}
+.pt-shell .page-hero{padding-top:44px;}
+.pt-shell .pt-topbar{padding-top:44px;}
+
+/* breadcrumb: the site's mono label register */
+.pt-crumb{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:26px;}
+.pt-crumb a{color:var(--ink-soft);border-bottom:1px solid var(--line);}
+.pt-crumb a:hover{color:var(--petrol);border-color:var(--petrol);}
+.pt-crumb-inline{display:inline-flex;margin:0;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;}
+.pt-crumb-inline a{color:inherit;border-bottom:1px solid transparent;}
+.pt-crumb-inline a:hover{border-color:currentColor;}
+
+/* typography QA (concept pages only, the live stylesheet is untouched):
+   captions step up to 12px, the brass evidence label keeps its brass mark
+   but reads in ink-soft so it meets AA on cream, the empty-state line uses
+   the loaded serif italic instead of a synthesized sans italic, and card
+   copy holds 16px on phones. */
+.pt-shell{--fs-caption:12px;--fs-label:12px;}
+.pt-crumb{font-size:12px;}
+.pt-shell .pt-meta-confidence{color:var(--ink-soft);}
+.pt-shell .pt-meta-confidence::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--brass);margin-right:7px;vertical-align:1px;}
+.pt-shell .pt-compact-empty{font-family:'Fraunces',serif;font-style:italic;font-size:16px;text-wrap:balance;}
+.pt-shell-quiet{color:var(--paper);}
+.pt-shell .pt-card-deck,.pt-shell .pt-deck{text-wrap:balance;}
+/* article page: the three small brass labels read in ink-soft (brass on
+   cream is 2.8:1); body paragraphs avoid lone last words; the closing
+   invitation keeps its arrow with its link text */
+.pt-shell .pt-figure-num,.pt-shell .pt-closing-thread,.pt-shell .pt-author-role{color:var(--ink-soft);}
+.pt-shell .pt-figure-num::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--brass);margin-right:7px;vertical-align:1px;}
+.pt-shell .pt-body > p,.pt-shell .pt-author-bio,.pt-shell .pt-closing-invite{text-wrap:pretty;}
+.pt-shell .pt-closing-invite a,.pt-shell .pt-related-list a{white-space:nowrap;}
+@media (max-width:860px){.pt-shell .pt-card-deck,.pt-shell .pt-author-bio{font-size:16px;}}
+
+/* accents shared with the concept homepage */
+.pt-shell .filter-pill.active{background:var(--petrol);border-color:var(--petrol);color:var(--paper);}
+.pt-shell .filter-pill:focus-visible,.pt-shell a:focus-visible,.pt-shell button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+.pt-shell .pt-lang-switch a:focus-visible{outline-offset:4px;}
+.pt-none{font-style:italic;}
+
+/* sign-off band: one quiet teal plane, no diagram */
+.pt-shell-close{background:var(--petrol);color:var(--paper);padding:56px 0;margin-top:72px;}
+.pt-shell-close-row{display:flex;justify-content:space-between;align-items:center;gap:28px 40px;flex-wrap:wrap;}
+.pt-shell-close-h{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-0.01em;margin:0;max-width:18ch;}
+.pt-shell-close-actions{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+.pt-shell-quiet{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper);border-bottom:1px solid rgba(246,244,239,0.35);white-space:nowrap;}
+.pt-shell-quiet:hover{border-color:var(--brass);}
+.pt-shell .foot{margin:0;}
+
+@media (max-width:860px){
+  .pt-shell .page-hero{padding-top:28px;}
+  .pt-shell-close{padding:44px 0;margin-top:48px;}
+}

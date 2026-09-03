@@ -1,0 +1,286 @@
+---
+layout: layouts/mockup-home.njk
+title: "Homepage mockup v2 (not for publication)"
+description: "Design exploration: a layered, motion-led first mockup of the Communitygeeks homepage. Unindexed."
+permalink: /mockups/home/
+eleventyExcludeFromCollections: true
+extraScripts:
+  - marquee.js
+  - pt-rail.js
+closingCta:
+  secondaryLabel: "Read the research →"
+  secondaryUrl: "/public-thinking/"
+---
+{% from "partials/geo-plate.njk" import geoPlate %}
+{% from "partials/pt-card.njk" import ptCard %}
+
+{# ============ HERO: four layers. (1) geometric scene, background, parallax
+   slowest; (2) headline, page speed; (3) hero construction, foreground,
+   slightly faster; (4) mono kicker/eyebrow annotations. ============ #}
+<section class="hero hero-v2">
+  <div class="hero-scene" aria-hidden="true">
+    <svg class="scene-shape scene-dome" data-parallax="0.05" viewBox="0 0 160 80"><path d="M0,80 A80,80 0 0 1 160,80 Z"/></svg>
+    <svg class="scene-shape scene-block" data-parallax="0.12" viewBox="0 0 160 140"><rect width="160" height="140"/></svg>
+    <svg class="scene-shape scene-wedge" data-parallax="0.2" viewBox="0 0 160 140"><polygon points="0,140 160,140 80,0"/></svg>
+  </div>
+  <div class="wrap">
+    <p class="hero-kicker" data-reveal>
+      {% include "partials/node-mark.njk" %}
+      <span>For leadership deciding how to invest in community, DevRel, or partnerships</span>
+    </p>
+    <h1 class="split-words">Participation rarely fits neatly into an org chart. We study <em>what happens around products: how people gather, contribute, connect and create value.</em></h1>
+    <div class="hero-construct-wrap" data-reveal="plane" data-parallax="-0.04">
+    <div class="hero-construct">
+      <div class="hc-ink">
+        <div class="eyebrow">
+          {% include "partials/node-mark.njk" %}
+          Participation Research &amp; Advisory
+        </div>
+      </div>
+      <div class="hc-right">
+        <a href="/contact/" class="hc-petrol">
+          <span class="mast-action">Compare notes <span class="mast-arrow">→</span></span>
+        </a>
+        <a href="/public-thinking/" class="hc-brass">
+          <span class="mast-action">Read the research <span class="mast-arrow">→</span></span>
+        </a>
+      </div>
+      <span class="hc-rule hc-rule-v" aria-hidden="true"></span>
+      <span class="hc-rule hc-rule-h" aria-hidden="true"></span>
+    </div>
+    </div>
+  </div>
+</section>
+
+{# ============ TRUST: existing marquee + logo-badge component, unchanged ============ #}
+<section class="trust" data-reveal>
+  <div class="wrap">
+    <div class="trust-label">Trusted by industry leaders</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      {% for item in clients.logoWall %}
+      <div class="logo-badge" style="--logo-url:url('{{ item.logoPath }}');">
+        <span class="logo-mono"></span>
+        <span class="sr-only">{{ item.name }}</span>
+      </div>
+      {% endfor %}
+      {% for item in clients.logoWall %}
+      <div class="logo-badge" aria-hidden="true" style="--logo-url:url('{{ item.logoPath }}');">
+        <span class="logo-mono"></span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ============ THE PROBLEM: pinned sequence. The approved participation
+   diagram stays fixed on the right while the approved paragraph advances in
+   three beats on the left; each beat changes what the diagram shows. Every
+   word is in the DOM from the start: the sequence only changes emphasis. ============ #}
+<section class="band alt problem-seq" id="problem" data-active="0">
+  <div class="wrap seq-grid">
+    <div class="seq-steps">
+      <div class="seq-step" data-step="0">
+        <p class="problem-old">A forum. A Discord server. An engagement calendar.</p>
+        <p class="seq-text">That used to be enough to call something &ldquo;community.&rdquo;</p>
+      </div>
+      <div class="seq-step" data-step="1">
+        <p class="seq-text">Most organizations are now coordinating several participant groups at once.</p>
+        <div class="tag-row" data-stagger="70">
+          <span class="tag">users</span>
+          <span class="tag">developers</span>
+          <span class="tag">creators</span>
+          <span class="tag">partners</span>
+          <span class="tag">advocates</span>
+        </div>
+      </div>
+      <div class="seq-step" data-step="2">
+        <p class="seq-text">Often without anyone owning how those groups relate to each other, or what happens where they overlap.</p>
+      </div>
+    </div>
+    <div class="seq-stage">
+      <div class="seq-stage-inner">
+        <div class="seq-stage-head">
+          <span class="seq-fig">Fig. 01</span>
+          <span class="seq-counter" aria-hidden="true"><span class="seq-counter-now">01</span> / 03</span>
+        </div>
+        {% include "partials/ecosystem-diagram-staged.njk" %}
+        <p class="seq-caption">One connected participation system, not five independent audiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============ HOW WE THINK: existing question grid, staggered entrance,
+   with a geometric plate behind it as the section's background layer. ============ #}
+<section class="think think-v2">
+  <div class="think-plate-host" aria-hidden="true" data-parallax="0.08">
+    {{ geoPlate(shapes=[
+      { type: "circle", cx: 230, cy: 120, r: 120, color: "petrol", opacity: 0.08 },
+      { type: "rect", x: 30, y: 250, w: 190, h: 150, color: "brass", opacity: 0.1 },
+      { type: "line", x1: 0, y1: 262, x2: 320, y2: 262, color: "ink", opacity: 0.3 }
+    ], viewBox="0 0 320 420", extraClass="think-plate") }}
+  </div>
+  <div class="wrap">
+    <div class="think-head" data-reveal>
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">How Communitygeeks Thinks</span>
+      </div>
+      <h2>Not <span class="old">where does your community run</span>, but who's actually participating, and how.</h2>
+      <p class="think-intro">Every engagement starts from the same set of questions, before any recommendation gets made.</p>
+    </div>
+
+    {# Cells stay solid; only their contents enter, so the 1px grid rule never
+       shows through a half-faded cell. --d is set per cell by data-stagger and
+       inherited by the inner element. #}
+    <div class="q-grid" data-stagger="80">
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">01</span>
+        <div class="q-text">Who participates around your product?</div>
+      </div></div>
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">02</span>
+        <div class="q-text">What value does each group create?</div>
+      </div></div>
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">03</span>
+        <div class="q-text">Where do those groups actually interact?</div>
+      </div></div>
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">04</span>
+        <div class="q-text">What's owned internally versus externally?</div>
+      </div></div>
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">05</span>
+        <div class="q-text">Which relationships matter most right now?</div>
+      </div></div>
+      <div class="q-cell"><div class="q-cell-inner" data-reveal>
+        <span class="q-num">06</span>
+        <div class="q-text">Where does participation actually break down?</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+{# ============ APPROACH: existing list; the section head pins while the
+   three categories scroll past it (desktop only). ============ #}
+<section class="band hww-field-host approach-v2">
+  {{ geoPlate(shapes=[
+    { type: "circle", cx: 300, cy: 110, r: 140, color: "petrol", opacity: 0.1 },
+    { type: "rect", x: 120, y: 260, w: 200, h: 200, color: "brass", opacity: 0.09 },
+    { type: "triangle", points: "180,460 300,460 240,340", color: "ink", opacity: 0.14 }
+  ], viewBox="0 0 320 460", extraClass="hww-field approach-plate-v2") }}
+  <div class="wrap approach-grid">
+    <div class="band-head approach-head" data-reveal>
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Approach</span>
+      </div>
+      <h2>How we work, not a rate card.</h2>
+      <p class="approach-bridge">Participation around a product rarely fits one team, channel or program. Neither does the work.</p>
+      <div class="approach-note">These are exploratory categories, not a fixed service catalogue.</div>
+    </div>
+    <div class="approach-list" data-stagger="110">
+      <div class="approach-item" data-reveal>
+        <span class="approach-idx">01</span>
+        <div>
+          <h3 class="approach-name">Participation Strategy &amp; Diagnostics</h3>
+          <p class="approach-desc">Mapping who actually participates around your product, where value gets created, and where it breaks down, before recommending any structure.</p>
+        </div>
+      </div>
+      <div class="approach-item" data-reveal>
+        <span class="approach-idx">02</span>
+        <div>
+          <h3 class="approach-name">Program Design</h3>
+          <p class="approach-desc">Community, developer relations (DevRel), and partnership programs, designed around the specific groups your product actually has, not a template org chart.</p>
+        </div>
+      </div>
+      <div class="approach-item" data-reveal>
+        <span class="approach-idx">03</span>
+        <div>
+          <h3 class="approach-name">Research &amp; Advisory</h3>
+          <p class="approach-desc">Ongoing, evidence-based advisory grounded in active interviews and pattern-matching across companies, not a one-off audit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============ SELECTED WORK: existing composed colour grid, cells rise in
+   sequence. Data-driven from clients.json, unchanged. ============ #}
+<section class="band alt work-v2">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Selected Work</span>
+      </div>
+      <h2>A decade of building the programs we now research.</h2>
+    </div>
+    <div class="work-grid" data-stagger="70">
+      {% for client in clients.selectedWork %}
+      <div class="work-cell"><div class="work-cell-inner" data-reveal>
+        <div>
+          {% if client.logoPath %}
+          <div class="logo-badge logo-badge-sm" style="--logo-url:url('{{ client.logoPath }}');">
+            <span class="logo-mono"></span>
+            <span class="sr-only">{{ client.name }} logo</span>
+          </div>
+          {% endif %}
+          <div class="work-desc">{{ client.proof }}</div>
+        </div>
+        <div class="work-tag">{{ client.tag }}</div>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ============ PUBLIC THINKING: existing rail + pt-card component + pt-rail.js ============ #}
+<section class="band pt-v2">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <div class="section-marker">
+        {% include "partials/node-mark.njk" %}
+        <span class="label">Public Thinking</span>
+      </div>
+      <h2>Live findings, not a static portfolio.</h2>
+    </div>
+    <div class="pt-rail-wrap" data-reveal>
+      <div class="pt-rail" tabindex="0" role="region" aria-label="Public Thinking: latest research">
+        {% for piece in publicThinking %}{{ ptCard(piece, loop.index, 3) }}{% endfor %}
+      </div>
+      <button type="button" class="pt-rail-nav prev" aria-label="Previous"{% if publicThinking.length < 2 %} disabled{% endif %}>‹</button>
+      <button type="button" class="pt-rail-nav next" aria-label="Next"{% if publicThinking.length < 2 %} disabled{% endif %}>›</button>
+    </div>
+    <div class="pt-rail-foot" data-reveal>
+      <button type="button" class="pt-rail-playpause" aria-pressed="false"{% if publicThinking.length < 2 %} disabled{% endif %}>Pause</button>
+      {% if publicThinking.length and publicThinking[0].researchThread %}
+      <p class="pt-rail-thread">Currently investigating: {{ publicThinking[0].researchThread }}.</p>
+      {% endif %}
+      <a href="/public-thinking/" class="pt-info-link">See all Public Thinking →</a>
+    </div>
+  </div>
+</section>
+
+{# ============ FOUNDER: existing grid; photo moves slower than its frame,
+   a brass plane behind it moves slower still. ============ #}
+<section class="band alt founder-v2">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-photo-wrap" data-reveal>
+        <span class="founder-plane" aria-hidden="true" data-parallax="0.07"></span>
+        <div class="founder-photo">
+          <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" data-parallax="0.06" data-scale="1.14">
+        </div>
+      </div>
+      <div data-reveal>
+        <div class="founder-name">Carmelito Bauer</div>
+        <span class="founder-role">Founder, Communitygeeks</span>
+        <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy are evolving.</p>
+      </div>
+    </div>
+  </div>
+</section>

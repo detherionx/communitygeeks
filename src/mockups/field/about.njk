@@ -1,0 +1,97 @@
+---
+layout: layouts/mockup-about.njk
+lang: en
+title: "About, command deck concept (not for publication)"
+description: "Communitygeeks is a participation research and advisory practice studying community, developer relations, partnerships and how organizations coordinate people around their products."
+permalink: /mockups/field/about/
+eleventyExcludeFromCollections: true
+navActive: about
+---
+{# =========================================================================
+   ABOUT: four movements on the live About page's content. Colour by
+   function only: teal = command environment, near-black = structural field
+   (portrait plate, console, handoff), cream = human reading surface, ochre
+   = active signal. Each fact appears once. Nothing biographical is invented.
+   ========================================================================= #}
+
+{# ------------------------------------------------------ A MISSION HERO #}
+<section class="deck" id="deck" aria-labelledby="deck-h1">
+  <div class="deck-grid">
+    <div class="deck-copy">
+      <p class="mod-label">About</p>
+      <h1 class="deck-h1" id="deck-h1">Studying how participation around products is changing.</h1>
+      <p class="deck-def">Communitygeeks is a participation research and advisory practice founded by Carmelito Bauer. We study how companies build relationships with the people around their products: users, developers, creators, partners, and advocates.</p>
+    </div>
+    {# Rectangular editorial portrait, natural colour, full bleed inside a
+       near-black plate; registration marks sit outside the image. #}
+    <figure class="portrait" id="portrait">
+      <div class="portrait-plate">
+        <span class="reg reg-tl" aria-hidden="true"></span><span class="reg reg-tr" aria-hidden="true"></span><span class="reg reg-bl" aria-hidden="true"></span><span class="reg reg-br" aria-hidden="true"></span>
+        <div class="portrait-frame">
+          <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360">
+        </div>
+        <span class="portrait-tag" aria-hidden="true">Founder</span>
+      </div>
+      <figcaption class="portrait-caption"><span>Carmelito Bauer</span><span>Founder, Communitygeeks</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+{# ------------------------------------------------------------ B FOUNDER #}
+<section class="founder-sec" id="founder" aria-labelledby="founder-h2">
+  <div class="founder-grid">
+    <div class="founder-id">
+      <p class="mod-label mod-label-ink">Founder</p>
+      <h2 class="founder-h2" id="founder-h2">Carmelito Bauer</h2>
+      <p class="founder-role">Founder, Communitygeeks</p>
+    </div>
+    <div class="founder-body">
+      <p class="founder-bio">Carmelito has spent more than a decade building community, developer, and advocacy programs across SaaS, AI, gaming, and education, including work with DeepL, Tencent, and EU Academy. Today his work focuses on how community, developer relations, partnerships, and ecosystem strategy <span class="nowrap">are evolving.</span></p>
+      <p class="founder-links"><a href="https://www.linkedin.com/in/carmelitob/" rel="me">LinkedIn →</a><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
+    </div>
+  </div>
+</section>
+
+{# ------------------------------------------------------- C HOW WE THINK #}
+<section class="think" id="how-we-think" aria-labelledby="think-h2">
+  <div class="think-head">
+    <p class="mod-label">How we think</p>
+    <h2 class="think-h2" id="think-h2">What is genuinely changing, and what isn&rsquo;t.</h2>
+    <p class="think-intro">The same few ideas shape every engagement, translated here rather than stated as internal methodology.</p>
+  </div>
+  {# One console: a continuous near-black field with a shared signal rail;
+     three numbered zones, one ochre marker each, cream type on the field. #}
+  <ol class="console">
+    <li class="zone">
+      <div class="zone-rail"><span class="zone-idx">01</span><span class="zone-marker" aria-hidden="true"></span></div>
+      <h3>Start with the ecosystem, not the platform</h3>
+      <p>We begin with the people around a product and the relationships between them, not with the assumption that the answer is another Discord, forum, or community platform.</p>
+    </li>
+    <li class="zone">
+      <div class="zone-rail"><span class="zone-idx">02</span><span class="zone-marker" aria-hidden="true"></span></div>
+      <h3>Research before prescription</h3>
+      <p>Community, DevRel, partnerships, and advocacy increasingly overlap. We look at how participation actually works before recommending where teams, programs, or platforms should sit.</p>
+    </li>
+    <li class="zone">
+      <div class="zone-rail"><span class="zone-idx">03</span><span class="zone-marker" aria-hidden="true"></span></div>
+      <h3>Build for what is changing</h3>
+      <p>AI is changing discovery, support, content creation, and product adoption. We combine hands-on operating experience with ongoing practitioner research to understand what is genuinely changing, and what isn&rsquo;t.</p>
+    </li>
+  </ol>
+</section>
+
+{# ------------------------------------------------------------ D HANDOFF #}
+<section class="handoff" id="handoff" aria-labelledby="handoff-h2">
+  <div class="handoff-grid">
+    <div>
+      <p class="mod-label">Handoff</p>
+      <h2 class="handoff-h2" id="handoff-h2">Talk about what&rsquo;s actually happening.</h2>
+    </div>
+    <ul class="handoff-links">
+      <li><a href="/mockups/field/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a></li>
+      <li><a href="/approach/" class="handoff-link">Explore the approach →</a></li>
+      <li><a href="/mockups/field/public-thinking/" class="handoff-link">Open Public Thinking →</a></li>
+    </ul>
+  </div>
+  {% set inline = true %}{% include "partials/field-shell-foot.njk" %}
+</section>

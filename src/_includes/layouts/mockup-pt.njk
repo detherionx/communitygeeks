@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · Communitygeeks</title>
+<meta name="description" content="{{ description }}">
+{# MOCKUP LAYOUT for Public Thinking inside the "living system" concept.
+   Integration through shared foundations, not a redesign: the live
+   stylesheet (style.css) still renders the index and article exactly as
+   approved; shell.css adds the new global bar and footer; pt-shell.css is
+   a small bridge (offset for the fixed bar, teal/ochre accents, focus
+   states). Unindexed, excluded from collections, no analytics tag. #}
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F4B4C">
+<link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/shell.css">
+<link rel="stylesheet" href="/assets/css/pt-shell.css">
+</head>
+<body class="pt-shell">
+{% include "partials/field-shell-bar.njk" %}
+<main id="main">
+{{ content | safe }}
+</main>
+{% include "partials/field-shell-foot.njk" %}
+<script src="/assets/js/nav-toggle.js"></script>
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
+<script src="/assets/js/pt-shell.js"></script>
+</body>
+</html>

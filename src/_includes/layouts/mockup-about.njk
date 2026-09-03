@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · Communitygeeks</title>
+<meta name="description" content="{{ description }}">
+{# MOCKUP LAYOUT for the About command-deck concept. Shares shell.css (bar,
+   footer, controls) with the concept homepage; about.css is the page's own
+   instrument-panel system. Unindexed, excluded from collections, no
+   analytics tag. #}
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F4B4C">
+<link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/shell.css">
+<link rel="stylesheet" href="/assets/css/about.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="about-body">
+{% include "partials/field-shell-bar.njk" %}
+<main id="main">
+{{ content | safe }}
+</main>
+<script src="/assets/js/nav-toggle.js"></script>
+<script src="/assets/js/about.js"></script>
+</body>
+</html>

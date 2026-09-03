@@ -1,0 +1,32 @@
+{% from "partials/pt-motifs.njk" import ptMotif %}
+{# Same card as partials/pt-card.njk (structure, classes, copy untouched),
+   with a `base` prefix so the concept index can link to the concept
+   article pages under /mockups/field/ instead of the live routes. #}
+{% macro ptCardBase(piece, index, headingLevel, lang, base) %}
+{% set lang = lang or "en" %}
+<article class="pt-card accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
+  <div class="pt-card-field"></div>
+  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptMotif(piece.motif) }}</div>{% endif %}
+  <div class="pt-card-inner">
+    <div class="pt-card-meta">
+      <span class="pt-format">{{ piece.format }}</span>
+      <span class="pt-meta-confidence">{{ piece.confidence }}</span>
+    </div>
+    <h{{ headingLevel }} class="pt-card-title"><a href="{{ base }}{{ piece.url }}">{{ piece.title }}</a></h{{ headingLevel }}>
+    {% if piece.deck %}<p class="pt-card-deck">{{ piece.deck }}</p>{% endif %}
+    {% if piece.topics and piece.topics.length %}
+    <div class="pt-card-tags">
+      {% for topic in piece.topics %}<span class="pt-card-tag">{{ topic }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="pt-card-foot">
+      <span>{{ piece.date | readableDate(lang) }}</span>
+      {% if lang == "de" %}
+      <a href="{{ base }}{{ piece.url }}">{{ piece.format }} lesen →</a>
+      {% else %}
+      <a href="{{ base }}{{ piece.url }}">Read {{ piece.format | lower }} →</a>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% endmacro %}

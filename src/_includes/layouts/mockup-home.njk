@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · Communitygeeks</title>
+<meta name="description" content="{{ description }}">
+{# MOCKUP LAYOUT: a design exploration surface, not a production page.
+   Deliberately unindexed, excluded from collections/sitemap by the page's
+   own front matter, and without the Umami analytics tag, so a mockup can
+   never pollute production metrics or search. Reuses the real stylesheet,
+   fonts, nav/footer/closing-CTA partials, and adds exactly one stylesheet
+   (home-mockup.css) and one script (home-mockup.js) on top. #}
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/home-mockup.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="mockup-home">
+
+<header class="site-header">
+  {% include "partials/nav.njk" %}
+  <span class="scroll-progress" aria-hidden="true"></span>
+</header>
+
+<main id="main-content">
+{{ content | safe }}
+</main>
+
+{% if closingCta %}{% include "partials/closing-cta.njk" %}{% endif %}
+{% include "partials/footer.njk" %}
+
+<script src="/assets/js/nav-toggle.js"></script>
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
+<script src="/assets/js/home-mockup.js"></script>
+</body>
+</html>

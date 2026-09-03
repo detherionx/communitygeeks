@@ -1,0 +1,20 @@
+{# Global navigation for the "living system" concept, shared by the concept
+   homepage and its Public Thinking pages. Destinations mirror the live
+   site's nav (Public Thinking, Approach, About, Compare notes) plus the
+   homepage's in-page chapters. No chapter readout: the bar stays
+   operational and quiet (approval A-14). #}
+<header class="bar" id="top">
+  <a href="/mockups/field/" class="bar-brand" aria-label="Communitygeeks home">
+    <img src="/assets/images/icon.png" alt="" width="26" height="26">
+    <span>Communitygeeks</span>
+  </a>
+  <button class="nav-toggle bar-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="bar-nav nav-menu" id="nav-menu" aria-label="Primary">
+    <a href="/mockups/field/#system">System</a>
+    <a href="/mockups/field/#approach">Approach</a>
+    <a href="/mockups/field/#cases">Work</a>
+    <a href="/mockups/field/public-thinking/"{% if navActive == 'pt' %} class="active" aria-current="page"{% endif %}>Public Thinking</a>
+    <a href="/mockups/field/about/"{% if navActive == 'about' %} class="active" aria-current="page"{% endif %}>About</a>
+    <a href="/mockups/field/contact/" class="bar-cta"><span class="node-dot"></span>Compare notes</a>
+  </nav>
+</header>

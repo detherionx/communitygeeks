@@ -1,0 +1,4 @@
+{
+  "turnstileSiteKey": "",
+  "_note": "Public Turnstile site key for the concept Contact form. Empty = Turnstile off (honeypot, timing and rate limit still apply). The secret key never lives in this repo: see public/api/contact.config.example.php."
+}
