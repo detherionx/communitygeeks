@@ -16,7 +16,7 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "≠ CONTAINER"
     - "six voices, no one answer."
     - "functions it runs through."
-summary: "A field note from Gamescom 2026: six conversations with community, DevRel, and ecosystem practitioners that don't converge on one answer, but together show participation moving across the boundaries between community, DevRel, marketing, partnerships, product, sales, and executive strategy."
+summary: "Six conflicting conversations at Gamescom 2026 show how participation spans community, DevRel, marketing, partnerships, product, sales and executive strategy."
 deck: "Conflicting Gamescom conversations reveal that participation in community and developer relations spans people and relationships, not a single platform."
 topics:
   - "Ecosystems"

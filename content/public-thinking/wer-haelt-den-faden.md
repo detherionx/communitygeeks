@@ -9,7 +9,7 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "thread"  # one continuous thread through three fanned card forms; see src/lib/constellationMotifs.js
-summary: "Eine Feldnotiz von der gamescom 2026: Drei Gespräche über sehr unterschiedliche Arten von Arbeit – bei Bettermode, Inworld und im DevRel – kehren immer wieder zu einer Einschränkung zurück. KI kann immer mehr selbstständig erledigen, aber jemand muss dennoch den Kontext bewahren, der ihre Handlungen kohärent macht."
+summary: "Drei Gamescom-Gespräche mit Bettermode, Inworld und Discord zeigen, warum KI-Autonomie menschliches Urteilsvermögen und klare Leitplanken wichtiger macht."
 deck: "Drei Gespräche auf der gamescom 2026 verbinden zunehmend autonome KI mit einer bekannten menschlichen Herausforderung: Grenzen zu setzen und zu erkennen, wann ein Eingreifen nötig ist."
 topics:
   - "KI-Autonomie"
