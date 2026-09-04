@@ -34,6 +34,15 @@ researchThread: "how autonomy and human judgment are organized as AI acts on its
 
 I went to gamescom looking for new forms of community engagement. I found them [and you can read about them here.](https://communitygeeks.ai/public-thinking/where-participation-actually-lives/) But I also found something I hadn’t been looking for. Across three conversations about very different kinds of work, the same constraint kept resurfacing: AI can do more and more on its own, but someone still has to preserve the context that makes its actions coherent.
 
+<figure class="pt-figure">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-2026-sonderzug.jpg" data-lightbox aria-label="Enlarge photo">
+    <img src="/assets/images/public-thinking/gamescom-2026-sonderzug.jpg" alt="A paper sign in a train door window reading 'RE 1 / 6, zusätzlicher Zug zur GamesCom von / nach Köln', run on behalf of go.Rheinland and VRR, with the Düsseldorf Hbf station sign reflected in the glass." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-cap">Düsseldorf Hauptbahnhof, gamescom week: the extra RE 1/6 train laid on between Düsseldorf and Köln Messe/Deutz for the fair days, and busy accordingly.</span>
+  </figcaption>
+</figure>
+
 Let’s call this a theory of AI autonomy.
 
 ## Autonomy creates a visibility problem
@@ -53,6 +62,21 @@ Brian Cox, who designs AI game characters at Inworld, approached the same proble
 He told me about two robot companions, one a floating drone, the other humanoid, that were deliberately given sarcastic personalities. They made fun of the player and did not always cooperate. Players loved them. A perfectly compliant character, Brian explained, quickly becomes boring. A character that can surprise you feels more alive.
 
 His answer to possible risks is not to make the AI less autonomous. It is to be much clearer about where that autonomy begins and ends. A human decides which topics the character can engage with and sets the safety rails. Inside them, Brian is happy to give the character genuine room to act, even to reverse the usual relationship and tell the player what to do. In his version of the experience, **the player can briefly become the side character rather than the hero.**
+
+<figure class="pt-figure pt-figure-portrait">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" data-lightbox aria-label="Enlarge Figure 1">
+    <img src="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" alt="Editorial illustration on a deep teal ground: a person, a floating drone and a humanoid robot drawn as wireframe constellations. One coral thread runs from a marker on the floor through the person to the drone and on to the robot, which is pointing the way; a low fence of connected points marks the edge of the space they share." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-num">Figure 1</span>
+    <span class="pt-figure-cap">Brian Cox’s version of the experience: a human sets the edge of the space, and inside it the characters have genuine room to act, even to tell the player what to do.</span>
+    <span class="pt-figure-source">Source: conversation with Brian Cox, Inworld: Communitygeeks Field Note, gamescom 2026.</span>
+  </figcaption>
+</figure>
+<style>
+  .pt-figure-portrait{max-width:560px !important;}
+  .pt-figure-portrait img{min-width:0;}
+</style>
 
 The creative possibility comes from freedom. Making that freedom safe remains a human design decision.
 

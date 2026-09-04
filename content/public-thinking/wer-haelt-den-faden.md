@@ -34,6 +34,15 @@ researchThread: "der Frage, wie Autonomie und menschliches Urteilsvermögen orga
 
 Ich besuchte die gamescom auf der Suche nach neuen Formen der Community-Einbindung. Ich habe sie gefunden [und Sie können hier darüber lesen.](https://communitygeeks.ai/de/public-thinking/wo-partizipation-tatsaechlich-stattfindet/) Doch ich habe auch etwas entdeckt, wonach ich gar nicht gesucht hatte. In drei Gesprächen über sehr unterschiedliche Arten von Arbeit tauchte immer wieder dieselbe Einschränkung auf: KI kann immer mehr eigenständig erledigen, doch jemand muss weiterhin den Kontext bewahren, der ihre Handlungen kohärent macht.
 
+<figure class="pt-figure">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-2026-sonderzug.jpg" data-lightbox aria-label="Foto vergrößern">
+    <img src="/assets/images/public-thinking/gamescom-2026-sonderzug.jpg" alt="Ein Papierschild im Türfenster eines Zuges mit der Aufschrift „RE 1 / 6, zusätzlicher Zug zur GamesCom von / nach Köln“, im Auftrag von go.Rheinland und VRR, im Glas spiegelt sich das Bahnhofsschild Düsseldorf Hbf." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-cap">Düsseldorf Hauptbahnhof in der gamescom-Woche: der zusätzliche RE 1/6 zwischen Düsseldorf und Köln Messe/Deutz, für die Messetage eingelegt und entsprechend voll.</span>
+  </figcaption>
+</figure>
+
 Nennen wir dies eine Theorie der KI-Autonomie.
 
 ## Autonomie schafft ein Sichtbarkeitsproblem
@@ -53,6 +62,21 @@ Brian Cox, der bei Inworld KI-Spielcharaktere entwirft, näherte sich demselben 
 Er erzählte mir von zwei Roboterbegleitern – einem schwebenden Drohnenroboter und einem humanoiden Roboter –, denen bewusst sarkastische Persönlichkeiten verliehen wurden. Sie machten sich über den Spieler lustig und kooperierten nicht immer. Die Spieler liebten sie. Ein vollkommen gehorsamer Charakter, so erklärte Brian, werde schnell langweilig. Ein Charakter, der einen überraschen kann, wirke lebendiger.
 
 Seine Antwort auf mögliche Risiken besteht nicht darin, die KI weniger autonom zu gestalten. Vielmehr geht es darum, viel klarer zu definieren, wo diese Autonomie beginnt und endet. Ein Mensch entscheidet, mit welchen Themen sich der Charakter beschäftigen darf, und legt die Leitplanken fest. Innerhalb dieser Grenzen gewährt Brian dem Charakter gerne echten Handlungsspielraum – sogar so weit, dass die übliche Rollenverteilung umgekehrt wird und der Charakter dem Spieler sagt, was er tun soll. In seiner Version des Erlebnisses **kann der Spieler für kurze Zeit zur Nebenfigur statt zum Helden werden.**
+
+<figure class="pt-figure pt-figure-portrait">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" data-lightbox aria-label="Abbildung 1 vergrößern">
+    <img src="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" alt="Redaktionelle Illustration auf tiefem Petrolgrund: ein Mensch, eine schwebende Drohne und ein humanoider Roboter als Drahtgitter-Sternbilder. Ein korallenfarbener Faden läuft von einer Markierung am Boden durch den Menschen zur Drohne und weiter zum Roboter, der die Richtung zeigt; eine niedrige Umrandung aus verbundenen Punkten markiert den Rand des gemeinsamen Raums." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-num">Abbildung 1</span>
+    <span class="pt-figure-cap">Brian Cox’ Version des Erlebnisses: Ein Mensch setzt die Grenze des Raums, und innerhalb dieser Grenze haben die Charaktere echten Handlungsspielraum, bis hin dazu, dem Spieler zu sagen, was er tun soll.</span>
+    <span class="pt-figure-source">Quelle: Gespräch mit Brian Cox, Inworld: Communitygeeks Feldnotiz, gamescom 2026.</span>
+  </figcaption>
+</figure>
+<style>
+  .pt-figure-portrait{max-width:560px !important;}
+  .pt-figure-portrait img{min-width:0;}
+</style>
 
 Die kreativen Möglichkeiten ergeben sich aus der Freiheit. Diese Freiheit sicher zu gestalten, bleibt eine menschliche Designentscheidung.
 
