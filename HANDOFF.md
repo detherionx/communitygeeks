@@ -444,7 +444,7 @@ All of this lives under `/mockups/field/` (noindex, excluded from collections, n
 
 ## 37. Public Thinking field journal (2026-09-03)
 
-The upper-right paragraph is gone; the contextual copy sits under the heading as HTML (`.pt-sub`: "Research findings, executive one-pagers, case studies and field notes—tagged by format and by how much evidence currently supports them."). In its place `.pt-head-side` holds `#journal-svg`, an aria-hidden instrument built and driven by `field.js` (block "PUBLIC THINKING: FIELD JOURNAL + RAIL").
+The upper-right paragraph is gone; the contextual copy sits under the heading as HTML (`.pt-sub`: "Research findings, executive one-pagers, case studies and field notes, tagged by format and by how much evidence currently supports them."). In its place `.pt-head-side` holds `#journal-svg`, an aria-hidden instrument built and driven by `field.js` (block "PUBLIC THINKING: FIELD JOURNAL + RAIL").
 
 **Geometry (`build()`):** variants desktop / tablet (≤1100, no measurement scale) / mobile (≤860, viewBox 360×212, cropped page, shorter path). Bone page (`--bone`) on a `--panel-teal` console panel offset lower-right, approach rail from the left edge, teal margin rule and 24-unit ruled grid, ivory registration corners and scale, a dock bracket with a coral status square. Ink marks in writing order: `index`, `note`, `obs` (circle + core), `conn`, `pattern` (triangle + core), `arrow`; each is a path revealed by stroke-dashoffset. The pen is an engineered group (coral tip, ivory body, teal band) positioned at `getPointAtLength` with tangent-based rotation; between marks it lifts along a move segment; toward the dock it straightens into its resting pose.
 

@@ -129,7 +129,7 @@ if (mt_rand(1, 20) === 1) { foreach ((array)glob($store . DIRECTORY_SEPARATOR . 
 
 // ---------------------------------------------------------------- deliver
 $subject = 'Contact: ' . preg_replace('/\s+/', ' ', $name);
-$bodyText = "Name: {$name}\nEmail: {$email}\n\n{$context}\n\n—\nSent from the Communitygeeks contact form.";
+$bodyText = "Name: {$name}\nEmail: {$email}\n\n{$context}\n\nSent from the Communitygeeks contact form.";
 $GLOBALS['cg_delivery_detail'] = '';
 $ok = $useResend ? resend_send($cfg, $subject, $bodyText, $email, $name) : smtp_send($cfg, $subject, $bodyText, $email, $name);
 // on failure, say which route failed and why, without ever echoing credentials
