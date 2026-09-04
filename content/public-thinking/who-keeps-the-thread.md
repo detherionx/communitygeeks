@@ -16,7 +16,7 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "guardrails, review, trust."
     - "boundaries matter more."
 summary: "A field note from gamescom 2026: three conversations about very different kinds of work, at Bettermode, Inworld, and in DevRel, keep returning to one constraint. AI can do more and more on its own, but someone still has to preserve the context that makes its actions coherent."
-deck: "Three conversations, three kinds of autonomy, one question underneath"
+deck: "Three conversations show why greater autonomy in AI systems or human work makes clear boundaries, oversight and human judgment more important."
 topics:
   - "AI Autonomy"
   - "Developer Relations"

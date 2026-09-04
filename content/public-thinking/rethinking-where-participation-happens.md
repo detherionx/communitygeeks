@@ -16,7 +16,7 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "→ not the container."
     - "who participates, how."
 summary: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
-deck: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
+deck: "Glide’s Andy Claremont explores community participation beyond individual channels: the people, groups and relationships surrounding a company."
 topics:
   - "Ecosystems"
   - "Community Strategy"
