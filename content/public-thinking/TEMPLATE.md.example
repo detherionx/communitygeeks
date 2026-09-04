@@ -33,13 +33,13 @@ accentColor: petrol                 # Optional. One of: petrol | brass | ink. Co
                                      # the featured record) and on its own article masthead: same field drives
                                      # both, so a piece keeps one identity across surfaces. Omit to default to
                                      # petrol. Pick deliberately per piece; don't assign colors on rotation.
-motif: null                         # Optional. A restrained Bauhaus watermark rendered low-opacity behind the
-                                     # card on the homepage rail and archive grid: editorial cover art derived
-                                     # from the piece's actual subject, not a thumbnail or an icon. Must match a
-                                     # slug defined in src/_includes/partials/pt-motifs.njk (e.g. "gaming",
-                                     # "people-beyond-container"); add a new motif there before using its slug
-                                     # here. Omit entirely for a piece with no motif yet, the card still renders
-                                     # correctly without one, this is not a required field.
+motif: null                         # Optional. The piece's constellation identity (Public Thinking V2): one
+                                     # geometry rendered on the homepage record, the archive card, the article
+                                     # masthead and the generated OG card. Must match a key in
+                                     # src/lib/constellationMotifs.js ("gaming", "reticulum", "thread"); add a
+                                     # new motif there (with EN/DE alt text) before using its slug here. Omit
+                                     # entirely for a piece with no motif yet, the card still renders correctly
+                                     # without one, this is not a required field.
 authors:                            # One or more names, byline order. Each name is looked up in
                                      # src/_data/people.js for a linked profile, photo, and bio in the article's
                                      # author box and structured data: a name with no entry there still renders

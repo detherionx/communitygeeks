@@ -16,7 +16,12 @@
      points. The coral observation marker sits on zeta Reticuli, the body outside the figure: participation beyond the
      container. Chosen deliberately (2026-09-03) to replace an arbitrary network; do not swap it for another generic
      graph. Positional reference: IAU/Sky & Telescope Reticulum chart (iauarchive.eso.org/public/themes/constellations),
-     meaning: eso.org/public/news/eso0527. Sky convention: right ascension increases to the left, north is up. */
+     meaning: eso.org/public/news/eso0527. Sky convention: right ascension increases to the left, north is up.
+   - thread: three trading-card forms fanned like a hand (rounded rectangles at -14 / 0 / +14 degrees, each with a faint
+     art window and two rules), and one continuous luminous thread that enters from outside the cards, passes through the
+     centre of every card and leaves past the last one. The cards are the autonomous actions (gaming: a hand of cards, no
+     franchise, no artwork); the thread is the context that keeps them coherent; the coral observation marker sits on the
+     thread's origin outside the cards: the human who keeps the thread. Approved for OBS. 003 (2026-09-04). */
 (function (root, factory) { if (typeof module === 'object' && module.exports) module.exports = factory(); else root.ConstellationMotifs = factory(); })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
   const rnd = (seed) => () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
@@ -27,6 +32,11 @@
   const star = (p, r) => node(p, r, 'cm-major') + line([p[0] - r * 3, p[1]], [p[0] + r * 3, p[1]], 'cm-ray') + line([p[0], p[1] - r * 3], [p[0], p[1] + r * 3], 'cm-ray') + `<circle class="cm-ring" cx="${f(p[0])}" cy="${f(p[1])}" r="${f(r * 2.4)}"/>`;
   const dust = (box, n, seed) => { const r = rnd(seed); let s = ''; for (let i = 0; i < n; i++) s += `<circle class="cm-dust" cx="${f(box[0] + r() * box[2])}" cy="${f(box[1] + r() * box[3])}" r="${f(0.5 + r() * 0.9)}" style="opacity:${f(0.25 + r() * 0.6)}"/>`; return s; };
   const mark = (p, r) => `<circle class="cm-obs" cx="${f(p[0])}" cy="${f(p[1])}" r="${r}"/><rect class="cm-obs-core" x="${f(p[0] - 2.2)}" y="${f(p[1] - 2.2)}" width="4.4" height="4.4"/>`;
+  const rot = (p, a, c) => { const r = a * Math.PI / 180, dx = p[0] - c[0], dy = p[1] - c[1]; return [c[0] + dx * Math.cos(r) - dy * Math.sin(r), c[1] + dx * Math.sin(r) + dy * Math.cos(r)]; };
+  const rrect = (c, w, h, r, a, cls) => { const x = c[0] - w / 2, y = c[1] - h / 2; return `<path class="${cls}" transform="rotate(${a} ${f(c[0])} ${f(c[1])})" d="M${f(x + r)},${f(y)} h${f(w - 2 * r)} a${r},${r} 0 0 1 ${r},${r} v${f(h - 2 * r)} a${r},${r} 0 0 1 -${r},${r} h-${f(w - 2 * r)} a${r},${r} 0 0 1 -${r},-${r} v-${f(h - 2 * r)} a${r},${r} 0 0 1 ${r},-${r} z"/>`; };
+  const rpath = (c, a, d, cls) => `<path class="${cls}" transform="rotate(${a} ${f(c[0])} ${f(c[1])})" d="${d}"/>`;
+  // Catmull-Rom through the points, emitted as cubic Beziers: one continuous stroke, never a polyline of segments
+  const thread = (pts, cls) => { let d = `M${f(pts[0][0])},${f(pts[0][1])}`; for (let i = 0; i < pts.length - 1; i++) { const p0 = pts[Math.max(i - 1, 0)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(i + 2, pts.length - 1)]; const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6]; d += ` C${f(c1[0])},${f(c1[1])} ${f(c2[0])},${f(c2[1])} ${f(p2[0])},${f(p2[1])}`; } return `<path class="${cls}" d="${d}"/>`; };
   const label = (x, y, text) => `<text class="cm-label" x="${x}" y="${y}">${text}</text>`;
 
   // Reticulum, J2000 (right ascension in degrees, declination in degrees), Hipparcos-based catalogue values
@@ -67,6 +77,24 @@
       s += node([P.zeta[0] - 2.4, P.zeta[1] + 1], 1.9) + node([P.zeta[0] + 2.4, P.zeta[1] - 1], 1.9); // the zeta pair
       s += mark(P.zeta, 8);
       s += label(14, 226, 'RET · RETICULUM / THE RETICLE');
+      return s;
+    } },
+    thread: { viewBox: '0 0 300 220', alt: { en: 'Three trading-card forms fanned like a hand, drawn as a constellation, with one continuous luminous thread running through all three from a coral marker outside the cards.', de: 'Drei aufgefächerte Sammelkarten-Formen als Sternbild, durch die ein durchgehender leuchtender Faden von einer korallenfarbenen Markierung außerhalb der Karten verläuft.' }, build() {
+      // three cards, 64 x 92 units each, fanned at -14 / 0 / +14 degrees; every corner stays inside an inset of >= 10 units
+      const cards = [{ c: [86, 124], a: -14 }, { c: [150, 112], a: 0 }, { c: [214, 124], a: 14 }];
+      const W = 64, H = 92, R = 6;
+      let s = cards.map((k) => rrect(k.c, W, H, R, k.a, 'cm-vol cm-body')).join('') + dust([26, 30, 248, 170], 16, 23);
+      s += cards.map((k) => rrect(k.c, W, H, R, k.a, 'cm-contour')).join('');
+      // card anatomy as construction lines: an art window and two rules, all faint
+      cards.forEach((k) => { const x = k.c[0] - W / 2 + 8, y = k.c[1] - H / 2 + 8, w = W - 16; s += rpath(k.c, k.a, `M${f(x)},${f(y)} h${f(w)} v40 h-${f(w)} z`, 'cm-frame cm-faint') + rpath(k.c, k.a, `M${f(x)},${f(k.c[1] + H / 2 - 26)} h${f(w)} M${f(x)},${f(k.c[1] + H / 2 - 16)} h${f(w * 0.62)}`, 'cm-frame cm-faint'); });
+      // the thread: from the keeper outside the cards, through the centre of each card, out past the last one
+      const keeper = [34, 190], exit = [266, 70];
+      const run = [keeper, cards[0].c, cards[1].c, cards[2].c, exit];
+      s += thread(run, 'cm-thread');
+      // constellation: card corners as minor stars, card centres as the thread's stations, the middle card a major
+      cards.forEach((k, i) => { [[-W / 2, -H / 2], [W / 2, -H / 2], [W / 2, H / 2], [-W / 2, H / 2]].forEach((o) => s += node(rot([k.c[0] + o[0], k.c[1] + o[1]], k.a, k.c), i === 1 ? 1.8 : 1.5, 'cm-minor')); });
+      s += node(cards[0].c, 2.4) + star(cards[1].c, 3) + node(cards[2].c, 2.4) + node(exit, 2);
+      s += mark(keeper, 8);
       return s;
     } },
   };
