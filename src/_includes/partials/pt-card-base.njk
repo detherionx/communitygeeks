@@ -1,12 +1,14 @@
 {% from "partials/pt-motifs.njk" import ptConstellation %}
 {# Same card as partials/pt-card.njk (structure, classes, copy untouched),
    with a `base` prefix (kept from the review build; production passes ""). #}
-{% macro ptCardBase(piece, index, headingLevel, lang, base) %}
+{% macro ptCardBase(piece, index, headingLevel, lang, base, featured) %}
 {% set lang = lang or "en" %}
-<article class="pt-card accent-{{ piece.accentColor or 'petrol' }}" data-type="{{ piece.filterType }}">
+{# `featured`: the newest piece leads the archive as a full-width card (~60/40 text to graphic) and carries the
+   detailed masthead drawing; every other card keeps the simplified catalogue glyph. Same structure and copy. #}
+<article class="pt-card accent-{{ piece.accentColor or 'petrol' }}{% if featured %} pt-card--featured{% endif %}" data-type="{{ piece.filterType }}">
   <div class="pt-card-field"></div>
   {# catalogue entry: the piece's constellation as a specimen glyph, with its persistent observation number #}
-  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'catalogue', 'paper') }}</div>{% endif %}
+  {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'masthead' if featured else 'catalogue', 'paper') }}</div>{% endif %}
   {% if piece.obs %}<span class="cat-no">OBS. {{ piece.obs }}</span>{% endif %}
   <div class="pt-card-inner">
     <div class="pt-card-meta">

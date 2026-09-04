@@ -8,6 +8,13 @@ format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "reticulum"  # the real constellation Reticulum (the Reticle); see src/lib/constellationMotifs.js
+journal:         # homepage field journal notation (see src/_data/journalPages.js)
+  headline: "WHERE DOES IT RUN?"
+  sketch: "reticulum"
+  lines:
+    - "forum · discord · calendar"
+    - "→ not the container."
+    - "who participates, how."
 summary: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
 deck: "A field note informed by a conversation with Andy Claremont, Head of Ecosystem & Community at Glide, exploring what changes when we look beyond individual channels and instead at the people, groups and relationships around a company."
 topics:

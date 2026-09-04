@@ -766,6 +766,6 @@
 .cm.cm--record .cm-label,.cm.cm--catalogue .cm-label{display:none;}
 .cm .cm-line,.cm .cm-frame,.cm .cm-ray,.cm .cm-ring,.cm .cm-obs{vector-effect:non-scaling-stroke;}
 /* thread motif (OBS. 003): the one continuous line through the cards reads brighter and slightly heavier than construction lines */
-.cm .cm-thread{fill:none;stroke:#F6F4EF;stroke-opacity:0.88;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
-.cm.cm--paper .cm-thread{stroke:#1F4B4C;stroke-opacity:0.82;}
-.cm.cm--catalogue .cm-thread{stroke-width:1.8;}
+.cm .cm-thread{fill:none;stroke:#E8735A;stroke-opacity:0.95;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;} .cm .cm-thread.cm-bold{stroke-width:2.2;} .cm .cm-line.cm-bold{stroke-width:1.7;stroke-opacity:0.85;}
+.cm.cm--paper .cm-line.cm-bold{stroke-opacity:0.9;}
+.cm.cm--catalogue .cm-thread{stroke-width:2;}

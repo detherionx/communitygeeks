@@ -7,7 +7,14 @@ date: 2026-09-04
 format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
-motif: "thread"  # one continuous thread through three fanned card forms; see src/lib/constellationMotifs.js
+motif: "thread"  # the Thread Keeper: one coral thread through three guardrail apertures to the human node; see src/lib/constellationMotifs.js
+journal:         # homepage field journal notation (see src/_data/journalPages.js)
+  headline: "THREAD"
+  sketch: "thread"
+  lines:
+    - "who keeps it? a human."
+    - "guardrails, review, trust."
+    - "boundaries matter more."
 summary: "A field note from gamescom 2026: three conversations about very different kinds of work, at Bettermode, Inworld, and in DevRel, keep returning to one constraint. AI can do more and more on its own, but someone still has to preserve the context that makes its actions coherent."
 deck: "Three conversations, three kinds of autonomy, one question underneath"
 topics:

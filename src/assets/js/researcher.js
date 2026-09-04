@@ -108,36 +108,54 @@
     for (let y = -104; y < 130; y += 18) { line([-178, y], [-14, y], 'rule', J); line([14, y], [178, y], 'rule', J); }
     line([-166, -130], [-166, 130], 'margin', J); line([24, -130], [24, 130], 'margin', J);
     const text = (x, y, s, cls, anchor, p) => { const t = el('text', { class: cls, x, y, 'text-anchor': anchor || 'start' }, p || J); t.textContent = s; return t; };
-    text(-160, -114, 'FIELD JOURNAL · 06', 'lbl'); text(178, -114, 'p. 41', 'lbl', 'end'); text(30, -114, '2 SEP 2026', 'lbl'); text(-14, 122, 'p. 40', 'lbl', 'end');
-    // left page: observation 001, complete
-    text(-158, -84, 'OBS. 001 · 25 AUG', 'ink'); text(-158, -62, 'WHERE DOES IT RUN?', 'ink small');
-    const n1 = [-128, -24], n2 = [-72, -38], n3 = [-96, 14], n4 = [-44, 6];
-    chain([n1, n2, n4], 'stroke thin', J); line(n1, n3, 'stroke thin', J); line(n3, n4, 'stroke thin', J);
-    [n1, n2, n3, n4].forEach((n) => el('circle', { class: 'inknode', cx: n[0], cy: n[1], r: 2.2 }, J));
-    el('circle', { class: 'coral', cx: n4[0], cy: n4[1], r: 8 }, J);
-    text(-158, 44, 'forum · discord · calendar', 'ink small'); el('path', { class: 'stroke thin', d: 'M-158,48 c30,2 60,-2 96,0' }, J);
-    text(-158, 68, '→ not the container.', 'ink small'); text(-158, 86, 'who participates, how.', 'ink small');
-    // right page: observation 002, written by the pen. Each item is one writing segment.
+    // ===== journal content: the two latest published observations, read from the section's data-journal attribute
+    // (built by src/_data/journalPages.js from the same piece list the ledger uses). The previous observation stands
+    // complete on the left page; the newest is written on the right page by the pen. Fallback = OBS. 002 alone.
+    let JD = null; try { JD = JSON.parse(svg.dataset.journal || 'null'); } catch (e) { JD = null; }
+    const right = (JD && JD.right) || { obs: '002', date: '2 SEP', dateLong: '2 SEP 2026', page: 41, headline: 'PARTICIPATION', sketch: 'container', lines: ['≠ CONTAINER'] };
+    const left = (JD && JD.left) || null;
+    text(-160, -114, 'FIELD JOURNAL · ' + ((JD && JD.volume) || '06'), 'lbl'); text(178, -114, 'p. ' + right.page, 'lbl', 'end'); text(30, -114, right.dateLong, 'lbl'); if (left) text(-14, 122, 'p. ' + left.page, 'lbl', 'end');
     const clipText = (t, i) => { const cp = el('clipPath', { id: `${id}-t${i}` }, defs); const r = el('rect', { x: t.getAttribute('x'), y: +t.getAttribute('y') - 16, width: 0, height: 22 }, cp); const w = el('g', { 'clip-path': `url(#${id}-t${i})` }, J); w.appendChild(t); return { t, r }; };
-    const tObs = clipText(text(32, -84, 'OBS. 002 · 2 SEP', 'ink'), 0);
-    const tPart = clipText(text(32, -56, 'PARTICIPATION', 'ink big'), 1);
-    const under = el('path', { class: 'stroke', d: 'M32,-48 c24,1.5 52,-2 78,-0.5 s28,1 40,0' }, J);
-    const nA = el('circle', { class: 'inknode', cx: A[0], cy: A[1], r: 2.2 }, J);
-    const lineAB = el('path', { class: 'stroke thin', d: `M${A[0]},${A[1]} L${Bn[0]},${Bn[1]}` }, J);
-    const nB = el('circle', { class: 'inknode', cx: Bn[0], cy: Bn[1], r: 2.2 }, J);
-    const curveAC = el('path', { class: 'stroke thin', d: `M${A[0]},${A[1]} Q46,12 66,24 Q84,34 ${C[0]},${C[1]}` }, J);
-    const nC = el('circle', { class: 'inknode', cx: C[0], cy: C[1], r: 2.2 }, J);
-    const tNe = clipText(text(32, 74, '≠ CONTAINER', 'ink'), 2);
-    const coralC = el('path', { class: 'coral', d: circ(C[0], C[1], 9) }, J);
+    const ink = (q) => el('circle', { class: 'inknode', cx: q[0], cy: q[1], r: 2.2 }, J);
+    const pth = (d, cls) => el('path', { class: cls || 'stroke thin', d }, J);
+    const diamond = (c, a) => `M${c[0]},${c[1] - a} L${c[0] + a},${c[1]} L${c[0]},${c[1] + a} L${c[0] - a},${c[1]} Z`;
+    // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
+    // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
+    const SKETCH = {
+      reticulum(x0, txt) { const n1 = [x0 + 62, -24], n2 = [x0 + 118, -38], n3 = [x0 + 94, 14], n4 = [x0 + 146, 6];
+        return [{ kind: 'node', o: ink(n1), w: 0.015 }, { kind: 'path', o: pth(`M${n1} L${n2} L${n4}`), w: 0.09 }, { kind: 'node', o: ink(n2), w: 0.015 }, { kind: 'node', o: ink(n4), w: 0.015 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(`M${n1} L${n3} L${n4}`), w: 0.09 }, { kind: 'node', o: ink(n3), w: 0.015 }, { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(n4[0], n4[1], 8), 'coral'), w: 0.08 }]; },
+      container(x0, txt) { const A = [x0 + 38, -12], B = [x0 + 110, -22], C = [x0 + 94, 40];
+        return [{ kind: 'node', o: ink(A), w: 0.015 }, { kind: 'path', o: pth(`M${A} L${B}`), w: 0.07 }, { kind: 'node', o: ink(B), w: 0.015 }, { kind: 'move', w: 0.03 },
+          { kind: 'path', o: pth(`M${A} Q${x0 + 44},12 ${x0 + 64},24 Q${x0 + 82},34 ${C}`), w: 0.14 }, { kind: 'node', o: ink(C), w: 0.015 }, { kind: 'move', w: 0.03 }, { kind: 'path', o: pth(circ(C[0], C[1], 9), 'coral'), w: 0.10 }]; },
+      thread(x0, txt) { const s = [x0 + 34, -4], a1 = [x0 + 64, -14], a2 = [x0 + 116, 10], K = [x0 + 150, 46];
+        // two guardrail apertures, their labels, then one continuous coral thread through both to the keeper
+        return [{ kind: 'path', o: pth(diamond(a1, 7)), w: 0.06 }, { kind: 'move', w: 0.02 }, { kind: 'text', o: txt(x0 + 30, 36, 'GUARDRAILS', 'ink small'), w: 0.08 }, { kind: 'move', w: 0.025 },
+          { kind: 'path', o: pth(diamond(a2, 7)), w: 0.06 }, { kind: 'move', w: 0.02 }, { kind: 'text', o: txt(x0 + 100, -30, 'TRUST', 'ink small'), w: 0.05 }, { kind: 'move', w: 0.03 },
+          { kind: 'node', o: ink(s), w: 0.015 }, { kind: 'path', o: pth(`M${s} C${x0 + 46},-12 ${x0 + 54},-14 ${a1} C${x0 + 84},-14 ${x0 + 98},8 ${a2} C${x0 + 132},12 ${x0 + 142},30 ${K}`, 'coral'), w: 0.16 }, { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(K[0], K[1], 9), 'coral'), w: 0.08 }]; },
+    };
+    // left page: the previous observation, complete
+    if (left) {
+      text(-158, -84, `OBS. ${left.obs} · ${left.date}`, 'ink'); text(-158, -62, left.headline, 'ink small');
+      if (SKETCH[left.sketch]) SKETCH[left.sketch](-190, (x, y, s, cls) => ({ t: text(x, y, s, cls) }));
+      left.lines.forEach((s, i) => { text(-158, 64 + [0, 18, 36][i], s, 'ink small'); if (i === 0) pth('M-158,68 c30,2 60,-2 96,0'); });
+    }
+    // right page: the newest observation, written by the pen. Each item is one writing segment.
+    let tIdx = 0; const wtxt = (x, y, s, cls) => clipText(text(x, y, s, cls), tIdx++);
+    const tObs = wtxt(32, -84, `OBS. ${right.obs} · ${right.date}`, 'ink');
+    const big = right.headline.length <= 15; const tHead = wtxt(32, -56, right.headline, big ? 'ink big' : 'ink');
+    const uL = right.headline.length * (big ? 9.2 : 6.3) + 4;
+    const under = pth(`M32,-48 c${(uL * 0.16).toFixed(1)},1.5 ${(uL * 0.35).toFixed(1)},-2 ${(uL * 0.52).toFixed(1)},-0.5 s${(uL * 0.19).toFixed(1)},1 ${(uL * 0.27).toFixed(1)},0`, 'stroke');
+    const sketchSegs = SKETCH[right.sketch] ? SKETCH[right.sketch](2, wtxt) : [];
+    const tLine = right.lines[0] ? wtxt(32, 74, right.lines[0], 'ink') : null;
     // the writing programme: segments with relative durations, pen moves between them
     const segs = [
       { kind: 'text', o: tObs, w: 0.10 }, { kind: 'move', w: 0.025 },
-      { kind: 'text', o: tPart, w: 0.16 }, { kind: 'move', w: 0.02 },
+      { kind: 'text', o: tHead, w: 0.012 * right.headline.length + 0.02 }, { kind: 'move', w: 0.02 },
       { kind: 'path', o: under, w: 0.06 }, { kind: 'move', w: 0.03 },
-      { kind: 'node', o: nA, w: 0.015 }, { kind: 'path', o: lineAB, w: 0.07 }, { kind: 'node', o: nB, w: 0.015 }, { kind: 'move', w: 0.03 },
-      { kind: 'path', o: curveAC, w: 0.14 }, { kind: 'node', o: nC, w: 0.015 }, { kind: 'move', w: 0.03 },
-      { kind: 'text', o: tNe, w: 0.13 }, { kind: 'move', w: 0.03 },
-      { kind: 'path', o: coralC, w: 0.10 }, { kind: 'move', w: 0.04, to: REST },
+      ...sketchSegs, { kind: 'move', w: 0.03 },
+      ...(tLine ? [{ kind: 'text', o: tLine, w: 0.10 }, { kind: 'move', w: 0.03 }] : []),
+      { kind: 'move', w: 0.04, to: REST },
     ];
     const total = segs.reduce((s, x) => s + x.w, 0); let acc = 0; segs.forEach((x) => { x.start = acc / total; acc += x.w; x.end = acc / total; });
 
@@ -182,7 +200,7 @@
 
     // ---- state: everything below is a pure function of progress p in [0,1] ----
     const lens = { path: new Map(), text: new Map() };
-    const measure = () => { [under, lineAB, curveAC, coralC].forEach((pth) => lens.path.set(pth, pth.getTotalLength())); [tObs, tPart, tNe].forEach((o) => { let L = 0; try { L = o.t.getComputedTextLength(); } catch (e) { L = 0; } if (!L) L = o.t.textContent.length * (o.t.classList.contains('big') ? 9.2 : 6.3); lens.text.set(o, L); }); };
+    const measure = () => { segs.forEach((sg) => { if (sg.kind === 'path') lens.path.set(sg.o, sg.o.getTotalLength()); else if (sg.kind === 'text') { let L = 0; try { L = sg.o.t.getComputedTextLength(); } catch (e) { L = 0; } if (!L) L = sg.o.t.textContent.length * (sg.o.t.classList.contains('big') ? 9.2 : sg.o.t.classList.contains('small') ? 5.9 : 6.3); lens.text.set(sg.o, L); } }); };
     measure();
     const setT = (m, tr, op) => { m.forEach((x) => { x.setAttribute('transform', tr); if (op !== undefined) x.style.opacity = op.toFixed(3); }); };
     const startOf = (sg) => sg.kind === 'text' ? [+sg.o.t.getAttribute('x'), +sg.o.t.getAttribute('y') - 2] : sg.kind === 'path' ? (() => { const q = sg.o.getPointAtLength(0); return [q.x, q.y]; })() : sg.kind === 'node' ? [+sg.o.getAttribute('cx'), +sg.o.getAttribute('cy')] : (sg.to || [0, 0]);

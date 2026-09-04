@@ -94,9 +94,47 @@ html[lang="de"] .pt-shell .pt-masthead-side .pt-side-oq::after{content:"Offene F
 .pt-shell .obs-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px;}
 .pt-shell .obs-label b{font-weight:500;color:var(--petrol);}
 @media (max-width:860px){
-  .pt-shell .pt-masthead-side{position:static;border-left:0;border-top:1px solid var(--line);padding:28px 0 0;} /* static so the specimen positions against the masthead */
-  /* phones: the notation column stacks below the title, so the specimen leaves it and becomes the title's background,
-     upper right inside the masthead (which clips nothing: the drawing keeps its full contour inside the box) */
-  .pt-shell .pt-motif--spec{position:absolute;top:22px;right:0;width:min(64%,270px);margin:0;opacity:0.5;z-index:0;}
-  .pt-shell .pt-motif--spec .cm-label{display:none;} /* the notation label would sit behind running text here */
+  .pt-shell .pt-masthead-side{position:static;border-left:0;border-top:1px solid var(--line);padding:22px 0 0;}
+  /* phones (repair pass 2026-09-04): editorial information first, then the piece's simplified catalogue drawing at a
+     bounded size, then Topics and the open question. The detailed specimen is not rendered here. */
+  .pt-shell .pt-motif--spec{display:none;}
+  .pt-shell .pt-motif--spec-mobile{display:block;position:relative;width:min(58%,240px);height:auto;aspect-ratio:300/230;margin:0 0 18px;opacity:1;pointer-events:none;}
+}
+
+/* ===== OBS. 003 repair pass (2026-09-04): archive hierarchy, masthead composition ===== */
+/* Archive grid: each card carries its own hairline and the grid paints nothing itself, so an odd number of cards never
+   leaves a grey placeholder cell. The newest piece leads as a full-width featured card (~60/40 text to drawing) with
+   the detailed masthead drawing; the older pieces follow two-up with the simplified glyph. */
+.pt-shell .pt-grid{gap:0;background:transparent;border:0;padding:1px 0 0 1px;}
+.pt-shell .pt-grid .pt-card{border:1px solid var(--line);margin:-1px 0 0 -1px;}
+.pt-shell .pt-card--featured{grid-column:1 / -1;}
+.pt-shell .pt-card--featured .pt-card-inner{padding:38px 42% 34px 38px;min-height:300px;display:flex;flex-direction:column;justify-content:center;}
+.pt-shell .pt-card--featured .pt-card-title{max-width:22ch;font-size:clamp(26px,2.6vw,34px);}
+.pt-shell .pt-card--featured .pt-card-deck{max-width:46ch;}
+.pt-shell .pt-card--featured .pt-motif--card{top:50%;right:38px;transform:translateY(-50%);width:34%;max-width:380px;}
+.pt-shell .pt-card--featured .cat-no{top:auto;bottom:28px;right:38px;}
+@media (max-width:1000px){.pt-shell .pt-card--featured .pt-card-inner{padding-right:44%;}}
+@media (max-width:860px){
+  .pt-shell .pt-card--featured .pt-card-inner{padding:26px 24px;min-height:0;display:block;}
+  .pt-shell .pt-card--featured .pt-card-title{max-width:16ch;font-size:clamp(22px,2.6vw,28px);}
+  .pt-shell .pt-card--featured .pt-motif--card{top:22px;right:20px;transform:none;width:38%;max-width:none;}
+}
+/* Article masthead: 62/38 split, content-driven height, tighter rhythm; the drawing heads the right column at full
+   column width so its axis sits beside the title and deck, with Topics and the open question stacked beneath it. */
+.pt-shell .pt-masthead{grid-template-columns:62fr 38fr;align-items:start;}
+.pt-shell .pt-masthead-main{padding:26px 44px 28px 0;}
+.pt-shell .pt-masthead-side{padding:26px 0 28px 34px;}
+.pt-shell .pt-motif--spec{margin:0 0 18px;}
+@media (min-width:861px){.pt-shell .pt-motif--spec-mobile{display:none;}}
+.pt-shell .obs-label{margin-bottom:14px;}
+.pt-shell .pt-title{margin-bottom:18px;text-wrap:balance;}
+.pt-shell .pt-deck{margin-bottom:22px;}
+.pt-shell .pt-masthead-side .pt-side-tags{margin-bottom:24px;}
+.pt-shell .pt-masthead-side .pt-side-oq{font-size:15px;}
+.pt-shell .pt-body{margin-top:40px;}
+@media (max-width:860px){
+  .pt-shell .pt-masthead{grid-template-columns:1fr;} /* phones stack: editorial column, then drawing, topics, question */
+  .pt-shell .pt-masthead-main{padding:22px 0 20px;}
+  .pt-shell .pt-masthead-side{padding:22px 0 0;}
+  .pt-shell .pt-body{margin-top:32px;}
 }

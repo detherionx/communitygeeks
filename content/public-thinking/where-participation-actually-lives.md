@@ -8,6 +8,13 @@ format: "Field Note"
 filterType: "field"
 confidence: "Observation"
 motif: "gaming"
+journal:         # homepage field journal notation (see src/_data/journalPages.js)
+  headline: "PARTICIPATION"
+  sketch: "container"
+  lines:
+    - "≠ CONTAINER"
+    - "six voices, no one answer."
+    - "functions it runs through."
 summary: "A field note from Gamescom 2026: six conversations with community, DevRel, and ecosystem practitioners that don't converge on one answer, but together show participation moving across the boundaries between community, DevRel, marketing, partnerships, product, sales, and executive strategy."
 deck: "What conflicting answers at Gamescom taught me about community, DevRel, and everything around them."
 topics:

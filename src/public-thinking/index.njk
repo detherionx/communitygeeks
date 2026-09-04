@@ -44,7 +44,7 @@ extraScripts:
   </div>
 
   <div class="pt-grid">
-    {% for piece in publicThinking %}{{ ptCardBase(piece, loop.index, 2, "en", "") }}{% endfor %}
+    {% for piece in publicThinking %}{{ ptCardBase(piece, loop.index, 2, "en", "", loop.first) }}{% endfor %}
   </div>
 
   <div class="pt-compact-empty" data-type="research">More research findings are in progress and will publish here as they clear review.</div>

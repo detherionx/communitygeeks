@@ -42,7 +42,7 @@ extraScripts:
   </div>
 
   <div class="pt-grid">
-    {% for piece in publicThinkingDe %}{{ ptCardBase(piece, loop.index, 2, "de", "") }}{% endfor %}
+    {% for piece in publicThinkingDe %}{{ ptCardBase(piece, loop.index, 2, "de", "", loop.first) }}{% endfor %}
   </div>
 
   <div class="pt-compact-empty" data-type="research">Weitere Forschungsergebnisse sind in Arbeit und erscheinen hier, sobald sie das Review durchlaufen haben.</div>

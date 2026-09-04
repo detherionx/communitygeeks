@@ -52,7 +52,9 @@ extraScripts:
       </div>
       {% if hasSide %}
       <div class="pt-masthead-side accent-{{ piece.accentColor or 'petrol' }}">
-        {% if piece.motif %}<div class="pt-motif pt-motif--spec pt-motif-{{ piece.motif }}">{{ ptConstellation(piece.motif, 'masthead', 'paper', 'de') }}</div>{% endif %}
+        {% if piece.motif %}<div class="pt-motif pt-motif--spec pt-motif-{{ piece.motif }}">{{ ptConstellation(piece.motif, 'masthead', 'paper', 'de') }}</div>
+        {# phones: the simplified catalogue drawing replaces the detailed specimen (CSS toggles the two) #}
+        <div class="pt-motif pt-motif--spec-mobile pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'catalogue', 'paper') }}</div>{% endif %}
         {% if piece.topics and piece.topics.length %}
         <span class="pt-side-label">Themen</span>
         <div class="pt-side-tags">
