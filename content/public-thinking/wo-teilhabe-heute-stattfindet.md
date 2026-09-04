@@ -2,6 +2,7 @@
 title: "Wo Partizipation heute eigentlich stattfindet"
 slug: "wo-teilhabe-heute-stattfindet"
 lang: "de"
+sourceLanguage: "en"
 translationKey: "ecosystem-participation-glide-andy"
 date: 2026-08-25
 format: "Feldnotiz"

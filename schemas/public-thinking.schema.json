@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://communitygeeks.ai/schemas/public-thinking.schema.json",
+  "title": "Communitygeeks Public Thinking article frontmatter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "slug",
+    "lang",
+    "sourceLanguage",
+    "translationKey",
+    "date",
+    "format",
+    "filterType",
+    "confidence",
+    "motif",
+    "summary",
+    "deck",
+    "topics",
+    "authors",
+    "openQuestion",
+    "researchThread"
+  ],
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "lang": { "type": "string", "enum": ["en", "de"] },
+    "sourceLanguage": { "type": "string", "enum": ["en", "de"] },
+    "translationKey": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "date": { "type": "string", "format": "date" },
+    "dateModified": { "type": ["string", "null"], "format": "date" },
+    "format": {
+      "type": "string",
+      "enum": [
+        "Research Finding",
+        "Executive One-Pager",
+        "Case Study",
+        "Field Note",
+        "Forschungsergebnis",
+        "Fallstudie",
+        "Feldnotiz"
+      ]
+    },
+    "filterType": { "type": "string", "enum": ["research", "onepager", "case", "field"] },
+    "confidence": { "type": "string", "enum": ["Observation", "Emerging Pattern", "Research Finding"] },
+    "motif": { "type": "string", "enum": ["gaming", "reticulum", "thread"] },
+    "summary": { "type": "string", "minLength": 1 },
+    "deck": { "type": "string", "minLength": 1 },
+    "topics": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "journal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headline", "sketch", "lines"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "sketch": { "type": "string", "minLength": 1 },
+        "lines": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "accentColor": { "type": "string", "enum": ["petrol", "brass", "ink"] },
+    "ogImage": { "type": ["string", "null"] },
+    "pdf": { "type": ["string", "null"] },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "title"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "title": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "geometry": { "type": "object" },
+    "openQuestion": { "type": "string", "minLength": 1 },
+    "researchThread": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "lang": { "const": "en" } } },
+      "then": { "required": ["journal"] }
+    }
+  ],
+  "x-communitygeeks": {
+    "pairLanguages": ["en", "de"],
+    "pairEqualFields": ["sourceLanguage", "date", "filterType", "confidence", "motif", "authors"],
+    "summaryRecommendedCharacters": { "min": 140, "max": 170 },
+    "authoredCopyDisallowsEmDash": true
+  }
+}

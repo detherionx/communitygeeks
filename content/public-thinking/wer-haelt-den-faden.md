@@ -2,6 +2,7 @@
 title: "Wer hält den Faden?"
 slug: "wer-haelt-den-faden"
 lang: "de"
+sourceLanguage: "en"
 translationKey: "gamescom-2026-who-keeps-the-thread"
 date: 2026-09-04
 format: "Feldnotiz"

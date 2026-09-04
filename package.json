@@ -5,7 +5,9 @@
   "description": "Communitygeeks marketing site: static Eleventy build, deployable as plain static files (no Node server required in production).",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy && node scripts/generate-og-images.js",
+    "validate:content": "node scripts/validate-public-thinking.js",
+    "validate:content:json": "node scripts/validate-public-thinking.js --json",
+    "build": "npm run validate:content && eleventy && node scripts/generate-og-images.js",
     "debug": "DEBUG=Eleventy* eleventy"
   },
   "engines": {

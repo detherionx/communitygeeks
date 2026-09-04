@@ -2,6 +2,7 @@
 title: "Who Keeps the Thread?"
 slug: "who-keeps-the-thread"
 lang: "en"
+sourceLanguage: "en"
 translationKey: "gamescom-2026-who-keeps-the-thread"
 date: 2026-09-04
 format: "Field Note"

@@ -29,6 +29,8 @@
 
 ## Technical checks
 
+- `npm run validate:content` reports no structural errors; review every warning in context.
+- `npm run --silent validate:content:json` produces valid machine-readable diagnostics when used.
 - `npm run build`
 - Inspect screenshots of the homepage, Public Thinking overview, article, and social preview at desktop and phone sizes.
 - English and German article, homepage, archive, metadata, image URLs, sitemap, and language alternates inspected in built output.

@@ -2,6 +2,7 @@
 title: "Wo Partizipation tatsächlich stattfindet"
 slug: "wo-partizipation-tatsaechlich-stattfindet"
 lang: "de"
+sourceLanguage: "en"
 translationKey: "gamescom-2026-participation-boundaries"
 date: 2026-09-02
 format: "Feldnotiz"

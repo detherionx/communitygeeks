@@ -10,6 +10,9 @@
 ---
 title: "Piece title, written the way a human would say it out loud"
 slug: "url-safe-slug-no-spaces"
+lang: "en"                         # en or de. Every published translationKey must have exactly one of each.
+sourceLanguage: "en"               # The language of the human-authored source. Keep identical across the pair.
+translationKey: "shared-key-for-language-pair"
 date: 2026-08-01
 format: "Research Finding"          # Must match a "format" value in src/_data/publicThinkingFormats.js, that
                                      # file is the single source of truth for the format taxonomy (also drives
@@ -20,8 +23,16 @@ confidence: "Observation"           # MUST be one of: "Observation" | "Emerging 
                                      # → Public Source Pack → "Public Thinking: Confidence Vocabulary Map".
                                      # Never use internal labels (Low/Medium/High/Validated, or Weak/Emerging/Strong)
                                      # here. The Eleventy build will throw an error if this field has anything else.
-summary: "One or two sentences. Used as the page <meta description> and the Article schema's description."
-topics:                              # Optional but recommended. 2-4 short topic/entity labels this piece is
+motif: "thread"                    # Required. Must match a maintained key in src/lib/constellationMotifs.js.
+journal:                           # Required on the English source only. Do not duplicate it on the German counterpart.
+  headline: "SHORT NOTEBOOK HEADING"
+  sketch: "thread"
+  lines:
+    - "one concise field-note line."
+    - "a second line if it earns its place."
+summary: "One or two sentences. Used as the page <meta description> and the Article schema's description. Aim for 140 to 170 characters."
+deck: "The canonical visible subtitle used on the homepage, archive, and article page."
+topics:                              # Required. 2-4 short topic/entity labels this piece is
                                       # actually about (not the format, that's `filterType` above). Feeds the
                                       # Article schema's `keywords` field, giving search engines and AI systems a
                                       # structured signal beyond parsing prose. Derive these from what the piece
@@ -33,13 +44,6 @@ accentColor: petrol                 # Optional. One of: petrol | brass | ink. Co
                                      # the featured record) and on its own article masthead: same field drives
                                      # both, so a piece keeps one identity across surfaces. Omit to default to
                                      # petrol. Pick deliberately per piece; don't assign colors on rotation.
-motif: null                         # Optional. The piece's constellation identity (Public Thinking V2): one
-                                     # geometry rendered on the homepage record, the archive card, the article
-                                     # masthead and the generated OG card. Must match a key in
-                                     # src/lib/constellationMotifs.js ("gaming", "reticulum", "thread"); add a
-                                     # new motif there (with EN/DE alt text) before using its slug here. Omit
-                                     # entirely for a piece with no motif yet, the card still renders correctly
-                                     # without one, this is not a required field.
 authors:                            # One or more names, byline order. Each name is looked up in
                                      # src/_data/people.js for a linked profile, photo, and bio in the article's
                                      # author box and structured data: a name with no entry there still renders
@@ -87,6 +91,8 @@ geometry:                           # Optional. This piece's own background geom
   shapes:
     - { type: circle, cx: 300, cy: 50, r: 150, color: ink, opacity: 0.06 }
     - { type: rect, x: 30, y: 190, w: 230, h: 170, color: petrol, opacity: 0.09 }
+openQuestion: "The question this article leaves open."
+researchThread: "The continuing line of inquiry this article belongs to."
 ---
 
 Write the body here as normal Markdown. Headings, bold, links, lists all work.
