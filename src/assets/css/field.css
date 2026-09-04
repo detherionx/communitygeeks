@@ -625,6 +625,8 @@ html:not(.js) .mani-cursor{display:none;}
      ordinary scrolling only scrolls. Without JavaScript the notes simply stack. F5: the stage clips and the drawing is
      sized by the stage's height as well as its width, so 200% zoom cannot push the orbits over the text. */
   .nar-stage{position:relative;top:auto;height:44svh;min-height:230px;background:var(--teal);z-index:2;overflow:hidden;}
+  .js .narrative.swipe-hint:not([data-stage="5"]) .nar-stage::after{content:"";position:absolute;z-index:4;pointer-events:none;right:-28px;top:12%;width:112px;height:76%;border-radius:50% 0 0 50%;background:radial-gradient(ellipse at right,rgba(246,244,239,.22) 0,rgba(246,244,239,.09) 38%,rgba(246,244,239,0) 72%);filter:blur(9px);opacity:0;animation:nar-swipe-hint 1.55s var(--ease) .3s 2 both;}
+  @keyframes nar-swipe-hint{0%{opacity:0;transform:translateX(28px) scaleX(.72);}28%{opacity:.85;}100%{opacity:0;transform:translateX(-34px) scaleX(1.08);}}
   .nar-box{height:calc(100% - 64px);width:auto;max-width:calc(100% - 24px);left:50%;top:56%;}
   .js .nar-tabs{display:flex;align-items:flex-end;margin:0 var(--gutter);border-bottom:1px solid var(--cream-25);}
   .nar-tabs [role="tab"]{appearance:none;background:none;border:0;border-radius:0;flex:1 1 0;min-width:40px;height:44px;padding:0;position:relative;font-family:var(--mono);font-size:13.5px;letter-spacing:0.04em;color:var(--cream-55);cursor:pointer;transition:color .3s;}

@@ -560,8 +560,17 @@
   }
   window.addEventListener('resize', () => { if (nar && narStage >= 0) syncNarTabs(narStage); });
   if (nar && narTabs.length) {
-    narTabs.forEach((t, k) => { t.addEventListener('click', () => setNarStage(k)); t.addEventListener('keydown', (e) => { const n = narTabs.length; let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (k + 1) % n; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (k - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; if (j !== null) { e.preventDefault(); setNarStage(j); narTabs[j].focus(); } }); });
-    if (narNext) narNext.addEventListener('click', () => setNarStage((narStage + 1) % narTabs.length));
+    const dismissNarSwipeHint = () => nar.classList.remove('swipe-hint');
+    narTabs.forEach((t, k) => { t.addEventListener('click', () => { dismissNarSwipeHint(); setNarStage(k); }); t.addEventListener('keydown', (e) => { const n = narTabs.length; let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (k + 1) % n; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (k - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; if (j !== null) { e.preventDefault(); dismissNarSwipeHint(); setNarStage(j); narTabs[j].focus(); } }); });
+    if (narNext) narNext.addEventListener('click', () => { dismissNarSwipeHint(); setNarStage((narStage + 1) % narTabs.length); });
+
+    // Reveal the mobile swipe affordance only once the System figure is visible.
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const hintObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) { nar.classList.add('swipe-hint'); hintObserver.disconnect(); }
+      }, { threshold: 0.35 });
+      hintObserver.observe(nar.querySelector('.nar-stage'));
+    }
 
     // Phones: horizontal swipes anywhere in the System section drive the same
     // state as the tabs. Vertical-dominant gestures remain ordinary scrolling.
@@ -577,7 +586,7 @@
       const dx = t.clientX - narTouch.x; const dy = t.clientY - narTouch.y; narTouch = null;
       if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy)) return;
       const next = Math.max(0, Math.min(narTabs.length - 1, narStage + (dx < 0 ? 1 : -1)));
-      setNarStage(next); narSwipeAt = performance.now();
+      dismissNarSwipeHint(); setNarStage(next); narSwipeAt = performance.now();
     }, { passive: true });
     nar.addEventListener('touchcancel', () => { narTouch = null; }, { passive: true });
     nar.addEventListener('click', (e) => {
