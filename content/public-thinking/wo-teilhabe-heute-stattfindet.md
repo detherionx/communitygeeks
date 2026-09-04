@@ -9,7 +9,7 @@ filterType: "field"
 confidence: "Emerging Pattern"
 motif: "reticulum"  # the real constellation Reticulum (the Reticle); see src/lib/constellationMotifs.js
 summary: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
-deck: "Eine Feldnotiz, angeregt durch ein Gespräch mit Andy Claremont, Head of Ecosystem & Community bei Glide, darüber, was sich verändert, wenn wir über einzelne Kanäle hinausblicken und stattdessen die Menschen, Gruppen und Beziehungen rund um ein Unternehmen betrachten."
+deck: "Andy Claremont von Glide untersucht Partizipation jenseits einzelner Kanäle: die Menschen, Gruppen und Beziehungen rund um ein Unternehmen."
 topics:
   - "Ökosysteme"
   - "Community-Strategie"

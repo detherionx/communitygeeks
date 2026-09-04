@@ -9,7 +9,7 @@ filterType: "field"
 confidence: "Observation"
 motif: "gaming"
 summary: "Eine Feldnotiz von der Gamescom 2026: sechs Gespräche mit Praktikerinnen und Praktikern aus Community, DevRel und Ökosystem-Arbeit, die nicht auf eine Antwort hinauslaufen, aber zusammen zeigen, wie sich Partizipation über die Grenzen zwischen Community, DevRel, Marketing, Partnerschaften, Produkt, Vertrieb und Unternehmensstrategie hinweg bewegt."
-deck: "Was mir widersprüchliche Antworten auf der Gamescom über Community, DevRel und alles, was sie umgibt, gezeigt haben."
+deck: "Widersprüchliche Aussagen aus Gesprächen auf der Gamescom zeigen, dass Partizipation in Community und Developer Relations Menschen und Beziehungen umfasst, nicht nur eine einzelne Plattform."
 topics:
   - "Ökosysteme"
   - "Community-Strategie"

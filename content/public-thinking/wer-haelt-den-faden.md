@@ -9,7 +9,7 @@ filterType: "field"
 confidence: "Emerging Pattern"
 motif: "thread"  # one continuous thread through three fanned card forms; see src/lib/constellationMotifs.js
 summary: "Eine Feldnotiz von der gamescom 2026: Drei Gespräche über sehr unterschiedliche Arten von Arbeit – bei Bettermode, Inworld und im DevRel – kehren immer wieder zu einer Einschränkung zurück. KI kann immer mehr selbstständig erledigen, aber jemand muss dennoch den Kontext bewahren, der ihre Handlungen kohärent macht."
-deck: "Drei Gespräche, drei Arten von Autonomie, eine zugrunde liegende Frage"
+deck: "Drei Gespräche zeigen, warum bei zunehmender Autonomie von KI-Systemen oder in menschlicher Arbeit klare Grenzen, Aufsicht und menschliches Urteilsvermögen wichtiger werden."
 topics:
   - "KI-Autonomie"
   - "Developer Relations"

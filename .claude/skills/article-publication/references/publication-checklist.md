@@ -4,6 +4,8 @@
 
 - The piece has cleared its actual editorial and consent gates.
 - Title, slug, date, format, confidence, topics, authors, links, related pieces, and language pairing are correct.
+- The human-authored source language is identified. Katharina's German source wording is unchanged unless she explicitly requested an edit.
+- The derived language version was translated through DeepL and manually verified for meaning, tone, terminology, names, links, quotations, and metadata.
 - The same approved `deck` subtitle appears on the homepage, Public Thinking overview, and article page. The `summary` separately serves metadata.
 - Authored copy contains no em dash and public pages show no OBS identifier.
 
@@ -21,7 +23,7 @@
 
 - `npm run build`
 - Inspect screenshots of the homepage, Public Thinking overview, article, and social preview at desktop and phone sizes.
-- Article, homepage, archive, metadata, image URLs, sitemap, and language alternates inspected in built output.
+- English and German article, homepage, archive, metadata, image URLs, sitemap, and language alternates inspected in built output.
 - Desktop, tablet, phone, 200% zoom, keyboard, reduced motion, and no-JavaScript behavior checked where relevant.
 - No horizontal overflow, broken crop, missing asset, console error, or unintended layout shift.
 
