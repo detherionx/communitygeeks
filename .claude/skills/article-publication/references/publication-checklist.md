@@ -9,9 +9,12 @@
 
 ## Visual package
 
-- Hero is original, on-CI, relevant to the article, and saved in the repository.
-- Alt text describes the visual rather than repeating the title.
-- Article, homepage, archive, OG card, and LinkedIn cards reuse the same visual identity with deliberate crops.
+- The catalogue constellation motif is article-specific, grounded in researched astronomical context, and implemented through the existing motif system without restyling it.
+- The catalogue motif appears correctly on the homepage preview, Public Thinking overview, and article masthead. Existing templates may also reuse it for the OG card.
+- A separate editorial constellation illustration is present inside the article. It was either created for the piece or explicitly selected by the user from `#graphic-assets`.
+- The user was asked whether any photographs, screenshots, diagrams, scans, or local files should be used.
+- Every placed visual has accurate alt text. Article figures also have appropriate captions and provenance.
+- LinkedIn cards use the editorial illustration and approved source assets deliberately; they do not collapse the two constellation asset classes into one.
 - LinkedIn asset count is 1, 3, or 5 and justified by the content.
 
 ## Technical checks
