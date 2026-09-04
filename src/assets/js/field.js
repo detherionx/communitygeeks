@@ -562,6 +562,27 @@
   if (nar && narTabs.length) {
     narTabs.forEach((t, k) => { t.addEventListener('click', () => setNarStage(k)); t.addEventListener('keydown', (e) => { const n = narTabs.length; let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (k + 1) % n; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (k - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; if (j !== null) { e.preventDefault(); setNarStage(j); narTabs[j].focus(); } }); });
     if (narNext) narNext.addEventListener('click', () => setNarStage((narStage + 1) % narTabs.length));
+
+    // Phones: horizontal swipes anywhere in the System section drive the same
+    // state as the tabs. Vertical-dominant gestures remain ordinary scrolling.
+    let narTouch = null; let narSwipeAt = 0;
+    nar.addEventListener('touchstart', (e) => {
+      if (!narrow() || e.touches.length !== 1) { narTouch = null; return; }
+      const t = e.touches[0]; narTouch = { id: t.identifier, x: t.clientX, y: t.clientY };
+    }, { passive: true });
+    nar.addEventListener('touchend', (e) => {
+      if (!narTouch || !narrow()) { narTouch = null; return; }
+      const t = Array.from(e.changedTouches).find((p) => p.identifier === narTouch.id);
+      if (!t) return;
+      const dx = t.clientX - narTouch.x; const dy = t.clientY - narTouch.y; narTouch = null;
+      if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy)) return;
+      const next = Math.max(0, Math.min(narTabs.length - 1, narStage + (dx < 0 ? 1 : -1)));
+      setNarStage(next); narSwipeAt = performance.now();
+    }, { passive: true });
+    nar.addEventListener('touchcancel', () => { narTouch = null; }, { passive: true });
+    nar.addEventListener('click', (e) => {
+      if (performance.now() - narSwipeAt < 500) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
   }
   if (nar) setNarStage(0); // phones start on view 01; desktop is re-driven by scroll on the first frame
   // ENGAGEMENT MANIFEST · six logo coordinates on one rail, one shared record. Click/keyboard selects, hover previews
