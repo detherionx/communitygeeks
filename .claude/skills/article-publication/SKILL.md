@@ -7,7 +7,7 @@ description: Publish a Communitygeeks Public Thinking article end to end, includ
 
 Treat one article as one publication package. The Markdown file is the canonical editorial source. The website, image, social assets, and metadata must agree with it without flattening their different jobs.
 
-Read [references/editorial-style.md](references/editorial-style.md) before editing copy and [references/publication-checklist.md](references/publication-checklist.md) before implementation. Read [references/translation.md](references/translation.md) whenever the publication has an English or German counterpart. Read [references/visual-and-canva.md](references/visual-and-canva.md) before choosing or creating any visual asset.
+Read [references/editorial-style.md](references/editorial-style.md) before editing copy and [references/publication-checklist.md](references/publication-checklist.md) before implementation. Read [references/translation.md](references/translation.md) whenever the publication has an English or German counterpart. Read [references/visual-and-canva.md](references/visual-and-canva.md) before choosing or creating any visual asset. Read [references/homepage-journal.md](references/homepage-journal.md) before editing the homepage field-journal data or animation.
 
 ## Asset model
 
@@ -17,6 +17,8 @@ Keep these asset classes separate. Do not use one as an automatic substitute for
 2. **Editorial constellation illustration, required.** This is the richer graphic illustration derived from the article itself. It belongs inside the article and may also anchor the LinkedIn publication assets. It does not replace the catalogue motif. A suitable illustration may already exist in `#graphic-assets` because the creative concept sometimes precedes the article.
 3. **Additional source assets, optional.** These include photographs, screenshots, scans, diagrams, or files on the user's hard drive. Use them only when the article calls for them and the user identifies or approves them.
 
+The homepage celestial researcher and field journal are a separate continuity system, not a fourth article image. Preserve the hands, notebook, scroll choreography, and visual language. A publication updates the journal through article data and, when needed, one deliberate notation sketch. It must not replace the researcher scene with the catalogue motif or editorial illustration.
+
 ## Required outcome
 
 - A complete article route with preserved editorial meaning.
@@ -24,6 +26,8 @@ Keep these asset classes separate. Do not use one as an automatic substitute for
 - A separate editorial constellation illustration, newly created or explicitly selected from an existing approved asset in `#graphic-assets`.
 - Any user-supplied photographs or other source assets placed only where they contribute evidence or context, with appropriate alt text, captions, and provenance.
 - The new piece present on the homepage and archive from the shared content data, never from duplicated card markup.
+- The homepage journal advances to the two latest English pieces through the shared collection. The previous piece is complete on the left page and the newest piece is written on the right page.
+- The newest piece has concise `journal` metadata and an article-specific notation that extends the existing journal system without redesigning the celestial researcher.
 - One standardized `deck` subtitle used on the homepage, Public Thinking overview, and article page. Keep `summary` separate for search and social metadata.
 - Correct canonical, Open Graph, Twitter, Article schema, sitemap, and available language alternates.
 - A reasoned choice of 1, 3, or 5 LinkedIn cards, generated locally without Canva AI, followed by a Canva import or update for editing.
@@ -42,8 +46,8 @@ Keep these asset classes separate. Do not use one as an automatic substitute for
 6. Create the separate editorial constellation illustration yourself unless the user approves an existing candidate. Use `#graphic-assets`, especially the field researcher, Shinkansen, and approved publication illustrations, as the main CI reference. Do not use Canva AI. Save a new asset under `src/assets/images/public-thinking/` and insert it as an article figure with descriptive alt text, caption, and source or context where appropriate.
 7. Add any user-approved source assets. Preserve their meaning, crop deliberately, and include accurate alt text, captions, and attribution where needed.
 8. Create the English or German counterpart through DeepL, then manually verify every translated field and the complete article in context. Follow the authorship boundary in [references/translation.md](references/translation.md): never rewrite Katharina's German source wording. Treat DeepL output as a draft, not publication-ready copy.
-9. Write frontmatter using the repository's existing schema. Treat `deck` as the canonical visible subtitle across the homepage, Public Thinking overview, and article page. Keep internal identifiers internal.
-10. Verify that shared templates render the article on the article page, homepage Public Thinking section, archive, OG card, sitemap, and language routes. Fix shared components rather than hardcoding a one-off entry.
+9. Write frontmatter using the repository's existing schema. Treat `deck` as the canonical visible subtitle across the homepage, Public Thinking overview, and article page. Keep internal identifiers internal. Add the English source piece's `journal` block following [references/homepage-journal.md](references/homepage-journal.md). Do not duplicate journal metadata on the translated counterpart unless the renderer begins supporting language-specific journal scenes.
+10. Verify that shared templates render the article on the article page, homepage Public Thinking section, archive, OG card, sitemap, and language routes. Confirm that `src/_data/journalPages.js` advances the journal automatically and that `src/assets/js/researcher.js` writes the new observation. Fix shared components rather than hardcoding a one-off entry.
 11. Run `npm run build` and resolve every content, template, translation, and image error.
 12. Choose the LinkedIn asset count from the article and its approved asset set:
    - 1 when one image and one claim carry the piece without loss.
@@ -52,5 +56,5 @@ Keep these asset classes separate. Do not use one as an automatic substitute for
    Use the smallest count that preserves the argument. Never pad to five.
 13. Draft exactly that many cards using the editorial illustration and any approved source assets where they strengthen the sequence. Create the finished artwork outside Canva AI and inspect every 1080x1350 output at feed size.
 14. Create or update the Canva design from those finished images. Use the approved [Who Keeps the Thread? Canva workflow](https://www.canva.com/design/DAHUNl4v-oU/N5X0ZeVGtgfgNT4xES1wyg/edit) as the operational reference for structure, import, spacing, typography, and editable delivery. Use image upload/import and normal editing tools only. Never call Canva design generation. Follow Canva's preview and commit approval gate.
-15. Inspect the built English and German homepage, Public Thinking overview, article, and social preview on desktop and phone. Then test tablet, 200% zoom, keyboard focus, reduced motion, and no-JavaScript fallback where the touched surface has behavior. Check for overflow, broken crops, missing images, console errors, translation drift, and metadata drift.
+15. Inspect the built English and German homepage, Public Thinking overview, article, and social preview on desktop and phone. On the homepage, scrub the celestial researcher animation forward and backward, verify the correct two journal pages, and confirm the pen tip leads every new mark. Preserve the quick page-opening prelude once it is implemented in the shared renderer. Then test tablet, 200% zoom, keyboard focus, reduced motion, and no-JavaScript fallback where the touched surface has behavior. Check for overflow, broken crops, missing images, console errors, translation drift, and metadata drift.
 16. Report changed files, translation direction and manual terminology decisions, astronomical reference for the catalogue motif, editorial image prompt or selected Slack asset, optional source assets used, LinkedIn asset count rationale, Canva link or pending approval, checks run, and any remaining blocker. Push or deploy only when the user explicitly asks.

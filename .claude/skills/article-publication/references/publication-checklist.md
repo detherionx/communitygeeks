@@ -19,6 +19,14 @@
 - LinkedIn cards use the editorial illustration and approved source assets deliberately; they do not collapse the two constellation asset classes into one.
 - LinkedIn asset count is 1, 3, or 5 and justified by the content.
 
+## Homepage journal continuity
+
+- The English source article includes concise `journal` metadata: a short headline, a meaningful notation sketch, and one to three field-note lines.
+- The shared collection places the previous piece on the completed left page and the newest piece on the right page without duplicated homepage markup.
+- The newest notation is article-specific and legible. It extends the journal system without replacing or restyling the celestial hands, notebook, or pen.
+- The scroll sequence writes every mark from the pen tip, reverses cleanly, and preserves the quick page-opening prelude once that shared enhancement exists.
+- Reduced motion shows the completed open spread immediately.
+
 ## Technical checks
 
 - `npm run build`
