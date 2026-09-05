@@ -1,4 +1,4 @@
-// Finite instrument studies: reveal on entry, replay on deliberate hover.
+// Finite instrument studies: replay on viewport entry and deliberate hover.
 // Static SVG remains the default, including when reduced motion is requested.
 (() => {
   'use strict';
@@ -41,7 +41,7 @@
     halo.style.opacity = '0';
     halo.style.transformOrigin = index === 0 ? '140px 94px' : '150px 75px';
     overlay.appendChild(halo);
-    let running = [], seen = false, visible = false;
+    let running = [], visible = false;
     const finish = () => { running.forEach(a => a.cancel()); running = []; };
     const play = (offset = 0) => {
       if (preference.matches || document.hidden || !visible || running.some(a => a.playState === 'running')) return;
@@ -97,13 +97,16 @@
         { opacity: .65, transform: 'scale(1)', offset: .3 }, { opacity: 0, transform: 'scale(2.4)' }], 1400, 2500);
     };
     el.closest('.path-panel').addEventListener('pointerenter', () => { if (fine.matches) play(); });
-    return { el, finish, enter() { visible = true; if (!seen) { seen = true; play(index * 140); } }, leave() { visible = false; finish(); } };
+    return { el, finish, enter() { if (visible) return; visible = true; play(index * 140); }, leave() { visible = false; finish(); } };
   });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       const study = studies.find(s => s.el === entry.target);
-      if (entry.isIntersecting) study.enter(); else study.leave();
-    }), { threshold: .5 });
+      // Start once the drawing is meaningfully visible. Rearm only after a full
+      // exit so small scroll movements around the halfway point don't restart it.
+      if (!entry.isIntersecting) study.leave();
+      else if (entry.intersectionRatio >= .5) study.enter();
+    }), { threshold: [0, .5] });
     studies.forEach(s => observer.observe(s.el));
   } else studies.forEach(s => s.enter());
   preference.addEventListener('change', () => studies.forEach(s => s.finish()));

@@ -624,3 +624,11 @@ Founder approved committing and pushing the reviewed positioning, teaser, Approa
 ### Research teaser panel (5 September)
 
 Implemented founder-approved mockup as live HTML and native constellation SVG: translucent white panel, warm-white serif heading/body, small coral status point and outlined rocket with star trail. Existing Public Thinking sky remains visible through the panel. Replaced the English teaser em dash with a comma and removed the German dash. Mobile uses a compact rocket above the title. Desktop browser review and production build passed. Founder authorized commit and push.
+
+### Desktop animation re-entry (5 September, local review)
+
+Removed the one-time drawing reveal gate. Each offer drawing now replays when at least half visible after a full viewport exit; small movements around the threshold do not restart it. Hover replay and reduced-motion support remain. Browser verified all three stroke animations on first entry and return, settled states and no console errors. Mobile carousel remains a mockup proposal, not implemented. No commit or push for this fix yet.
+
+### Mobile offer reader and publication (5 September)
+
+Founder approved both changes for commit and push. Implemented the mobile mockup with Discover / Activate / Connect tabs, previous/next controls, horizontal swipe and keyboard navigation. One framed component contains the introduction, active offer and shared research/contact footer. The pilot example moves into Activate on mobile; desktop restores the original three columns and pilot placement. No-script view retains all content. Verified mobile selection, pilot placement, desktop restoration and console in browser; Approach has no overflow at 320px or 390px (unrelated page content still overflows at 320px). Event tests cover swipes, vertical-scroll exclusion, keyboard wrapping/focus and responsive restoration. Production build passed. Includes the desktop animation re-entry fix above.
