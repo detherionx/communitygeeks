@@ -203,3 +203,7 @@ body.about-body{margin:0;background:var(--teal);color:var(--cream);font-family:v
   .founder-id,.founder-body{grid-column:1;}
   .founder-bio{font-size:17px;}
 }
+/* Practical delivery context within the existing principles section. */
+.ai-practice{margin-top:44px;padding-top:26px;border-top:1px solid var(--cream-25);max-width:72ch;}
+.ai-practice h3{font-family:var(--display);font-size:26px;font-weight:400;}
+.about-body .ai-practice p{margin-top:14px;font-size:16px;line-height:1.65;color:var(--cream-80);}

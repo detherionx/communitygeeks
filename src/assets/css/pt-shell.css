@@ -138,3 +138,8 @@ html[lang="de"] .pt-shell .pt-masthead-side .pt-side-oq::after{content:"Offene F
   .pt-shell .pt-masthead-side{padding:22px 0 0;}
   .pt-shell .pt-body{margin-top:32px;}
 }
+/* An ongoing investigation is separate from the published article collection. */
+.research-teaser{margin:0 0 32px;padding:24px 0;border-top:2px solid var(--teal);border-bottom:1px solid var(--line);max-width:76ch;}
+.research-teaser-label{font-family:var(--body);font-size:14px;font-weight:600;color:var(--teal);}
+.research-teaser h2{margin:8px 0 12px;font-family:var(--display);font-size:clamp(25px,3vw,34px);font-weight:400;line-height:1.15;}
+.research-teaser > p:last-child{font-size:16px;line-height:1.6;}

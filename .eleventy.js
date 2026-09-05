@@ -2,6 +2,10 @@ const { DateTime } = require("luxon");
 const { motifSvg } = require("./src/lib/constellationMotifs");
 
 module.exports = function (eleventyConfig) {
+  // Interactive scenes keep runtime classes, generated SVGs and event handlers.
+  // HTML morphing replaces that state without reinitializing the scripts.
+  eleventyConfig.setServerOptions({ domDiff: false });
+
   // Static passthrough: CSS, JS, images ship as-is, no processing
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "public": "/" });

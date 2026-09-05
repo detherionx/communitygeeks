@@ -588,3 +588,35 @@ Founder review of the live publication (same day) asked for four corrections. Ar
 **Masthead** (`pt-shell.css`). 62/38 columns, `align-items:start`, padding 26/28 instead of 36–44, drawing at column width heading the right column with Topics and the open question stacked beneath; `.pt-body` margin 40 (was 56). Height is content-driven (no min-height anywhere). At 1366×768 the masthead ends at 685 and the body starts at 725. Phones: one column; editorial block, then the simplified catalogue drawing (`.pt-motif--spec-mobile`, min(58%,240px), rendered in both item templates and toggled by media query; the detailed specimen is hidden), then Topics and the question; the old half-opacity specimen behind the title is gone. This applies to all three articles, since the masthead is one component.
 
 **Verified** (local build, Playwright): journal desktop/phone (segments written, scroll unwinds), archive 1440/900/390/2560 (no empty cell, cards within `--maxw`), mastheads OBS. 003 and 002 at 1366×768 and 390, OG card, no console or network errors. `npm run build` green.
+
+## 50. Positioning copy and research teaser — local review only (2026-09-05)
+
+Founder approved implementation of the positioning recommendations locally and updates to the Notion Public Source Pack and pitch page. This copy is on local branch `review/positioning-copy`, based on `8ef65f6`. Nothing has been pushed or deployed. The original checkout remains untouched.
+
+Homepage now leads with the practical value of participation; System and diagnostic copy connect people, contributions and action. Three commercial entry points are Ecosystem Discovery & Strategy, Ecosystem Activation Pilots, and Participation Systems & Advisory. About, Contact, metadata, Organization description and llms.txt agree with this positioning. A general activation example is illustrative; no Tripo identity or completed-client claim is included. The GB Foods logo remains in selected experience, but the empty-proof engagement card is deferred. The engagement rail count/grid follow the data.
+
+The homepage and English/German Public Thinking indexes include an explicitly ongoing investigation: When Participant Knowledge Enters AI Answers. Shared bilingual copy lives in src/_data/researchTeaser.json. No provisional numerical results or new published article were added. Existing article content, URLs and graphics remain intact. Hero typography and flow accommodate the longer copy, including natural document flow on phones/tablets and shorter desktop viewports.
+
+Notion Public Source Pack is v1.4, and its child Pitch & Common Answers contains the ten approved answers with evidence/example boundaries. The older Pitch & Positioning page links to the current wording and preserves its history. No Notion sharing permissions were changed.
+
+Validation: full npm run build passed, six content files with zero errors/warnings. Five edited page routes returned HTTP 200; 163 local references and nine JSON-LD blocks checked. No browser visual or interaction QA was performed. Contact submission was not exercised against the live endpoint. Local review server uses http://localhost:8087/ (npm run dev -- --port=8087). Any later publication requires the founder's next instruction.
+
+### Local preview refresh repair (5 September)
+
+A browser check reproduced all engagement records remaining visible while tabs changed selection: Eleventy HTML DOM-diff refresh had removed the runtime html.js class. Reloading restored the section. Set server domDiff:false so source updates perform a full reload and reinitialize runtime state. Also corrected the desktop selection cursor to use --engagement-count rather than six fixed columns. Restarted preview on port 8087. Verified clicks, ArrowRight wrap from Billbee to DeepL, cursor width matching a logo tab, and exactly one visible record after a source-triggered reload. Screenshot review confirmed the EU Academy state. Production build passed. No deployment.
+
+### Approach visual/typographic pass (5 September, local review)
+
+Founder found the approved copy too dense. Rebalanced Approach with a full-width two-column introduction, three equal editorial offer columns, and three static native SVG instruments adapted from the existing lens/planes/loop vocabulary. Split existing body text into lead and explanation; converted deliverables to short lists. Replaced the separate large overview/abstract legend with visuals beside each offer. Converted the illustrative activation paragraph into Recruit / Try / Learn and separated focused research as an aside. No new service or claim added. Body type is at least 16px; leads 18px; display headings 27–36px. Mobile stacks with compact instruments; intermediate desktop headings and leads align. Browser screenshots checked at default desktop, 900px and 390px; no horizontal overflow, no console errors, viewport reset. Full build and route/link/JSON-LD checks passed. Remains local-only.
+
+### Offer instrument motion (5 September, local review)
+
+Added offer-motion.js: short staggered Web Animations sequences on each graphic entering view; pointer hover replays after completion. Discovery draws the map, resolves nodes and passes signals inward. Activation aligns the planes, moves three participants inward and draws the confirmation mark. Systems turns its paired arcs and carries one signal around the feedback loop. Each sequence settles within five seconds, with no continuous loop or text movement. Cancel motion offscreen, in background tabs, or on reduced-motion preference changes; reduced-motion users retain the static SVG. Browser checked all three running transforms/drawing states, independent replay, and no console errors. Production build passed; no deployment.
+
+### Service claim emphasis (5 September, local review)
+
+Raised the service subtitles to 20px medium-weight teal and added a coral marker wash behind selected phrases. The wash reveals once over 950ms when the claim enters view and remains as a static highlight. Reduced motion skips the reveal. Approved wording preserved. Browser checked desktop wrapping/highlight placement; build passed. No deployment.
+
+### Publication approval (5 September)
+
+Founder approved committing and pushing the reviewed positioning, teaser, Approach layout, instrument animations and claim highlights. Final production build passed. Publish via the existing main-branch GitHub Actions deployment to Hetzner; this approval supersedes the local-only status of the review notes above.
