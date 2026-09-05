@@ -727,6 +727,7 @@ html:not(.js) .mani-cursor{display:none;}
   .hero-h1{font-size:clamp(36px,9.7vw,40px);line-height:1.08;}
   .hero .h1-line,.hero .h1-line > span{display:inline;overflow:visible;}
   .hero .h1-line > span{transform:none;transition:none;}
+  .hero .hero-desktop-phrase{display:none;}
 }
 @media (max-width:480px){
   .process-legend{grid-template-columns:1fr;gap:10px;}
