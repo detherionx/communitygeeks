@@ -721,6 +721,13 @@ html:not(.js) .mani-cursor{display:none;}
   .hero-readout{margin-bottom:14px;}
   .hero-h1{font-size:clamp(36px,10.6vw,54px);}
 }
+/* Phone opening: shorter headline, comfortable measure, original constellation. */
+@media (max-width:600px){
+  .hero .layer-ui{padding-left:clamp(24px,6.7vw,28px);padding-right:clamp(24px,6.7vw,28px);}
+  .hero-h1{font-size:clamp(36px,9.7vw,40px);line-height:1.08;}
+  .hero .h1-line,.hero .h1-line > span{display:inline;overflow:visible;}
+  .hero .h1-line > span{transform:none;transition:none;}
+}
 @media (max-width:480px){
   .process-legend{grid-template-columns:1fr;gap:10px;}
   .close-h2{font-size:clamp(36px,11vw,52px);max-width:none;}

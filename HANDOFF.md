@@ -632,3 +632,17 @@ Removed the one-time drawing reveal gate. Each offer drawing now replays when at
 ### Mobile offer reader and publication (5 September)
 
 Founder approved both changes for commit and push. Implemented the mobile mockup with Discover / Activate / Connect tabs, previous/next controls, horizontal swipe and keyboard navigation. One framed component contains the introduction, active offer and shared research/contact footer. The pilot example moves into Activate on mobile; desktop restores the original three columns and pilot placement. No-script view retains all content. Verified mobile selection, pilot placement, desktop restoration and console in browser; Approach has no overflow at 320px or 390px (unrelated page content still overflows at 320px). Event tests cover swipes, vertical-scroll exclusion, keyboard wrapping/focus and responsive restoration. Production build passed. Includes the desktop animation re-entry fix above.
+
+## 51. Participation evidence copy — local review only (5 September 2026)
+
+Prepared on `review/participation-evidence-copy` from current remote main. No push or deployment. Homepage/footer descriptor now includes program delivery. Offers specify participant value, observable pilot evidence and decisions/follow-up; About removes the unmeasured temporal overlap claim. Design, interactions and the AI-discoverability teaser are unchanged.
+
+The English Public Thinking index links to a local review of the supplied three-page exploratory Jira–Linear brief at `/review/participation-research/`. It reuses the article shell and retains sources, disclosure and the full evidence ledger. It is noindex and excluded from publication collections and the sitemap. No published observation, evidence vocabulary, motif or German translation has been assigned. Resolve review placement and normal bilingual editorial packaging before publication.
+
+Validation: existing content validation passes (six files, zero errors/warnings); Eleventy renders and all four edited routes return HTTP 200 on a local static server. Full build stops at social-card generation because Chromium is unavailable and its download times out. Cloud Browser rejects localhost, so desktop/mobile visual verification remains outstanding. Run `npm run dev -- --port=8087` for local review.
+
+### Approved publication and mobile hero refinement (5 September)
+
+Founder authorized committing and pushing the service wording and mobile hero changes. Shortened the headline to “Turn participation into learning, adoption and lasting relationships.” Phones up to 600px use 36–40px headline type, 24–28px side gutters and natural line wrapping. Existing constellation size and desktop animation remain unchanged.
+
+The earlier research preview and ledger moved outside the build inputs to local `reviews/participation-research/`; they are not part of this publication or commit. The Public Thinking index remains unchanged. Local content validation and Eleventy rendering pass; Chromium is unavailable locally, so visual QA and the full social-image build are not claimed here. CI retains the existing browser install and full-build gate before deployment.
