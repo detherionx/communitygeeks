@@ -327,7 +327,34 @@ ogDescription: "We help companies understand the people around their products an
     {% endfor %}
   </ol>
   <div class="pt-foot">
-    <p class="pt-thread"><strong>Research in progress · When Participant Knowledge Enters AI Answers</strong><br>{{ researchTeaser.en }}</p>
+    <aside class="research-launch" aria-labelledby="research-launch-title">
+      <div class="research-launch-copy">
+        <p class="research-launch-label"><span aria-hidden="true"></span>Research in progress</p>
+        <h3 id="research-launch-title">When Participant Knowledge<br>Enters AI Answers</h3>
+        <p class="research-launch-deck">{{ researchTeaser.en }}</p>
+      </div>
+      <svg class="research-rocket" viewBox="0 0 320 360" aria-hidden="true" focusable="false">
+        <g transform="rotate(35 160 150)">
+          <g class="rocket-lines">
+            <path d="M150 28L169 65L179 110L178 168L162 210L138 210L122 168L121 110L131 65Z M131 65L169 65 M122 168L138 210 M178 168L162 210 M121 142L96 192L94 226L133 200 M179 142L204 192L206 226L167 200 M138 210L140 229L150 244L160 229L162 210"/>
+            <path d="M150 91L163 97L169 111L163 125L150 131L137 125L131 111L137 97Z"/>
+          </g>
+          <g class="rocket-nodes">
+            {% for point in [[150,28],[169,65],[179,110],[178,168],[162,210],[138,210],[122,168],[121,110],[131,65],[96,192],[94,226],[204,192],[206,226],[133,200],[167,200],[150,91],[163,97],[169,111],[163,125],[150,131],[137,125],[131,111],[137,97],[140,229],[160,229]] %}
+            <circle cx="{{ point[0] }}" cy="{{ point[1] }}" r="1.7"/>
+            {% endfor %}
+          </g>
+          <g class="rocket-trail">
+            <path d="M139 242L116 324M150 253L150 342M161 242L184 324"/>
+            {% for point in [[139,251],[132,274],[126,297],[119,321],[150,267],[150,291],[150,320],[163,253],[169,276],[175,297],[181,319]] %}
+            <circle cx="{{ point[0] }}" cy="{{ point[1] }}" r="1"/>
+            {% endfor %}
+          </g>
+        </g>
+        <path class="rocket-star" d="M93 266Q94 277 104 278Q94 279 93 290Q92 279 82 278Q92 277 93 266Z"/>
+        <path class="rocket-glint" d="M223 45v12M217 51h12"/>
+      </svg>
+    </aside>
     <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
   </div>
   </div>

@@ -620,3 +620,7 @@ Raised the service subtitles to 20px medium-weight teal and added a coral marker
 ### Publication approval (5 September)
 
 Founder approved committing and pushing the reviewed positioning, teaser, Approach layout, instrument animations and claim highlights. Final production build passed. Publish via the existing main-branch GitHub Actions deployment to Hetzner; this approval supersedes the local-only status of the review notes above.
+
+### Research teaser panel (5 September)
+
+Implemented founder-approved mockup as live HTML and native constellation SVG: translucent white panel, warm-white serif heading/body, small coral status point and outlined rocket with star trail. Existing Public Thinking sky remains visible through the panel. Replaced the English teaser em dash with a comma and removed the German dash. Mobile uses a compact rocket above the title. Desktop browser review and production build passed. Founder authorized commit and push.

@@ -835,3 +835,25 @@ html:not(.js) .mani-cursor{display:none;}
 .claim-highlight{background-image:linear-gradient(transparent 58%,rgba(232,115,90,.22) 58%,rgba(232,115,90,.22) 94%,transparent 94%);background-size:100% 100%;background-repeat:no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-inline:2px;margin-inline:-2px;}
 @media(min-width:861px) and (max-width:1300px){.path-panel .offer-lead{min-height:6em;}}
 @media(max-width:860px){.path-panel .offer-lead{min-height:0;font-size:20px;}}
+
+/* Research in progress: an invitation within the existing constellation field. */
+.research-launch{position:relative;isolation:isolate;width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(130px,25%);gap:20px;align-items:center;padding:clamp(24px,3vw,44px);border:1px solid rgba(246,244,239,.32);border-radius:4px;background:rgba(246,244,239,.065);color:var(--cream);}
+.research-launch-label{display:flex;align-items:center;gap:12px;font:500 12px/1.5 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--cream-80);}
+.research-launch-label span{width:8px;height:8px;border-radius:50%;background:var(--signal);flex:none;}
+.research-launch h3{font:400 clamp(26px,2.2vw,38px)/1.14 var(--display);letter-spacing:-.015em;margin:20px 0 18px;color:var(--cream);text-wrap:balance;}
+.research-launch-deck{font:400 17px/1.6 var(--body);color:var(--cream-80);max-width:58ch;text-wrap:pretty;}
+.research-rocket{display:block;width:100%;height:auto;max-height:250px;overflow:visible;}
+.rocket-lines{fill:none;stroke:var(--cream);stroke-opacity:.58;stroke-width:1;stroke-linejoin:round;}
+.rocket-nodes{fill:var(--cream);}
+.rocket-trail{fill:var(--cream);fill-opacity:.55;}
+.rocket-trail path{fill:none;stroke:var(--cream);stroke-opacity:.2;stroke-width:1;stroke-dasharray:1 11;}
+.rocket-star{fill:var(--signal);}
+.rocket-glint{fill:none;stroke:var(--cream);stroke-opacity:.75;stroke-width:1;}
+@media(max-width:600px){
+  .research-launch{display:block;padding:24px;}
+  .research-launch-label{min-height:64px;padding-right:78px;font-size:11px;letter-spacing:.12em;}
+  .research-launch h3{font-size:28px;margin-top:18px;}
+  .research-launch h3 br{display:none;}
+  .research-launch-deck{font-size:16px;}
+  .research-rocket{position:absolute;top:10px;right:14px;width:84px;height:94px;}
+}
