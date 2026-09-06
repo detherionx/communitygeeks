@@ -51,6 +51,24 @@
   const projectRet = (() => { const RA0 = 58, DEC0 = -62.3, c = Math.cos(DEC0 * Math.PI / 180); const raw = {}; for (const k in RET) raw[k] = [-(RET[k][0] - RA0) * c, DEC0 - RET[k][1]]; const xs = Object.values(raw).map((p) => p[0]), ys = Object.values(raw).map((p) => p[1]); const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2; const s = Math.min(236 / (Math.max(...xs) - Math.min(...xs)), 190 / (Math.max(...ys) - Math.min(...ys))); const out = {}; for (const k in raw) out[k] = [150 + (raw[k][0] - cx) * s, 118 + (raw[k][1] - cy) * s]; return out; })();
 
   const MOTIFS = {
+    // Conceptual instrument inspired by Pyxis (the Mariner Compass), not a positional star map.
+    // Name reference: https://iauarchive.eso.org/public/themes/constellations/
+    // Human judgment selects direction while the instrument makes execution possible.
+    pyxis: { viewBox: '0 0 300 240', alt: { en: 'A compass drawn as a constellation: a needle points towards a star, with its human decision point marked in coral. Inspired by Pyxis, the mariner compass.', de: 'Ein Kompass als Sternbild: Eine Nadel zeigt auf einen Stern, ihr menschlicher Entscheidungspunkt ist in Koralle markiert. Inspiriert von Pyxis, dem Schiffskompass.' }, build(ctx) {
+      const c = [150, 120], tip = [195, 57], tail = [105, 183];
+      const simple = ctx === 'record' || ctx === 'catalogue';
+      let s = ring(c, 82, 'cm-frame');
+      s += chain([tip, [166, 132], tail, [134, 108]], 'cm-line', true);
+      s += line(tail, c, 'cm-line') + line(c, tip, 'cm-thread');
+      [[150, 38], [232, 120], [150, 202], [68, 120]].forEach((p) => { s += node(p, 2); });
+      s += star(tip, 2.8) + node(tail, 2.2) + mark(c, 8);
+      if (!simple) {
+        s += ring(c, 94, 'cm-frame cm-faint');
+        s += line([150, 26], [150, 45], 'cm-frame') + line([150, 195], [150, 214], 'cm-frame');
+        s += line([56, 120], [75, 120], 'cm-frame') + line([225, 120], [244, 120], 'cm-frame');
+      }
+      return s;
+    } },
     gaming: { viewBox: '0 0 300 220', alt: { en: 'A game controller drawn as a constellation: a closed silhouette with compact shoulders and grips, a directional cross on the left, four buttons on the right, one marked in coral.', de: 'Ein Gamecontroller als Sternbild: geschlossene Silhouette mit kompakten Schultern und Griffen, Steuerkreuz links, vier Tasten rechts, eine in Koralle markiert.' }, build() {
       // exterior contour: one closed path, ~240 x 140 units (1.71:1), inset >= 28 units. Shoulders compact, grips subtle,
       // a shallow central indentation on the lower edge.

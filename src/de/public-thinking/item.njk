@@ -40,7 +40,6 @@ extraScripts:
     {% set hasSide = (piece.topics and piece.topics.length) or piece.openQuestion or piece.motif %}
     <header class="pt-masthead{% if not hasSide %} pt-masthead-solo{% endif %}">
       <div class="pt-masthead-main">
-        {% if piece.obs %}<p class="obs-label"><b>OBS. {{ piece.obs }}</b> · {{ piece.date | readableDate("de") }} · aus dem Feld übertragen</p>{% endif %}
         <h1 class="pt-title">{{ piece.title }}</h1>
         {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
         <div class="pt-meta">

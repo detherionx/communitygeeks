@@ -9,7 +9,6 @@
   <div class="pt-card-field"></div>
   {# catalogue entry: the piece's constellation as a specimen glyph, with its persistent observation number #}
   {% if piece.motif %}<div class="pt-motif pt-motif--card pt-motif-{{ piece.motif }}" aria-hidden="true">{{ ptConstellation(piece.motif, 'masthead' if featured else 'catalogue', 'paper') }}</div>{% endif %}
-  {% if piece.obs %}<span class="cat-no">OBS. {{ piece.obs }}</span>{% endif %}
   <div class="pt-card-inner">
     <div class="pt-card-meta">
       <span class="pt-format">{{ piece.format }}</span>

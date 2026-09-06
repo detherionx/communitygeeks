@@ -43,7 +43,6 @@ extraScripts:
     <header class="pt-masthead{% if not hasSide %} pt-masthead-solo{% endif %}">
       <div class="pt-masthead-main">
         <div class="pt-masthead-content">
-          {% if piece.obs %}<p class="obs-label"><b>OBS. {{ piece.obs }}</b> · {{ piece.date | readableDate }} · transferred from the field</p>{% endif %}
           <h1 class="pt-title">{{ piece.title }}</h1>
           {% if piece.deck %}<p class="pt-deck">{{ piece.deck }}</p>{% endif %}
           <div class="pt-meta">

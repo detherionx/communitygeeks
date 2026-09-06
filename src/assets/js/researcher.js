@@ -122,6 +122,11 @@
     // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
     // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
     const SKETCH = {
+      compass(x0, txt) { const c = [x0 + 96, 4], a = [x0 + 122, -32], b = [x0 + 70, 40];
+        return [{ kind: 'path', o: pth(circ(c[0], c[1], 43)), w: 0.13 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(`M${a} L${x0 + 105},11 L${b} L${x0 + 87},-3 Z`), w: 0.12 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(`M${c} L${a}`, 'coral'), w: 0.08 }, { kind: 'node', o: ink(a), w: 0.015 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(circ(c[0], c[1], 7), 'coral'), w: 0.06 }]; },
       reticulum(x0, txt) { const n1 = [x0 + 62, -24], n2 = [x0 + 118, -38], n3 = [x0 + 94, 14], n4 = [x0 + 146, 6];
         return [{ kind: 'node', o: ink(n1), w: 0.015 }, { kind: 'path', o: pth(`M${n1} L${n2} L${n4}`), w: 0.09 }, { kind: 'node', o: ink(n2), w: 0.015 }, { kind: 'node', o: ink(n4), w: 0.015 }, { kind: 'move', w: 0.02 },
           { kind: 'path', o: pth(`M${n1} L${n3} L${n4}`), w: 0.09 }, { kind: 'node', o: ink(n3), w: 0.015 }, { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(n4[0], n4[1], 8), 'coral'), w: 0.08 }]; },
