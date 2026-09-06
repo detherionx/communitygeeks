@@ -576,6 +576,65 @@ html:not(.js) .mani-cursor{display:none;}
   .pt-cel .pt-head{margin-bottom:4vh;}
 }
 
+/* Approved bounded Public Thinking reader. Without JS the full ledger remains. */
+#thinking.carousel-ready{padding-top:64px;padding-bottom:56px;}
+#thinking.carousel-ready .pt-field{width:54%;top:100px;height:800px;bottom:auto;}
+#thinking.carousel-ready .pt-edit{width:44%;max-width:660px;}
+#thinking.carousel-ready .pt-head{margin-bottom:32px;}
+#thinking.carousel-ready .pt-h2{font-size:42px;}
+#thinking.carousel-ready .pt-sub{font-size:16px;max-width:48ch;margin-top:18px;}
+#thinking.carousel-ready .ledger{display:grid;position:relative;touch-action:pan-y pinch-zoom;}
+#thinking.carousel-ready .ledger-row{grid-area:1/1;min-height:405px;align-content:start;padding:26px 0;gap:14px;}
+#thinking.carousel-ready .ledger-row[hidden]{display:grid;visibility:hidden;pointer-events:none;}
+#thinking.carousel-ready .ledger-title{font-size:30px;line-height:1.18;max-width:98%;}
+#thinking.carousel-ready .ledger-deck{font-size:17px;line-height:1.55;max-width:72%;}
+#thinking.carousel-ready .ledger-row .entry-topics{max-width:100%;margin-top:20px;}
+#thinking.carousel-ready .rec-motif{width:24%;top:54%;}
+.carousel-controls{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:8px;}
+.carousel-controls[hidden]{display:none;}
+.carousel-dots,.carousel-actions{display:flex;align-items:center;gap:10px;}
+.carousel-dots{gap:0;flex-wrap:wrap;}
+.carousel-controls button{width:48px;height:44px;border:1px solid #647674;background:transparent;color:#F6F4EF;font-size:25px;cursor:pointer;flex-shrink:0;}
+.carousel-controls .next{border-color:#E8735A;color:#E8735A;}
+.carousel-controls .article-dot{border:0;width:32px;height:44px;position:relative;font-size:0;}
+.carousel-controls .article-dot:after{content:'';position:absolute;width:8px;height:8px;border:1px solid #9bacaa;border-radius:50%;left:12px;top:18px;}
+.carousel-controls .article-dot[aria-current=true]:after{background:#E8735A;border-color:#E8735A;box-shadow:0 0 0 4px #e8735a22;}
+.carousel-controls .play-toggle{font-size:18px;border-color:transparent;color:#C0CFCC;}
+.carousel-controls button:focus-visible{outline:2px solid #F6F4EF;outline-offset:3px;}
+.carousel-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
+#thinking.carousel-ready .pt-seeall{display:inline-flex;margin:0 0 8px;font-size:13px;}
+#thinking.carousel-ready .pt-foot{margin-top:28px;}
+#thinking.carousel-ready .research-launch{padding:25px;width:100%;}
+#thinking.carousel-ready .research-launch h3{font-size:26px;max-width:22ch;}
+#thinking.carousel-ready .research-launch-deck{font-size:16px;}
+#thinking .ledger:after{content:'';position:absolute;top:0;bottom:0;width:26px;pointer-events:none;opacity:0;}
+#thinking .ledger.swipe-left:after{left:0;background:linear-gradient(90deg,#e8735a55,transparent);animation:reader-glow .5s ease-out;}
+#thinking .ledger.swipe-right:after{right:0;background:linear-gradient(-90deg,#e8735a55,transparent);animation:reader-glow .5s ease-out;}
+@keyframes reader-glow{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+/* Lock journal typography across turning, settled and newly written pages. */
+#researcher-scene .ink,#researcher-scene .ink.small,#researcher-scene .ink.big,.journal-history .ink,.journal-history .ink.small,.journal-history .ink.big{font-family:var(--journal-font,'IBM Plex Mono',monospace);font-size:9.5px;font-weight:400;letter-spacing:.03em;}
+#researcher-scene .ink[y="-56"],#researcher-scene .ink[y="-62"],.journal-history .ink[y="-56"],.journal-history .ink[y="-62"]{font-size:10px;font-weight:500;letter-spacing:.04em;}
+#researcher-scene .lbl,.journal-history .lbl{font-family:var(--journal-font,'IBM Plex Mono',monospace);}
+@media(max-width:860px){
+  #thinking.carousel-ready{padding:36px 0;}
+  #thinking.carousel-ready>.pt-head{position:relative;padding:0 24px;margin-bottom:0;}
+  #thinking.carousel-ready .pt-h2{font-size:32px;}
+  #thinking.carousel-ready .pt-sub{font-size:15px;}
+  #thinking.carousel-ready .pt-field{position:relative;top:auto;width:100%;height:340px;min-height:0;margin:20px 0;}
+  #thinking.carousel-ready .pt-edit{width:auto;max-width:none;padding:0 24px;}
+  #thinking.carousel-ready .ledger-row{min-height:440px;gap:12px;grid-template-columns:1fr 85px;}
+  #thinking.carousel-ready .ledger-title{font-size:26px;max-width:100%;}
+  #thinking.carousel-ready .ledger-deck{max-width:100%;font-size:16px;}
+  #thinking.carousel-ready .ledger-row .rec-motif{width:85px;}
+  #thinking.carousel-ready .ledger-meta{font-size:10px;gap:7px;}
+  #thinking.carousel-ready .ledger-row .entry-topics{margin-top:16px;}
+  #thinking.carousel-ready .research-launch{padding:22px;}
+  #thinking.carousel-ready .research-launch h3{font-size:25px;}
+  .carousel-controls{flex-wrap:wrap;}
+  .carousel-actions{margin-left:auto;}
+}
+@media(prefers-reduced-motion:reduce){#thinking .ledger:after{animation:none!important;}}
+
 /* ===== REDUCED MOTION: everything visible, nothing moves ===== */
 @media (prefers-reduced-motion:reduce){
   .js .h1-line > span{transform:none;transition:none;}

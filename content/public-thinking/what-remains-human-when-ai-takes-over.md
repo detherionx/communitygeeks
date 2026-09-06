@@ -62,6 +62,16 @@ There is more to this philosophical discourse with AI than the surface-level out
 
 Nevertheless, dialogue with the team will take place in a different way: after all, people generally enjoy chatting and telling stories for the sake of storytelling, or as part of maintaining relationships. This brings us straight to Thesis 3:
 
+<figure class="pt-figure">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" data-lightbox aria-label="Enlarge illustration">
+    <img src="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" width="1536" height="1024" alt="A human face formed from translucent teal facets gradually dissolves into fine ivory constellation lines and stars against a dark petrol background, with one coral star." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-cap">What remains unmistakably human in the age of AI?</span>
+    <span class="pt-figure-source">Communitygeeks editorial illustration, created with AI.</span>
+  </figcaption>
+</figure>
+
 ## Thesis 3: Consequences are at the heart of human empathy
 
 When considering the fundamental question ‘What will humans actually still be responsible for?’, empathy must not be overlooked simply because it sounds too obvious. However, a precise distinction needs to be made.

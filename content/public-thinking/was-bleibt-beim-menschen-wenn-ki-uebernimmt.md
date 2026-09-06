@@ -65,6 +65,16 @@ In diesem philosophischen Diskurs mit der KI steckt mehr als das Ergebnis an der
 Dennoch wird der Dialog mit dem Team auf andere Art und Weise stattfinden: Denn der Mensch unterhält sich im Allgemeinen gern und erzählt Geschichten um des Erzählens willen, bzw. als Teil der Beziehungspflege. Das führt uns direkt zu These 3:
 
 
+<figure class="pt-figure">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" data-lightbox aria-label="Illustration vergrößern">
+    <img src="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" width="1536" height="1024" alt="Ein menschliches Gesicht aus durchscheinenden, blaugrünen Facetten löst sich vor einem dunklen, petrolfarbenen Hintergrund allmählich in feine, elfenbeinfarbene Sternbildlinien und Sterne auf. Ein einzelner Stern ist korallenfarben." loading="lazy">
+  </a>
+  <figcaption>
+    <span class="pt-figure-cap">Was bleibt im Zeitalter der KI unverkennbar menschlich?</span>
+    <span class="pt-figure-source">Communitygeeks Illustration, mit KI erstellt.</span>
+  </figcaption>
+</figure>
+
 ## These 3: Konsequenz ist der Kern menschlicher Empathie
 
 
@@ -73,4 +83,3 @@ Die aktuellen Sprachprogramme sind gut darin, empathische Antworten zu geben. Si
 
 
 Fazit: Die eigentliche Frage ist also, wo genau die menschliche Entscheidung den Unterschied macht. Denn gebraucht wird der Mensch auf jeden Fall: bei der Frage, was ein Ergebnis eigentlich bedeuten soll; bei der Frage, ob wir eine Aussage tatsächlich noch selbst prüfen können; und bei der Frage, was es kostet, wenn jemand etwas nicht ernst meint. Drei sehr unterschiedliche Antworten auf dieselbe Ausgangsfrage.
-

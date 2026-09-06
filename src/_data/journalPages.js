@@ -36,5 +36,6 @@ module.exports = () => {
   const right = en[0], left = en[1] || null;
   // page numbers advance with the observation count (the journal started at p. 40 with OBS. 001 on the left)
   const leftNo = 40 + 2 * (Number(left ? left.obs : right.obs) - 1);
-  return { volume: "06", left: left ? pageFor(left, leftNo) : null, right: pageFor(right, leftNo + 1) };
+  const history = en.slice(1, 4).reverse().map(piece => pageFor(piece, 40 + 2 * (Number(piece.obs) - 1)));
+  return { volume: "06", left: left ? pageFor(left, leftNo) : null, right: pageFor(right, leftNo + 1), history };
 };

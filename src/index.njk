@@ -5,7 +5,7 @@ description: "Understand the people around your product, run ecosystem activatio
 permalink: /
 chapters: "07"
 footerInline: true
-extraScripts: ["researcher.js", "offer-tabs.js", "offer-motion.js"]
+extraScripts: ["researcher.js", "journal-prelude.js", "thinking-carousel.js", "offer-tabs.js", "offer-motion.js"]
 ogTitle: "Communitygeeks · Participation research & advisory"
 ogDescription: "We help companies understand the people around their products and build programs that turn participation into useful knowledge, adoption and lasting relationships."
 ---
@@ -299,7 +299,7 @@ ogDescription: "We help companies understand the people around their products an
      aria-hidden; all editorial content is HTML text. Not animated yet. #}
   <svg class="cel-bg" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
   {# data-journal: the two latest observations, derived from the same piece list as the ledger (src/_data/journalPages.js) #}
-  <div class="pt-field" aria-hidden="true"><svg class="cel-fig" id="researcher-scene" data-researcher='{"part":"scene","animate":true}' data-journal="{{ journalPages | dump | escape }}" focusable="false"></svg></div>
+  <div class="pt-field" aria-hidden="true"><svg class="cel-fig" id="researcher-scene" data-journal="{{ journalPages | dump | escape }}" focusable="false"></svg></div>
   <div class="pt-edit">
   <div class="pt-head">
     <div>
@@ -326,11 +326,12 @@ ogDescription: "We help companies understand the people around their products an
     </li>
     {% endfor %}
   </ol>
+  <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
   <div class="pt-foot">
     <aside class="research-launch" aria-labelledby="research-launch-title">
       <div class="research-launch-copy">
         <p class="research-launch-label"><span aria-hidden="true"></span>Research in progress</p>
-        <h3 id="research-launch-title">When Participant Knowledge<br>Enters AI Answers</h3>
+        <h3 id="research-launch-title">When Participant Knowledge Enters AI Answers</h3>
         <p class="research-launch-deck">{{ researchTeaser.en }}</p>
       </div>
       <svg class="research-rocket" viewBox="0 0 320 360" aria-hidden="true" focusable="false">
@@ -355,7 +356,6 @@ ogDescription: "We help companies understand the people around their products an
         <path class="rocket-glint" d="M223 45v12M217 51h12"/>
       </svg>
     </aside>
-    <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Public Thinking</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
   </div>
   </div>
   </div>
