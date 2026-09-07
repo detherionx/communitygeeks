@@ -15,12 +15,17 @@
     const NS = 'http://www.w3.org/2000/svg';
     function node(tag, attrs, parent) { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v)); parent.append(e); return e; }
     const stash = document.createElement('div'); stash.className = 'journal-history'; stash.setAttribute('aria-hidden', 'true'); stash.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;'; stash.style.setProperty('--journal-font', font); document.body.append(stash);
-    const snapshots = (data.history || []).slice(-3).map((page, i) => {
+    const history = (data.history || []).slice(-3);
+    const snapshots = history.map((page, i) => {
       const s = node('svg', {id:'journal-past-' + i}, stash); s.dataset.journal = JSON.stringify({volume:data.volume,left:page,right:page});
       CGResearcher.scene(s, {view:'full'}).apply(1);
       const j = s.querySelector('.journal').cloneNode(true); j.removeAttribute('transform'); j.style.opacity = 1;
       j.querySelectorAll('[clip-path]').forEach(e => e.removeAttribute('clip-path')); return j;
     });
+    const openingSvg = node('svg', {id:'journal-opening'}, stash);
+    openingSvg.dataset.journal = JSON.stringify({volume:data.volume,left:null,right:history[0] || data.right});
+    CGResearcher.scene(openingSvg, {view:'full'}).apply(1);
+    const opening = openingSvg.querySelector('.journal').cloneNode(true); opening.removeAttribute('transform'); opening.style.opacity = 1;
     stash.remove();
     const defs = svg.querySelector('defs');
     node('rect', {x:2,y:-130,width:188,height:260}, node('clipPath', {id:'journal-right-leaf'}, defs));
@@ -31,7 +36,7 @@
     function globalPoint(x,y) { const a = -7*Math.PI/180; return [380+x*Math.cos(a)-y*Math.sin(a),500+x*Math.sin(a)+y*Math.cos(a)]; }
     function grip(x,y) { const q=globalPoint(x,y), dx=q[0]-463.58, dy=q[1]-537.74; svg.querySelectorAll('.hand-write').forEach(e => { e.setAttribute('transform','translate('+dx+','+dy+')'); e.style.opacity=1; }); const pen=svg.querySelector('.pen');pen.setAttribute('transform','translate('+(442+dx)+','+(512+dy-10)+') rotate(28)');pen.style.opacity=1; }
     function turn(k,t) {
-      overlay.replaceChildren(); half(snapshots[Math.max(0,k-1)],'left',overlay); if(k<snapshots.length-1) half(snapshots[k+1],'right',overlay);
+      overlay.replaceChildren(); half(k ? snapshots[k-1] : opening,'left',overlay); if(k<snapshots.length-1) half(snapshots[k+1],'right',overlay);
       const a=ease(t)*Math.PI,c=Math.cos(a),lift=Math.sin(a)*22;
       const moving=node('g',{transform:'matrix('+c+' '+(-Math.sin(a)*.09)+' 0 1 0 0)'},overlay);
       if(c>=0) half(snapshots[k],'right',moving); else half(snapshots[k],'left',node('g',{transform:'scale(-1,1)'},moving));
