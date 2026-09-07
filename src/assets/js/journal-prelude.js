@@ -50,8 +50,9 @@
     let frame, current=0;
     function update() {
       frame=null;
-      const top=svg.parentElement.getBoundingClientRect().top;
-      current=motion.matches ? 1 : Math.max(0,Math.min(1,(innerHeight*.95-top)/(innerHeight*.8)));
+      // Begin when the paper is in view, not when its enclosing SVG enters.
+      const paperBottom=new DOMPoint(380,650).matrixTransform(svg.getScreenCTM()).y;
+      current=motion.matches ? 1 : Math.max(0,Math.min(1,(innerHeight*.95-paperBottom)/(innerHeight*.8)));
       // The skim occupies only the first fifth; all marks reverse with scroll.
       render(current<.2 ? current/.2*settleEnd : settleEnd+(current-.2)/.8*(duration-settleEnd));
     }
