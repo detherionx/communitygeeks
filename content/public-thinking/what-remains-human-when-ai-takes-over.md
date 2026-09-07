@@ -63,8 +63,8 @@ There is more to this philosophical discourse with AI than the surface-level out
 Nevertheless, dialogue with the team will take place in a different way: after all, people generally enjoy chatting and telling stories for the sake of storytelling, or as part of maintaining relationships. This brings us straight to Thesis 3:
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" data-lightbox aria-label="Enlarge illustration">
-    <img src="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" width="1536" height="1024" alt="A human face formed from translucent teal facets gradually dissolves into fine ivory constellation lines and stars against a dark petrol background, with one coral star." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-telescope-constellation.png" data-lightbox aria-label="Enlarge illustration">
+    <img src="/assets/images/public-thinking/human-telescope-constellation.png" width="1536" height="1024" alt="A human figure drawn in ivory constellation lines adjusts a separate telescope and looks through it towards a coral star against a dark petrol background." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-cap">What remains unmistakably human in the age of AI?</span>

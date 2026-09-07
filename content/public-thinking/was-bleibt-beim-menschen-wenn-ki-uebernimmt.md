@@ -66,8 +66,8 @@ Dennoch wird der Dialog mit dem Team auf andere Art und Weise stattfinden: Denn 
 
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" data-lightbox aria-label="Illustration vergrößern">
-    <img src="/assets/images/public-thinking/human-dissolving-constellation-illustrated.png" width="1536" height="1024" alt="Ein menschliches Gesicht aus durchscheinenden, blaugrünen Facetten löst sich vor einem dunklen, petrolfarbenen Hintergrund allmählich in feine, elfenbeinfarbene Sternbildlinien und Sterne auf. Ein einzelner Stern ist korallenfarben." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-telescope-constellation.png" data-lightbox aria-label="Illustration vergrößern">
+    <img src="/assets/images/public-thinking/human-telescope-constellation.png" width="1536" height="1024" alt="Eine menschliche Gestalt aus elfenbeinfarbenen Sternbildlinien richtet ein separates Teleskop aus und blickt hindurch auf einen korallenfarbenen Stern vor einem dunklen, petrolfarbenen Hintergrund." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-cap">Was bleibt im Zeitalter der KI unverkennbar menschlich?</span>
