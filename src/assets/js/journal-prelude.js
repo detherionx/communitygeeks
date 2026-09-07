@@ -1,4 +1,4 @@
-/* Shared, once-on-entry journal skim. Article data supplies history and notation. */
+/* Shared reversible scroll sequence: history skim, settle, then write. */
 (() => {
   async function boot() {
     const svg = document.querySelector('#researcher-scene');
@@ -10,7 +10,7 @@
     svg.style.setProperty('--journal-font', font);
     let data; try { data = JSON.parse(svg.dataset.journal); } catch (_) { data = {}; }
     const built = CGResearcher.scene(svg, {view:'full'}), journal = svg.querySelector('.journal');
-    function size() { svg.setAttribute('viewBox', innerWidth <= 860 ? '150 330 500 520' : '0 0 760 1000'); }
+    function size() { svg.setAttribute('viewBox', '40 285 690 540'); }
     size(); addEventListener('resize', size);
     const NS = 'http://www.w3.org/2000/svg';
     function node(tag, attrs, parent) { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v)); parent.append(e); return e; }
@@ -47,17 +47,21 @@
         svg.querySelectorAll('.hand-write').forEach(e=>e.setAttribute('transform','translate('+dx+','+dy+')'));svg.querySelector('.pen').setAttribute('transform','translate('+x+','+y+') rotate('+(28+27*u)+')');
       } else built.apply(.3+.7*Math.min(1,(ms-settleEnd)/5600));
     }
-    let started=false,done=false,frame,last=null,elapsed=0,inView=false;
-    function tick(now) { if(done || !inView || document.hidden) { last=null; return; } if(last!==null) elapsed+=now-last;last=now;render(elapsed);if(elapsed<duration)frame=requestAnimationFrame(tick);else done=true; }
-    function resume() { cancelAnimationFrame(frame);last=null;if(!done&&started&&inView&&!document.hidden)frame=requestAnimationFrame(tick); }
-    function finish() { cancelAnimationFrame(frame);done=true;render(duration); }
-    render(motion.matches ? duration : 0);
-    if(motion.matches) done=true;
-    const observer=new IntersectionObserver(([e])=>{inView=e.isIntersecting;if(inView)started=true;resume();},{threshold:.25});observer.observe(svg);
-    document.addEventListener('visibilitychange',resume);motion.addEventListener('change',()=>{if(motion.matches)finish();});
+    let frame, current=0;
+    function update() {
+      frame=null;
+      const top=svg.parentElement.getBoundingClientRect().top;
+      current=motion.matches ? 1 : Math.max(0,Math.min(1,(innerHeight*.95-top)/(innerHeight*.8)));
+      // The skim occupies only the first fifth; all marks reverse with scroll.
+      render(current<.2 ? current/.2*settleEnd : settleEnd+(current-.2)/.8*(duration-settleEnd));
+    }
+    function queue() { if(!frame) frame=requestAnimationFrame(update); }
+    function finish() { render(duration); }
+    addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue);addEventListener('load',queue);
+    motion.addEventListener('change',queue);new ResizeObserver(queue).observe(document.querySelector('#thinking'));update();
     // Explicit test hook; never invoked by carousel navigation.
     window.__journalPrelude={render,duration,finish};
-    window.__researcher={apply:p=>{cancelAnimationFrame(frame);overlay.replaceChildren();built.apply(p);},progress:()=>Math.min(1,elapsed/duration)};
+    window.__researcher={apply:p=>{overlay.replaceChildren();built.apply(p);},progress:()=>current};
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
