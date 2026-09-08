@@ -122,6 +122,12 @@
     // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
     // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
     const SKETCH = {
+      'cookie-jar'(x0, txt) {
+        return [{ kind: 'path', o: pth(`M${x0+58},-17 L${x0+58},-5 L${x0+48},5 L${x0+48},37 L${x0+56},45 L${x0+110},45 L${x0+118},37 L${x0+118},5 L${x0+108},-5 L${x0+108},-17 Z`), w: 0.16 },
+          { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(`M${x0+53},-27 L${x0+53},-33 L${x0+77},-33 L${x0+77},-39 L${x0+89},-39 L${x0+89},-33 L${x0+113},-33 L${x0+113},-27 Z`), w: 0.09 },
+          { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+72,22,11)), w: 0.05 }, { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+97,18,11)), w: 0.05 },
+          { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+146,-3,13), 'coral'), w: 0.06 }, { kind: 'node', o: ink([x0+143,-6]), w: 0.015 }, { kind: 'node', o: ink([x0+150,1]), w: 0.015 }];
+      },
       compass(x0, txt) { const c = [x0 + 96, 4], a = [x0 + 122, -32], b = [x0 + 70, 40];
         return [{ kind: 'path', o: pth(circ(c[0], c[1], 43)), w: 0.13 }, { kind: 'move', w: 0.02 },
           { kind: 'path', o: pth(`M${a} L${x0 + 105},11 L${b} L${x0 + 87},-3 Z`), w: 0.12 }, { kind: 'move', w: 0.02 },

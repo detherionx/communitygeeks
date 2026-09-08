@@ -51,6 +51,20 @@
   const projectRet = (() => { const RA0 = 58, DEC0 = -62.3, c = Math.cos(DEC0 * Math.PI / 180); const raw = {}; for (const k in RET) raw[k] = [-(RET[k][0] - RA0) * c, DEC0 - RET[k][1]]; const xs = Object.values(raw).map((p) => p[0]), ys = Object.values(raw).map((p) => p[1]); const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2; const s = Math.min(236 / (Math.max(...xs) - Math.min(...xs)), 190 / (Math.max(...ys) - Math.min(...ys))); const out = {}; for (const k in raw) out[k] = [150 + (raw[k][0] - cx) * s, 118 + (raw[k][1] - cy) * s]; return out; })();
 
   const MOTIFS = {
+    // User-selected cookie jar: a conceptual constellation, not a positional star map.
+    // The coral cookie sits outside the open vessel: value comes from sharing.
+    'cookie-jar': { viewBox: '0 0 300 240', alt: { en: 'An open cookie jar drawn as a constellation, with a lifted lid and a coral cookie outside the jar.', de: 'Ein offenes Keksglas als Sternbild, mit angehobenem Deckel und einem korallfarbenen Keks außerhalb des Glases.' }, build(ctx) {
+      const outline = [[89,84],[89,103],[65,123],[65,193],[80,208],[190,208],[205,193],[205,123],[181,103],[181,84]];
+      let s = chain(outline, 'cm-contour') + line([89,84], [181,84], 'cm-line');
+      s += chain([[80,59],[80,49],[120,49],[120,36],[148,36],[148,49],[190,49],[190,59]], 'cm-line', true);
+      [[89,84],[181,84],[65,123],[65,193],[190,208],[205,123],[120,36],[190,59]].forEach(p => { s += node(p, 2.2); });
+      [[106,166],[161,157]].forEach(p => {
+        s += ring(p, 22, 'cm-line') + node([p[0]-7,p[1]-6], 1.8) + node([p[0]+7,p[1]-2], 1.8) + node([p[0]-2,p[1]+9], 1.8);
+      });
+      s += ring([248,93], 23, 'cm-obs') + node([240,87], 2, 'cm-obs-core') + node([257,91], 2, 'cm-obs-core') + node([247,104], 2, 'cm-obs-core');
+      if (ctx !== 'record' && ctx !== 'catalogue') s += dust([74,112,120,84], 10, 27);
+      return s;
+    } },
     // Conceptual instrument inspired by Pyxis (the Mariner Compass), not a positional star map.
     // Name reference: https://iauarchive.eso.org/public/themes/constellations/
     // Human judgment selects direction while the instrument makes execution possible.

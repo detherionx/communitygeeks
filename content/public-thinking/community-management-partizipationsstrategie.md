@@ -8,7 +8,7 @@ date: 2026-09-09
 format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
-motif: "reticulum"
+motif: "cookie-jar"
 summary: "Community-Management braucht mehr als eine Plattform. Partizipationsstrategie verbindet Menschen, Wissen und die Orte, an denen sie bereits Beiträge leisten."
 deck: "Eine eigene Plattform kann eine Community unterstützen, ohne sie vollständig zu umfassen. Partizipationsstrategie beginnt bei dem, was Menschen gemeinsam tun müssen."
 topics: ["Community-Management","Community-Strategie","KI und MCP"]
