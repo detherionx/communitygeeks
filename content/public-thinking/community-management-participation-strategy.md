@@ -16,7 +16,7 @@ authors: ["Carmelito Bauer"]
 openQuestion: "What do people need to accomplish together, and which structure best supports that work?"
 researchThread: "how participation strategy informs the choice of community platforms"
 related: [{"slug":"where-participation-actually-lives","title":"Where Participation Actually Lives"}]
-journal: {"headline":"PARTICIPATION","sketch":"cookie-jar","lines":["the platform earns its place.","follow contributions to use.","people need a reason."]}
+journal: {"headline":"PARTICIPATION","sketch":"cookie-jar","lines":["the platform earns it.","follow contributions to use.","people need a reason."]}
 ---
 
 [Richard Millington](https://mailchi.mp/feverbee/mcps2026-3575944), founder of community consultancy FeverBee, recently called MCPs (Model Context Protocol) “probably the biggest thing happening in enterprise communities right now." Within the enterprise-platform market he's writing about, that's a fair claim, and his analysis of what MCPs can and can't do is genuinely useful.
