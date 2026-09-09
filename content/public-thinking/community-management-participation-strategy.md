@@ -21,7 +21,7 @@ journal: {"headline":"PARTICIPATION","sketch":"cookie-jar","lines":["the platfor
 
 [Richard Millington](https://mailchi.mp/feverbee/mcps2026-3575944), founder of community consultancy FeverBee, recently called MCPs (Model Context Protocol) “probably the biggest thing happening in enterprise communities right now." Within the enterprise-platform market he's writing about, that's a fair claim, and his analysis of what MCPs can and can't do is genuinely useful.
 
-I think there is one question to ask before talking about this: What participation does an organisation need, and which structure should support it? Community management usually begins after that question has already been answered, after a platform has been chosen. A participation lens starts one step earlier.
+I think there is one question to ask before talking about this: What participation does an organisation need, and which structure should support it? Operating a community platform is different from deciding what it is for. Community practitioners may do both; a participation lens makes the strategic choice explicit.
 
 Our working proposition is to treat the platform as one part of a wider participation system, then test its value against what people need to accomplish together.
 
@@ -47,7 +47,7 @@ The participation-first approach proposed here asks what people want and need to
 
 The answer may be an owned community platform. It may also be a small practitioner cohort, a customer council, an event series, a developer repository, a creator network, a partner programme or several connected structures. A community platform is not the wrong answer. It is an answer that must earn its place.
 
-This distinction is not semantic. Different forms produce different behaviour, evidence and value. A support forum is good at retaining public knowledge. A private cohort may be better for candid learning. Events create concentrated relationship opportunities. Developer environments embed participation in the work itself. Partner networks move knowledge and access across organisational boundaries.
+Avital Knoller of Orchid Security, an identity-security company, described how the work changed between companies. At Wiz, she connected the community to beta testing so more customers could help shape new features. At Orchid, the priorities were customer support and education. “So basically I used community to solve business problems that we have,” she said. The transferable element was her approach to identifying those problems; the programme itself needed a different design.
 
 Arcanix.AI’s Oscar Clark described community as “where players are, essentially.” Recalling Tribal Wars, he explained how his group used LINE to coordinate defence across time zones and limit infiltration. The game enabled their shared activity; a separate tool supported the coordination.
 

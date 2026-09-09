@@ -20,7 +20,7 @@ related: [{"slug":"wo-partizipation-tatsaechlich-stattfindet","title":"Wo Partiz
 
 [Richard Millington](https://mailchi.mp/feverbee/mcps2026-3575944), Gründer der Community-Beratungsfirma FeverBee, bezeichnete MCPs (Model Context Protocol) kürzlich als „wahrscheinlich das Wichtigste, was derzeit in Unternehmens-Communities passiert“. Innerhalb des Marktes für Community-Plattformen für Unternehmen, über den er schreibt, ist das eine berechtigte Aussage, und seine Analyse dessen, was MCPs leisten können und was nicht, ist wirklich nützlich.
 
-Ich denke, es gibt eine Frage, die man stellen muss, bevor man darüber spricht: Welche Art der Partizipation braucht eine Organisation, und welche Struktur sollte diese unterstützen? Community-Management beginnt normalerweise erst, nachdem diese Frage bereits beantwortet wurde, nachdem eine Plattform ausgewählt wurde. Eine Partizipationsperspektive setzt einen Schritt früher an.
+Ich denke, es gibt eine Frage, die man stellen muss, bevor man darüber spricht: Welche Art der Partizipation braucht eine Organisation, und welche Struktur sollte diese unterstützen? Eine Community-Plattform zu betreiben ist etwas anderes, als zu entscheiden, wozu sie dient. Community-Verantwortliche können beides tun; eine Partizipationsperspektive macht die strategische Entscheidung ausdrücklich sichtbar.
 
 Unsere Arbeitsthese besteht darin, die Plattform als einen Teil eines umfassenderen Partizipationssystems zu betrachten und ihren Wert daran zu messen, was die Menschen gemeinsam erreichen wollen.
 
@@ -46,7 +46,7 @@ Der hier vorgeschlagene „Participation-First“-Ansatz fragt, welche Beiträge
 
 Die Antwort könnte eine eigene Community-Plattform sein. Es könnte sich aber auch um eine kleine Gruppe von Praktikern, einen Kundenbeirat, eine Veranstaltungsreihe, ein Entwickler-Repository, ein Netzwerk von Kreativen, ein Partnerprogramm oder mehrere miteinander verbundene Strukturen handeln. Eine Community-Plattform ist nicht die falsche Antwort. Sie ist eine Antwort, die sich ihren Platz erst verdienen muss.
 
-Diese Unterscheidung ist nicht rein semantisch. Verschiedene Formen führen zu unterschiedlichem Verhalten, unterschiedlichen Erkenntnissen und unterschiedlichem Wert. Ein Support-Forum eignet sich gut, um öffentliches Wissen zu bewahren. Eine private Gruppe ist vielleicht besser für offenes Lernen geeignet. Veranstaltungen schaffen konzentrierte Gelegenheiten zum Beziehungsaufbau. Entwicklerumgebungen integrieren die Partizipation direkt in die Arbeit selbst. Partnernetzwerke transportieren Wissen und Zugang über Organisationsgrenzen hinweg.
+Avital Knoller von Orchid Security, einem Unternehmen für Identitätssicherheit, beschrieb, wie sich die Arbeit je nach Unternehmen unterschied. Bei Wiz verband sie die Community mit Beta-Tests, damit mehr Kunden bei der Gestaltung neuer Funktionen mitwirken konnten. Bei Orchid lagen die Schwerpunkte auf Kundensupport und Wissensvermittlung. „Im Grunde habe ich die Community also genutzt, um unsere geschäftlichen Probleme zu lösen“, sagte sie. Übertragbar war ihre Herangehensweise an diese Probleme; das Programm selbst musste anders gestaltet werden.
 
 Oscar Clark von Arcanix.AI beschrieb eine Community als „im Grunde dort, wo die Spieler sind“. Er erinnerte an „Tribal Wars“ und erklärte, wie seine Gruppe LINE nutzte, um die Verteidigung über Zeitzonen hinweg zu koordinieren und das Eindringen von Gegnern zu begrenzen. Das Spiel ermöglichte ihre gemeinsame Aktivität; ein separates Tool unterstützte die Koordination.
 
