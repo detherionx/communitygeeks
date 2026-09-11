@@ -122,6 +122,11 @@
     // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
     // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
     const SKETCH = {
+      horologium(x0, txt) { const c = [x0 + 96, -12], gate = [x0 + 96, 28], bob = [x0 + 96, 50];
+        return [{ kind: 'path', o: pth(circ(c[0], c[1], 34)), w: 0.10 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(`M${c} L${x0 + 118},-32 M${c} L${x0 + 96},-37`), w: 0.08 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(`M${gate} L${x0 + 86},36 L${bob}`), w: 0.08 }, { kind: 'move', w: 0.02 },
+          { kind: 'path', o: pth(circ(bob[0], bob[1], 10)), w: 0.05 }, { kind: 'path', o: pth(circ(gate[0], gate[1], 7), 'coral'), w: 0.06 }]; },
       'cookie-jar'(x0, txt) {
         return [{ kind: 'path', o: pth(`M${x0+58},-17 L${x0+58},-5 L${x0+48},5 L${x0+48},37 L${x0+56},45 L${x0+110},45 L${x0+118},37 L${x0+118},5 L${x0+108},-5 L${x0+108},-17 Z`), w: 0.16 },
           { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(`M${x0+53},-27 L${x0+53},-33 L${x0+77},-33 L${x0+77},-39 L${x0+89},-39 L${x0+89},-33 L${x0+113},-33 L${x0+113},-27 Z`), w: 0.09 },

@@ -51,6 +51,21 @@
   const projectRet = (() => { const RA0 = 58, DEC0 = -62.3, c = Math.cos(DEC0 * Math.PI / 180); const raw = {}; for (const k in RET) raw[k] = [-(RET[k][0] - RA0) * c, DEC0 - RET[k][1]]; const xs = Object.values(raw).map((p) => p[0]), ys = Object.values(raw).map((p) => p[1]); const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2; const s = Math.min(236 / (Math.max(...xs) - Math.min(...xs)), 190 / (Math.max(...ys) - Math.min(...ys))); const out = {}; for (const k in raw) out[k] = [150 + (raw[k][0] - cx) * s, 118 + (raw[k][1] - cy) * s]; return out; })();
 
   const MOTIFS = {
+    // Conceptual pendulum clock inspired by Horologium (the Clock), IAU abbreviation Hor.
+    // Its dial is the repeatable system loop; the coral escapement is the human judgment that governs it.
+    // Name and chart reference: https://iauarchive.eso.org/public/themes/constellations/
+    horologium: { viewBox: '0 0 300 240', alt: { en: 'A pendulum clock inspired by Horologium drawn as a constellation. A circular system loop drives a narrow chain to the pendulum, with its human judgment point marked in coral.', de: 'Eine von Horologium inspirierte Pendeluhr als Sternbild. Eine kreisförmige Systemschleife treibt eine schmale Kette zum Pendel an; der Punkt menschlichen Urteils ist in Koralle markiert.' }, build(ctx) {
+      const c = [150, 84], gate = [150, 134], bob = [150, 194], simple = ctx === 'record' || ctx === 'catalogue';
+      const dial = [[150,34],[194,58],[194,108],[150,134],[106,108],[106,58]];
+      let s = ring(c, 50, 'cm-frame') + chain(dial, 'cm-line', true);
+      s += line(c, [177,58], 'cm-line') + line(c, [150,48], 'cm-line');
+      s += chain([gate,[138,151],[162,167],bob], 'cm-line');
+      dial.forEach((p, i) => { s += i === 0 ? star(p, 2.8) : node(p, 2); });
+      s += node(c, 2.4) + node([138,151], 1.8, 'cm-minor') + node([162,167], 1.8, 'cm-minor');
+      s += ring(bob, 22, 'cm-ring') + node(bob, 2.4) + mark(gate, 8);
+      if (!simple) s += ring(c, 62, 'cm-frame cm-faint') + dust([92,24,116,190], 10, 43);
+      return s;
+    } },
     // User-selected cookie jar: a conceptual constellation, not a positional star map.
     // The coral cookie sits outside the open vessel: value comes from sharing.
     'cookie-jar': { viewBox: '0 0 300 240', alt: { en: 'An open cookie jar drawn as a constellation, with a lifted lid and a coral cookie outside the jar.', de: 'Ein offenes Keksglas als Sternbild, mit angehobenem Deckel und einem korallfarbenen Keks außerhalb des Glases.' }, build(ctx) {

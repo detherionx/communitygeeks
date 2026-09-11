@@ -44,7 +44,7 @@
     },
     "filterType": { "type": "string", "enum": ["research", "onepager", "case", "field"] },
     "confidence": { "type": "string", "enum": ["Observation", "Emerging Pattern", "Research Finding"] },
-    "motif": { "type": "string", "enum": ["gaming", "reticulum", "thread", "pyxis", "cookie-jar"] },
+    "motif": { "type": "string", "enum": ["gaming", "reticulum", "thread", "pyxis", "cookie-jar", "horologium"] },
     "summary": { "type": "string", "minLength": 1 },
     "deck": { "type": "string", "minLength": 1 },
     "topics": {
