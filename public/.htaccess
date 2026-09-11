@@ -18,6 +18,7 @@ RedirectMatch 301 ^/approach/?$ https://communitygeeks.ai/#approach
 RedirectMatch 301 ^/system/?$ https://communitygeeks.ai/#system
 RedirectMatch 301 ^/work/?$ https://communitygeeks.ai/#cases
 RedirectMatch 301 ^/questions/?$ https://communitygeeks.ai/#questions
+RedirectMatch 301 ^/public-thinking/everyone-is-becoming-an-ai-systems-engineer/?$ https://communitygeeks.ai/public-thinking/ai-coding-agents-systems-builders/
 
 # Security headers: hardening pass 2026-09-02. Origin inventory this is
 # built from: self (assets, JSON-LD script blocks are exempt from CSP),

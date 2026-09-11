@@ -24,6 +24,8 @@
   ],
   "properties": {
     "title": { "type": "string", "minLength": 1 },
+    "seoTitle": { "type": "string", "minLength": 1 },
+    "focusPhrase": { "type": "string", "minLength": 1 },
     "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
     "lang": { "type": "string", "enum": ["en", "de"] },
     "sourceLanguage": { "type": "string", "enum": ["en", "de"] },

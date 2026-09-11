@@ -1,6 +1,8 @@
 ---
 title: "Everyone Is Becoming an AI Systems Engineer"
-slug: "everyone-is-becoming-an-ai-systems-engineer"
+seoTitle: "How AI Coding Agents Turn Non-Engineers Into Systems Builders"
+focusPhrase: "AI coding agents"
+slug: "ai-coding-agents-systems-builders"
 lang: "en"
 sourceLanguage: "en"
 translationKey: "ai-systems-engineer"
@@ -9,7 +11,7 @@ format: "Field Note"
 filterType: "field"
 confidence: "Observation"
 motif: "horologium"
-summary: "AI coding agents are collapsing the distance between ideas and execution. Carmelito Bauer asks which human skills become more valuable as building gets easier."
+summary: "AI coding agents are collapsing the distance between ideas and execution. The scarce skills now are judgment, system design and human oversight."
 deck: "AI coding agents are lowering the barrier to building systems. The scarce capabilities are shifting toward judgment, problem framing and human oversight."
 topics:
   - "AI Coding Agents"
@@ -37,7 +39,7 @@ When I was around 13 years old I experimented with forum software such as Woltla
 
 Even in my school days, technical people often met what I was building with little more than a grin or a shrug: “So basically, a CMS.” Many urged me to learn Python. I agree that, even today, that would be useful. But the experience was already teaching me something adjacent to coding: how to understand a system well enough to change it.
 
-## Ideas and Execution Move Closer Together
+## From Idea to Executable System
 
 My friend Edwin, an AI engineer and software developer at hurra.com, sees the gap between technical and nontechnical people shrinking. His observation captures something I have been noticing over the past few weeks: ideas and execution are moving closer together. As that distance shrinks, human judgment, critical thinking and the ability to decide what should be done become more valuable.
 
@@ -67,7 +69,7 @@ My friend Moe, who runs community and digital client success at Fenergo, has bee
 
 That does not make engineering expertise less valuable. It changes where other people can enter the process.
 
-## The Boundary Becomes More Permeable
+## The New Scarce Skill: Judgment
 
 At 13, I could make Burning Board do things it was not supposed to do because someone on a forum had written down the steps. When those steps failed, I learned to investigate what had gone wrong. Twenty years later, I have not crossed some clean boundary from nontechnical to technical. The boundary itself has become more permeable.
 

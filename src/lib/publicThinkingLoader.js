@@ -89,7 +89,9 @@ function loadAll() {
         mainEntityOfPage: { "@type": "WebPage", "@id": fullUrl },
         ...(authorNodes.length === 1 ? { author: authorNodes[0] } : authorNodes.length > 1 ? { author: authorNodes } : {}),
         publisher: { "@id": "https://communitygeeks.ai/#organization" },
-        ...(data.topics && data.topics.length ? { keywords: data.topics.join(", ") } : {}),
+        ...((data.focusPhrase || (data.topics && data.topics.length))
+          ? { keywords: [data.focusPhrase, ...(data.topics || [])].filter(Boolean).filter((value, index, all) => all.indexOf(value) === index).join(", ") }
+          : {}),
       },
       null,
       2

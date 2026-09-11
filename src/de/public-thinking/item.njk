@@ -9,7 +9,8 @@ pagination:
 permalink: "{{ piece.url }}"
 navActive: pt
 eleventyComputed:
-  title: "{{ piece.title | safe }}"
+  title: "{{ (piece.seoTitle or piece.title) | safe }}"
+  ogTitle: "{{ piece.title | safe }}"
   description: "{{ piece.summary | safe }}"
   ogImage: "{{ piece.ogImage }}"
   ogImageAlt: "{{ piece.title | safe }} · Communitygeeks"

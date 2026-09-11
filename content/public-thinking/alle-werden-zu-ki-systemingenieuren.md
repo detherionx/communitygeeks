@@ -1,5 +1,7 @@
 ---
 title: "Alle werden zu KI-Systemingenieur:innen"
+seoTitle: "Wie KI-Coding-Agenten Nicht-Ingenieur:innen zu Systemgestalter:innen machen"
+focusPhrase: "KI-Coding-Agenten"
 slug: "alle-werden-zu-ki-systemingenieuren"
 lang: "de"
 sourceLanguage: "en"
