@@ -77,7 +77,7 @@
 
   // ---------------------------------------------------------------- form
   const stages = Array.from(form.querySelectorAll('.stage'));
-  const names = ['Identify', 'Open channel', 'Transmit context', 'Request clearance'];
+  const names = ['Your name', 'Your email', 'Your project', 'Review and send'];
   const stepEl = document.getElementById('dock-step'), stageEl = document.getElementById('dock-stage'), prog = Array.from(document.querySelectorAll('#dock-prog li'));
   const back = document.getElementById('dock-back'), next = document.getElementById('dock-next'), send = document.getElementById('dock-send'), doneBox = document.getElementById('dock-done'), live = document.getElementById('dock-live'), formErr = document.getElementById('form-err');
   const fields = { name: document.getElementById('c-name'), email: document.getElementById('c-email'), context: document.getElementById('c-context') };

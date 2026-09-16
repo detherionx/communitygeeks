@@ -1,5 +1,5 @@
 ---
-title: "Rethinking Where Participation Happens"
+title: "How Glide connects community and partnerships"
 slug: "rethinking-where-participation-happens"
 lang: "en"
 sourceLanguage: "en"
@@ -16,8 +16,8 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "forum · discord · calendar"
     - "→ not the container."
     - "who participates, how."
-summary: "Andy Claremont of Glide explores how community participation extends beyond individual channels to the people, groups and relationships around a company."
-deck: "Glide’s Andy Claremont explores community participation beyond individual channels: the people, groups and relationships surrounding a company."
+summary: "Andy Claremont describes Glide’s approach to community and partnerships, including the relationships and support that extend beyond a single online channel."
+deck: "Glide’s Andy Claremont explains how customers, creators and different kinds of partners fit into a wider network around the company."
 topics:
   - "Ecosystems"
   - "Community Strategy"

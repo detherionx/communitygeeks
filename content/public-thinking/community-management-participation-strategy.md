@@ -1,5 +1,5 @@
 ---
-title: "The Community Container Is Not the Community"
+title: "What should your community platform help people do?"
 slug: "community-management-participation-strategy"
 lang: "en"
 sourceLanguage: "en"
@@ -9,13 +9,13 @@ format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "cookie-jar"
-summary: "Community management needs more than a platform. A participation-first approach connects people, knowledge and the spaces where they already contribute."
-deck: "An owned platform can support a community without containing all of it. Participation strategy starts with what people need to do together."
+summary: "Examples from customer support, product testing and gaming show how to choose a community platform around what people actually need to do together."
+deck: "Customer support, product testing and peer learning need different kinds of programs. Start with the activity people need, then choose the platform."
 topics: ["Community Management","Community Strategy","AI and MCP"]
 authors: ["Carmelito Bauer"]
 openQuestion: "What do people need to accomplish together, and which structure best supports that work?"
 researchThread: "how participation strategy informs the choice of community platforms"
-related: [{"slug":"where-participation-actually-lives","title":"Where Participation Actually Lives"}]
+related: [{"slug":"where-participation-actually-lives","title":"Community, developer relations and partnerships: where does the work overlap?"}]
 journal: {"headline":"PARTICIPATION","sketch":"cookie-jar","lines":["the platform earns it.","follow contributions to use.","people need a reason."]}
 ---
 

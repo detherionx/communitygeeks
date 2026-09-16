@@ -1,6 +1,6 @@
 ---
-title: "Alle werden zu KI-Systemingenieur:innen"
-seoTitle: "Wie KI-Coding-Agenten Nicht-Ingenieur:innen zu Systemgestalter:innen machen"
+title: "Mit KI-Coding-Agenten bauen: Was menschliches Urteilsvermögen braucht"
+seoTitle: "Mit KI-Coding-Agenten bauen: Was menschliches Urteilsvermögen braucht"
 focusPhrase: "KI-Coding-Agenten"
 slug: "alle-werden-zu-ki-systemingenieuren"
 lang: "de"
@@ -11,8 +11,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Observation"
 motif: "horologium"
-summary: "KI-Coding-Agenten verkürzen den Weg von der Idee zur Umsetzung. Carmelito Bauer fragt, welche menschlichen Fähigkeiten an Wert gewinnen, wenn das Bauen leichter wird."
-deck: "KI-Coding-Agenten senken die Hürde, Systeme zu bauen. Knapp werden Urteilsvermögen, eine präzise Problemdefinition und menschliche Aufsicht."
+summary: "Carmelito Bauer untersucht anhand eines Recruiting-Ablaufs, was KI-Coding-Agenten ermöglichen und warum Softwareentwicklung menschliches Urteilsvermögen braucht."
+deck: "Ein mit KI-Coding-Agenten gebauter Recruiting-Ablauf zeigt, was sich leichter umsetzen lässt und warum Problemverständnis, Prüfung und menschliche Aufsicht wichtig bleiben."
 topics:
   - "KI-Coding-Agenten"
   - "Systemdenken"
@@ -23,9 +23,9 @@ openQuestion: "Was gewinnt an Wert, wenn die Distanz zwischen einer Idee und ein
 researchThread: "wie KI-Coding-Agenten verändern, wer funktionierende Systeme entwerfen und testen kann"
 related:
   - slug: "was-bleibt-beim-menschen-wenn-ki-uebernimmt"
-    title: "Was bleibt beim Menschen, wenn KI den Rest übernimmt"
+    title: "Was Menschen in der Arbeit mit KI selbst beurteilen müssen"
   - slug: "wer-haelt-den-faden"
-    title: "Wer hält den Faden?"
+    title: "Wer setzt die Grenzen, wenn KI und Teams mehr leisten können?"
 ---
 
 Als ich ungefähr 13 Jahre alt war, experimentierte ich mit Forensoftware wie Woltlab Burning Board. Ich gründete Communities rund um die WWE, World of Warcraft und Lineage 2. Anpassungen mussten umgesetzt werden, und WBB hatte tatsächlich eine sehr hilfsbereite Community, die einen Schritt für Schritt begleitete, wenn etwas schiefging. Ich lernte nicht offiziell zu programmieren, aber ich begann zu verstehen, wie diese Systeme grundsätzlich funktionieren und wo man suchen muss, wenn etwas nicht mehr funktionierte.
@@ -54,7 +54,7 @@ Ich habe diese Software nicht geschrieben, und ich hätte ihre technische Umsetz
 
 ## Bauen ist nicht dasselbe wie Ingenieurwesen
 
-Die Überschrift ist bewusst übertrieben. Code zu erzeugen vermittelt weder Architekturwissen noch Sicherheitsurteil oder ein Gespür für wartbare Systeme. KI kann jemandem helfen, ein viel größeres schlechtes System viel schneller zu bauen.
+Code zu erzeugen vermittelt weder Architekturwissen noch Sicherheitsurteil oder ein Gespür für wartbare Systeme. KI kann jemandem helfen, ein viel größeres schlechtes System viel schneller zu bauen.
 
 Technische Fähigkeiten sind jedoch immer weniger eng an eine technische Identität gekoppelt. Ein:e Marketingexpert:in kann ein internes Tool bauen, ohne zuerst Ingenieur:in zu werden. Ein:e Community-Praktiker:in kann fragmentierte Informationen verbinden, ohne Dateningenieur:in zu werden.
 

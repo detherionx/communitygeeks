@@ -2,10 +2,10 @@
 <html lang="{{ lang or 'en' }}">
 <head>
 {% include "partials/head.njk" %}
-{# ABOUT LAYOUT (operator dossier + one research navigation instrument). Shares shell.css (bar, footer, controls)
+{# ABOUT LAYOUT (constellation landscape + founder dossier). Shares shell.css (bar, footer, controls)
    with the homepage; about.css is the page's own system. #}
-<link rel="stylesheet" href="/assets/css/shell.css">
-<link rel="stylesheet" href="/assets/css/about.css">
+<link rel="stylesheet" href="/assets/css/shell.css?v=about-contact-4">
+<link rel="stylesheet" href="/assets/css/about.css?v=about-contact-4">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="about-body">
@@ -14,6 +14,6 @@
 {{ content | safe }}
 </main>
 <script src="/assets/js/nav-toggle.js"></script>
-<script src="/assets/js/about.js"></script>
+<script src="/assets/js/about.js?v=20260915-seamless-layers"></script>
 </body>
 </html>

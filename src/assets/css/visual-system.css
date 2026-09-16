@@ -1,0 +1,66 @@
+/* Bauhaus grammar: semantic colors, shared type roles and observation marks. */
+:root{--ci-field:#1f4b4c;--ci-ivory:#e8e7d1;--ci-mineral:#adc5b4;--ci-graphite:#173738;--ci-action:#e8735a;--ci-observe:rgba(173,197,180,.38)}
+.field-body :is(.buy-section,.relationship-section){background:var(--ci-field)}
+.field-body :is(.buy-section,.relationship-section,.intent-section,.pt) .kicker{color:var(--ci-mineral)}
+
+.field-body :is(.service-outcome,.relationship-copy>p){color:var(--ci-ivory)}
+.relationship-note strong,.intent-note h3{font:500 20px/1.25 var(--body);letter-spacing:-.015em}
+.relationship-note span,.intent-note small,.intent-meta,.relationship-controls{font-family:var(--mono)}
+.relationship-note span,.intent-note small{font-size:11px;line-height:1.5}
+.intent-note p{font:400 15px/1.5 var(--body);color:var(--ci-mineral)}
+.relationship-note p{color:var(--ci-mineral)}
+
+.relationship-note{border-left-color:var(--ci-mineral);text-shadow:none;background:linear-gradient(90deg,#173738f2,#17373800)}
+.relationship-section.is-between h2 em{color:var(--cream)}
+.relationship-section.is-between h2 em:after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 .13em 9px;background:var(--ci-action)}
+.field-body :is(.relationship-options,.intent-stages) button[aria-pressed=true]{color:var(--ci-ivory);border-color:var(--ci-action)}
+.field-body :is(.relationship-options,.intent-stages) button{}
+.field-body :is(.service-item,.relationship-options button,.intent-stages button):focus-visible{outline:1px solid var(--ci-action);outline-offset:6px}
+.program-scene .diorama>path:first-of-type{stroke:var(--ci-observe)}
+.program-scene .program-route{stroke:var(--ci-mineral)}
+.program-scene :is(.market-route,.service-community-link){stroke:var(--ci-action)}
+.relationship-pin{background:radial-gradient(ellipse at 72% 58%,#adc5b409,transparent 65%)}
+.intent-note:before{background:radial-gradient(ellipse,#102e30ee 0%,#102e309c 45%,transparent 76%)}
+.intent-leaders path{stroke:var(--ci-mineral)}.intent-leaders circle{fill:var(--ci-ivory)}
+.intent-compare input{accent-color:var(--ci-action)}
+@media(max-width:760px){
+.relationship-note strong,.intent-note h3{font-size:18px}
+.intent-note p{font-size:14px}
+.field-body :is(.relationship-options,.intent-stages) button{}.intent-note:nth-of-type(3) h3{font-size:16px}}
+/* The outgoing participants cross the real boundary. No interstitial or added height. */
+.services-handoff{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+.services-handoff[hidden]{display:none}
+.services-handoff svg{position:absolute;overflow:visible;transform-origin:50% 50%;will-change:transform}
+.services-departing .program-scene *{animation-play-state:paused!important}
+.services-departing .diorama> :not(.departing-person){opacity:var(--stage-presence,1)!important}
+.services-departing .program-scene>ellipse{opacity:var(--stage-presence,1)}
+.services-departing .departing-person{visibility:hidden}
+.relationship-arriving .relationship-copy{opacity:var(--arrival-copy,1)}
+@media(prefers-reduced-motion:reduce){.services-handoff{display:none}.relationship-arriving .relationship-copy{opacity:1}}
+
+/* Services is the warm, material chapter between two spatial teal fields. */
+.field-body .buy-section{background:#f6f4ef;color:var(--ci-field);border-color:#1f4b4c18}
+.buy-section .service-wrap{background:none}
+.field-body .buy-section :is(h2,.service-choice,.service-outcome,.service-item,.program-method h3,.method-sequence){color:var(--ci-field)}
+.field-body .buy-section :is(.kicker,.service-number,.program-method p,.service-pause){color:#506b67}
+.buy-section .program-method{border-color:#1f4b4c26}
+.buy-section .service-item:is(:hover,[aria-pressed=true]){color:var(--ci-field);text-decoration:underline;text-decoration-color:var(--ci-action);text-underline-offset:6px;text-decoration-thickness:2px}
+.buy-section .service-choice:focus-visible{outline-color:var(--ci-field)}
+.buy-section .program-scene>ellipse{display:none}
+.buy-section .program-scene .program-route{stroke:#416f68;stroke-opacity:.75}
+.buy-section .program-scene .diorama>path[stroke-opacity]{stroke:#416f68;stroke-opacity:.35}
+.buy-section linearGradient[id$="-floor"] stop:first-child{stop-color:#9ab6aa;stop-opacity:.32}
+.buy-section linearGradient[id$="-floor"] stop:last-child{stop-color:#416f68;stop-opacity:.22}
+.buy-section linearGradient[id$="-metal"] stop:first-child{stop-color:#b5c9ba}
+.buy-section linearGradient[id$="-metal"] stop:nth-child(2){stop-color:#648d7d}
+.buy-section linearGradient[id$="-metal"] stop:last-child{stop-color:#244e4a}
+.buy-section :is(#customer-person,#developer-person,#partner-person)>:is(circle,path[fill="#e8e7d1"]){stroke:#527c70;stroke-width:1}
+.buy-section :is(#customer-person,#developer-person,#partner-person)>g[stroke]{stroke:#668e7f}
+.buy-section .program-world:hover{filter:none!important}
+.buy-section .program-offers:has(.service-choice:hover) .program-world{filter:none}
+.buy-section :is(#customer-person,#developer-person,#partner-person)>:is(circle,path[fill="#e8e7d1"]){fill:#d9dfcf;stroke:#416f68;stroke-width:1.4}
+@media(min-width:761px){
+.program-column .service-choice strong{min-height:2.4em}
+
+.program-column .service-outcome{min-height:4.65em}
+}

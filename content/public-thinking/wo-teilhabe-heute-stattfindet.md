@@ -1,5 +1,5 @@
 ---
-title: "Wo Partizipation heute eigentlich stattfindet"
+title: "Wie Glide Community und Partnerschaften verbindet"
 slug: "wo-teilhabe-heute-stattfindet"
 lang: "de"
 sourceLanguage: "en"
@@ -9,8 +9,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "reticulum"  # the real constellation Reticulum (the Reticle); see src/lib/constellationMotifs.js
-summary: "Andy Claremont von Glide untersucht, wie Partizipation über einzelne Community-Kanäle hinaus Menschen, Gruppen und Beziehungen rund um ein Unternehmen umfasst."
-deck: "Andy Claremont von Glide untersucht Partizipation jenseits einzelner Kanäle: die Menschen, Gruppen und Beziehungen rund um ein Unternehmen."
+summary: "Andy Claremont beschreibt Glides Ansatz für Community und Partnerschaften sowie Beziehungen und Unterstützung, die über einen einzelnen Online-Kanal hinausgehen."
+deck: "Andy Claremont von Glide erklärt, wie Kunden, Kreative und unterschiedliche Partner zu einem größeren Netzwerk rund um das Unternehmen gehören."
 topics:
   - "Ökosysteme"
   - "Community-Strategie"
@@ -26,7 +26,7 @@ geometry:
 pdf: null
 related:
   - slug: "wo-partizipation-tatsaechlich-stattfindet"
-    title: "Wo Partizipation tatsächlich stattfindet"
+    title: "Community, Developer Relations und Partnerschaften: Wo überschneidet sich die Arbeit?"
 openQuestion: "Wenn sich der Austausch rund um ein Unternehmen längst nicht mehr nur in einer klar abgegrenzten Community abspielt: wo findet Partizipation heute eigentlich statt?"
 researchThread: "Partizipation und Ökosysteme im Zeitalter der KI"
 ---

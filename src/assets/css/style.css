@@ -710,7 +710,7 @@
 /* ===== PUBLIC THINKING: OG CARD (generated social image) ===== */
 
   /* Fixed 1200x630 composition, screenshotted by scripts/generate-og-images.js
-     — never viewed in an actual browser by a visitor. Deliberately reuses
+     - never viewed in an actual browser by a visitor. Deliberately reuses
      this same stylesheet, the site's real Google Fonts link, node-mark.njk,
      and pt-motifs.njk's ptMotif() macro rather than re-declaring colors/type
      in a parallel system, so the card can never visually drift from the
@@ -737,7 +737,7 @@
      scale/opacity is new, following the same --card/--hero precedent above.
      Solid-shape motifs (e.g. "gaming") and thin-line motifs (e.g.
      "people-beyond-container") don't carry the same visual weight at equal
-     opacity, so — same as --card already does for "gaming" — each motif
+     opacity, so, as --card already does for "gaming", each motif
      gets its own tuned opacity here rather than one shared value forcing a
      compromise, and rather than an accentColor-adjacent field on the piece
      itself doing this per-article. */

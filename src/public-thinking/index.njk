@@ -1,14 +1,14 @@
 ---
 layout: layouts/pt.njk
 lang: en
-title: Public Thinking
-description: "Research findings, executive one-pagers, case studies, and field notes, live, not a static portfolio."
+title: Articles
+description: "Articles on communities, developer relations, partnerships and AI, based on conversations, research and our own practice."
 permalink: /public-thinking/
 navActive: pt
 eleventyComputed:
   extraHead:
     - "<link rel='alternate' hreflang='en' href='https://communitygeeks.ai/public-thinking/'><link rel='alternate' hreflang='de' href='https://communitygeeks.ai/de/public-thinking/'><link rel='alternate' hreflang='x-default' href='https://communitygeeks.ai/public-thinking/'>"
-    - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Public Thinking\",\"item\":\"https://communitygeeks.ai/public-thinking/\"}]}</script>"
+    - "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://communitygeeks.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Articles\",\"item\":\"https://communitygeeks.ai/public-thinking/\"}]}</script>"
     - "{{ publicThinkingCollection | safe }}"
 extraScripts:
   - public-thinking-filter.js
@@ -20,18 +20,18 @@ extraScripts:
 {% from "partials/pt-card-base.njk" import ptCardBase %}
 <section class="page-hero">
   <div class="wrap">
-    <nav class="pt-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Public Thinking</span></nav>
+    <nav class="pt-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Articles</span></nav>
     <div class="page-hero-row">
       <div class="page-eyebrow">
         {% include "partials/node-mark.njk" %}
-        Public Thinking
+        Articles
       </div>
       <div class="pt-lang-switch">
         <span class="active" aria-current="page">EN</span> <a href="/de/public-thinking/" hreflang="de" lang="de">DE</a>
       </div>
     </div>
-    <h1 class="page-title">Live findings, not a static portfolio.</h1>
-    <p class="page-intro">Research findings, executive one-pagers, case studies, and field notes, in whatever format the finding actually calls for. Each piece is tagged by format and by how much evidence currently supports it.</p>
+    <h1 class="page-title">What we are learning from the work.</h1>
+    <p class="page-intro">Articles on communities, developer relations, partnerships and AI, based on conversations, research and our own practice. Each article shows how much evidence supports its conclusions.</p>
   </div>
 </section>
 
@@ -41,13 +41,16 @@ extraScripts:
     <h2 id="research-teaser-title">When Participant Knowledge Enters AI Answers</h2>
     <p>{{ researchTeaser.en }}</p>
   </aside>
+  {% set availableFormats = publicThinkingFormats | publishedFormats(publicThinking) %}
+  {% if availableFormats.length > 1 %}
   <div class="filter-bar" role="group" aria-label="Filter by format">
     <button class="filter-pill active" type="button" data-filter="all" aria-pressed="true">All</button>
-    {% for f in publicThinkingFormats %}
+    {% for f in availableFormats %}
     <button class="filter-pill" type="button" data-filter="{{ f.filterType }}" aria-pressed="false">{{ f.labelEn }}</button>
     {% endfor %}
   </div>
 
+  {% endif %}
   <div class="pt-grid">
     {% for piece in publicThinking %}{{ ptCardBase(piece, loop.index, 2, "en", "", loop.first) }}{% endfor %}
   </div>
@@ -62,9 +65,9 @@ extraScripts:
 
 <section class="pt-shell-close">
   <div class="wrap pt-shell-close-row">
-    <p class="pt-shell-close-h">Talk about what&rsquo;s actually happening.</p>
+    <p class="pt-shell-close-h">Let’s talk about your project.</p>
     <div class="pt-shell-close-actions">
-      <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Compare notes</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
+      <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Discuss your project</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
       <a href="/#approach" class="pt-shell-quiet">See how we work →</a>
     </div>
   </div>

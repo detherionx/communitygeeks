@@ -1,6 +1,6 @@
 ---
-title: "Everyone Is Becoming an AI Systems Engineer"
-seoTitle: "How AI Coding Agents Turn Non-Engineers Into Systems Builders"
+title: "Building with AI coding agents: what still needs human judgment"
+seoTitle: "Building with AI coding agents: what still needs human judgment"
 focusPhrase: "AI coding agents"
 slug: "ai-coding-agents-systems-builders"
 lang: "en"
@@ -11,8 +11,8 @@ format: "Field Note"
 filterType: "field"
 confidence: "Observation"
 motif: "horologium"
-summary: "AI coding agents are collapsing the distance between ideas and execution. The scarce skills now are judgment, system design and human oversight."
-deck: "AI coding agents are lowering the barrier to building systems. The scarce capabilities are shifting toward judgment, problem framing and human oversight."
+summary: "Carmelito Bauer uses a recruiting workflow to explore what AI coding agents make possible, and why building software still requires human judgment."
+deck: "A recruiting workflow built with AI coding agents shows what becomes easier to create, and why problem framing, verification and oversight still matter."
 topics:
   - "AI Coding Agents"
   - "Systems Thinking"
@@ -23,9 +23,9 @@ openQuestion: "What becomes more valuable when the distance between an idea and 
 researchThread: "how AI coding agents change who can design and test working systems"
 related:
   - slug: "what-remains-human-when-ai-takes-over"
-    title: "What Remains for Humans When AI Takes Over the Rest"
+    title: "What people still need to judge for themselves when working with AI"
   - slug: "who-keeps-the-thread"
-    title: "Who Keeps the Thread?"
+    title: "Who sets the limits when AI and teams can do more?"
 journal:
   headline: "SYSTEMS"
   sketch: "horologium"
@@ -61,7 +61,7 @@ I did not write that software, nor could I have specified its technical implemen
 
 ## Building Is Not the Same as Engineering
 
-The headline is deliberately exaggerated. Producing code does not confer architectural knowledge, security judgment or an instinct for maintainable systems. AI can help someone build a much larger bad system much faster.
+Producing code does not confer architectural knowledge, security judgment or an instinct for maintainable systems. AI can help someone build a much larger bad system much faster.
 
 But technical capability is becoming less tightly coupled to technical identity. A marketer can build an internal tool without first becoming an engineer. A community practitioner can connect fragmented information without becoming a data engineer.
 

@@ -1,5 +1,5 @@
 ---
-title: "What Remains for Humans When AI Takes Over the Rest"
+title: "What people still need to judge for themselves when working with AI"
 slug: "what-remains-human-when-ai-takes-over"
 lang: "en"
 sourceLanguage: "de"
@@ -9,8 +9,8 @@ format: "Field Note"
 filterType: "field"
 confidence: "Observation"
 motif: "pyxis"
-summary: "Katharina Siebert reflects on AI in Communitygeeks’ work: human judgment, independent verification and the consequences that give empathy its weight."
-deck: "As AI takes on more tasks, three reflections from Communitygeeks explore what remains human: judgment, the ability to verify claims, and empathy with consequences."
+summary: "Katharina Siebert reflects on working with AI at Communitygeeks: human judgment, independent verification and responsibility in interactions with others."
+deck: "Katharina Siebert reflects on three tasks at Communitygeeks: deciding what matters, independently checking claims and taking responsibility for how we treat others."
 topics:
   - "AI and Human Work"
   - "Human Judgment"
@@ -21,7 +21,7 @@ openQuestion: "Where does human judgment make the difference when AI can carry o
 researchThread: "the role of human judgment, verification and empathy in AI-assisted work"
 related:
   - slug: "who-keeps-the-thread"
-    title: "Who Keeps the Thread?"
+    title: "Who sets the limits when AI and teams can do more?"
 journal:
   headline: "JUDGMENT"
   sketch: "compass"

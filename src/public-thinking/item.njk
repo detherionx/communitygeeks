@@ -22,7 +22,7 @@ extraScripts:
 ---
 {# ARTICLE (EN) inside the concept shell: the live item.njk composition,
    verbatim (kicker, masthead, side panel, body, closing field, author box),
-   with only a breadcrumb added and internal Public Thinking links pointed
+   with only a breadcrumb added and internal Articles links pointed
    at the concept routes. No motion, no diagrams: reading stays quiet. #}
 {% from "partials/geo-plate.njk" import geoPlate %}
 {% from "partials/pt-motifs.njk" import ptConstellation %}
@@ -31,7 +31,7 @@ extraScripts:
     <div class="pt-topbar">
       <div class="pt-kicker">
         {% include "partials/node-mark.njk" %}
-        <nav class="pt-crumb pt-crumb-inline" aria-label="Breadcrumb"><a href="/public-thinking/">Public Thinking</a><span aria-hidden="true">&middot;</span><span>{{ piece.format }}</span></nav>
+        <nav class="pt-crumb pt-crumb-inline" aria-label="Breadcrumb"><a href="/public-thinking/">Articles</a><span aria-hidden="true">&middot;</span><span>{{ 'Article' if piece.format == 'Field Note' else piece.format }}</span></nav>
       </div>
       {% if piece.translations.de %}
       <div class="pt-lang-switch">
@@ -105,7 +105,7 @@ extraScripts:
         <div class="pt-author-name">{% if person and person.url %}<a href="{{ person.url }}">{{ name }}</a>{% else %}{{ name }}{% endif %}</div>
         {% if person and person.role %}<div class="pt-author-role">{{ person.role }}</div>{% endif %}
         {% if person and person.bio %}<p class="pt-author-bio">{{ person.bio }}</p>{% endif %}
-        <div class="pt-author-links"><a href="/about/">About</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/public-thinking/">More Public Thinking</a></div>
+        <div class="pt-author-links"><a href="/about/">About</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/public-thinking/">More Articles</a></div>
       </div>
     </div>
     {% endfor %}

@@ -1,5 +1,5 @@
 ---
-title: "Wer hält den Faden?"
+title: "Wer setzt die Grenzen, wenn KI und Teams mehr leisten können?"
 slug: "wer-haelt-den-faden"
 lang: "de"
 sourceLanguage: "en"
@@ -9,8 +9,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "thread"  # one continuous thread through three fanned card forms; see src/lib/constellationMotifs.js
-summary: "Drei Gamescom-Gespräche mit Bettermode, Inworld und Discord zeigen, warum KI-Autonomie menschliches Urteilsvermögen und klare Leitplanken wichtiger macht."
-deck: "Drei Gespräche auf der gamescom 2026 verbinden zunehmend autonome KI mit einer bekannten menschlichen Herausforderung: Grenzen zu setzen und zu erkennen, wann ein Eingreifen nötig ist."
+summary: "Gamescom-Gespräche über KI-Charaktere, KI-Aufsicht und Developer Relations zeigen, warum größere Handlungsfreiheit klare Grenzen und menschliches Urteilsvermögen braucht."
+deck: "Zwei Gespräche über KI und eines über Developer Relations zeigen eine gemeinsame Herausforderung: entscheiden, was passieren soll, was nicht und wann ein Eingreifen nötig ist."
 topics:
   - "KI-Autonomie"
   - "Developer Relations"
@@ -20,9 +20,9 @@ authors:
 pdf: null
 related:
   - slug: "wo-partizipation-tatsaechlich-stattfindet"
-    title: "Wo Partizipation tatsächlich stattfindet"
+    title: "Community, Developer Relations und Partnerschaften: Wo überschneidet sich die Arbeit?"
   - slug: "wo-teilhabe-heute-stattfindet"
-    title: "Wo Partizipation heute eigentlich stattfindet"
+    title: "Wie Glide Community und Partnerschaften verbindet"
 geometry:
   viewBox: "-70 10 420 430"
   shapes:

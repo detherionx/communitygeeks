@@ -10,7 +10,7 @@ permalink: "/og-cards/{{ piece.slug }}/index.html"
   One piece's generated social-card source, screenshotted by
   scripts/generate-og-images.js into
   src/assets/images/public-thinking/og/{{ piece.slug }}.png and then removed
-  from the deployed _site output (see that script — these pages exist only
+  from the deployed _site output (see that script; these pages exist only
   to be screenshotted, never to be visited). Deliberately not extending
   layouts/base.njk: no nav/footer/other page chrome should ever end up in a
   1200x630 crop, so this is its own minimal document that still loads the
@@ -25,7 +25,12 @@ permalink: "/og-cards/{{ piece.slug }}/index.html"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
-{% if piece.motif == 'pyxis' %}<style>.og-card .og-deck{font-size:20px;line-height:1.4;-webkit-line-clamp:4;}</style>{% endif %}
+<style>
+  .og-copy{position:absolute;top:170px;left:84px;width:580px;z-index:1;}
+  .og-copy .og-headline{position:static;max-width:none;font-size:48px;line-height:1.06;}
+  .og-copy .og-deck{position:static;display:block;margin-top:20px;font-size:21px;line-height:1.4;overflow:visible;}
+  .og-card .pt-motif--og{width:420px;right:44px;}
+</style>
 </head>
 {% from "partials/pt-motifs.njk" import ptConstellation %}
 <body>
@@ -34,13 +39,14 @@ permalink: "/og-cards/{{ piece.slug }}/index.html"
 
   <div class="og-kicker">
     {% include "partials/node-mark.njk" %}
-    <span class="og-kicker-label">Public Thinking &middot; {{ piece.format }}</span>
+    <span class="og-kicker-label">{{ 'Artikel' if piece.lang == 'de' else 'Articles' }}</span>
   </div>
   <div class="og-rule"></div>
 
-  <h1 class="og-headline">{{ piece.title }}</h1>
-
-  {% if piece.deck %}<p class="og-deck">{{ piece.deck }}</p>{% endif %}
+  <div class="og-copy">
+    <h1 class="og-headline">{{ piece.title }}</h1>
+    {% if piece.deck %}<p class="og-deck">{{ piece.deck }}</p>{% endif %}
+  </div>
 
   <div class="og-sig">
     {% include "partials/node-mark.njk" %}

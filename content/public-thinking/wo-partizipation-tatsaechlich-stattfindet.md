@@ -1,5 +1,5 @@
 ---
-title: "Wo Partizipation tatsächlich stattfindet"
+title: "Community, Developer Relations und Partnerschaften: Wo überschneidet sich die Arbeit?"
 slug: "wo-partizipation-tatsaechlich-stattfindet"
 lang: "de"
 sourceLanguage: "en"
@@ -9,8 +9,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Observation"
 motif: "gaming"
-summary: "Sechs Gamescom-Gespräche zeigen trotz verschiedener Antworten, wie sich Partizipation durch Community, DevRel, Marketing, Partnerschaften, Produkt und Vertrieb zieht."
-deck: "Widersprüchliche Aussagen aus Gesprächen auf der Gamescom zeigen, dass Partizipation in Community und Developer Relations Menschen und Beziehungen umfasst, nicht nur eine einzelne Plattform."
+summary: "Sechs Gamescom-Gespräche untersuchen Überschneidungen zwischen Community, Developer Relations und Partnerschaften und unterschiedliche Sichtweisen auf den Wandel."
+deck: "Sechs Gamescom-Gespräche bieten unterschiedliche Erklärungen für Arbeit über Teamgrenzen hinweg, von Entwicklerunterstützung bis zu Kontakten zwischen Spielestudios und öffentlichen Einrichtungen."
 topics:
   - "Ökosysteme"
   - "Community-Strategie"
@@ -20,7 +20,7 @@ authors:
 pdf: null
 related:
   - slug: "wo-teilhabe-heute-stattfindet"
-    title: "Wo Partizipation heute eigentlich stattfindet"
+    title: "Wie Glide Community und Partnerschaften verbindet"
 geometry:
   viewBox: "-90 20 430 430"
   shapes:

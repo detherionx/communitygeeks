@@ -29,7 +29,7 @@ extraScripts:
     <div class="pt-topbar">
       <div class="pt-kicker">
         {% include "partials/node-mark.njk" %}
-        <nav class="pt-crumb pt-crumb-inline" aria-label="Brotkrumen"><a href="/de/public-thinking/">Public Thinking</a><span aria-hidden="true">&middot;</span><span>{{ piece.format }}</span></nav>
+        <nav class="pt-crumb pt-crumb-inline" aria-label="Brotkrumen"><a href="/de/public-thinking/">Artikel</a><span aria-hidden="true">&middot;</span><span>{{ 'Artikel' if piece.filterType == 'field' else piece.format }}</span></nav>
       </div>
       {% if piece.translations.en %}
       <div class="pt-lang-switch">
@@ -100,7 +100,7 @@ extraScripts:
         <div class="pt-author-name">{% if person and person.url %}<a href="{{ person.url }}">{{ name }}</a>{% else %}{{ name }}{% endif %}</div>
         {% if person and person.role %}<div class="pt-author-role">{{ person.role }}</div>{% endif %}
         {% if person and person.bioDe %}<p class="pt-author-bio">{{ person.bioDe }}</p>{% endif %}
-        <div class="pt-author-links"><a href="/about/">Mehr über {{ name }}</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/de/public-thinking/">Weitere Public Thinking-Beiträge</a></div>
+        <div class="pt-author-links"><a href="/about/">Mehr über {{ name }}</a> &middot; {% if person and person.sameAs and person.sameAs.length %}<a href="{{ person.sameAs[0] }}">LinkedIn</a> &middot; {% endif %}<a href="/de/public-thinking/">Weitere Artikel-Beiträge</a></div>
       </div>
     </div>
     {% endfor %}

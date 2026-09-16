@@ -14,7 +14,7 @@ const ALLOWED_CONFIDENCE = ["Observation", "Emerging Pattern", "Research Finding
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "public-thinking");
 
 // Where scripts/generate-og-images.js writes a piece's generated card, and
-// therefore also the deterministic URL used below — computed from `slug`
+// therefore also the deterministic URL used below, computed from `slug`
 // alone, before that file necessarily exists on disk. Screenshot generation
 // runs as a separate step after this build, so the file only has to exist
 // by the time the site is actually deployed, not at template-render time.
@@ -64,7 +64,7 @@ function loadAll() {
     const authorNodes = authorNames.map(personNode);
 
     // ogImage: purely a social/Article-schema asset, never rendered on the
-    // page itself (confirmed nothing in item.njk displays it) — so it's
+    // page itself (confirmed nothing in item.njk displays it), so it's
     // named for what it does, not "hero". Explicit frontmatter override >
     // this piece's own generated card (the normal case, once motif/title/
     // deck give the generator something to compose) > the sitewide default,

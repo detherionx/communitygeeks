@@ -646,3 +646,27 @@ Validation: existing content validation passes (six files, zero errors/warnings)
 Founder authorized committing and pushing the service wording and mobile hero changes. Shortened the headline to “Turn participation into learning, adoption and lasting relationships.” Phones up to 600px use 36–40px headline type, 24–28px side gutters and natural line wrapping. Existing constellation size and desktop animation remain unchanged.
 
 The earlier research preview and ledger moved outside the build inputs to local `reviews/participation-research/`; they are not part of this publication or commit. The Public Thinking index remains unchanged. Local content validation and Eleventy rendering pass; Chromium is unavailable locally, so visual QA and the full social-image build are not claimed here. CI retains the existing browser install and full-build gate before deployment.
+
+## 50. Local positioning review (2026-09-14, NOT PUBLISHED)
+
+Worktree branch: codex/positioning-revamp-20260914. User requires local review before publication. Do not push main or deploy without explicit approval.
+
+Homepage leads with communities, developer programs and partner networks, followed by benefits and research/delivery. Services precede the longer narrative. About, Contact and article navigation use plainer language. Six article title/deck/summary pairs updated in EN/DE, with related titles reconciled and routes, dates, authors, confidence, sourceLanguage and motifs preserved. Article bodies differ only by removing the obsolete exaggerated-headline sentence in the AI coding article pair.
+
+Hero audit: delayed labels, scroll rotation/contraction, disappearing descriptors and a 170svh scroll stage competed with comprehension. The local replacement uses a server-rendered accessible diagram with customers, developers, partners and the product team. Labels are visible immediately; one 1.1-second feedback-connection animation settles, with no animation under reduced motion. Copy precedes the graphic on phones. New scoped styles: hero-clarity.css. Retired hero engine code removed; lower-page narrative and researcher retained.
+
+Article navigation uses Articles/Artikel; internal format metadata remains. Empty format filters are hidden. Social-card title/subtitle blocks now flow vertically; generator rejects overlap with the signature. Local validation: all 12 records pass (two existing plain-byline warnings for Katharina), article body/metadata preservation checks pass, desktop and 390px layouts reviewed, all 13 social images generated. Bundled Playwright lacks its Chromium download, so the local image build uses installed Chrome via ../build-preview.cjs. Standard CI generation remains unchanged apart from the overlap assertion.
+
+Local preview is served on 127.0.0.1:8765 from _site by a static server, not the development watcher. Rebuild before reviewing further source edits. No production or outreach changes made.
+
+## 15 Sep 2026: advisory-first website, market-testing scope (NOT PUBLISHED)
+
+This entry supersedes the earlier note about retiring the animated orb hero. The approved celestial orb hero and its interactions stay. The website is advisory-first; research is independently purchasable, pilots are optional, and program design is one possible answer. Founder decision: keep hands-on delivery open for market testing through the existing Public Source Pack and BD conversations. Do not rewrite that pack to match the website without a new instruction.
+
+Claude review implemented: hero subtitle ends with "what to change"; Selected Work explicitly frames accurate operating engagements as the experience behind today's advice. Case proof lines and founder biographies remain unchanged. Service examples now include adoption diagnosis, integration friction audit, enablement plan and partner incentive review. No visual or interaction redesign.
+
+## 16 Sep 2026: approved advisory website release
+
+User authorized replacing production with this local version. Preserve the previous live commit da0d710da11c325a8752c300529a5d4687154898 under tag pre-20260916-refresh. Deploy through the existing main-branch GitHub Actions workflow to Hetzner; do not remove server-only contact configuration.
+
+Release checks passed: full production build and generated share images; five service behavior tests; typography and local font verification at 390, 768, 1024 and 1440 pixels; decision explorer keyboard, touch, reduced-motion and pause checks. Content validation reports no errors and two existing author-catalogue warnings for the English/German Katharina Siebert articles. Local review notes are excluded from the release.

@@ -1,5 +1,5 @@
 ---
-title: "Where Participation Actually Lives"
+title: "Community, developer relations and partnerships: where does the work overlap?"
 slug: "where-participation-actually-lives"
 lang: "en"
 sourceLanguage: "en"
@@ -16,8 +16,8 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "≠ CONTAINER"
     - "six voices, no one answer."
     - "functions it runs through."
-summary: "Six conflicting conversations at Gamescom 2026 show how participation spans community, DevRel, marketing, partnerships, product, sales and executive strategy."
-deck: "Conflicting Gamescom conversations reveal that participation in community and developer relations spans people and relationships, not a single platform."
+summary: "Six Gamescom conversations explore where community, developer relations and partnerships overlap, and why experienced practitioners disagree about the change."
+deck: "Six Gamescom conversations offer different explanations for work that crosses team boundaries, from helping developers to connecting game studios with public institutions."
 topics:
   - "Ecosystems"
   - "Community Strategy"
@@ -27,7 +27,7 @@ authors:
 pdf: null
 related:
   - slug: "rethinking-where-participation-happens"
-    title: "Rethinking Where Participation Happens"
+    title: "How Glide connects community and partnerships"
 geometry:
   viewBox: "-90 20 430 430"
   shapes:

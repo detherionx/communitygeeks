@@ -1,5 +1,5 @@
 ---
-title: "Who Keeps the Thread?"
+title: "Who sets the limits when AI and teams can do more?"
 slug: "who-keeps-the-thread"
 lang: "en"
 sourceLanguage: "en"
@@ -16,8 +16,8 @@ journal:         # homepage field journal notation (see src/_data/journalPages.j
     - "who keeps it? a human."
     - "guardrails, review, trust."
     - "boundaries matter more."
-summary: "Three Gamescom conversations across Bettermode, Inworld and Discord show why greater AI autonomy makes human judgment and clear guardrails more important."
-deck: "Three conversations at gamescom 2026 connect increasingly autonomous AI with a familiar human challenge: setting boundaries and knowing when to intervene."
+summary: "Gamescom conversations about AI characters, AI oversight and developer relations explore why greater freedom to act needs clear limits and human judgment."
+deck: "Two conversations about AI and one about developer relations explore a shared challenge: deciding what should happen, what should not, and when to intervene."
 topics:
   - "AI Autonomy"
   - "Developer Relations"
@@ -27,9 +27,9 @@ authors:
 pdf: null
 related:
   - slug: "where-participation-actually-lives"
-    title: "Where Participation Actually Lives"
+    title: "Community, developer relations and partnerships: where does the work overlap?"
   - slug: "rethinking-where-participation-happens"
-    title: "Rethinking Where Participation Happens"
+    title: "How Glide connects community and partnerships"
 geometry:
   viewBox: "-70 10 420 430"
   shapes:

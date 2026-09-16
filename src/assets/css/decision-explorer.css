@@ -1,0 +1,58 @@
+.intent-section{background:#163c3e;color:#f6f4ef;scroll-margin-top:60px;position:relative}
+.decision-wrap{max-width:1700px;margin:auto;padding:90px var(--gutter) 70px;display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.7fr);gap:5%}
+.decision-heading h2{margin:24px 0}
+
+.decision-heading>p:last-child{color:#c1d3c6;max-width:30ch}
+
+.decision-domains{display:flex;gap:32px;border-bottom:1px solid #adc5b440}
+.decision-domains button,.decision-options button,.decision-pause{background:none;border:0;color:#c1d3c6;cursor:pointer;padding:12px 0}
+
+.decision-domains button{border-bottom:2px solid transparent;margin-bottom:-1px}
+
+.decision-domains button[aria-pressed=true]{color:#f6f4ef;border-color:#e8735a}
+.decision-problem{margin:22px 0 0;min-height:2.5em}
+
+.decision-stage{height:310px;position:relative;background:radial-gradient(ellipse at 50% 65%,#adc5b412,transparent 70%)}
+.decision-stage canvas{display:block;width:100%;height:100%}
+.decision-stage{touch-action:pan-y pinch-zoom}
+.decision-arrows{display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:0 0 18px}
+.decision-arrows button{display:grid;place-items:center;width:42px;height:42px;border:1px solid #adc5b480;border-radius:50%;background:transparent;color:#f6f4ef;font:400 24px/1 var(--body);cursor:pointer;transition:background .2s,border-color .2s}
+.decision-arrows button:hover{background:#adc5b41a;border-color:#e8735a}
+.decision-swipe-hint{display:none;font:400 13px var(--body);color:#adc5b4}
+@media(pointer:coarse){.decision-arrows{justify-content:space-between}.decision-arrows button{width:46px;height:46px}.decision-swipe-hint{display:block}}
+@media(prefers-reduced-motion:reduce){.decision-arrows button,.decision-options button{transition:none}}
+.decision-explorer{min-width:0;position:relative;padding:24px;background:#103335;border:1px solid #adc5b44d;box-shadow:0 18px 60px #071d2026}
+.decision-explorer:before,.decision-explorer:after{content:"";position:absolute;width:22px;height:22px;pointer-events:none;border-color:#adc5b4;border-style:solid}.decision-explorer:before{left:-1px;top:-1px;border-width:2px 0 0 2px}.decision-explorer:after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}
+.decision-reading{border-top:1px solid #adc5b44d;padding:22px 0 24px;min-height:0}
+.decision-label{color:#adc5b4;margin:0 0 8px}
+
+.decision-description{max-width:62ch;margin:0;color:#f6f4ef}
+
+.decision-options{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 -24px;padding:22px 24px 24px;border-top:1px solid #adc5b44d;border-bottom:1px solid #adc5b433;background:#244d48}
+.decision-options>span{color:#f6f4ef;flex-basis:100%;margin-bottom:2px}
+.decision-options button{border:1px solid #c1d3c680;border-radius:24px;padding:10px 18px;min-height:44px;background:#f6f4ef0c;color:#f6f4ef;transition:background .2s,border-color .2s}
+.decision-options button:hover{background:#f6f4ef20;border-color:#f6f4ef}
+
+.decision-options button[aria-pressed=true]{color:#172f30;border-color:#eaa38d;background:#eaa38d}
+.decision-options .decision-reset{border:0;color:#c1d3c6;background:transparent;text-decoration:underline;text-underline-offset:4px}
+
+.decision-foot{display:flex;align-items:baseline;gap:20px;justify-content:space-between;margin-top:24px}
+.decision-foot p{color:#adc5b4;margin:0}
+
+.decision-pause{color:#adc5b4;margin:0}
+
+.decision-pause{white-space:nowrap}
+
+.decision-explorer button:focus-visible{outline:2px solid #e8735a;outline-offset:5px}
+.decision-reset[hidden]{display:none}
+@media(max-width:1000px){.decision-wrap{grid-template-columns:minmax(0,1fr);padding-top:60px}.decision-heading{max-width:750px}.decision-heading h2 br{display:none}
+.decision-heading>p:last-child{max-width:60ch}
+.decision-explorer{margin-top:25px}.decision-stage{height:330px}}
+@media(max-width:550px){.decision-wrap{padding:45px 20px}.decision-explorer{padding:18px}.decision-options{margin:0 -18px;padding:20px 18px}.decision-domains{justify-content:space-between}
+.decision-domains{gap:24px}
+.decision-stage{height:245px;margin:0 -16px}
+
+.decision-reading{min-height:0}.decision-foot{align-items:start;flex-wrap:wrap}.decision-options{gap:12px 18px}}
+@media(prefers-reduced-motion:reduce){
+.decision-pause{display:none}
+}

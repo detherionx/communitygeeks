@@ -1,5 +1,5 @@
 ---
-title: "Was bleibt beim Menschen, wenn KI den Rest übernimmt"
+title: "Was Menschen in der Arbeit mit KI selbst beurteilen müssen"
 slug: "was-bleibt-beim-menschen-wenn-ki-uebernimmt"
 lang: "de"
 sourceLanguage: "de"
@@ -9,8 +9,8 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Observation"
 motif: "pyxis"
-summary: "Katharina Siebert reflektiert über KI bei Communitygeeks: menschliche Urteilskraft, unabhängige Prüfung und die Konsequenzen, die Empathie ihr Gewicht verleihen."
-deck: "Während KI mehr Aufgaben übernimmt, erkundet Communitygeeks in drei Überlegungen, was beim Menschen bleibt: Urteilskraft, Prüfkompetenz und Empathie mit Konsequenzen."
+summary: "Katharina Siebert reflektiert über die Arbeit mit KI bei Communitygeeks: menschliches Urteilsvermögen, unabhängige Prüfung und Verantwortung im Umgang mit anderen."
+deck: "Katharina Siebert reflektiert über drei Aufgaben bei Communitygeeks: entscheiden, was wichtig ist, Aussagen unabhängig prüfen und Verantwortung für den Umgang mit anderen übernehmen."
 topics:
   - "KI und menschliche Arbeit"
   - "Menschliche Urteilskraft"
@@ -21,7 +21,7 @@ openQuestion: "Wo macht menschliche Urteilskraft den Unterschied, wenn KI die Ar
 researchThread: "die Rolle menschlicher Urteilskraft, Prüfkompetenz und Empathie bei KI-gestützter Arbeit"
 related:
   - slug: "wer-haelt-den-faden"
-    title: "Wer hält den Faden?"
+    title: "Wer setzt die Grenzen, wenn KI und Teams mehr leisten können?"
 ---
 
 Welche Rolle spielt der Mensch im Zeitalter der Künstlichen Intelligenz?

@@ -1,49 +1,37 @@
-// About · operator dossier → one research navigation instrument.
-// 1) the operator module resolves once on load (CSS, .ready on #deck);
-// 2) the instrument is server-rendered in its wide geometry; this script re-lays it out for narrow viewports and adds
-//    .ready once when it enters the viewport, which runs the CSS calibration routine (orbit → hub → spokes → nodes
-//    01/02/03 → principle columns). Reduced motion: the finished composition immediately. Everything is aria-hidden.
-(function () {
-  'use strict';
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const deck = document.getElementById('deck');
-  if (deck) requestAnimationFrame(() => requestAnimationFrame(() => deck.classList.add('ready')));
-
-  const inst = document.getElementById('instrument'); const svg = document.getElementById('inst-svg'); const plot = document.getElementById('inst-plot'); const cal = document.getElementById('inst-cal');
-  if (!inst || !svg || !plot) return;
-  const K = (k) => inst.querySelector('[data-k="' + k + '"]');
-  const set = (k, attrs) => { const e = K(k); if (!e) return; for (const a in attrs) e.setAttribute(a, typeof attrs[a] === 'number' ? attrs[a].toFixed(1).replace(/\.0$/, '') : attrs[a]); };
-
-  // Two geometries, one instrument. Wide: a 1000x300 field whose three nodes sit at the centres of the three principle
-  // columns below (x = 1/6, 1/2, 5/6) and all lie on the one orbit around the hub. Narrow: a taller 1000x760 field.
-  const GEOM = {
-    wide: { W: 1000, H: 300, hub: [500, 150], rx: 400, ry: 120, n: [[166.7, 216.3], [500, 30], [833.3, 216.3]], node: 6, ring: 22, cal: [30, 46], tick: 8, hubS: 18, sig: 4, ax: 60, ay: 8, lab: [[16.667, 82], [52.4, 10], [83.333, 82]], labHub: [50, 70.5] },
-    narrow: { W: 1000, H: 760, hub: [500, 400], rx: 380, ry: 300, n: [[200, 584], [500, 100], [800, 584]], node: 10, ring: 34, cal: [42, 60], tick: 12, hubS: 28, sig: 6, ax: 50, ay: 40, lab: [[20, 82.5], [53.6, 13.2], [80, 82.5]], labHub: [50, 62.5] },
-  };
-  let mode = '';
-  function layout() {
-    const m = window.innerWidth <= 860 ? 'narrow' : 'wide'; if (m === mode) return; mode = m;
-    const g = GEOM[m]; const [hx, hy] = g.hub;
-    svg.setAttribute('viewBox', `0 0 ${g.W} ${g.H}`); plot.style.aspectRatio = `${g.W} / ${g.H}`;
-    set('orbit', { cx: hx, cy: hy, rx: g.rx, ry: g.ry });
-    set('ax', { x1: g.ax, y1: hy, x2: g.W - g.ax, y2: hy }); set('ay', { x1: hx, y1: g.ay, x2: hx, y2: g.H - g.ay });
-    // orbit ticks where the orbit crosses the axes (left, right, bottom; the top crossing is node 02)
-    const t = g.tick * 0.75;
-    set('o0', { x1: hx - g.rx, y1: hy - t, x2: hx - g.rx, y2: hy + t }); set('o1', { x1: hx + g.rx, y1: hy - t, x2: hx + g.rx, y2: hy + t }); set('o2', { x1: hx - t, y1: hy + g.ry, x2: hx + t, y2: hy + g.ry });
-    set('c0', { cx: hx, cy: hy, r: g.cal[0] }); set('c1', { cx: hx, cy: hy, r: g.cal[1] });
-    const r0 = g.cal[0], r1 = r0 + g.tick;
-    set('t0', { x1: hx, y1: hy - r0, x2: hx, y2: hy - r1 }); set('t1', { x1: hx + r0, y1: hy, x2: hx + r1, y2: hy }); set('t2', { x1: hx, y1: hy + r0, x2: hx, y2: hy + r1 }); set('t3', { x1: hx - r0, y1: hy, x2: hx - r1, y2: hy });
-    g.n.forEach((q, i) => { const k = i + 1; set('s' + k, { x1: hx, y1: hy, x2: q[0], y2: q[1] }); set('r' + k, { cx: q[0], cy: q[1], r: g.ring }); set('n' + k, { cx: q[0], cy: q[1], r: g.node }); const L = K('l' + k); if (L) { L.style.setProperty('--x', g.lab[i][0] + '%'); L.style.setProperty('--y', g.lab[i][1] + '%'); } });
-    set('hub', { x: hx - g.hubS / 2, y: hy - g.hubS / 2, width: g.hubS, height: g.hubS }); set('sig', { cx: hx, cy: hy, r: g.sig });
-    const LH = K('lh'); if (LH) { LH.style.setProperty('--x', g.labHub[0] + '%'); LH.style.setProperty('--y', g.labHub[1] + '%'); }
-    if (cal) cal.innerHTML = `HUB ${hx} · ${hy} &nbsp;/&nbsp; ORBIT ${g.rx} × ${g.ry} &nbsp;/&nbsp; 03 NODES`;
-  }
-  layout(); window.addEventListener('resize', layout);
-
-  // the calibration routine runs once, when a third of the instrument is in view
-  const reveal = () => inst.classList.add('ready');
-  if (reduceMotion || !('IntersectionObserver' in window)) { reveal(); return; }
-  const io = new IntersectionObserver((entries) => { if (!entries.some((e) => e.isIntersecting)) return; reveal(); io.disconnect(); }, { threshold: 0.3 });
-  io.observe(inst);
+/* Four registered plates: original foreground, matte, clear landscape, moving cloud texture. */
+(() => {
+ const deck=document.querySelector('.deck'),canvas=document.querySelector('.valley-clouds');if(!canvas)return;
+ const gl=canvas.getContext('webgl',{alpha:false,antialias:false});if(!gl)return;
+ const original=deck.querySelector('.wanderer-landscape > img'),toggle=document.querySelector('.wind-toggle');
+ const vs='attribute vec2 position;varying vec2 uv;void main(){uv=position*.5+.5;gl_Position=vec4(position,0.,1.);}';
+ const fs=`precision highp float;varying vec2 uv;uniform sampler2D original;uniform sampler2D matte;uniform sampler2D landscape;uniform sampler2D clouds;uniform vec2 viewport;uniform vec4 placement;uniform float wind;uniform float travel;
+ float coverage(vec2 p){vec3 m=texture2D(matte,p).rgb;float hi=max(m.r,max(m.g,m.b)),lo=min(m.r,min(m.g,m.b));return max(1.-smoothstep(.18,.30,hi),smoothstep(.07,.19,(hi-lo)/max(hi,.01)));}
+ void main(){vec2 p=(vec2(uv.x,1.-uv.y)*viewport-placement.xy)/placement.zw;
+ vec3 base=texture2D(landscape,p).rgb;vec3 m=texture2D(matte,p).rgb;
+ float hi=max(m.r,max(m.g,m.b)),lo=min(m.r,min(m.g,m.b));
+ float solid=max(1.-smoothstep(.18,.30,hi),smoothstep(.07,.19,(hi-lo)/max(hi,.01)));
+ float soft=0.;for(int j=-2;j<=2;j++){for(int i=-2;i<=2;i++){soft+=coverage(p+vec2(float(i)*.004,float(j)*.006));}}soft/=25.;
+ float observer=(1.-smoothstep(.065,.11,abs(p.x-.65)))*smoothstep(.20,.27,p.y);
+ solid=mix(soft,solid,observer);
+ float x=p.x+wind*.007+travel*(.22+p.y*.35);
+ // Crossfade overlapping tiles to zero before either texture boundary wraps.
+ float a=fract(x),b=fract(x+.5);
+ float wa=smoothstep(0.,.2,a)*smoothstep(0.,.2,1.-a);
+ float wb=smoothstep(0.,.2,b)*smoothstep(0.,.2,1.-b);
+ vec3 cloud=(texture2D(clouds,vec2(a,p.y)).rgb*wa+texture2D(clouds,vec2(b,p.y+.045)).rgb*wb)/(wa+wb);
+ float depth=smoothstep(.27,.52,p.y);
+ vec3 atmosphere=1.-(1.-base)*(1.-cloud*.78*depth);
+ vec3 result=mix(atmosphere,base,solid);
+ gl_FragColor=vec4(result,1.);}`;
+ function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
+ let program;try{program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vs));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))return;}catch(e){console.warn(e);return;}gl.useProgram(program);
+ gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const pos=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+ const uniforms=Object.fromEntries(['viewport','placement','wind','travel'].map(n=>[n,gl.getUniformLocation(program,n)]));
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let ready=false,paused=reduced.matches,visible=true,frame=0,last=0,wind=0,travel=0;
+ function draw(){if(!ready)return;gl.uniform1f(uniforms.wind,wind);gl.uniform1f(uniforms.travel,travel);gl.drawArrays(gl.TRIANGLES,0,6);}
+ function resize(){const r=canvas.getBoundingClientRect(),i=original.getBoundingClientRect(),d=Math.min(devicePixelRatio,1.5);canvas.width=r.width*d;canvas.height=r.height*d;gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(uniforms.viewport,r.width,r.height);const s=Math.max(i.width/1536,i.height/1024);gl.uniform4f(uniforms.placement,(i.width-1536*s)*.65,i.top-r.top+(i.height-1024*s)*(innerWidth<=700?1:.48),1536*s,1024*s);draw();}
+ function tick(now){frame=0;if(paused||!visible)return;const dt=Math.min((now-last)/1000,.05);last=now;wind+=dt;const r=deck.getBoundingClientRect();travel+=(Math.max(0,Math.min(1,-r.top/r.height))-travel)*(1-Math.exp(-dt*7));draw();frame=requestAnimationFrame(tick);}
+ function start(){if(ready&&!paused&&visible&&!frame){last=performance.now();frame=requestAnimationFrame(tick);}}
+ Promise.all(['wanderer-constellation.png','wanderer-foreground-matte.png','wanderer-landscape-still.png','wanderer-clouds-black.png'].map((file,i)=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,gl.createTexture());gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,image);gl.uniform1i(gl.getUniformLocation(program,['original','matte','landscape','clouds'][i]),i);resolve();};image.onerror=reject;image.src='/assets/images/'+file;}))).then(()=>{ready=true;resize();canvas.classList.add('clouds-ready');start();}).catch(()=>console.warn('Cloud plates unavailable; keeping original artwork.'));
+ toggle.addEventListener('click',()=>{paused=!paused;toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=paused?'Resume wind':'Pause wind';start();});reduced.addEventListener('change',()=>{paused=reduced.matches;start();});new ResizeObserver(resize).observe(canvas);new IntersectionObserver(([e])=>{visible=e.isIntersecting;start();}).observe(deck);
 })();

@@ -2,7 +2,7 @@
 layout: layouts/contact.njk
 lang: en
 title: Contact
-description: "Discuss ecosystem discovery, an activation pilot, or how to connect participant insight to product and partnership decisions."
+description: "Discuss research, strategic priorities or a decision about customers, developers and partners."
 permalink: /contact/
 navActive: contact
 ---
@@ -19,8 +19,8 @@ navActive: contact
 <section class="approach-hero" id="approach" aria-labelledby="contact-h1">
   <div class="approach-copy">
     <p class="ck">Get in touch</p>
-    <h1 class="approach-h1" id="contact-h1">Talk about what&rsquo;s actually happening.</h1>
-    <p class="approach-intro">Tell us what you want to understand or make happen: finding relevant practitioners, testing a new program, connecting customer insight to product decisions, or deciding where to invest next.</p>
+    <h1 class="approach-h1" id="contact-h1">Let’s talk about your project.</h1>
+    <p class="approach-intro">What is holding back adoption, developer activity or partner growth? Tell us what you are seeing and which decision you need help making.</p>
     <p class="approach-direct">Direct, no form required if you&rsquo;d rather just write: <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
   </div>
 
@@ -35,12 +35,12 @@ navActive: contact
      JavaScript every fieldset is visible and the form posts normally. #}
   <form class="dock" id="dock" action="/api/contact.php" method="post" novalidate data-endpoint="/api/contact.php" data-turnstile-key="{{ contact.turnstileSiteKey or '' }}">
     <div class="dock-head">
-      <p class="dock-idx" id="dock-idx" aria-live="polite" aria-atomic="true"><span class="sr-only">Step </span><b id="dock-step">1</b> / 4 <span class="sr-only">, </span><span class="dock-stage" id="dock-stage">Identify</span></p>
+      <p class="dock-idx" id="dock-idx" aria-live="polite" aria-atomic="true"><span class="sr-only">Step </span><b id="dock-step">1</b> / 4 <span class="sr-only">, </span><span class="dock-stage" id="dock-stage">Your name</span></p>
       <ol class="dock-prog" id="dock-prog" aria-hidden="true"><li class="cur"></li><li></li><li></li><li></li></ol>
     </div>
 
     <fieldset class="stage" data-stage="1">
-      <legend class="sr-only">Step 1 of 4, Identify</legend>
+      <legend class="sr-only">Step 1 of 4, Your name</legend>
       <label for="c-name">Name</label>
       <input class="in" id="c-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="c-name-help c-name-err">
       <p class="help" id="c-name-help">Required. So the reply can address you.</p>
@@ -48,7 +48,7 @@ navActive: contact
     </fieldset>
 
     <fieldset class="stage" data-stage="2" hidden>
-      <legend class="sr-only">Step 2 of 4, Open channel</legend>
+      <legend class="sr-only">Step 2 of 4, Your email</legend>
       <label for="c-email">Email</label>
       <input class="in" id="c-email" name="email" type="email" autocomplete="email" required maxlength="200" inputmode="email" aria-describedby="c-email-help c-email-err">
       <p class="help" id="c-email-help">Required. Replies go here.</p>
@@ -56,15 +56,15 @@ navActive: contact
     </fieldset>
 
     <fieldset class="stage" data-stage="3" hidden>
-      <legend class="sr-only">Step 3 of 4, Transmit context</legend>
-      <label for="c-context">What are you trying to understand or make happen?</label>
+      <legend class="sr-only">Step 3 of 4, Your project</legend>
+      <label for="c-context">What would you like help with?</label>
       <textarea class="in in-area" id="c-context" name="context" required maxlength="4000" rows="4" aria-describedby="c-context-help c-context-err"></textarea>
       <p class="help" id="c-context-help">A problem, a hunch, or a question. Required.</p>
       <p class="errmsg" id="c-context-err" hidden></p>
     </fieldset>
 
     <fieldset class="stage stage-review" data-stage="4" hidden>
-      <legend class="sr-only">Step 4 of 4, Request clearance: review and send</legend>
+      <legend class="sr-only">Step 4 of 4, Review and send: review and send</legend>
       <dl class="review" id="review">
         <dt>Name</dt><dd><span id="r-name"></span> <button type="button" class="edit" data-goto="1">Edit</button></dd>
         <dt>Email</dt><dd><span id="r-email"></span> <button type="button" class="edit" data-goto="2">Edit</button></dd>
@@ -82,11 +82,11 @@ navActive: contact
     <div class="dock-acts">
       <button type="button" class="back" id="dock-back" hidden>Back</button>
       <button type="button" class="kctl kctl-on-cream" id="dock-next"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Continue</span><span class="kctl-mark" aria-hidden="true"></span></span></button>
-      <button type="submit" class="kctl kctl-on-cream" id="dock-send" hidden><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Send message</span><span class="kctl-mark" aria-hidden="true"></span></span><span class="kctl-ann" aria-hidden="true">Request clearance</span></button>
+      <button type="submit" class="kctl kctl-on-cream" id="dock-send" hidden><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Send message</span><span class="kctl-mark" aria-hidden="true"></span></span><span class="kctl-ann" aria-hidden="true">Review and send</span></button>
     </div>
 
     <div class="dock-done" id="dock-done" hidden tabindex="-1">
-      <p class="dock-idx"><b>4</b> / 4 <span class="dock-stage">Clearance granted</span></p>
+      <p class="dock-idx"><b>4</b> / 4 <span class="dock-stage">Message sent</span></p>
       <p class="done-h">Message sent.</p>
       <p class="done-p">It goes straight to Carmelito. Replies come by email to the address you entered.</p>
       <p class="done-p">Prefer to add something now? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
@@ -101,10 +101,10 @@ navActive: contact
     <p class="direct-note">Direct, no form required if you&rsquo;d rather just write. Same inbox, same person.</p>
   </div>
   <ol class="seq" aria-label="The four steps of the form">
-    <li><i>01</i><b>Identify</b><span>Name</span></li>
-    <li><i>02</i><b>Open channel</b><span>Email</span></li>
-    <li><i>03</i><b>Transmit context</b><span>What are you trying to understand or make happen?</span></li>
-    <li><i>04</i><b>Request clearance</b><span>Review and send</span></li>
+    <li><i>01</i><b>Your name</b><span>Name</span></li>
+    <li><i>02</i><b>Your email</b><span>Email</span></li>
+    <li><i>03</i><b>Your project</b><span>What would you like help with?</span></li>
+    <li><i>04</i><b>Review and send</b><span>Review and send</span></li>
   </ol>
 </section>
 

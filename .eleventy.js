@@ -6,6 +6,8 @@ module.exports = function (eleventyConfig) {
   // HTML morphing replaces that state without reinitializing the scripts.
   eleventyConfig.setServerOptions({ domDiff: false });
 
+  eleventyConfig.addFilter("publishedFormats", (formats, pieces) => formats.filter(f => pieces.some(p => p.filterType === f.filterType)));
+
   // Static passthrough: CSS, JS, images ship as-is, no processing
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "public": "/" });

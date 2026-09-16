@@ -5,9 +5,14 @@
 {# HOMEPAGE LAYOUT ("Participation is a living system", production since 2026-09-03). shell.css carries the bar and
    footer shared with every page; field.css is the homepage's own system. It deliberately does not load style.css:
    the homepage is built from the brand tokens and real content only. #}
-<link rel="stylesheet" href="/assets/css/shell.css">
-<link rel="stylesheet" href="/assets/css/field.css">
+<link rel="stylesheet" href="/assets/css/shell.css?v=decision-framed-5">
+<link rel="stylesheet" href="/assets/css/field.css?v=decision-framed-5">
+<link rel="stylesheet" href="/assets/css/hero-clarity.css?v=decision-framed-5">
 <script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="/assets/css/decision-explorer.css?v=decision-framed-5">
+<link rel="stylesheet" href="/assets/css/services.css?v=decision-framed-5">
+<link rel="stylesheet" href="/assets/css/relationship-field.css?v=decision-framed-5">
+<link rel="stylesheet" href="/assets/css/visual-system.css?v=decision-framed-5">
 </head>
 <body class="field-body{% if bodyClass %} {{ bodyClass }}{% endif %}">
 {% include "partials/field-shell-bar.njk" %}
@@ -16,7 +21,11 @@
 </main>
 {% if not footerInline %}{% include "partials/field-shell-foot.njk" %}{% endif %}
 <script src="/assets/js/nav-toggle.js"></script>
-{% for src in extraScripts %}<script src="/assets/js/{{ src }}"></script>{% endfor %}
-<script src="/assets/js/field.js"></script>
+{% for src in extraScripts %}<script src="/assets/js/{{ src }}?v=services-2"></script>{% endfor %}
+<script src="/assets/js/field.js?v=clarity-1"></script>
+<script type="module" src="/assets/js/decision-explorer.mjs?v=decision-framed-5"></script>
+<script type="module" src="/assets/js/hero-network.js?v=advisory-1"></script>
+<script type="module" src="/assets/js/relationship-field.mjs?v=4"></script>
+<script type="module" src="/assets/js/site-identity.mjs?v=3"></script>
 </body>
 </html>

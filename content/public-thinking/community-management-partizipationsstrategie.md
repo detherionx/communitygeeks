@@ -1,5 +1,5 @@
 ---
-title: "Der Community-Container ist nicht die Community"
+title: "Was sollen Menschen mit Ihrer Community-Plattform tun können?"
 slug: "community-management-partizipationsstrategie"
 lang: "de"
 sourceLanguage: "en"
@@ -9,13 +9,13 @@ format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "cookie-jar"
-summary: "Community-Management braucht mehr als eine Plattform. Partizipationsstrategie verbindet Menschen, Wissen und die Orte, an denen sie bereits Beiträge leisten."
-deck: "Eine eigene Plattform kann eine Community unterstützen, ohne sie vollständig zu umfassen. Partizipationsstrategie beginnt bei dem, was Menschen gemeinsam tun müssen."
+summary: "Beispiele aus Kundensupport, Produkttests und Gaming zeigen, wie man eine Community-Plattform danach auswählt, was Menschen gemeinsam tun wollen."
+deck: "Kundensupport, Produkttests und gemeinsames Lernen brauchen unterschiedliche Programme. Beginnen Sie mit dem, was Menschen tun wollen, und wählen Sie dann die Plattform."
 topics: ["Community-Management","Community-Strategie","KI und MCP"]
 authors: ["Carmelito Bauer"]
 openQuestion: "Was müssen die Menschen gemeinsam erreichen, und welche Struktur unterstützt diese Arbeit am besten?"
 researchThread: "Wie die Partizipationsstrategie die Wahl der Community-Plattformen beeinflusst"
-related: [{"slug":"wo-partizipation-tatsaechlich-stattfindet","title":"Wo Partizipation tatsächlich stattfindet"}]
+related: [{"slug":"wo-partizipation-tatsaechlich-stattfindet","title":"Community, Developer Relations und Partnerschaften: Wo überschneidet sich die Arbeit?"}]
 ---
 
 [Richard Millington](https://mailchi.mp/feverbee/mcps2026-3575944), Gründer der Community-Beratungsfirma FeverBee, bezeichnete MCPs (Model Context Protocol) kürzlich als „wahrscheinlich das Wichtigste, was derzeit in Unternehmens-Communities passiert“. Innerhalb des Marktes für Community-Plattformen für Unternehmen, über den er schreibt, ist das eine berechtigte Aussage, und seine Analyse dessen, was MCPs leisten können und was nicht, ist wirklich nützlich.

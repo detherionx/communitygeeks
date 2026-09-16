@@ -96,6 +96,9 @@ async function main() {
       }
       await page.evaluate(() => document.fonts.ready);
 
+      const textFits = await page.evaluate(() => document.querySelector('.og-copy').getBoundingClientRect().bottom + 16 <= document.querySelector('.og-sig').getBoundingClientRect().top);
+      if (!textFits) throw new Error(`Social-card text overlaps the signature: ${piece.slug}`);
+
       const card = page.locator(".og-card");
       const box = await card.boundingBox();
       if (!box || Math.round(box.width) !== CARD_WIDTH || Math.round(box.height) !== CARD_HEIGHT) {
