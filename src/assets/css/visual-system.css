@@ -30,7 +30,7 @@
 /* The outgoing participants cross the real boundary. No interstitial or added height. */
 .services-handoff{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden}
 .services-handoff[hidden]{display:none}
-.services-handoff svg{position:absolute;overflow:visible;transform-origin:50% 50%;will-change:transform}
+.services-handoff svg{position:absolute;width:0;height:0;overflow:visible;transform-origin:50% 50%;will-change:transform}
 .services-departing .program-scene *{animation-play-state:paused!important}
 .services-departing .diorama> :not(.departing-person){opacity:var(--stage-presence,1)!important}
 .services-departing .program-scene>ellipse{opacity:var(--stage-presence,1)}
