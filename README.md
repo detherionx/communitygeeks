@@ -41,6 +41,8 @@ Output goes to `_site/`. That directory is the entire deployable artifact, copy 
 
 The new piece appears automatically on `/public-thinking/`, gets its own page, joins the sitemap, and, if it's one of the two newest by date, shows on the Home page preview. No template or code changes needed.
 
+A piece with a future `date` is skipped by `npm run build` and published by the daily 06:00 UTC cron build once its date arrives (00:00 UTC). `npm run dev` still shows it for preview; `PT_INCLUDE_FUTURE=1 npm run build` does too.
+
 **Confidence field must be exactly** `Observation`, `Emerging Pattern`, or `Research Finding`. Anything else fails the build on purpose.
 
 ## Directory structure

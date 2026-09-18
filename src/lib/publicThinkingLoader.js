@@ -13,6 +13,13 @@ const people = require("../_data/people.js");
 const ALLOWED_CONFIDENCE = ["Observation", "Emerging Pattern", "Research Finding"];
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "public-thinking");
 
+// Scheduled publishing: a piece whose frontmatter `date` is still in the future is
+// left out of the build, so it can sit on `main` and go live on its day through the
+// daily cron build in .github/workflows/deploy.yml (a bare date parses as 00:00 UTC).
+// `npm run dev` (Eleventy serve/watch) and PT_INCLUDE_FUTURE=1 include it for preview.
+const INCLUDE_FUTURE =
+  process.env.PT_INCLUDE_FUTURE === "1" || ["serve", "watch"].includes(process.env.ELEVENTY_RUN_MODE);
+
 // Where scripts/generate-og-images.js writes a piece's generated card, and
 // therefore also the deterministic URL used below, computed from `slug`
 // alone, before that file necessarily exists on disk. Screenshot generation
@@ -42,6 +49,7 @@ function loadAll() {
     .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith(".md")); // .md.example and .md.draft are deliberately excluded by this filter
 
+  const now = new Date(Date.now());
   const items = files.map((filename) => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), "utf8");
     const { data, content } = matter(raw);
@@ -49,6 +57,7 @@ function loadAll() {
     if (!data.slug) {
       throw new Error(`Public Thinking content file "${filename}" is missing a "slug" field.`);
     }
+    if (!INCLUDE_FUTURE && data.date && new Date(data.date) > now) return null;
     if (data.confidence && !ALLOWED_CONFIDENCE.includes(data.confidence)) {
       throw new Error(
         `Public Thinking item "${data.title}" (${filename}) has confidence "${data.confidence}", ` +
@@ -107,7 +116,7 @@ function loadAll() {
       ogImage: image,
       ogImageIsExplicit,
     };
-  });
+  }).filter(Boolean);
 
   // Cross-language linking: any two items sharing a translationKey point at
   // each other via `translations`, so the EN/DE switcher only ever links to
