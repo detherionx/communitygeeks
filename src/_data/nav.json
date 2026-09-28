@@ -4,5 +4,5 @@
     { "label": "Approach", "url": "/approach/" },
     { "label": "About", "url": "/about/" }
   ],
-  "cta": { "label": "Compare notes", "url": "/contact/" }
+  "cta": { "label": "Compare notes", "url": "/#talk" }
 }

@@ -14,6 +14,7 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 # get short routes for the same reason. mod_alias, independent of the rewrite above; fragments survive the redirect.
 RedirectMatch 301 ^/mockups/field/(.*)$ https://communitygeeks.ai/$1
 RedirectMatch 301 ^/mockups/home/?(.*)$ https://communitygeeks.ai/
+RedirectMatch 301 ^/contact/?$ https://communitygeeks.ai/#talk
 RedirectMatch 301 ^/approach/?$ https://communitygeeks.ai/#approach
 RedirectMatch 301 ^/system/?$ https://communitygeeks.ai/#system
 RedirectMatch 301 ^/work/?$ https://communitygeeks.ai/#cases
