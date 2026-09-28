@@ -2,18 +2,21 @@
 <html lang="{{ lang or 'en' }}">
 <head>
 {% include "partials/head.njk" %}
-{# ABOUT LAYOUT (constellation landscape + founder dossier). Shares shell.css (bar, footer, controls)
-   with the homepage; about.css is the page's own system. #}
-<link rel="stylesheet" href="/assets/css/shell.css?v=about-contact-4">
-<link rel="stylesheet" href="/assets/css/about.css?v=about-contact-4">
-<script>document.documentElement.classList.add('js');</script>
+{# ABOUT LAYOUT (v60). Shares the homepage system: shell.css (bar, footer), home.css (tokens, type roles, kickers,
+   glyphs, actions, motion). about.css holds only the About composition and the constellation hero. #}
+<link rel="stylesheet" href="/assets/css/shell.css?v=responsive-1">
+<link rel="stylesheet" href="/assets/css/home.css?v=60">
+<link rel="stylesheet" href="/assets/css/about.css?v=60">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('motion')</script>
 </head>
-<body class="about-body">
+<body class="field-body participation-home about-page">
+<a class="skip-link" href="#main">Skip to content</a>
 {% include "partials/field-shell-bar.njk" %}
 <main id="main">
 {{ content | safe }}
 </main>
 <script src="/assets/js/nav-toggle.js"></script>
+<script src="/assets/js/home-motion.js?v=60"></script>
 <script src="/assets/js/about.js?v=20260915-seamless-layers"></script>
 </body>
 </html>

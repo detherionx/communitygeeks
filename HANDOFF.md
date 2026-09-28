@@ -1,6 +1,22 @@
+## Release approval — 29 September 2026
+
+Carmelito approved the current website for production after centring the Space Whale logo. This explicit approval supersedes historical no-release statements below. Deploy the current approved main branch through the existing Hetzner workflow. Cal.com is embedded on the homepage. Preserve the canonical rear-projection astronauts described in CLAUDE.md.
+
+## Current astronaut assets — 28 September 2026
+
+Read `CLAUDE.md`. Active website crew: `src/assets/images/crew-rear-projection/`. Matching master, references and ten pose exports: `handoff/communitygeeks-rear-projection/`. Preserve these during copy/typography work. Run `node --test scripts/test-rear-projection-crew.cjs` after building. Older crew folders are historical.
+
 # HANDOFF.md: Communitygeeks Website
 
 **Read this whole file before writing or changing any code.** This is a design-implementation task, not a fresh website-generation prompt. The design is already approved. Your job is to build, refine, and eventually deploy it, not redesign it, unless Carmelito explicitly asks for a redesign.
+
+## Current P0.1 continuation contract — read before all historical sections
+
+Load [`docs/audits/2026-09-23-p01-decision-ledger.json`](docs/audits/2026-09-23-p01-decision-ledger.json) first. It is the machine-readable local mirror of every relevant decision through Decision 4.4, including rationale, consequences, invariants, implementation state and permitted next branches.
+
+Canonical authority is the [active Notion checkpoint](https://app.notion.com/p/3e41993c25d381aeae6afdd887948721), backed by Active rows in the Notion Decision Log. If this file or the implementation conflicts with an Active Notion row, Notion wins and the local mirror must be resynchronized.
+
+Current state: the local v3.2 prototype is the implementation baseline; it is not deployed. No release is authorized. Cal.com is not connected. Resume only from one of the two branches recorded in the ledger: founder release review, or production Cal.com integration after its required server-side inputs exist. Do not reopen closed decisions without new contradictory evidence.
 
 ---
 
@@ -674,3 +690,7 @@ Release checks passed: full production build and generated share images; five se
 ## 18 Sep 2026: scheduled publishing by frontmatter date
 
 `src/lib/publicThinkingLoader.js` now skips any piece whose `date` is in the future (bare dates parse as 00:00 UTC), except under `npm run dev` (Eleventy serve/watch) or `PT_INCLUDE_FUTURE=1`. `.github/workflows/deploy.yml` gained a daily `06:00 UTC` cron and `workflow_dispatch`, so a future-dated piece merged to `main` goes live on its date without anyone's machine running. Every date consumer (homepage journal, archive, sitemap, OG cards, JSON-LD) reads through `loadAll`, so this is the single filter point. Decided in the Wagtail CMS audit of the same day: recommendation was no CMS (static Hetzner hosting, per-article cost is the visual package, Notion forbids a second content-planning surface); this closes the one gap a CMS would have filled.
+
+## 23 Sep 2026: message & offer architecture (P0.0), no site change
+
+Two audit documents live in `docs/audits/` and are evidence, not authority: `2026-09-23-message-offer-system-audit.md` (Deal Lab comparison, proposed ladder/prices/hero/booking, all unapproved) and `2026-09-23-message-offer-architecture-p00.md` (approved architecture, executed same day). Canonical commercial decisions now live in Notion: Public Source Pack → "Market Message" (versioned; current v1.4), Services database (one current row per Offer ID; only `Public Eligible` rows may appear on the site), Decision Log (`Domain` Message/Offer/Pricing/Voice), and the new Message Surfaces database. `docs/surfaces.json` maps this repo's message surfaces (hero, services, contact, llms.txt, JSON-LD, footer, OG copy, clients proof, about bio) to their Notion dependencies. Recorded, unresolved: the live site (16 Sep release) and `public/llms.txt` describe two different offer taxonomies; both are flagged Stale until the founder's P0.1 decision. Do not edit hero, services, llms.txt or the Organization JSON-LD description before a Decision Log row authorises it.

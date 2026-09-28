@@ -99,3 +99,34 @@ Required repository secrets (Settings → Secrets and variables → Actions):
 | `HETZNER_REMOTE_PATH` | Web root path on the Hetzner account (confirm in KonsoleH) |
 
 No secret is stored in this repo. To deploy manually instead: `npm run build`, then upload the contents of `_site/` to the static hosting root over SFTP.
+
+## Cal.com fit-call booking (PHP)
+
+Create **`api/cal.config.php` only on the PHP server**, next to `cal-slots.php` and `cal-booking.php`. Its source-tree equivalent is `public/api/cal.config.php`; do not put credentials into Eleventy data or JavaScript. Start from `public/api/cal.config.example.php`, set the API key, the numeric ID of your **30-minute** fit-call event, `Europe/Berlin`, and the exact HTTPS origins serving the site. The real configuration is git-ignored and excluded from Eleventy passthrough; Apache denies direct access to configuration and shared PHP helper files. Do not commit the real file or copy it into `_site` during a build.
+
+Create the key in [Cal.com Settings → Security → API keys](https://cal.com/docs/api-reference/v2/introduction). Configure the event's availability, meeting location and calendar connections in Cal.com. Keep its standard name/email/notes booking fields; additional mandatory custom questions or email verification require matching form fields before enabling this integration. A host-approval event returns “Booking requested”; an accepted booking returns “Your call is booked”.
+
+Server requirements: PHP 8.2+ with cURL, valid CA certificates, outbound HTTPS to `api.cal.com`, and a writable PHP temporary directory outside the web root. Enable Apache `.htaccess` overrides; on another web server, configure equivalent deny rules for `*.config.php`, `*.config.example.php` and `cal-common.php`. Ensure PHP is executed, never served as source. The runtime configuration stays on the server across additive uploads. No deployment was performed for this change.
+
+The browser gets availability from `GET /api/cal-slots.php` (next 14 days). After selecting a slot, it collects personal details on `/contact/`; only **Confirm booking** posts to `POST /api/cal-booking.php`. The server fixes the event ID and timezone, validates the request, rechecks the selected slot and then creates the booking. It sends safe errors, limits each connection to 8 booking attempts and 60 availability requests per 15 minutes, and persists duplicate-submit protection in the PHP temporary directory. A timeout is treated as uncertain: retry the same request or check the invitation before creating another request. Deployments spanning multiple PHP hosts need shared rate-limit and request storage.
+
+Plain `npm run dev -- --port=8080` keeps explicitly labelled mock times on localhost: Eleventy does not execute PHP. For a local live-integration preview, keep the git-ignored configuration at `public/api/cal.config.php` and run `npm run preview:cal`; the preview builds the site, serves it at `http://127.0.0.1:8081`, executes only the public slots and booking routes, and never copies the credential into `_site`. Do not use the PHP development server in production. Without a configuration the preview refuses to start.
+
+Validation without credentials or invitations:
+
+```powershell
+$env:PHP_BINARY = 'C:\path\to\php.exe'
+node --test scripts/test-cal-booking.cjs
+```
+
+The test runs real PHP endpoint code against a local fake transport. It covers invalid details/event IDs/origins, stale availability, accepted/pending bookings, duplicate submissions, uncertain responses, rate limits and configuration exclusion. A real Cal.com event has not been exercised until its owner configures and checks it.
+
+API references: [availability, version 2024-09-04](https://cal.com/docs/api-reference/v2/slots/get-available-time-slots-for-an-event-type), [booking, version 2026-02-25](https://cal.com/docs/api-reference/v2/bookings/create-a-booking).
+
+The local build browser can be installed without changing global setup:
+
+```powershell
+$env:PLAYWRIGHT_BROWSERS_PATH = Join-Path $PWD '.local-tools\browsers'
+npx playwright install chromium
+npm run build
+```

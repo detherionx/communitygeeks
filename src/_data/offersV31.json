@@ -1,0 +1,93 @@
+{
+  "diagnosisPrice": "€8,500",
+  "diagnosisDuration": "10 working days",
+  "continuationPrice": "€39,500",
+  "continuationRemaining": "€31,000",
+  "continuationDuration": "16 weeks",
+  "offers": [
+    {
+      "id": "community-programme",
+      "number": "01",
+      "name": "Community Programme Diagnosis",
+      "problem": "You want to start a community and need to understand where people already meet across support, product, events and partner channels. Or your current programme is busy, yet its purpose is unclear. We map who connects whom, where help or exchange is missing, and whether a new programme, a change to an existing one or better coordination is the right move.",
+      "bestFor": "Teams planning a community or questioning the purpose, value or direction of an existing one.",
+      "outcome": "Decide what to start, connect, redesign or leave alone, and what to do first.",
+      "outcomes": [
+        "whether to start, connect, narrow, redesign or stop",
+        "the causes that matter most",
+        "what to change first",
+        "what not to build or do"
+      ],
+      "continuation": "Community Programme Design & Intervention",
+      "continuationDescription": "Design a focused new programme or change an existing one, put one supported change into practice with your team, observe participation and adapt from evidence.",
+      "bookingIntro": "You’re considering a 10-working-day diagnosis before starting a community or changing an existing programme. We’ll use the call to understand the decision you face, whether the diagnosis fits, and what access we would need. If it isn’t the right fit, we’ll say so.",
+      "trace": "The relevant people, existing places of exchange, relationships between groups, unmet needs, ownership and follow-through.",
+      "deliverable": "A map of the relevant relationships, the programme decision and the first action worth testing.",
+      "excludes": "Ongoing community management, a platform implementation or a content calendar.",
+      "scope": "One agreed participation goal, its intended people and the existing spaces and relationships relevant to it."
+    },
+    {
+      "id": "customer-adoption",
+      "number": "02",
+      "name": "Adoption Diagnosis",
+      "problem": "People sign up or buy, then need more help than your team can give one to one. Product and Customer Success see different parts of that journey. We find where people lose momentum, who gets timely support and what can work at the next scale.",
+      "bestFor": "Products with a gap between acquisition and lasting customer value.",
+      "outcome": "Know where the path to lasting value breaks, why, and what to change first.",
+      "outcomes": [
+        "where the path to lasting value breaks",
+        "the causes that matter most",
+        "what to change first",
+        "what not to build or do"
+      ],
+      "continuation": "Customer Adoption Path Design & Intervention",
+      "continuationDescription": "Design and put changes into practice across product, support, guidance, peer help or advocacy; observe whether more customers reach lasting value; adapt.",
+      "bookingIntro": "You’re considering a 10-working-day diagnosis for a customer-adoption problem. We’ll use the call to understand what customers are doing now, whether the diagnosis fits, and what access we would need. If it isn’t the right fit, we’ll say so.",
+      "trace": "Signup to first value, guidance, peer help, support, abandonment and repeat-use behaviour.",
+      "deliverable": "The path break, supported causes and the first change worth testing.",
+      "excludes": "A growth campaign, lifecycle-marketing retainer or product redesign.",
+      "scope": "One product or product line, and one customer segment."
+    },
+    {
+      "id": "developer-integration",
+      "number": "03",
+      "name": "Integration Friction Audit",
+      "problem": "Developers reach a first API call or working prototype, but the integration never becomes a maintained product. We follow the path through documentation, review, support, production ownership and commercial commitment to locate the blocked step.",
+      "bestFor": "Developer programmes where interest is not becoming working integrations.",
+      "outcome": "Know where the integration path breaks, why, and what to change first.",
+      "outcomes": [
+        "where the integration path breaks",
+        "the causes that matter most",
+        "what to change first",
+        "what not to build or do"
+      ],
+      "continuation": "Developer Integration Path Design & Intervention",
+      "continuationDescription": "Design and put changes into practice across documentation, onboarding, tooling, support or ownership; observe developer progress; adapt.",
+      "bookingIntro": "You’re considering a 10-working-day diagnostic for a developer or integration problem. We’ll use the call to understand what is happening, whether the audit fits, and what access we would need. If it isn’t the right fit, we’ll say so.",
+      "trace": "Docs, sandbox, authentication, first call, examples, support and incentives.",
+      "deliverable": "The break points, ranked causes and the first change worth making.",
+      "excludes": "A code audit, SDK build, documentation rewrite or outsourced integration.",
+      "scope": "One API or platform surface, and one developer segment."
+    },
+    {
+      "id": "partner-programme",
+      "number": "04",
+      "name": "Partner Opportunity Assessment",
+      "problem": "Partner signings, introductions and campaigns look active; their contribution remains unclear. We map which relationships create demand, improve delivery or open a route to market, and which are intentionally waiting for a later stage.",
+      "bestFor": "Partner portfolios with activity but unclear contribution or investment priority.",
+      "outcome": "Know which relationships merit investment, where mutual value breaks, and what to change first.",
+      "outcomes": [
+        "which relationships merit investment",
+        "where mutual value breaks down",
+        "what to change first",
+        "what to stop funding or doing"
+      ],
+      "continuation": "Partner Programme Design & Intervention",
+      "continuationDescription": "Design the focused partner programme or operating change, put it into practice, observe contribution and mutual value, and adapt from evidence.",
+      "bookingIntro": "You’re considering a 10-working-day assessment of partner opportunities or an existing partner programme. We’ll use the call to understand the investment decision, whether the assessment fits, and what access we would need. If it isn’t the right fit, we’ll say so.",
+      "trace": "Up to ten partners or one tier, expected versus actual value, contribution, incentives, capability and attention.",
+      "deliverable": "Relationships worth backing, where mutual value breaks and what to change first.",
+      "excludes": "Partner recruitment, channel operations or a commission-plan redesign.",
+      "scope": "Up to approximately ten partners or one partner tier."
+    }
+  ]
+}

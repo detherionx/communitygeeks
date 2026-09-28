@@ -6,6 +6,24 @@
 (function () {
   'use strict';
   const form = document.getElementById('dock'); if (!form) return;
+  const params = new URLSearchParams(window.location.search);
+  const selectedOffer = (params.get('offer') || '').trim().slice(0, 160);
+  const selectedSlot = (params.get('slot') || '').trim().slice(0, 120);
+  const liveBooking=params.get('booking')==='1';
+  const displayedSlot=liveBooking&&Number.isFinite(Date.parse(selectedSlot))?new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Berlin',weekday:'short',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'}).format(new Date(selectedSlot)):selectedSlot;
+  if(liveBooking)form.dataset.endpoint='/api/cal-booking.php';
+  if (selectedOffer) {
+    const heading = document.getElementById('contact-h1');
+    const intro = document.getElementById('contact-intro');
+    const bookingContext = document.getElementById('booking-context');
+    if (heading) heading.textContent = 'Discuss ' + selectedOffer + '.';
+    if (intro) intro.textContent = selectedOffer.startsWith('Programme · ')
+      ? 'You’re considering a 16-week Programme. We’ll use this 30-minute call to discuss the change you want to make, the evidence behind it and whether this scope fits.'
+      : selectedOffer.startsWith('Partnership · ')
+      ? 'You’re considering an ongoing Partnership. We’ll use this 30-minute call to discuss your priorities, a working cadence and a custom scope and rate.'
+      : 'You’re considering a 10-working-day diagnosis. We’ll use this 30-minute call to understand what is happening, whether the diagnosis fits, and what access we would need. If it isn’t the right fit, we’ll say so.';
+    if (bookingContext) { bookingContext.textContent = selectedOffer + (selectedSlot ? ' · ' + displayedSlot + ' (Europe/Berlin)' : ''); bookingContext.hidden = false; }
+  }
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
   const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent.appendChild(n); return n; };
@@ -81,8 +99,10 @@
   const stepEl = document.getElementById('dock-step'), stageEl = document.getElementById('dock-stage'), prog = Array.from(document.querySelectorAll('#dock-prog li'));
   const back = document.getElementById('dock-back'), next = document.getElementById('dock-next'), send = document.getElementById('dock-send'), doneBox = document.getElementById('dock-done'), live = document.getElementById('dock-live'), formErr = document.getElementById('form-err');
   const fields = { name: document.getElementById('c-name'), email: document.getElementById('c-email'), context: document.getElementById('c-context') };
+  if (selectedOffer) fields.context.value = 'I’d like to discuss ' + selectedOffer + '.' + (selectedSlot ? (liveBooking?'\nSelected call time: ':'\nPreferred prototype time: ') + displayedSlot + ' (Europe/Berlin).' : '');
   document.getElementById('c-t').value = String(Math.floor(Date.now() / 1000));
   document.getElementById('c-id').value = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'id-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  if(liveBooking){names[3]='Review and book';send.querySelector('.kctl-label').textContent='Confirm booking';send.querySelector('.kctl-ann').textContent='Review and book';}
   let current = 0, sending = false, sent = false;
 
   function show(i, focus) {
@@ -125,21 +145,24 @@
     for (let i = 0; i < 3; i++) { if (!validate(i)) { show(i, true); return; } }
     sending = true; send.disabled = true; send.classList.add('busy'); send.querySelector('.kctl-label').textContent = 'Sending…'; formErr.hidden = true; live.textContent = 'Sending your message.';
     const body = { name: fields.name.value.trim(), email: fields.email.value.trim(), context: fields.context.value.trim(), website: document.getElementById('c-website').value, t: +document.getElementById('c-t').value, id: document.getElementById('c-id').value, token: tsToken };
+    if(liveBooking)Object.assign(body,{offer:selectedOffer,slot:selectedSlot,eventTypeId:Number(params.get('eventType'))});
     let res, data;
     try {
-      const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 15000);
+      const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), liveBooking?30000:15000);
       res = await fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), signal: ctl.signal, credentials: 'same-origin' });
       clearTimeout(timer);
       try { data = await res.json(); } catch (_) { data = {}; }
     } catch (err) {
       sending = false; send.disabled = false; send.classList.remove('busy'); send.querySelector('.kctl-label').textContent = 'Try again';
-      failure('We couldn’t send your message. Please try again or email Carmelito directly:'); return;
+      failure(liveBooking?'Booking confirmation is uncertain. Check your email, then retry this same request or contact Carmelito:':'We couldn’t send your message. Please try again or email Carmelito directly:'); return;
     }
     sending = false; send.disabled = false; send.classList.remove('busy');
     if (res.ok && data && data.ok) {
-      sent = true; form.classList.add('is-done'); stages.forEach((s) => { s.hidden = true; }); doneBox.hidden = false; paint(4, 'sent'); live.textContent = 'Message sent. It goes straight to Carmelito. Replies come by email to the address you entered.'; doneBox.focus();
+      if(liveBooking){doneBox.replaceChildren();const heading=document.createElement('h2'),copy=document.createElement('p');heading.textContent=data.status==='pending'?'Booking requested.':'Your call is booked.';copy.textContent=data.status==='pending'?'Watch your email for approval from the host.':'Check your email for the calendar invitation and joining details.';doneBox.append(heading,copy);}
+      sent = true; form.classList.add('is-done'); stages.forEach((s) => { s.hidden = true; }); doneBox.hidden = false; paint(4, 'sent'); live.textContent = 'Message sent. It goes straight to Carmelito. Replies come by email to the address you entered.'; if(liveBooking)live.textContent=doneBox.textContent; doneBox.focus();
       return;
     }
+    if(liveBooking){send.querySelector('.kctl-label').textContent='Retry confirmation';failure(data?.message||'Scheduling is unavailable. Contact Carmelito:');return;}
     if (res.status === 422 && data && data.errors) {
       const order = ['name', 'email', 'context']; const first = order.find((k) => data.errors[k]);
       order.forEach((k) => { if (data.errors[k]) setError(fields[k], data.errors[k]); });

@@ -5,6 +5,7 @@
   "description": "Communitygeeks marketing site: static Eleventy build, deployable as plain static files (no Node server required in production).",
   "scripts": {
     "dev": "eleventy --serve",
+    "preview:cal": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/serve-cal-preview.ps1",
     "validate:content": "node scripts/validate-public-thinking.js",
     "validate:content:json": "node scripts/validate-public-thinking.js --json",
     "build": "npm run validate:content && eleventy && node scripts/generate-og-images.js",

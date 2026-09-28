@@ -1,0 +1,21 @@
+{
+  "direction": "rear-origin internal projection",
+  "assets": [
+    {
+      "name": "communitygeeks-astronaut-full",
+      "width": 1024,
+      "height": 1536,
+      "transparent": true,
+      "sha256": "48f65a3fc1a9b37ee1335c753e0b20df8232a5bdf88ab4561d4ac04ec0a7fe11",
+      "svgType": "embedded PNG"
+    },
+    {
+      "name": "rear-projection-reference",
+      "width": 1774,
+      "height": 887,
+      "transparent": false,
+      "sha256": "dab16f3b2ad476a00ec02a86e29d8c5944bf10469dbe6f30b492932e951264ef",
+      "svgType": "embedded PNG"
+    }
+  ]
+}

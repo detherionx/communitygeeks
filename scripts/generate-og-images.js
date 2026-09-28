@@ -83,7 +83,7 @@ async function main() {
 
   const server = await serveSite();
   const { port } = server.address();
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.platform === 'win32' ? { channel: 'chrome' } : {});
 
   try {
     const page = await browser.newPage({ viewport: { width: CARD_WIDTH, height: CARD_HEIGHT }, deviceScaleFactor: 1 });

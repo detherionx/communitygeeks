@@ -1,4 +1,6 @@
 {
-  "en": "We are investigating when knowledge created by users and practitioners becomes evidence in AI answers, and when it does not.",
-  "de": "Wir untersuchen, wann das Wissen von Nutzerinnen, Nutzern und Fachleuten als Beleg in KI-Antworten einfließt und wann nicht."
+  "en": "In our pre-registered pilot, 100% of citations across three technical ChatGPT answers about Zendesk came from official documentation and support pages. For one matched Freshdesk answer, 9 of 15 citations came from hosted community threads.",
+  "de": "In unserem vorab registrierten Pilotversuch stammten 100 % der Quellenverweise in drei technischen ChatGPT-Antworten zu Zendesk aus offizieller Dokumentation und Supportseiten. Bei einer entsprechenden Antwort zu Freshdesk führten 9 von 15 Verweisen zu Beiträgen im unternehmenseigenen Community-Forum.",
+  "boundaryEn": "Collected 24 August 2026 from four ChatGPT answers.",
+  "boundaryDe": "Erhoben am 24. August 2026 anhand von vier ChatGPT-Antworten."
 }

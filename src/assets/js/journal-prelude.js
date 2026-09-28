@@ -9,8 +9,9 @@
     const font = document.fonts.check('400 10px "IBM Plex Mono"') ? '"IBM Plex Mono"' : 'monospace';
     svg.style.setProperty('--journal-font', font);
     let data; try { data = JSON.parse(svg.dataset.journal); } catch (_) { data = {}; }
-    const built = CGResearcher.scene(svg, {view:'full'}), journal = svg.querySelector('.journal');
-    function size() { svg.setAttribute('viewBox', '40 285 690 540'); }
+    const sceneOptions = {view:'full', mode:svg.dataset.mode || 'celestial'};
+    const built = CGResearcher.scene(svg, sceneOptions), journal = svg.querySelector('.journal');
+    function size() { svg.setAttribute('viewBox', '-60 262 900 438'); }
     size(); addEventListener('resize', size);
     const NS = 'http://www.w3.org/2000/svg';
     function node(tag, attrs, parent) { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v)); parent.append(e); return e; }
@@ -18,13 +19,13 @@
     const history = (data.history || []).slice(-3);
     const snapshots = history.map((page, i) => {
       const s = node('svg', {id:'journal-past-' + i}, stash); s.dataset.journal = JSON.stringify({volume:data.volume,left:page,right:page});
-      CGResearcher.scene(s, {view:'full'}).apply(1);
+      CGResearcher.scene(s, sceneOptions).apply(1);
       const j = s.querySelector('.journal').cloneNode(true); j.removeAttribute('transform'); j.style.opacity = 1;
       j.querySelectorAll('[clip-path]').forEach(e => e.removeAttribute('clip-path')); return j;
     });
     const openingSvg = node('svg', {id:'journal-opening'}, stash);
     openingSvg.dataset.journal = JSON.stringify({volume:data.volume,left:null,right:history[0] || data.right});
-    CGResearcher.scene(openingSvg, {view:'full'}).apply(1);
+    CGResearcher.scene(openingSvg, sceneOptions).apply(1);
     const opening = openingSvg.querySelector('.journal').cloneNode(true); opening.removeAttribute('transform'); opening.style.opacity = 1;
     stash.remove();
     const defs = svg.querySelector('defs');
@@ -34,7 +35,7 @@
     function half(j, side, parent) { const g = node('g', {'clip-path':'url(#journal-' + side + '-leaf)'}, parent); g.append(j.cloneNode(true)); return g; }
     const ease = t => t*t*(3-2*t);
     function globalPoint(x,y) { const a = -7*Math.PI/180; return [380+x*Math.cos(a)-y*Math.sin(a),500+x*Math.sin(a)+y*Math.cos(a)]; }
-    function grip(x,y) { const q=globalPoint(x,y), dx=q[0]-463.58, dy=q[1]-537.74; svg.querySelectorAll('.hand-write').forEach(e => { e.setAttribute('transform','translate('+dx+','+dy+')'); e.style.opacity=1; }); const pen=svg.querySelector('.pen');pen.setAttribute('transform','translate('+(442+dx)+','+(512+dy-10)+') rotate(28)');pen.style.opacity=1; }
+    function grip(x,y) { const q=globalPoint(x,y); if(built.grip) { built.grip(q[0],q[1]); return; } const dx=q[0]-463.58, dy=q[1]-537.74; svg.querySelectorAll('.hand-write').forEach(e => { e.setAttribute('transform','translate('+dx+','+dy+')'); e.style.opacity=1; }); const pen=svg.querySelector('.pen');pen.setAttribute('transform','translate('+(442+dx)+','+(512+dy-10)+') rotate(28)');pen.style.opacity=1; }
     function turn(k,t) {
       overlay.replaceChildren(); half(k ? snapshots[k-1] : opening,'left',overlay); if(k<snapshots.length-1) half(snapshots[k+1],'right',overlay);
       const a=ease(t)*Math.PI,c=Math.cos(a),lift=Math.sin(a)*22;
@@ -49,7 +50,8 @@
       else if(ms<skimEnd) { const t=(ms-450)/500;turn(Math.min(snapshots.length-1,Math.floor(t)),t%1); }
       else if(ms<settleEnd) {
         const u=ease((ms-skimEnd)/300), start=globalPoint(-184,100),end=globalPoint(32,-86),x=start[0]+(end[0]-start[0])*u,y=start[1]+(end[1]-start[1])*u-30*Math.sin(Math.PI*u),dx=x-442,dy=y-512;
-        svg.querySelectorAll('.hand-write').forEach(e=>e.setAttribute('transform','translate('+dx+','+dy+')'));svg.querySelector('.pen').setAttribute('transform','translate('+x+','+y+') rotate('+(28+27*u)+')');
+        if(built.release) built.release(x,y);
+        else { svg.querySelectorAll('.hand-write').forEach(e=>e.setAttribute('transform','translate('+dx+','+dy+')'));svg.querySelector('.pen').setAttribute('transform','translate('+x+','+y+') rotate('+(28+27*u)+')'); }
       } else built.apply(.3+.7*Math.min(1,(ms-settleEnd)/5600));
     }
     let frame, current=0;

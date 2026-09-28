@@ -1,0 +1,38 @@
+/* Original v2 notebook rendering, scoped to the homepage vignette. */
+.journal-vignette .cel .bs{fill:#F6F4EF;} .journal-vignette .cel .bs.cy{fill:#A9E4E1;}
+.journal-vignette .cel .cons line{stroke:#F6F4EF;stroke-opacity:0.22;stroke-width:0.8;} .journal-vignette .cel .cons circle{fill:#A9E4E1;opacity:0.5;} .journal-vignette .cel .cons circle.cb{fill:#F6F4EF;opacity:0.85;}
+.journal-vignette .cel .cons-b{opacity:0.7;} .journal-vignette .cel .cons{will-change:transform;}
+.journal-vignette .cel .sil{opacity:0.11;} .journal-vignette .cel .sil .vol,.journal-vignette .cel .sil .vol-fill{fill:#A9E4E1;stroke:#A9E4E1;stroke-linecap:round;stroke-linejoin:round;} .journal-vignette .cel .sil .vol-fill{stroke-width:0;}
+.journal-vignette .cel .bone{stroke:#F6F4EF;stroke-opacity:0.62;stroke-width:1.1;fill:none;stroke-linecap:round;} .journal-vignette .cel .bone.faint{stroke-opacity:0.3;}
+.journal-vignette .cel .node{fill:#E4F6F4;} .journal-vignette .cel .node.tip{fill:#F6F4EF;} .journal-vignette .cel .node.big{fill:#F6F4EF;}
+.journal-vignette .cel .ray{stroke:#A9E4E1;stroke-opacity:0.75;stroke-width:0.9;}
+.journal-vignette .cel .ring{fill:none;stroke:#A9E4E1;stroke-opacity:0.42;stroke-width:0.8;} .journal-vignette .cel .ring.r2{stroke-opacity:0.18;}
+.journal-vignette .cel .dust{fill:#A9E4E1;}
+/* in front of the paper: the same geometry as a teal constellation */
+.journal-vignette .cel .onpage .sil{opacity:0.13;} .journal-vignette .cel .onpage .sil .vol,.journal-vignette .cel .onpage .sil .vol-fill{fill:#1F4B4C;stroke:#1F4B4C;}
+.journal-vignette .cel .onpage .bone{stroke:#1F4B4C;stroke-opacity:0.78;} .journal-vignette .cel .onpage .bone.faint{stroke-opacity:0.45;}
+.journal-vignette .cel .onpage .node{fill:#A9E4E1;stroke:#1F4B4C;stroke-width:1;} .journal-vignette .cel .onpage .node.tip{fill:#E8735A;stroke:#1F4B4C;}
+.journal-vignette .cel .onpage .ray{stroke:#1F4B4C;stroke-opacity:0.5;} .journal-vignette .cel .onpage .ring{stroke:#1F4B4C;stroke-opacity:0.35;} .journal-vignette .cel .onpage .dust{fill:#1F4B4C;}
+/* construction view: solid anatomy, no stars */
+.journal-vignette .cel.construction .sil{opacity:0.96;} .journal-vignette .cel.construction .onpage .sil{opacity:0.82;}
+.journal-vignette .cel.construction .sil .vol,.journal-vignette .cel.construction .sil .vol-fill{fill:#C9D6D2;stroke:#C9D6D2;} .journal-vignette .cel.construction .onpage .sil .vol,.journal-vignette .cel.construction .onpage .sil .vol-fill{fill:#3F6B6B;stroke:#3F6B6B;}
+.journal-vignette .cel.construction .bone{display:none;}
+.journal-vignette .cel.construction .node{fill:#0F1A1B;stroke:none;} .journal-vignette .cel.construction .onpage .node{fill:#F6F4EF;} .journal-vignette .cel.construction .node.big,.journal-vignette .cel.construction .node.tip{fill:#E8735A;}
+.journal-vignette .cel.construction .ray,.journal-vignette .cel.construction .ring,.journal-vignette .cel.construction .dust{display:none;}
+.journal-vignette .cel .contact{fill:#0F1A1B;fill-opacity:0.32;} .journal-vignette .cel .contact-pad{fill:#1F4B4C;fill-opacity:0.07;}
+.journal-vignette .cel.construction .contact{fill-opacity:0.5;} .journal-vignette .cel.construction .contact-pad{fill-opacity:0.18;}
+/* the journal: tangible */
+.journal-vignette .cel .page-edge{fill:#D8CDB4;} .journal-vignette .cel .page{fill:#EDE5D3;} .journal-vignette .cel .spine{fill:#0F1A1B;fill-opacity:0.55;}
+.journal-vignette .cel .rule{stroke:#1F4B4C;stroke-opacity:0.13;stroke-width:0.8;} .journal-vignette .cel .margin{stroke:#1F4B4C;stroke-opacity:0.42;stroke-width:1;}
+.journal-vignette .cel .lbl{font:8.5px var(--mono);fill:#1F4B4C;fill-opacity:0.7;letter-spacing:0.08em;}
+.journal-vignette .cel .ink{font:600 10px var(--mono);fill:#1F4B4C;letter-spacing:0.06em;} .journal-vignette .cel .ink.big{font:600 14px var(--mono);letter-spacing:0.1em;}
+.journal-vignette .cel .ink.small{font:9.5px var(--mono);letter-spacing:0.03em;font-weight:400;}
+.journal-vignette .cel .stroke{stroke:#1F4B4C;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;} .journal-vignette .cel .stroke.thin{stroke-width:1.1;stroke-opacity:0.8;}
+.journal-vignette .cel .inknode{fill:#1F4B4C;} .journal-vignette .cel .coral{stroke:#E8735A;stroke-width:1.4;fill:none;}
+/* the pen */
+.journal-vignette .cel .pen-body{fill:#D6EEEC;} .journal-vignette .cel .pen-tip{fill:#E8735A;} .journal-vignette .cel .pen-band{fill:#1F4B4C;} .journal-vignette .cel .pen-cap{fill:#F6F4EF;fill-opacity:0.6;}
+.journal-vignette .cel .pen-edge{stroke:#1F4B4C;stroke-opacity:0.7;stroke-width:0.7;fill:none;}
+.journal-vignette .cel .hand,.journal-vignette .cel .journal,.journal-vignette .cel .pen{will-change:transform,opacity;}
+.journal-vignette .cel .inknode{opacity:1;}
+.journal-vignette .cel text{font-family:var(--journal-font,var(--mono))}
+.journal-vignette .eva-art{pointer-events:none}

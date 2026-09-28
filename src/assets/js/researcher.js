@@ -64,11 +64,11 @@
 
   // ---- the scene -------------------------------------------------------------------
   function scene(svg, opts) {
-    opts = opts || {}; const mode = opts.mode || 'celestial'; const construction = mode === 'construction';
+    opts = opts || {}; const mode = opts.mode || 'celestial'; const construction = mode === 'construction', astronaut = mode === 'astronaut';
     let view = opts.view || 'auto'; if (view === 'auto') view = window.innerWidth <= 860 ? 'mobile' : 'full';
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     svg.setAttribute('viewBox', VIEWS[view] || VIEWS.full); svg.setAttribute('preserveAspectRatio', 'xMidYMid slice'); svg.dataset.view = view;
-    svg.classList.add('cel'); svg.classList.toggle('construction', construction);
+    svg.classList.add('cel'); svg.classList.toggle('construction', construction); svg.classList.toggle('astronaut', astronaut);
     const rnd = mkRnd(23); const id = svg.id;
     const defs = el('defs', {}, svg);
     const clip = el('clipPath', { id: id + '-page' }, defs); const mask = el('mask', { id: id + '-off' }, defs);
@@ -214,6 +214,41 @@
     const wfNodes = g('nodes', wf); [WRITE.index[1], WRITE.index[2], WRITE.thumb[1], WRITE.thumb[2]].forEach((q) => node(q, 2.5, '', wfNodes)); node(WRITE.index[3], 2.4, 'tip', wfNodes); node(WRITE.thumb[3], 2.4, 'tip', wfNodes);
     const wfM = dual(wf);
 
+    // Astronaut is a visual skin on the v2 contact coordinates, never a second timeline.
+    let evaPose;
+    if (astronaut) {
+      const asset = (parent, name, transform) => {
+        const group = g('eva-art', parent); group.setAttribute('transform', transform);
+        // Vector gloves (crew-vector/journal, Constructed style) in the same pixel frames as the retired raster gloves.
+        el('image', {href:'/assets/images/crew-vector/journal/' + name + '.svg', width:name==='hold'?1254:1024, height:name==='hold'?1254:1536}, group);
+        return group;
+      };
+      hb.replaceChildren(); asset(hb, 'hold', 'translate(48.4 525.2) scale(.24)');
+      const thumbClip = el('clipPath', {id:id+'-eva-thumb'}, defs);
+      el('path', {d:'M661 514 855 369 941 484 747 629Z'}, thumbClip); // band around the vector thumb only
+      hfM.forEach(hand => {hand.replaceChildren();asset(hand,'hold','translate(48.4 525.2) scale(.24)').setAttribute('clip-path','url(#'+id+'-eva-thumb)');});
+      [...wbM,...wfM,pen].forEach(part => part.style.display='none');
+      const writing = g('eva-writing'), turning = g('eva-turning'), turningUnder = g('eva-turning-under');
+      svg.insertBefore(turningUnder,J);
+      // Raster nib (126,110) and page-pinch (137,252) are the measured contact anchors.
+      asset(writing,'write','translate(442 512) rotate(14) scale(.37) translate(-126 -110)');
+      const turnArt=asset(turning,'turn','translate(442 512) scale(.36) translate(-137 -252)');
+      asset(turningUnder,'turn','translate(442 512) scale(.36) translate(-137 -252)');
+      const turnMask=el('mask',{id:id+'-eva-pinch',maskUnits:'userSpaceOnUse',x:0,y:0,width:1024,height:1536},defs);
+      el('rect',{width:1024,height:1536,fill:'white'},turnMask);
+      el('path',{d:'M70 248H165L250 340 210 410H70Z',fill:'black'},turnMask);
+      turnArt.setAttribute('mask','url(#'+id+'-eva-pinch)');
+      evaPose = (phase,x,y,opacity=1) => {
+        writing.style.display=phase==='write'?'':'none'; turning.style.display=turningUnder.style.display=phase==='turn'?'':'none';
+        const rig=phase==='write'?writing:turning;
+        rig.setAttribute('transform','translate('+(x-T[0]).toFixed(2)+' '+(y-T[1]).toFixed(2)+')');
+        rig.style.opacity=opacity;
+        turningUnder.setAttribute('transform',rig.getAttribute('transform')); turningUnder.style.opacity=opacity;
+        svg.dataset.journalPhase=phase;
+        svg.dataset.contact=x.toFixed(2)+','+y.toFixed(2);
+      };
+    }
+
     // ---- state: everything below is a pure function of progress p in [0,1] ----
     const lens = { path: new Map(), text: new Map() };
     const measure = () => { segs.forEach((sg) => { if (sg.kind === 'path') lens.path.set(sg.o, sg.o.getTotalLength()); else if (sg.kind === 'text') { let L = 0; try { L = sg.o.t.getComputedTextLength(); } catch (e) { L = 0; } if (!L) L = sg.o.t.textContent.length * (sg.o.t.classList.contains('big') ? 9.2 : sg.o.t.classList.contains('small') ? 5.9 : 6.3); lens.text.set(sg.o, L); } }); };
@@ -263,9 +298,10 @@
       setT(wbM, tr, wE); setT(wfM, tr, wE);
       const tl = Math.hypot(st.tangent[0], st.tangent[1]) || 1; const tilt = Math.max(-5, Math.min(5, (st.tangent[0] / tl) * 4 - (st.tangent[1] / tl) * 3));
       pen.setAttribute('transform', `translate(${(tipG[0] + ax + 3 * lift).toFixed(1)},${(tipG[1] + ay - 7 * lift).toFixed(1)}) rotate(${(WRITE.penAngle + tilt).toFixed(1)})`); pen.style.opacity = wE.toFixed(3);
+      if (evaPose) evaPose('write',tipG[0]+ax+3*lift,tipG[1]+ay-7*lift,wE);
     }
     apply(1); // built complete; the controller drives it when animated
-    return { svg, apply, measure };
+    return { svg, apply, measure, ...(evaPose ? {grip:(x,y)=>evaPose('turn',x,y),release:(x,y)=>evaPose('turn',x,y)} : {}) };
   }
 
   function background(svg) {

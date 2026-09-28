@@ -1,251 +1,56 @@
 ---
 layout: layouts/home.njk
-title: "Communitygeeks: Community, Developer & Partner Strategy"
-description: "Advice on customer adoption, developer programs and partnerships. Diagnose barriers, assess opportunities and decide what your team should change."
+title: "Community, developer and partner programme strategy | Communitygeeks"
+description: "Communitygeeks helps organisations start or improve community, developer and partner programmes. We map how people work together, then design and test what should change."
 permalink: /
-chapters: "07"
 footerInline: true
-extraScripts: ["researcher.js", "journal-prelude.js", "thinking-carousel.js", "services.js"]
-ogTitle: "Communitygeeks · Community, Developer & Partner Strategy"
-ogDescription: "Advice on customer adoption, developer programs and partnerships. Diagnose barriers, assess opportunities and decide what your team should change."
+bodyClass: participation-home
+footerPositioning: "Community, developer and partner programme strategy, from first design to next decision."
+ogTitle: "Communitygeeks · Find where people already connect"
+ogDescription: "Start or improve community, developer and partner programmes. Map how people work together before deciding what to build or change."
 ---
-{% from "partials/pt-motifs.njk" import ptConstellation %}
-{# ---------------------------------------------------------------- HERO #}
-<section class="hero hero-clarity chapter" id="field" data-chapter="01" data-title="Field">
-  <div class="hero-pin">
-    <div class="layer layer-topo" aria-hidden="true">
-      <svg class="topo" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <path d="M-40,620 C180,560 300,700 520,640 S900,520 1120,610 S1380,700 1500,640"/>
-        <path d="M-40,700 C200,640 340,790 560,720 S920,600 1140,700 S1390,790 1500,720"/>
-        <path d="M-40,540 C160,480 320,610 540,560 S880,440 1100,530 S1370,610 1500,560"/>
-        <path d="M-40,460 C150,410 330,520 550,480 S870,370 1090,450 S1360,520 1500,480"/>
-        <path class="topo-fore" d="M600,-20 C640,120 560,260 640,400 S760,600 700,760 S640,900 680,940"/>
-        <path class="topo-fore" d="M980,-20 C1020,140 940,300 1010,440 S1120,640 1060,800 S1000,900 1040,940"/>
-      </svg>
-    </div>
-    <div class="layer layer-ui">
-      <p class="hero-readout"><span class="node-dot node-dot-ochre"></span><span>Community, developer &amp; partner strategy</span></p>
-      <h1 class="hero-h1">
-        <span class="h1-line"><span>Grow your product adoption.</span></span>
-        <span class="h1-line"><span>Expand your routes to market.</span></span>
-      </h1>
-      <p class="hero-sub">We identify what's holding back customers, developers and partners. Then we advise your team on what to change.</p>
-      <div class="hero-controls">
-        <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Discuss your project</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
-        <a href="#approach" class="kctl kctl-secondary"><span class="kctl-row"><span class="kctl-label">Explore our services</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
-      </div>
-    </div>
-    {% include "partials/hero-constellation.njk" %}
-    <div class="layer layer-fore" aria-hidden="true">
-      <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-    </div>
+<section class="participation-hero" id="field" aria-labelledby="hero-title">
+  <p class="kicker hero-kicker"><span class="kicker-glyphs" aria-hidden="true"><span class="glyph glyph-circle"></span><span class="glyph glyph-square"></span><span class="glyph glyph-triangle"></span></span>Community, developer and partner programme strategy</p>
+  <h1 id="hero-title"><span class="h1-line">Find where people connect.</span> <em class="h1-line">Decide what to build.</em></h1>
+  <div class="hero-copy">
+    <p class="hero-sub">Starting a community, improving one or connecting the work around it? We help organisations design programmes that support customers, developers and partners across products, teams and channels.</p>
+    <p class="hero-promise">We map what people do now, then design and test changes your team can sustain.</p>
+    <p class="hero-next"><span>First step</span> We study one question with your team, for a fixed fee, and end with a clear decision: proceed, redirect or stop.</p>
+    <div class="hero-actions"><a class="primary-link" href="#approach">See where to start <span aria-hidden="true">↘</span></a><a class="text-link" href="/contact/">Bring us the question <span aria-hidden="true">↗</span></a></div>
   </div>
-</section>
-
-{# ---------------------------------------------------------- TRUST RAIL #}
-<section class="trust" aria-labelledby="trust-label">
-  <p class="trust-label" id="trust-label">Selected experience</p>
-  <div class="rail">
-    <ul class="rail-track">
-      {% for item in clients.logoWall %}
-      <li class="logo" tabindex="0" role="img" aria-label="{{ item.name }}" style="--logo-url:url('{{ item.logoPath }}');"><span class="logo-mask"></span><span class="logo-name">{{ item.name }}</span></li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-
-{# ------------------------------------------------------ HOW WE WORK PATH #}
-<section class="buy-section chapter" id="approach" data-chapter="02" data-title="Services" aria-labelledby="buy-title">
-<div class="service-wrap"><header class="service-heading"><p class="kicker">How we can help</p><h2 id="buy-title">Clear diagnoses. Practical plans.</h2></header><div class="program-offers"><article class="program-column"><button class="service-choice" id="service-tab-0" type="button" aria-pressed="true" tabindex="0" data-service="0"><span class="service-number">01</span><strong>Customer adoption strategy</strong><span class="service-outcome">What stops people getting lasting value from your product?</span></button><div class="program-world" data-world="0"><svg viewBox="25 60 370 265" class="program-scene" role="img" aria-label="Customers return to use a product and help another customer."><defs>
- <linearGradient id="customer-floor" x2="1" y2="1"><stop stop-color="#70988a" stop-opacity=".22"/><stop offset="1" stop-color="#102e30" stop-opacity=".8"/></linearGradient>
- <linearGradient id="customer-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1e3cc"/><stop offset=".45" stop-color="#8cae9f"/><stop offset="1" stop-color="#335e59"/></linearGradient>
- <linearGradient id="customer-screen" x2=".8" y2="1"><stop stop-color="#447b72"/><stop offset="1" stop-color="#102f32"/></linearGradient>
- <radialGradient id="customer-light"><stop stop-color="#bed9be" stop-opacity=".2"/><stop offset="1" stop-color="#8fb8a0" stop-opacity="0"/></radialGradient>
- <linearGradient id="customer-body" x2="1" y2=".4"><stop stop-color="#e8e7d1"/><stop offset=".5" stop-color="#adc5b4"/><stop offset="1" stop-color="#6d9488"/></linearGradient>
- <g id="customer-person"><ellipse cx="0" cy="2" rx="12" ry="4" fill="#0a272a" opacity=".5"/><circle cx="0" cy="-43" r="6" fill="url(#customer-body)"/><path d="M-8-32Q0-36 8-32L10-18 7-16 4-27 5-16 4 0H0L-1-14-3 0H-7L-6-17-7-27-10-17-13-19Z" fill="url(#customer-body)"/><path d="M-5-31L-3-20" stroke="#f6f4ef" stroke-opacity=".6"/></g>
- <g id="customer-product"><ellipse cy="22" rx="52" ry="15" fill="#0c292b" opacity=".6"/><path d="M-48 8 9-13 48 5-9 28Z" fill="url(#customer-metal)"/><path d="M-48 8V14L-9 34V28ZM-9 28 48 5V12L-9 34Z" fill="#345f59"/><path d="M-28-64 26-78 35-70V2L-20 16-28 9Z" fill="url(#customer-metal)"/><path d="M-20-57 29-70V-2L-20 10Z" fill="url(#customer-screen)" stroke="#d1dfc4" stroke-opacity=".35"/><path d="M-12-41 8-46M-12-34 20-43M-12-10 20-19" stroke="#bfd4bd" stroke-opacity=".65" stroke-width="2"/><path d="M-12-26 0-29V-19L-12-16ZM5-30 19-34V-24L5-20Z" fill="#e8735a" opacity=".8"/><circle cx="3" cy="5" r="1.5" fill="#f1c1a0"/></g>
- </defs><ellipse cx="210" cy="170" rx="205" ry="150" fill="url(#customer-light)"/><g class="diorama"><path d="M159 164Q245 158 281 244Q323 251 346 217" class="service-community-link"/><path d="M12 230 225 148 411 236 198 323Z" fill="url(#customer-floor)" stroke="#afc8b7" stroke-opacity=".16"/><path d="M12 230V236L198 329 411 242V236M198 323V329" fill="none" stroke="#b6cbb7" stroke-opacity=".16"/><path d="M66 252Q102 196 165 191M221 231Q293 271 334 214" class="program-route"/>
-<g transform="translate(211 202)"><use href="#customer-product"/></g>
-
-<path d="M157 230C102 209 112 164 158 151" class="return-route"/><path d="M155 147 162 151 155 157" class="route-tip"/>
-<g transform="translate(70 251) scale(0.88)"><g class="customer-arrives"><use href="#customer-person"/></g></g><g transform="translate(159 164) scale(0.95)"><g class="customer-returns"><use href="#customer-person"/></g></g><g transform="translate(281 244) scale(1.05)"><g class="customer-active"><use href="#customer-person"/></g></g><g transform="translate(346 217) scale(0.8)"><g class="customer-friend"><use href="#customer-person"/></g></g>
-<g class="customer-help"><path d="M296 180H328V201H315L308 208V201H296Z" fill="#255754" stroke="#e4dfc5" stroke-opacity=".7"/><path d="m304 190 5 4 11-9" fill="none" stroke="#e9b294" stroke-width="2"/></g>
-</g></svg></div><ul class="service-menu" aria-label="Customer services"><li><button type="button" class="service-item" data-effect="1" data-owner="0" aria-pressed="true" aria-description="A diagnosis of where customers get stuck, with priorities for what to change.">Adoption diagnosis</button></li><li><button type="button" class="service-item" data-effect="2" data-owner="0" aria-pressed="false" aria-description="A design for who to involve, what they contribute and how your team supports them.">Advocacy program design</button></li><li><button type="button" class="service-item" data-effect="0" data-owner="0" aria-pressed="false" aria-description="Evidence about customers’ needs, behaviour and barriers to product use.">Customer research</button></li></ul><p class="service-deliverable" aria-live="polite" aria-atomic="true">A diagnosis of where customers get stuck, with priorities for what to change.</p></article><article class="program-column"><button class="service-choice" id="service-tab-1" type="button" aria-pressed="false" tabindex="0" data-service="1"><span class="service-number">02</span><strong>Developer program strategy</strong><span class="service-outcome">What stops developers turning interest into working integrations?</span></button><div class="program-world" data-world="1"><svg viewBox="25 60 370 265" class="program-scene" role="img" aria-label="Developers work at a laptop and connect new integration modules to the product."><defs>
- <linearGradient id="developer-floor" x2="1" y2="1"><stop stop-color="#70988a" stop-opacity=".22"/><stop offset="1" stop-color="#102e30" stop-opacity=".8"/></linearGradient>
- <linearGradient id="developer-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1e3cc"/><stop offset=".45" stop-color="#8cae9f"/><stop offset="1" stop-color="#335e59"/></linearGradient>
- <linearGradient id="developer-screen" x2=".8" y2="1"><stop stop-color="#447b72"/><stop offset="1" stop-color="#102f32"/></linearGradient>
- <radialGradient id="developer-light"><stop stop-color="#bed9be" stop-opacity=".2"/><stop offset="1" stop-color="#8fb8a0" stop-opacity="0"/></radialGradient>
- <linearGradient id="developer-body" x2="1" y2=".4"><stop stop-color="#e8e7d1"/><stop offset=".5" stop-color="#adc5b4"/><stop offset="1" stop-color="#6d9488"/></linearGradient>
- <g id="developer-person"><ellipse cx="0" cy="2" rx="12" ry="4" fill="#0a272a" opacity=".5"/><circle cx="0" cy="-43" r="6" fill="url(#developer-body)"/><path d="M-8-32Q0-36 8-32L10-18 7-16 4-27 5-16 4 0H0L-1-14-3 0H-7L-6-17-7-27-10-17-13-19Z" fill="url(#developer-body)"/><path d="M-5-31L-3-20" stroke="#f6f4ef" stroke-opacity=".6"/></g>
- <g id="developer-product"><ellipse cy="22" rx="52" ry="15" fill="#0c292b" opacity=".6"/><path d="M-48 8 9-13 48 5-9 28Z" fill="url(#developer-metal)"/><path d="M-48 8V14L-9 34V28ZM-9 28 48 5V12L-9 34Z" fill="#345f59"/><path d="M-28-64 26-78 35-70V2L-20 16-28 9Z" fill="url(#developer-metal)"/><path d="M-20-57 29-70V-2L-20 10Z" fill="url(#developer-screen)" stroke="#d1dfc4" stroke-opacity=".35"/><path d="M-12-41 8-46M-12-34 20-43M-12-10 20-19" stroke="#bfd4bd" stroke-opacity=".65" stroke-width="2"/><path d="M-12-26 0-29V-19L-12-16ZM5-30 19-34V-24L5-20Z" fill="#e8735a" opacity=".8"/><circle cx="3" cy="5" r="1.5" fill="#f1c1a0"/></g>
- </defs><ellipse cx="210" cy="170" rx="205" ry="150" fill="url(#developer-light)"/><g class="diorama"><path d="M91 253Q220 282 351 231" class="service-community-link"/><path d="M12 230 225 148 411 236 198 323Z" fill="url(#developer-floor)" stroke="#afc8b7" stroke-opacity=".16"/><path d="M12 230V236L198 329 411 242V236M198 323V329" fill="none" stroke="#b6cbb7" stroke-opacity=".16"/><g transform="translate(185 196)"><use href="#developer-product"/><text x="3" y="-20" class="api-label">&lt;/&gt;</text></g><g transform="translate(91 253) scale(1.1)"><g class="developer-builds"><use href="#developer-person"/></g></g>
-<g transform="translate(110 244)"><path d="M-16-6 9-12 23 1-3 10Z" fill="#bdd1bb"/><path d="M-16-6-18-24 7-30 9-12Z" fill="#376b63" stroke="#c4d6be" stroke-width="1.5"/></g>
-<path d="M115 236 156 217" class="program-route"/>
-<g transform="translate(-86 -47) scale(1.3)"><g class="integration-one"><path d="M267 142 304 129 326 143 289 157Z" fill="url(#developer-metal)"/><path d="M267 142V181L289 196V157Z" fill="#345f5a"/><path d="M289 157 326 143V182L289 196Z" fill="url(#developer-screen)" stroke="#a4c8b3" stroke-opacity=".6"/><path d="M301 160 313 155V175L301 180Z" fill="#e8735a"/><path d="M267 168 232 183" stroke="#eab999" stroke-width="3"/></g>
-</g><g class="integration-two"><path d="M277 240 306 229 326 239 297 251Z" fill="url(#developer-metal)"/><path d="M277 240V261L297 273 326 261V239L297 251Z" fill="#46766a" stroke="#aac9b3" stroke-opacity=".6"/><path d="M277 250 229 222" class="program-route"/></g><g transform="translate(351 231) scale(0.82)"><g class="developer-second"><use href="#developer-person"/></g></g>
-</g></svg></div><ul class="service-menu" aria-label="Developer services"><li><button type="button" class="service-item" data-effect="1" data-owner="1" aria-pressed="true" aria-description="An audit of the path to integration, with priorities for addressing the barriers developers face.">Integration friction audit</button></li><li><button type="button" class="service-item" data-effect="2" data-owner="1" aria-pressed="false" aria-description="A plan for the documentation, guidance and support developers need.">Developer enablement plan</button></li><li><button type="button" class="service-item" data-effect="0" data-owner="1" aria-pressed="false" aria-description="Evidence about developers’ workflows, needs and reasons to build with your product.">Developer research</button></li></ul><p class="service-deliverable" aria-live="polite" aria-atomic="true">An audit of the path to integration, with priorities for addressing the barriers developers face.</p></article><article class="program-column"><button class="service-choice" id="service-tab-2" type="button" aria-pressed="false" tabindex="0" data-service="2"><span class="service-number">03</span><strong>Partner strategy</strong><span class="service-outcome">Which relationships deserve investment, and what would make them work?</span></button><div class="program-world" data-world="2"><svg viewBox="25 60 370 265" class="program-scene" role="img" aria-label="A partner team opens branching routes to customer groups."><defs>
- <linearGradient id="partner-floor" x2="1" y2="1"><stop stop-color="#70988a" stop-opacity=".22"/><stop offset="1" stop-color="#102e30" stop-opacity=".8"/></linearGradient>
- <linearGradient id="partner-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1e3cc"/><stop offset=".45" stop-color="#8cae9f"/><stop offset="1" stop-color="#335e59"/></linearGradient>
- <linearGradient id="partner-screen" x2=".8" y2="1"><stop stop-color="#447b72"/><stop offset="1" stop-color="#102f32"/></linearGradient>
- <radialGradient id="partner-light"><stop stop-color="#bed9be" stop-opacity=".2"/><stop offset="1" stop-color="#8fb8a0" stop-opacity="0"/></radialGradient>
- <linearGradient id="partner-body" x2="1" y2=".4"><stop stop-color="#e8e7d1"/><stop offset=".5" stop-color="#adc5b4"/><stop offset="1" stop-color="#6d9488"/></linearGradient>
- <g id="partner-person"><ellipse cx="0" cy="2" rx="12" ry="4" fill="#0a272a" opacity=".5"/><circle cx="0" cy="-43" r="6" fill="url(#partner-body)"/><path d="M-8-32Q0-36 8-32L10-18 7-16 4-27 5-16 4 0H0L-1-14-3 0H-7L-6-17-7-27-10-17-13-19Z" fill="url(#partner-body)"/><path d="M-5-31L-3-20" stroke="#f6f4ef" stroke-opacity=".6"/></g>
-
- </defs><ellipse cx="210" cy="170" rx="205" ry="150" fill="url(#partner-light)"/><g class="diorama"><g class="service-extra-partners" opacity="0"><path d="M78 210 141 138 218 213M141 138 326 161" class="program-route"/><g transform="translate(141 138) scale(.75)"><use href="#partner-person"/></g></g><path d="M12 230 225 148 411 236 198 323Z" fill="url(#partner-floor)" stroke="#afc8b7" stroke-opacity=".16"/><path d="M12 230V236L198 329 411 242V236M198 323V329" fill="none" stroke="#b6cbb7" stroke-opacity=".16"/><path d="M86 204 205 196 337 232" class="program-route" opacity=".35"/><path d="M86 204 205 196 337 232" class="market-route"/>
-<g transform="translate(70 210) scale(.95)"><use href="#partner-person"/></g><g transform="translate(102 194) scale(.82)"><use href="#partner-person"/></g><path d="M78 182 93 177 98 187 83 193Z" fill="#e8e7d1" stroke="#adc5b4"/>
-<g class="partner-reach"><path d="M228 200 293 171 365 167M293 171 335 140M228 200 295 245 380 278" class="program-route"/><g transform="translate(319 161) scale(.65)"><use href="#partner-person"/></g><g transform="translate(353 148) scale(.68)"><use href="#partner-person"/></g><g transform="translate(383 183) scale(.75)"><use href="#partner-person"/></g><g transform="translate(383 278) scale(.78)"><use href="#partner-person"/></g><g class="reach-top"><path d="M-5-3 0-6 5-3V4L0 7-5 4Z" fill="#eab89b"/></g><g class="reach-bottom"><path d="M-5-3 0-6 5-3V4L0 7-5 4Z" fill="#eab89b"/></g></g><g class="partner-gateway"><path d="M182 217V137L222 124 242 134V210L232 214V143L193 156V221Z" fill="url(#partner-metal)"/><path d="M193 156 232 143V151L201 163V218L193 221Z" fill="#244e4a"/><path d="M184 142 219 131" stroke="#edf0d8" stroke-opacity=".6"/></g><g transform="translate(218 213) scale(0.87)"><g class="partner-active"><use href="#partner-person"/></g></g><g transform="translate(326 219) scale(0.85)"><g class="market-one"><use href="#partner-person"/></g></g><g transform="translate(362 243) scale(1)"><g class="market-two"><use href="#partner-person"/></g></g><g transform="translate(326 269) scale(0.95)"><g class="market-three"><use href="#partner-person"/></g></g>
-<g class="delivery"><path d="M-7-3 0-7 7-3 0 1Z" fill="#f3cab0"/><path d="M-7-3V5L0 9 7 5V-3L0 1Z" fill="#e8735a"/></g>
-</g></svg></div><ul class="service-menu" aria-label="Partner services"><li><button type="button" class="service-item" data-effect="1" data-owner="2" aria-pressed="true" aria-description="An assessment of which partner relationships are worth investing in, and why.">Partner opportunity assessment</button></li><li><button type="button" class="service-item" data-effect="2" data-owner="2" aria-pressed="false" aria-description="A review of what motivates partner activity and where expectations or incentives conflict.">Partner incentive review</button></li><li><button type="button" class="service-item" data-effect="0" data-owner="2" aria-pressed="false" aria-description="Evidence about partners’ needs, constraints and reasons to work with you.">Partner research</button></li></ul><p class="service-deliverable" aria-live="polite" aria-atomic="true">An assessment of which partner relationships are worth investing in, and why.</p></article></div><footer class="program-method"><div><h3>What you leave with</h3><p>Evidence about what is happening, clear priorities and a practical plan for what to change. Research can stand alone. Where an option needs testing, we can scope a pilot separately.</p></div><span class="method-sequence">Evidence <i>→</i> Priorities <i>→</i> Plan</span><button class="service-pause" type="button" aria-pressed="false">Pause motion</button></footer></div></section>
-<section class="relationship-section chapter" id="system" data-chapter="03" data-title="Between people" aria-labelledby="relationship-title">
- <div class="relationship-pin">
-  <header class="relationship-copy"><p class="kicker">Between people</p><h2 id="relationship-title">Some of your product’s value is created <em>between people.</em></h2><p>A customer shares a workaround others adopt. A developer builds an integration other teams use. A partner adds services customers need.</p><p class="relationship-principle">We help you identify which relationships create value and where to invest in them.</p></header>
-  <div class="relationship-stage" aria-label="Explore exchanges between individual people">
-   <div class="relationship-fallback"><svg viewBox="0 0 640 450" role="img" aria-label="A customer shares a workaround with another customer; a developer builds an integration for a customer; a partner opens an implementation route."><defs><g id="relationship-person" transform="scale(1.3)"><circle cy="-43" r="6"/><path d="M-8-32Q0-36 8-32L10-18 7-16 4-27 5-16 4 0H0L-1-14-3 0H-7L-6-17-7-27-10-17-13-19Z"/></g></defs><g fill="#c6d7c2"><use href="#relationship-person" x="120" y="130"/><use href="#relationship-person" x="320" y="90"/><use href="#relationship-person" x="500" y="180"/><use href="#relationship-person" x="220" y="320"/><use href="#relationship-person" x="430" y="350"/></g><g fill="none" stroke="#e8b39a"><path d="M140 130Q220 45 300 90M340 100Q420 90 480 180M240 320Q320 240 410 345"/></g><g fill="#e8735a"><rect x="210" y="75" width="20" height="15" rx="2"/><path d="m405 123 16-7 12 10-17 8Z"/><rect x="325" y="275" width="22" height="25" rx="3"/></g></svg></div>
-   <div class="relationship-note" hidden><span></span><strong></strong><p></p></div>
-   <button type="button" class="relationship-back" hidden>← All exchanges</button>
-  </div>
-  <footer class="relationship-foot"><div class="relationship-options" role="group" aria-label="Follow a value exchange"><button type="button" data-exchange="0" aria-pressed="false">Workaround</button><button type="button" data-exchange="1" aria-pressed="false">Integration</button><button type="button" data-exchange="2" aria-pressed="false">Implementation</button><button type="button" data-exchange="3" aria-pressed="false">Knowledge</button><button type="button" data-exchange="4" aria-pressed="false">Recommendation</button></div><div class="relationship-controls"><span>Illustrative exchanges</span><button type="button" class="relationship-pause" aria-pressed="false">Pause motion</button></div></footer>
- </div>
-</section>
-{% include "partials/decision-explorer.njk" %}
-
-<section class="cases chapter" id="cases" data-chapter="05" data-title="Selected work">
-  {# ENGAGEMENT MANIFEST (approved): the six selected engagements as one indexed instrument rail. The logos are
-     selectable coordinates (tabs); one shared record below shows the active engagement's description and sector with
-     its index. No autoplay: hover previews on pointer devices, click or keyboard selects, arrow keys move along the
-     rail. All six records stay in the document; without JavaScript they stack as a compact list. Logos are optically
-     normalised per mark (--lh), never stretched; company names live only in the accessible names. #}
-  <div class="exp-grid">
-    <div class="exp-head">
-      <p class="kicker"><span class="node-dot node-dot-ochre"></span>Selected work</p>
-      <h2 class="cases-h2">Practical experience behind our advice.</h2>
-      <p class="cases-lead">More than a decade of work across SaaS, AI, gaming and education informs the advice we give today.</p>
-    </div>
-    <div class="manifest" id="manifest" style="--engagement-count:{{ clients.selectedWork.length }}">
-      <div class="mani-index" role="tablist" aria-label="Selected engagements">
-        {% for client in clients.selectedWork %}
-        <button type="button" role="tab" class="mani-logo" id="mani-tab-{{ loop.index }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="mani-rec-{{ loop.index }}" tabindex="{% if loop.first %}0{% else %}-1{% endif %}" aria-label="{{ client.name }}" data-logo="{{ client.name | lower | replace(' ', '-') }}" style="--logo-url:url('{{ client.logoPath }}');"><span class="mani-mark" aria-hidden="true"></span></button>
-        {% endfor %}
-        <span class="mani-cursor" aria-hidden="true"></span>
-      </div>
-      <ol class="mani-records" id="mani-records">
-        {% for client in clients.selectedWork %}
-        <li class="mani-rec{% if loop.first %} on{% endif %}" id="mani-rec-{{ loop.index }}" role="tabpanel" aria-labelledby="mani-tab-{{ loop.index }}">
-          <span class="mani-no"><b>0{{ loop.index }}</b> / 0{{ clients.selectedWork.length }}</span>
-          <p class="mani-proof">{{ client.proof }}</p>
-          <span class="mani-tag">{{ client.tag }}</span>
-        </li>
-        {% endfor %}
+  <figure class="hero-model">
+    {% include "partials/hero-system.njk" %}
+    <figcaption>
+      <p>People connect across teams and channels.</p>
+      <ol class="system-key">
+        <li><span class="glyph glyph-circle" aria-hidden="true"></span><span class="key-num">01</span>People come back.</li>
+        <li><span class="glyph glyph-square" aria-hidden="true"></span><span class="key-num">02</span>Integrations go live.</li>
+        <li><span class="glyph glyph-triangle" aria-hidden="true"></span><span class="key-num">03</span>Partners open routes to market.</li>
+        <li class="key-change"><span class="glyph glyph-diamond" aria-hidden="true"></span>Where to act next</li>
       </ol>
-    </div>
+    </figcaption>
+  </figure>
+</section>
+{% include "partials/offer-paths-v31.njk" %}
+<section class="thinking-section" data-editorial id="thinking" aria-labelledby="thinking-title">
+  <svg class="journal-stars" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
+  <div class="journal-field">{% include "partials/journal-astronaut.njk" %}</div>
+  <div class="journal-ledger" data-reveal>
+  <header class="section-head thinking-head"><p class="kicker">The journal</p><h2 id="thinking-title">Ideas tested against real work.</h2><p>Articles and research on adoption, developer programmes, community and the human judgement technology still needs.</p></header>
+  {% set featured = publicThinking[0] %}
+  <article class="featured-article"><p class="article-date"><span class="featured-tag">Featured</span><span>{{featured.date | readableDate}}</span></p><h3><a href="{{featured.url}}">{{featured.title}}</a></h3><p>{{featured.summary}}</p><a class="text-link" href="{{featured.url}}">Read the article <span aria-hidden="true">→</span></a></article>
+  {% set journalTopics = {'community-management-participation-strategy': 'Community & adoption', 'what-remains-human-when-ai-takes-over': 'AI & human judgment'} %}
+  <ol class="secondary-articles">{% for piece in publicThinking %}{% if loop.index > 1 and loop.index <= 3 %}<li><p class="article-date">{{piece.date | readableDate}} · {{journalTopics[piece.slug] or piece.topics[0]}}</p><h3><a href="{{piece.url}}">{{piece.title}}</a></h3><p class="article-deck">{{piece.summary}}</p><a class="text-link" href="{{piece.url}}">Read <span aria-hidden="true">→</span><span class="sr-only"> {{piece.title}}</span></a></li>{% endif %}{% endfor %}</ol>
+  <aside class="research-note"><p class="kicker">Research in progress</p><div><h3>When participant knowledge enters AI answers</h3><p>{{ researchTeaser.en }}</p><p class="research-boundary">{{ researchTeaser.boundaryEn }}</p><a class="text-link" href="/public-thinking/#research">Follow the research <span aria-hidden="true">→</span></a></div></aside>
+  <a class="text-link all-articles" href="/public-thinking/">Explore all articles <span aria-hidden="true">→</span></a>
   </div>
 </section>
-
-{# ------------------------------------------- PUBLIC THINKING: PREVIEW #}
-<section class="pt pt-cel chapter" id="thinking" data-chapter="06" data-title="Articles">
-  {# THE CELESTIAL RESEARCHER (production): a presence built only from
-     constellations holds an open field journal and writes into it. Background
-     star field behind the whole section, the scene in the left 59%, the
-     findings in the right column. Geometry: researcher.js. Decorative SVGs are
-     aria-hidden; all editorial content is HTML text. Not animated yet. #}
-  <svg class="cel-bg" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
-  {# data-journal: the two latest observations, derived from the same piece list as the ledger (src/_data/journalPages.js) #}
-  <div class="pt-field" aria-hidden="true"><svg class="cel-fig" id="researcher-scene" data-journal="{{ journalPages | dump | escape }}" focusable="false"></svg></div>
-  <div class="pt-edit">
-  <div class="pt-head">
-    <div>
-      <p class="kicker"><span class="node-dot node-dot-ochre"></span>Articles</p>
-      <h2 class="pt-h2">What we are learning<br> from the work.</h2>
-      <p class="pt-sub">Practical observations on communities, developer programs, partnerships and AI, drawn from interviews and hands-on experience.</p>
-    </div>
-  </div>
-  <div class="pt-body" id="pt-body">
-    <svg class="pt-signal" id="pt-signal" aria-hidden="true" focusable="false"></svg>
-  <ol class="ledger" id="ledger">
-    {% for piece in publicThinking %}
-    <li class="ledger-row">
-      <span class="ledger-date">{{ piece.date | readableDate }}</span>
-      <span class="ledger-meta"><span class="entry-format">{{ 'Article' if piece.format == 'Field Note' else piece.format }}</span><span class="entry-conf">{{ piece.confidence }}</span></span>
-      <div class="ledger-main">
-        <h3 class="ledger-title"><a href="{{ piece.url }}">{{ piece.title }}</a></h3>
-        {% if piece.deck %}<p class="ledger-deck">{{ piece.deck }}</p>{% endif %}
-        <span class="entry-topics">{% for t in piece.topics %}<span>{{ t }}</span>{% endfor %}</span>
-      </div>
-      <a class="entry-link ledger-link" href="{{ piece.url }}">Read article →</a>
-      {# the finding's own constellation: one identified object inside the larger field, crossing the record's edge #}
-      {% if piece.motif %}<div class="rec-motif" aria-hidden="true">{{ ptConstellation(piece.motif, 'record', 'dark') }}</div>{% endif %}
-    </li>
-    {% endfor %}
-  </ol>
-  <a class="kctl kctl-secondary pt-seeall" id="pt-seeall" href="/public-thinking/"><span class="kctl-row"><span class="kctl-label">See all Articles</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
-  <div class="pt-foot">
-    <aside class="research-launch" aria-labelledby="research-launch-title">
-      <div class="research-launch-copy">
-        <p class="research-launch-label"><span aria-hidden="true"></span>Research in progress</p>
-        <h3 id="research-launch-title">When Participant Knowledge Enters AI Answers</h3>
-        <p class="research-launch-deck">{{ researchTeaser.en }}</p>
-      </div>
-      <svg class="research-rocket" viewBox="0 0 320 360" aria-hidden="true" focusable="false">
-        <g transform="rotate(35 160 150)">
-          <g class="rocket-lines">
-            <path d="M150 28L169 65L179 110L178 168L162 210L138 210L122 168L121 110L131 65Z M131 65L169 65 M122 168L138 210 M178 168L162 210 M121 142L96 192L94 226L133 200 M179 142L204 192L206 226L167 200 M138 210L140 229L150 244L160 229L162 210"/>
-            <path d="M150 91L163 97L169 111L163 125L150 131L137 125L131 111L137 97Z"/>
-          </g>
-          <g class="rocket-nodes">
-            {% for point in [[150,28],[169,65],[179,110],[178,168],[162,210],[138,210],[122,168],[121,110],[131,65],[96,192],[94,226],[204,192],[206,226],[133,200],[167,200],[150,91],[163,97],[169,111],[163,125],[150,131],[137,125],[131,111],[137,97],[140,229],[160,229]] %}
-            <circle cx="{{ point[0] }}" cy="{{ point[1] }}" r="1.7"/>
-            {% endfor %}
-          </g>
-          <g class="rocket-trail">
-            <path d="M139 242L116 324M150 253L150 342M161 242L184 324"/>
-            {% for point in [[139,251],[132,274],[126,297],[119,321],[150,267],[150,291],[150,320],[163,253],[169,276],[175,297],[181,319]] %}
-            <circle cx="{{ point[0] }}" cy="{{ point[1] }}" r="1"/>
-            {% endfor %}
-          </g>
-        </g>
-        <path class="rocket-star" d="M93 266Q94 277 104 278Q94 279 93 290Q92 279 82 278Q92 277 93 266Z"/>
-        <path class="rocket-glint" d="M223 45v12M217 51h12"/>
-      </svg>
-    </aside>
-  </div>
-  </div>
-  </div>
+<section class="founder-section" data-editorial id="founder-section" aria-labelledby="founder-name" data-reveal>
+  <div class="founder-portrait"><img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy"></div>
+  <div><p class="kicker">The person behind the work</p><blockquote>“As the field of possible action expands, deciding where its boundaries sit becomes more important.”</blockquote><p class="founder-quote-source">From <a href="/public-thinking/who-keeps-the-thread/">Who Keeps the Thread?</a></p><h2 id="founder-name">Carmelito Bauer</h2><p class="founder-role">Founder, Communitygeeks</p><p class="founder-experience">More than a decade designing and running community, developer, education and advocacy programmes across AI and SaaS, public-sector learning and games. The method comes from seeing where what a programme claims and what actually happens don’t match, and turning that evidence into a decision.</p><a class="text-link" href="/about/">About Communitygeeks <span aria-hidden="true">↗</span></a></div>
 </section>
-
-{# ------------------------------------------- FOUNDER: warm human surface #}
-<section class="founder" id="founder-section" aria-labelledby="founder-name">
-  <article class="author-note" id="founder">
-    <div class="author-row">
-      <figure class="author-fig">
-        <img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy">
-        <span class="tick tick-tl"></span><span class="tick tick-br"></span>
-      </figure>
-      <div>
-        <span class="note-kicker">Founder · The person behind the work</span>
-        <h3 class="author-name" id="founder-name">Carmelito Bauer</h3>
-        <p class="author-role">Founder, Communitygeeks</p>
-        <p class="author-bio">Carmelito Bauer brings more than a decade of community and developer program experience to questions about adoption, partnerships and where to invest next.</p>
-        <a class="entry-link" href="/about/">About Communitygeeks →</a>
-      </div>
-    </div>
-  </article>
-</section>
-
-{# ------------------------------------------------------------- CLOSE #}
-<section class="close chapter" id="talk" data-chapter="07" data-title="Talk">
-  <div class="close-grid">
-    <div>
-      <p class="kicker close-kicker"><span class="node-dot node-dot-ochre"></span>Get in touch</p>
-      <h2 class="close-h2">Let’s talk about<br>your project.</h2>
-    </div>
-    <div class="close-side">
-      <p class="close-sub">Tell us where customers, developers or partners get stuck, or which decision your team needs help making.</p>
-      <div class="close-actions">
-        <a href="/contact/" class="kctl"><span class="kctl-rule" aria-hidden="true"></span><span class="kctl-row"><span class="kctl-label">Discuss your project</span><span class="kctl-mark" aria-hidden="true"></span></span></a>
-        <p class="close-mail-row"><span>Direct, no form required if you&rsquo;d rather just write:</span><a href="mailto:carmelito@communitygeeks.de" class="close-mail">carmelito@communitygeeks.de</a></p>
-        <a href="/public-thinking/" class="close-secondary">Read our articles →</a>
-      </div>
-    </div>
-  </div>
+<section class="close" data-editorial id="talk" aria-label="Discuss an engagement">
+  {% include "partials/final-booking-v31.njk" %}
+  <p class="direct-contact">Prefer to write? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
   {% set inline = true %}{% include "partials/field-shell-foot.njk" %}
 </section>

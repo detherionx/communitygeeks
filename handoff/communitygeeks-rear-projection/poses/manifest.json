@@ -1,0 +1,106 @@
+{
+  "version": "2026-09-28-rear-projection",
+  "svgFormat": "Self-contained SVG with embedded raster PNG; not editable vector paths",
+  "assets": [
+    {
+      "name": "walk",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 812993,
+      "webpBytes": 524282,
+      "svgBytes": 1084306,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "walk-flipped",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 793325,
+      "webpBytes": 515792,
+      "svgBytes": 1058090,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "wait",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 724193,
+      "webpBytes": 464680,
+      "svgBytes": 965906,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "carry",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 878303,
+      "webpBytes": 584836,
+      "svgBytes": 1171387,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "inspect",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 858872,
+      "webpBytes": 558076,
+      "svgBytes": 1145481,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "handoff",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 1220555,
+      "webpBytes": 816068,
+      "svgBytes": 1627725,
+      "transparent": true,
+      "treatment": "Rear-origin internal face projection"
+    },
+    {
+      "name": "connect",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 746932,
+      "webpBytes": 480992,
+      "svgBytes": 996229,
+      "transparent": true,
+      "treatment": "Retained rear view: projection occluded by helmet shell"
+    },
+    {
+      "name": "connect-flipped",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 761407,
+      "webpBytes": 493870,
+      "svgBytes": 1015537,
+      "transparent": true,
+      "treatment": "Retained rear view: projection occluded by helmet shell"
+    },
+    {
+      "name": "compare",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 746258,
+      "webpBytes": 484434,
+      "svgBytes": 995329,
+      "transparent": true,
+      "treatment": "Retained rear view: projection occluded by helmet shell"
+    },
+    {
+      "name": "compare-flipped",
+      "width": 1254,
+      "height": 1254,
+      "pngBytes": 749563,
+      "webpBytes": 488492,
+      "svgBytes": 999745,
+      "transparent": true,
+      "treatment": "Retained rear view: projection occluded by helmet shell"
+    }
+  ]
+}

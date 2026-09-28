@@ -1,6 +1,8 @@
 import {participantSVG,arrivalProgress} from './visual-primitives.mjs?v=ceramic-2';
 for(const id of ['customer-person','developer-person','partner-person','relationship-person']){const node=document.getElementById(id);if(node)node.innerHTML=participantSVG(id);}
 const services=document.querySelector('#approach'),field=document.querySelector('#system'),reduced=matchMedia('(prefers-reduced-motion: reduce)'),phone=matchMedia('(max-width:760px)');
+// The current homepage reuses these anchors for recognition and method.
+if(services?.querySelector('.customer-arrives use')&&field?.classList.contains('relationship-section')){
 // Identity is retained: these exact nine Services participants become these field actors.
 const mapping=[['.customer-arrives',0],['.customer-returns',1],['.customer-active',3],['.customer-friend',8],['.developer-builds',2],['.developer-second',10],['.partner-active',4],['.market-one',5],['.market-two',17]];
 const layer=document.createElement('div');layer.className='services-handoff';layer.hidden=true;layer.setAttribute('aria-hidden','true');document.body.append(layer);
@@ -10,3 +12,4 @@ field.addEventListener('cg:participant-projections',e=>{projections=e.detail;if(
 function paint(){if(!projections)return;const p=Number(field.dataset.arrival),ease=p*p*(3-2*p);for(const actor of people){const b=actor.source.getBoundingClientRect(),target=projections[actor.id];if(!target)continue;const x=b.left+b.width/2+(target.x-b.left-b.width/2)*ease,y=b.top+b.height/2+(target.y-b.top-b.height/2)*ease-45*Math.sin(Math.PI*p),height=b.height+(target.height-b.height)*ease,width=height*32/55;actor.svg.style.cssText=`left:${x-width/2}px;top:${y-height/2}px;width:${width}px;height:${height}px;opacity:${1-Math.max(0,(p-.9)/.1)};`;}}
 function update(){frame=0;const ready=field.classList.contains('relationship-ready'),p=reduced.matches||phone.matches||!ready?1:arrivalProgress(field.getBoundingClientRect().top,innerHeight);field.dataset.arrival=p;active=p>0&&p<1&&ready;layer.hidden=!active||!projections;services.classList.toggle('services-departing',active);services.style.setProperty('--stage-presence',1-Math.min(1,p*1.8));field.classList.toggle('relationship-arriving',active);field.style.setProperty('--arrival-copy',Math.min(1,Math.max(0,(p-.5)*2)));if(active)paint();}
 function request(){if(!frame)frame=requestAnimationFrame(update);}addEventListener('scroll',request,{passive:true});addEventListener('resize',request);reduced.addEventListener('change',request);phone.addEventListener('change',request);let wasReady=false;new MutationObserver(()=>{const ready=field.classList.contains('relationship-ready');if(ready!==wasReady){wasReady=ready;request();}}).observe(field,{attributes:true,attributeFilter:['class']});update();
+}

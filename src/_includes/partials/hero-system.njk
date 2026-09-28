@@ -1,0 +1,52 @@
+{# v60 hero: one organisation, three participant groups, the relationships between them and one change to test.
+   Shape encodes the group everywhere on the page: circle = community and customers, square = developers,
+   triangle = partners. Coral marks only where to act. Numerals key into the HTML legend beneath. #}
+{% from "partials/participation-scenes.njk" import robot %}
+<svg class="system-art" viewBox="0 0 760 640" role="img" aria-labelledby="system-title system-desc">
+  <title id="system-title">People connect across teams and channels</title>
+  <desc id="system-desc">An organisation at the centre of three participant groups. Customers and community members come back, developers bring an integration into production and partners open new routes to market. Dashed lines show relationships between the groups; one of them is marked as where to act next.</desc>
+  <defs>
+    <radialGradient id="system-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 360) scale(420)">
+      <stop offset="0" stop-color="#2B5C5B" stop-opacity=".55"/><stop offset="1" stop-color="#2B5C5B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="210" cy="360" r="420" fill="url(#system-glow)"/>
+  <g class="system-rings" fill="none">
+    <circle cx="210" cy="360" r="172"/><circle cx="210" cy="360" r="268" class="ring-dash"/><circle cx="210" cy="360" r="372"/><circle cx="210" cy="360" r="486"/>
+  </g>
+  {# satellites drift on the rings; static when motion is reduced #}
+  <g class="system-drift drift-a"><circle cx="210" cy="92" r="3.5"/></g>
+  <g class="system-drift drift-b"><rect x="206" y="-15" width="7" height="7"/></g>
+
+  <g class="system-spokes">
+    <path class="spoke" pathLength="1" d="M312 312 L452 196"/>
+    <path class="spoke" pathLength="1" d="M322 372 L546 372"/>
+    <path class="spoke" pathLength="1" d="M300 430 L454 526"/>
+  </g>
+  <g class="system-ties" fill="none">
+    <path class="tie" d="M478 198 C530 230 562 290 566 346"/>
+    <path class="tie" d="M444 200 C360 300 360 440 450 520"/>
+    <path class="tie tie-change" d="M566 398 C566 452 540 494 490 522"/>
+  </g>
+  <g class="system-change" transform="translate(547 470)">
+    <path d="M0 -13 13 0 0 13 -13 0Z"/>
+  </g>
+
+  <g class="system-core">
+    <circle cx="210" cy="360" r="114" class="core-disc"/>
+    <rect x="156" y="306" width="108" height="108" class="core-square"/>
+    <path class="core-team" d="M176 334h68"/><path class="core-team" d="M176 356h44"/><path class="core-team" d="M176 378h56"/>
+    <circle cx="244" cy="394" r="5" class="core-dot"/>
+  </g>
+  <text class="system-caption" x="210" y="508" text-anchor="middle">YOUR ORGANISATION</text>
+
+  <g class="system-node node-people"><circle cx="464" cy="186" r="20"/><text x="464" y="148" text-anchor="middle">01</text></g>
+  <g class="system-node node-dev"><rect x="546" y="352" width="40" height="40"/><text x="566" y="336" text-anchor="middle">02</text></g>
+  <g class="system-node node-partner"><path d="M466 506 490 548H442Z"/><text x="466" y="494" text-anchor="middle">03</text></g>
+
+  <g class="system-crew">
+    {{ robot('system',392,248,'returner','walk',104,-1,true) }}
+    {{ robot('system',642,468,'engineer','connect',136,1,true) }}
+    {{ robot('system',640,648,'crew','handoff',146) }}
+  </g>
+</svg>

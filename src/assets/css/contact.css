@@ -33,6 +33,7 @@ ol,ul{margin:0;padding:0;list-style:none;}
 .ck{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream-80);margin-bottom:26px;}
 .approach-h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-0.02em;max-width:11ch;text-wrap:balance;}
 .approach-intro{margin-top:26px;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:var(--cream-80);max-width:34ch;text-wrap:pretty;}
+.booking-context{margin-top:22px;padding:13px 0;border-top:1px solid var(--signal);border-bottom:1px solid var(--cream-25);font:600 13px/1.45 var(--body);color:var(--cream);max-width:44ch;}
 .approach-direct{margin-top:34px;font-size:14px;line-height:1.5;color:var(--cream-80);max-width:40ch;}
 .approach-direct a{color:var(--cream);font-weight:600;border-bottom:1px solid var(--cream);}
 .approach-direct a:hover{border-color:var(--signal);}

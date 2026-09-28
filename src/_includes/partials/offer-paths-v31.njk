@@ -1,0 +1,116 @@
+{% from "partials/participation-scenes.njk" import scene %}
+<section class="recognition-section" data-editorial id="approach" aria-labelledby="recognition-title">
+  <header class="section-head recognition-intro"><p class="kicker">Where to begin</p><h2 id="recognition-title">Planning a community? Already running one?</h2><p>Start by looking beyond a member list or channel. Where do people already ask, share, build and make introductions? Which connections need support, and which are already working?</p></header>
+  <ol class="recognition-grid">
+    <li data-reveal><div class="recognition-art">{{ scene('recognition-value', 'arrival') }}</div><div class="recognition-copy"><p class="group-tag"><span class="glyph glyph-circle" aria-hidden="true"></span>Community &amp; customers</p><h3>Starting or redesigning a community? See where people already get help.</h3><p>A few people get personal answers. Others search a forum, ask a peer, reread the docs or give up. We map who gets help, where your team runs out of attention and whether a community would close the gap.</p></div></li>
+    <li data-reveal><div class="recognition-art">{{ scene('recognition-friction', 'building') }}</div><div class="recognition-copy"><p class="group-tag"><span class="glyph glyph-square" aria-hidden="true"></span>Developers</p><h3>Developers build fast. Where do they actually get stuck?</h3><p>Some stall before they start, unsure if the idea is even worth funding. Others ship a working integration, go quiet, and never come back when something breaks. A pull request sits unreviewed because nobody owns the queue. We trace where developers actually drop off, and who should be catching them.</p></div></li>
+    <li data-reveal><div class="recognition-art">{{ scene('recognition-direction', 'paths') }}</div><div class="recognition-copy"><p class="group-tag"><span class="glyph glyph-triangle" aria-hidden="true"></span>Partners</p><h3>Partner programmes run fine. Until the person running them leaves.</h3><p>One partner gets a weekly call because they happen to generate the most revenue. Another waits months with no stated reason why. A programme can coast for years without a real owner, then stall the moment someone moves on. We show you which partners deserve the time, and whether a quiet one is a deliberate pause or a programme nobody owns.</p></div></li>
+  </ol>
+  <aside class="recognition-dependency" aria-labelledby="dependency-title" data-reveal>
+    <svg class="dependency-art" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+      <circle class="dep-ring" cx="120" cy="120" r="104"/><circle class="dep-ring dep-ring-dash" cx="120" cy="120" r="70"/>
+      <path class="dep-link" d="M120 120 L46 64M120 120 L204 92M120 120 L82 206M120 120 L186 186"/>
+      <circle class="dep-node" cx="46" cy="64" r="9"/><rect class="dep-node" x="195" y="83" width="18" height="18"/><path class="dep-node" d="m82 194 11 20H71Z"/><circle class="dep-node dep-node-open" cx="186" cy="186" r="9"/>
+      <circle class="dep-lead" cx="120" cy="120" r="22"/>
+    </svg>
+    <div><p class="kicker">A question before you scale</p><h3 id="dependency-title">Would the programme still run if its lead left?</h3></div>
+    <div><p>Introductions, decisions and know-how can sit with one trusted person, even when the programme looks busy. We check which responsibilities your team can carry, which need a new owner and what should be designed into the programme from the start.</p><a class="text-link" href="#diagnoses">Explore the starting questions <span aria-hidden="true">↘</span></a></div>
+  </aside>
+</section>
+<section class="method-section" data-editorial id="system" aria-labelledby="method-title">
+  <header class="section-head"><div><p class="kicker">How we work</p><h2 id="method-title">Map the relationships.<br>Choose where to act.</h2></div><p>In 10 working days, we examine a defined participation question across the people, places and teams involved. That can mean deciding whether to start a community, why an existing one misses people, or where a developer or partner path breaks. You leave with a decision your team can act on.</p></header>
+  <ol class="diagnosis-process" data-reveal>
+      <li><svg class="process-mark" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><circle class="pm-line" cx="48" cy="48" r="40"/><circle class="pm-line" cx="48" cy="48" r="22"/><circle class="pm-fill" cx="48" cy="48" r="7"/></svg><span class="process-number">01</span><h3>Observe</h3><p>Identify who is involved, where they already meet, what they do together and which teams support them. Interview people and inspect the relevant paths and evidence.</p></li>
+      <li><svg class="process-mark" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><path class="pm-line" d="M18 72 44 30 78 54M44 30 50 80"/><circle class="pm-fill" cx="18" cy="72" r="7"/><rect class="pm-fill" x="37" y="23" width="14" height="14"/><path class="pm-fill" d="m78 44 9 16H69Z"/><circle class="pm-line" cx="50" cy="80" r="6"/></svg><span class="process-number">02</span><h3>Explain</h3><p>Identify useful connections, missing support and unclear handoffs. Mark what is known, inferred and worth prioritising.</p></li>
+      <li><svg class="process-mark" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><path class="pm-line" d="M8 48H30M66 48H88M48 8V30M48 66V88"/><rect class="pm-act" x="30" y="30" width="36" height="36"/></svg><span class="process-number">03</span><h3>Decide</h3><p>Rank what changes first, what should be left alone and whether to proceed, redirect or stop.</p></li>
+    </ol>
+  <div class="method-output">
+    <p class="kicker">What you leave with</p>
+    <dl><div><dt>Relationship map</dt><dd>Who is involved, where they meet and what is missing</dd></div><div><dt>Ranked options</dt><dd>What to start, connect, change or leave alone</dd></div><div><dt>Decision session</dt><dd>A working session to choose the next move and owner</dd></div></dl>
+    <p class="method-boundary">The diagnosis stands alone. Further work is a separate decision.</p>
+  </div>
+</section>
+<section class="experience-section" data-editorial id="experience" aria-labelledby="experience-title">
+  <header class="section-head"><p class="kicker">Experience behind the method</p><h2 id="experience-title">Selected work.</h2><p>SaaS, AI, gaming and education.</p></header>
+  <div class="work-panels">
+    {% for client in clients.selectedWork %}<article class="work-panel" aria-label="{{client.name}}">
+      <span class="work-logo" style="--proof-logo:url('{{client.logoPath}}')" role="img" aria-label="{{client.name}}"></span>
+      <p class="work-detail">{{client.proof}}</p>
+    </article>{% endfor %}
+  </div>
+</section>
+<div class="commercial-journey" data-editorial>
+<section class="v31-offers" id="diagnoses" aria-labelledby="offers-title">
+
+
+  {% set tracks = ['Community Programme', 'Customer Adoption', 'Developer Integration', 'Partner Opportunity'] %}
+  {% set shapes = ['circle', 'semicircle', 'square', 'triangle'] %}
+  {% set symptoms = ['Starting a community, or unsure what your current one should do?', 'People start, but lasting use does not follow.', 'Developers try. Integrations do not reach production.', 'Partners are signed. You cannot tell which ones create value.'] %}
+  <div class="diagnosis-selector" data-diagnosis-selector>
+    <div class="diagnosis-index">
+  <header class="section-head"><div><p class="kicker">One way in</p><h2 id="offers-title">Choose the decision you need to make.</h2></div><p>These are starting questions, not separate silos. We follow the relevant connections across customers, developers, partners and internal teams within an agreed scope.</p></header>
+    <div class="diagnosis-choices" role="radiogroup" aria-label="Choose one diagnosis">{% for offer in offersV31.offers %}<a href="#offer-{{ offer.id }}" role="radio" id="track-{{offer.id}}" aria-controls="offer-{{offer.id}}" aria-checked="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}" data-diagnosis-track="{{offer.id}}"><span class="choice-dot glyph glyph-{{shapes[loop.index0]}}" aria-hidden="true"></span><strong>{{tracks[loop.index0]}}</strong><span class="choice-symptom">{{symptoms[loop.index0]}}</span><span class="choice-cue" aria-hidden="true"></span></a>{% endfor %}</div>
+
+    </div>
+    <details class="diagnosis-disclosure" data-diagnosis-disclosure>
+      <summary><span>Scope &amp; deliverables</span><strong data-selected-diagnosis>{{offersV31.offers[0].name}}</strong><span class="disclosure-hint" aria-hidden="true"><span class="hint-show">Show scope</span><span class="hint-hide">Hide scope</span></span><span class="disclosure-mark" aria-hidden="true">+</span></summary>
+    <div class="diagnosis-detail">{% for offer in offersV31.offers %}<article class="diagnosis-panel" role="region" tabindex="0" id="offer-{{offer.id}}" aria-labelledby="track-{{offer.id}}" data-offer="{{offer.id}}" data-track="{{tracks[loop.index0]}}" data-name="{{offer.name}}" data-intro="{{offer.bookingIntro}}"{% if not loop.first %} hidden{% endif %}><h3 class="sr-only">{{offer.name}}</h3><p class="diagnosis-problem">{{offer.problem}}</p><p class="diagnosis-scope">{{offer.scope}}</p><dl><div><dt>We trace</dt><dd>{{offer.trace}}</dd></div><div><dt>You leave with</dt><dd>{{offer.deliverable}}</dd></div><div><dt>This is not</dt><dd>{{offer.excludes}}</dd></div></dl></article>{% endfor %}</div>
+<div class="decision-section" aria-labelledby="decision-title">
+  <h3 id="decision-title">Your diagnosis ends with a clear next move</h3>
+  <ul class="decision-options"><li><span class="decision-symbol" aria-hidden="true">→</span><div><strong>Proceed</strong><p>Act on the cause the evidence supports.</p></div></li><li><span class="decision-symbol" aria-hidden="true">↗</span><div><strong>Redirect</strong><p>Change the priority before committing.</p></div></li><li><span class="decision-symbol" aria-hidden="true">■</span><div><strong>Stop</strong><p>Do not fund a change the evidence cannot support.</p></div></li></ul>
+</div>
+    </details>
+    <div class="engagement-comparison" id="engagements" aria-labelledby="engagements-title">
+      <header class="section-head"><p class="kicker">Three ways to work together</p><h2 id="engagements-title">Choose the depth of work.</h2><p>A clear decision. One change in practice. Or an ongoing partnership.</p></header>
+      {% set selectedOffer = offersV31.offers[0] %}
+      <div class="engagement-tiers">
+        <article class="engagement-tier" aria-labelledby="tier-diagnosis">
+          <p class="tier-marker"><span aria-hidden="true">→</span> Start with evidence</p>
+          <h3 id="tier-diagnosis">Diagnosis</h3>
+          <p class="tier-price">{{offersV31.diagnosisPrice}}</p>
+          <p class="tier-duration"><strong>{{offersV31.diagnosisDuration}}</strong> <span>Fixed fee · starts once access is ready</span></p>
+          <p class="tier-outcome">Know what to start, connect or change first.</p>
+          <ul><li>One agreed participation question and the people and spaces relevant to it.</li><li>Ranked causes or opportunities, with confidence made clear.</li><li>A proceed, redirect or stop decision.</li></ul>
+          <div class="tier-actions"><button class="v31-book" type="button" data-contextual-cta data-offer="{{selectedOffer.id}}" data-name="{{selectedOffer.name}}" data-intro="{{selectedOffer.bookingIntro}}">Discuss a diagnosis <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="engagement-tier engagement-tier-programme" aria-labelledby="tier-programme">
+          <p class="tier-marker"><span aria-hidden="true">↗</span> From evidence to action</p>
+          <h3 id="tier-programme">Programme</h3>
+          <p class="tier-price">{{offersV31.continuationPrice}}</p>
+          <p class="tier-duration"><strong>{{offersV31.continuationDuration}} in total</strong> <span>Total engagement fee · including diagnosis</span></p>
+          <p class="tier-outcome">Put one supported decision into practice.</p>
+          <ul><li>Design the change around the evidence.</li><li>Test it where the work happens.</li><li>Observe, adapt and decide what comes next.</li></ul>
+          <p class="tier-credit">{{offersV31.diagnosisPrice}} diagnosis credited. <strong>{{offersV31.continuationRemaining}} remaining</strong> when the Programme begins within 30 days of the diagnosis.</p>
+          <div class="tier-actions"><button class="v31-book" type="button" data-contextual-cta data-terms="{{offersV31.continuationPrice}} total · {{offersV31.continuationDuration}}" data-tier-label="Programme" data-tier-intro="A 30-minute call about one change you want to put into practice, the evidence behind it and whether the 16-week Programme fits." data-offer="{{selectedOffer.id}}" data-name="Programme · {{tracks[0]}}" data-intro="A 30-minute call about whether the 16-week Programme fits.">Discuss a programme <span aria-hidden="true">↗</span></button>
+          <a class="tier-route" href="#continuation">See the 16-week route <span aria-hidden="true">↓</span></a></div>
+        </article>
+        <article class="engagement-tier" aria-labelledby="tier-partnership">
+          <p class="tier-marker"><span aria-hidden="true">↔</span> Beyond one programme</p>
+          <h3 id="tier-partnership">Partnership</h3>
+          <p class="tier-price tier-price-custom">Custom pricing</p>
+          <p class="tier-duration"><strong>Ongoing / multi-quarter</strong> <span>Scope and rate agreed together</span></p>
+          <p class="tier-outcome">Keep improving as the next priorities emerge.</p>
+          <ul><li>Further diagnosis and intervention cycles.</li><li>Priority access and quarterly reviews.</li><li>A standing relationship with custom scope.</li></ul>
+          <div class="tier-actions"><button class="v31-book" type="button" data-contextual-cta data-terms="Custom pricing · Ongoing / multi-quarter" data-tier-label="Partnership" data-tier-intro="A 30-minute call about your ongoing priorities, the working relationship you need and a custom scope and rate." data-offer="{{selectedOffer.id}}" data-name="Partnership · {{tracks[0]}}" data-intro="A 30-minute call about your ongoing priorities and a custom working relationship.">Discuss a partnership <span aria-hidden="true">↗</span></button></div>
+        </article>
+      </div>
+      <p class="tier-terms">Fees exclude VAT where applicable. Work starts once the agreed access and inputs are ready.</p>
+    </div>
+  </div>
+</section>
+<section class="continuation-section" id="continuation" aria-labelledby="continuation-title">
+  <header class="section-head"><div><p class="kicker">Programme · 16 weeks in total</p><h2 id="continuation-title">Choose one move. Make it work in practice.</h2></div><p>Begin with a diagnosis to establish what deserves action. The remaining 14 weeks turn one supported change into a live test, expose the handoffs that could hold it back and show whether people actually return, ship, contribute or create new routes to market.</p></header>
+  <ol class="route-ruler" aria-label="The 16 weeks" data-reveal>
+      <li style="--from:1;--to:3"><span>Weeks 1–2</span>Diagnose</li>
+      <li style="--from:3;--to:6"><span>Weeks 3–5</span>Choose the change</li>
+      <li style="--from:6;--to:9"><span>Weeks 6–8</span>Put it under pressure</li>
+      <li style="--from:9;--to:17"><span>Weeks 9–16</span>Back what moves</li>
+    </ol>
+  <div class="engagement-body">
+    {% include "partials/mission-route.njk" %}
+  </div>
+{% set selectedOffer = offersV31.offers[0] %}
+<aside id="fit-call" data-reveal class="integrated-call" aria-labelledby="v31-path-cta-title"><div><h2 id="v31-path-cta-title">Bring the decision. Let’s talk.</h2></div><div class="v31-path-cta-actions"><p data-selected-diagnosis>{{selectedOffer.name}}</p><button class="v31-book" type="button" data-contextual-cta data-terms="{{offersV31.continuationPrice}} total · {{offersV31.continuationDuration}}" data-tier-label="Programme" data-tier-intro="A 30-minute call about the change you want to put into practice and whether the 16-week Programme fits." data-offer="{{selectedOffer.id}}" data-name="Programme · {{tracks[0]}}" data-intro="A 30-minute call about the 16-week Programme.">Discuss a programme <span aria-hidden="true">↗</span></button></div></aside>
+</section>
+</div>
+

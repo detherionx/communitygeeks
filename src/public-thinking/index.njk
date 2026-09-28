@@ -36,10 +36,11 @@ extraScripts:
 </section>
 
 <div class="wrap">
-  <aside class="research-teaser" aria-labelledby="research-teaser-title">
+  <aside class="research-teaser" id="research" aria-labelledby="research-teaser-title">
     <p class="research-teaser-label">Research in progress</p>
     <h2 id="research-teaser-title">When Participant Knowledge Enters AI Answers</h2>
     <p>{{ researchTeaser.en }}</p>
+    <p class="research-boundary">{{ researchTeaser.boundaryEn }}</p>
   </aside>
   {% set availableFormats = publicThinkingFormats | publishedFormats(publicThinking) %}
   {% if availableFormats.length > 1 %}

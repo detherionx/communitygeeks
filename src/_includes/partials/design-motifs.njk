@@ -1,0 +1,45 @@
+{# Shared geometry connects each recognised problem to its diagnosis. #}
+{% macro problemMotif(number) %}
+<svg class="v32-motif" viewBox="0 0 180 150" aria-hidden="true" focusable="false">
+  <path class="motif-guide" d="M0 75H180M90 0V150"/>
+  {% if number == '01' %}
+  <circle class="motif-orbit" cx="72" cy="75" r="48"/><circle class="motif-orbit" cx="108" cy="75" r="48"/>
+  <path class="motif-solid" d="M90 39A48 48 0 0 1 90 111A48 48 0 0 1 90 39Z"/>
+  <path class="motif-signal" d="M55 38 127 110"/><circle class="motif-node" cx="55" cy="38" r="7"/>
+  {% elif number == '02' %}
+  <path class="motif-orbit" d="M20 115H61V75H105M129 75H160V35"/>
+  <circle class="motif-solid" cx="20" cy="115" r="12"/><circle class="motif-orbit" cx="160" cy="35" r="12"/>
+  <path class="motif-signal" d="M105 54V96M129 54V96"/><circle class="motif-node" cx="61" cy="75" r="7"/>
+  {% elif number == '03' %}
+  <path class="motif-solid" d="M20 33H76V61H55V117H20Z"/><path class="motif-orbit" d="M104 33H160V117H125V89H104Z"/>
+  <path class="motif-signal" d="M62 75H119M84 63 96 87"/><circle class="motif-node" cx="146" cy="33" r="7"/>
+  {% else %}
+  <path class="motif-orbit" d="M24 115 90 75 148 27M90 75 151 120M90 75V18"/>
+  <circle class="motif-solid" cx="24" cy="115" r="13"/><circle class="motif-orbit" cx="148" cy="27" r="13"/><circle class="motif-orbit" cx="151" cy="120" r="13"/>
+  <path class="motif-signal" d="m77 75 13-13 13 13-13 13Z"/><circle class="motif-node" cx="90" cy="18" r="7"/>
+  {% endif %}
+</svg>
+{% endmacro %}
+
+{% macro phaseMotif(phase) %}
+<svg class="v32-phase-art" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+  <g class="phase-grid"><circle cx="200" cy="200" r="158"/><circle cx="200" cy="200" r="107"/><path d="M200 18V382M18 200H382M71 71 329 329M329 71 71 329"/></g>
+  {% if phase == 0 %}
+  <path class="phase-thread" d="m69 239 69-119 111 47 65 117M138 120 186 300"/>
+  <circle class="phase-mass" cx="138" cy="120" r="32"/><circle class="phase-outline" cx="69" cy="239" r="16"/><circle class="phase-outline" cx="314" cy="284" r="24"/><circle class="phase-dot" cx="186" cy="300" r="9"/>
+  <circle class="phase-lens" cx="249" cy="167" r="58"/><path class="phase-cross" d="M249 148V186M230 167H268M290 210 331 251"/>
+  {% elif phase == 1 %}
+  <rect class="phase-outline" x="92" y="92" width="216" height="216" transform="rotate(-15 200 200)"/>
+  <path class="phase-mass" d="M124 272 200 124 276 272Z"/><circle class="phase-lens" cx="200" cy="200" r="58"/><circle class="phase-dot" cx="200" cy="124" r="10"/>
+  <path class="phase-cross" d="M82 324H318M124 318V330M276 318V330"/>
+  {% elif phase == 2 %}
+  <path class="phase-thread" d="M46 256H146V144H354"/>
+  <path class="phase-mass" d="M106 220H184V294H106Z"/><circle class="phase-outline" cx="270" cy="144" r="48"/>
+  <path class="phase-cross" d="M208 144H317M300 127 317 144 300 161"/><circle class="phase-dot" cx="46" cy="256" r="10"/>
+  {% else %}
+  <path class="phase-thread" d="M200 66A134 134 0 1 1 69 174"/><path class="phase-cross" d="m54 192 15-18 18 15"/>
+  <circle class="phase-mass" cx="200" cy="200" r="57"/><circle class="phase-lens" cx="200" cy="200" r="90"/>
+  <path class="phase-cross" d="m165 200 25 25 51-57"/><circle class="phase-dot" cx="200" cy="66" r="13"/>
+  {% endif %}
+</svg>
+{% endmacro %}

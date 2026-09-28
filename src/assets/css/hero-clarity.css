@@ -24,6 +24,7 @@
 .network-map:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 56% 48%,#031723aa 8%,#082b3455 42%,transparent 72%);}
 .network-map canvas,.network-fallback{position:absolute;inset:0;width:100%;height:100%;display:block;}
 .network-ready .network-fallback{visibility:hidden;}
+.mobile-network-node{display:contents}.mobile-node-visual{display:none}
 .network-label{position:absolute;transform:translate(-50%,-50%);width:max-content;max-width:46%;text-align:left;font-family:var(--body);pointer-events:none;text-shadow:0 2px 12px #173c40;}
 .network-label strong{display:block;font-size:clamp(18px,1.45vw,24px);font-weight:500;line-height:1.25;}
 .network-label span{display:block;margin-top:5px;font-size:clamp(13px,1vw,16px);line-height:1.3;color:#B8D0CB;}
@@ -72,3 +73,39 @@
 .hero-explainer:not(.is-focused) #hero-diagram-caption{visibility:hidden;}
 .craft-hit{z-index:3}.label-team{text-align:center;max-width:none}.label-team span{white-space:nowrap;font-size:11px}.label-team em{display:none}.orb-decision{font-size:12px}.orb-decision span{font-size:10px}
 [data-focus="team"] .label-team span{display:block;font-size:10px}[data-focus="team"] .orb-focus-cta,[data-focus="team"] .orb-illustration-note{display:none}[data-focus="team"] #hero-diagram-caption{visibility:hidden}
+
+/* v3.2: keep the three-role model visible before the next section. */
+@media(min-width:1001px) and (max-width:1350px){.network-map{width:106%;margin:0 -3%}.network-map canvas,.network-fallback{transform:scale(.9);transform-origin:50% 50%}.label-team{left:39%;top:64%}.label-partners{top:75%}}
+@media(max-width:600px){.hero-clarity .hero-pin{gap:4px;min-height:0;padding-top:calc(var(--bar-h) + 18px);padding-bottom:14px}.hero-clarity .hero-h1{font-size:clamp(42px,12vw,54px);line-height:.98}.hero-clarity .hero-sub{margin-top:15px}.hero-clarity .hero-controls{margin-top:18px}.network-map{height:238px;width:100%;margin:0;aspect-ratio:auto}.network-label span{display:none}.label-customers{left:25%;top:16%}.label-developers{left:75%;top:16%}.label-partners{left:25%;top:62%}.label-team{left:72%;top:62%;width:128px}.label-team strong{font-size:14px}.label-team span{display:block;white-space:normal;font-size:10px;line-height:1.25}.hero-explainer:not(.is-focused) .network-foot{display:none}}
+@media(max-width:420px){.hero-clarity .hero-pin{gap:0;padding-top:calc(var(--bar-h) + 14px);padding-bottom:8px}.hero-clarity .hero-h1{font-size:42px}.hero-clarity .hero-sub{margin-top:12px}.hero-clarity .hero-controls{margin-top:14px}.network-map{height:210px}.label-customers,.label-developers{top:14%}.label-partners,.label-team{top:56%}}
+
+/* First-paint mobile composition: three external groups around the central team. */
+@media(max-width:580px){
+.hero-explainer:not(.is-focused) .network-map{height:280px}
+.hero-explainer:not(.is-focused) .network-fallback,.hero-explainer:not(.is-focused) .network-map>canvas{display:none!important}
+.hero-explainer:not(.is-focused) .mobile-network-node{position:absolute;display:flex;flex-direction:column;align-items:center;z-index:2;width:42%;pointer-events:none}
+.hero-explainer:not(.is-focused) .mobile-node-visual{display:block;flex:none}
+.hero-explainer:not(.is-focused) .mobile-node-customers{left:2%;top:0}.hero-explainer:not(.is-focused) .mobile-node-developers{right:2%;top:0}
+.hero-explainer:not(.is-focused) .mobile-node-team{left:34%;top:35%;width:32%}.hero-explainer:not(.is-focused) .mobile-node-partners{left:29%;top:66%}
+.hero-explainer:not(.is-focused) .mobile-node-customers .network-label,.hero-explainer:not(.is-focused) .mobile-node-developers .network-label,.hero-explainer:not(.is-focused) .mobile-node-partners .network-label{order:-1}
+.hero-explainer:not(.is-focused) .network-label{position:static!important;left:auto!important;top:auto!important;transform:none!important;padding:2px;text-align:center;pointer-events:auto}
+.hero-explainer:not(.is-focused) .mobile-orb{width:78px;height:78px}.hero-explainer:not(.is-focused) .mobile-node-partners .mobile-orb{width:72px;height:72px}
+.hero-explainer:not(.is-focused) .mobile-craft{width:58px;height:54px;margin-bottom:1px}
+.mobile-orb svg,.mobile-craft svg{display:block;width:100%;height:100%;overflow:visible}
+.mobile-orb-shell{fill:rgba(27,76,77,.36);stroke:#a9c7b8;stroke-width:1;animation:mobile-orb-glow 3.8s ease-in-out infinite alternate}
+.mobile-constellation{fill:#f6f0dc;stroke:#ede5d3;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;animation:mobile-constellation-glow 2.8s ease-in-out infinite alternate}
+.mobile-constellation path{fill:none}.mobile-craft path:first-child{fill:#143c40;stroke:#b9d1c5;stroke-width:1}.mobile-craft-body{fill:#b9d1c5}.mobile-craft-ring{fill:none;stroke:#9ac5b5}.mobile-craft-core{fill:#e8735a}.mobile-craft-aerial{fill:none;stroke:#ffebcf;stroke-width:1.6}
+.hero-explainer:not(.is-focused) .mobile-node-team .network-label strong{color:#e6c9b4;font-size:14px}.hero-explainer:not(.is-focused) .mobile-node-team .network-label span{display:block;font-size:9px;line-height:1.2;white-space:nowrap}
+@keyframes mobile-orb-glow{from{opacity:.72}to{opacity:1}}@keyframes mobile-constellation-glow{from{opacity:.58}to{opacity:.92}}
+}
+@media(max-width:420px){.hero-explainer:not(.is-focused) .network-map{height:280px}}
+@media(prefers-reduced-motion:reduce){.mobile-orb-shell,.mobile-constellation{animation:none}}
+
+/* The opening keeps the celestial system; editorial emphasis supplies the contrast. */
+.hero-clarity .hero-h1{letter-spacing:-.047em}
+.hero-clarity .h1-line:last-child{font-style:italic;color:#e5c7aa}
+.hero-clarity .hero-sub{line-height:1.6}
+.hero-clarity .layer-topo{opacity:.55}
+.hero-clarity .network-label strong{letter-spacing:-.025em}
+@media(max-width:580px){.hero-clarity .hero-sub{font-size:16px;line-height:1.5}.hero-explainer:not(.is-focused) .mobile-node-team{top:31%}}
+@media(min-width:1001px){.hero-clarity .hero-pin{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3vw;min-height:min(850px,100svh);padding-block:calc(var(--bar-h) + 40px) 54px}.hero-clarity .hero-h1{font-size:clamp(50px,4.65vw,72px);line-height:1.01}.hero-clarity .hero-controls{margin-top:32px}.hero-clarity .hero-readout{font-size:11px}}

@@ -1,0 +1,41 @@
+{% from "partials/participation-scenes.njk" import robot %}
+<ol class="mission-route" aria-label="From designing the change to learning from real work">
+  <li data-reveal>
+    <svg class="mission-moment" viewBox="0 0 260 245" role="img" aria-labelledby="mission-design-title mission-design-desc">
+      <title id="mission-design-title">Prepare the change together</title><desc id="mission-design-desc">Two crew members prepare a coral intervention module above a shared plan showing its place in the system.</desc>
+      <path class="mission-platform" d="M18 210 130 184 244 210 132 238Z"/>
+      <path class="mission-plan" d="m48 211 81-18 74 18-80 17Z"/>
+      <path class="mission-diagram" d="m73 211 29-7 24 6 31-7 27 8m-58-1-2 10"/>
+      {{ robot('mission-design',130,207,'crew','handoff',208) }}
+    </svg>
+    <div class="mission-caption"><span class="mission-week">Weeks 3–5</span><h3>Choose the change</h3><p>Not a transformation programme. One change with a real chance of moving the outcome. We define who must act differently, what they need and what signal would make the investment worth continuing.</p><p class="mission-output"><span>Ready to launch</span> One intervention. Named owners. A clear before-state.</p></div>
+  </li>
+  <li data-reveal>
+    <svg class="mission-moment" viewBox="0 0 260 245" role="img" aria-labelledby="mission-test-title mission-test-desc">
+      <title id="mission-test-title">Connect the change to real work</title><desc id="mission-test-desc">A flying crew member connects a cable to a coral module in a live system. The connected system carries the signal onwards.</desc>
+      <path class="mission-housing" d="M176 63 233 51 250 67 250 169 192 184 176 167Z"/>
+      <path class="mission-panel" d="m192 81 58-14v102l-58 15Z"/>
+      <path class="mission-module" d="m196 99 44-10v48l-44 10Z"/>
+      <path class="mission-diagram" d="m207 96v-7l21-5v7m-32 29 44-10"/>
+      <path class="mission-latch" d="m215 110 7-2v13l-7 2Z"/>
+      <path class="mission-signal" d="M220 160v36l-62 17H30"/>
+      {{ robot('mission-test',90,224,'crew','connect',224) }}
+    </svg>
+    <div class="mission-caption"><span class="mission-week">Weeks 6–8</span><h3>Put it under pressure</h3><p>Launch the change where the work actually happens. We stay close enough to catch the missing owner, broken handoff or support gap before it kills adoption.</p><p class="mission-output"><span>Now live</span> The change in use. Blockers exposed. What happened recorded.</p></div>
+  </li>
+  <li data-reveal>
+    <svg class="mission-moment" viewBox="0 0 260 245" role="img" aria-labelledby="mission-learn-title mission-learn-desc">
+      <title id="mission-learn-title">Read the signal and adjust</title><desc id="mission-learn-desc">A crew member compares a flat baseline with an observed signal on a monitor. A return arrow connects the evidence to an adjustment of the same coral module.</desc>
+      <path class="mission-housing" d="M14 45 151 32 163 43 163 130 26 147 14 135Z"/>
+      <path class="mission-screen" d="m26 58 126-13v78L26 138Z"/>
+      <path class="mission-baseline" d="m39 83 99-10"/>
+      <path class="mission-signal" d="m39 118 22-3 17-17 21 5 15-24 24 5"/>
+      <path class="mission-adjust" d="M33 161v36h39m-9-8 9 8-9 8"/>
+      <path class="mission-module" d="m79 177 34-6 10 9v26l-34 7-10-9Z"/>
+      <path class="mission-diagram" d="m90 175v-8l13-3v9m-14 40v-27l34-6m-34 16 34-7"/>
+      <path class="mission-latch" d="m102 190 6-1v11l-6 1Z"/>
+      {{ robot('mission-learn',186,240,'crew','compare',198,1,true) }}
+    </svg>
+    <div class="mission-caption"><span class="mission-week">Weeks 9–16</span><h3>Back what moves</h3><p>Did more people return? Did integrations ship? Did contribution or partner value improve? Keep what moved, repair what stalled or stop before more budget disappears.</p><p class="mission-output"><span>Your decision</span> Scale it, revise it or stop, with evidence from real use.</p></div>
+  </li>
+</ol>

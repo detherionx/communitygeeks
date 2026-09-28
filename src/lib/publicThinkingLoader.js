@@ -106,8 +106,11 @@ function loadAll() {
       2
     )}\n</script>`;
 
+    // Reuse the article's first approved local illustration in the homepage feature.
+    const editorialImageTag = content.match(/<img\b[^>]*\bsrc="(\/assets\/images\/[^\"]+)"[^>]*>/);
     return {
       ...data,
+      editorialImage: editorialImageTag ? { src: editorialImageTag[1] } : null,
       lang,
       url,
       authors: authorNames,

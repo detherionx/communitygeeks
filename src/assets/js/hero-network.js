@@ -6,7 +6,7 @@ const figure=document.querySelector('[data-network]');
 if(figure) boot(figure);
 async function boot(figure){
  const map=figure.querySelector('.network-map'),button=figure.querySelector('.network-toggle');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width: 600px)'),pointer=matchMedia('(pointer: fine)');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width: 600px)'),mobileLayout=matchMedia('(max-width: 580px)'),pointer=matchMedia('(pointer: fine)');
  let visible=false,paused=false,lost=false,frame=0,last=0,elapsed=0,width=1,height=1;
  let selected=null,hovered=null,focusStart=0,focusOpened=0,duration=0,frameDelta=1/60,renderUpdate=()=>{};
  const panel=figure.querySelector('.orb-explanation'),back=figure.querySelector('.orb-back'),title=figure.querySelector('#orb-focus-title');
@@ -78,23 +78,25 @@ async function boot(figure){
  const focusIncoming=route([new T.Vector3(),new T.Vector3(),new T.Vector3()]),focusOutgoing=route([new T.Vector3(),new T.Vector3(),new T.Vector3()]);
  const focusReach=route([new T.Vector3(),new T.Vector3(),new T.Vector3()]);
  function placeRoute(r,start,end,bend){r.curve.points[0].copy(start);r.curve.points[1].copy(start).lerp(end,.5).add(bend);r.curve.points[2].copy(end);const p=r.trail.geometry.attributes.position;for(let i=0;i<=90;i++){r.curve.getPoint(i/90,edgePoint);p.setXYZ(i,edgePoint.x,edgePoint.y,edgePoint.z);}p.needsUpdate=true;}
+ function placeOnScreen(point,x,y,z=0){const half=(camera.position.z-z)*Math.tan(39*Math.PI/360);point.set(camera.position.x+(x*2-1)*half*camera.aspect,camera.position.y+(1-y*2)*half,z);}
 
  function resize(){width=map.clientWidth;height=map.clientHeight;renderer.setPixelRatio(Math.min(devicePixelRatio,mobile.matches?1.25:1.75));renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();orbs.forEach(o=>o.resize(height,renderer.getPixelRatio()));draw();}
  function animateRoute(r,p,active){r.head.visible=r.trail.visible=active;if(active){r.curve.getPoint(p,r.head.position);const end=Math.floor(p*90);r.trail.geometry.setDrawRange(Math.max(0,end-8),Math.min(9,end+1));}}
- function draw(){const still=reduced.matches,s=story(elapsed,still),t=still?17:elapsed,local=still?10:elapsed-focusStart,phase=focusPhase(local),index=names.indexOf(selected),focus=index>=0;
+ function draw(){const still=reduced.matches,s=story(elapsed,still),t=still?17:elapsed,local=still?10:elapsed-focusStart,phase=focusPhase(local),index=names.indexOf(selected),focus=index>=0,layoutLocked=mobileLayout.matches&&!selected;
  current.x+=(target.x-current.x)*.045;current.y+=(target.y-current.y)*.045;
  const angleGoal=heroScrollAngle(selected?0:scrollDepth,still);
- if(still)world.rotation.y=0;else if(!paused)world.rotation.y+=(angleGoal-world.rotation.y)*(1-Math.exp(-frameDelta/.32));
- rotatedPivot.copy(pivot).applyQuaternion(world.quaternion);world.position.copy(pivot).sub(rotatedPivot);world.updateMatrixWorld(true);
- goalCenter.set(0,0,0);goalPosition.set(still?0:Math.sin(t*.06)*.3+current.x,.12+(still?0:current.y),10.4+(still?0:(1-smooth(0,2.5,t))*.8));
+ if(still||layoutLocked)world.rotation.y=0;else if(!paused)world.rotation.y+=(angleGoal-world.rotation.y)*(1-Math.exp(-frameDelta/.32));
+ if(layoutLocked)world.position.set(0,0,0);else{rotatedPivot.copy(pivot).applyQuaternion(world.quaternion);world.position.copy(pivot).sub(rotatedPivot);}world.updateMatrixWorld(true);
+ goalCenter.set(0,0,0);goalPosition.set(layoutLocked?0:still?0:Math.sin(t*.06)*.3+current.x,layoutLocked?0:.12+(still?0:current.y),layoutLocked?10.8:10.4+(still?0:(1-smooth(0,2.5,t))*.8));
  if(selected==='team'){goalCenter.set(2,0,0);goalPosition.set(2,.12,14);}
  if(focus){const base=vector(worlds[selected].position),distance=mobile.matches?worlds[selected].radius*8.8:worlds[selected].radius*5.4;
   goalCenter.copy(base).add(new T.Vector3(mobile.matches?0:worlds[selected].radius*.95,mobile.matches?-distance*.354*(1-320/height):-.4,0));
   goalPosition.copy(goalCenter).add(new T.Vector3(still?0:current.x*.35,still?0:current.y*.35,distance));
  }
- const instant=still||paused,cameraBlend=instant?1:1-Math.exp(-frameDelta/.28);viewCenter.lerp(goalCenter,cameraBlend);viewPosition.lerp(goalPosition,cameraBlend);camera.position.copy(viewPosition);camera.lookAt(viewCenter);camera.updateMatrixWorld();
+ const instant=still||paused||layoutLocked,cameraBlend=instant?1:1-Math.exp(-frameDelta/.28);viewCenter.lerp(goalCenter,cameraBlend);viewPosition.lerp(goalPosition,cameraBlend);camera.position.copy(viewPosition);camera.lookAt(viewCenter);camera.updateMatrixWorld();
  orbs.forEach((orb,i)=>{const active=names[i]===selected;orb.group.visible=!(mobile.matches&&focus&&!active);orb.setDetail(active);const wanted=hovered===names[i]&&!selected?1:0;gains[i]+=(wanted-gains[i])*(instant?1:.09);
   orb.group.position.copy(vector(worlds[names[i]].position));orb.group.position.z+=gains[i]*.3;
+  if(layoutLocked)placeOnScreen(orb.group.position,[.25,.75,.5][i],[.28,.28,.86][i]);
   const scale=selected==='team'?(mobile.matches?.52:.7):focus&&!active?.24:1+gains[i]*.025;orb.group.scale.lerp(new T.Vector3(scale,scale,scale),cameraBlend);
   if(focus&&!active){const order=i<index?i:i-1;orb.group.position.z=worlds[selected].position[2]-3;const d=goalPosition.z-orb.group.position.z,half=d*Math.tan(39*Math.PI/360);orb.group.position.x=viewCenter.x+(order===0?-.68:.25)*half*camera.aspect;orb.group.position.y=viewCenter.y-half*.67;}
   if(selected==='team'){const d=goalPosition.z-orb.group.position.z,half=d*Math.tan(39*Math.PI/360),x=(mobile.matches?[.22,.72,.54]:[.16,.36,.24])[i],y=(mobile.matches?[.10,.19,.28]:[.26,.49,.75])[i];orb.group.position.x=viewCenter.x+(x*2-1)*half*camera.aspect;orb.group.position.y=viewCenter.y+(1-y*2)*half;}
@@ -108,7 +110,7 @@ async function boot(figure){
  beaconGoal.set(-.6,-.35,.5);
  const watched=names.includes(hovered)?hovered:focus?selected:(!still&&s.t>=3&&s.t<8?'customers':'developers');
  const attentionPoint=orbs[names.indexOf(watched)].group.position;
- if(!selected&&!still){const approach=names.includes(hovered)?.12:smooth(4,7,s.t)*(1-smooth(12,18,s.t))*.17;beaconGoal.lerp(attentionPoint,approach);beaconGoal.x+=Math.sin(t*.34)*.035;beaconGoal.y+=Math.sin(t*.27)*.045;}
+ if(layoutLocked)placeOnScreen(beaconGoal,.5,.55);else if(!selected&&!still){const approach=names.includes(hovered)?.12:smooth(4,7,s.t)*(1-smooth(12,18,s.t))*.17;beaconGoal.lerp(attentionPoint,approach);beaconGoal.x+=Math.sin(t*.34)*.035;beaconGoal.y+=Math.sin(t*.27)*.045;}
  if(hovered==='team')beaconGoal.z+=.25;
  if(selected==='team'){const half=goalPosition.z*Math.tan(39*Math.PI/360);beaconGoal.set(viewCenter.x+(mobile.matches?-.45:-.04)*half*camera.aspect,viewCenter.y+(mobile.matches?.52:-.3)*half,.5);}
  if(focus){const d=goalPosition.z-worlds[selected].position[2],half=d*Math.tan(39*Math.PI/360);beaconGoal.set(viewCenter.x+half*camera.aspect*(mobile.matches?.35:-.22),viewCenter.y+half*(mobile.matches?.4:-.28),worlds[selected].position[2]+.7);}
@@ -116,7 +118,7 @@ async function boot(figure){
  const distance=camera.position.distanceTo(projected.copy(beacon.position).applyMatrix4(world.matrixWorld)),craftPixels=mobile.matches?62:88;
  const craftScale=(craftPixels*(hovered==='team'?1.12:1))*2*distance*Math.tan(39*Math.PI/360)/(height*craft.span);
  beacon.scale.lerp(new T.Vector3(craftScale,craftScale,craftScale),cameraBlend);
- const angle=!selected&&!hovered&&(s.t<3||s.t>16)?1.05:Math.atan2(attentionPoint.y-beacon.position.y,attentionPoint.x-beacon.position.x);
+ const angle=layoutLocked?1.05:!selected&&!hovered&&(s.t<3||s.t>16)?1.05:Math.atan2(attentionPoint.y-beacon.position.y,attentionPoint.x-beacon.position.x);
  if(hovered==='team'&&!discovered){discovered=true;discoveryStart=t;}
  const discovery=still?0:Math.sin(Math.PI*Math.min(1,Math.max(0,(t-discoveryStart)/.9)));
  craft.update({time:t,angle,attention:hovered==='team'?1:0,pulse:focus&&phase===1?1:s.decision+s.signal*.35,still:instant,blend:cameraBlend*.55,scroll:scrollDepth,pointer:current.x,discovery});
@@ -125,17 +127,18 @@ async function boot(figure){
  craftHit.style.left=craftX+'%';craftHit.style.top=craftY+'%';craftHit.style.width=craftHit.style.height=(mobile.matches?82:108)+'px';
  decisionLabel.hidden=!selected||selected==='team';decisionLabel.style.left=craftX+'%';decisionLabel.style.top=`calc(${craftY}% + ${craftPixels*.45}px)`;
  placeRoute(incoming,origin,beacon.position,new T.Vector3(-.2,.2,.6));placeRoute(outgoing,beacon.position,destination,new T.Vector3(.2,-.1,.8));
- animateRoute(incoming,s.incoming,!selected&&!still&&s.t>=5&&s.t<7);animateRoute(outgoing,s.outgoing,!selected&&!still&&s.t>=8&&s.t<11);animateRoute(returning,s.returning,!selected&&!still&&s.t>=12&&s.t<15);
+ animateRoute(incoming,s.incoming,!layoutLocked&&!selected&&!still&&s.t>=5&&s.t<7);animateRoute(outgoing,s.outgoing,!layoutLocked&&!selected&&!still&&s.t>=8&&s.t<11);animateRoute(returning,s.returning,!layoutLocked&&!selected&&!still&&s.t>=12&&s.t<15);
  systemRoutes.forEach((r,i)=>{r.head.visible=false;r.trail.visible=selected==='team';if(selected==='team'){placeRoute(r,beacon.position,orbs[i].group.position,new T.Vector3(0,.2,.5));r.trail.material.opacity=.12;}});
  if(selected==='team'){placeRoute(focusIncoming,orbs[Math.floor(local/12)%3].group.position,beacon.position,new T.Vector3(0,.3,1));placeRoute(focusOutgoing,beacon.position,orbs[(Math.floor(local/12)+1)%3].group.position,new T.Vector3(.2,-.3,1));}
  if(focus){const source=orbs[index].group.position.clone().add(new T.Vector3(.2,-.1,worlds[selected].radius*.6));placeRoute(focusIncoming,source,beacon.position,new T.Vector3(.2,.2,.6));placeRoute(focusOutgoing,beacon.position,source,new T.Vector3(-.25,-.2,.8));}
  animateRoute(focusIncoming,Math.min(1,Math.max(0,(local%12-3)/2)),!!selected&&!still&&local%12>=3&&local%12<5);
  animateRoute(focusOutgoing,Math.min(1,Math.max(0,(local%12-6)/2)),!!selected&&!still&&local%12>=6&&local%12<8);
- receivedSignals.forEach((dot,i)=>{const start=selected?3:5,clock=selected?local%12:s.t,progress=(clock-start)/2-i*.075;dot.visible=!still&&progress>=0&&progress<=1;if(dot.visible){(selected?focusIncoming:incoming).curve.getPoint(progress,dot.position);const spread=(1-progress)*.13;dot.position.y+=(i-1.5)*spread;dot.position.z+=(i%2?1:-1)*spread*.5;}});
+ receivedSignals.forEach((dot,i)=>{const start=selected?3:5,clock=selected?local%12:s.t,progress=(clock-start)/2-i*.075;dot.visible=!layoutLocked&&!still&&progress>=0&&progress<=1;if(dot.visible){(selected?focusIncoming:incoming).curve.getPoint(progress,dot.position);const spread=(1-progress)*.13;dot.position.y+=(i-1.5)*spread;dot.position.z+=(i%2?1:-1)*spread*.5;}});
  const reach=selected==='partners'&&phase===2;focusReach.trail.visible=reach;focusReach.head.visible=reach&&!still&&local%12<11;
  if(reach){const center=orbs[index].group.position,r=worlds.partners.radius;placeRoute(focusReach,center.clone().add(new T.Vector3(.1,-.1,r*.6)),center.clone().add(new T.Vector3(-r*1.55,-r*.4,r*.9)),new T.Vector3(0,.3,.5));const progress=still?1:Math.min(1,(local%12-8)/3);focusReach.curve.getPoint(progress,focusReach.head.position);focusReach.trail.geometry.setDrawRange(0,Math.floor(progress*90)+1);focusReach.trail.material.opacity=.32;}
 
- for(const [i,{el,point}] of labels.entries()){if(selected==='team'&&i<3){projected.copy(orbs[i].group.position).add(new T.Vector3(0,-worlds[names[i]].radius*orbs[i].group.scale.y-.18,0)).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=(-projected.y*.5+.5)*100+'%';}else if(selected==='team'&&i===3){projected.copy(beacon.position).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=`calc(${(-projected.y*.5+.5)*100}% + ${craftPixels*.5+26}px)`;}else if(selected){el.style.left=(12+i*25)+'%';el.style.top='94%';}else{if(i===3){projected.copy(beacon.position).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=`calc(${(-projected.y*.5+.5)*100}% + ${craftPixels*.5+26}px)`;continue;}projected.copy(point).applyMatrix4(world.matrixWorld).project(camera);el.style.left=((projected.x*.5+.5)*100)+'%';el.style.top=((-projected.y*.5+.5)*100)+'%';}}
+ for(const [i,{el,point}] of labels.entries()){if(layoutLocked){el.style.left=[25,75,50,50][i]+'%';el.style.top=[3,3,66,56][i]+'%';}else if(selected==='team'&&i<3){projected.copy(orbs[i].group.position).add(new T.Vector3(0,-worlds[names[i]].radius*orbs[i].group.scale.y-.18,0)).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=(-projected.y*.5+.5)*100+'%';}else if(selected==='team'&&i===3){projected.copy(beacon.position).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=`calc(${(-projected.y*.5+.5)*100}% + ${craftPixels*.5+26}px)`;}else if(selected){el.style.left=(12+i*25)+'%';el.style.top='94%';}else{if(i===3){projected.copy(beacon.position).applyMatrix4(world.matrixWorld).project(camera);el.style.left=(projected.x*.5+.5)*100+'%';el.style.top=`calc(${(-projected.y*.5+.5)*100}% + ${craftPixels*.5+26}px)`;continue;}projected.copy(point).applyMatrix4(world.matrixWorld).project(camera);el.style.left=((projected.x*.5+.5)*100)+'%';el.style.top=((-projected.y*.5+.5)*100)+'%';}}
+ figure.dataset.mobileLayout=layoutLocked?'fixed':'';
  if(selected&&(selected==='team'?Math.floor(local%12/3):phase)!==focusClock.phase){figure.querySelectorAll('.orb-steps>div').forEach((row,i)=>row.classList.toggle('is-active',still||i===(selected==='team'?Math.floor(local%12/3):phase)));focusClock.phase=selected==='team'?Math.floor(local%12/3):phase;}
  renderer.render(scene,camera);
  }
