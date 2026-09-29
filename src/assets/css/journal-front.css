@@ -1,5 +1,5 @@
 /* Homepage journal (v63): masthead with the journal scene, one lead story as the signal of thinking,
-   two title-only links and the research note. The archive lives at /public-thinking/. Uses home.css tokens. */
+   three recent pieces by motif and a slim research band. The archive lives at /public-thinking/. Uses home.css tokens. */
 
 .jm{position:relative;isolation:isolate;overflow:clip;padding:var(--chapter) var(--pad);background:var(--space-0);color:var(--on-dark)}
 .jm .journal-stars{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.4;pointer-events:none}
@@ -49,19 +49,44 @@
 .jm-lead-geo .geo-rule{position:absolute;right:0;top:44px;width:28%;height:1.5px;background:var(--ink);opacity:.35}
 .jm-lead-geo .geo-rule::after{content:"";position:absolute;left:-5px;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--g-triangle)}
 
-/* ---------- also recent + research: a quiet list, not a second front page ---------- */
-.jm-side{display:flex;flex-direction:column;gap:18px;min-width:0}
-.jm-side-label{font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--on-dark-muted)}
-.jm-also{border-top:1px solid var(--line-dark)}
-.jm-also li{padding:16px 0 18px;border-bottom:1px solid var(--line-dark)}
-.jm-also .jm-meta{color:var(--on-dark-muted)}
-.jm-also h3{margin-top:8px;font:360 clamp(20px,1.5vw,24px)/1.18 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.014em}
-.jm-also h3 a:hover{color:var(--signal-hi)}
-.jm-research{display:grid;gap:12px;margin-top:6px;padding:20px 22px;background:var(--space-2);border-left:4px solid var(--g-square)}
-.jm-research-label{justify-self:start;padding:5px 8px 4px;border:1px solid var(--line-dark);font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--on-dark)}
-.jm-research h3{font:600 var(--t-body)/1.3 var(--body);margin-bottom:4px}
-.jm-research p:not(.jm-research-label){font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted)}
-.jm-research .text-link{justify-self:start;color:var(--on-dark);white-space:nowrap}
+/* ---------- three recent pieces, carried by their constellation motifs ---------- */
+.jm-shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--col-gap);margin-top:clamp(40px,4vw,56px)}
+.jm-card article{position:relative;display:flex;flex-direction:column;height:100%;padding-bottom:20px;background:var(--space-2);border-top:3px solid var(--g-circle);transition:background .3s,border-color .3s}
+.jm-card:nth-child(2) article{border-top-color:var(--g-square)}
+.jm-card:nth-child(3) article{border-top-color:var(--g-triangle)}
+.jm-card article>:not(.jm-card-motif){margin-inline:20px}
+.jm-card-motif{display:block;aspect-ratio:16/9;margin-bottom:16px;padding:6% 22%;overflow:hidden;background:radial-gradient(70% 70% at 50% 45%,rgba(43,92,91,.55),transparent 72%),var(--space-1)}
+.jm-card-obs{margin-bottom:8px;font:500 var(--t-meta)/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--signal-hi)}
+.jm-card-title{margin-bottom:10px;font:360 clamp(20px,1.6vw,24px)/1.15 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.014em}
+.jm-card-link::after{content:"";position:absolute;inset:0}
+.jm-card-link:focus-visible{outline:none}
+.jm-card article:has(.jm-card-link:focus-visible){outline:2px solid var(--signal);outline-offset:4px}
+.jm-card-sum{margin-bottom:14px;font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted)}
+.jm-card .jm-meta{margin-top:auto;color:var(--on-dark-muted)}
+.jm-card article:hover{background:var(--space-3);border-top-color:var(--signal)}
+.jm-card article:hover .jm-card-title{color:var(--signal-hi)}
+.jm .cm{display:block;width:100%;height:100%;overflow:visible}
+.jm .cm text,.jm .cm .cm-dust,.jm .cm .cm-vol,.jm .cm .cm-ring,.jm .cm .cm-ray{display:none}
+.jm .cm .cm-line{stroke:#F6F4EF;stroke-opacity:.55;stroke-width:1.2;stroke-linecap:round}
+.jm .cm .cm-line.cm-faint{stroke-opacity:.28}
+.jm .cm .cm-frame{fill:none;stroke:#A9E4E1;stroke-opacity:.42;stroke-width:1}
+.jm .cm .cm-frame.cm-faint{stroke-opacity:.18}
+.jm .cm .cm-node{fill:#E4F6F4}.jm .cm .cm-node.cm-major{fill:#F6F4EF}.jm .cm .cm-node.cm-minor{opacity:.6}
+.jm .cm .cm-contour{fill:none;stroke:#F6F4EF;stroke-opacity:.62;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.jm .cm .cm-obs{fill:none;stroke:#E8735A;stroke-width:1.3}.jm .cm .cm-obs-core{fill:#E8735A}
+
+/* ---------- research: one slim band, not a headline ---------- */
+.jm-research{--g-square:#467584;position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px 32px;align-items:center;margin-top:clamp(32px,3vw,48px);padding:16px 170px 16px 24px;background:#D6D2C6;color:var(--ink);border-left:4px solid var(--g-square)}
+.jm-research>:not(.jm-research-geo){position:relative;z-index:1}
+.jm-research-geo{position:absolute;inset:0;z-index:0;pointer-events:none}
+.jm-research-geo .geo-disc{position:absolute;right:-48px;top:50%;width:112px;aspect-ratio:1;border-radius:50%;background:#A9BCAE;transform:translateY(-50%)}
+.jm-research-geo .geo-ring{position:absolute;right:58px;top:50%;width:64px;aspect-ratio:1;border-radius:50%;border:1.5px solid var(--ink);opacity:.4;transform:translateY(-50%)}
+.jm-research-geo .geo-square{position:absolute;right:112px;top:22px;width:14px;aspect-ratio:1;background:var(--signal)}
+.jm-research-label{padding:5px 8px 4px;border:1px solid var(--line-paper);font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.jm-research h3{display:inline;margin-right:.5em;font:600 var(--t-note)/1.5 var(--body)}
+.jm-research p:not(.jm-research-label){display:inline;font-size:var(--t-note);line-height:1.5;color:var(--ink-muted)}
+.jm-research .text-link{color:var(--ink);white-space:nowrap}
+.jm-research .text-link:hover{color:var(--signal-ink)}
 
 /* ---------- responsive ---------- */
 @media (min-width:1101px){
@@ -69,14 +94,20 @@
      frontmatter sets object-position, centre by default). */
   .jm-lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .jm-lead-media img{position:absolute;inset:0;height:100%;object-fit:cover}
-  .jm-side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:0 var(--col-gap);align-items:start}
-  .jm-side-label{grid-column:1/-1;margin-bottom:14px}
-  .jm-also{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr;gap:var(--col-gap);border-top:0}
-  .jm-also li{border-top:1px solid var(--line-dark);border-bottom:0;padding-bottom:0}
-  .jm-research{margin-top:0}
 }
 @media (max-width:1100px){
   .jm-head{grid-template-columns:1fr;gap:40px}
+  .jm-research{grid-template-columns:1fr;justify-items:start;padding:18px 24px 72px}
+  .jm-research-geo .geo-disc{top:auto;bottom:-56px;right:-24px;transform:none}
+  .jm-research-geo .geo-ring{top:auto;bottom:14px;right:78px;width:44px;transform:none}
+  .jm-research-geo .geo-square{top:auto;bottom:34px;right:140px;width:12px}
+}
+@media (max-width:900px){
+  .jm-shelf{grid-template-columns:1fr;gap:12px}
+  .jm-card article{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:18px;padding:14px 16px 16px 14px;align-items:start}
+  .jm-card article>:not(.jm-card-motif){margin-inline:0}
+  .jm-card article>*:not(.jm-card-motif){grid-column:2}
+  .jm-card-motif{grid-row:1/5;margin:0;aspect-ratio:1;padding:12%}
 }
 @media (max-width:640px){
   .jm-journal{--frame-shift:10px}
