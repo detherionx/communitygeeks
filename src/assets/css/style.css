@@ -666,7 +666,6 @@
   .pt-figure-link{display:block;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:16px;overflow-x:auto;cursor:zoom-in;transition:border-color .15s ease;}
   .pt-figure-link:hover{border-color:var(--petrol);}
   .pt-figure img{display:block;width:100%;height:auto;min-width:420px;}
-  .pt-figure-world img{min-width:0;}
   .pt-figure figcaption{display:flex;flex-direction:column;gap:6px;margin-top:16px;max-width:640px;}
   .pt-figure-num{font-family:'IBM Plex Mono',monospace;font-size:var(--fs-label);letter-spacing:var(--tracking-label-caps);text-transform:uppercase;color:var(--brass);}
   .pt-figure-cap{font-size:var(--fs-compact);line-height:var(--lh-compact);color:var(--ink);}

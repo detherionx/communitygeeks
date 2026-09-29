@@ -71,16 +71,20 @@ He told me about two robot companions, one a floating drone, the other humanoid,
 
 His answer to possible risks is not to make the AI less autonomous. It is to be much clearer about where that autonomy begins and ends. A human decides which topics the character can engage with and sets the safety rails. Inside them, Brian is happy to give the character genuine room to act, even to reverse the usual relationship and tell the player what to do. In his version of the experience, **the player can briefly become the side character rather than the hero.**
 
-<figure class="pt-figure pt-figure-world">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/thread-keeper-astronaut.png" data-lightbox aria-label="Enlarge Figure 1">
-    <img src="/assets/images/public-thinking/thread-keeper-astronaut.png" width="1672" height="941" alt="A Communitygeeks astronaut holds a coral line on a reel. The line crosses three boundary gates through a constellation field containing a drone and a humanoid figure." loading="lazy">
+<figure class="pt-figure pt-figure-portrait">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" data-lightbox aria-label="Enlarge Figure 1">
+    <img src="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" alt="Editorial illustration on a deep teal ground: a person, a floating drone and a humanoid robot drawn as wireframe constellations. One coral thread runs from a marker on the floor through the person to the drone and on to the robot, which is pointing the way; a low fence of connected points marks the edge of the space they share." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>
-    <span class="pt-figure-cap">A reading of Brian Cox’s account: a human sets the boundaries, then gives the characters room to act while keeping hold of the thread.</span>
+    <span class="pt-figure-cap">Brian Cox’s version of the experience: a human sets the edge of the space, and inside it the characters have genuine room to act, even to tell the player what to do.</span>
     <span class="pt-figure-source">Source: conversation with Brian Cox, Inworld: Communitygeeks Field Note, gamescom 2026.</span>
   </figcaption>
 </figure>
+<style>
+  .pt-figure-portrait{max-width:560px !important;}
+  .pt-figure-portrait img{min-width:0;}
+</style>
 
 The creative possibility comes from freedom. Making that freedom safe remains a human design decision.
 
