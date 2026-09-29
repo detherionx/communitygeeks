@@ -19,7 +19,7 @@
       button.dataset.intro=button.dataset.tierIntro||track.offer.intro;
     });
     document.querySelectorAll('[data-selected-diagnosis]').forEach(element=>element.textContent=track.offer.name);
-    if(updateHash){history.replaceState(null,'','#'+track.panel.id);disclosure.open=true;}
+    if(updateHash){history.replaceState(null,'','#'+track.panel.id);disclosure.open=true;root.dataset.chosen='true';}
     window.dispatchEvent(new CustomEvent('diagnosis:change',{detail:{name:track.offer.name}}));
   };
   tracks.forEach((track,index)=>{
@@ -35,9 +35,9 @@
     });
   });
   const fromHash=()=>tracks.find(track=>'#'+track.panel.id===location.hash);
-  window.addEventListener('hashchange',()=>{const track=fromHash();if(track){select(track);disclosure.open=true;}});
+  window.addEventListener('hashchange',()=>{const track=fromHash();if(track){select(track);disclosure.open=true;root.dataset.chosen='true';}});
   window.addEventListener('diagnosis:request',event=>{const track=tracks.find(item=>item.offer.name===event.detail?.name);if(track)select(track,true);});
   root.dataset.enhanced='true';
   select(fromHash()||tracks[0]);
-  disclosure.open=Boolean(fromHash());
+  disclosure.open=Boolean(fromHash());if(fromHash())root.dataset.chosen='true';
 })();

@@ -1,16 +1,18 @@
-/* Homepage journal section (v62, approved from the journal mockup). Uses home.css tokens; all selectors are .jm-scoped. */
-
+/* Homepage journal (v63): masthead with the journal scene, one lead story as the signal of thinking,
+   two title-only links and the research note. The archive lives at /public-thinking/. Uses home.css tokens. */
 
 .jm{position:relative;isolation:isolate;overflow:clip;padding:var(--chapter) var(--pad);background:var(--space-0);color:var(--on-dark)}
 .jm .journal-stars{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.4;pointer-events:none}
 .jm .journal-stars .bs{fill:#f6f4ef}.jm .journal-stars .bs.cy{fill:#a9e4e1}
 .jm .journal-stars .cons line{stroke:#f6f4ef;stroke-opacity:.2;stroke-width:.8}
 .jm .journal-stars .cons circle{fill:#a9e4e1;opacity:.5}
+.jm :focus-visible{outline:2px solid var(--signal);outline-offset:4px}
 
-/* ---------- head: masthead copy + the journal window ---------- */
+/* ---------- masthead: copy + the journal window ---------- */
 .jm-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--col-gap);align-items:center;margin-bottom:clamp(48px,5vw,80px)}
 .jm .jm-head-copy{display:block;margin:0}
-.jm .jm-head-copy h2{max-width:12ch}
+.jm .jm-head-copy .kicker::before{counter-increment:chapter;content:counter(chapter,decimal-leading-zero);font:500 var(--t-meta)/1 var(--mono);letter-spacing:.08em;padding:5px 6px 4px;border:1px solid currentColor;opacity:.75}
+.jm .jm-head-copy h2{max-width:12ch;font:360 var(--t-display)/1.02 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.026em}
 .jm .jm-head-copy>p:not(.kicker){margin-top:20px;font:400 var(--t-lead)/1.55 var(--body);color:var(--on-dark-muted);max-width:40ch}
 .jm .jm-head-copy .text-link{margin-top:20px;color:var(--on-dark)}
 .jm .jm-count{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -18,223 +20,73 @@
 .jm .jm-count span:first-child{background:var(--g-triangle);border-color:var(--g-triangle);color:#1A1210}
 .jm-journal{position:relative;--frame-shift:16px;margin-right:var(--frame-shift)}
 .jm-journal::before{content:"";position:absolute;inset:0;transform:translate(var(--frame-shift),var(--frame-shift));border:1.5px solid rgba(242,237,225,.45);pointer-events:none}
+.jm-journal::after{content:"";position:absolute;z-index:2;width:clamp(44px,5vw,72px);aspect-ratio:1;border-radius:50%;right:calc(var(--frame-shift) * -1);top:calc(clamp(44px,5vw,72px) / -2);background:var(--g-triangle);pointer-events:none}
 .jm-journal .journal-vignette{position:relative;z-index:1}
 
-/* ---------- front page: lead + two recent ---------- */
-.jm-front{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--col-gap);align-items:stretch}
+/* ---------- lead story ---------- */
+.jm-front{display:grid;gap:var(--col-gap)}
 .jm-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font:500 var(--t-meta)/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
 .jm-tag{padding:4px 7px 3px;background:var(--g-triangle);color:#1A1210}
 .jm-obs{position:absolute;left:0;top:0;padding:6px 9px 5px;background:var(--space-0);color:var(--on-dark);font:500 var(--t-meta)/1 var(--mono);letter-spacing:.07em;text-transform:uppercase}
-
 .jm-lead{display:flex;flex-direction:column;background:var(--paper);color:var(--ink);border-top:4px solid var(--g-triangle)}
-.jm-lead-media{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--space-2)}
-.jm-lead-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
-.jm-lead-body{padding:clamp(24px,2.6vw,40px)}
-.jm-lead h3{margin:16px 0 14px;font:360 clamp(30px,2.8vw,44px)/1.05 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.024em;max-width:22ch}
+.jm-lead-media{position:relative;display:block;overflow:hidden;background:var(--space-2)}
+.jm-lead-media img{display:block;width:100%;height:auto;transition:transform 1.2s var(--ease-out)}
+.jm-lead:hover .jm-lead-media img{transform:scale(1.035)}
+.jm-lead-body{position:relative;overflow:hidden;isolation:isolate;flex:1;padding:clamp(24px,2.6vw,40px) clamp(24px,16vw,240px) clamp(24px,2.6vw,40px) clamp(24px,2.6vw,40px)}
+.jm-lead-body>*:not(.jm-lead-geo){position:relative;z-index:1}
+.jm-lead h3{margin:14px 0;font:360 clamp(30px,2.8vw,44px)/1.05 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.024em;max-width:22ch}
 .jm-lead .jm-deck{color:var(--ink-muted);max-width:56ch}
 .jm-lead .text-link{margin-top:18px;color:var(--ink)}
 .jm-lead h3 a:hover,.jm-lead .text-link:hover{color:var(--signal-ink)}
-
-.jm-recent{display:grid;grid-template-rows:1fr 1fr;gap:var(--col-gap)}
-.jm-recent li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--space-2);border-top:4px solid var(--line-dark)}
-.jm-recent li:nth-child(1){border-top-color:var(--g-circle)}
-.jm-recent li:nth-child(2){border-top-color:var(--g-square)}
-.jm-thumb{position:relative;display:block;overflow:hidden;min-height:100%;background:var(--space-1)}
-.jm-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
-.jm-recent li>div{padding:clamp(18px,1.8vw,26px)}
-.jm-recent .jm-meta{color:var(--on-dark-muted)}
-.jm-recent h3{margin:12px 0 10px;font:360 clamp(21px,1.7vw,26px)/1.12 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.016em}
-.jm-recent h3 a:hover{color:var(--signal-hi)}
-.jm-recent .jm-deck{font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-
-/* ---------- shelf: earlier notes carried by their constellation motifs ---------- */
-.jm-shelf-head{display:flex;align-items:center;gap:20px;margin:clamp(48px,5vw,72px) 0 24px}
-.jm-shelf-title{font:600 var(--t-component)/1.2 var(--body);letter-spacing:-.01em;white-space:nowrap}
-.jm-rule{flex:1;height:1px;background:var(--line-dark)}
-.jm-shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--col-gap)}
-.jm-card a{display:flex;flex-direction:column;height:100%;padding:0 0 22px;border-top:1px solid var(--line-dark);transition:border-color .3s}
-.jm-card-motif{display:block;aspect-ratio:4/3;margin-bottom:18px;padding:12% 16%;background:radial-gradient(70% 70% at 50% 45%,rgba(43,92,91,.55),transparent 72%),var(--space-1);transition:background-color .3s}
-.jm-card-obs{font:500 var(--t-meta)/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--signal-hi);margin-bottom:10px}
-.jm-card-title{font:360 clamp(20px,1.6vw,24px)/1.15 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.014em;margin-bottom:14px}
-.jm-card .jm-meta{margin-top:auto;color:var(--on-dark-muted)}
-.jm-card a:hover{border-top-color:var(--signal)}
-.jm-card a:hover .jm-card-title{color:var(--signal-hi)}
-.jm-card-all a{justify-content:space-between;padding:24px;background:var(--paper);color:var(--ink);border-top:4px solid var(--signal)}
-.jm-all-count{font:360 clamp(72px,7vw,112px)/.9 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.04em}
-.jm-card-all .jm-card-title{margin:12px 0 18px}
-.jm-all-cta{display:flex;justify-content:space-between;font:600 var(--t-note)/1.3 var(--body);padding-top:12px;border-top:1px solid var(--line-paper)}
-.jm-card-all a:hover{background:#FBF8F1}
-.jm-card-all a:hover .jm-card-title{color:var(--ink)}
-
-/* ---------- research: a slim band, not a headline ---------- */
-.jm-research{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px 36px;align-items:center;margin-top:clamp(40px,4vw,64px);padding:22px 26px;background:var(--space-2);border-left:4px solid var(--g-square)}
-.jm-research-label{padding:5px 8px 4px;border:1px solid var(--line-dark);font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--on-dark)}
-.jm-research h3{font:600 var(--t-body)/1.3 var(--body);margin-bottom:4px}
-.jm-research p:not(.jm-research-label){font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted);max-width:90ch}
-.jm-research .text-link{color:var(--on-dark);white-space:nowrap}
-
-/* hover motion: restrained image drift, off for reduced motion */
-.jm-lead:hover .jm-lead-media img,.jm-recent li:hover .jm-thumb img{transform:scale(1.035)}
-@media (prefers-reduced-motion:reduce){.jm-lead-media img,.jm-thumb img{transition:none}.jm-lead:hover .jm-lead-media img,.jm-recent li:hover .jm-thumb img{transform:none}}
-.jm :focus-visible{outline:2px solid var(--signal);outline-offset:4px}
-
-/* constellation motif rules (from style.css, dark catalogue ground) */
-.jm .cm{display:block;width:100%;height:100%;overflow:visible}
-.jm .cm .cm-line{stroke:#F6F4EF;stroke-opacity:.55;stroke-width:1.2;stroke-linecap:round}
-.jm .cm .cm-line.cm-faint{stroke-opacity:.28}
-.jm .cm .cm-frame{fill:none;stroke:#A9E4E1;stroke-opacity:.42;stroke-width:1}
-.jm .cm .cm-frame.cm-faint{stroke-opacity:.18}
-.jm .cm .cm-node{fill:#E4F6F4}.jm .cm .cm-node.cm-major{fill:#F6F4EF}.jm .cm .cm-node.cm-minor{opacity:.6}
-.jm .cm .cm-contour{fill:none;stroke:#F6F4EF;stroke-opacity:.62;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.jm .cm .cm-obs{fill:none;stroke:#E8735A;stroke-width:1.3}.jm .cm .cm-obs-core{fill:#E8735A}
-.jm .cm .cm-dust,.jm .cm .cm-vol,.jm .cm .cm-ring,.jm .cm .cm-ray{display:none}
-
-/* ---------- responsive ---------- */
-@media (max-width:1100px){
-  .jm-head{grid-template-columns:1fr;gap:40px}
-  .jm-front{grid-template-columns:1fr}
-  .jm-recent{grid-template-rows:none}
-  .jm-shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:640px){
-  .jm-journal{--frame-shift:10px}
-  .jm-recent li{grid-template-columns:120px minmax(0,1fr)}
-  .jm-recent .jm-deck{display:none}
-  .jm-shelf{grid-template-columns:1fr;gap:16px}
-  .jm-card a{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:16px;padding:16px 0;align-items:start}
-  .jm-card-motif{grid-row:1/4;margin:0;aspect-ratio:1;padding:12%}
-  .jm-card-all a{display:flex;padding:22px}
-  .jm-research{grid-template-columns:1fr;padding:22px}
-}
-
-/* masthead keeps the chapter-index kicker without the two-column section-head grid */
-.jm .jm-head-copy .kicker::before{counter-increment:chapter;content:counter(chapter,decimal-leading-zero);font:500 var(--t-meta)/1 var(--mono);letter-spacing:.08em;padding:5px 6px 4px;border:1px solid currentColor;opacity:.75}
-.jm .jm-head-copy h2{font:360 var(--t-display)/1.02 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.026em}
-/* catalogue motifs are ambient here; their specimen labels stay on the article page */
-.jm .cm text{display:none}
-
-/* v2: editorial images are landscape (16:9, 3:2). Never crop them: recent cards stack image over text and every
-   image keeps its natural ratio. The lead image sits at its natural ratio too; the paper body absorbs extra height. */
-.jm-front{align-items:start}
-.jm-lead-media{aspect-ratio:auto}
-.jm-lead-media img,.jm-thumb img{position:static;width:100%;height:auto;display:block}
-.jm-lead-body{flex:1}
-.jm-recent{grid-template-rows:none;align-content:start}
-.jm-recent li{grid-template-columns:1fr}
-.jm-thumb{min-height:0}
-.jm-recent .jm-deck{-webkit-line-clamp:2}
-@media (max-width:1100px) and (min-width:641px){
-  .jm-recent{grid-template-columns:1fr 1fr}
-}
-@media (max-width:640px){
-  .jm-recent li{grid-template-columns:1fr}
-  .jm-recent .jm-deck{display:-webkit-box}
-}
-/* balance: wider lead column, lead stretches so both columns end on one line */
-@media (min-width:1101px){
-  .jm-front{grid-template-columns:minmax(0,8fr) minmax(0,4fr);align-items:stretch}
-  .jm-lead-body{display:flex;flex-direction:column;justify-content:flex-end}
-  .jm-recent li>div{padding:18px 20px 20px}
-}
-.jm-lead-body .text-link{align-self:flex-start}
-/* v3 density: lead no longer pads out to the right column; the right column is shorter instead */
-@media (min-width:1101px){
-  .jm-front{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:start}
-  .jm-lead-body{display:block}
-  .jm-recent{gap:20px}
-  .jm-recent .jm-deck{display:none}
-  .jm-recent li>div{padding:16px 20px 20px}
-  .jm-recent h3{margin-bottom:0}
-}
 .jm-question{margin-top:26px;padding:16px 0 0 18px;border-left:3px solid var(--g-triangle);font:360 clamp(19px,1.5vw,23px)/1.3 var(--display);font-variation-settings:"opsz" 72;font-style:italic;color:var(--ink);max-width:40ch}
 .jm-question span{display:block;margin-bottom:8px;font:500 var(--t-meta)/1.2 var(--mono);font-style:normal;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
-.jm-lead h3{margin-top:14px}
-/* shelf: tighter rhythm */
-.jm-shelf{gap:20px}
-.jm-shelf-head{margin:clamp(40px,4vw,56px) 0 18px}
-.jm-card-motif{margin-bottom:14px}
-.jm-card-obs{margin-bottom:8px}
-.jm-card-title{margin-bottom:10px}
-.jm-card a{padding-bottom:14px}
-/* shelf panels: one fixed, shorter frame for every motif; the all-articles tile reads top-down */
-.jm-card-motif{aspect-ratio:16/9;padding:6% 22%;overflow:hidden}
-.jm-card-motif .cm{height:100%}
-.jm-card-all a{justify-content:flex-start;gap:0}
-.jm-card-all .jm-card-title{margin:10px 0 0;flex:1}
-@media (max-width:640px){
-  .jm-card-motif{aspect-ratio:1;padding:12%}
-  .jm-card-all .jm-card-title{flex:none;margin:8px 0 16px}
-}
 
-/* v4 Bauhaus construction on the paper plates. Decorative, aria-hidden, behind the text. */
-.jm-lead-body{position:relative;overflow:hidden;isolation:isolate}
-.jm-lead-body>*:not(.jm-lead-geo){position:relative;z-index:1}
+/* Bauhaus construction on the paper plate. Decorative, aria-hidden, behind the text. */
 .jm-lead-geo{position:absolute;inset:0;z-index:0;pointer-events:none}
 .jm-lead-geo .geo-disc{position:absolute;right:-70px;bottom:-70px;width:240px;aspect-ratio:1;border-radius:50%;background:#B7CDBE}
 .jm-lead-geo .geo-ring{position:absolute;right:62px;bottom:62px;width:150px;aspect-ratio:1;border-radius:50%;border:1.5px solid var(--ink);opacity:.5}
 .jm-lead-geo .geo-square{position:absolute;right:150px;bottom:150px;width:26px;aspect-ratio:1;background:var(--signal)}
 .jm-lead-geo .geo-rule{position:absolute;right:0;top:44px;width:28%;height:1.5px;background:var(--ink);opacity:.35}
 .jm-lead-geo .geo-rule::after{content:"";position:absolute;left:-5px;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--g-triangle)}
-.jm-lead-body{padding-right:clamp(24px,16vw,240px)}
 
-.jm-card-all a{position:relative;overflow:hidden;isolation:isolate}
-.jm-card-all a>*{position:relative;z-index:1}
-.jm-card-all a::before{content:"";position:absolute;z-index:0;left:-34px;top:-44px;width:190px;aspect-ratio:1;border-radius:50%;background:var(--g-triangle);opacity:.9}
-.jm-card-all a::after{content:"";position:absolute;z-index:0;right:24px;top:24px;width:58px;aspect-ratio:1;border:1.5px solid var(--ink);opacity:.4}
-.jm-all-count{color:var(--ink)}
-.jm-all-glyphs{display:flex;gap:7px;margin-top:22px}
-.jm-all-glyphs .glyph{width:12px;height:12px}
-.jm-all-glyphs .glyph-triangle{width:13px}
-.jm-card-all a:hover::after{border-color:var(--signal);opacity:1}
+/* ---------- also recent + research: a quiet list, not a second front page ---------- */
+.jm-side{display:flex;flex-direction:column;gap:18px;min-width:0}
+.jm-side-label{font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--on-dark-muted)}
+.jm-also{border-top:1px solid var(--line-dark)}
+.jm-also li{padding:16px 0 18px;border-bottom:1px solid var(--line-dark)}
+.jm-also .jm-meta{color:var(--on-dark-muted)}
+.jm-also h3{margin-top:8px;font:360 clamp(20px,1.5vw,24px)/1.18 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.014em}
+.jm-also h3 a:hover{color:var(--signal-hi)}
+.jm-research{display:grid;gap:12px;margin-top:6px;padding:20px 22px;background:var(--space-2);border-left:4px solid var(--g-square)}
+.jm-research-label{justify-self:start;padding:5px 8px 4px;border:1px solid var(--line-dark);font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--on-dark)}
+.jm-research h3{font:600 var(--t-body)/1.3 var(--body);margin-bottom:4px}
+.jm-research p:not(.jm-research-label){font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted)}
+.jm-research .text-link{justify-self:start;color:var(--on-dark);white-space:nowrap}
+
+/* ---------- responsive ---------- */
+@media (min-width:1101px){
+  /* Image and text share one plate; the image fills its half with a chosen crop (imageFocus in the article
+     frontmatter sets object-position, centre by default). */
+  .jm-lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .jm-lead-media img{position:absolute;inset:0;height:100%;object-fit:cover}
+  .jm-side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:0 var(--col-gap);align-items:start}
+  .jm-side-label{grid-column:1/-1;margin-bottom:14px}
+  .jm-also{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr;gap:var(--col-gap);border-top:0}
+  .jm-also li{border-top:1px solid var(--line-dark);border-bottom:0;padding-bottom:0}
+  .jm-research{margin-top:0}
+}
+@media (max-width:1100px){
+  .jm-head{grid-template-columns:1fr;gap:40px}
+}
 @media (max-width:640px){
-  .jm-lead-body{padding-right:24px;padding-bottom:120px}
-  .jm-lead-geo .geo-disc{width:170px;right:-50px;bottom:-60px}
-  .jm-lead-geo .geo-ring{width:100px;right:40px;bottom:30px}
-  .jm-lead-geo .geo-square{right:120px;bottom:100px;width:20px}
+  .jm-journal{--frame-shift:10px}
+  .jm-lead-body{padding:24px 24px 140px}
+  .jm-lead-geo .geo-disc{width:170px;right:-50px;bottom:-80px}
+  .jm-lead-geo .geo-ring{width:92px;right:34px;bottom:14px}
+  .jm-lead-geo .geo-square{width:20px;right:112px;bottom:84px}
   .jm-lead-geo .geo-rule{display:none}
-  .jm-card-all a::before{width:140px;left:-30px;top:-40px}
 }
-.jm-card-all a::before{width:150px;left:-30px;top:-52px}
-.jm-all-glyphs{margin-top:34px}
-@media (max-width:640px){
-  .jm-lead-body{padding-bottom:140px}
-  .jm-lead-geo .geo-disc{bottom:-80px}
-  .jm-lead-geo .geo-ring{bottom:14px;right:34px;width:92px}
-  .jm-lead-geo .geo-square{bottom:84px;right:112px}
+@media (prefers-reduced-motion:reduce){
+  .jm-lead-media img{transition:none}
+  .jm-lead:hover .jm-lead-media img{transform:none}
 }
-
-/* v5: the journal window keeps the live section's ochre corner disc */
-.jm-journal::after{content:"";position:absolute;z-index:2;width:clamp(44px,5vw,72px);aspect-ratio:1;border-radius:50%;right:calc(var(--frame-shift) * -1);top:calc(clamp(44px,5vw,72px) / -2);background:var(--g-triangle);pointer-events:none}
-/* tile: a solid coral half-disc set into the right edge replaces the outlined square */
-.jm-card-all a::after{right:0;top:92px;width:34px;height:68px;aspect-ratio:auto;border:0;border-radius:68px 0 0 68px;background:var(--signal);opacity:1;transition:width .4s var(--ease-out)}
-.jm-card-all a:hover::after{width:44px;border:0}
-@media (prefers-reduced-motion:reduce){.jm-card-all a::after{transition:none}}
-@media (max-width:640px){.jm-card-all a::after{top:40px;width:26px;height:52px}.jm-card-all a:hover::after{width:26px}}
-@media (min-width:641px){.jm-card-all a::after{top:58px}}
-
-/* v6: one-sentence summaries everywhere, shown in full (visible, server-rendered, never clipped) */
-.jm-recent-card{display:grid;grid-template-columns:1fr;height:100%}
-.jm-recent .jm-deck,.jm-recent li .jm-deck{display:block;-webkit-line-clamp:unset;overflow:visible;margin-top:10px}
-@media (min-width:1101px){.jm-recent .jm-deck{display:block}.jm-recent h3{margin-bottom:0}}
-/* shelf cards: article with a stretched title link, so the whole card stays one click target */
-.jm-card article{position:relative;display:flex;flex-direction:column;height:100%;padding:0 0 14px;border-top:1px solid var(--line-dark);transition:border-color .3s}
-.jm-card-title{font:360 clamp(20px,1.6vw,24px)/1.15 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.014em;margin:0 0 10px}
-.jm-card-link::after{content:"";position:absolute;inset:0}
-.jm-card-link:focus-visible{outline:none}
-.jm-card article:has(.jm-card-link:focus-visible){outline:2px solid var(--signal);outline-offset:4px}
-.jm-card-sum{margin:0 0 14px;font-size:var(--t-note);line-height:1.5;color:var(--on-dark-muted)}
-.jm-card article .jm-meta{margin-top:auto;color:var(--on-dark-muted)}
-.jm-card article:hover{border-top-color:var(--signal)}
-.jm-card article:hover .jm-card-title{color:var(--signal-hi)}
-.jm-card-obs{margin:0 0 8px}
-@media (max-width:640px){
-  .jm-card article{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:16px;padding:16px 0;align-items:start}
-  .jm-card article>*:not(.jm-card-motif){grid-column:2}
-  .jm-card article .jm-card-motif{grid-row:1/5;margin:0}
-}
-@media (min-width:1101px){.jm-front{align-items:stretch}.jm-lead-body{flex:1}}
-/* the title link is inline text, not the old whole-card anchor */
-.jm-card .jm-card-link,.jm-card .jm-card-link:hover{display:inline;height:auto;padding:0;border:0;grid-template-columns:none}
-.jm-recent-card>div{padding:16px 20px 20px}
-@media (max-width:1100px){.jm-recent-card>div{padding:clamp(18px,1.8vw,26px)}}
-.jm-card article .jm-meta{padding-top:4px}

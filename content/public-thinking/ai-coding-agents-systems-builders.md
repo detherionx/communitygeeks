@@ -20,6 +20,7 @@ topics:
 authors:
   - "Carmelito Bauer"
 openQuestion: "What becomes more valuable when the distance between an idea and an executable system collapses?"
+imageFocus: "68% 50%"
 researchThread: "how AI coding agents change who can design and test working systems"
 related:
   - slug: "what-remains-human-when-ai-takes-over"

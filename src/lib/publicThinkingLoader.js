@@ -110,7 +110,7 @@ function loadAll() {
     const editorialImageTag = content.match(/<img\b[^>]*\bsrc="(\/assets\/images\/[^\"]+)"[^>]*>/);
     return {
       ...data,
-      editorialImage: editorialImageTag ? { src: editorialImageTag[1] } : null,
+      editorialImage: editorialImageTag ? { src: editorialImageTag[1], focus: data.imageFocus || "50% 50%" } : null,
       lang,
       url,
       authors: authorNames,
