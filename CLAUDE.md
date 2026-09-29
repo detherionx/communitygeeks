@@ -8,7 +8,7 @@ The approved identity is a full head-sized cream quiff, one eyebrow and glasses 
 
 `handoff/communitygeeks-rear-projection/` is the matching export package. Its root contains the standing master and approved three-view reference. `poses/` contains all ten website orientations as SVG/PNG/WebP. SVGs embed raster artwork; they are not editable path vectors.
 
-`crew-approved`, `crew-v40`, `crew-vector`, `crew-astra` and the old `handoff/communitygeeks-astronauts` are historical assets, not substitutes for the current full-body crew. Existing journal-only vector gloves are separate and may stay. Do not regenerate or redesign the mascot during copy/typography work. Preserve the current assets unless the user explicitly requests another mascot change.
+`crew-approved`, `crew-v40`, `crew-vector`, `crew-astra` and the old `handoff/communitygeeks-astronauts` are historical assets, not substitutes for the current full-body crew. The journal uses the approved detailed EVA gloves in `src/assets/images/journal-v45/` (`hold.png`, `write.png`, `turn.png`), with the original thumb clip in `researcher.js`. Do not replace them with `crew-vector/journal` mittens. Do not regenerate or redesign the mascot during copy/typography work. Preserve the current assets unless the user explicitly requests another mascot change.
 
 Read `handoff/opus-5.5-copy-typography.md` for the current refinement brief. After website changes, run `npx eleventy --quiet` and `node --test scripts/test-rear-projection-crew.cjs`. Verify the running preview at http://127.0.0.1:8081/ uses the canonical folder. The test can also verify HTTP responses with `CHECK_LIVE_CREW=1`.
 

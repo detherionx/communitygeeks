@@ -219,13 +219,13 @@
     if (astronaut) {
       const asset = (parent, name, transform) => {
         const group = g('eva-art', parent); group.setAttribute('transform', transform);
-        // Vector gloves (crew-vector/journal, Constructed style) in the same pixel frames as the retired raster gloves.
-        el('image', {href:'/assets/images/crew-vector/journal/' + name + '.svg', width:name==='hold'?1254:1024, height:name==='hold'?1254:1536}, group);
+        // Approved EVA gloves; retain their measured contact anchors and layered thumb mask.
+        el('image', {href:'/assets/images/journal-v45/' + name + '.png', width:name==='hold'?1254:1024, height:name==='hold'?1254:1536}, group);
         return group;
       };
       hb.replaceChildren(); asset(hb, 'hold', 'translate(48.4 525.2) scale(.24)');
       const thumbClip = el('clipPath', {id:id+'-eva-thumb'}, defs);
-      el('path', {d:'M661 514 855 369 941 484 747 629Z'}, thumbClip); // band around the vector thumb only
+      el('path', {d:'M920 235H1140V600L860 760 680 665 820 520 930 440Z'}, thumbClip);
       hfM.forEach(hand => {hand.replaceChildren();asset(hand,'hold','translate(48.4 525.2) scale(.24)').setAttribute('clip-path','url(#'+id+'-eva-thumb)');});
       [...wbM,...wfM,pen].forEach(part => part.style.display='none');
       const writing = g('eva-writing'), turning = g('eva-turning'), turningUnder = g('eva-turning-under');
