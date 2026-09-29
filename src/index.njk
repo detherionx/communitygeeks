@@ -32,18 +32,83 @@ ogDescription: "Start or improve community, developer and partner programmes. Ma
   </figure>
 </section>
 {% include "partials/offer-paths-v31.njk" %}
-<section class="thinking-section" data-editorial id="thinking" aria-labelledby="thinking-title">
+{# Journal (v62, approved from /mockups/journal/): lead story, two recent pieces, earlier notes by motif, archive count, research band. #}
+{% set pieces = publicThinking %}
+{% set lead = pieces[0] %}
+{% set topicLabel = {'community-management-participation-strategy': 'Community & adoption', 'what-remains-human-when-ai-takes-over': 'AI & human judgment', 'ai-coding-agents-systems-builders': 'AI & systems'} %}
+<section class="jm" data-editorial id="thinking" aria-labelledby="jm-title">
   <svg class="journal-stars" data-researcher='{"part":"bg"}' aria-hidden="true" focusable="false"></svg>
-  <div class="journal-field">{% include "partials/journal-astronaut.njk" %}</div>
-  <div class="journal-ledger" data-reveal>
-  <header class="section-head thinking-head"><p class="kicker">The journal</p><h2 id="thinking-title">Ideas tested against real work.</h2><p>Articles and research on adoption, developer programmes, community and the human judgement technology still needs.</p></header>
-  {% set featured = publicThinking[0] %}
-  <article class="featured-article"><p class="article-date"><span class="featured-tag">Featured</span><span>{{featured.date | readableDate}}</span></p><h3><a href="{{featured.url}}">{{featured.title}}</a></h3><p>{{featured.summary}}</p><a class="text-link" href="{{featured.url}}">Read the article <span aria-hidden="true">→</span></a></article>
-  {% set journalTopics = {'community-management-participation-strategy': 'Community & adoption', 'what-remains-human-when-ai-takes-over': 'AI & human judgment'} %}
-  <ol class="secondary-articles">{% for piece in publicThinking %}{% if loop.index > 1 and loop.index <= 3 %}<li><p class="article-date">{{piece.date | readableDate}} · {{journalTopics[piece.slug] or piece.topics[0]}}</p><h3><a href="{{piece.url}}">{{piece.title}}</a></h3><p class="article-deck">{{piece.summary}}</p><a class="text-link" href="{{piece.url}}">Read <span aria-hidden="true">→</span><span class="sr-only"> {{piece.title}}</span></a></li>{% endif %}{% endfor %}</ol>
-  <aside class="research-note"><p class="kicker">Research in progress</p><div><h3>When participant knowledge enters AI answers</h3><p>{{ researchTeaser.en }}</p><p class="research-boundary">{{ researchTeaser.boundaryEn }}</p><a class="text-link" href="/public-thinking/#research">Follow the research <span aria-hidden="true">→</span></a></div></aside>
-  <a class="text-link all-articles" href="/public-thinking/">Explore all articles <span aria-hidden="true">→</span></a>
+
+  <header class="jm-head">
+    <div class="jm-head-copy">
+      <p class="kicker">The journal</p>
+      <h2 id="jm-title">Ideas tested against real work.</h2>
+      <p>Articles and research on adoption, developer programmes, community and the human judgement technology still needs.</p>
+      <p class="jm-count"><span>{{ pieces.length }} field notes</span><span>Updated {{ lead.date | readableDate }}</span></p>
+      <a class="text-link" href="/public-thinking/">Browse all articles <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="jm-journal">{% include "partials/journal-astronaut.njk" %}</div>
+  </header>
+
+  <div class="jm-front">
+    <article class="jm-lead">
+      <a class="jm-lead-media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ lead.editorialImage.src }}" alt="" loading="lazy">
+        <span class="jm-obs">Obs. {{ lead.obs }}</span>
+      </a>
+      <div class="jm-lead-body">
+        <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
+        <p class="jm-meta"><span class="jm-tag">Latest</span><span>{{ lead.format }}</span><span>{{ lead.confidence }}</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
+        <h3><a href="{{ lead.url }}">{{ lead.title }}</a></h3>
+        <p class="jm-deck">{{ lead.summary }}</p>
+        <a class="text-link" href="{{ lead.url }}">Read the field note <span aria-hidden="true">→</span></a>
+        {% if lead.openQuestion %}<p class="jm-question"><span>Open question</span>{{ lead.openQuestion }}</p>{% endif %}
+      </div>
+    </article>
+
+    <ol class="jm-recent" aria-label="Also recent">
+      {% for piece in pieces %}{% if loop.index > 1 and loop.index <= 3 %}
+      <li><article class="jm-recent-card">
+        <a class="jm-thumb" href="{{ piece.url }}" tabindex="-1" aria-hidden="true"><img src="{{ piece.editorialImage.src }}" alt="" loading="lazy"><span class="jm-obs">{{ piece.obs }}</span></a>
+        <div>
+          <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ topicLabel[piece.slug] or piece.topics[0] }}</span></p>
+          <h3><a href="{{ piece.url }}">{{ piece.title }}</a></h3>
+          <p class="jm-deck">{{ piece.summary }}</p>
+        </div>
+      </article></li>
+      {% endif %}{% endfor %}
+    </ol>
   </div>
+
+  <div class="jm-shelf-head"><h3 class="jm-shelf-title">Earlier in the journal</h3><span class="jm-rule" aria-hidden="true"></span></div>
+  <ol class="jm-shelf">
+    {% for piece in pieces %}{% if loop.index > 3 and loop.index <= 6 %}
+    <li class="jm-card"><article>
+      <span class="jm-card-motif" aria-hidden="true">{{ piece.motif | constellation('catalogue', 'dark') | safe }}</span>
+      <p class="jm-card-obs">Obs. {{ piece.obs }}</p>
+      <h4 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h4>
+      <p class="jm-card-sum">{{ piece.summary }}</p>
+      <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ piece.confidence }}</span></p>
+    </article></li>
+    {% endif %}{% endfor %}
+    <li class="jm-card jm-card-all">
+      <a href="/public-thinking/">
+        <span class="jm-all-count">{{ pieces.length }}</span>
+        <span class="jm-all-glyphs" aria-hidden="true"><span class="glyph glyph-circle"></span><span class="glyph glyph-square"></span><span class="glyph glyph-triangle"></span></span>
+        <span class="jm-card-title">All field notes and research</span>
+        <span class="jm-all-cta">Open the journal <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+  </ol>
+
+  <aside class="jm-research" aria-labelledby="jm-research-title">
+    <p class="jm-research-label">Research in progress</p>
+    <div>
+      <h3 id="jm-research-title">When participant knowledge enters AI answers</h3>
+      <p>{{ researchTeaser.en }}</p>
+    </div>
+    <a class="text-link" href="/public-thinking/#research">Follow the research <span aria-hidden="true">→</span></a>
+  </aside>
 </section>
 <section class="founder-section" data-editorial id="founder-section" aria-labelledby="founder-name" data-reveal>
   <div class="founder-portrait"><img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy"></div>
