@@ -8,7 +8,7 @@ date: 2026-09-09
 format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
-motif: "cookie-jar"
+motif: "participation-route"
 summary: "Examples from customer support, product testing and gaming show how to choose a community platform around what people actually need to do together."
 deck: "Customer support, product testing and peer learning need different kinds of programs. Start with the activity people need, then choose the platform."
 topics: ["Community Management","Community Strategy","AI and MCP"]
@@ -16,7 +16,7 @@ authors: ["Carmelito Bauer"]
 openQuestion: "What do people need to accomplish together, and which structure best supports that work?"
 researchThread: "how participation strategy informs the choice of community platforms"
 related: [{"slug":"where-participation-actually-lives","title":"Community, developer relations and partnerships: where does the work overlap?"}]
-journal: {"headline":"PARTICIPATION","sketch":"cookie-jar","lines":["the platform earns it.","follow contributions to use.","people need a reason."]}
+journal: {"headline":"PARTICIPATION","sketch":"container","lines":["the platform earns it.","follow contributions to use.","people need a reason."]}
 ---
 
 [Richard Millington](https://mailchi.mp/feverbee/mcps2026-3575944), founder of community consultancy FeverBee, recently called MCPs (Model Context Protocol) “probably the biggest thing happening in enterprise communities right now." Within the enterprise-platform market he's writing about, that's a fair claim, and his analysis of what MCPs can and can't do is genuinely useful.
@@ -51,7 +51,7 @@ Avital Knoller of Orchid Security, an identity-security company, described how t
 
 Arcanix.AI’s Oscar Clark described community as “where players are, essentially.” Recalling Tribal Wars, he explained how his group used LINE to coordinate defence across time zones and limit infiltration. The game enabled their shared activity; a separate tool supported the coordination.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-ecosystem.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/community-container-ecosystem.png" width="1672" height="941" alt="People collaborate inside and outside a transparent container, connected across a wider participation system." loading="lazy"></a><figcaption><span class="pt-figure-cap">The owned platform is one part of a wider participation system.</span></figcaption></figure>
+<figure class="pt-figure pt-figure-world"><a class="pt-figure-link" href="/assets/images/public-thinking/participation-field-astronaut.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/participation-field-astronaut.png" width="1672" height="941" alt="A Communitygeeks astronaut follows a coral path from an owned platform through a constellation of other places to a distant point of use." loading="lazy"></a><figcaption><span class="pt-figure-cap">The platform holds a contribution. Its value may appear somewhere else.</span></figcaption></figure>
 
 ## Participation Doesn't Stop at the Platform Edge
 
@@ -81,7 +81,6 @@ Before choosing a platform or extending it with MCP, an organisation should be a
 
 The answers give a platform a clear job: preserve useful knowledge, support recurring exchange, govern access or connect contributions to decisions. They also establish what success should look like beyond activity inside the platform.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-cookie-sharing.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/community-container-cookie-sharing.png" width="1672" height="941" alt="Two geometric hands share a cookie above an open cookie jar and a reusable food box." loading="lazy"></a><figcaption><span class="pt-figure-cap">The jar holds the cookies. People do the sharing.</span></figcaption></figure>
 
 ## The Platform Must Earn Its Place
 

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1672 941" width="1672" height="941">
+  <defs>
+    <radialGradient id="sky"><stop stop-color="#245051"/><stop offset=".55" stop-color="#153b3e"/><stop offset="1" stop-color="#091e21"/></radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="8"/></filter>
+    <pattern id="grain" width="43" height="47" patternUnits="userSpaceOnUse"><circle cx="12" cy="5" r=".6" fill="#eee9d8" opacity=".25"/><circle cx="36" cy="31" r=".8" fill="#eee9d8" opacity=".16"/></pattern>
+    <g id="star"><circle r="10" fill="#d8dfcc" opacity=".12"/><circle r="3.5" fill="#e8e7d5"/></g>
+  </defs>
+  <rect width="1672" height="941" fill="url(#sky)"/><rect width="1672" height="941" fill="url(#grain)"/>
+  <g fill="none" stroke="#c2d6c1" opacity=".2"><ellipse cx="1220" cy="477" rx="567" ry="326" transform="rotate(-13 1220 477)"/><ellipse cx="1220" cy="477" rx="484" ry="244" transform="rotate(-13 1220 477)"/><ellipse cx="1220" cy="477" rx="390" ry="164" transform="rotate(-13 1220 477)"/><path d="M0 829Q770 626 1672 806M0 865Q770 662 1672 842"/></g>
+  <!-- Bounded autonomy is drawn as a series of legible gates, not a cage. -->
+  <g fill="none" stroke="#b7cdb8" stroke-width="2" opacity=".87">
+    <path d="M735 325l95 -72 95 72v145l-95 70 -95 -70Z"/><path d="M806 351h49v65h-49z" fill="#a6c4b4" fill-opacity=".13"/>
+    <path d="M967 221l110 -82 110 82v168l-110 82 -110 -82Z"/><path d="M1048 255h59v71h-59z" fill="#a6c4b4" fill-opacity=".13"/>
+    <path d="M1277 294l105 -78 105 78v163l-105 78-105 -78Z"/><path d="M1356 330h52v68h-52z" fill="#a6c4b4" fill-opacity=".13"/>
+    <path d="M735 325l95 72 95 -72M967 221l110 84 110-84M1277 294l105 83 105-83" opacity=".35"/>
+  </g>
+  <!-- One uninterrupted, visible line begins at the astronaut's reel and crosses every gate. -->
+  <path d="M673 520Q734 492 812 383C867 309 959 349 1078 286S1278 347 1382 364 1518 344 1592 236" fill="none" stroke="#f29274" stroke-width="22" opacity=".22" filter="url(#soft)"/>
+  <path d="M673 520Q734 492 812 383C867 309 959 349 1078 286S1278 347 1382 364 1518 344 1592 236" fill="none" stroke="#ef9477" stroke-width="4" stroke-linecap="round"/>
+  <!-- A hovering companion and a walking companion, mapped as constellations within the allowed field. -->
+  <g stroke="#b4d0bd" stroke-width="1.5" opacity=".82" fill="none">
+    <path d="M1050 595L1094 540 1189 540 1233 595 1189 647 1094 647Z"/><path d="M1050 595L984 564 938 588M1233 595L1297 564 1343 588M1094 540L1142 594 1189 540M1094 647L1142 594 1189 647"/>
+    <path d="M1398 526L1384 587 1433 596 1438 686M1384 587L1336 634M1433 596L1494 627M1438 686L1390 754M1438 686L1491 750"/>
+    <circle cx="1404" cy="489" r="33"/><path d="M1380 469L1428 508M1424 466L1383 510" opacity=".5"/>
+  </g>
+  <g><use xlink:href="#star" x="1050" y="595"/><use xlink:href="#star" x="1094" y="540"/><use xlink:href="#star" x="1189" y="540"/><use xlink:href="#star" x="1233" y="595"/><use xlink:href="#star" x="1094" y="647"/><use xlink:href="#star" x="1189" y="647"/><use xlink:href="#star" x="1142" y="594"/><use xlink:href="#star" x="984" y="564"/><use xlink:href="#star" x="938" y="588"/><use xlink:href="#star" x="1297" y="564"/><use xlink:href="#star" x="1343" y="588"/><use xlink:href="#star" x="1398" y="526"/><use xlink:href="#star" x="1384" y="587"/><use xlink:href="#star" x="1433" y="596"/><use xlink:href="#star" x="1438" y="686"/><use xlink:href="#star" x="1336" y="634"/><use xlink:href="#star" x="1494" y="627"/><use xlink:href="#star" x="1390" y="754"/><use xlink:href="#star" x="1491" y="750"/></g>
+  <g fill="none" stroke="#d6e2d0" opacity=".6"><circle cx="1592" cy="236" r="45"/><circle cx="1592" cy="236" r="66" opacity=".4"/><path d="M1592 144v26M1592 302v26M1500 236h26M1658 236h14"/></g>
+  <circle cx="1592" cy="236" r="12" fill="#ef9477"/>
+  <path d="M0 829Q590 778 865 818T1672 811V941H0Z" fill="#071d20" opacity=".5"/>
+  <image xlink:href="thread-tender.png" x="235" y="188" width="415" height="623" preserveAspectRatio="xMidYMid meet"/>
+  <path d="M499 465Q548 464 673 520" fill="none" stroke="#f29274" stroke-width="16" opacity=".19" filter="url(#soft)"/>
+  <path d="M499 465Q548 464 673 520" fill="none" stroke="#ef9477" stroke-width="3.2" stroke-linecap="round"/>
+  <g fill="#d7decf" opacity=".57"><circle cx="107" cy="194" r="2"/><circle cx="474" cy="117" r="2"/><circle cx="911" cy="93" r="2"/><circle cx="1471" cy="111" r="2"/><circle cx="112" cy="667" r="2"/></g>
+</svg>

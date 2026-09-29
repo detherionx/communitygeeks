@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1672 941" width="1672" height="941">
+  <defs>
+    <radialGradient id="sky"><stop stop-color="#214b4c"/><stop offset=".57" stop-color="#12383a"/><stop offset="1" stop-color="#091e21"/></radialGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b8d2c3" stop-opacity=".2"/><stop offset="1" stop-color="#9ab8ad" stop-opacity=".025"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grain" width="47" height="43" patternUnits="userSpaceOnUse"><circle cx="3" cy="7" r=".6" fill="#e9e7d8" opacity=".25"/><circle cx="35" cy="27" r=".8" fill="#e9e7d8" opacity=".2"/></pattern>
+    <g id="node"><circle r="12" fill="#d5e2d1" opacity=".16"/><circle r="4" fill="#eae8d5"/></g>
+  </defs>
+  <rect width="1672" height="941" fill="url(#sky)"/>
+  <rect width="1672" height="941" fill="url(#grain)"/>
+  <g fill="none" stroke="#b4c9ba" opacity=".16">
+    <path d="M-30 810C350 535 618 504 896 654S1425 800 1715 450"/>
+    <path d="M-70 735C383 350 615 358 867 517S1428 735 1715 260"/>
+    <path d="M-45 889C399 738 752 768 1080 768S1446 634 1715 607"/>
+    <path d="M132 0V941M325 0V941M518 0V941M711 0V941M904 0V941M1097 0V941M1290 0V941M1483 0V941" opacity=".28"/>
+  </g>
+  <g opacity=".7"><path d="M0 814Q410 735 768 842T1672 798" fill="none" stroke="#9ab7a9" stroke-width="1.5" opacity=".27"/><path d="M0 822Q410 743 768 850T1672 806" fill="none" stroke="#93b7aa" stroke-width="42" opacity=".08"/></g>
+  <!-- An owned platform: useful shelter, deliberately porous rather than the whole world. -->
+  <g transform="translate(80 160)">
+    <path d="M0 200L270 45 532 193 532 555 0 555Z" fill="url(#glass)" stroke="#bcd1bb" stroke-width="2" opacity=".8"/>
+    <path d="M0 200L270 45 532 193M270 45V425M0 200L270 350 532 193M0 555L270 425 532 555" fill="none" stroke="#bcd1bb" stroke-width="1.8" opacity=".63"/>
+    <path d="M84 232L188 168 291 221 398 160M93 415L179 350 268 393 365 310 451 357M179 350L188 168M291 221L365 310M268 393L291 221" fill="none" stroke="#aac6b8" stroke-width="1.5" opacity=".74"/>
+    <use xlink:href="#node" x="84" y="232"/><use xlink:href="#node" x="188" y="168"/><use xlink:href="#node" x="291" y="221"/><use xlink:href="#node" x="398" y="160"/><use xlink:href="#node" x="93" y="415"/><use xlink:href="#node" x="179" y="350"/><use xlink:href="#node" x="268" y="393"/><use xlink:href="#node" x="365" y="310"/><use xlink:href="#node" x="451" y="357"/>
+    <circle cx="451" cy="357" r="40" fill="none" stroke="#e9896b" opacity=".55"/>
+    <path d="M532 478L566 456" stroke="#bcd1bb" stroke-width="3"/><circle cx="532" cy="478" r="6" fill="#e9896b"/>
+  </g>
+  <!-- The contribution travels through a field of other places and later use. -->
+  <path d="M531 517C677 449 771 475 864 414S1119 360 1236 433 1435 456 1530 307" fill="none" stroke="#ec896b" stroke-width="19" opacity=".16" filter="url(#glow)"/>
+  <path d="M531 517C677 449 771 475 864 414S1119 360 1236 433 1435 456 1530 307" fill="none" stroke="#ee9678" stroke-width="3.2" stroke-linecap="round"/>
+  <g stroke="#d5dbc9" stroke-width="1.6" fill="none" opacity=".77">
+    <path d="M879 408L962 290 1082 314 1130 422 1030 484 879 408Z"/><path d="M962 290L1030 484M1082 314L879 408M1030 484L1130 422"/>
+    <path d="M1202 432L1278 264 1424 307 1488 468 1348 552 1202 432Z"/><path d="M1278 264L1348 552M1424 307L1202 432M1488 468L1278 264"/>
+    <path d="M1458 296L1530 307 1600 200 1650 310 1581 389 1488 468"/>
+  </g>
+  <g><use xlink:href="#node" x="879" y="408"/><use xlink:href="#node" x="962" y="290"/><use xlink:href="#node" x="1082" y="314"/><use xlink:href="#node" x="1130" y="422"/><use xlink:href="#node" x="1030" y="484"/><use xlink:href="#node" x="1202" y="432"/><use xlink:href="#node" x="1278" y="264"/><use xlink:href="#node" x="1424" y="307"/><use xlink:href="#node" x="1488" y="468"/><use xlink:href="#node" x="1348" y="552"/><use xlink:href="#node" x="1530" y="307"/><use xlink:href="#node" x="1600" y="200"/><use xlink:href="#node" x="1581" y="389"/></g>
+  <g fill="none" stroke="#d8e1cf" opacity=".65"><circle cx="1530" cy="307" r="82"/><circle cx="1530" cy="307" r="118" opacity=".45"/><path d="M1530 170V207M1530 407V444M1393 307H1430M1630 307H1667"/></g>
+  <circle cx="1530" cy="307" r="15" fill="#f19b7d"/><circle cx="1530" cy="307" r="34" fill="#f19b7d" opacity=".36" filter="url(#blur)"/>
+  <!-- A quiet foreground horizon keeps this a place rather than a data diagram. -->
+  <path d="M0 873Q370 834 680 850T1191 823 1672 853V941H0Z" fill="#091e21" opacity=".54"/>
+  <image xlink:href="platform-surveyor.png" x="651" y="222" width="390" height="585" preserveAspectRatio="xMidYMid meet"/>
+  <g fill="#d7decf" opacity=".65"><circle cx="667" cy="189" r="2"/><circle cx="796" cy="99" r="2"/><circle cx="1182" cy="93" r="2"/><circle cx="1448" cy="712" r="2"/><circle cx="139" cy="734" r="2"/></g>
+</svg>

@@ -8,7 +8,7 @@ date: 2026-09-09
 format: "Feldnotiz"
 filterType: "field"
 confidence: "Emerging Pattern"
-motif: "cookie-jar"
+motif: "participation-route"
 summary: "Beispiele aus Kundensupport, Produkttests und Gaming zeigen, wie man eine Community-Plattform danach auswählt, was Menschen gemeinsam tun wollen."
 deck: "Kundensupport, Produkttests und gemeinsames Lernen brauchen unterschiedliche Programme. Beginnen Sie mit dem, was Menschen tun wollen, und wählen Sie dann die Plattform."
 topics: ["Community-Management","Community-Strategie","KI und MCP"]
@@ -50,7 +50,7 @@ Avital Knoller von Orchid Security, einem Unternehmen für Identitätssicherheit
 
 Oscar Clark von Arcanix.AI beschrieb eine Community als „im Grunde dort, wo die Spieler sind“. Er erinnerte an „Tribal Wars“ und erklärte, wie seine Gruppe LINE nutzte, um die Verteidigung über Zeitzonen hinweg zu koordinieren und das Eindringen von Gegnern zu begrenzen. Das Spiel ermöglichte ihre gemeinsame Aktivität; ein separates Tool unterstützte die Koordination.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-ecosystem.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-ecosystem.png" width="1672" height="941" alt="Menschen arbeiten innerhalb und außerhalb eines transparenten Containers zusammen, verbunden in einem größeren Partizipationssystem." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Die eigene Plattform ist ein Teil eines umfassenderen Partizipationssystems.</span></figcaption></figure>
+<figure class="pt-figure pt-figure-world"><a class="pt-figure-link" href="/assets/images/public-thinking/participation-field-astronaut.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/participation-field-astronaut.png" width="1672" height="941" alt="Ein Communitygeeks-Astronaut verfolgt einen korallfarbenen Weg von der eigenen Plattform durch ein Sternbild weiterer Orte bis zur späteren Nutzung." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Die Plattform bewahrt einen Beitrag. Sein Wert kann anderswo entstehen.</span></figcaption></figure>
 
 ## Partizipation endet nicht an den Grenzen der Plattform
 
@@ -80,7 +80,6 @@ Bevor man sich für eine Plattform entscheidet oder sie mit MCP erweitert, sollt
 
 Die Antworten geben einer Plattform eine klare Aufgabe: nützliches Wissen bewahren, den wiederkehrenden Austausch unterstützen, den Zugriff regeln oder Beiträge mit Entscheidungen verknüpfen. Sie legen auch fest, wie Erfolg über die Aktivitäten innerhalb der Plattform hinaus aussehen soll.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-cookie-sharing.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-cookie-sharing.png" width="1672" height="941" alt="Zwei geometrisch gezeichnete Hände teilen einen Keks über einem offenen Keksglas und einer wiederverwendbaren Vorratsdose." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Das Glas enthält die Kekse. Die Menschen teilen sie.</span></figcaption></figure>
 
 ## Die Plattform muss sich ihren Platz verdienen
 

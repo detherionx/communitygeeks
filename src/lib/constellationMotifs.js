@@ -80,6 +80,19 @@
       if (ctx !== 'record' && ctx !== 'catalogue') s += dust([74,112,120,84], 10, 27);
       return s;
     } },
+    'participation-route': { viewBox: '0 0 300 240', alt: { en: 'A contribution travels from an owned platform through a wider constellation to a point of use.', de: 'Ein Beitrag wandert von der eigenen Plattform durch ein größeres Sternbild bis zu einem Ort seiner Nutzung.' }, build(ctx) {
+      const simple = ctx === 'record' || ctx === 'catalogue';
+      const inside = [[43,116],[76,80],[105,128],[75,166]], outside = [[155,101],[206,134],[257,73]];
+      let s = chain([[27,83],[92,40],[138,83],[138,188],[27,188]], 'cm-contour', true);
+      s += chain([inside[0],inside[1],inside[2],inside[3],inside[0]], 'cm-line');
+      s += chain([inside[2],...outside], 'cm-thread');
+      s += line(outside[0], [180,55], 'cm-line cm-faint') + line(outside[1], [228,181], 'cm-line cm-faint') + line(outside[2], [238,157], 'cm-line cm-faint');
+      inside.forEach((p) => { s += node(p, 2); });
+      outside.forEach((p, i) => { s += node(p, i === 2 ? 3 : 2.2); });
+      s += mark(outside[2], simple ? 9 : 10);
+      if (!simple) s += ring(outside[2], 27, 'cm-ring') + ring(outside[2], 42, 'cm-frame cm-faint') + dust([16,20,268,194], 12, 37);
+      return s;
+    } },
     // Conceptual instrument inspired by Pyxis (the Mariner Compass), not a positional star map.
     // Name reference: https://iauarchive.eso.org/public/themes/constellations/
     // Human judgment selects direction while the instrument makes execution possible.
@@ -129,7 +142,7 @@
       s += label(14, 226, 'RET · RETICULUM / THE RETICLE');
       return s;
     } },
-    thread: { viewBox: '0 0 300 220', alt: { en: 'The Thread Keeper: one continuous coral thread leaves its origin, passes through three guardrail apertures drawn as squares inside fine orbital rings, changing direction at each, and ends at one larger coral node with its own orbit, the human who keeps the thread.', de: 'Der Fadenhalter: Ein durchgehender korallenfarbener Faden verlässt seinen Ursprung, läuft durch drei Leitplanken-Blenden aus Quadraten in feinen Orbitringen, wechselt an jeder die Richtung und endet an einem größeren korallenfarbenen Knoten mit eigenem Orbit: dem Menschen, der den Faden hält.' }, build(ctx) {
+    thread: { viewBox: '0 0 300 220', alt: { en: 'One continuous coral thread crosses three guardrail apertures and remains anchored to its human keeper.', de: 'Ein durchgehender korallenfarbener Faden kreuzt drei Leitplanken-Blenden und bleibt mit dem Menschen verbunden, der ihn hält.' }, build(ctx) {
       const simple = ctx === 'catalogue' || ctx === 'record';
       // stations: origin S, three checkpoints C1..C3 (the thread turns at each), the human node H. Inset >= 14 units.
       const S = [26, 176], C = [[84, 148], [140, 78], [198, 126]], H = [262, 60];
@@ -159,7 +172,7 @@
       if (!simple) s += ring(H, 24, 'cm-frame cm-faint') + ring(H, 15, 'cm-ring');
       s += node(S, simple ? 2.6 : 2.2) + C.map((c) => node(c, simple ? 2.4 : 2)).join('');
       s += mark(H, simple ? 9 : 10);
-      return s;
+      return `<g transform="translate(300 0) scale(-1 1)">${s}</g>`;
     } },
   };
   // legacy slug from the first Public Thinking pass; the frontmatter now says `reticulum`
