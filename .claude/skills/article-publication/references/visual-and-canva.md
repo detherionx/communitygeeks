@@ -1,3 +1,7 @@
+## Approved ring treatment — production release 30 September 2026
+
+Use the current shared motif renderer: existing article-specific astronaut action, plain petrol disc, one thin tilted constellation ring with an opaque #FCF5D5 core and a faint separate ivory/#F29660 aura. No polygon networks or background-disc halo. This supersedes earlier orbital experiments below. User approved deployment of the ivory-ring revision.
+
 # Visual system and Canva handoff
 
 ## Canonical update — 30 September 2026

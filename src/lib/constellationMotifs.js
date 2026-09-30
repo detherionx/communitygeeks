@@ -1,35 +1,73 @@
-/* Canonical orbital astronaut motifs, approved 2026-09-30.
-   Semantic scenes derived from each article; geometry is conceptual, not a star chart.
-   Back orbit -> petrol disc -> purposeful crew action -> front orbit. No JavaScript required. */
+/* Constellation ring with faint aura. Approved crew assets remain unchanged. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ConstellationMotifs=factory();})(typeof self!=='undefined'?self:this,function(){
   'use strict';
-  const F=n=>Number(n.toFixed(2)), xy=p=>p.map(F).join(','), coral='#ec765d';
-  const line=(p,color='#8fa99f',width=1,opacity=1)=>`<path d="M${p.map(xy).join(' L')}" fill="none" stroke="${color}" stroke-width="${width}" opacity="${opacity}"/>`;
-  const dot=(p,r=3,color='#e9d9ac')=>`<circle cx="${F(p[0])}" cy="${F(p[1])}" r="${r}" fill="${color}" stroke="#658a83" stroke-width=".6"/>`;
-  const ring=(p,r=14,color=coral)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="none" stroke="${color}" stroke-width="1.4"/>`;
-  const star=(p,color='#c8d4c0')=>line([[p[0]-9,p[1]],[p[0]+9,p[1]]],color,1.3)+line([[p[0],p[1]-9],[p[0],p[1]+9]],color,1.3)+dot(p,3.5,color);
-  const crew=(pose,x=133,y=81,w=284)=>`<image href="/assets/images/crew-rear-projection/${pose}.webp" x="${x}" y="${y}" width="${w}" height="${w}"/>`;
-  const point=(a,r=210,tilt=.349)=>{const x=r*Math.cos(a),y=86*Math.sin(a);return [250+x*Math.cos(tilt)-y*Math.sin(tilt),248+x*Math.sin(tilt)+y*Math.cos(tilt)]};
-  function orbit(front,tilt=.349){
-    const start=front?0:Math.PI, end=start+Math.PI;
-    let s=line(Array.from({length:61},(_,i)=>point(start+(end-start)*i/60,210,tilt)),front?'#71958f':'#8aa6a0',front?1.5:1,front?.9:.45);
-    for(let i=front?0:7;i<(front?7:14);i++){const p=point(i*Math.PI/7,210,tilt),q=point(i*Math.PI/7,182,tilt),next=point((i+1)*Math.PI/7,210,tilt);s+=line([p,q,next],front?'#789c95':'#9aafa7',.8,front?.55:.3)+dot(p,front?3.2:2,front?'#e9d9ac':'#89a39a')}
-    return s;
-  }
-  function cluster(p,n=3){const nodes=Array.from({length:n},(_,i)=>[p[0]+15*Math.cos(i*2*Math.PI/n),p[1]+11*Math.sin(i*2*Math.PI/n)]);return line([...nodes,nodes[0]],'#8aa89c',1.2)+nodes.map(q=>dot(q,2.7)).join('')}
   const scenes={
-    horologium:{title:'Human review in an executable loop',en:'An astronaut scans a coral review point in a constellation workflow passing behind and in front of the disc.',de:'Ein Astronaut prüft einen korallfarbenen Entscheidungspunkt in einer Sternbildschleife vor und hinter der Scheibe.',draw(){return {body:crew('inspect')+`<path d="M174 115L103 78L92 105Z" fill="${coral}" opacity=".12"/>`+line([[98,91],[65,161],[94,213]])+dot([65,161])+ring([98,91])+`<rect x="94" y="87" width="8" height="8" fill="${coral}"/>`,front:''}}},
-    'cookie-jar':{title:'The exchange gives the platform its purpose',en:'Two astronauts exchange one shared module across two open constellation spaces. Their shared task connects the spaces.',de:'Zwei Astronauten übergeben ein gemeinsames Modul zwischen zwei offenen Sternbildräumen. Ihre gemeinsame Aufgabe verbindet die Räume.',draw(){return {body:line([[73,174],[128,132],[175,162],[175,207]],'#a8bbb0',1.5)+line([[326,271],[326,314],[385,345],[440,302]],'#a8bbb0',1.5)+crew('handoff',100,101,318),front:line([[78,244],[121,300],[180,326],[255,340],[321,319],[387,297]],'#b8c9b5',1.8)+dot([121,300],4)+dot([387,297],4)+ring([255,340],8,'#d5dfc9')}}},
-    pyxis:{title:'Check the claim against an independent reference',en:'An astronaut compares a tablet with a separate reference star. Two sight lines connect the claim and the independent observation.',de:'Ein Astronaut vergleicht ein Tablet mit einem unabhängigen Referenzstern. Zwei Sichtlinien verbinden Aussage und eigene Beobachtung.',draw(){return {body:crew('compare',111,77,300)+star([85,119])+line([[85,119],[170,173]],'#b9c9b5',1.3)+line([[85,119],[412,170]],'#a2b6a6',1,.55)+line([[412,170],[366,199]],coral,1.4)+ring([412,170],12)+`<path d="M405 170L412 163L419 170L412 177Z" fill="none" stroke="${coral}" stroke-width="1.5"/>`,front:line([[85,119],[72,262],[182,326]],'#9cb2a4',1,.6)+dot([72,262])}}},
-    thread:{title:'Freedom inside explicit limits',en:'A tethered astronaut keeps a coral thread through three boundary gates, retaining a connection as the path moves around the disc.',de:'Ein gesicherter Astronaut hält einen korallfarbenen Faden durch drei Grenztore und bleibt mit dem Weg um die Scheibe verbunden.',draw(){const gates=[[419,234],[336,350],[154,321]];return {body:crew('connect',119,97,286),front:`<path d="M397 173C420 150 446 206 419 234S379 324 336 350S200 369 154 321Q139 335 170 365" fill="none" stroke="${coral}" stroke-width="2.2"/>`+gates.map(p=>`<path d="M${p[0]-11} ${p[1]+15}L${p[0]-11} ${p[1]-15}L${p[0]+11} ${p[1]-15}L${p[0]+11} ${p[1]+15}" fill="none" stroke="#b7cbb6" stroke-width="1.8"/>`+dot(p,3,coral)).join('')}}},
-    gaming:{title:'Working across functional boundaries',en:'Two astronauts transfer work where three distinct constellation routes cross. The routes continue separately beyond the shared task.',de:'Zwei Astronauten übergeben Arbeit am Schnittpunkt dreier Sternbildwege. Die Wege laufen jenseits der gemeinsamen Aufgabe getrennt weiter.',draw(){return {back:orbit(false,-.55),body:crew('handoff',106,105,300),front:orbit(true,-.55)+line([[96,185],[183,218],[276,236],[368,173],[414,106]],'#b7cab8',1.7)+cluster([96,185])+cluster([414,106])+dot([276,236],5,coral)}}},
-    reticulum:{title:'Tending the connections among six groups',en:'An astronaut connects a link in a network of six participant groups, with paths between the groups rather than a single central channel.',de:'Ein Astronaut verbindet eine Strecke im Netzwerk aus sechs Teilnehmergruppen. Die Wege verbinden die Gruppen untereinander statt über einen einzigen Kanal.',draw(){const groups=Array.from({length:6},(_,i)=>{const a=-5*Math.PI/6+i*Math.PI/3;return [F(250+184*Math.cos(a)),F(248+160*Math.sin(a))]});return {tilt:-.25,back:line([...groups,groups[0]],'#9ab3a6',1,.5),body:crew('connect-flipped',120,105,280)+line([[129,176],groups[0]],coral,1.8),front:groups.map(p=>cluster(p)).join('')+ring(groups[0],21)+line([groups[5],[158,377],groups[4]],'#9ab3a6',1,.6)}}}
-  };
+  "horologium": {
+    "title": "Human review in an executable loop",
+    "en": "An astronaut inspects a reading, within a thin constellation ring with a faint galactic aura.",
+    "de": "Ein Astronaut prüft eine Messung in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/inspect.webp\" x=\"133\" y=\"81\" width=\"284\" height=\"284\"/>"
+  },
+  "cookie-jar": {
+    "title": "The exchange gives the platform its purpose",
+    "en": "Two astronauts exchange a shared module, within a thin constellation ring with a faint galactic aura.",
+    "de": "Zwei Astronauten übergeben ein gemeinsames Modul in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/handoff.webp\" x=\"100\" y=\"101\" width=\"318\" height=\"318\"/>"
+  },
+  "pyxis": {
+    "title": "Check the claim against an independent reference",
+    "en": "An astronaut checks a tablet, within a thin constellation ring with a faint galactic aura.",
+    "de": "Ein Astronaut prüft ein Tablet in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/compare.webp\" x=\"111\" y=\"77\" width=\"300\" height=\"300\"/>"
+  },
+  "thread": {
+    "title": "Freedom inside explicit limits",
+    "en": "A tethered astronaut reaches outward, within a thin constellation ring with a faint galactic aura.",
+    "de": "Ein gesicherter Astronaut streckt sich in einem dünnen Sternbildring mit einer zarten galaktischen Aura aus.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/connect.webp\" x=\"119\" y=\"97\" width=\"286\" height=\"286\"/>"
+  },
+  "gaming": {
+    "title": "Working across functional boundaries",
+    "en": "Two astronauts hand work to one another, within a thin constellation ring with a faint galactic aura.",
+    "de": "Zwei Astronauten übergeben Arbeit in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/handoff.webp\" x=\"106\" y=\"105\" width=\"300\" height=\"300\"/>"
+  },
+  "reticulum": {
+    "title": "Tending the connections among six groups",
+    "en": "An astronaut works on a connection, within a thin constellation ring with a faint galactic aura.",
+    "de": "Ein Astronaut arbeitet an einer Verbindung in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
+    "body": "<image href=\"/assets/images/crew-rear-projection/connect-flipped.webp\" x=\"120\" y=\"105\" width=\"280\" height=\"280\"/>"
+  }
+};
+  function ring(id,front){
+    const path=front?'M444 248A194 80 0 0 1 56 248':'M56 248A194 80 0 0 1 444 248';
+    const angles=front?[.35,1.2,2.4]:[3.5,4.4,5.5];
+    return `<g transform="rotate(20 250 248)">
+      <path class="orbital-aura" d="${path}" fill="none" stroke="url(#${id}-dust)" stroke-width="10" filter="url(#${id}-mist)"/>
+      <path d="${path}" fill="none" stroke="#FCF5D5" stroke-width=".85"/>
+      ${angles.map(a=>{const x=250+194*Math.cos(a),y=248+80*Math.sin(a);return `<circle class="orbital-aura" cx="${x}" cy="${y}" r="7" fill="url(#${id}-star)"/><circle cx="${x}" cy="${y}" r="1.5" fill="#fcf5d5"/>`}).join('')}
+    </g>`;
+  }
   function motifSvg(kind,ctx='record',ground='dark',lang='en'){
     if(kind==='people-beyond-container')kind='reticulum';const scene=scenes[kind];if(!scene)return '';
-    const d=scene.draw(),id=`orbit-${kind}-${ctx}-${ground}-${lang}`,description=scene[lang]||scene.en;
+    const id=`orbit-${kind}-${ctx}-${ground}-${lang}`,description=scene[lang]||scene.en;
     const a11y=ctx==='masthead'?`role="img" aria-label="${description}"`:'aria-hidden="true"';
-    return `<svg class="cm cm--${ctx} cm--${ground} cm-${kind} cm-orbital" viewBox="20 45 460 390" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ${a11y} focusable="false"><defs><radialGradient id="${id}" cx="35%" cy="25%" r="85%"><stop stop-color="#285455"/><stop offset="1" stop-color="#092b30"/></radialGradient></defs>${orbit(false,d.tilt)}${d.back||''}<circle cx="250" cy="248" r="146" fill="url(#${id})"/><circle cx="250" cy="248" r="146" fill="none" stroke="#70908a" stroke-width=".8"/>${d.body}${orbit(true,d.tilt)}${d.front||''}</svg>`;
+    return `<svg class="cm cm--${ctx} cm--${ground} cm-${kind} cm-orbital" viewBox="0 35 500 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ${a11y} focusable="false">
+      <defs>
+        <radialGradient id="${id}" cx="35%" cy="25%" r="85%"><stop stop-color="#285455"/><stop offset="1" stop-color="#092b30"/></radialGradient>
+        <filter id="${id}-mist" filterUnits="userSpaceOnUse" x="35" y="33" width="430" height="430" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency=".022" numOctaves="3" seed="17" result="cloud"/>
+          <feDisplacementMap in="SourceGraphic" in2="cloud" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+          <feGaussianBlur stdDeviation="2.8"/>
+        </filter>
+        <linearGradient id="${id}-dust" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F29660" stop-opacity=".28"/><stop offset=".35" stop-color="#fcf5d5" stop-opacity=".38"/><stop offset=".7" stop-color="#F29660" stop-opacity=".3"/><stop offset="1" stop-color="#F29660" stop-opacity=".28"/></linearGradient>
+        <radialGradient id="${id}-star"><stop stop-color="#fcf5d5" stop-opacity=".8"/><stop offset=".35" stop-color="#F29660" stop-opacity=".4"/><stop offset="1" stop-color="#F29660" stop-opacity="0"/></radialGradient>
+      </defs>
+      ${ring(id,false)}
+      <circle cx="250" cy="248" r="146" fill="url(#${id})"/>
+      ${scene.body}
+      ${ring(id,true)}
+    </svg>`;
   }
   return {motifSvg,kinds:Object.keys(scenes),scenes};
 });
