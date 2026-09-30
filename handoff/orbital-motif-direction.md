@@ -54,3 +54,20 @@ Ring colour correction: fixed opaque #FCF5D5 core on both front and rear halves;
 
 User approved ivory-ring for production on 30 September 2026. Deploy this revision, superseding the local-only status above.
 
+
+## Custom article scenes — replaces the stock-pose mapping
+
+30 September: user rejected repeated handoff poses and a mirrored connect pose. All six article motifs now use individually generated character-and-prop scenes in src/assets/images/article-motifs/. Ring geometry and filter code remain byte-for-byte unchanged from production. Local review only.
+
+| Key | Source passage | Depicted action |
+| --- | --- | --- |
+| horologium | ai-coding-agents-systems-builders: From Idea to Executable System; qualification gates, evidence and human approval | Seated operator reviews candidate dossiers and controls an approval lever |
+| cookie-jar | community-management-participation-strategy: The jar holds the cookies. People do the sharing. | Kneeling giver, one jar, standing recipient |
+| pyxis | what-remains-human-when-ai-takes-over: Thesis 2; independent verification and reference knowledge | Astronaut uses telescope alongside reference book |
+| thread | who-keeps-the-thread: Autonomy creates a visibility problem / Surprise needs boundaries | Astronaut adjusts boundary for small autonomous drone |
+| gaming | where-participation-actually-lives: Antoine's studio-to-government work; distinct functions do not necessarily merge | Two operators connect game-studio and institution consoles, keeping them separate |
+| reticulum | rethinking-where-participation-happens: six contact groups and tending relationships | Astronaut maintains a six-port hub |
+
+These are illustrative interpretations of specific passages, not claims to summarize every argument in one symbol. Selection requires article-content reasoning; unique filenames alone are not evidence of a suitable motif. Do not reuse a stock pose, mirror it or substitute a generic prop to fill an article slot.
+
+User approved all six article-specific replacements and requested production publication. This supersedes their local-review status above.

@@ -4,39 +4,39 @@
   const scenes={
   "horologium": {
     "title": "Human review in an executable loop",
-    "en": "An astronaut inspects a reading, within a thin constellation ring with a faint galactic aura.",
-    "de": "Ein Astronaut prüft eine Messung in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/inspect.webp\" x=\"133\" y=\"81\" width=\"284\" height=\"284\"/>"
+    "en": "An astronaut reviews candidate evidence and controls an approval gate in a recruiting workflow.",
+    "de": "Ein Astronaut prüft Bewerbernachweise und bedient eine Freigabeschranke im Recruiting-Ablauf.",
+    "body": "<image href=\"/assets/images/article-motifs/recruiting-review.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   },
   "cookie-jar": {
     "title": "The exchange gives the platform its purpose",
-    "en": "Two astronauts exchange a shared module, within a thin constellation ring with a faint galactic aura.",
-    "de": "Zwei Astronauten übergeben ein gemeinsames Modul in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/handoff.webp\" x=\"100\" y=\"101\" width=\"318\" height=\"318\"/>"
+    "en": "A kneeling astronaut offers a cookie from one shared jar to a standing participant.",
+    "de": "Ein kniender Astronaut bietet einem stehenden Teilnehmer einen Keks aus einem gemeinsamen Glas an.",
+    "body": "<image href=\"/assets/images/article-motifs/sharing-from-one-jar.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   },
   "pyxis": {
     "title": "Check the claim against an independent reference",
-    "en": "An astronaut checks a tablet, within a thin constellation ring with a faint galactic aura.",
-    "de": "Ein Astronaut prüft ein Tablet in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/compare.webp\" x=\"111\" y=\"77\" width=\"300\" height=\"300\"/>"
+    "en": "An astronaut uses a telescope and a separate reference book to check an observation independently.",
+    "de": "Ein Astronaut prüft eine Beobachtung unabhängig mit einem Teleskop und einem separaten Nachschlagewerk.",
+    "body": "<image href=\"/assets/images/article-motifs/independent-verification.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   },
   "thread": {
     "title": "Freedom inside explicit limits",
-    "en": "A tethered astronaut reaches outward, within a thin constellation ring with a faint galactic aura.",
-    "de": "Ein gesicherter Astronaut streckt sich in einem dünnen Sternbildring mit einer zarten galaktischen Aura aus.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/connect.webp\" x=\"119\" y=\"97\" width=\"286\" height=\"286\"/>"
+    "en": "An astronaut adjusts a low boundary while a small drone operates inside it.",
+    "de": "Ein Astronaut stellt eine niedrige Begrenzung ein, innerhalb derer eine kleine Drohne agiert.",
+    "body": "<image href=\"/assets/images/article-motifs/setting-autonomy-boundaries.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   },
   "gaming": {
     "title": "Working across functional boundaries",
-    "en": "Two astronauts hand work to one another, within a thin constellation ring with a faint galactic aura.",
-    "de": "Zwei Astronauten übergeben Arbeit in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/handoff.webp\" x=\"106\" y=\"105\" width=\"300\" height=\"300\"/>"
+    "en": "Two astronauts connect separate game-studio and public-institution workstations.",
+    "de": "Zwei Astronauten verbinden getrennte Arbeitsstationen eines Spielestudios und einer öffentlichen Institution.",
+    "body": "<image href=\"/assets/images/article-motifs/studio-institution-connection.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   },
   "reticulum": {
     "title": "Tending the connections among six groups",
-    "en": "An astronaut works on a connection, within a thin constellation ring with a faint galactic aura.",
-    "de": "Ein Astronaut arbeitet an einer Verbindung in einem dünnen Sternbildring mit einer zarten galaktischen Aura.",
-    "body": "<image href=\"/assets/images/crew-rear-projection/connect-flipped.webp\" x=\"120\" y=\"105\" width=\"280\" height=\"280\"/>"
+    "en": "An astronaut tends a six-port connection hub representing six participant groups.",
+    "de": "Ein Astronaut wartet einen Verbindungsknoten mit sechs Anschlüssen für sechs Teilnehmergruppen.",
+    "body": "<image href=\"/assets/images/article-motifs/six-participant-connections.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
   }
 };
   function ring(id,front){
