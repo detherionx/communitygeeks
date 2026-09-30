@@ -2,6 +2,12 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ConstellationMotifs=factory();})(typeof self!=='undefined'?self:this,function(){
   'use strict';
   const scenes={
+  "muay-thai": {
+    "title": "Becoming part of a community through shared practice",
+    "en": "Two astronauts practice Muay Thai together: one wears a Mongkhon and delivers a knee strike into the other's pads.",
+    "de": "Zwei Astronauten trainieren gemeinsam Muay Thai: Einer trägt einen Mongkhon und übt einen Kniestoß gegen die Pratzen des anderen.",
+    "body": "<image href=\"/assets/images/article-motifs/muay-thai-knee.png\" x=\"100\" y=\"101\" width=\"318\" height=\"318\"/>"
+  },
   "horologium": {
     "title": "Human review in an executable loop",
     "en": "An astronaut reviews candidate evidence and controls an approval gate in a recruiting workflow.",

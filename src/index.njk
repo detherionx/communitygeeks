@@ -59,14 +59,14 @@ ogDescription: "Start or improve community, developer and partner programmes. Ma
   <div class="jm-front">
     <article class="jm-lead">
       <a class="jm-lead-media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">
-        <img src="{{ lead.editorialImage.src }}" alt="" loading="lazy" style="object-position:{{ lead.editorialImage.focus }}">
+        <img src="{{ lead.homepageImage or lead.editorialImage.src }}" alt="" loading="lazy" style="object-position:{{ lead.editorialImage.focus }}">
         <span class="jm-obs">Obs. {{ lead.obs }}</span>
       </a>
       <div class="jm-lead-body">
         <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
         <p class="jm-meta"><span class="jm-tag">Latest</span><span>{{ lead.format }}</span><span>{{ lead.confidence }}</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
         <h3><a href="{{ lead.url }}">{{ lead.title }}</a></h3>
-        <p class="jm-deck">{{ lead.summary }}</p>
+        <p class="jm-deck">{{ lead.deck }}</p>
         <a class="text-link" href="{{ lead.url }}">Read the field note <span aria-hidden="true">→</span></a>
         {% if lead.openQuestion %}<p class="jm-question"><span>Open question</span>{{ lead.openQuestion }}</p>{% endif %}
       </div>

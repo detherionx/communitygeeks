@@ -122,6 +122,12 @@
     // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
     // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
     const SKETCH = {
+      'training-ring'(x0, txt) {
+        return [{ kind: 'path', o: pth(`M${x0+44},-14 L${x0+108},-30 L${x0+151},3 L${x0+87},24 Z M${x0+44},-14 L${x0+44},16 L${x0+87},54 L${x0+151},33 L${x0+151},3 M${x0+87},24 L${x0+87},54`), w: 0.18 },
+          { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+83,-3,7)), w: 0.05 },
+          { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+116,7,7), 'coral'), w: 0.05 },
+          { kind: 'path', o: pth(`M${x0+90},0 L${x0+109},5`, 'coral'), w: 0.06 }];
+      },
       horologium(x0, txt) { const c = [x0 + 96, -12], gate = [x0 + 96, 28], bob = [x0 + 96, 50];
         return [{ kind: 'path', o: pth(circ(c[0], c[1], 34)), w: 0.10 }, { kind: 'move', w: 0.02 },
           { kind: 'path', o: pth(`M${c} L${x0 + 118},-32 M${c} L${x0 + 96},-37`), w: 0.08 }, { kind: 'move', w: 0.02 },
