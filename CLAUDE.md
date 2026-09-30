@@ -1,5 +1,9 @@
 # Communitygeeks project instructions
 
+## Canonical article motifs — user decision, 30 September 2026
+
+Use the approved orbital treatment in `src/lib/constellationMotifs.js`: large purposeful astronauts, a dimensional petrol disc, and a sparse constellation passing behind and in front. Every scene must depict the specific article's argument through an action and a relationship. A random pose beside an old motif is not acceptable. The AI coding inspection scene is the approved reference; `/mockups/orbital-collection/` shows the article-specific set. Read `handoff/orbital-motif-direction.md` for each article's meaning. Preserve the distinction between these compact motifs and the full editorial illustrations. Preview new interpretations before deployment.
+
 ## Canonical astronaut assets — user decision, 28 September 2026
 
 Use `src/assets/images/crew-rear-projection/` for all active website astronauts. The shared renderer is `src/_includes/partials/participation-scenes.njk`; it selects matching pose names and dedicated `-flipped` assets. Preserve the square canvas, bottom-centre anchor and animation groups. Do not swap every scene to the same standing master.

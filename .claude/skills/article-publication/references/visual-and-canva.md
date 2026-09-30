@@ -1,5 +1,9 @@
 # Visual system and Canva handoff
 
+## Canonical update — 30 September 2026
+
+The user approved the orbital astronaut motif system. For catalogue motifs, use `src/lib/constellationMotifs.js` and `handoff/orbital-motif-direction.md`: purposeful crew action derived from the article, a dimensional petrol disc, and sparse constellation connections passing behind and across its foreground. These are conceptual geometries, not necessarily astronomical charts. This supersedes the older line-only motif instructions below. Do not place the former motif beside a small astronaut or assign a pose without a semantic reason. Keep the separate editorial illustrations and notebook notation system.
+
 ## Asset 1: catalogue constellation motif
 
 This is the compact publication identity, not the article's editorial illustration. It is rendered by `src/lib/constellationMotifs.js` from the article's `motif` frontmatter and reused unchanged in the homepage preview, Public Thinking overview, and article masthead. Preserve that working system.
