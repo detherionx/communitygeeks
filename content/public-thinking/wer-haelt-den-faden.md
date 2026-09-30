@@ -65,8 +65,8 @@ Er erzählte mir von zwei Roboterbegleitern – einem schwebenden Drohnenroboter
 Seine Antwort auf mögliche Risiken besteht nicht darin, die KI weniger autonom zu gestalten. Vielmehr geht es darum, viel klarer zu definieren, wo diese Autonomie beginnt und endet. Ein Mensch entscheidet, mit welchen Themen sich der Charakter beschäftigen darf, und legt die Leitplanken fest. Innerhalb dieser Grenzen gewährt Brian dem Charakter gerne echten Handlungsspielraum – sogar so weit, dass die übliche Rollenverteilung umgekehrt wird und der Charakter dem Spieler sagt, was er tun soll. In seiner Version des Erlebnisses **kann der Spieler für kurze Zeit zur Nebenfigur statt zum Helden werden.**
 
 <figure class="pt-figure pt-figure-portrait">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" data-lightbox aria-label="Abbildung 1 vergrößern">
-    <img src="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" alt="Redaktionelle Illustration auf tiefem Petrolgrund: ein Mensch, eine schwebende Drohne und ein humanoider Roboter als Drahtgitter-Sternbilder. Ein korallenfarbener Faden läuft von einer Markierung am Boden durch den Menschen zur Drohne und weiter zum Roboter, der die Richtung zeigt; eine niedrige Umrandung aus verbundenen Punkten markiert den Rand des gemeinsamen Raums." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries-astronaut.png" data-lightbox aria-label="Abbildung 1 vergrößern">
+    <img width="1122" height="1402" src="/assets/images/public-thinking/who-keeps-the-thread-boundaries-astronaut.png" alt="Ein Communitygeeks-Astronaut, eine Drohne und ein Roboter aus Sternbildlinien sind innerhalb einer niedrigen Umrandung aus verbundenen Punkten durch korallenfarbene Linien verknüpft." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 1</span>

@@ -20,7 +20,7 @@ topics:
 authors:
   - "Carmelito Bauer"
 openQuestion: "What becomes more valuable when the distance between an idea and an executable system collapses?"
-imageFocus: "68% 50%"
+imageFocus: "100% 50%"
 researchThread: "how AI coding agents change who can design and test working systems"
 related:
   - slug: "what-remains-human-when-ai-takes-over"
@@ -58,7 +58,7 @@ The next step was not to ask engineering for an estimate. It was to run ten real
 
 I did not write that software, nor could I have specified its technical implementation in advance. My contribution was different: understanding the problem, recognizing the decision loop, questioning whether the proposed structure matched the work, defining where human judgment mattered and insisting on auditability and safety. The distance between imagining a different way of working and testing it had collapsed to hours.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/ai-systems-builder.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/ai-systems-builder.png" width="1672" height="941" alt="A constellation figure shapes a network of nodes above an open notebook, turning an idea into an executable system." loading="lazy"></a><figcaption><span class="pt-figure-cap">An idea becomes a system in an afternoon.</span><span class="pt-figure-source">Communitygeeks editorial illustration, created with AI.</span></figcaption></figure>
+<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/ai-systems-builder-astronaut.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/ai-systems-builder-astronaut.png" width="1672" height="941" alt="A Communitygeeks astronaut shapes a constellation of nodes above an open notebook, turning an idea into a working system." loading="lazy"></a><figcaption><span class="pt-figure-cap">An idea becomes a system in an afternoon.</span><span class="pt-figure-source">Communitygeeks editorial illustration, created with AI.</span></figcaption></figure>
 
 ## Building Is Not the Same as Engineering
 

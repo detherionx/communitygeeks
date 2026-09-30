@@ -68,9 +68,9 @@ What struck me was how differently people with real tenure frame the same mess. 
 None of that resolves into one answer, and I don't think it should. I went in partly wondering whether community and DevRel were converging. By the end of the week, that question felt too narrow. The more interesting one was what happens at the boundaries between community, DevRel, marketing, partnerships, product, sales and executive strategy. Mark's own answer, once pushed for a concrete example, was a list spanning exactly those functions.
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-participation-field.svg" data-lightbox aria-label="Enlarge Figure 1">
-    <img class="pt-figure-desktop" src="/assets/images/public-thinking/gamescom-participation-field.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting directly above one continuous petrol field labelled Participation that runs the full width, well beyond the register on both sides." loading="lazy">
-    <img class="pt-figure-mobile" src="/assets/images/public-thinking/gamescom-participation-field-mobile.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting above one continuous petrol field labelled Participation." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/gamescom-participation-field-astronaut.svg" data-lightbox aria-label="Enlarge Figure 1">
+    <img class="pt-figure-desktop" src="/assets/images/public-thinking/gamescom-participation-field-astronaut.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting directly above one continuous petrol field labelled Participation that runs the full width, well beyond the register on both sides." loading="lazy">
+    <img class="pt-figure-mobile" src="/assets/images/public-thinking/gamescom-participation-field-mobile-astronaut.svg" alt="Editorial illustration: a light register labelled Selected Functions lists Community, DevRel, Product, Marketing, and Partnerships, followed by a plus and more, sitting above one continuous petrol field labelled Participation." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>

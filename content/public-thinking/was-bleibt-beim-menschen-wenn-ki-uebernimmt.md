@@ -41,8 +41,8 @@ Menschliches Urteilsvermögen ist demnach sowohl als Vorgabe, als auch als Nachj
 
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/human-judgment-observatory.png" data-lightbox aria-label="Illustration vergrößern">
-    <img src="/assets/images/public-thinking/human-judgment-observatory.png" width="1536" height="1024" alt="Eine Figur aus Sternen bedient ein Steuerpult und lenkt eine korallenfarbene Route auf tiefem Petrol zu einem Stern." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-judgment-observatory-astronaut.png" data-lightbox aria-label="Illustration vergrößern">
+    <img src="/assets/images/public-thinking/human-judgment-observatory-astronaut.png" width="1536" height="1024" alt="Ein Astronaut an einem Steuerpult wählt einen korallenfarbenen Punkt und lenkt eine Sternbildroute zu einem fernen Stern." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-cap">KI führt die Arbeit aus. Ein Mensch bestimmt weiterhin die Richtung.</span>
@@ -66,8 +66,8 @@ Dennoch wird der Dialog mit dem Team auf andere Art und Weise stattfinden: Denn 
 
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/human-telescope-constellation.png" data-lightbox aria-label="Illustration vergrößern">
-    <img src="/assets/images/public-thinking/human-telescope-constellation.png" width="1536" height="1024" alt="Eine menschliche Gestalt aus elfenbeinfarbenen Sternbildlinien richtet ein separates Teleskop aus und blickt hindurch auf einen korallenfarbenen Stern vor einem dunklen, petrolfarbenen Hintergrund." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/human-telescope-astronaut.png" data-lightbox aria-label="Illustration vergrößern">
+    <img src="/assets/images/public-thinking/human-telescope-astronaut.png" width="1536" height="1024" alt="Ein Astronaut prüft durch ein separates Sternbildteleskop einen fernen korallenfarbenen Referenzstern." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-cap">Was bleibt im Zeitalter der KI unverkennbar menschlich?</span>

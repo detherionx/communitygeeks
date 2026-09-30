@@ -164,13 +164,18 @@
   };
   // legacy slug from the first Public Thinking pass; the frontmatter now says `reticulum`
   MOTIFS['people-beyond-container'] = MOTIFS.reticulum;
+  const ASTRONAUT_POSE = { gaming: 'carry', reticulum: 'walk', thread: 'connect', pyxis: 'compare', 'cookie-jar': 'handoff', horologium: 'inspect' };
 
   function motifSvg(kind, ctx, ground, lang) {
     const m = MOTIFS[kind]; if (!m) return '';
     ctx = ctx || 'record'; ground = ground || 'dark';
     const conveys = ctx === 'masthead'; // the masthead specimen carries meaning; elsewhere the motif is ambient
-    const a11y = conveys ? `role="img" aria-label="${(m.alt[lang] || m.alt.en).replace(/"/g, '&quot;')}"` : 'aria-hidden="true"';
-    return `<svg class="cm cm--${ctx} cm--${ground} cm-${kind}" viewBox="${m.viewBox}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ${a11y} focusable="false">${m.build(ctx)}</svg>`;
+    const description = `${m.alt[lang] || m.alt.en} ${lang === 'de' ? 'Daneben ist ein Communitygeeks-Astronaut zu sehen.' : 'A Communitygeeks astronaut appears beside it.'}`;
+    const a11y = conveys ? `role="img" aria-label="${description.replace(/"/g, '&quot;')}"` : 'aria-hidden="true"';
+    const pose = ASTRONAUT_POSE[kind] || 'walk';
+    const world = `<g transform="translate(-8 24) scale(.72)">${m.build(ctx)}</g>`;
+    const astronaut = `<circle cx="226" cy="122" r="55" fill="#14383A"/><circle cx="226" cy="122" r="55" fill="none" stroke="#7AA19C" stroke-opacity=".55"/><image x="165" y="60" width="122" height="122" href="/assets/images/crew-rear-projection/${pose}.webp"/>`;
+    return `<svg class="cm cm--${ctx} cm--${ground} cm-${kind}" viewBox="${m.viewBox}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ${a11y} focusable="false">${world}${astronaut}</svg>`;
   }
   return { motifSvg, kinds: Object.keys(MOTIFS), reticulum: projectRet };
 });

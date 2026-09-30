@@ -50,7 +50,7 @@ Avital Knoller von Orchid Security, einem Unternehmen für Identitätssicherheit
 
 Oscar Clark von Arcanix.AI beschrieb eine Community als „im Grunde dort, wo die Spieler sind“. Er erinnerte an „Tribal Wars“ und erklärte, wie seine Gruppe LINE nutzte, um die Verteidigung über Zeitzonen hinweg zu koordinieren und das Eindringen von Gegnern zu begrenzen. Das Spiel ermöglichte ihre gemeinsame Aktivität; ein separates Tool unterstützte die Koordination.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-ecosystem.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-ecosystem.png" width="1672" height="941" alt="Menschen arbeiten innerhalb und außerhalb eines transparenten Containers zusammen, verbunden in einem größeren Partizipationssystem." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Die eigene Plattform ist ein Teil eines umfassenderen Partizipationssystems.</span></figcaption></figure>
+<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-ecosystem-astronaut.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-ecosystem-astronaut.png" width="1672" height="941" alt="Kleine Astronauten arbeiten in offenen Gruppen und in einem transparenten eigenen Raum zusammen, verbunden durch ein größeres Partizipationsnetz." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Die eigene Plattform ist ein Teil eines umfassenderen Partizipationssystems.</span></figcaption></figure>
 
 ## Partizipation endet nicht an den Grenzen der Plattform
 
@@ -80,7 +80,7 @@ Bevor man sich für eine Plattform entscheidet oder sie mit MCP erweitert, sollt
 
 Die Antworten geben einer Plattform eine klare Aufgabe: nützliches Wissen bewahren, den wiederkehrenden Austausch unterstützen, den Zugriff regeln oder Beiträge mit Entscheidungen verknüpfen. Sie legen auch fest, wie Erfolg über die Aktivitäten innerhalb der Plattform hinaus aussehen soll.
 
-<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-cookie-sharing.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-cookie-sharing.png" width="1672" height="941" alt="Zwei geometrisch gezeichnete Hände teilen einen Keks über einem offenen Keksglas und einer wiederverwendbaren Vorratsdose." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Das Glas enthält die Kekse. Die Menschen teilen sie.</span></figcaption></figure>
+<figure class="pt-figure"><a class="pt-figure-link" href="/assets/images/public-thinking/community-container-cookie-sharing-astronaut.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/community-container-cookie-sharing-astronaut.png" width="1672" height="941" alt="Ein kniender Astronaut reicht einem zweiten Astronauten, der über das Netzwerk hinzukommt, einen Keks aus einem gemeinsamen Sternbildglas." loading="lazy" /></a><figcaption><span class="pt-figure-cap">Das Glas enthält die Kekse. Die Menschen teilen sie.</span></figcaption></figure>
 
 ## Die Plattform muss sich ihren Platz verdienen
 

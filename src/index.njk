@@ -38,7 +38,7 @@ ogDescription: "Start or improve community, developer and partner programmes. Ma
   </div>
 </section>
 {% include "partials/offer-paths-v31.njk" %}
-{# Journal (v65): one lead story, three recent pieces carried by their constellation motifs, a slim research band; the archive lives at /public-thinking/. #}
+{# Journal: one lead story, three recent article scenes, a slim research band; the archive lives at /public-thinking/. #}
 {% set pieces = publicThinking %}
 {% set lead = pieces[0] %}
 {% set topicLabel = {'community-management-participation-strategy': 'Community & adoption', 'what-remains-human-when-ai-takes-over': 'AI & human judgment', 'ai-coding-agents-systems-builders': 'AI & systems'} %}
@@ -77,7 +77,7 @@ ogDescription: "Start or improve community, developer and partner programmes. Ma
   <ol class="jm-shelf" aria-label="Also recent">
     {% for piece in pieces %}{% if loop.index > 1 and loop.index <= 4 %}
     <li class="jm-card"><article>
-      <span class="jm-card-motif" aria-hidden="true">{{ piece.motif | constellation('catalogue', 'dark') | safe }}</span>
+      <span class="jm-card-image" aria-hidden="true"><img src="{{ piece.homepageImage or piece.editorialImage.src }}" alt="" loading="lazy"></span>
       <p class="jm-card-obs">Obs. {{ piece.obs }}</p>
       <h3 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h3>
       <p class="jm-card-sum">{{ piece.summary }}</p>

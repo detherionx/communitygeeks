@@ -9,6 +9,7 @@ format: "Field Note"
 filterType: "field"
 confidence: "Emerging Pattern"
 motif: "thread"  # the Thread Keeper: one coral thread through three guardrail apertures to the human node; see src/lib/constellationMotifs.js
+homepageImage: "/assets/images/public-thinking/who-keeps-the-thread-card-astronaut.png"
 journal:         # homepage field journal notation (see src/_data/journalPages.js)
   headline: "THREAD"
   sketch: "thread"
@@ -72,8 +73,8 @@ He told me about two robot companions, one a floating drone, the other humanoid,
 His answer to possible risks is not to make the AI less autonomous. It is to be much clearer about where that autonomy begins and ends. A human decides which topics the character can engage with and sets the safety rails. Inside them, Brian is happy to give the character genuine room to act, even to reverse the usual relationship and tell the player what to do. In his version of the experience, **the player can briefly become the side character rather than the hero.**
 
 <figure class="pt-figure pt-figure-portrait">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" data-lightbox aria-label="Enlarge Figure 1">
-    <img src="/assets/images/public-thinking/who-keeps-the-thread-boundaries.jpg" alt="Editorial illustration on a deep teal ground: a person, a floating drone and a humanoid robot drawn as wireframe constellations. One coral thread runs from a marker on the floor through the person to the drone and on to the robot, which is pointing the way; a low fence of connected points marks the edge of the space they share." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/who-keeps-the-thread-boundaries-astronaut.png" data-lightbox aria-label="Enlarge Figure 1">
+    <img width="1122" height="1402" src="/assets/images/public-thinking/who-keeps-the-thread-boundaries-astronaut.png" alt="A Communitygeeks astronaut, a constellation drone and a constellation robot are linked by coral lines inside a low boundary of connected points." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>

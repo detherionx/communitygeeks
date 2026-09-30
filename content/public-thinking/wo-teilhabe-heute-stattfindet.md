@@ -36,8 +36,8 @@ Wo findet „echter" Community-Austausch noch statt, in einer Online-Kommunikati
 Seine Arbeitsdefinition von „Ökosystem" war für uns sehr aufschlussreich. Alle Gruppen, die mit einem Unternehmen in Verbindung stehen – Technologiepartner, Service- und Lösungspartner, Affiliate- und Empfehlungspartner, Influencer und Content-Ersteller, Kundenfürsprecher und -botschafter sowie gesponserte Veranstaltungen – sind Teil des Ökosystems. Es geht also um ein weitgespanntes Netzwerk, das den Geist von Community trotzdem aufgreift.
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" data-lightbox aria-label="Abbildung 1 vergrößern">
-    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagramm: ein Unternehmen im Zentrum, umgeben von sechs Ökosystem-Gruppen, Technologiepartner, Service- und Lösungspartner, Affiliate- und Empfehlungspartner, Influencer und Content-Ersteller, Kundenfürsprecher und -botschafter, gesponserte Veranstaltungen, mit Community als verbindender Schicht durch alle Gruppen." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map-astronaut.svg" data-lightbox aria-label="Abbildung 1 vergrößern">
+    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map-astronaut.svg" alt="Diagramm: ein Unternehmen im Zentrum, umgeben von sechs Ökosystem-Gruppen, Technologiepartner, Service- und Lösungspartner, Affiliate- und Empfehlungspartner, Influencer und Content-Ersteller, Kundenfürsprecher und -botschafter, gesponserte Veranstaltungen, mit Community als verbindender Schicht durch alle Gruppen." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 1</span>
@@ -58,8 +58,8 @@ Aus diesem Gespräch ergibt sich für uns ein möglicher Ansatz für die Arbeit 
 - Wir stärken bereits bestehende Interaktionen.
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop.svg" data-lightbox aria-label="Abbildung 2 vergrößern">
-    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagramm: ein fortlaufender Kreis aus vier Verben, Identifizieren, Verstehen, Gestalten, Stärken, als möglicher Blick auf Ökosystem-Arbeit, nicht als feste Methodik mit festem Startpunkt." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop-astronaut.svg" data-lightbox aria-label="Abbildung 2 vergrößern">
+    <img src="/assets/images/public-thinking/fieldnote-verb-loop-astronaut.svg" alt="Diagramm: ein fortlaufender Kreis aus vier Verben, Identifizieren, Verstehen, Gestalten, Stärken, als möglicher Blick auf Ökosystem-Arbeit, nicht als feste Methodik mit festem Startpunkt." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Abbildung 2</span>

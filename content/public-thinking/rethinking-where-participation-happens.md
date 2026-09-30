@@ -41,8 +41,8 @@ Where does "real" community interaction fit in, in an online communication lands
 His working definition of "ecosystem" was very illuminating for us. All groups associated with a company, technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events, are part of the ecosystem. So this is about a wide-reaching network that nevertheless captures the spirit of community.
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" data-lightbox aria-label="Enlarge Figure 1">
-    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map.svg" alt="Diagram: a company at the center, surrounded by six ecosystem groups, technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events, with community as a connective layer running through all of them." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-ecosystem-map-astronaut.svg" data-lightbox aria-label="Enlarge Figure 1">
+    <img src="/assets/images/public-thinking/fieldnote-ecosystem-map-astronaut.svg" alt="Diagram: a company at the center, surrounded by six ecosystem groups, technology partners, service and solution partners, affiliate and referral partners, influencers and content creators, customer advocates and ambassadors, and sponsored events, with community as a connective layer running through all of them." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 1</span>
@@ -63,8 +63,8 @@ From this conversation, a possible approach to working with such ecosystems emer
 - We strengthen existing interactions.
 
 <figure class="pt-figure">
-  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop.svg" data-lightbox aria-label="Enlarge Figure 2">
-    <img src="/assets/images/public-thinking/fieldnote-verb-loop.svg" alt="Diagram: a continuous loop of four verbs, Identify, Understand, Shape, Strengthen, framed as a possible lens for ecosystem work, not a fixed method with a fixed starting point." loading="lazy">
+  <a class="pt-figure-link" href="/assets/images/public-thinking/fieldnote-verb-loop-astronaut.svg" data-lightbox aria-label="Enlarge Figure 2">
+    <img src="/assets/images/public-thinking/fieldnote-verb-loop-astronaut.svg" alt="Diagram: a continuous loop of four verbs, Identify, Understand, Shape, Strengthen, framed as a possible lens for ecosystem work, not a fixed method with a fixed starting point." loading="lazy">
   </a>
   <figcaption>
     <span class="pt-figure-num">Figure 2</span>
