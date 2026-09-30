@@ -1,0 +1,84 @@
+---
+layout: layouts/home.njk
+title: "Journal visual direction · local study | Communitygeeks"
+description: "Local comparison of restrained motifs and astronaut scene thumbnails."
+permalink: /mockups/journal-direction/
+bodyClass: participation-home
+---
+{% set pieces = publicThinking %}
+{% set lead = pieces[0] %}
+{% set topicLabel = {'community-management-participation-strategy': 'Community & adoption', 'what-remains-human-when-ai-takes-over': 'AI & human judgment', 'who-keeps-the-thread': 'AI autonomy'} %}
+<div class="jm-study-controls" aria-label="Local visual comparison">
+  <p><strong>Journal visual study</strong> · Preview only</p>
+  <div role="group" aria-label="Card treatment">
+    <button type="button" data-set-cards="quiet" aria-pressed="true">Quiet motifs</button>
+    <button type="button" data-set-cards="scenes" aria-pressed="false">Astronaut scenes</button>
+  </div>
+</div>
+<section class="jm jm-prototype" data-cards="quiet" aria-labelledby="jm-study-title">
+  <h1 id="jm-study-title" class="jm-study-heading">Ideas tested against real work.</h1>
+  <div class="jm-front">
+    <article class="jm-lead">
+      <a class="jm-lead-media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">
+        <img src="/assets/images/mockups/journal-direction/lead-ai-builder.png" alt="" style="object-position:60% 50%">
+        <span class="jm-obs">Obs. {{ lead.obs }}</span>
+      </a>
+      <div class="jm-lead-body">
+        <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
+        <p class="jm-meta"><span class="jm-tag">Latest</span><span>{{ lead.format }}</span><span>{{ lead.confidence }}</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
+        <h2><a href="{{ lead.url }}">{{ lead.title }}</a></h2>
+        <p class="jm-deck">{{ lead.summary }}</p>
+        <a class="text-link" href="{{ lead.url }}">Read the field note <span aria-hidden="true">→</span></a>
+        {% if lead.openQuestion %}<p class="jm-question"><span>Open question</span>{{ lead.openQuestion }}</p>{% endif %}
+      </div>
+    </article>
+  </div>
+  <ol class="jm-shelf" aria-label="Also recent">
+    {% for piece in pieces %}{% if loop.index > 1 and loop.index <= 4 %}
+    {% if piece.slug == 'community-management-participation-strategy' %}{% set scene = 'platform-ecosystem.png' %}
+    {% elif piece.slug == 'what-remains-human-when-ai-takes-over' %}{% set scene = 'human-judgment.png' %}
+    {% else %}{% set scene = 'thread-train.png' %}{% endif %}
+    <li class="jm-card"><article>
+      <span class="jm-card-motif" aria-hidden="true">{{ piece.motif | constellation('catalogue', 'dark') | safe }}</span>
+      <span class="jm-card-scene" aria-hidden="true"><img src="/assets/images/mockups/journal-direction/{{ scene }}" alt=""></span>
+      <p class="jm-card-obs">Obs. {{ piece.obs }}</p>
+      <h3 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h3>
+      <p class="jm-card-sum">{{ piece.summary }}</p>
+      <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ topicLabel[piece.slug] or piece.topics[0] }}</span></p>
+    </article></li>
+    {% endif %}{% endfor %}
+  </ol>
+  <aside class="jm-research" aria-labelledby="jm-research-title">
+    <span class="jm-research-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span></span>
+    <p class="jm-research-label">Research in progress</p>
+    <div><h3 id="jm-research-title">When participant knowledge enters AI answers</h3><p>{{ researchTeaser.en }}</p></div>
+    <a class="text-link" href="/public-thinking/#research">Follow the research <span aria-hidden="true">→</span></a>
+  </aside>
+</section>
+<style>
+  .jm-study-controls{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);background:var(--paper);color:var(--ink);font:500 14px var(--body)}
+  .jm-study-controls div{display:flex;gap:8px}
+  .jm-study-controls button{padding:9px 14px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font:500 13px var(--mono)}
+  .jm-study-controls button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .jm-study-heading{margin:0 0 32px;font:360 clamp(28px,3vw,44px)/1.1 var(--display);letter-spacing:-.025em}
+  .jm-prototype .jm-lead h2{margin:14px 0;font:360 clamp(30px,2.8vw,44px)/1.05 var(--display);letter-spacing:-.024em;max-width:22ch}
+  .jm-prototype .jm-card-motif{padding:11% 30%;opacity:.72}
+  .jm-prototype .jm-card-scene{display:none;aspect-ratio:16/9;margin:0 0 16px;overflow:hidden;background:var(--space-1)}
+  .jm-prototype .jm-card-scene img{display:block;width:100%;height:100%;object-fit:cover}
+  .jm-prototype[data-cards="scenes"] .jm-card-motif{display:none}
+  .jm-prototype[data-cards="scenes"] .jm-card-scene{display:block}
+  @media(max-width:900px){
+    .jm-prototype .jm-card-motif{padding:12%}
+    .jm-prototype[data-cards="scenes"] .jm-card article{display:block;padding:0 0 16px}
+    .jm-prototype[data-cards="scenes"] .jm-card article>:not(.jm-card-scene){margin-inline:16px}
+    .jm-prototype[data-cards="scenes"] .jm-card-scene{aspect-ratio:16/9;margin:0 0 16px}
+    .jm-study-controls{align-items:flex-start;flex-direction:column}
+  }
+</style>
+<script>
+  const study = document.querySelector('.jm-prototype');
+  document.querySelectorAll('[data-set-cards]').forEach(button => button.addEventListener('click', () => {
+    study.dataset.cards = button.dataset.setCards;
+    document.querySelectorAll('[data-set-cards]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+  }));
+</script>
