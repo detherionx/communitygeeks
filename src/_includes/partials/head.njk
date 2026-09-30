@@ -1,10 +1,10 @@
 {# Shared <head> for every production layout (home, about, contact, pt). One place for titles, Open Graph / Twitter
    cards, canonical, favicons, fonts, structured data and analytics. Pages override per front matter:
-   ogTitle / ogDescription (share copy), ogImage + ogImageAlt (a piece's generated 1200x630 card; the site card is
+   fullTitle (replaces the whole <title>), ogTitle / ogDescription (share copy), ogImage + ogImageAlt (a piece's generated 1200x630 card; the site card is
    1200x627), extraHead (JSON-LD, hreflang alternates). Stylesheets are added by each layout after this include. #}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title }} · Communitygeeks</title>
+<title>{{ fullTitle or (title ~ ' · Communitygeeks') }}</title>
 <meta name="description" content="{{ description }}">
 {% set siteOgImage = 'https://communitygeeks.ai/assets/images/communitygeeks-2-og-2026.png' %}
 {% set siteOgAlt = 'Communitygeeks. Find where people connect. Decide what to build.' %}
