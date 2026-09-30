@@ -23,7 +23,11 @@
     window.dispatchEvent(new CustomEvent('diagnosis:change',{detail:{name:track.offer.name}}));
   };
   tracks.forEach((track,index)=>{
-    track.tab.addEventListener('click',event=>{event.preventDefault();select(track,true);});
+    track.tab.addEventListener('click',event=>{
+      event.preventDefault();select(track,true);
+      // Stacked cards (mobile) push the scope below the fold; bring it into view so the click visibly lands.
+      if(disclosure.getBoundingClientRect().top>innerHeight*.8)disclosure.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    });
     track.tab.addEventListener('keydown',event=>{
       if(event.ctrlKey||event.metaKey||event.altKey)return;
       if(event.key===' '){event.preventDefault();select(track,true);return;}

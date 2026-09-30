@@ -10,6 +10,7 @@ filterType: field
 confidence: Observation
 motif: muay-thai
 homepageImage: /assets/images/public-thinking/muay-thai-knee-illustration.png
+homepageCaption: Pratzentraining in einem Muay-Thai-Gym auf Phuket
 summary: 'Carmelito Bauer über ein Muay-Thai-Gym, WoW Forever und einen Hofverkauf: Wie gemeinsames Training, Hilfe und regelmäßiges Wiederkommen Gemeinschaft entstehen lassen.'
 deck: 'Ein Muay-Thai-Gym in Thailand, hilfsbereite Fremde in WoW Forever und ein Hofverkauf am Freitag in Deutschland: Wie wir Teil der Orte werden, an die wir immer wieder zurückkehren.'
 topics:

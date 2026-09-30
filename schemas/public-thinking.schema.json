@@ -96,7 +96,8 @@
     "openQuestion": { "type": "string", "minLength": 1 },
     "researchThread": { "type": "string", "minLength": 1 },
     "imageFocus": { "type": "string", "pattern": "^[0-9]{1,3}% [0-9]{1,3}%$" },
-    "homepageImage": { "type": "string", "pattern": "^/assets/images/public-thinking/[a-z0-9-]+\\.(png|jpg|webp)$" }
+    "homepageImage": { "type": "string", "pattern": "^/assets/images/public-thinking/[a-z0-9-]+\\.(png|jpg|webp)$" },
+    "homepageCaption": { "type": "string", "maxLength": 60 }
   },
   "allOf": [
     {

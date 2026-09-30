@@ -10,6 +10,7 @@ filterType: field
 confidence: Observation
 motif: muay-thai
 homepageImage: /assets/images/public-thinking/muay-thai-knee-illustration.png
+homepageCaption: Pad work at a Muay Thai gym in Phuket
 journal:
   headline: KEEP COMING BACK
   sketch: training-ring

@@ -247,8 +247,8 @@ path.dep-node{fill:var(--g-triangle)}
 .diagnosis-choices a{cursor:pointer;position:relative}
 .diagnosis-choices a:hover{border-color:var(--ink)}
 .choice-cue{grid-column:1/-1;align-self:end}
-.choice-cue::before{content:"Select";display:block;margin-top:6px;font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
-.diagnosis-choices a[aria-checked="true"] .choice-cue::before{content:"Selected · scope below";color:#F4B3A2}
+.choice-cue::before{content:"See how we’d approach it ↓";display:block;margin-top:6px;font:500 var(--t-meta)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
+.diagnosis-choices a[aria-checked="true"] .choice-cue::before{content:"Our approach, below ↓";color:#F4B3A2}
 .diagnosis-choices a:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
 .diagnosis-choices .choice-dot{margin-top:6px}
 .diagnosis-choices strong{font:600 var(--t-component)/1.2 var(--body);letter-spacing:-.01em}
@@ -258,8 +258,8 @@ path.dep-node{fill:var(--g-triangle)}
 .diagnosis-selector:not([data-chosen]) .diagnosis-choices a[aria-checked="true"]{background:var(--paper);border-color:var(--line-paper);color:var(--ink);box-shadow:none;--g-circle:#4F7E67;--g-square:#467584;--g-triangle:#A67A2E}
 .diagnosis-selector:not([data-chosen]) .diagnosis-choices a[aria-checked="true"]:hover{border-color:var(--ink)}
 .diagnosis-selector:not([data-chosen]) .diagnosis-choices a[aria-checked="true"] .choice-symptom{color:var(--ink-muted)}
-.diagnosis-selector:not([data-chosen]) .diagnosis-choices a[aria-checked="true"] .choice-cue::before{content:"Select";color:var(--ink-muted)}
-.diagnosis-disclosure{margin:28px 0 0;border-block:1px solid var(--line-paper)}
+.diagnosis-selector:not([data-chosen]) .diagnosis-choices a[aria-checked="true"] .choice-cue::before{content:"See how we’d approach it ↓";color:var(--ink-muted)}
+.diagnosis-disclosure{margin:28px 0 0;border-block:1px solid var(--line-paper);scroll-margin-top:72px}
 .diagnosis-disclosure summary{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 24px;padding:22px 0;cursor:pointer;list-style:none}
 .diagnosis-disclosure summary::-webkit-details-marker{display:none}
 .diagnosis-disclosure summary>span:first-child{font:500 var(--t-meta)/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}

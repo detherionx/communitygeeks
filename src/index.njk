@@ -58,10 +58,13 @@ ogDescription: "Start or improve community, developer and partner programmes. Ma
 
   <div class="jm-front">
     <article class="jm-lead">
-      <a class="jm-lead-media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">
-        <img src="{{ lead.homepageImage or lead.editorialImage.src }}" alt="" loading="lazy" style="object-position:{{ lead.editorialImage.focus }}">
-        <span class="jm-obs">Obs. {{ lead.obs }}</span>
-      </a>
+      <figure class="jm-lead-figure">
+        <a class="jm-lead-media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ lead.homepageImage or lead.editorialImage.src }}" alt="" loading="lazy" style="object-position:{{ lead.editorialImage.focus }}">
+          <span class="jm-obs">Obs. {{ lead.obs }}</span>
+        </a>
+        {% if lead.homepageCaption %}<figcaption class="jm-lead-cap">From the essay · {{ lead.homepageCaption }}</figcaption>{% endif %}
+      </figure>
       <div class="jm-lead-body">
         <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
         <p class="jm-meta"><span class="jm-tag">Latest</span><span>{{ lead.format }}</span><span>{{ lead.confidence }}</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
