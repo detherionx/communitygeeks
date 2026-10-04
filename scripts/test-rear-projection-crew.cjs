@@ -21,7 +21,7 @@ test('every current pose has a matching self-contained SVG and handoff image', (
   }
 });
 
-test('built homepage uses only current crew assets with no mirrored faces', () => {
+test('built homepage preserves current crew and the approved hero scene', () => {
   const html = read('_site/index.html').toString();
   const images = [...html.matchAll(/<image class="crew-render"[^>]*href="([^"]+)"/g)];
   assert.ok(images.length > 0);
@@ -32,7 +32,10 @@ test('built homepage uses only current crew assets with no mirrored faces', () =
   }
   const macro = read('src/_includes/partials/participation-scenes.njk').toString().split('{% endmacro %}')[0];
   assert.doesNotMatch(macro, /scale\(-1/);
-  for (const name of ['walk-flipped', 'connect-flipped', 'compare-flipped']) assert.ok(html.includes('/' + name + '.webp'), name);
+  const scene = '/assets/images/hero-scenes/briefing-crew-v2.png';
+  assert.ok(html.includes(scene));
+  assert.ok(read('_site' + scene).equals(read('src' + scene)));
+  assert.doesNotMatch(read('src/_includes/partials/hero-refit.njk').toString(), /scale(?:X)?\(-1/);
 });
 
 test('local HTTP preview serves current image bytes', {skip: !process.env.CHECK_LIVE_CREW}, async () => {
