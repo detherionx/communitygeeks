@@ -31,7 +31,7 @@
 }
 
 .hero-refit::before{display:none}
-.hero-refit .hero-room{position:absolute;z-index:-2;inset:30px 0 -30px;pointer-events:none;background:url('/assets/images/hero-scenes/briefing-crew-v2.png') center center/cover no-repeat}
+.hero-refit .hero-room{position:absolute;z-index:-2;inset:auto 0 0;height:auto;aspect-ratio:1586/992;pointer-events:none;background:url('/assets/images/hero-scenes/briefing-crew-v2.png') center bottom/100% auto no-repeat;mask-image:linear-gradient(transparent,#000 12%)}
 .hero-refit .hero-room-shade{position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(#0e262855,transparent 28%)}
 @media(min-width:861px){
  .participation-hero.hero-refit{padding-top:calc(var(--bar-h) + 28px)}
@@ -60,8 +60,12 @@
 @media(max-width:520px){
  .participation-hero.hero-refit{padding-top:calc(var(--bar-h) + 30px);min-height:734px}
  .participation-home .hero-refit .hero-kicker{font-size:1.25rem;max-width:350px;gap:8px;margin-bottom:18px;text-wrap:balance}
- .hero-refit .hero-copy{margin-top:18px}
+.hero-refit .hero-copy{margin-top:18px}
 }
+
+/* Reserve the illustrated lower 40.7% of the source after the copy, including at browser zoom. */
+.participation-hero.hero-refit{padding-bottom:0}
+.hero-refit::after{content:"";display:block;flex:none;height:calc(max(600px,100vw) * .255);margin-top:24px}
 
 </style>
 <section class="participation-hero hero-refit variant-d" id="field" aria-labelledby="hero-title">
