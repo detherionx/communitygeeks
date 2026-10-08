@@ -16,32 +16,26 @@
 .idea-module-head{padding:0 0 25px;}
 .idea-eyebrow{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;letter-spacing:.075em;text-transform:uppercase;}
 .idea-module-head .idea-eyebrow{color:var(--petrol);margin-bottom:10px;}
-.idea-module-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,3vw,38px);line-height:1.15;letter-spacing:-.025em;margin:0;}
+.idea-module-head h2{scroll-margin-top:130px;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,3vw,38px);line-height:1.15;letter-spacing:-.025em;margin:0;}
 .idea-comparison h3{font-family:'Fraunces',serif;font-weight:400;font-size:25px;line-height:1.15;margin:12px 0 24px;letter-spacing:-.015em;}
 .idea-comparison ul{list-style:none;margin:0;padding:0;}
 .pt-body .idea-comparison li{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;}
-.idea-attention{border-top:2px solid var(--petrol);padding-top:24px;}
-.idea-attention-grid{display:grid;grid-template-columns:1fr 1.75fr;gap:24px;align-items:start;}
-.idea-paid{padding:28px;background:#F2DDCE;color:#45342B;border-top:7px solid #D76B4E;}
-.idea-attention h3{margin:0 0 22px;}
-.idea-attention h3::before{content:'';display:block;margin-bottom:22px;width:18px;height:18px;background:#D76B4E;}
-.pt-body .idea-paid li{border:0;padding:8px 0;font-size:17px;}
-.idea-accumulated{padding:32px 36px;background:#DEE9E3;color:#173E40;border-top:7px solid #1F4B4C;}
-.idea-accumulated h3{font-size:30px;}
-.idea-accumulated h3::before{width:24px;height:24px;border-radius:50%;background:#1F4B4C;}
-.pt-body .idea-accumulated li{border:0;padding:11px 0;font-size:19px;line-height:1.5;}
-.pt-body .idea-accumulated li + li{border-top:1px solid #1F4B4C24;}
-.idea-shift{background:#EDE5D344;border:1px solid var(--line);}
-.idea-shift .idea-module-head{padding:32px;}
-.idea-shift-grid{display:grid;grid-template-columns:1fr 1.65fr;align-items:start;}
-.idea-before{padding:30px 28px;color:var(--ink-soft);border-top:1px solid var(--line);}
+.idea-comparison{background:#EDE5D344;border:1px solid var(--line);}
+.idea-comparison .idea-module-head{padding:32px;}
+.pt-body .idea-comparison-caption{scroll-margin-top:130px;max-width:none;margin:0;padding:18px 32px 20px;border-top:1px solid var(--line);font-size:14px;line-height:1.65;color:var(--ink-soft);}
+.idea-caption-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--petrol);white-space:nowrap;margin-right:6px;}
+.idea-attention-grid,.idea-shift-grid{display:grid;grid-template-columns:1fr 1.65fr;align-items:start;}
+.idea-paid,.idea-before{padding:30px 28px;color:var(--ink-soft);border-top:1px solid var(--line);}
 .idea-before .idea-eyebrow{font-size:10px;max-width:24ch;}
-.idea-after{position:relative;padding:30px 32px 34px;background:#1F4B4C;color:#F6F4EF;border-top:3px solid #E8735A;}
+.idea-accumulated,.idea-after{position:relative;padding:30px 32px 34px;background:#1F4B4C;color:#F6F4EF;border-top:3px solid #E8735A;}
+.idea-accumulated::before{content:'';position:absolute;top:42px;left:-19px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle,#1F4B4C 0 4px,transparent 5px),#E8735A;}
 .idea-after::before{content:'→';position:absolute;top:42px;left:-19px;width:36px;height:36px;display:grid;place-items:center;background:#E8735A;color:#1B1912;font-size:23px;line-height:1;}
 .idea-after .idea-eyebrow{color:#C0CFCC;font-size:10px;}
-.idea-after h3{font-size:clamp(31px,3.7vw,44px);line-height:1.07;margin-bottom:28px;}
+.idea-accumulated h3,.idea-after h3{font-size:clamp(31px,3.7vw,44px);line-height:1.07;margin-bottom:28px;}
 .idea-after ul{counter-reset:contribution;}
-.pt-body .idea-after li{position:relative;padding:13px 0 13px 29px;border-color:#F6F4EF30;counter-increment:contribution;}
+.pt-body .idea-accumulated li,.pt-body .idea-after li{position:relative;padding:13px 0 13px 29px;border-color:#F6F4EF30;}
+.pt-body .idea-after li{counter-increment:contribution;}
+.idea-accumulated li::before{content:'';position:absolute;left:3px;top:21px;width:6px;height:6px;border:1px solid #C0CFCC;border-radius:50%;}
 .idea-after li::before{content:counter(contribution,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C0CFCC;}
 @media(max-width:860px){
   .pt-article[data-artifact-translation-key="idea-to-product"] .pt-masthead-side{margin-top:0;padding-bottom:0;}
@@ -49,8 +43,6 @@
   .pt-article[data-artifact-translation-key="idea-to-product"] .pt-side-label{display:none;}
   .pt-article[data-artifact-translation-key="idea-to-product"] .pt-side-oq{max-width:none;font-size:17px;}
   .pt-article[data-artifact-translation-key="idea-to-product"] .pt-title{font-size:clamp(36px,6vw,48px);}
-  .idea-attention-grid{grid-template-columns:1fr 1.65fr;gap:20px;}
-  .idea-accumulated{padding:24px;}
 }
 @media(max-width:600px){
   .pt-article[data-artifact-translation-key="idea-to-product"] .pt-title{font-size:38px;}
@@ -59,16 +51,16 @@
   .pt-article[data-artifact-translation-key="idea-to-product"] .idea-hero{margin-top:36px;}
   .idea-attention-grid,.idea-shift-grid{grid-template-columns:1fr;}
   .idea-paid,.idea-accumulated,.idea-before,.idea-after{padding:25px 22px;}
-  .idea-attention-grid{gap:18px;}
   .idea-comparison h3{font-size:26px;}
   .idea-module-head h2{font-size:30px;}
-  .idea-shift .idea-module-head{padding:26px 22px;}
-  .idea-after{margin:0 0 0 16px;}
+  .idea-comparison .idea-module-head{padding:26px 22px;}
+  .pt-body .idea-comparison-caption{padding:16px 22px 18px;}
+  .idea-accumulated,.idea-after{margin:0 0 0 16px;}
+  .idea-accumulated::before{top:-19px;left:22px;}
   .idea-after::before{content:'↓';top:-19px;left:22px;}
   .idea-after .idea-eyebrow{margin-top:8px;}
-  .idea-after h3{font-size:35px;}
+  .idea-accumulated h3,.idea-after h3{font-size:35px;}
   .pt-body .idea-comparison li{font-size:15px;}
-  .pt-body .idea-attention li{font-size:17px;}
 }
 
 .pt-body .idea-pullquote{max-width:700px;margin:34px auto;padding:27px 0;font-size:clamp(23px,2.7vw,29px);}.idea-pullquote p{margin:0;}

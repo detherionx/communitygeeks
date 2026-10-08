@@ -101,12 +101,13 @@ I have witnessed myself that some organizations might not want to invest in huma
 I think paid ads are good at buying some things but there are a lot of accumulating factors you can not cultivate with this, and here are just some examples from the gaming, SaaS and AI industries:
 
 
-<section class="idea-comparison idea-attention" aria-labelledby="attention-title">
+<section class="idea-comparison idea-attention" aria-labelledby="attention-title" aria-describedby="attention-caption">
 <header class="idea-module-head"><span class="idea-eyebrow">THE SKEPTICAL TAKE</span><h2 id="attention-title">Acquired attention vs. accumulated participation</h2></header>
 <div class="idea-attention-grid">
 <div class="idea-paid"><h3>What you can buy</h3><ul><li>Reach</li><li>Installs</li><li>Clicks</li><li>Creator placements</li></ul></div>
 <div class="idea-accumulated"><h3>What has to accumulate</h3><ul><li>Trust</li><li>Reputation</li><li>Reusable knowledge</li><li>People helping each other</li><li>Developers building around the product</li><li>Shared stories and rituals</li><li>Advocacy</li></ul></div>
 </div>
+<p class="idea-comparison-caption" id="attention-caption"><span class="idea-caption-label">Table 1.</span> Paid spend acquires attention; participation creates compounding value.</p>
 </section>
 
 I would like to expand this distinction beyond “paid vs. organic”. I think this sounds more like acquired attention vs. accumulated participation. A simple question shows the difference: What happens that makes the 1001st person more likely to care? What accumulates rather than resets when spending stops?
@@ -117,12 +118,13 @@ My thesis is that this participation will change what the primary product actual
 
 
 
-<section class="idea-comparison idea-shift" aria-labelledby="shift-title">
+<section class="idea-comparison idea-shift" aria-labelledby="shift-title" aria-describedby="shift-caption">
 <header class="idea-module-head"><span class="idea-eyebrow">The changing role of participation</span><h2 id="shift-title">From shaping the product<br>to becoming part of it.</h2></header>
 <div class="idea-shift-grid">
 <div class="idea-before"><span class="idea-eyebrow">What participation used to mean</span><h3>Participation<br>as input</h3><ul><li>questions shaping docs and FAQs</li><li>users sharing tips and workarounds</li><li>feedback influencing the roadmap</li><li>mods extending a game</li><li>developers building integrations</li><li>partners helping with implementation</li><li>creators sharing what they make</li><li>people recommending trusted products</li></ul></div>
 <div class="idea-after"><span class="idea-eyebrow">What it is starting to mean</span><h3>Participation<br>as production</h3><ul><li>answers also becoming knowledge people and agents reuse</li><li>tested AI workflows others can build on</li><li>users also building and testing solutions</li><li>mods also becoming whole new experiences</li><li>integrations also becoming tools and products</li><li>networks adapting solutions to different needs</li><li>audiences also becoming distribution channels</li><li>communities also building marketplaces and ecosystems</li></ul></div>
 </div>
+<p class="idea-comparison-caption" id="shift-caption"><span class="idea-caption-label">Table 2.</span> People increasingly create part of what others experience as the product.</p>
 </section>
 
 <figure class="pt-figure idea-figure" id="participation-system">

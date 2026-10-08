@@ -52,21 +52,23 @@ researchThread: menschliche Netzwerke rund um Produkte und Dienstleistungen
 <h2>Die skeptische Sichtweise</h2>
 <p>Ich habe selbst erlebt, dass manche Unternehmen vielleicht nicht in menschliche Netzwerke, Partizipation und Community investieren wollen. Die skeptische Sichtweise könnte etwa so aussehen: „Dann schalten wir halt mehr bezahlte Anzeigen.“ Und zunächst könnte das tatsächlich zu einigen Ergebnissen führen. Aber die Frage bleibt, was man mit bezahlten Anzeigen eigentlich kauft. Ich bezweifle, dass man damit dauerhafte, sich verstärkende Beziehungen kauft.</p>
 <p>Ich denke, bezahlte Anzeigen eignen sich gut, um bestimmte Dinge zu kaufen, aber vieles muss mit der Zeit wachsen und lässt sich damit nicht aufbauen. Hier sind einige Beispiele aus den Bereichen Gaming, SaaS und KI:</p>
-<section class="idea-comparison idea-attention" aria-labelledby="attention-title">
+<section class="idea-comparison idea-attention" aria-labelledby="attention-title" aria-describedby="attention-caption">
 <header class="idea-module-head"><span class="idea-eyebrow">DIE SKEPTISCHE SICHT</span><h2 id="attention-title">Gewonnene Aufmerksamkeit vs. gewachsene Partizipation</h2></header>
 <div class="idea-attention-grid">
 <div class="idea-paid"><h3>Was du kaufen kannst</h3><ul><li>Reichweite</li><li>Installationen</li><li>Klicks</li><li>Platzierungen bei Creators</li></ul></div>
 <div class="idea-accumulated"><h3>Was mit der Zeit wächst</h3><ul><li>Vertrauen</li><li>Reputation</li><li>Wiederverwendbares Wissen</li><li>Menschen, die sich gegenseitig helfen</li><li>Entwickler, die auf dem Produkt aufbauen</li><li>Gemeinsame Geschichten und Rituale</li><li>Fürsprache</li></ul></div>
 </div>
+<p class="idea-comparison-caption" id="attention-caption"><span class="idea-caption-label">Tabelle 1.</span> Bezahlte Werbung schafft Aufmerksamkeit. Partizipation schafft Wert, der mit der Zeit wächst.</p>
 </section>
 <p>Ich möchte diese Unterscheidung über „bezahlt vs. organisch“ hinaus erweitern. Ich denke, es geht eher um gewonnene Aufmerksamkeit und gewachsene Partizipation. Eine einfache Frage verdeutlicht den Unterschied: Was passiert, wodurch es wahrscheinlicher wird, dass sich die 1001. Person dafür interessiert? Was wächst weiter, statt wieder bei null anzufangen, wenn wir kein Geld mehr ausgeben?</p>
 <p>Meine These lautet, dass diese Partizipation verändern wird, worum es bei dem eigentlichen Produkt wirklich geht und was es beinhaltet. Das sieht zunehmend so aus:</p>
-<section class="idea-comparison idea-shift" aria-labelledby="shift-title">
+<section class="idea-comparison idea-shift" aria-labelledby="shift-title" aria-describedby="shift-caption">
 <header class="idea-module-head"><span class="idea-eyebrow">Die sich wandelnde Rolle der Partizipation</span><h2 id="shift-title">Das Produkt mitgestalten.<br>Teil des Produkts werden.</h2></header>
 <div class="idea-shift-grid">
 <div class="idea-before"><span class="idea-eyebrow">Was Partizipation früher bedeutete</span><h3>Partizipation<br>als Input</h3><ul><li>Fragen, die die Dokumentation und FAQs prägen</li><li>Nutzer, die Tipps und Workarounds teilen</li><li>Feedback, das die Roadmap beeinflusst</li><li>Mods, die ein Spiel erweitern</li><li>Entwickler, die Integrationen erstellen</li><li>Partner, die bei der Umsetzung helfen</li><li>Creators, die ihre Arbeit teilen</li><li>Leute, die vertrauenswürdige Produkte empfehlen</li></ul></div>
 <div class="idea-after"><span class="idea-eyebrow">Was sie zunehmend bedeutet</span><h3>Partizipation<br>als Produktion</h3><ul><li>Antworten, die auch zu Wissen werden, das Menschen und Agenten wiederverwenden</li><li>getestete KI-Workflows, auf denen andere aufbauen können</li><li>Nutzer, die ebenfalls Lösungen entwickeln und testen</li><li>Mods, die auch zu ganz neuen Erlebnissen werden</li><li>Integrationen, die auch zu Tools und Produkten werden</li><li>Netzwerke, die Lösungen an unterschiedliche Bedürfnisse anpassen</li><li>Das Publikum von Creators, das auch zum Verbreitungskanal wird</li><li>Communities, die auch Marktplätze und Ökosysteme aufbauen</li></ul></div>
 </div>
+<p class="idea-comparison-caption" id="shift-caption"><span class="idea-caption-label">Tabelle 2.</span> Menschen gestalten zunehmend mit, was andere als das Produkt erleben.</p>
 </section>
 <figure class="pt-figure idea-figure" id="participation-system">
 <img src="/assets/images/public-thinking/idea-to-product-system-constellation-v2.png" alt="Astronautenteams entwickeln Erweiterungen, Tools, gemeinsames Wissen und eigene Objekte auf leuchtenden Sternbildplattformen rund um ein zentrales Produkt." width="1672" height="941" loading="lazy" />
