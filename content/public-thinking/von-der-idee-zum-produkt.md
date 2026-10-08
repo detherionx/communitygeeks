@@ -1,0 +1,75 @@
+---
+title: 'Was tun, wenn aus einer Idee in Minuten ein Produkt wird?'
+slug: von-der-idee-zum-produkt
+lang: de
+sourceLanguage: en
+translationKey: idea-to-product
+date: 2026-10-08T00:00:00.000Z
+format: Feldnotiz
+filterType: field
+confidence: Observation
+motif: idea-to-product
+summary: >-
+  Wenn Produkte leichter herzustellen sind, gewinnen die Beziehungen, das Wissen
+  und die Partizipation an Bedeutung, die mit der Zeit um sie herum wachsen.
+deck: >-
+  Wenn die Herstellung selbst günstig wird, gewinnt das menschliche Netzwerk
+  rund um das Produkt an Bedeutung.
+topics:
+  - Menschliche Netzwerke
+  - Co-Creation
+  - KI & Partizipation
+authors:
+  - Carmelito Bauer
+openQuestion: >-
+  Was wächst weiter, statt wieder bei null anzufangen, wenn wir kein Geld mehr
+  ausgeben?
+researchThread: menschliche Netzwerke rund um Produkte und Dienstleistungen
+---
+<p>Neulich habe ich wieder mal auf LinkedIn herumgescrollt und bin auf einen Beitrag gestoßen, in dem jemand einen „World of Warcraft“-Klon erstellt hat. Das ist ein Spiel, das ich früher ziemlich oft gespielt habe. Als MMORPG, also eine riesige offene Online-Welt, in der Tausende von Spielern gleichzeitig spielen, gehört es auch zu den Spielen, die besonders schwierig zu entwickeln sind. Anscheinend hat der Autor dafür einen Tag und etwa 2.000 Dollar in Claude-Token gebraucht.</p>
+<p>Chris Heatherly hat auf einen weiteren interessanten Thread zum Thema Gaming aufmerksam gemacht: Fans entwickeln KI-Jailbreaks für Spiele, im Grunde, um ihre eigenen Fanversionen davon zu erstellen. Unternehmen beginnen, dagegen vorzugehen, aber Chris argumentiert, dass dies eine endlose Verfolgungsjagd ist. Fans werden das weiterhin tun, ob es den Unternehmen gefällt oder nicht. Sie sollten Modding einfach zulassen und unterstützen. Ich bin der Überzeugung: Gemeinsame Entwicklung mit Fans könnte zu einer Form der Zusammenarbeit werden, die Unternehmen aktiv fördern sollten, da das Kopieren immer billiger wird und Fans es nicht mögen werden, einfach nur mit rechtlichen Schritten überzogen zu werden.</p>
+<p>Ich spreche gerne über Videospiele, weil sie zu den komplexeren Systemen gehören: Code, Grafik, eine Geschichte und komplexe Spielmechaniken kommen hier zusammen. Ein unterhaltsames Spiel zu entwickeln, ist eine Kunstform für sich; dabei müssen ziemlich viele verschiedene Aspekte aufeinander abgestimmt werden, die gut zusammenwirken müssen.</p>
+<p>Ich habe gerade gesehen, wie Antti Kananen, Gaming-Manager und Investor, es ziemlich deutlich formuliert hat: Ein komplettes Spiel mit KI zu entwickeln, ist bereits möglich; das ist nicht mehr der überraschende Teil. Die Möglichkeiten gehen mittlerweile weit über die üblichen, seltsam aussehenden KI-Spiele hinaus, und das ist erst der Anfang. Der Launch-Trailer von „Astra 6“ zeigte die Entwicklung von Videospielen und deutete an, dass dies etwas ist, von dem die Entwickler der LLMs mehr sehen wollen. Nun, wie gesagt, Gaming ist interessant, weil es komplex und schwierig ist. All das gilt auch für die Software- und Webentwicklung.</p>
+<p>Das gilt auch für das Marketing: Es war noch nie so einfach, massenhaft Kaltakquise-Mails zu verschicken. Ich kann gar nicht mehr zählen, wie viele Kaltakquise-E-Mails ich erhalte, bei denen offensichtlich eine KI die Empfänger ausgewählt und den Text geschrieben hat. Ein Scraper sucht auf deiner Website und in öffentlichen Inhalten nach ein paar „personalisierten“ Punkten und schickt dir dann eine E-Mail, die scheinbar relativ persönlich ist. Das Gleiche gilt für LinkedIn: Kontaktanfragen, die nicht wirklich auf persönlichem Interesse beruhen, sondern auf automatisierten Prozessen. Nun habe ich persönlich noch nie auf solche Kaltakquise reagiert, und dieser Markt ist mittlerweile viel belebter geworden.</p>
+<p>Kaspar von Grünberg hat diese Veränderung auf der Produktseite beobachtet. Sie haben KI-Agenten implementiert, die von Nutzern gemeldete Probleme automatisch beheben, wodurch kommunikationsintensive Routinearbeiten komplett entfallen. Nutzer melden ein Problem, die Plattform klassifiziert es selbst, einfache Fälle werden automatisch behoben und aufwendigere Fälle brauchen im Grunde nur eine kurze Prüfung und ein „Go“. Kein „Bitte behebt das“, kein „Kann mir jemand helfen“ oder „Wir leiten das an das Entwicklerteam weiter“ mehr nötig.</p>
+<figure class="pt-figure idea-figure idea-hero" id="shared-product">
+<img src="/assets/images/public-thinking/idea-to-product-chess-v1.png" alt="Ein Communitygeeks-Astronaut setzt einen menschengroßen Springer auf ein Schachfeld aus Sternbildlinien und Sternpunkten." width="1672" height="941" loading="lazy" />
+<figcaption><span class="pt-figure-num">01 / Was wird knapp?</span><span class="pt-figure-cap">Die Figur herzustellen ist eine Sache. Zu entscheiden, wo sie hingehört, ist eine andere.</span></figcaption>
+</figure>
+<h2>Was wird knapp?</h2>
+<p>Das führt uns zu der Frage, die mich interessiert:</p>
+<blockquote class="pt-pullquote idea-pullquote"><p>Wenn die Herstellung des Produkts selbst billig, schnell und einfach wird, gewinnt alles, was sich um das Produkt herum angesammelt hat, relativ gesehen an Bedeutung.</p></blockquote>
+<p>Und das ist auf wunderbare Weise kontraintuitiv. Als die KI aufkam, hatten alle Angst, dass Menschen ersetzt werden könnten, aber ich behaupte, dass das Gegenteil der Fall ist: Der Wert von Dingen, die nur Menschen hervorbringen können, steigt, und zwar meiner Meinung nach erheblich. Möglicherweise sogar exponentiell. Das betrifft vor allem zwei Dinge: Das Urteilsvermögen darüber, was es tatsächlich wert ist, verfolgt zu werden. Damit habe ich mich in einem früheren Artikel beschäftigt. Heute schauen wir uns Beziehungen an, das menschliche System rund um ein Produkt. Die Community, der es am Herzen liegt. Meine These ist, dass sich ein Großteil des Fokus darauf verlagern wird.</p>
+<p>An den Beispielen aus der Gaming-Welt wird das besonders deutlich. Jemand hat über Nacht einen „World of Warcraft“-Klon mit KI entwickelt, aber warum sollte das jemanden interessieren? Das Originalspiel hat eine unglaublich leidenschaftliche Community, die sich über Jahre hinweg gebildet hat, mit TV-Auftritten wie in „South Park“ oder der „Conan O’Brien Show“ und unzähligen Twitch-Streamern, die zu Pop-Ikonen wurden und es zu einem ikonischen kulturellen Phänomen gemacht haben. Wie in einem früheren Artikel beschrieben, ist das Spiel mehr als nur ein Produkt. Kleine Momente, etwa wenn Spieler einander ohne besonderen Grund helfen, haben dazu beigetragen, dass sich die Spielergemeinschaft so stark damit verbunden fühlt.</p>
+<p>Gleichzeitig passiert etwas anderes, wenn Gamer wirklich leidenschaftlich sind: Mods, Klone, Freeshards. Leute, die das Produkt modifizieren oder einen regelrechten Klon davon veröffentlichen. Unternehmen beschließen, gegen einige davon vorzugehen, aber der Schritt, dessen Wirkung sich mit der Zeit verstärkt, könnte jetzt darin bestehen, sie zu unterstützen, da KI all das viel billiger, schneller und einfacher zu produzieren macht.</p>
+<p>Ich habe kürzlich mit der Gaming-Marketingstrategin Akua Harris gesprochen, die eine andere Sichtweise einbrachte. Da die Entwicklung eines Produkts immer einfacher wird, schauen die Leute vielleicht zunehmend hinter die Kulissen: Wer hat das gemacht? Warum haben sie das gemacht? Ist das ein Studio oder ein Creator, den ich tatsächlich unterstützen möchte? Selbst wenn sich die fertigen Produkte irgendwann rein anhand der technischen Qualität nicht mehr unterscheiden lassen, werden Herkunft, Identität, Ruf und Absicht nicht plötzlich austauschbar. Sie könnten sogar zu einem Grund dafür werden, warum sich jemand überhaupt dafür interessiert.</p>
+<p>Das Gleiche gilt für jede Software und sogar für das Marketing. Wenn Kaltakquise per E-Mail mittlerweile von KI-Agenten übernommen wird und die Ergebnisse, gelinde gesagt, von etwas schwankender Qualität sind: Wird dann der Aufbau echter Beziehungen und echter Netzwerke in Zukunft den Unterschied ausmachen? Das Produkt, das sich im Grunde selbst repariert, ist ein weiteres anschauliches Beispiel. Viele Ebenen menschlicher Koordination könnten durch KI-Agenten mittlerweile überflüssig geworden sein, da Fehlerbehebungen im Grunde in Echtzeit umgesetzt werden können. Welche Beziehungen gewinnen nun für eine Marke oder ein Produkt an strategischer Bedeutung?</p>
+<h2>Menschliche Netzwerke rund um ein Produkt oder eine Dienstleistung</h2>
+<p>Wenn wir einen Schritt zurücktreten und ein Produkt oder eine Dienstleistung in ihrer Gesamtheit betrachten, können wir vielleicht ein menschliches Netzwerk erkennen, das bereits vorhanden ist. Menschen, die sich rund um ein Produkt engagieren: Sie nutzen es vielleicht, sie entwickeln damit, sie erzählen anderen in ihrem Umfeld davon oder bitten um Hilfe. Möglicherweise gibt es bereits Gruppen, Partner oder vielleicht einige Marketingleute, die ein informelles Treffen organisieren, aus dem eine regelmäßige Veranstaltung wird.</p>
+<p>Noch einmal ein Beispiel aus der Gaming-Welt: Warcraft hat eine riesige Community, jeder seiner berühmten Streamer hat seine eigene Community, und die Leute fühlen sich als Teil einer kulturellen Bewegung. Das aufzubauen dauert Jahre und geschieht nicht in einem einzigen Forum oder auf einem Discord-Server. Und ich glaube, das wird noch wichtiger werden. Es wird den Unterschied ausmachen, wenn es der einfache Teil geworden ist, das Produkt herzustellen.</p>
+<p>Kann man ein solches menschliches Netzwerk bewusst aufbauen? Und was bedeutet das für die Community-Arbeit? Traditionell, und ich würde das vielleicht als „Legacy-Community“ bezeichnen, hat man eine gehostete Community eingerichtet: ein Forum oder eine Container-Plattform, oder im Gaming-Bereich einen Discord-Server. Diese Plattformen werden auch in dieser neuen Welt noch ihren Platz haben. Allerdings bewegen wir uns jetzt vielleicht viel tiefer in Beziehungen hinein, die wir in der Vergangenheit nicht als besonders skalierbar angesehen haben.</p>
+<p>Wer sollte sich treffen? Wer sollte gemeinsam etwas tun oder aufbauen? Welchen Gruppen sollten wir Ressourcen widmen? Und warum sollten sich diese Menschen für unsere Marke oder unser Produkt interessieren? Wer bringt diese Gruppen zusammen, begleitet und unterstützt sie? Ich glaube, das sind Fragen, die im Zeitalter der KI einen Mehrwert schaffen. Jeder kann mittlerweile ein funktionierendes Produkt entwickeln, daher verlagert sich der Fokus darauf, was passiert, nachdem das Produkt bereits fertig ist.</p>
+<h2>Die skeptische Sichtweise</h2>
+<p>Ich habe selbst erlebt, dass manche Unternehmen vielleicht nicht in menschliche Netzwerke, Partizipation und Community investieren wollen. Die skeptische Sichtweise könnte etwa so aussehen: „Dann schalten wir halt mehr bezahlte Anzeigen.“ Und zunächst könnte das tatsächlich zu einigen Ergebnissen führen. Aber die Frage bleibt, was man mit bezahlten Anzeigen eigentlich kauft. Ich bezweifle, dass man damit dauerhafte, sich verstärkende Beziehungen kauft.</p>
+<p>Ich denke, bezahlte Anzeigen eignen sich gut, um bestimmte Dinge zu kaufen, aber vieles muss mit der Zeit wachsen und lässt sich damit nicht aufbauen. Hier sind einige Beispiele aus den Bereichen Gaming, SaaS und KI:</p>
+<section class="idea-comparison idea-attention" aria-labelledby="attention-title">
+<header class="idea-module-head"><span class="idea-eyebrow">DIE SKEPTISCHE SICHT</span><h2 id="attention-title">Gewonnene Aufmerksamkeit vs. gewachsene Partizipation</h2></header>
+<div class="idea-attention-grid">
+<div class="idea-paid"><h3>Was du kaufen kannst</h3><ul><li>Reichweite</li><li>Installationen</li><li>Klicks</li><li>Platzierungen bei Creators</li></ul></div>
+<div class="idea-accumulated"><h3>Was mit der Zeit wächst</h3><ul><li>Vertrauen</li><li>Reputation</li><li>Wiederverwendbares Wissen</li><li>Menschen, die sich gegenseitig helfen</li><li>Entwickler, die auf dem Produkt aufbauen</li><li>Gemeinsame Geschichten und Rituale</li><li>Fürsprache</li></ul></div>
+</div>
+</section>
+<p>Ich möchte diese Unterscheidung über „bezahlt vs. organisch“ hinaus erweitern. Ich denke, es geht eher um gewonnene Aufmerksamkeit und gewachsene Partizipation. Eine einfache Frage verdeutlicht den Unterschied: Was passiert, wodurch es wahrscheinlicher wird, dass sich die 1001. Person dafür interessiert? Was wächst weiter, statt wieder bei null anzufangen, wenn wir kein Geld mehr ausgeben?</p>
+<p>Meine These lautet, dass diese Partizipation verändern wird, worum es bei dem eigentlichen Produkt wirklich geht und was es beinhaltet. Das sieht zunehmend so aus:</p>
+<section class="idea-comparison idea-shift" aria-labelledby="shift-title">
+<header class="idea-module-head"><span class="idea-eyebrow">Die sich wandelnde Rolle der Partizipation</span><h2 id="shift-title">Das Produkt mitgestalten.<br>Teil des Produkts werden.</h2></header>
+<div class="idea-shift-grid">
+<div class="idea-before"><span class="idea-eyebrow">Was Partizipation früher bedeutete</span><h3>Partizipation<br>als Input</h3><ul><li>Fragen, die die Dokumentation und FAQs prägen</li><li>Nutzer, die Tipps und Workarounds teilen</li><li>Feedback, das die Roadmap beeinflusst</li><li>Mods, die ein Spiel erweitern</li><li>Entwickler, die Integrationen erstellen</li><li>Partner, die bei der Umsetzung helfen</li><li>Creators, die ihre Arbeit teilen</li><li>Leute, die vertrauenswürdige Produkte empfehlen</li></ul></div>
+<div class="idea-after"><span class="idea-eyebrow">Was sie zunehmend bedeutet</span><h3>Partizipation<br>als Produktion</h3><ul><li>Antworten, die auch zu Wissen werden, das Menschen und Agenten wiederverwenden</li><li>getestete KI-Workflows, auf denen andere aufbauen können</li><li>Nutzer, die ebenfalls Lösungen entwickeln und testen</li><li>Mods, die auch zu ganz neuen Erlebnissen werden</li><li>Integrationen, die auch zu Tools und Produkten werden</li><li>Netzwerke, die Lösungen an unterschiedliche Bedürfnisse anpassen</li><li>Das Publikum von Creators, das auch zum Verbreitungskanal wird</li><li>Communities, die auch Marktplätze und Ökosysteme aufbauen</li></ul></div>
+</div>
+</section>
+<figure class="pt-figure idea-figure" id="participation-system">
+<img src="/assets/images/public-thinking/idea-to-product-system-constellation-v2.png" alt="Astronautenteams entwickeln Erweiterungen, Tools, gemeinsames Wissen und eigene Objekte auf leuchtenden Sternbildplattformen rund um ein zentrales Produkt." width="1672" height="941" loading="lazy" />
+<figcaption><span class="pt-figure-num">02 / Partizipation als Produktion</span><span class="pt-figure-cap">Mods, Tools, Wissen und Beziehungen werden Teil des Produktsystems.</span></figcaption>
+</figure>
+<p>Das bedeutet, dass Partizipation (also Community, Beziehungen usw.) zunehmend Teil des Produkts selbst wird. Die Frage, die sich Unternehmen und Marken stellen müssen, lautet: Wie viel des Werts rund um unser Produkt wird zunehmend von Menschen geschaffen, die nicht für uns arbeiten, und welche Beziehung wollen wir zu diesen Menschen haben?</p>

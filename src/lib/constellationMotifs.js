@@ -2,6 +2,12 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ConstellationMotifs=factory();})(typeof self!=='undefined'?self:this,function(){
   'use strict';
   const scenes={
+  "idea-to-product": {
+    "title": "Choosing where a contribution belongs",
+    "en": "An astronaut places a knight on a constellation chess field: when making the piece gets easy, human judgement still gives it a place.",
+    "de": "Ein Astronaut setzt einen Springer auf ein Sternbild-Schachfeld: Wenn die Herstellung leicht wird, gibt menschliches Urteilsvermögen dem Beitrag seinen Platz.",
+    "body": "<image href=\"/assets/images/article-motifs/idea-to-product-chess.png\" x=\"88\" y=\"88\" width=\"330\" height=\"330\"/>"
+},
   "muay-thai": {
     "title": "Becoming part of a community through shared practice",
     "en": "Two astronauts practice Muay Thai together: one wears a Mongkhon and delivers a knee strike into the other's pads.",
