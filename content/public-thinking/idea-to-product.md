@@ -10,7 +10,7 @@ filterType: field
 confidence: Observation
 motif: idea-to-product
 summary: "As making products becomes cheaper, the relationships, knowledge and participation accumulating around them become more strategically important."
-deck: "When making the thing gets cheap, the human system around it becomes more important."
+deck: "AI-made games, modding and fan co-creation show how trust, shared knowledge and participation build lasting value around products as production gets cheaper."
 topics:
   - Human networks
   - Co-creation

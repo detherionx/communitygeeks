@@ -13,8 +13,9 @@ summary: >-
   Wenn Produkte leichter herzustellen sind, gewinnen die Beziehungen, das Wissen
   und die Partizipation an Bedeutung, die mit der Zeit um sie herum wachsen.
 deck: >-
-  Wenn die Herstellung selbst günstig wird, gewinnt das menschliche Netzwerk
-  rund um das Produkt an Bedeutung.
+  KI-generierte Spiele, Modding und Co-Creation mit Fans zeigen, wie Vertrauen,
+  gemeinsames Wissen und Partizipation rund um Produkte Wert schaffen,
+  während die Herstellung günstiger wird.
 topics:
   - Menschliche Netzwerke
   - Co-Creation
