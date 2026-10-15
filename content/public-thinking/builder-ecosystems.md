@@ -10,7 +10,7 @@ confidence: "Observation"
 motif: "tombstone"
 authors: ["Carmelito Bauer"]
 format: "Field Note"
-deck: "A look at Builder Ecosystems and where the community profession is heading"
+deck: "Builder ecosystems at AI companies show how community management is moving beyond engagement metrics to developers, partners and contributions that build lasting product value."
 summary: "AI builder ecosystems show how community work is expanding, and why contributions need a route back into shared knowledge and lasting product value."
 topics: ["Builder Ecosystems","Community Management","Developer Relations"]
 openQuestion: "People are already contributing around your product. What happens to that contribution next?"
@@ -21,7 +21,7 @@ journal: {"headline":"BUILDERS","sketch":"tombstone","lines":["the old role fade
 Community Management is fading to black. I have kept reading about layoffs, about engagement numbers going down, even about people advising to look into other career paths. Some of the most famous online communities have shut down entirely, community platform vendors have imploded and AI seems to decrease the number of people even entering communities rather dramatically. OG Community Influencers scramble to justify the existence of their functions with ROI and metrics. This all seems pretty bleak. Maybe a bit too bleak. Maybe we should give it a second glance.
 
 <figure class="pt-figure">
-<a class="pt-figure-link" href="/assets/images/public-thinking/builder-ecosystems-tombstone.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/builder-ecosystems-tombstone.png" width="1448" height="1086" loading="lazy" alt="Two astronauts mourn beside a gravestone marked Community Management on a red planetary landscape, with a fallen parrot in front."></a>
+<a class="pt-figure-link" href="/assets/images/public-thinking/builder-ecosystems-tombstone.png" data-lightbox aria-label="Enlarge illustration"><img src="/assets/images/public-thinking/builder-ecosystems-tombstone.png" width="1448" height="1086" loading="lazy" alt="Two astronauts mourn beside a gravestone marked Community Management on a connected petrol landscape, with a fallen parrot in front and a bright planet behind them."></a>
 <figcaption><span class="pt-figure-cap">Traditional community management deserves its obituary. The work keeps expanding.</span></figcaption>
 </figure>
 

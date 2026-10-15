@@ -10,7 +10,7 @@ confidence: "Observation"
 motif: "tombstone"
 authors: ["Carmelito Bauer"]
 format: "Feldnotiz"
-deck: "Ein Blick auf Builder-Ökosysteme und die Zukunft des Community-Berufs"
+deck: "Builder-Ökosysteme bei KI-Unternehmen zeigen, wie Community Management über Engagement-Kennzahlen hinauswächst: durch Entwickler, Partner und Beiträge, die dauerhaften Wert rund ums Produkt schaffen."
 summary: "Builder-Ökosysteme zeigen, wie sich Community-Arbeit ausweitet und warum Beiträge in gemeinsames Wissen und dauerhaften Wert rund ums Produkt einfließen müssen."
 topics: ["Builder-Ökosysteme","Community Management","Developer Relations"]
 openQuestion: "Die Leute leisten bereits Beiträge rund um dein Produkt. Was passiert als Nächstes mit diesen Beiträgen?"
@@ -20,7 +20,7 @@ researchThread: "wie Beiträge der Builder zu dauerhaftem Wissen und Wert rund u
 Das Community-Management scheint vor dem Aus zu stehen. Immer wieder lese ich von Entlassungen, sinkenden Engagement-Zahlen und sogar von Leuten, die raten, sich nach anderen Karrierewegen umzusehen. Einige der bekanntesten Online-Communities wurden komplett geschlossen, Anbieter von Community-Plattformen sind zusammengebrochen und KI scheint die Zahl der Menschen, die überhaupt erst in Communities einsteigen, ziemlich drastisch zu verringern. Die alten Hasen unter den Community-Influencern bemühen sich verzweifelt, die Daseinsberechtigung ihrer Arbeit mit ROI und Kennzahlen zu rechtfertigen. Das alles sieht ziemlich düster aus. Vielleicht ein bisschen zu düster. Vielleicht sollten wir noch einmal genauer hinschauen.
 
 <figure class="pt-figure">
-<a class="pt-figure-link" href="/assets/images/public-thinking/builder-ecosystems-tombstone.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/builder-ecosystems-tombstone.png" width="1448" height="1086" loading="lazy" alt="Zwei Astronauten trauern neben einem Grabstein mit der Aufschrift Community Management in einer roten Planetenlandschaft. Davor liegt ein toter Papagei."></a>
+<a class="pt-figure-link" href="/assets/images/public-thinking/builder-ecosystems-tombstone.png" data-lightbox aria-label="Illustration vergrößern"><img src="/assets/images/public-thinking/builder-ecosystems-tombstone.png" width="1448" height="1086" loading="lazy" alt="Zwei Astronauten trauern neben einem Grabstein mit der Aufschrift Community Management in einer dunklen, vernetzten Planetenlandschaft. Davor liegt ein toter Papagei, dahinter leuchtet ein heller Planet."></a>
 <figcaption><span class="pt-figure-cap">Das traditionelle Community-Management hat seinen Nachruf verdient. Die Arbeit entwickelt sich weiter.</span></figcaption>
 </figure>
 
