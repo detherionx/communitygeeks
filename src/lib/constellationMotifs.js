@@ -2,6 +2,7 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ConstellationMotifs=factory();})(typeof self!=='undefined'?self:this,function(){
   'use strict';
   const scenes={
+  "tombstone": {"title":"The old role fades while contributions keep growing","en":"Two astronauts mourn beside the Community Management tombstone, inside the established orbital ring.","de":"Zwei Astronauten trauern am Grabstein des Community-Managements innerhalb des bestehenden Orbitrings.","body":"<svg x=\"104\" y=\"102\" width=\"292\" height=\"292\" viewBox=\"0 0 292 292\"><defs><clipPath id=\"tombstone-disc\"><circle cx=\"146\" cy=\"146\" r=\"146\"/></clipPath></defs><image href=\"/assets/images/public-thinking/builder-ecosystems-tombstone.png\" x=\"-49\" y=\"0\" width=\"389.33\" height=\"292\" clip-path=\"url(#tombstone-disc)\"/></svg>"},
   "idea-to-product": {
     "title": "Choosing where a contribution belongs",
     "en": "An astronaut places a knight on a constellation chess field: when making the piece gets easy, human judgement still gives it a place.",
@@ -77,7 +78,7 @@
       </defs>
       ${ring(id,false)}
       <circle cx="250" cy="248" r="146" fill="url(#${id})"/>
-      ${scene.body}
+      ${scene.body.replaceAll('tombstone-disc', id + '-tombstone-disc')}
       ${ring(id,true)}
     </svg>`;
   }

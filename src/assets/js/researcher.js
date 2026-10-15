@@ -122,6 +122,7 @@
     // hand sketches in page-local x (0 = the page's left edge), journal-frame y; each returns its writing segments in
     // order. `txt` is the caller's text maker (clipped for the pen on the right page, plain on the left).
     const SKETCH = {
+      tombstone(x0, txt) { return [{ kind: "path", o: pth(`M${x0+60},42 L${x0+60},-12 A30,30 0 0 1 ${x0+120},-12 L${x0+120},42 Z`), w: .18 }, { kind: "move", w: .02 }, { kind: "path", o: pth(`M${x0+46},46 L${x0+138},46`), w: .08 }, { kind: "move", w: .02 }, { kind: "path", o: pth(circ(x0+90,10,9), "coral"), w: .08 }]; },
       'training-ring'(x0, txt) {
         return [{ kind: 'path', o: pth(`M${x0+44},-14 L${x0+108},-30 L${x0+151},3 L${x0+87},24 Z M${x0+44},-14 L${x0+44},16 L${x0+87},54 L${x0+151},33 L${x0+151},3 M${x0+87},24 L${x0+87},54`), w: 0.18 },
           { kind: 'move', w: 0.02 }, { kind: 'path', o: pth(circ(x0+83,-3,7)), w: 0.05 },
