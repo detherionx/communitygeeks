@@ -75,7 +75,7 @@ fs.mkdirSync(out, { recursive: true });
         for (const t of ['€14,000', '€42,000', '€28,000', 'stop gate', '13 weeks', '4 weeks']) assert(offerText.toLowerCase().includes(t), `${name}: offer shows ${t}`);
         assert(!/€12,000|€48,000|€8,500|€39,500|€31,000|€36,000|credited|creditable|Partnership|Programme Lead|16 weeks|pre-registered/.test(await page.locator('main').innerText()), `${name}: no retired or unapproved offer terms`);
         const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());
-        assert.deepEqual(ld.hasOfferCatalog.itemListElement.map(o => [o.name, o.priceSpecification.price]), [['Decision Review', 14000], ['Programme Build', 42000]]);
+        assert.deepEqual(ld.hasOfferCatalog.itemListElement.map(o => [o.name, o.priceSpecification?.price ?? null]), [['Decision Review', 14000], ['Programme Build', 42000], ['Programme Support', null]]);
         assert(await page.getByRole('link', { name: 'Discuss a decision', exact: true }).isVisible());
         await page.locator('.engagement-scope summary').focus();
         await page.keyboard.press('Enter');
