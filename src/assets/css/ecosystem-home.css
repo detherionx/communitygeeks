@@ -1,0 +1,158 @@
+/* Production components, recomposed. Original type, colour and scene styles live in home.css and journal-front.css. */
+.ecosystem-home{--chapter:clamp(48px,4.5vw,64px)}
+.ecosystem-home .section-head{display:block;max-width:65ch;margin-bottom:36px}
+.ecosystem-home .section-head h2{max-width:20ch}
+.ecosystem-home .section-head>p:not(.kicker){max-width:60ch;margin-top:20px;padding:0}
+
+.ecosystem-home .frontier-context{font-size:16px!important}
+
+.ecosystem-work{position:relative;padding:var(--chapter) var(--pad);background:var(--paper);color:var(--ink)}
+.ecosystem-work header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:36px}
+.ecosystem-work h2{max-width:26ch}
+.ecosystem-work .mission-route{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.ecosystem-work .mission-moment{aspect-ratio:3/2;padding:2% 8%;border-bottom:3px solid var(--signal)}
+.ecosystem-work .mission-week{color:var(--signal-ink)}
+.ecosystem-work .mission-caption p{color:var(--ink-muted)}
+.ecosystem-work>.text-link{margin-top:28px}
+.journal-swipe-hint{display:none}
+.ecosystem-home .jm-head{margin-bottom:36px}
+.ecosystem-home .jm-lead-body{padding:32px 150px 32px 32px}
+.ecosystem-home .jm-lead-geo .geo-disc{width:170px;right:-65px;bottom:-55px}
+.ecosystem-home .jm-lead-geo .geo-ring{width:90px;right:38px;bottom:38px}
+.ecosystem-home .jm-lead-geo .geo-square{width:20px;right:96px;bottom:100px}
+.ecosystem-home .jm-lead-geo .geo-rule{display:none}
+.ecosystem-home .jm-research{padding-right:140px;grid-template-columns:1fr auto;gap:10px 28px}
+.ecosystem-home .jm-research-label{grid-column:1/-1;justify-self:start}
+.ecosystem-home .jm-research small{display:block;font-size:13px;margin-top:8px;max-width:65ch}
+.ecosystem-home .jm-research p:not(.jm-research-label){max-width:65ch}
+.ecosystem-home .jm-research>div{max-width:65ch}
+.ecosystem-home .engagement-tiers{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1100px;gap:32px;margin-inline:auto}
+.ecosystem-home .v31-offers .section-head{text-align:center;margin-inline:auto}.ecosystem-home .v31-offers .section-head h2{max-width:none}.ecosystem-home .v31-offers .section-head>p{margin-inline:auto}.ecosystem-home .v31-offers .kicker{justify-content:center}
+.ecosystem-home .engagement-tier{border-top-color:var(--signal)}
+.ecosystem-home .engagement-tier h3{margin:0 0 18px;font-size:22px;max-width:24ch}
+.ecosystem-home .tier-price{justify-content:end}
+.ecosystem-home .tier-duration{margin-bottom:22px}
+.ecosystem-home .engagement-tier .tier-decision{display:flex;gap:8px 16px;margin:-8px 0 24px;padding:0;border:0}.ecosystem-home .tier-terms{max-width:1100px;margin-inline:auto}.ecosystem-home .tier-decision li{padding:0;color:var(--ink)}.ecosystem-home .tier-decision li::before{content:none}
+.ecosystem-home .tier-for{font-size:var(--t-small);line-height:1.5;color:var(--ink);padding:16px 0 12px}
+.ecosystem-home .tier-path{display:grid;gap:0;margin:0 0 18px;padding:0}
+.ecosystem-home .tier-path li{display:grid;gap:3px;padding:10px 0 10px 22px;border-left:3px solid var(--signal);color:var(--ink-muted)}
+.ecosystem-home .tier-path li::before{content:"";top:16px;left:-7px;width:11px;height:11px;border-radius:50%;background:var(--signal)}
+.ecosystem-home .tier-path-amount{font:600 var(--t-component)/1.2 var(--body);color:var(--ink)}
+.ecosystem-home .tier-path-weeks{font:500 var(--t-meta)/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal-ink)}
+.ecosystem-home .tier-path .tier-path-gate{border-left-style:dashed;padding-block:8px}
+.ecosystem-home .tier-path .tier-path-gate::before{border-radius:0;transform:rotate(45deg);background:var(--ink)}
+.ecosystem-home .tier-path-gate .tier-path-amount{font:500 var(--t-meta)/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.ecosystem-home .tier-next{font-size:var(--t-small);line-height:1.5;color:var(--ink);max-width:46ch;margin-bottom:8px;padding-left:14px;border-left:3px solid var(--signal)}
+.engagement-scope{max-width:1100px;border-block:1px solid var(--line-paper);margin:28px auto 0;padding:14px 0;font-size:15px}
+.engagement-scope summary{cursor:pointer;font-weight:500;padding:5px 0}.engagement-scope p{max-width:65ch;padding-top:14px;color:var(--ink-muted)}
+.reset-founder{padding:var(--chapter) var(--pad);background:var(--paper);color:var(--ink)}
+.ecosystem-home .reset-founder .founder-section{padding:0;overflow:visible}
+.ecosystem-home .founder-portrait img{height:auto}
+.founder-bottom{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:44px;padding-top:28px;border-top:1px solid var(--line-paper)}
+.delivery-proof{font-size:15px;color:var(--ink-muted)}
+.delivery-proof .work-panel{grid-template-columns:120px minmax(0,1fr);gap:28px;padding:22px 0}
+.delivery-proof .work-detail{font-size:15px}
+.founder-invitation{display:flex;flex-direction:column;gap:24px;align-items:flex-start;padding:28px 32px;background:var(--bone);border-left:4px solid var(--signal)}
+.founder-invitation>p{font:400 var(--t-sub)/1.2 var(--display);max-width:25ch}.direct-email{font-size:14px;text-decoration:underline!important;text-underline-offset:4px;overflow-wrap:anywhere}
+@media(min-width:641px) and (max-width:1100px){
+ .ecosystem-home .jm-head{grid-template-columns:1fr 1fr;gap:28px}.ecosystem-home .jm-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}.ecosystem-home .jm-card-title{font-size:22px}.ecosystem-home .jm-card .jm-meta{font-size:11px}
+ .ecosystem-home .jm-lead{display:grid;grid-template-columns:1fr 1fr}.ecosystem-home .jm-lead-figure{padding:20px 0 20px 20px}.ecosystem-home .jm-lead-body{padding:24px 24px 88px}.ecosystem-home .jm-lead-geo .geo-disc{width:110px}.ecosystem-home .jm-lead-geo .geo-ring{width:60px;bottom:12px;right:24px}.ecosystem-home .jm-lead-geo .geo-square{right:75px;bottom:58px}
+ .ecosystem-home .engagement-tiers{gap:20px}.ecosystem-home .engagement-tier{padding:24px}.ecosystem-home .jm-research{padding:20px 140px 20px 24px;grid-template-columns:1fr}.ecosystem-home .jm-research .text-link{white-space:normal}
+}
+
+@media(max-width:760px){
+ 
+ 
+ 
+ 
+ 
+ .ecosystem-work header{grid-template-columns:1fr;gap:24px}.ecosystem-work .mission-route{grid-template-columns:1fr;gap:28px}.ecosystem-work .mission-route>li{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:center}.ecosystem-work .mission-moment{aspect-ratio:1;padding:0}.ecosystem-work .mission-caption{padding-top:0}.ecosystem-work .mission-caption h3{font-size:26px;margin-bottom:10px}.ecosystem-work .mission-caption p{font-size:15px}.ecosystem-work .mission-week{margin-bottom:8px}
+ .founder-bottom{grid-template-columns:1fr;gap:28px}.founder-invitation{padding:24px}
+}
+@media(max-width:640px){
+ .ecosystem-home .jm-head{gap:24px}.ecosystem-home .jm-lead-body{padding:24px 24px 64px}.ecosystem-home .jm-lead-figure{padding:18px 18px 0}.ecosystem-home .jm-lead-geo .geo-disc{width:105px}.ecosystem-home .jm-lead-geo .geo-ring{width:54px;bottom:8px;right:24px}.ecosystem-home .jm-lead-geo .geo-square{right:66px;bottom:44px;width:16px}
+ .journal-swipe-hint{display:block;font-size:13px;color:var(--on-dark-muted);margin-top:28px}.ecosystem-home .jm-shelf{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;gap:16px;margin-top:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-color:var(--signal) var(--space-2);scrollbar-width:thin}.ecosystem-home .jm-card{scroll-snap-align:start}.ecosystem-home .jm-card article{padding-bottom:16px}.ecosystem-home .jm-card-title{font-size:24px}.ecosystem-home .jm-card .jm-meta{font-size:12px}.ecosystem-home .jm-research{grid-template-columns:1fr;padding:20px 22px 65px}.ecosystem-home .jm-research .text-link{white-space:normal}
+ .ecosystem-home .engagement-tiers{grid-template-columns:1fr;gap:24px}.ecosystem-home .engagement-tier{padding:24px}.ecosystem-home .engagement-tier h3{min-height:0;margin-bottom:18px}.ecosystem-home .tier-price{min-height:0}.ecosystem-home .engagement-tier ul{margin-bottom:12px}.ecosystem-home .engagement-tier .tier-decision{gap:6px 12px;margin-bottom:20px}.ecosystem-home .tier-decision li{font-size:14px;gap:7px}
+ .ecosystem-home .founder-section{gap:36px}.ecosystem-home .founder-portrait{max-width:180px}.ecosystem-home .founder-section h2{margin-top:24px;padding-top:20px}.founder-bottom{margin-top:32px}.delivery-proof .work-panel{grid-template-columns:88px minmax(0,1fr);gap:20px}.founder-invitation{padding:22px;gap:20px}.founder-invitation .primary-link{width:100%}
+}
+
+/* Copy revision, 17 Oct 2026: method detail and founder note. */
+
+.ecosystem-work .mission-caption p{font-size:var(--t-small);line-height:1.6}
+.ecosystem-work .mission-caption .mission-output{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-paper);font-weight:600;color:var(--ink)}
+
+.proof-note{font-size:14px;line-height:1.5;color:var(--ink-muted);max-width:52ch;margin:8px 0 6px}
+.founder-invitation .invitation-detail{font:400 var(--t-small)/1.55 var(--body);color:var(--ink-muted);max-width:44ch}
+@media(max-width:760px){
+ 
+ 
+ 
+ .ecosystem-work .mission-route>li{display:block!important}
+ .ecosystem-work .mission-moment{aspect-ratio:3/2;padding:2% 8%;margin-bottom:16px}
+ .ecosystem-work .mission-caption p{font-size:var(--t-small)}
+ 
+}
+
+/* Argon structure pass, 18 Oct 2026: compact offer note, structured disclosure. */
+
+.ecosystem-home .ecosystem-work header{grid-template-columns:1fr}
+.ecosystem-home .v31-offers .engagement-expect{max-width:60ch;margin:32px 0 0 max(0px,calc((100% - 1100px) / 2));font-size:var(--t-small);line-height:1.6;color:var(--ink-muted)}
+.engagement-expect strong{color:var(--ink)}
+.engagement-scope ul{display:grid;gap:10px;margin:14px 0 4px;padding:0;list-style:none;max-width:72ch}
+.engagement-scope li{font-size:15px;line-height:1.55;color:var(--ink-muted)}
+.engagement-scope li strong{color:var(--ink)}
+
+/* Polish pass, 18 Oct 2026: method follows the opening directly, so it gets its own boundary; compact mobile visuals. */
+.ecosystem-home .ecosystem-work{border-top:1px solid var(--line-paper);padding-top:clamp(56px,6.1vw,88px)}
+@media(max-width:767px){
+ .ecosystem-home .ecosystem-work .mission-route{gap:32px}
+ .ecosystem-home .ecosystem-work .mission-moment{width:100%;aspect-ratio:16/9;max-height:175px;padding:0;margin-bottom:14px}
+ .ecosystem-home .jm-journal{display:none}
+ .ecosystem-home .jm-lead-media{aspect-ratio:16/10}
+}
+
+/* Final builder copy pass, 18 Oct 2026: three compact examples replace the airlock scene, mosaic and decision strip. */
+.ecosystem-home .frontier-head{max-width:68ch;margin-bottom:clamp(32px,4vw,48px)}
+.ecosystem-home .frontier-head h2{max-width:22ch}
+.ecosystem-home .frontier-head>p:not(.kicker){font-size:18px;line-height:1.6;color:var(--ink);max-width:60ch}
+.frontier-examples{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,44px)}
+.frontier-examples>li{padding-top:20px;border-top:4px solid var(--signal);min-width:0}
+.frontier-examples>li:nth-child(2){border-top-color:#9DBEA7}
+.frontier-examples>li:nth-child(3){border-top-color:#275657}
+.frontier-examples h3{font:600 var(--t-component)/1.25 var(--body);margin-bottom:10px}
+.frontier-examples p{font-size:var(--t-small);line-height:1.6;color:var(--ink-muted);max-width:44ch}
+.ecosystem-home .tier-followup{font-size:var(--t-small);line-height:1.5;color:var(--ink);max-width:46ch;margin:0 0 8px;padding-left:14px;border-left:3px solid #9DBEA7}
+@media(max-width:860px){.frontier-examples{grid-template-columns:1fr;gap:28px}.frontier-examples p{max-width:62ch}}
+@media(max-width:760px){.ecosystem-home .frontier-head>p:not(.kicker){font-size:17px}}
+
+/* Third offer, 18 Oct 2026: custom Programme Support card. Three columns on desktop; full-width third card on tablet. */
+.ecosystem-home .engagement-tiers{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1240px}
+.ecosystem-home .engagement-tier-custom{border-top-color:#275657}
+.ecosystem-home .v31-offers .engagement-expect{margin-left:max(0px,calc((100% - 1240px) / 2))}
+.engagement-scope{max-width:1240px}
+@media(min-width:641px) and (max-width:1100px){.ecosystem-home .engagement-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}.ecosystem-home .engagement-tier-custom{grid-column:1/-1}}
+@media(max-width:640px){.ecosystem-home .engagement-tiers{grid-template-columns:1fr}.ecosystem-home .engagement-tier-custom{grid-column:auto}}
+
+/* Bauhaus offer cards, 18 Oct 2026: each card opens with a flat colour band and one primary shape; ink frame for contrast on bone. */
+.ecosystem-home .engagement-tier{--tier-pad:clamp(24px,2.6vw,40px);padding:0 var(--tier-pad) var(--tier-pad);background:#FBF8F2;border:2px solid var(--ink);overflow:hidden}
+.ecosystem-home .engagement-tier h3{position:relative;z-index:0;overflow:hidden;max-width:none;min-height:0;margin:0 calc(-1 * var(--tier-pad)) 28px;padding:96px var(--tier-pad) 22px;border-bottom:2px solid var(--ink);font:600 26px/1.15 var(--body);letter-spacing:-.01em;background:var(--petrol);color:var(--on-dark)}
+.ecosystem-home .engagement-tier h3::after{content:"";position:absolute;z-index:-1;top:-42px;right:-24px;width:130px;height:130px;border-radius:50%;background:#9DBEA7}
+.ecosystem-home #build h3{background:var(--signal);color:var(--ink)}
+.ecosystem-home #build h3::after{top:-44px;right:28px;width:116px;height:116px;border-radius:0;background:var(--ink)}
+.ecosystem-home #support h3{background:#D3A65F;color:var(--ink)}
+.ecosystem-home #support h3::after{top:-30px;right:-14px;width:132px;height:112px;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:var(--petrol)}
+@media(max-width:640px){
+ .ecosystem-home .engagement-tier h3{padding-top:76px;font-size:24px}
+ .ecosystem-home .engagement-tier h3::after{top:-40px;width:110px;height:110px}
+ .ecosystem-home #build h3::after{width:92px;height:92px}
+ .ecosystem-home #support h3::after{top:-34px;width:116px;height:100px}
+}
+/* Offer CTAs as solid buttons in each card's band colour, with an ink frame and offset that closes on hover. */
+.ecosystem-home .tier-actions{padding-top:24px}
+.ecosystem-home .tier-actions .text-link{justify-content:space-between;min-height:56px;padding:0 20px;border:2px solid var(--ink);font:700 17px/1.2 var(--body);background:var(--petrol);color:var(--on-dark);box-shadow:5px 5px 0 var(--ink);transition:transform .15s var(--ease-out),box-shadow .15s var(--ease-out)}
+.ecosystem-home .tier-actions .text-link:hover{color:var(--on-dark);gap:14px;transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.ecosystem-home .tier-actions .text-link:hover>span[aria-hidden]{transform:translate(2px,-2px)}
+.ecosystem-home .tier-actions .text-link:focus-visible{outline:3px solid var(--signal);outline-offset:4px}
+.ecosystem-home #build .tier-actions .text-link{background:var(--signal-ink)}
+.ecosystem-home #support .tier-actions .text-link,.ecosystem-home #support .tier-actions .text-link:hover{background:#D3A65F;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.ecosystem-home .tier-actions .text-link,.ecosystem-home .tier-actions .text-link>span[aria-hidden]{transition:none}}

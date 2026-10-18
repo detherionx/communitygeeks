@@ -17,11 +17,11 @@
     const intro = document.getElementById('contact-intro');
     const bookingContext = document.getElementById('booking-context');
     if (heading) heading.textContent = 'Discuss ' + selectedOffer + '.';
-    if (intro) intro.textContent = selectedOffer.startsWith('Programme · ')
-      ? 'You’re considering a 16-week Programme. We’ll use this 30-minute call to discuss the change you want to make, the evidence behind it and whether this scope fits.'
-      : selectedOffer.startsWith('Partnership · ')
-      ? 'You’re considering an ongoing Partnership. We’ll use this 30-minute call to discuss your priorities, a working cadence and a custom scope and rate.'
-      : 'You’re considering a 10-working-day diagnosis. We’ll use this 30-minute call to understand what is happening, whether the diagnosis fits, and what access we would need. If it isn’t the right fit, we’ll say so.';
+    if (intro) intro.textContent = selectedOffer.startsWith('Programme')
+      ? 'You’re considering a 13-week Programme Build. We’ll use this 30-minute call to understand the programme, its launch date and who would run it, and whether the Build fits. If it isn’t the right fit, we’ll say so.'
+      : selectedOffer.startsWith('Decision Review')
+      ? 'You’re considering a 4-week Decision Review. We’ll use this 30-minute call to understand the decision, its date and who approves it, and whether the Review fits. If it isn’t the right fit, we’ll say so.'
+      : 'We’ll use this 30-minute call to understand what you are planning or trying to change, and whether we can help. If it isn’t the right fit, we’ll say so.';
     if (bookingContext) { bookingContext.textContent = selectedOffer + (selectedSlot ? ' · ' + displayedSlot + ' (Europe/Berlin)' : ''); bookingContext.hidden = false; }
   }
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

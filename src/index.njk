@@ -1,32 +1,29 @@
 ---
 layout: layouts/home.njk
 title: "Community, developer and partner programme strategy | Communitygeeks"
-description: "We map how people connect across digital spaces, products and events, then design what helps them participate and share what they know."
+description: "We help AI and gaming companies choose, design and launch programmes for the people building around their products: onboarding, contributor and ambassador programmes, and routes for integrations, models and mods."
 permalink: /
 footerInline: true
-bodyClass: participation-home
-footerPositioning: "Community, developer and partner programme strategy, from first design to next decision."
-fullTitle: "Communitygeeks: Your community doesn’t live in one place."
-ogTitle: "Communitygeeks: Your community doesn’t live in one place."
-ogDescription: "We map how people connect across digital spaces, products and events, then design what helps them participate and share what they know."
+bodyClass: participation-home ecosystem-home
+footerPositioning: "Helping pioneering brands build ecosystems around their community, developers and partners."
+fullTitle: "Communitygeeks: Launch the programmes your builders need"
+ogTitle: "Communitygeeks: Launch the programmes your builders need"
+ogDescription: "We help AI and gaming companies choose, design and launch programmes for the people building around their products."
 ---
 {% include "partials/hero-refit.njk" %}
-<section class="first-step" id="first-step" aria-labelledby="first-step-title">
-  <p class="first-step-label">First step</p>
-  <div class="first-step-copy">
-    <h2 id="first-step-title">One question. Ten working days. <em>A clear decision.</em></h2>
-    <p>We investigate it with your team, for a fixed fee.</p>
-  </div>
-  <div class="first-step-out">
-    <p class="first-step-outcome-label" id="first-step-outcomes">The decision</p>
-    <ul class="first-step-outcomes" aria-labelledby="first-step-outcomes">
-      <li><span class="glyph glyph-circle" aria-hidden="true"></span>Go ahead</li>
-      <li><span class="glyph glyph-square" aria-hidden="true"></span>Change course</li>
-      <li><span class="glyph glyph-triangle" aria-hidden="true"></span>Hold off</li>
-    </ul>
-    <a class="text-link" href="/#talk">Bring us the question <span aria-hidden="true">↗</span></a>
-  </div>
+<section class="recognition-section reset-frontier" data-editorial id="frontier" aria-labelledby="frontier-title">
+  <header class="section-head frontier-head" id="builder-ecosystems">
+    <p class="kicker">What we help put in place</p>
+    <h2 id="frontier-title">Help people build, contribute and learn together.</h2>
+    <p>Across AI infrastructure, software and games, people create applications, share knowledge and help others get started. We help you choose the support that matters and put it into practice.</p>
+  </header>
+  <ul class="frontier-examples" id="participation" aria-label="Examples of programmes we help put in place">
+    <li><h3>A first useful build</h3><p>When newcomers struggle to get started, we help shape an onboarding programme around their first useful project, with a clear place to ask questions and share what they make.</p></li>
+    <li><h3>Support for contributors</h3><p>When people teach others, host meetups or maintain tools, we help define the support, responsibilities and recognition an ambassador or contributor programme should provide.</p></li>
+    <li><h3>A route to users</h3><p>When developers or creators make useful integrations, models or mods, we help establish how work is submitted, reviewed and discovered. The scope follows your platform and your team’s capacity.</p></li>
+  </ul>
 </section>
+{% include "partials/ecosystem-work.njk" %}
 {% include "partials/offer-paths-v31.njk" %}
 {# Journal: one lead story, three recent article scenes, a slim research band; the archive lives at /public-thinking/. #}
 {% set pieces = publicThinking %}
@@ -38,9 +35,8 @@ ogDescription: "We map how people connect across digital spaces, products and ev
   <header class="jm-head">
     <div class="jm-head-copy">
       <p class="kicker">The journal</p>
-      <h2 id="jm-title">Ideas tested against real work.</h2>
-      <p>Articles and research on adoption, developer programmes, community and the human judgement technology still needs.</p>
-      <p class="jm-count"><span>{{ pieces.length }} field notes</span><span>Updated {{ lead.date | readableDate }}</span></p>
+      <h2 id="jm-title">What we are learning.</h2>
+      <p>Field notes and research on builder ecosystems. Each piece is labelled Observation, Emerging Pattern or Research Finding to distinguish early thinking from stronger evidence.</p>
       <a class="text-link" href="/public-thinking/">Browse all articles <span aria-hidden="true">→</span></a>
     </div>
     <div class="jm-journal">{% include "partials/journal-astronaut.njk" %}</div>
@@ -57,23 +53,22 @@ ogDescription: "We map how people connect across digital spaces, products and ev
       </figure>
       <div class="jm-lead-body">
         <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
-        <p class="jm-meta"><span class="jm-tag">Latest</span><span>{{ lead.format }}</span><span>{{ lead.confidence }}</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
+        <p class="jm-meta"><span>Field note</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
         <h3><a href="{{ lead.url }}">{{ lead.title }}</a></h3>
         <p class="jm-deck">{{ lead.deck }}</p>
         <a class="text-link" href="{{ lead.url }}">Read the field note <span aria-hidden="true">→</span></a>
-        {% if lead.openQuestion %}<p class="jm-question"><span>Open question</span>{{ lead.openQuestion }}</p>{% endif %}
       </div>
     </article>
 
   </div>
 
-  <ol class="jm-shelf" aria-label="Also recent">
+  <p class="journal-swipe-hint" aria-hidden="true">Swipe field notes →</p>
+  <ol class="jm-shelf" tabindex="0" aria-label="More field notes; scroll horizontally on mobile">
     {% for piece in pieces %}{% if loop.index > 1 and loop.index <= 4 %}
     <li class="jm-card"><article>
       <span class="jm-card-image" aria-hidden="true"><img src="{{ piece.homepageImage or piece.editorialImage.src }}" alt="" loading="lazy"></span>
       <p class="jm-card-obs">Obs. {{ piece.obs }}</p>
       <h3 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h3>
-      <p class="jm-card-sum">{{ piece.summary }}</p>
       <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ topicLabel[piece.slug] or piece.topics[0] }}</span></p>
     </article></li>
     {% endif %}{% endfor %}
@@ -84,17 +79,23 @@ ogDescription: "We map how people connect across digital spaces, products and ev
     <p class="jm-research-label">Research in progress</p>
     <div>
       <h3 id="jm-research-title">When participant knowledge enters AI answers</h3>
-      <p>{{ researchTeaser.en }}</p>
+      <p>In our ChatGPT pilot, three Zendesk answers cited only official pages. In one matched Freshdesk answer, 9 of 15 citations came from community threads.</p><small>Four answers, collected 24 August 2026. An initial comparison, not a general ranking.</small>
     </div>
     <a class="text-link" href="/public-thinking/#research">Follow the research <span aria-hidden="true">→</span></a>
   </aside>
 </section>
-<section class="founder-section" data-editorial id="founder-section" aria-labelledby="founder-name" data-reveal>
-  <div class="founder-portrait"><img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy"></div>
-  <div><p class="kicker">The person behind the work</p><blockquote>“As the field of possible action expands, deciding where its boundaries sit becomes more important.”</blockquote><p class="founder-quote-source">From <a href="/public-thinking/who-keeps-the-thread/">Who Keeps the Thread?</a></p><h2 id="founder-name">Carmelito Bauer</h2><p class="founder-role">Founder, Communitygeeks</p><p class="founder-experience">More than a decade designing and running community, developer, education and advocacy programmes across AI and SaaS, public-sector learning and games. The method comes from seeing where what a programme claims and what actually happens don’t match, and turning that evidence into a decision.</p><a class="text-link" href="/about/">About Communitygeeks <span aria-hidden="true">↗</span></a></div>
+<section class="reset-founder" data-editorial id="talk" aria-labelledby="founder-name">
+  <div class="founder-section">
+    <div class="founder-portrait"><img src="/assets/images/founder.jpg" alt="Carmelito Bauer" width="280" height="360" loading="lazy"></div>
+    <div><p class="kicker">The person behind the work</p><h2 id="founder-name">Carmelito Bauer</h2><p class="founder-role">Founder, Communitygeeks</p><p class="founder-experience">Carmelito has spent more than a decade building community, developer and advocacy programmes across SaaS, AI, gaming and education. He works with your team from the first decision through launch and handover.</p><a class="text-link" href="/about/">About the work <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="founder-bottom">
+    <div class="delivery-proof" id="experience"><p class="kicker">Selected delivery experience</p><p class="proof-note">Experience from before the Decision Review and Programme Build offers.</p><div class="work-panels">
+      <div class="work-panel"><span class="work-logo" style="--proof-logo:url('/assets/images/logos/deepl.svg')" role="img" aria-label="DeepL"></span><p class="work-detail">Community, developer and advocacy programmes</p></div>
+      <div class="work-panel"><span class="work-logo" style="--proof-logo:url('/assets/images/logos/european-commission.svg')" role="img" aria-label="European Commission"></span><p class="work-detail">EU Academy community and education</p></div>
+      <div class="work-panel"><span class="work-logo" style="--proof-logo:url('/assets/images/logos/tencent.png')" role="img" aria-label="Tencent"></span><p class="work-detail">PUBG Mobile · Tower of Fantasy · Tarisland<br>Gaming communities for Tencent, through ZAM</p></div>
+    </div></div>
+    <div class="founder-invitation" id="fit-call"><p>Bring a decision to make or a programme to launch.</p><p class="invitation-detail">Thirty minutes to discuss what you want to put in place and whether we can help.</p><a class="primary-link" href="https://cal.com/communitygeeks/30min" target="_blank" rel="noopener">Book a conversation <span aria-hidden="true">↗</span></a><a class="direct-email" href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+  </div>
 </section>
-<section class="close" data-editorial id="talk" aria-label="Discuss an engagement">
-  {% include "partials/final-booking-v31.njk" %}
-  <p class="direct-contact">Prefer to write? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
-  {% set inline = true %}{% include "partials/field-shell-foot.njk" %}
-</section>
+{% set inline = false %}{% include "partials/field-shell-foot.njk" %}

@@ -1,14 +1,14 @@
 # Communitygeeks
 
-> Communitygeeks maps how customers, developers, partners and peers connect across an organisation's product, support, events and other spaces. Founded by Carmelito Bauer, it helps teams decide whether to start a community, improve an existing programme or strengthen the relationships already there.
+> Communitygeeks helps AI and gaming companies choose, design and launch programmes for the people building around their products: onboarding, contributor and ambassador programmes, and routes for integrations, models and mods. Founded by Carmelito Bauer, it helps teams decide whether to launch a programme, change an existing one or hold off, and then helps build the chosen change. Current research focuses on builder ecosystems at AI and AI infrastructure companies.
 
 This is a community-driven convention, not an official web standard, and adoption is still niche as of August 2026. It's not a ranking lever, it's a plain summary for AI systems that don't crawl the way search engines do. See Communitygeeks OS → Public Source Pack → "Website Technical Decisions" for the reasoning behind including this file.
 
 ## Key pages
 
-- [Home](https://communitygeeks.ai/): overview of what Communitygeeks does and who it's for.
-- [Public Thinking](https://communitygeeks.ai/public-thinking/): research findings, executive one-pagers, case studies, and field notes, Communitygeeks' actual evidence base, updated as research progresses.
-- [Approach](https://communitygeeks.ai/#approach): the buyer problems behind four fixed-scope diagnoses: Community Programme, Customer Adoption, Developer Integration and Partner Opportunity. The homepage also describes the 16-week Programme and ongoing Partnership options.
+- [Home](https://communitygeeks.ai/): what we help put in place for builder ecosystems, how the work proceeds (Understand, Decide, then Design, launch and hand over: https://communitygeeks.ai/#system), the builder-ecosystem research and the two ways to work together.
+- [Public Thinking](https://communitygeeks.ai/public-thinking/): field notes and research in progress, each with a confidence label; Communitygeeks' evidence base, updated as the research progresses.
+- [Approach](https://communitygeeks.ai/#approach): two fixed-fee ways to work together. A 4-week Decision Review (€14,000) for a dated decision about a community, developer, partner or knowledge programme: 8–10 interviews, costed options and one recommendation with a named owner. A 13-week Programme Build (€42,000) that starts with the same Review, has one stop gate after week 4 (€14,000 to start, €28,000 to continue), then designs, launches and hands over one intervention, with a progress review 90 days later based on what the client team reports. Fees exclude VAT.
 - [About](https://communitygeeks.ai/about/): founder background and how Communitygeeks thinks about its own claims.
 - [Contact](https://communitygeeks.ai/contact/): how to start a conversation.
 

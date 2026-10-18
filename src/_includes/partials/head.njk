@@ -37,7 +37,7 @@
   "name": "Communitygeeks",
   "url": "https://communitygeeks.ai/",
   "logo": "https://communitygeeks.ai/assets/images/icon.png",
-  "description": "Communitygeeks maps how people connect across an organisation and helps teams plan or improve community, developer and partner programmes.",
+  "description": "Communitygeeks helps AI and gaming companies choose, design and launch programmes for the people building around their products: community, developer, contributor and partner programmes.",
   "legalName": "Liebe zur Freiheit LLC",
   "address": {
     "@type": "PostalAddress",
@@ -47,7 +47,29 @@
     "postalCode": "82801",
     "addressCountry": "US"
   },
-  "founder": { "@id": "https://communitygeeks.ai/about/#founder" }
+  "founder": { "@id": "https://communitygeeks.ai/about/#founder" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Ways to work with Communitygeeks",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Decision Review",
+        "url": "https://communitygeeks.ai/#review",
+        "description": "4 weeks. A dated decision about a community, developer, partner or knowledge programme: 8–10 interviews, costed options and one recommendation with a named owner.",
+        "priceSpecification": { "@type": "PriceSpecification", "price": 14000, "priceCurrency": "EUR", "valueAddedTaxIncluded": false },
+        "itemOffered": { "@type": "Service", "name": "Decision Review", "provider": { "@id": "https://communitygeeks.ai/#organization" } }
+      },
+      {
+        "@type": "Offer",
+        "name": "Programme Build",
+        "url": "https://communitygeeks.ai/#build",
+        "description": "13 weeks. Starts with a 4-week Decision Review (EUR 14,000), one stop gate, then EUR 28,000 to design, launch and hand over one intervention, with a progress review 90 days after handover.",
+        "priceSpecification": { "@type": "PriceSpecification", "price": 42000, "priceCurrency": "EUR", "valueAddedTaxIncluded": false },
+        "itemOffered": { "@type": "Service", "name": "Programme Build", "provider": { "@id": "https://communitygeeks.ai/#organization" } }
+      }
+    ]
+  }
 }
 </script>
 {% for line in extraHead %}{{ line | safe }}{% endfor %}
