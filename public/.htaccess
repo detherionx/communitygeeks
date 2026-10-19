@@ -15,6 +15,7 @@ RewriteRule ^(.*)$ https://communitygeeks.ai/$1 [R=301,L]
 RedirectMatch 301 ^/mockups/field/(.*)$ https://communitygeeks.ai/$1
 RedirectMatch 301 ^/mockups/home/?(.*)$ https://communitygeeks.ai/
 RedirectMatch 301 ^/contact/?$ https://communitygeeks.ai/#talk
+RedirectMatch 302 ^/de/?$ https://communitygeeks.ai/de/public-thinking/
 RedirectMatch 301 ^/approach/?$ https://communitygeeks.ai/#approach
 RedirectMatch 301 ^/system/?$ https://communitygeeks.ai/#system
 RedirectMatch 301 ^/work/?$ https://communitygeeks.ai/#cases

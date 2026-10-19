@@ -123,6 +123,16 @@
 .frontier-examples p{font-size:var(--t-small);line-height:1.6;color:var(--ink-muted);max-width:44ch}
 .ecosystem-home .tier-followup{font-size:var(--t-small);line-height:1.5;color:var(--ink);max-width:46ch;margin:0 0 8px;padding-left:14px;border-left:3px solid #9DBEA7}
 @media(max-width:860px){.frontier-examples{grid-template-columns:1fr;gap:28px}.frontier-examples p{max-width:62ch}}
+/* Confidence pass, 19 Oct 2026: four examples in a 2×2 grid, each with one published case; a footnote separates them from our delivery. */
+.frontier-examples{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3.4vw,48px) clamp(32px,4.6vw,72px);max-width:1120px}
+.frontier-examples>li:nth-child(4){border-top-color:#D3A65F}
+.frontier-examples p{max-width:58ch}
+.frontier-examples .frontier-practice{margin-top:12px;padding-left:14px;border-left:3px solid var(--line-paper);font-size:15px;line-height:1.55;color:var(--ink)}
+.frontier-practice>span{display:block;margin-bottom:2px;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.frontier-practice a{color:inherit;text-decoration:underline;text-decoration-color:var(--signal);text-underline-offset:3px}
+.frontier-practice a:hover{text-decoration-thickness:2px}
+.ecosystem-home .frontier-note{margin-top:clamp(28px,3vw,40px);font-size:14px;line-height:1.5;color:var(--ink-muted);max-width:72ch}
+@media(max-width:860px){.frontier-examples{grid-template-columns:1fr}.frontier-examples p{max-width:62ch}}
 @media(max-width:760px){.ecosystem-home .frontier-head>p:not(.kicker){font-size:17px}}
 
 /* Third offer, 18 Oct 2026: custom Programme Support card. Three columns on desktop; full-width third card on tablet. */
