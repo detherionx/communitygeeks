@@ -11,19 +11,42 @@ ogTitle: "Communitygeeks: Launch the programmes your builders need"
 ogDescription: "We help AI and gaming companies choose, design and launch programmes for the people building around their products."
 ---
 {% include "partials/hero-refit.njk" %}
+{% from "partials/participation-scenes.njk" import robot %}
 <section class="recognition-section reset-frontier" data-editorial id="frontier" aria-labelledby="frontier-title">
   <header class="section-head frontier-head" id="builder-ecosystems">
     <p class="kicker">What we help put in place</p>
-    <h2 id="frontier-title">From first use to lasting contribution.</h2>
-    <p>Your developers, creators and players already test, build, teach and report problems. We help you choose the one contribution worth supporting, then put the support in place. Each example is one possible focus for a Decision Review or Programme Build.</p>
+    <h2 id="frontier-title">What we help you build.</h2>
+    <p>Each one can be the focus of a Decision Review or a Programme Build.</p>
   </header>
-  <ul class="frontier-examples" id="participation" aria-label="Examples of what we help put in place">
-    <li><h3>A first useful build</h3><p>When developers sign up, make a few calls and stop, we design the path to a first useful project: a starter task, a place to ask, and a place to show what they made.</p><p class="frontier-practice"><span>In practice</span> <a href="https://nebius.com/blog/posts/introducing-the-nebius-ai-builder-program" target="_blank" rel="noopener">Nebius</a> pairs credits with engineer office hours and a showcase route.</p></li>
-    <li><h3>A first builder cohort</h3><p>When a few developers already test your models and report what breaks, we decide with you whether a small cohort is worth it. If it is, we build it with you until a first cycle has run and your team owns it.</p><p class="frontier-practice"><span>In practice</span> After its first contributor cohort, <a href="https://zed.dev/blog/zed-guild-retrospective" target="_blank" rel="noopener">Zed</a> made later cohorts smaller and more selective so its team would not become the bottleneck.</p></li>
-    <li><h3>A route for integrations, tutorials and mods</h3><p>When developers or creators make integrations, tools, tutorials or mods, we set up how that work is submitted, reviewed and found by other users.</p><p class="frontier-practice"><span>In practice</span> <a href="https://docs.fireworks.ai/ecosystem/integrations_process" target="_blank" rel="noopener">Fireworks AI</a> reviews community integrations and lists them in its docs. <a href="https://www.fortnite.com/news/build-faster-with-uefn-source-assets-now-on-fab" target="_blank" rel="noopener">Epic</a> lets Fortnite creators license gameplay systems to other creators on Fab.</p></li>
-    <li><h3>Contributors who become advocates</h3><p>When people already teach others, host meetups or maintain tools, we define what they receive, what they commit to and how they are recognised. If you already run an ambassador programme, we fix what is unclear and retire what no longer earns its cost.</p><p class="frontier-practice"><span>In practice</span> <a href="https://claude.com/community/ambassadors" target="_blank" rel="noopener">Anthropic’s Claude Community Ambassadors</a> receive event funding, API credits and early access, and stay members while they keep hosting.</p></li>
+  <ul class="frontier-examples" id="participation" aria-label="What we help you build">
+    <li class="ex-feature" data-reveal>
+      <p class="ex-trigger">Developers already testing your models?</p>
+      <h3>A first <em>builder cohort</em></h3>
+      <p>We decide with you whether it is worth it. If it is, we build it with you until the first cycle has run and your team owns it.</p>
+      <a class="text-link" href="#build">How a Programme Build delivers one <span aria-hidden="true">↘</span></a>
+      <svg class="ex-scene" viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+        <circle class="ex-planet" cx="420" cy="96" r="78"/>
+        <ellipse class="ex-ring" cx="420" cy="96" rx="128" ry="26" transform="rotate(-14 420 96)"/>
+        <path class="ex-deck" d="M24 304 266 262 500 304 262 326Z"/>
+        <rect class="ex-module" x="246" y="238" width="34" height="34" transform="rotate(-6 263 255)"/>
+        {{ robot('ex-cohort-test',160,312,'crew','inspect',236) }}
+        {{ robot('ex-cohort-walk',372,314,'crew','walk',196,-1,true) }}
+      </svg>
+    </li>
+    <li class="ex-tile" data-reveal>
+      <svg class="ex-scene" viewBox="0 0 200 180" aria-hidden="true" focusable="false"><circle class="ex-shape ex-circle" cx="114" cy="88" r="66"/>{{ robot('ex-build',100,178,'crew','carry',158) }}</svg>
+      <div><p class="ex-trigger">Sign-ups who stall</p><h3>A first useful build</h3><p>A starter task, a place to ask, and a place to show what they made.</p></div>
+    </li>
+    <li class="ex-tile" data-reveal>
+      <svg class="ex-scene" viewBox="0 0 200 180" aria-hidden="true" focusable="false"><rect class="ex-shape ex-square" x="56" y="24" width="120" height="120"/><rect class="ex-port" x="150" y="98" width="22" height="22"/>{{ robot('ex-route',88,178,'crew','connect',156,-1,true) }}</svg>
+      <div><p class="ex-trigger">Builders making extensions</p><h3>A route for integrations and mods</h3><p>A clear way to submit work, get it reviewed and get it found.</p></div>
+    </li>
+    <li class="ex-tile" data-reveal>
+      <svg class="ex-scene" viewBox="0 0 200 180" aria-hidden="true" focusable="false"><path class="ex-shape ex-triangle" d="M112 14 186 152H38Z"/>{{ robot('ex-advocate',100,180,'crew','wait',156) }}</svg>
+      <div><p class="ex-trigger">People who already teach and host</p><h3>Contributors who become advocates</h3><p>A defined role and real recognition, or the ambassador programme you already run, made to work.</p></div>
+    </li>
   </ul>
-  <p class="frontier-note">“In practice” examples are public programmes from our research. None of these companies are clients of Communitygeeks.</p>
+  <p class="frontier-seen"><span class="frontier-seen-label">Seen in public programmes</span> <a href="https://nebius.com/blog/posts/introducing-the-nebius-ai-builder-program" target="_blank" rel="noopener">Nebius</a> <a href="https://zed.dev/blog/zed-guild-retrospective" target="_blank" rel="noopener">Zed</a> <a href="https://docs.fireworks.ai/ecosystem/integrations_process" target="_blank" rel="noopener">Fireworks AI</a> <a href="https://www.fortnite.com/news/build-faster-with-uefn-source-assets-now-on-fab" target="_blank" rel="noopener">Epic</a> <a href="https://claude.com/community/ambassadors" target="_blank" rel="noopener">Anthropic</a> <span class="frontier-seen-note">Programmes we study, not clients.</span></p>
 </section>
 {% include "partials/ecosystem-work.njk" %}
 {% include "partials/offer-paths-v31.njk" %}

@@ -108,8 +108,7 @@ fs.mkdirSync(out, { recursive: true });
           document.body.appendChild(main); main.style.cssText = 'position:absolute;left:-99999px;width:' + innerWidth + 'px';
           const n = (main.innerText.trim().match(/\S+/g) || []).length; main.remove(); return n;
         });
-        // Confidence pass, 19 Oct 2026: approved copy measures 1,087 words (live: 856). Ceiling raised from 950 pending founder confirmation.
-        assert(flowWords <= 1100, `${name}: reading-flow words ${flowWords} at most 1100`);
+        assert(flowWords <= 950, `${name}: reading-flow words ${flowWords} at most 950`);
         const readability = await page.evaluate(() => [...document.querySelectorAll('main p')].filter(p => p.offsetParent && p.innerText.trim().length > 140).map(p => {
           const cs = getComputedStyle(p); const fs = parseFloat(cs.fontSize); const t = p.innerText.trim();
           const lines = Math.max(1, Math.round(p.getBoundingClientRect().height / parseFloat(cs.lineHeight)));
@@ -121,10 +120,12 @@ fs.mkdirSync(out, { recursive: true });
         }
         const levels = await page.evaluate(() => [...document.querySelectorAll('h1,h2,h3,h4')].filter(h => h.offsetParent).map(h => +h.tagName[1]));
         levels.reduce((prev, lvl) => { assert(lvl <= prev + 1, `${name}: heading levels do not skip (h${prev} to h${lvl})`); return lvl; }, 1);
-        // Confidence pass, 19 Oct 2026: approved published cases sit in the examples, each labelled, with a no-clients footnote.
+        // Confidence pass, 19 Oct 2026: published programmes appear once, in one credibility line under the examples, marked as not clients.
         assert(!/OpenAI|Anthropic|LangChain|Godot|Codex|Claude|Model Context|\bMCP\b|Nebius|Zed|Fireworks|Epic/.test(await page.locator('#system').innerText()), `${name}: no outside-company examples in the method`);
-        assert.equal(await page.locator('#frontier .frontier-practice').count(), 4, `${name}: one published case per example`);
-        assert((await page.locator('#frontier .frontier-note').innerText()).includes('None of these companies are clients'), `${name}: cases separated from delivery`);
+        assert.equal(await page.locator('#frontier .frontier-seen a').count(), 5, `${name}: published programmes in one credibility line`);
+        assert.equal(await page.locator('#frontier .ex-feature').count(), 1, `${name}: one featured example`);
+        assert.equal(await page.locator('#frontier .crew-render').count(), 5, `${name}: crew in the examples`);
+        assert((await page.locator('#frontier .frontier-seen').innerText()).includes('not clients'), `${name}: cases separated from delivery`);
         assert(!/\b148\b|pull requests/.test(await page.locator('main').innerText()), `${name}: no disputed Zed PR count`);
         assert(!/Experience from before/.test(await page.locator('main').innerText()), `${name}: no delivery disclaimer`);
         assert((await page.locator('#approach').innerText()).includes('When you continue past the stop gate, the Build ends with the change launched'), `${name}: outcome tied to the stop gate`);
