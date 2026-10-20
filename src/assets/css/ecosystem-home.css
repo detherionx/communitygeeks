@@ -118,7 +118,7 @@
 .ecosystem-home .tier-followup{font-size:var(--t-small);line-height:1.5;color:var(--ink);max-width:46ch;margin:0 0 8px;padding-left:14px;border-left:3px solid #9DBEA7}
 /* Confidence pass, 19 Oct 2026: four equal example cards, each with its own colour panel, crew pose and Bauhaus shape. */
 .ecosystem-home .frontier-head h2{font-size:clamp(36px,4.2vw,60px);max-width:none}
-.frontier-examples{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1240px}
+.frontier-examples{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .ex-card{display:flex;flex-direction:column;min-width:0;border:2px solid var(--ink);background:#FBF8F2;overflow:hidden}
 .ex-scene{display:block;width:100%;height:auto;aspect-ratio:4/3;border-bottom:2px solid var(--ink)}
 .ex-body{padding:20px 22px 24px}
@@ -137,15 +137,21 @@
 .ex-shape{transform-box:fill-box;transform-origin:50% 50%}
 html.motion .ex-card[data-reveal] .ex-shape{transition:transform .9s var(--ease-out)}
 html.motion .ex-card[data-reveal]:not(.is-in) .ex-shape{transform:rotate(-12deg) scale(.86)}
-@media(max-width:1179px){.frontier-examples{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Final structure pass, 20 Oct 2026: a balanced 2×2 on desktop; each card sets its scene beside the text. */
+@media(min-width:1100px){
+ .ex-card{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr)}
+ .ex-scene{height:100%;min-height:220px;border-bottom:0;border-right:2px solid var(--ink)}
+ .ex-body{align-self:center;padding:28px 32px}
+ .ex-card h3{font-size:24px}
+}
 @media(max-width:640px){.frontier-examples{grid-template-columns:1fr;gap:16px}.ex-scene{aspect-ratio:16/9}}
 @media(prefers-reduced-motion:reduce){html.motion .ex-card[data-reveal] .ex-shape{transition:none;transform:none}}
 
 /* Research examples: four disclosures with a mechanism and a primary source each. */
-.practice-section{background:var(--bone)}
+.practice-section{background:var(--paper);border-top:1px solid var(--line-paper)}
 .practice-head{max-width:68ch;margin-bottom:clamp(28px,3vw,40px)}
 .ecosystem-home .practice-head h2{font-size:clamp(32px,3.4vw,48px);max-width:none}
-.practice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;align-items:start;max-width:1240px;border-top:2px solid var(--ink)}
+.practice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;align-items:start;border-top:2px solid var(--ink)}
 .practice-col{min-width:0}
 .practice-item{border-bottom:1px solid var(--line-paper);min-width:0}
 .practice-item summary{display:grid;grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:"glyph co mark" "glyph name mark" "glyph kind mark";column-gap:16px;align-items:center;padding:20px 0;cursor:pointer;list-style:none}
@@ -208,3 +214,23 @@ html.motion .ex-card[data-reveal]:not(.is-in) .ex-shape{transform:rotate(-12deg)
 .ecosystem-home #build .tier-actions .text-link{background:var(--signal-ink)}
 .ecosystem-home #support .tier-actions .text-link,.ecosystem-home #support .tier-actions .text-link:hover{background:#D3A65F;color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.ecosystem-home .tier-actions .text-link,.ecosystem-home .tier-actions .text-link>span[aria-hidden]{transition:none}}
+
+/* Final structure pass, 20 Oct 2026: offers share the page's left edge; Review and Build lead side by side, Support is a
+   full-width panel beneath them; every narrative chapter is numbered in order. */
+.ecosystem-home .v31-offers .section-head{text-align:left;margin-inline:0}
+.ecosystem-home .v31-offers .section-head>p{margin-inline:0}
+.ecosystem-home .v31-offers .kicker{justify-content:flex-start}
+.ecosystem-home .engagement-tiers{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none;margin-inline:0}
+.ecosystem-home .engagement-tier-custom{grid-column:1/-1}
+.ecosystem-home .v31-offers .engagement-expect{margin-left:0}
+.engagement-scope{max-width:none}
+@media(min-width:861px){
+ .ecosystem-home #support{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1fr) minmax(0,1.2fr);grid-template-areas:"band price for" "band duration list" "band actions list";column-gap:clamp(28px,3vw,48px);align-items:start;padding:var(--tier-pad) var(--tier-pad) var(--tier-pad) 0;background:transparent}
+ .ecosystem-home #support h3{grid-area:band;align-self:stretch;display:flex;align-items:flex-end;margin:calc(-1 * var(--tier-pad)) 0;padding:96px var(--tier-pad) var(--tier-pad);border-bottom:0;border-right:2px solid var(--ink)}
+ .ecosystem-home #support .tier-price{grid-area:price}
+ .ecosystem-home #support .tier-duration{grid-area:duration;margin-bottom:0;padding-bottom:0;border-bottom:0}
+ .ecosystem-home #support .tier-for{grid-area:for;margin-top:0}
+ .ecosystem-home #support ul{grid-area:list;margin:0}
+ .ecosystem-home #support .tier-actions{grid-area:actions;align-self:end}
+}
+.participation-home :is(.ecosystem-work header .kicker,.jm-head .kicker)::before{counter-increment:chapter;content:counter(chapter,decimal-leading-zero);font:500 var(--t-meta)/1 var(--mono);letter-spacing:.08em;padding:5px 6px 4px;border:1px solid currentColor;opacity:.75}

@@ -90,7 +90,7 @@ fs.mkdirSync(out, { recursive: true });
         assert.equal(await page.locator('.jm-lead h3 a').getAttribute('href'), '/public-thinking/builder-ecosystems/');
         assert.equal(await page.locator('.jm-research a').getAttribute('href'), '/public-thinking/builder-ecosystems/');
         assert.equal(await page.locator('#system .crew-render').count(), 3);
-        assert.deepEqual(await page.locator('main > section').evaluateAll(xs => xs.map(x => x.id)), ['field','frontier','practice','thinking','experience','system','approach','talk']);
+        assert.deepEqual(await page.locator('main > section').evaluateAll(xs => xs.map(x => x.id)), ['field','frontier','system','approach','practice','thinking','experience','talk']);
         assert(!/Beyond AI|Our bet|Understand\. Decide\. Implement\./.test(await page.locator('main').innerText()));
         assert.equal((await page.locator('h1').innerText()).replace(/\s+/g, ' '), 'Launch the programmes your builders need.');
         assert.equal(await page.locator('#experience .work-logo').count(), 3);
