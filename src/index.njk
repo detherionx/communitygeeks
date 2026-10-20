@@ -96,23 +96,26 @@ ogDescription: "We design and launch community, developer and partner programmes
       </figure>
       <div class="jm-lead-body">
         <span class="jm-lead-geo" aria-hidden="true"><span class="geo-disc"></span><span class="geo-ring"></span><span class="geo-square"></span><span class="geo-rule"></span></span>
-        <p class="jm-meta"><span>Field note</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
+        <p class="jm-meta"><span class="jm-tag">Latest</span><span>Field note</span><time datetime="{{ lead.date | isoDate }}">{{ lead.date | readableDate }}</time></p>
         <h3><a href="{{ lead.url }}">{{ lead.title }}</a></h3>
         <p class="jm-deck">{{ lead.deck }}</p>
-        <a class="text-link" href="{{ lead.url }}">Read the field note <span aria-hidden="true">→</span></a>
+        <span class="text-link jm-lead-cta" aria-hidden="true">Read the field note <span>→</span></span>
       </div>
     </article>
 
   </div>
 
-  <p class="journal-swipe-hint" aria-hidden="true">Swipe field notes →</p>
-  <ol class="jm-shelf" tabindex="0" aria-label="More field notes; scroll horizontally on mobile">
+  <p class="jm-shelf-label" id="jm-shelf-label">Earlier field notes</p>
+  <ol class="jm-shelf" aria-labelledby="jm-shelf-label">
     {% for piece in pieces %}{% if loop.index > 1 and loop.index <= 4 %}
     <li class="jm-card"><article>
-      <span class="jm-card-image" aria-hidden="true"><img src="{{ piece.homepageImage or piece.editorialImage.src }}" alt="" loading="lazy"></span>
-      <p class="jm-card-obs">Obs. {{ piece.obs }}</p>
-      <h3 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h3>
-      <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ topicLabel[piece.slug] or piece.topics[0] }}</span></p>
+      <span class="jm-card-image" aria-hidden="true"><img src="{{ piece.homepageImage or piece.editorialImage.src }}" alt="" loading="lazy"><span class="jm-card-obs">Obs. {{ piece.obs }}</span></span>
+      <span class="jm-card-band" aria-hidden="true"></span>
+      <div class="jm-card-body">
+        <h3 class="jm-card-title"><a class="jm-card-link" href="{{ piece.url }}">{{ piece.title }}</a></h3>
+        <p class="jm-card-sum">{{ piece.deck or piece.summary }}</p>
+        <p class="jm-meta"><time datetime="{{ piece.date | isoDate }}">{{ piece.date | readableDate }}</time><span>{{ topicLabel[piece.slug] or piece.topics[0] }}</span></p>
+      </div>
     </article></li>
     {% endif %}{% endfor %}
   </ol>

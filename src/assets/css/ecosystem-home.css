@@ -234,3 +234,48 @@ html.motion .ex-card[data-reveal]:not(.is-in) .ex-shape{transform:rotate(-12deg)
  .ecosystem-home #support .tier-actions{grid-area:actions;align-self:end}
 }
 .participation-home :is(.ecosystem-work header .kicker,.jm-head .kicker)::before{counter-increment:chapter;content:counter(chapter,decimal-leading-zero);font:500 var(--t-meta)/1 var(--mono);letter-spacing:.08em;padding:5px 6px 4px;border:1px solid currentColor;opacity:.75}
+
+/* Journal pass, 20 Oct 2026: a larger journal scene, one lead story then three earlier notes in publication order,
+   all on paper plates so they stand off the dark ground. Each earlier note carries its own Bauhaus band and shape. */
+@media(min-width:1101px){.ecosystem-home .jm-head{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(40px,4vw,72px)}}
+.ecosystem-home .jm-lead{border-top:10px solid var(--signal)}
+.ecosystem-home .jm-lead .jm-obs{background:var(--signal);color:var(--ink)}
+.ecosystem-home .jm-tag{background:var(--signal);color:var(--ink)}
+.ecosystem-home .jm-lead-cta{margin-top:18px;color:var(--ink)}
+.ecosystem-home .jm-lead:hover .jm-lead-cta{color:var(--signal-ink)}
+.jm-shelf-label{margin:clamp(48px,4.4vw,64px) 0 0;font:500 var(--t-meta)/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-muted)}
+.ecosystem-home .jm-shelf{margin-top:16px;gap:24px}
+.ecosystem-home .jm-card{--band:var(--signal);--shape-clip:none;--shape-radius:50%}
+.ecosystem-home .jm-card:nth-child(1){--band:#9DBEA7}
+.ecosystem-home .jm-card:nth-child(2){--band:#D3A65F;--shape-radius:0}
+.ecosystem-home .jm-card:nth-child(3){--band:var(--signal);--shape-radius:0;--shape-clip:polygon(50% 0,100% 100%,0 100%)}
+.ecosystem-home .jm-card article{padding:0;background:var(--paper);color:var(--ink);border-top:0;transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.ecosystem-home .jm-card article>:not(.jm-card-image){margin-inline:0}
+.ecosystem-home .jm-card article>.jm-card-image{position:relative;margin:0}
+.jm-card-band{position:relative;display:block;height:10px;background:var(--band)}
+.jm-card-band::after{content:"";position:absolute;right:20px;top:-14px;width:28px;height:28px;border-radius:var(--shape-radius);clip-path:var(--shape-clip);background:var(--petrol)}
+.jm-card-body{display:flex;flex-direction:column;flex:1;padding:20px 22px 22px}
+.ecosystem-home .jm-card-obs{position:absolute;left:0;top:0;margin:0;padding:6px 9px 5px;background:var(--band);color:var(--ink)}
+.ecosystem-home .jm-card-title{margin:0 0 10px;color:var(--ink)}
+.ecosystem-home .jm-card-sum{margin:0 0 16px;font-size:15px;line-height:1.55;color:var(--ink-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ecosystem-home .jm-card .jm-meta{margin-top:auto;color:var(--ink-muted)}
+.ecosystem-home .jm-card article:hover{background:var(--paper);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--band)}
+.ecosystem-home .jm-card article:hover .jm-card-title{color:var(--signal-ink)}
+.ecosystem-home .jm-research{border-left:10px solid #9DBEA7}
+@media(max-width:640px){
+ .ecosystem-home .jm-shelf{grid-auto-flow:row;grid-template-columns:1fr;grid-auto-columns:auto;overflow:visible;scroll-snap-type:none;padding-bottom:0;gap:14px}
+ .ecosystem-home .jm-card article{display:grid;grid-template-columns:104px 8px minmax(0,1fr)}
+ .ecosystem-home .jm-card article>.jm-card-image{aspect-ratio:auto;height:100%;min-height:104px}
+ .jm-card-band{width:8px;height:auto}
+ .jm-card-band::after{display:none}
+ .jm-card-body{padding:14px 16px}
+ .ecosystem-home .jm-card-title{font-size:19px}
+ .ecosystem-home .jm-card-sum{display:none}
+ .ecosystem-home .jm-card-obs{font-size:10px;padding:4px 6px 3px}
+}
+@media(prefers-reduced-motion:reduce){.ecosystem-home .jm-card article{transition:none}.ecosystem-home .jm-card article:hover{transform:none}}
+
+/* Tablet fix: between 761 and 860px the method steps stack, so each step's scene and text can sit side by side. */
+@media(min-width:761px) and (max-width:860px){.ecosystem-work .mission-route{grid-template-columns:1fr;gap:32px}}
+/* Tablet: the journal scene takes the full width under the masthead copy instead of a narrow half column. */
+@media(min-width:641px) and (max-width:1100px){.ecosystem-home .jm-head{grid-template-columns:1fr;gap:36px}}
