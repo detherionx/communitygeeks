@@ -7,7 +7,7 @@
     "priceType": "Fixed fee",
     "duration": "4 weeks",
     "interviews": "8–10 interviews in total",
-    "for": "A decision with a date: whether to launch a first builder cohort, change a programme that already runs, or hire someone to own it.",
+    "for": "Teams deciding which programme to launch, change or stop, and who should run it.",
     "deliverables": ["A map of who is involved and who owns what", "Costed options", "One recommendation with a named owner", "A decision session with the person who approves the spend"],
     "continuation": "Continuing into a Programme Build costs €28,000.",
     "bookingIntro": "You’re considering a 4-week Decision Review. We’ll use this 30-minute call to understand the decision, its date and who approves it, and whether the Review fits. If it isn’t the right fit, we’ll say so."
@@ -27,7 +27,7 @@
       { "weeks": "Stop gate", "name": "Stop or continue", "text": "Stop here and keep the decision, or continue." },
       { "weeks": "5–13", "name": "Design, launch, initial use and handover", "text": "We design it and launch it with your team, watch how it is used, adjust it once and hand it over." }
     ],
-    "for": "One change with a launch date: a path to a first useful build, a first builder cohort, a route for integrations, or a change to a programme that already runs.",
+    "for": "One programme you want running by a set date, designed and launched with your team.",
     "bookingIntro": "You’re considering a 13-week Programme Build. We’ll use this 30-minute call to understand the programme, its launch date and who would run it, and whether the Build fits. If it isn’t the right fit, we’ll say so."
   },
   "applicationTypes": ["Community Programme", "Customer Adoption", "Developer Integration", "Partner Programme"],

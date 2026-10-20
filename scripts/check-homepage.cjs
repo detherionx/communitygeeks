@@ -130,7 +130,7 @@ fs.mkdirSync(out, { recursive: true });
         assert(!/simpler will do|whether it is worth it|not clients/.test(await page.locator('main').innerText()), `${name}: no defensive repetition`);
         assert(!/\b148\b|pull requests/.test(await page.locator('main').innerText()), `${name}: no disputed Zed PR count`);
         assert(!/Experience from before/.test(await page.locator('main').innerText()), `${name}: no delivery disclaimer`);
-        assert((await page.locator('#approach').innerText()).includes('When you continue past the stop gate, the Build ends with the change launched'), `${name}: outcome tied to the stop gate`);
+        assert((await page.locator('#approach').innerText()).includes('When you continue past the stop gate, the Build ends with the programme launched'), `${name}: outcome tied to the stop gate`);
         const talkText = await page.locator('#experience').innerText();
         for (const proof of ['EU Academy', 'Gaming communities for Tencent, through ZAM']) assert(talkText.includes(proof), `${name}: founder section keeps approved experience: ${proof}`);
         assert(await page.locator('#experience [aria-label="DeepL"]').count() === 1, `${name}: DeepL proof row`);
