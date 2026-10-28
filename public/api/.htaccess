@@ -1,6 +1,0 @@
-# Contact endpoint folder: only contact.php is reachable; the configuration
-# (and its example) are never served.
-<FilesMatch "^(contact|cal)\.config(\.example)?\.php$|^cal-common\.php$">
-  Require all denied
-</FilesMatch>
-Options -Indexes

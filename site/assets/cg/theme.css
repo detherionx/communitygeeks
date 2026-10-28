@@ -1,0 +1,101 @@
+/* Communitygeeks theme (27 Oct 2026). Loaded last on every page. Structure only: all colour and font values come from tokens.css.
+   One sans for reading, mono only for data, accent only for buttons, links and the closing band. No serif accents, no eyebrow kit. */
+
+body{font-feature-settings:"ss01" 0}
+
+/* No italic serif accents anywhere: same family, upright. */
+.serif,.panel .out,.bridge p,.foot h2,.reading .q,.reading blockquote,.bigline,.ctx,.feat2 .ctx,.copyline,.u-hero h1,.u-org h2,.loop li b,.u-close .h2{font-family:var(--font)!important}
+.u-hero h1{font-weight:var(--w-bold)}
+.u-org h2,.u-close .h2{font-weight:var(--w-bold)}
+.loop li b{font-weight:var(--w-bold)}
+
+/* Eyebrow kit off: section labels above headings, audience kickers, decorative numerals, accent bars. Mono stays for real metadata. */
+.sec-h>.lab:first-child,.u-head>.lab:first-child,.rs-head .lab,.phero .aud,.rs-hero .aud,.why .h>.lab,.u-org .wrap>div>.lab:first-child,.panels-head .lab,.num,.tdoor .lab{display:none!important}
+.card,.offer{border-top:1px solid var(--line)!important}
+.card.dark{border-top-color:var(--line-on-ink)!important}
+.offer.feature{box-shadow:0 0 0 2px var(--ink)!important}
+.pillars li{border-top:1px solid var(--line)!important}
+.lab,.mk,.meta,.crumb{text-transform:none!important}
+
+/* Closing section: paper, ink headline, one action button. Blue appears only where you can act. */
+.cta{background:var(--paper)!important;color:var(--ink)!important;--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover);border-top:1px solid var(--line)}
+.cta .h2,.cta h2,.cta .founder b{color:var(--ink)!important}
+.cta .lede,.cta p,.cta .addr,.cta .founder p,.trk-cta .more{color:var(--muted)!important}
+.cta .btn-line{border-color:var(--action)!important;color:var(--ink)!important}
+.cta .tl{color:var(--action)!important}
+
+/* Hero sections sit on the same ink as the header (27 Oct 2026). The hero art still has a lighter dark-grey ground baked in,
+   so its edges show until Astra's re-export on ink or with transparent edges lands. */
+.hero,.rs-hero,.u-hero,.phero:has(.phero-art.full){background:var(--ink)!important}
+
+
+/* Hero illustrations fade into the hero background instead of ending in a hard line. */
+.hero-art img,.rs-hero:not(.trk) figure{-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 12%,var(--ink) 88%,transparent),linear-gradient(180deg,transparent,var(--ink) 28%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,var(--ink) 12%,var(--ink) 88%,transparent),linear-gradient(180deg,transparent,var(--ink) 28%);mask-composite:intersect}
+.routes li{background:var(--surface)!important;border-color:var(--line)!important;--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.track-chip{background:color-mix(in srgb,var(--ink) 86%,transparent)!important;border-color:var(--line-on-ink)!important}
+.pillars .eg b,.loop h3,.loop .back span,.u-org .terms,.pilot,.addr{text-transform:none!important}
+/* Homepage leftovers: the section label becomes a real heading; audience lines in plain case; no coloured bars or rules. */
+#tr-t{text-transform:none!important;color:var(--paper)!important;font:var(--t-h2);}
+.market{text-transform:none!important;font-family:var(--font)!important}
+.panel{border-top:1px solid var(--line)!important}
+.bridge p{border-left:0!important;padding-left:0!important}
+
+/* Hard-coded teal and coral from the previous system. */
+.card.dark,.practice{background:var(--ink-2)!important;border-color:var(--line-on-ink)!important;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+th{text-transform:none!important}
+.btn-fill:hover{box-shadow:0 10px 24px -12px color-mix(in srgb,var(--btn-bg) 80%,transparent)!important}
+.btn-line:hover{background:color-mix(in srgb,var(--btn-bg) 12%,transparent)!important}
+.bilbao{background:color-mix(in srgb,var(--paper) 14%,transparent)!important}
+
+/* Mono only for data. The date column in the overview rows is data; everything else in those rows is sans. */
+.pubs a>.lab:first-child:not(.tp){font-family:var(--font)}
+/* Home: "Selected experience" is a real heading, not a grey mono label. */
+.names #nm-t{text-transform:none!important;color:var(--ink)!important;margin-bottom:28px!important;font:var(--t-h2);}
+.names{padding:clamp(40px,5vw,64px) 0 clamp(36px,4vw,52px)!important}
+
+/* Type scale base: elements the browser sizes by itself land on tokens too. */
+small,sup,sub{font:var(--t-small)}
+h4,h5,h6{font:var(--t-body);font-weight:var(--w-bold)}
+button,input,select,textarea{font:inherit}
+code,kbd,samp{font:var(--t-small);font-variant-numeric:tabular-nums}
+
+/* One link style everywhere: contextual link colour, 1px underline offset 3px, 2px on hover. Links inherit the size and
+   weight of the text they sit in; links in a row of buttons take the UI size. */
+.tl,.reading a,p a:not(.btn):not(.btn-fill):not(.btn-line),dd a,li>a.tl,.srcs a,.progs .src,.cg-fabout a,.u-aside a,.u-sub a,.a4 span,a.hub-link{
+  color:var(--link);font-weight:inherit;text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.tl:hover,.reading a:hover,p a:not(.btn):hover,dd a:hover,.srcs a:hover,.progs .src:hover,.cg-fabout a:hover,.u-aside a:hover,.u-sub a:hover,.a4:hover span,a.hub-link:hover{text-decoration-thickness:2px}
+body :is(.acts,.u-routes,.u-sub,.onward,.rs-head,.pilot) a:not(.btn):not(.btn-fill):not(.btn-line){font:var(--t-body);font-weight:var(--w-bold)}  /* links in a row of buttons */
+p.name{font:var(--t-body);font-weight:var(--w-bold)}
+.sr{font:var(--t-small)}
+
+/* Normalised artwork release (28 Oct 2026): transparent 8:5 scenes keep their whole canvas in every box that holds them.
+   The picture wrapper steps out of layout so each placement's existing img rules (size, radius) still apply. */
+picture.sc{display:contents}
+picture.sc>source{display:none}   /* with the wrapper out of layout, <source> would otherwise become a grid item */
+picture.sc>img{object-fit:contain}
+.phero-art.sc-hero{margin:0;aspect-ratio:8/5;width:100%}
+.phero-art.sc-hero img{width:100%;height:100%;-webkit-mask-image:none;mask-image:none}
+/* Transparent scenes sit directly on the page: no ink box behind them (28 Oct 2026) */
+.img:has(>picture.sc){background:none;border-radius:0}
+
+/* Hero subtitle (28 Oct 2026): one rule for every page hero. 42ch is about 58 characters in Atkinson, wrapping naturally. */
+.phero .lede,.rs-hero .lede,.u-hero .lede,.hero .sub,.lx-hero-copy p{max-width:42ch;font:var(--t-lede);text-wrap:pretty}
+.rs-hero.trk .lede{max-width:36ch}   /* track heroes share the row with their illustration */
+
+/* Editorial question callout (28 Oct 2026): the author's own questions inside an article, as paragraphs (not quotations).
+   Fraunces regular italic via --t-question, charcoal between two neutral rules; no background, accent or quotation marks. */
+.reading .question-callout{margin:38px 0;padding:24px 0;border-block:1px solid var(--line);background:none;color:var(--charcoal);font:var(--t-question);text-wrap:pretty}
+
+/* Shared article ending (28 Oct 2026, _build/ending.py): divider, closing question, research context, links, invitation, author row. */
+.reading .art-end{margin-top:56px;padding-top:32px;border-top:1px solid var(--line);--link:var(--action);--focus:var(--action)}
+.reading .art-end-q{margin:0;color:var(--charcoal);font:var(--t-question);text-wrap:pretty}
+.reading .art-end-ctx{margin:16px 0 0;color:var(--muted);font:var(--t-body)}
+.reading .art-end .pt-related-list{display:grid;gap:8px;margin:16px 0 0;padding:0;list-style:none;font:var(--t-body)}
+.reading .art-end-invite{margin:20px 0 0;color:var(--charcoal);font:var(--t-body)}
+.reading .art-end a{color:var(--link);text-decoration:underline;text-underline-offset:4px}
+.reading .art-end-author{display:flex;gap:16px;align-items:flex-start;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.reading .art-end-author img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
+.reading .art-end-name{margin:0;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.reading .art-end-role,.reading .art-end-links{margin:0;color:var(--muted);font:var(--t-small)}
+.reading .art-end-bio{margin:6px 0 0;color:var(--charcoal);font:var(--t-body)}
+.reading .art-end .art-end-links{margin-top:8px}

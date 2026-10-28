@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/about/">
+<title>About · Communitygeeks</title>
+<meta name="description" content="Communitygeeks works in gaming and AI: how studios get players to care and contribute, and how AI companies attract, support and keep the builders who develop on their technology.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+/* Type on this page (28 Oct 2026): one reading style on light (body-lg 18/27, 18/26 on phones, charcoal); medium only for small subheadings; links regular; small muted for meta.
+   Headings: display / h2 (32px on phones on this page) / card-title / card-lead (regular).
+   About v9 (28 Oct 2026): short hero -> the two tracks as boxes with art (centre of the page) -> what connects them (two icon lines) -> founder + logos -> close. */
+.ab-a .wrap{padding-top:clamp(48px,6vw,96px);padding-bottom:clamp(48px,6vw,96px)}
+.ab-a .h1{max-width:18ch}
+.ab-h{display:grid;gap:12px;max-width:800px;margin-bottom:clamp(28px,3vw,40px)}
+.ab-h h2,.ab-c h2,.ab-x h2{text-wrap:balance;color:var(--ink);font:var(--t-h2);}
+/* The two tracks: track name as the card heading, the question as a regular lead, reading text at body-lg in charcoal (no mono in the cards).
+   Desktop: both cards share six row tracks through subgrid (art, title, question, context, two sub-sections), so matching parts line up. */
+.trk2{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(20px,2.4vw,32px)}
+.trk2>article{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:12px;padding:clamp(20px,2.4vw,32px);border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.trk2 picture img{display:block;width:85%;height:auto;margin:0 auto;aspect-ratio:4/3;object-fit:contain}
+.trk2 h3{margin-top:8px;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold);}
+.trk2 .q{max-width:30em;text-wrap:pretty;color:var(--ink);font:var(--t-body)}
+.trk2 .why,.trk2 .rt p{max-width:32em;text-wrap:pretty;color:var(--charcoal);font:var(--t-body)}
+.trk2 .rt{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:0;margin-top:8px;border-top:1px solid var(--line)}
+.trk2 .rt>div{display:grid;align-content:start;gap:6px;justify-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.trk2 .rt>div:last-child{border-bottom:0;padding-bottom:0}
+.trk2 .rt h4{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.trk2 .tl,.ab-c .tl{font:var(--t-body)}
+/* What connects them */
+.band.ab-x{padding-top:0}
+.ab-x .pts{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:start}
+.ab-x .pt{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;align-items:start}
+.ab-x .pt img{display:block;width:72px;height:72px;object-fit:contain}
+.ab-x .pt p{max-width:30em;text-wrap:pretty;color:var(--charcoal);font:var(--t-body)}
+/* Founder */
+.ab-c{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px 64px;align-items:center}
+.ab-c .portrait{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:4/5;width:100%;max-width:360px}
+.ab-c .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.ab-c .tx{display:grid;gap:16px;justify-items:start}
+.ab-c .tx p{max-width:34em;text-wrap:pretty;color:var(--charcoal);font:var(--t-body)}
+.ab-c .tx .role{margin-top:-8px;color:var(--muted);font:var(--t-small)}
+.ab-c .links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.xp-logos{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 32px;align-items:center;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.xp-logos li{display:grid;place-items:center;min-height:64px}
+.xp-logos img{width:auto;height:28px;max-width:100%;object-fit:contain;filter:brightness(0);opacity:.8}
+.xp-logos img.tall{height:44px}
+.xp-logos img.whale{height:48px}
+.cta .u-close-note{max-width:34em;margin:16px auto 0;color:var(--charcoal)!important;font:var(--t-body)}
+@media (max-width:900px){
+  .trk2,.ab-x .pts,.ab-c{grid-template-columns:1fr}
+  .trk2{row-gap:clamp(20px,2.4vw,32px)}.trk2>article,.trk2 .rt{grid-row:auto;grid-template-rows:none}
+  .trk2 picture img{max-width:357px}
+  .ab-x .pt{grid-template-columns:1fr;gap:12px}.ab-x .pt img{width:56px;height:56px}.ab-x .pt p{max-width:none}
+  .ab-c .portrait{max-width:320px}
+  .xp-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 24px;padding:20px 0}
+  .xp-logos li{min-height:56px}.xp-logos img{height:24px}.xp-logos img.tall{height:36px}.xp-logos img.whale{height:40px}
+}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="About">
+<meta property="og:description" content="Communitygeeks works in gaming and AI: how studios get players to care and contribute, and how AI companies attract, support and keep the builders who develop on their technology.">
+<meta property="og:url" content="https://communitygeeks.ai/about/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About">
+<meta name="twitter:description" content="Communitygeeks works in gaming and AI: how studios get players to care and contribute, and how AI companies attract, support and keep the builders who develop on their technology.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
+            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For AI and AI-infrastructure product teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <a href="/about/" aria-current="page">About</a>
+    
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<section class="phero no-art ab-a" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="phero-copy">
+      <nav class="crumb" aria-label="Breadcrumb"><span aria-current="page">About</span></nav>
+      <h1 class="h1" id="h1">Why players care. Why builders stay.</h1>
+      <p class="lede">Communitygeeks works in two markets: game studios that need players to care, and AI companies that need developers to build on their technology. We research what makes that happen, then help companies put it into practice.</p>
+      
+      <div class="acts"><a class="btn btn-fill" href="https://cal.com/communitygeeks/30min">Book a conversation</a><a class="tl" href="#tracks">The two tracks</a></div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="band light" id="tracks" aria-labelledby="t-t">
+  <div class="wrap">
+    <div class="ab-h"><h2 id="t-t">Two tracks</h2></div>
+    <div class="trk2">
+      <article aria-labelledby="g-t">
+        <picture><source type="image/avif" srcset="/assets/home/ink/about-gaming.avif"><img src="/assets/home/ink/about-gaming.webp" width="1024" height="1024" alt="" loading="lazy"></picture>
+        <h3 id="g-t">Gaming</h3>
+        <p class="q">How studios get players to care, take part and contribute.</p>
+        <p class="why">Making a game is getting cheaper. Giving players a reason to care about it is not.</p>
+        <div class="rt"><div><h4>For indie studios</h4><p>Uncopyable helps small teams find their first players, run playtests and work with small creators before launch.</p><a class="tl" href="/uncopyable/">Explore Uncopyable</a></div><div><h4>The wider question</h4><p>How games, platforms and creators build value beyond the game itself, and what it means for studios when a platform like Xbox Labs counts creating as playing.</p><a class="tl" href="/research/games/">Read the gaming research</a></div></div>
+      </article>
+      <article aria-labelledby="ai-t">
+        <picture><source type="image/avif" srcset="/assets/home/ink/about-ai-builders.avif"><img src="/assets/home/ink/about-ai-builders.webp" width="1024" height="1024" alt="" loading="lazy"></picture>
+        <h3 id="ai-t">AI &amp; AI infrastructure</h3>
+        <p class="q">How companies attract, support and keep the builders who develop on their technology.</p>
+        <p class="why">Builders write the integrations, tools and applications that make a model or platform useful. Many also teach, run meetups and answer each other’s questions.</p>
+        <div class="rt"><div><h4>For product and developer teams</h4><p>Builder programmes: decide who to support, launch the programme with your team and hand it over.</p><a class="tl" href="/services/builder-programmes/">Explore builder programmes</a></div><div><h4>The research</h4><p>Which programmes AI companies run for builders, and what they get back.</p><a class="tl" href="/research/builder-ecosystems/">Read the AI research</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="band light ab-x" aria-labelledby="x-t">
+  <div class="wrap">
+    <div class="ab-h"><h2 id="x-t">What connects them</h2></div>
+    <div class="pts">
+      <div class="pt"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/about-contributions-normalised-512.avif 512w, /assets/home/normalised/about-contributions-normalised.avif 1024w" sizes="72px"><img src="/assets/home/normalised/about-contributions-normalised-512.webp" srcset="/assets/home/normalised/about-contributions-normalised-512.webp 512w, /assets/home/normalised/about-contributions-normalised.webp 1024w" sizes="72px" width="1024" height="1024" alt="" loading="lazy" decoding="async"></picture><p>In both markets, people outside the company add value it did not build: they build, teach, organise and recommend, often where the company is not looking.</p></div>
+      <div class="pt"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/about-responses-normalised-512.avif 512w, /assets/home/normalised/about-responses-normalised.avif 1024w" sizes="72px"><img src="/assets/home/normalised/about-responses-normalised-512.webp" srcset="/assets/home/normalised/about-responses-normalised-512.webp 512w, /assets/home/normalised/about-responses-normalised.webp 1024w" sizes="72px" width="1024" height="1024" alt="" loading="lazy" decoding="async"></picture><p>We help companies decide which of that work to support, and run it with them at a size their team can keep up.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band paper" id="founder" aria-labelledby="c-t">
+  <div class="wrap ab-c">
+    <figure class="portrait"><img src="/assets/home/founder.webp" width="720" height="900" alt="Carmelito Bauer, smiling, in a jacket and hoodie." loading="lazy"></figure>
+    <div class="tx">
+      <h2 id="c-t">Carmelito Bauer</h2>
+      <p class="role">Founder, Communitygeeks</p>
+      <p>Carmelito has spent more than a decade building and running community, developer and advocacy programmes across SaaS, AI, gaming and education.</p>
+      <p>He works with your team from the first decision through launch and handover.</p>
+      <div class="links"><a class="tl" href="https://www.linkedin.com/in/carmelitob/">LinkedIn</a><a class="tl" href="mailto:carmelito@communitygeeks.de">Email Carmelito</a></div>
+    </div>
+    <ul class="xp-logos" aria-label="Selected experience">
+      <li><img src="/assets/home/deepl.svg" width="93" height="24" alt="DeepL"><span class="sr">: built and launched community, developer and advocacy programmes.</span></li>
+      <li><img class="tall" src="/assets/home/european-commission.svg" width="291" height="72" alt="European Commission, EU Academy"><span class="sr">: built community and education programmes for the European Commission’s EU Academy.</span></li>
+      <li><img src="/assets/home/tencent.png" width="285" height="54" alt="Tencent"><span class="sr">, through ZAM: gaming community management on Tower of Fantasy, PUBG Mobile and Tarisland.</span></li>
+      <li><img src="/assets/home/zam.png" width="1350" height="300" alt="ZAM"></li>
+      <li><img class="whale" src="/assets/home/space-whale-white.svg" width="112" height="120" alt="Space Whale"><span class="sr">: community management on Wisdom Watcher through Early Access and release.</span></li>
+      <li><img src="/assets/home/billbee.png" width="205" height="42" alt="Billbee"><span class="sr">: SaaS community management.</span></li>
+    </ul>
+  </div>
+</section>
+<section class="cta" id="contact" aria-labelledby="ct-t">
+  <div class="wrap">
+    <h2 class="h2" id="ct-t">Bring us the decision you face.</h2>
+    <p class="u-close-note">Tell us what you are weighing up and when you need to decide.</p>
+    <div class="acts"><a class="btn btn-fill" href="https://cal.com/communitygeeks/30min" target="_blank" rel="noopener">Book a conversation</a><a class="tl" href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+  </div>
+</section>
+</main>
+<footer class="cg-foot"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+</body>
+</html>

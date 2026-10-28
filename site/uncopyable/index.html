@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/uncopyable/">
+<title>Uncopyable · A practical training programme for indie game studios · Communitygeeks</title>
+<meta name="description" content="Uncopyable is a practical training programme helping small game studios build their first community of players, contributors and creator partners before launch. Self-paced kit, group workshop or a sponsored cohort of studios.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="preload" as="image" type="image/avif" imagesrcset="/assets/home/normalised/uncopyable-hero-800.avif 800w, /assets/home/normalised/uncopyable-hero.avif 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+/* /uncopyable/ (28 Oct 2026): separate full-width bands, deep / paper / white, never two alike in a row.
+   Page-scoped aliases map to existing tokens only. Red stays in the art: the accent roles use ink on light bands and paper on deep bands.
+   Text colours are set with the text tokens directly (the brand check allows no other text colours). */
+.u-page{--u-deep:var(--ink);--u-deep-2:var(--ink-2);--u-line-deep:var(--line-on-ink);--u-muted-deep:var(--muted-on-ink);--u-accent:var(--ink);--u-accent-soft:color-mix(in srgb,var(--u-accent) 6%,transparent)}
+.u-band{padding:112px 0}
+.u-band .wrap{max-width:calc(1120px + 2*var(--g))}
+.u-paper{background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.u-white{background:var(--surface);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.u-deep{background:var(--u-deep);color:var(--paper);--u-accent:var(--paper);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+/* Section header: numbered label, title, one-sentence intro */
+.u-sh{display:grid;gap:12px;max-width:62ch;margin-bottom:48px}
+.u-sh h2{font:var(--t-h2);}
+.u-sh .intro{color:var(--muted);font:var(--t-body)}
+.u-deep .u-sh .intro{color:var(--muted-on-ink)}
+.u-note{color:var(--muted);font:var(--t-small)}
+.u-deep .u-note{color:var(--muted-on-ink)}
+.u-page .ic{width:24px;height:24px;color:var(--ink)}
+.u-deep .ic{color:var(--paper)}
+
+/* Hero */
+.u-hero{padding:0}
+.u-hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 40px;align-items:center;padding-top:clamp(28px,4vw,48px);padding-bottom:clamp(36px,4vw,64px)}
+.u-copy{display:grid;justify-items:start}
+.u-copy>*{margin:0}
+.u-wm{margin-top:var(--hero-gap-crumb);color:var(--paper);font:var(--t-h1);}
+.u-wm svg{display:block;height:calc(var(--t-h1-size) * .72);width:auto;max-width:100%}
+.u-meta{margin-top:var(--hero-gap-meta);color:var(--muted-on-ink);font:var(--t-body)}
+.u-hook{margin-top:var(--hero-gap-headline);max-width:22ch;color:var(--paper);font:var(--t-h2);}
+.u-hero .lede{margin-top:var(--hero-gap-lead);color:var(--paper)}
+.u-routes{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:var(--hero-gap-actions)}
+
+/* 01 Who it's for: three cards */
+.u-who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.u-who li{display:grid;gap:16px;align-content:start;padding:28px;border-radius:16px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font:var(--t-body)}
+.u-paper .u-scope{margin-top:24px}
+
+/* 02 How it works: 2x2 cards, the loop, the supply strip */
+.u-parts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.u-parts li{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;gap:12px 16px;padding:28px;border-radius:16px;background:var(--paper);border-top:3px solid var(--u-accent)}
+.u-parts .u-ic{grid-area:1/2/2/3;align-self:start;width:84px;height:84px;margin:-8px -8px 0 0}
+.u-parts .u-ic img{display:block;width:100%;height:100%;object-fit:contain}
+.u-parts h3{grid-area:1/1;align-self:center}
+.u-parts li>p{grid-column:1/-1}
+.u-parts h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-parts p{max-width:56ch;color:var(--muted);font:var(--t-body)}
+.u-parts .eg,.u-take .eg{padding:14px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.u-parts .eg b,.u-take .eg b{color:var(--ink)}
+.u-take .eg{display:grid;gap:4px;max-width:58ch;margin-top:12px}
+.u-take .eg p{color:var(--muted);font:var(--t-body)}
+/* The cycle: five numbered steps on one row, thin neutral connectors; a small repeat note instead of a return arc */
+.u-cycle{margin-top:96px}
+.u-cycle-h{display:grid;gap:8px;max-width:56ch;margin-bottom:40px}
+.u-cycle-h h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-cycle-h p{color:var(--muted);font:var(--t-body)}
+.u-steps{--gap:24px;--mk:36px;--cn:color-mix(in srgb,var(--muted) 45%,transparent);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 var(--gap)}
+.u-steps li{position:relative;display:grid;grid-template-rows:var(--mk) auto auto;gap:12px;align-content:start}
+.u-steps .mk{display:grid;place-items:center;width:var(--mk);height:var(--mk);border-radius:50%;background:var(--ink);color:var(--paper);font:var(--t-small);font-variant-numeric:tabular-nums}
+.u-steps h4{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-steps p{color:var(--muted);font:var(--t-body)}
+.u-steps li:not(:last-child)::after{content:"";position:absolute;top:calc(var(--mk) / 2);left:calc(var(--mk) + 10px);right:calc(10px - var(--gap));border-top:1px solid var(--cn)}
+.u-steps li:not(:last-child)::before{content:"";position:absolute;top:calc(var(--mk) / 2 - 3px);right:calc(11px - var(--gap));width:7px;height:7px;border-top:1px solid var(--cn);border-right:1px solid var(--cn);transform:rotate(45deg)}
+.u-repeat{display:flex;gap:10px;align-items:center;margin-top:32px;color:var(--ink);font:var(--t-body)}
+.u-repeat svg{flex:none;width:20px;height:20px;color:var(--muted)}
+/* Responsibilities: one paper panel, two lists */
+.u-resp{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:64px;padding:40px;border-radius:16px;background:var(--paper)}
+.u-resp h3{margin-bottom:12px;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-resp ul{display:grid;gap:8px;padding-left:1.2em;list-style:disc;color:var(--ink);font:var(--t-body)}
+.u-resp li::marker{color:var(--muted)}
+.u-resp .own{margin-top:16px;color:var(--muted);font:var(--t-body)}
+
+/* 03 Why it works: stats, quotes, closing line */
+/* 03 Evidence: discovery (bars) -> participation (quote + summary) -> relationships (takeaway) */
+.u-ev{padding-top:80px}
+.u-disc{display:grid;grid-template-columns:minmax(0,1fr);gap:24px 64px;align-items:center}
+.u-disc.has-art{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.u-chart{max-width:720px;margin:0}
+.u-chart h3{margin-bottom:20px;color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.u-bars{display:grid;gap:16px}
+.u-bars li{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) 3.5rem;gap:16px;align-items:center}
+.u-bars .lb{color:var(--paper);font:var(--t-body)}
+.u-bars .tr{height:12px;border-radius:6px;background:var(--u-line-deep)}
+.u-bars .tr i{display:block;width:var(--v);height:100%;border-radius:6px;background:var(--paper)}
+.u-bars .val{color:var(--paper);text-align:right;font:var(--t-body);font-weight:var(--w-bold)}
+.u-chart figcaption{margin-top:20px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-disc .u-evart{justify-self:end;width:100%;max-width:360px}
+.u-disc .u-evart img{display:block;width:100%;height:auto}
+/* Two evidence passages, one grammar: passage (lead, regular) then attribution (small) beneath, equal columns */
+.u-voices{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;align-items:start;margin-top:72px;padding-top:48px;border-top:1px solid var(--u-line-deep)}
+.u-voices figure{display:grid;gap:16px;margin:0}
+.u-voices blockquote,.u-voices .pass{margin:0;max-width:40ch;color:var(--paper);font:var(--t-body)}
+.u-voices .att{color:var(--muted-on-ink);font:var(--t-small)}
+.u-voices a{color:var(--link);text-decoration:underline 1px;text-underline-offset:3px}
+.u-voices a:hover{text-decoration-thickness:2px}
+/* Conclusion: one paper statement panel on the ink band */
+.u-take{display:grid;gap:12px;justify-items:start;margin-top:96px;padding:64px 56px;border-radius:16px;background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action)}
+.u-take .i{margin-top:12px;color:var(--ink);font:var(--t-body)}
+.u-take .h{max-width:14ch;color:var(--ink);font:var(--t-h2)}
+.u-take .x{max-width:52ch;margin-top:12px;color:var(--muted);font:var(--t-body)}
+/* Pull quote inside the panel: the same figure / blockquote / attribution component as the publisher quotes, in the panel's light colours */
+.u-take figure{display:grid;gap:16px;margin:24px 0 0}
+.u-take blockquote{margin:0;max-width:40ch;color:var(--ink);font:var(--t-body)}
+.u-take .att{color:var(--muted);font:var(--t-small)}
+.u-take .att a{color:var(--link);text-decoration:underline 1px;text-underline-offset:3px}
+.u-take .att a:hover{text-decoration-thickness:2px}
+
+/* 04 Ways to take part: audience switch (tabs once JS runs; without JS both panels show with their own headings) */
+.tp-tabs{display:inline-flex;gap:8px;margin-bottom:32px}
+.tp-tabs[hidden]{display:none}
+.tp-tabs button{min-height:44px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:none;color:var(--ink);cursor:pointer;font:var(--t-body);font-weight:var(--w-bold)}
+.tp-tabs button[aria-selected=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.tp-tabs button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+@media (max-width:480px){.tp-tabs{display:grid;width:100%}.tp-tabs button{width:100%}}
+.tp-panel{display:grid;gap:16px}
+.tp-panel[hidden]{display:none}
+.tp-panel+.tp-panel{margin-top:48px}
+.js-tabs .tp-panel+.tp-panel{margin-top:0}
+.tp-panel>h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-prices{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.u-price{position:relative;display:flex;flex-direction:column;gap:16px;padding:32px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.u-price.top{border:2px solid var(--ink)}
+.u-price h4{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-price .price{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold);font-variant-numeric:tabular-nums}
+.u-price .price small{display:block;margin-top:4px;color:var(--muted);font:var(--t-small)}
+.u-price p{color:var(--muted);font:var(--t-body)}
+.u-ticks{display:grid;gap:8px;align-content:start}
+.u-ticks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;color:var(--ink);font:var(--t-body)}
+.u-price .btn{margin-top:auto;align-self:flex-start}
+.u-cohort .btn{justify-self:start}
+.u-price .btn-line{color:var(--ink)}
+.u-cohort{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 48px;padding:40px;border-radius:16px;background:var(--u-deep);color:var(--paper);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.u-cohort h4{color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.u-cohort .price{margin-top:12px;color:var(--paper);font:var(--t-body);font-weight:var(--w-bold);font-variant-numeric:tabular-nums}
+.u-cohort .price small{display:block;margin-top:4px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-cohort .body{display:grid;gap:20px;align-content:start}
+.u-cohort p{max-width:56ch;color:var(--muted-on-ink);font:var(--t-body)}
+.u-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.u-chips span{color:var(--muted-on-ink);font:var(--t-small)}
+.u-chips li{padding:6px 12px;border:1px solid var(--u-line-deep);border-radius:999px;color:var(--paper);font:var(--t-small)}
+.tp-foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-top:32px}
+/* One-pager preview (28 Oct 2026): the A4 itself, linked to the PDF from Canva */
+.u-pager{display:grid;grid-template-columns:280px minmax(0,1fr);gap:32px 56px;align-items:center;margin-top:48px;padding:40px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.u-pager-doc{display:block;border-radius:6px;box-shadow:0 18px 40px -20px var(--scrim);transition:transform .2s}
+.u-pager-doc:hover{transform:translateY(-3px)}
+.u-pager-doc img{display:block;width:100%;height:auto;border-radius:6px}
+.u-pager-txt{display:grid;gap:16px;justify-items:start;max-width:46ch}
+.u-pager h3{color:var(--ink);font:var(--t-h2)}
+.u-pager p{color:var(--muted);font:var(--t-body)}
+.u-pager .btn-line{color:var(--ink)}
+@media (max-width:760px){.u-pager{grid-template-columns:1fr;padding:24px;margin-top:32px}.u-pager-doc{width:min(100%,240px)}}
+@media (prefers-reduced-motion:reduce){.u-pager-doc{transition:none}.u-pager-doc:hover{transform:none}}
+.u-status{padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font:var(--t-small)}
+
+/* 05 Questions: one open at a time (details name), + turns into x */
+.u-faq{max-width:820px;border-top:1px solid var(--line)}
+.u-faq details{border-bottom:1px solid var(--line)}
+.u-faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;list-style:none;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-faq summary::-webkit-details-marker{display:none}
+.u-faq summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat;transition:transform .2s}
+.u-faq details[open] summary::after{transform:rotate(45deg)}
+.u-faq summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.u-faq details p{max-width:62ch;padding:0 0 24px;color:var(--muted);font:var(--t-body)}
+@media (prefers-reduced-motion:reduce){.u-faq summary::after{transition:none}}
+
+/* Final call to action: text and actions left, the welcome-back scene right (mobile: text, scene, founder) */
+.u-fgrid{display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,32vw,400px);gap:24px 64px;align-items:center}
+.u-fmain{grid-area:1/1}.u-fmeta{grid-area:2/1}.u-fart{grid-area:1/2/3/3}
+.u-final h2{max-width:22ch;color:var(--paper);font:var(--t-h2);}
+.u-final .acts{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:32px}
+.u-final .addr{margin-top:20px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-fart img{display:block;width:100%;height:auto}
+.u-final .founder{display:flex;gap:14px;align-items:center}
+.u-final .founder img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.u-final .founder p{max-width:56ch;color:var(--muted-on-ink);font:var(--t-small)}
+.u-final .founder b{color:var(--paper)}
+.u-final .event{margin-top:32px;padding-top:20px;border-top:1px solid var(--u-line-deep);color:var(--muted-on-ink);font:var(--t-small)}
+
+/* The cycle becomes a vertical ordered list before five columns get cramped */
+@media (max-width:900px){
+  .u-steps{grid-template-columns:1fr;gap:24px}
+  .u-steps li{grid-template-columns:var(--mk) minmax(0,1fr);grid-template-rows:auto;column-gap:16px;row-gap:4px}
+  .u-steps .mk{grid-row:1/3}
+  .u-steps h4{grid-column:2;align-self:center}
+  .u-steps p{grid-column:2}
+  .u-steps li:not(:last-child)::after{top:calc(var(--mk) + 6px);bottom:-18px;left:calc(var(--mk) / 2);right:auto;border-top:0;border-left:1px solid var(--cn)}
+  .u-steps li:not(:last-child)::before{display:none}
+}
+@media (max-width:980px){.u-hero .wrap{grid-template-columns:1fr}.u-cohort{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .u-band{padding:72px 0}.u-sh{margin-bottom:32px}
+  .u-who,.u-parts,.u-resp,.u-prices,.u-disc.has-art,.u-voices{grid-template-columns:1fr}
+  .u-cycle{margin-top:72px}.u-resp{padding:24px;margin-top:48px}
+  .u-ev{padding-top:56px}.u-voices{margin-top:56px;padding-top:40px}.u-take{margin-top:64px;padding:40px 24px}
+  .u-bars li{grid-template-columns:minmax(0,1fr) auto;gap:8px 16px}.u-bars .tr{grid-column:1/-1;grid-row:2}
+  .u-disc .u-evart{justify-self:center;width:min(100%,280px)}
+  .u-price,.u-cohort{padding:24px}
+  .u-fgrid{grid-template-columns:1fr}.u-fmain,.u-fmeta,.u-fart{grid-area:auto}
+  .u-fart{justify-self:center;width:min(100%,280px)}
+  .u-parts .u-ic{width:64px;height:64px;margin:-4px -4px 0 0}
+}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="Uncopyable · A practical training programme for indie game studios">
+<meta property="og:description" content="Uncopyable is a practical training programme helping small game studios build their first community of players, contributors and creator partners before launch. Self-paced kit, group workshop or a sponsored cohort of studios.">
+<meta property="og:url" content="https://communitygeeks.ai/uncopyable/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Uncopyable · A practical training programme for indie game studios">
+<meta name="twitter:description" content="Uncopyable is a practical training programme helping small game studios build their first community of players, contributors and creator partners before launch. Self-paced kit, group workshop or a sponsored cohort of studios.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig is-current" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
+            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For AI and AI-infrastructure product teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <a href="/about/">About</a>
+    
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<div class="u-page">
+<section class="u-hero u-band u-deep" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="u-copy">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/services/">Services</a><span aria-hidden="true">›</span><span aria-current="page">Uncopyable</span></nav>
+      <h1 id="h1" class="u-wm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="58.9 -680.0 6180.5 692.0" role="img" aria-label="Uncopyable" fill="currentColor"><title>Uncopyable</title><path d="M343.4 12Q188.6 12 123.8 -62.5Q58.9 -137.1 58.9 -289.6V-668H204.9V-273.6Q204.9 -185.2 237.1 -146.6Q269.3 -108 344.2 -108Q419.1 -108 450 -146.6Q481 -185.2 481 -273.6V-668H627V-289.6Q627 -137.1 561.8 -62.5Q496.7 12 343.4 12Z M726.1 0V-668H915.4L1182.1 -174.7V-668H1323.2V0H1134L867.2 -493.8V0Z M1723.8 12Q1621.3 12 1547.7 -30.5Q1474.1 -72.9 1434.8 -150.9Q1395.6 -228.9 1395.6 -334.2Q1395.6 -439.8 1436.5 -517.3Q1477.5 -594.8 1552.3 -637.4Q1627.2 -680 1728.5 -680Q1821.5 -680 1891.4 -638.6Q1961.3 -597.1 1998.6 -525.8L1869.5 -478.7Q1847.5 -520.4 1808.3 -540Q1769 -559.6 1723.5 -559.6Q1675.1 -559.6 1635.3 -533.2Q1595.5 -506.9 1572.4 -456.3Q1549.3 -405.8 1549.3 -334.2Q1549.3 -261.6 1572.2 -211.3Q1595.2 -161.1 1635.5 -134.7Q1675.9 -108.4 1725.7 -108.4Q1754.3 -108.4 1782.6 -116.2Q1810.9 -123.9 1835.1 -141.6Q1859.3 -159.3 1874.3 -188.5L2002.6 -141.4Q1963.3 -69.9 1890.5 -28.9Q1817.7 12 1723.8 12Z M2358.7 12Q2257.8 12 2180.9 -31.3Q2104 -74.6 2061.1 -152.6Q2018.1 -230.6 2018.1 -334Q2018.1 -437.4 2061.1 -515.4Q2104 -593.4 2180.9 -636.7Q2257.8 -680 2358.7 -680Q2459.6 -680 2536.1 -636.7Q2612.6 -593.4 2656 -515.4Q2699.3 -437.4 2699.3 -334Q2699.3 -230.6 2656 -152.6Q2612.6 -74.6 2536.1 -31.3Q2459.6 12 2358.7 12ZM2358.7 -108.4Q2410 -108.4 2452.1 -134.1Q2494.2 -159.7 2519.5 -209.8Q2544.8 -260 2544.8 -334Q2544.8 -408 2519.5 -458.2Q2494.2 -508.3 2452.1 -533.9Q2410 -559.6 2358.7 -559.6Q2308.5 -559.6 2265.9 -533.9Q2223.3 -508.3 2197.9 -458.2Q2172.6 -408 2172.6 -334Q2172.6 -260 2197.9 -209.8Q2223.3 -159.7 2265.9 -134.1Q2308.5 -108.4 2358.7 -108.4Z M2771.5 0V-668H3058.4Q3130.4 -668 3189.5 -645.7Q3248.5 -623.4 3283.6 -575.7Q3318.7 -528.1 3318.7 -452.4Q3318.7 -376.9 3283.6 -329.1Q3248.5 -281.4 3189.5 -259.1Q3130.4 -236.8 3058.4 -236.8H2917.5V0ZM2917.5 -360.8H3055Q3102.7 -360.8 3134.3 -381.6Q3165.8 -402.4 3165.8 -452.4Q3165.8 -502.3 3134.3 -523.1Q3102.7 -543.9 3055 -543.9H2917.5Z M3552.4 0V-259.8L3300 -668H3468.8L3624.6 -398.6L3780.1 -668H3949.7L3698.4 -260.6V0Z M3869.7 0 4122.3 -668H4283.4L4535.8 0H4377.3L4335.1 -124.1H4070.4L4028.2 0ZM4109.8 -243.2H4294.9L4201.9 -514.5Z M4581.8 0V-668H4867.7Q4947.2 -668 5002.2 -647.9Q5057.2 -627.9 5085.9 -589.3Q5114.5 -550.7 5114.5 -495Q5114.5 -447.9 5091.2 -411.8Q5067.8 -375.6 5022.3 -353.4Q5078.5 -334.1 5110.1 -294.4Q5141.7 -254.6 5141.7 -196.2Q5141.7 -134.1 5111 -90.1Q5080.2 -46.1 5021.5 -23.1Q4962.8 0 4879.6 0ZM4727.8 -121.2H4883.9Q4919.7 -121.2 4943.2 -131.7Q4966.7 -142.1 4978.3 -161.2Q4989.8 -180.4 4989.8 -205.6Q4989.8 -242.6 4963.8 -264.8Q4937.8 -286.9 4883.9 -286.9H4727.8ZM4727.8 -399.9H4873.8Q4918.6 -399.9 4941.5 -420.4Q4964.5 -441 4964.5 -474.4Q4964.5 -509.4 4940.7 -528.9Q4916.9 -548.4 4872 -548.4H4727.8Z M5204.8 0V-668H5350.8V-128.1H5678.1V0Z M5736.8 0V-668H6235.4V-539.9H5882.8V-407.6H6108.8V-279.4H5882.8V-128.1H6239.4V0Z"/></svg></h1>
+      <p class="u-meta">The Indie Audience Lab · by Communitygeeks</p>
+      <p class="u-hook">Making games got easier. Getting players to care didn’t.</p>
+      <p class="lede">We help indie studios build their first audience before launch: players who follow the game, give feedback and tell their friends. No ad budget needed.</p>
+      <div class="u-routes"><a class="btn btn-fill" href="#how-it-works">Explore the programme</a><a class="tl" href="#programmes">For associations &amp; programmes</a></div>
+    </div>
+    <figure class="phero-art sc-hero"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/uncopyable-hero-800.avif 800w, /assets/home/normalised/uncopyable-hero.avif 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="/assets/home/normalised/uncopyable-hero-800.webp" srcset="/assets/home/normalised/uncopyable-hero-800.webp 800w, /assets/home/normalised/uncopyable-hero.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1000" alt="Three astronauts gather on a grey bench to playtest a red handheld game, with a notebook for feedback." fetchpriority="high" decoding="async"></picture></figure>
+  </div>
+</section>
+
+<section class="u-band u-paper" aria-labelledby="fw-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="fw-t">Small studios before launch</h2><p class="intro">Teams of 1–10 with a game in development and no audience yet.</p></div>
+    <ul class="u-who"><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="2.5"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5"/></svg><span>Hoping launch day, Steam or the algorithm will find your players.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-6l-5 4v-4H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/><path d="M21 12h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1.5v3.5L22 22"/></svg><span>Few people play your builds, and feedback is scattered.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg><span>Little time or budget for building relationships.</span></li></ul>
+    <p class="u-note u-scope">Training and practical preparation. No publishing, funding, paid ads or guaranteed creator coverage.</p>
+  </div>
+</section>
+
+<section class="u-band u-white" id="how-it-works" aria-labelledby="pg-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="pg-t">Four parts, from first invitation to first creator partner</h2></div>
+    <ol class="u-parts"><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/uncopyable-find-fans.avif"><img src="/assets/home/ink/uncopyable-find-fans.webp" width="512" height="512" alt="" loading="lazy"></picture><h3>Find your first fans</h3><p>Discover where your potential players already gather and how to bring the first interested people into development.</p><p class="eg"><b>Example:</b> Find the forums, Discords and subreddits where your kind of player already talks, and plan a first invitation worth answering.</p></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/uncopyable-player-conversations.avif"><img src="/assets/home/ink/uncopyable-player-conversations.webp" width="512" height="512" alt="" loading="lazy"></picture><h3>Get people talking about your game</h3><p>Give players reasons to participate, return, share ideas and become advocates for the game.</p><p class="eg"><b>Example:</b> Give the people who joined a reason to come back: a new build to try, a question about a design choice, a devlog that answers them.</p></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/uncopyable-build-with-players.avif"><img src="/assets/home/ink/uncopyable-build-with-players.webp" width="512" height="512" alt="" loading="lazy"></picture><h3>Build with your players</h3><p>Set up simple playtesting and feedback loops that help improve the game, using the communities and tools that make sense.</p><p class="eg"><b>Example:</b> Run a closed playtest with a small invited group, collect what confused them, decide what to act on and tell them what changed.</p></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/uncopyable-creator-partners.avif"><img src="/assets/home/ink/uncopyable-creator-partners.webp" width="512" height="512" alt="" loading="lazy"></picture><h3>Partner with small creators</h3><p>Build genuine relationships with relevant Twitch and YouTube creators through early access, feedback and shared content.</p><p class="eg"><b>Example:</b> Choose a few small creators who fit your game and offer early access, a feedback role or a stream you plan together.</p></li></ol>
+    <div class="u-cycle" aria-labelledby="lp-t">
+      <div class="u-cycle-h"><h3 id="lp-t">Give players a reason to return</h3><p>A playtest starts the conversation. What you do with the feedback keeps it going.</p></div>
+      <ol class="u-steps" role="list"><li><span class="mk" aria-hidden="true"></span><h4>Invite</h4><p>Ask a few relevant players to try your build.</p></li><li><span class="mk" aria-hidden="true"></span><h4>Play</h4><p>Let them play. Notice where they get stuck.</p></li><li><span class="mk" aria-hidden="true"></span><h4>Listen</h4><p>Ask what worked and what confused them.</p></li><li><span class="mk" aria-hidden="true"></span><h4>Improve</h4><p>Choose what to change. Keep creative direction.</p></li><li><span class="mk" aria-hidden="true"></span><h4>Follow up</h4><p>Show what changed and invite another playtest.</p></li></ol>
+      <p class="u-repeat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4.5v4h-4"/></svg>Repeat with the next build.</p>
+    </div>
+    <div class="u-resp">
+      <div><h3>We provide the toolkit</h3><ul><li>Short lessons and worked examples</li><li>Templates and practical exercises</li><li>A 30-day action plan</li></ul></div>
+      <div><h3>You build the relationships</h3><ul><li>Invite players and run playtests</li><li>Gather feedback and choose changes</li><li>Follow up and keep the conversation going</li></ul>
+        <p class="own">The relationships and creative decisions stay yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="u-band u-deep u-ev" aria-labelledby="why-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="why-t">Players who care, before launch</h2></div>
+    <div class="u-disc has-art">
+      <figure class="u-chart" aria-labelledby="ch-t">
+        <h3 id="ch-t">How Steam players most often find new games</h3>
+        <ul class="u-bars"><li><span class="lb">Long-form YouTube</span><span class="tr" aria-hidden="true"><i style="--v:57%"></i></span><span class="val">57%</span></li><li><span class="lb">Word of mouth</span><span class="tr" aria-hidden="true"><i style="--v:45%"></i></span><span class="val">45%</span></li><li><span class="lb">Discord</span><span class="tr" aria-hidden="true"><i style="--v:18%"></i></span><span class="val">18%</span></li></ul>
+        <p class="sr">Each bar uses the same 0 to 100% scale. The channels are separate answers and do not add up to 100%.</p>
+        <figcaption>GameDiscoverCo Steam Fan Snapshot, 16,152 Steam players, September 2026. Self-selected; skews towards dedicated players.</figcaption>
+      </figure>
+      <picture class="u-evart"><source type="image/avif" srcset="/assets/home/normalised/research-gaming-800.avif 800w, /assets/home/normalised/research-gaming.avif 1600w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/research-gaming-800.webp" srcset="/assets/home/normalised/research-gaming-800.webp 800w, /assets/home/normalised/research-gaming.webp 1600w" sizes="(max-width: 900px) 280px, 360px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="u-voices">
+      <figure>
+        <blockquote>“They’re more interested in active engagement with you, even [if] it’s a couple hundred people.”</blockquote>
+        <figcaption class="att">Jamie Sefton on what publishers look for, <a href="https://gamerepublic.net/news/fast-dev-investment-discoverability-growing-markets-gr-panel-insights/" rel="noopener">Game Republic panel, January 2026 <span aria-hidden="true"></span></a></figcaption>
+      </figure>
+      <figure>
+        <p class="pass">Publishers want reassurance that players already respond: demo feedback, reactions at events, playtest retention.</p>
+        <figcaption class="att">Gina Jackson, <a href="https://gamerepublic.net/news/what-publishers-really-want-a-lesson-on-pitching-with-pitchify/" rel="noopener">Game Republic, June 2026 <span aria-hidden="true"></span></a> · Summary, not a direct quote</figcaption>
+      </figure>
+    </div>
+    <div class="u-take">
+      <p class="i">Why “Uncopyable”? A mechanic can be copied.</p>
+      <p class="h">A shared history is harder to copy.</p>
+      <p class="x">That history is the trust you earn with your players and what you learn together.</p>
+      <figure>
+        <blockquote>“Rather than relying on a single mechanism that someone can easily copy, you need to grow your game by continuously adding features, personality, and creativity stemming from your own perspective.”</blockquote>
+        <figcaption class="att">Tom Giardino, Steam Business team at Valve, Steam Indie Connect, October 2026 · as reported by <a href="https://www.invenglobal.com/articles/27761/valve-responds-directly-to-developers-fearful-of-ai-slop-and-game-cloning" rel="noopener">Inven Global <span aria-hidden="true"></span></a></figcaption>
+      </figure>
+      <aside class="eg" aria-labelledby="clones-t">
+        <p><b id="clones-t">Worried about getting cloned?</b></p>
+        <p>You don’t have to share everything with everyone. We help you decide what to show, who to involve and when to open up: for example, trusted players first, a small invited playtest next, a wider demo when you’re ready. The people who know your game are also the first to spot a copy.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="u-band u-paper" id="take-part" aria-labelledby="tp-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="tp-t">Ways to take part</h2><p class="intro">Recorded lessons, templates and exercises. Available as a self-paced kit, with a group workshop, or for a sponsored group of studios.</p></div>
+    <div class="tp-tabs" role="tablist" aria-label="Who is taking part" hidden>
+      <button type="button" role="tab" id="tab-studios" aria-controls="studios" aria-selected="true">For studios</button>
+      <button type="button" role="tab" id="tab-programmes" aria-controls="programmes" aria-selected="false" tabindex="-1">For associations &amp; programmes</button>
+    </div>
+    <div class="tp-panel" id="studios">
+      <h3>For studios</h3>
+      <div class="u-prices">
+        <article class="u-price"><h4>Self-paced kit</h4><p class="price">€149<small>per studio</small></p>
+          <ul class="u-ticks"><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Recorded lessons</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Templates and exercises</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>A 30-day action plan</span></li></ul>
+          <a class="btn btn-line" href="mailto:carmelito@communitygeeks.de?subject=Uncopyable%3A%20self-paced%20kit">Enquire about the kit</a></article>
+        <article class="u-price top"><h4>Kit + group workshop (recommended)</h4><p class="price">€299<small>per studio</small></p>
+          <p>The kit plus a live group workshop to develop your community plan, playtesting approach and first creator partnerships.</p>
+          <ul class="u-ticks"><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Everything in the self-paced kit</span></li></ul>
+          <a class="btn btn-fill" href="mailto:carmelito@communitygeeks.de?subject=Uncopyable%3A%20kit%20%2B%20group%20workshop">Enquire about the workshop</a></article>
+      </div>
+    </div>
+    <div class="tp-panel" id="programmes">
+      <h3>For associations and programmes</h3>
+      <article class="u-cohort">
+        <div><h4>Sponsored cohort</h4><p class="price">from €2,500<small>per cohort</small></p></div>
+        <div class="body">
+          <p>Up to 10 studios. Ready-made programme for incubators, accelerators, studio-support and publisher-meeting preparation. Teaching material included; delivery and scope agreed with you.</p>
+          <div class="u-chips"><span>Fits alongside</span><ul class="u-chips"><li>Incubators</li><li>Studio support</li><li>Publisher prep</li></ul></div>
+          <a class="btn btn-fill" href="mailto:carmelito@communitygeeks.de?subject=Uncopyable%3A%20a%20sponsored%20cohort%20for%20our%20studios">Discuss a programme</a>
+        </div>
+      </article>
+    </div>
+    <div class="tp-foot"><p class="u-status">Pilot · from December 2026 · booking now</p></div>
+    <div class="u-pager">
+      <a class="u-pager-doc" href="/assets/home/uncopyable-one-pager.pdf" tabindex="-1" aria-hidden="true"><picture><source type="image/avif" srcset="/assets/home/uncopyable-one-pager-320.avif 320w, /assets/home/uncopyable-one-pager-640.avif 640w" sizes="(max-width: 760px) 240px, 280px"><img src="/assets/home/uncopyable-one-pager-320.webp" srcset="/assets/home/uncopyable-one-pager-320.webp 320w, /assets/home/uncopyable-one-pager-640.webp 640w" sizes="(max-width: 760px) 240px, 280px" width="640" height="905" alt="" loading="lazy" decoding="async"></picture></a>
+      <div class="u-pager-txt">
+        <h3>The one-pager</h3>
+        <p>Who it’s for, how it works and the three ways to take part, on one A4 page. Easy to forward to your team or programme.</p>
+        <a class="btn btn-line" href="/assets/home/uncopyable-one-pager.pdf" download>Download the PDF (155 KB)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="u-band u-white" aria-labelledby="faq-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="faq-t">What studios ask us</h2></div>
+    <div class="u-faq">
+      <details name="u-faq"><summary>Will this get me a publisher?</summary><p>No one can promise that. You’ll have players who responded and what you learned with them, which can strengthen a pitch.</p></details>
+      <details name="u-faq"><summary>Won’t showing my game early get it copied?</summary><p>Cloning existed long before AI, and Valve’s own advice is to build trust with players and keep improving the game. You decide who sees what and when. Many studios start with a small trusted group, then a gated playtest, before going public. The programme helps you weigh what each step gives you and what it costs.</p></details>
+      <details name="u-faq"><summary>Do I have to use AI?</summary><p>No. Every exercise works without it. Where an AI tool saves time on research or drafting, we show how. Never for your art.</p></details>
+      <details name="u-faq"><summary>Do I need a Discord server?</summary><p>No. Discord is the least common way players discover games (18% in GameDiscoverCo’s 2026 Steam survey). We start where your players already are.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="u-band u-deep u-final" id="contact" aria-labelledby="ct-t">
+  <div class="wrap u-fgrid">
+    <div class="u-fmain">
+    <h2 id="ct-t">Build something people care about. That’s harder to copy.</h2>
+    <div class="acts"><a class="btn btn-fill" href="mailto:carmelito@communitygeeks.de?subject=Uncopyable%3A%20for%20our%20studio">Enquire for your studio</a><a class="tl" href="#programmes">For associations &amp; programmes</a></div>
+    <p class="addr">carmelito@communitygeeks.de</p>
+    </div>
+    <picture class="u-fart"><source type="image/avif" srcset="/assets/home/normalised/uncopyable-welcome-back-800.avif 800w, /assets/home/normalised/uncopyable-welcome-back.avif 1600w" sizes="(max-width: 900px) 280px, 40vw"><img src="/assets/home/normalised/uncopyable-welcome-back-800.webp" srcset="/assets/home/normalised/uncopyable-welcome-back-800.webp 800w, /assets/home/normalised/uncopyable-welcome-back.webp 1600w" sizes="(max-width: 900px) 280px, 40vw" width="1600" height="1000" alt="Two astronauts greet each other at a red arcade cabinet on a simple grey platform." loading="lazy" decoding="async"></picture>
+    <div class="u-fmeta">
+    <div class="founder"><img src="/assets/home/founder.webp" width="720" height="900" alt="" loading="lazy"><p><b>Carmelito Bauer</b>, founder of Communitygeeks. His experience includes DeepL, the European Commission’s EU Academy, and gaming communities for Tencent, through ZAM.</p></div>
+    <p class="event">At BIG Bilbao, 11–12 Dec? <a href="https://cal.com/communitygeeks/30min">Book a conversation</a></p>
+    </div>
+  </div>
+</section>
+<script>(()=>{const sec=document.getElementById('take-part');if(!sec)return;
+const list=sec.querySelector('[role=tablist]'),tabs=[...list.querySelectorAll('[role=tab]')],panels=tabs.map(t=>document.getElementById(t.getAttribute('aria-controls')));
+sec.classList.add('js-tabs');list.hidden=false;
+panels.forEach((p,i)=>{p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',tabs[i].id);p.querySelector('h3').classList.add('sr')});
+const select=(i,{focus=false,hash=true}={})=>{tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;panels[j].hidden=j!==i});
+  if(focus)tabs[i].focus();if(hash)history.replaceState(null,'','#'+panels[i].id)};
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>select(i));
+  t.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];let n=null;
+    if(k)n=(i+k+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;
+    if(n!==null){e.preventDefault();select(n,{focus:true})}})});
+const route=(scroll=true)=>{const h=location.hash.slice(1);if(!['take-part','studios','programmes'].includes(h))return false;
+  select(h==='programmes'?1:0,{hash:false});if(scroll)sec.scrollIntoView();return true};
+// On first load the browser jumps to the panel itself; once loaded, show the switch above it.
+if(route(false))addEventListener('load',()=>setTimeout(()=>sec.scrollIntoView({behavior:'instant'})));else select(0,{hash:false});
+addEventListener('hashchange',()=>route());
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href').slice(1);
+  if(['take-part','studios','programmes'].includes(h)&&location.hash.slice(1)===h){e.preventDefault();route()}});
+})();</script>
+</div>
+ </main>
+<footer class="cg-foot"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+</body>
+</html>

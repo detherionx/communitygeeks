@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/de/research/articles/">
+<title>Artikel über Communities, Developer Relations und KI · Communitygeeks</title>
+<meta name="description" content="Artikel über Communities, Developer Relations, Partnerschaften und KI, aus Gesprächen, Forschung und unserer eigenen Praxis.">
+<link rel="alternate" hreflang="en" href="https://communitygeeks.ai/research/articles/">
+<link rel="alternate" hreflang="de" href="https://communitygeeks.ai/de/research/articles/">
+<link rel="alternate" hreflang="x-default" href="https://communitygeeks.ai/research/articles/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+.fn-hero .wrap{padding-top:clamp(24px,3vw,36px);padding-bottom:clamp(20px,2.2vw,28px)}
+.fn-hero .phero-copy{gap:10px}
+.fn-hero .h1{font:var(--t-h1);}
+.feat2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.feat2 a{display:grid;gap:12px;align-content:start;text-decoration:none}
+.feat2 .img{border-radius:16px;overflow:hidden;aspect-ratio:2/1;background:var(--ink);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.feat2 img{width:100%;height:100%;object-fit:cover;transition:scale .4s cubic-bezier(.2,.7,.2,1)}
+.feat2 a:hover img{scale:1.03}
+.feat2 h2{font:var(--t-body);font-weight:var(--w-bold)}   /* card titles: body size, bold */
+.feat2 a:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.feat2 p{color:var(--muted-on-ink)}
+.date{color:var(--muted-on-ink);font:var(--t-small);font-variant-numeric:tabular-nums}
+.date .obs{opacity:.75}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0;padding:0;border:0}
+.filters legend{float:left;margin:10px 14px 0 0;color:var(--muted-on-ink);font:var(--t-small)}
+.filters input{position:absolute;opacity:0;width:1px;height:1px}
+.filters label{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line-on-ink);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;font:var(--t-body);font-weight:var(--w-bold)}
+.filters label:hover{border-color:currentColor}
+.filters input:checked+label{background:var(--paper);color:var(--ink);border-color:var(--paper);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.filters input:focus-visible+label{outline:3px solid var(--focus);outline-offset:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px 28px}
+.card2 a{display:grid;grid-template-columns:200px 1fr;gap:6px 22px;align-items:start;padding:18px;border-radius:14px;border:1px solid var(--line-on-ink);text-decoration:none;height:100%;transition:border-color .2s,background-color .2s}
+.card2 a:hover{border-color:currentColor;background:color-mix(in srgb,var(--paper) 3%,transparent)}
+.card2 .img{grid-row:span 4;border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:var(--ink);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.card2 img{width:100%;height:100%;object-fit:cover}
+.card2 h3{font:var(--t-body);font-weight:var(--w-bold)}
+.card2 a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.card2 p{color:var(--muted-on-ink);font:var(--t-small)}
+.sec-sub{margin:44px 0 18px;color:var(--muted-on-ink);font:var(--t-small)}
+.empty-note{display:none}
+@supports selector(:has(*)){
+  main:has(#f-all:checked) .card2.is-featured{display:none}
+  main:not(:has(#f-all:checked)) .featured-block{display:none}
+  main:has(#f-ai:checked) .card2:not(.has-ai),
+  main:has(#f-games:checked) .card2:not(.has-games),
+  main:has(#f-community:checked) .card2:not(.has-community){display:none}
+  main:not(:has(#f-all:checked)) .more-label{display:none}
+}
+@supports not selector(:has(*)){.filters{display:none}.card2.is-featured{display:none}}
+@media (max-width:1000px){.card2 a{grid-template-columns:1fr}.card2 .img{grid-row:auto}}
+@media (max-width:900px){.feat2,.grid2{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="Artikel über Communities, Developer Relations und KI">
+<meta property="og:description" content="Artikel über Communities, Developer Relations, Partnerschaften und KI, aus Gesprächen, Forschung und unserer eigenen Praxis.">
+<meta property="og:url" content="https://communitygeeks.ai/de/research/articles/">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Artikel über Communities, Developer Relations und KI">
+<meta name="twitter:description" content="Artikel über Communities, Developer Relations, Partnerschaften und KI, aus Gesprächen, Forschung und unserer eigenen Praxis.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr" lang="en"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
+            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For AI and AI-infrastructure product teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig is-current" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <a href="/about/">About</a>
+    <span class="cg-lang"><a href="/research/articles/" lang="en" hreflang="en">EN</a>·<a href="/de/research/articles/" lang="de" hreflang="de" aria-current="true">DE</a></span>
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<section class="phero no-art fn-hero" aria-labelledby="h1">
+  <div class="wrap"><div class="phero-copy">
+    <nav class="crumb" aria-label="Breadcrumb"><span aria-current="page">Artikel</span></nav>
+    <h1 class="h1" id="h1">Artikel</h1>
+    <p class="lede">Artikel über Communities, Developer Relations, Partnerschaften und KI, aus Gesprächen, Forschung und unserer eigenen Praxis.</p>
+    <fieldset class="filters"><legend>Thema</legend><input type="radio" name="topic" id="f-all" checked><label for="f-all">Alle</label><input type="radio" name="topic" id="f-ai"><label for="f-ai">KI &amp; Infrastruktur</label><input type="radio" name="topic" id="f-games"><label for="f-games">Gaming</label><input type="radio" name="topic" id="f-community"><label for="f-community">Community &amp; Partizipation</label></fieldset>
+  </div></div>
+</section>
+<section class="band archive" style="padding-top:clamp(24px,2.4vw,32px)" aria-label="Artikel">
+  <div class="wrap">
+    <div class="featured-block">
+      <h2 class="sr">Empfohlen: ein KI- und ein Gaming-Artikel</h2>
+      <div class="feat2"><article><a href="/de/research/builder-oekosysteme/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" fetchpriority="high" decoding="async"></picture></span>
+      <h2>Das Ende der Fahnenstange</h2><p>Builder-Ökosysteme bei KI-Unternehmen zeigen, wie Community Management über Engagement-Kennzahlen hinauswächst: durch Entwickler, Partner und Beiträge, die dauerhaften Wert rund ums Produkt schaffen.</p><span class="date">15. Okt. 2026 <span class="obs">· Obs. 009</span></span></a></article><article><a href="/de/research/von-der-idee-zum-produkt/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-008-800.avif 800w, /assets/home/normalised/research-obs-008.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-008-800.webp" srcset="/assets/home/normalised/research-obs-008-800.webp 800w, /assets/home/normalised/research-obs-008.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" fetchpriority="high" decoding="async"></picture></span>
+      <h2>Was tun, wenn aus einer Idee in Minuten ein Produkt wird?</h2><p>KI-generierte Spiele, Modding und Co-Creation mit Fans zeigen, wie Vertrauen, gemeinsames Wissen und Partizipation rund um Produkte Wert schaffen, während die Herstellung günstiger wird.</p><span class="date">8. Okt. 2026 <span class="obs">· Obs. 008</span></span></a></article></div>
+      <h2 class="sec-sub more-label">Weitere Artikel</h2>
+    </div>
+    <ul class="grid2"><li class="card2 is-featured has-ai"><a href="/de/research/builder-oekosysteme/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Das Ende der Fahnenstange</h3><p>Builder-Ökosysteme bei KI-Unternehmen zeigen, wie Community Management über Engagement-Kennzahlen hinauswächst: durch Entwickler, Partner und Beiträge, die dauerhaften Wert rund ums Produkt schaffen.</p><span class="date">15. Okt. 2026 <span class="obs">· Obs. 009</span></span></a></li><li class="card2 is-featured has-games"><a href="/de/research/von-der-idee-zum-produkt/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-008-800.avif 800w, /assets/home/normalised/research-obs-008.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-008-800.webp" srcset="/assets/home/normalised/research-obs-008-800.webp 800w, /assets/home/normalised/research-obs-008.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Was tun, wenn aus einer Idee in Minuten ein Produkt wird?</h3><p>KI-generierte Spiele, Modding und Co-Creation mit Fans zeigen, wie Vertrauen, gemeinsames Wissen und Partizipation rund um Produkte Wert schaffen, während die Herstellung günstiger wird.</p><span class="date">8. Okt. 2026 <span class="obs">· Obs. 008</span></span></a></li><li class="card2 has-community has-games"><a href="/de/research/wo-finden-wir-noch-anschluss/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-007-800.avif 800w, /assets/home/normalised/research-obs-007.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-007-800.webp" srcset="/assets/home/normalised/research-obs-007-800.webp 800w, /assets/home/normalised/research-obs-007.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Wo finden wir noch Anschluss? Wie Reibung und Anstrengung echte Gemeinschaft prägen</h3><p>Ein Muay-Thai-Gym in Thailand, hilfsbereite Fremde in WoW Forever und ein Hofverkauf am Freitag in Deutschland: Wie wir Teil der Orte werden, an die wir immer wieder zurückkehren.</p><span class="date">30. Sept. 2026 <span class="obs">· Obs. 007</span></span></a></li><li class="card2 has-ai"><a href="/de/research/alle-werden-zu-ki-systemingenieuren/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-006-800.avif 800w, /assets/home/normalised/research-obs-006.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-006-800.webp" srcset="/assets/home/normalised/research-obs-006-800.webp 800w, /assets/home/normalised/research-obs-006.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Mit KI-Coding-Agenten bauen: Was menschliches Urteilsvermögen braucht</h3><p>Ein mit KI-Coding-Agenten gebauter Recruiting-Ablauf zeigt, was sich leichter umsetzen lässt und warum Problemverständnis, Prüfung und menschliche Aufsicht wichtig bleiben.</p><span class="date">11. Sept. 2026 <span class="obs">· Obs. 006</span></span></a></li><li class="card2 has-community"><a href="/de/research/community-management-partizipationsstrategie/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-005-800.avif 800w, /assets/home/normalised/research-obs-005.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-005-800.webp" srcset="/assets/home/normalised/research-obs-005-800.webp 800w, /assets/home/normalised/research-obs-005.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Was sollen Menschen mit Ihrer Community-Plattform tun können?</h3><p>Kundensupport, Produkttests und gemeinsames Lernen brauchen unterschiedliche Programme. Beginnen Sie mit dem, was Menschen tun wollen, und wählen Sie dann die Plattform.</p><span class="date">9. Sept. 2026 <span class="obs">· Obs. 005</span></span></a></li><li class="card2 has-ai"><a href="/de/research/was-bleibt-beim-menschen-wenn-ki-uebernimmt/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-004-800.avif 800w, /assets/home/normalised/research-obs-004.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-004-800.webp" srcset="/assets/home/normalised/research-obs-004-800.webp 800w, /assets/home/normalised/research-obs-004.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Was Menschen in der Arbeit mit KI selbst beurteilen müssen</h3><p>Drei Aufgaben bei Communitygeeks: entscheiden, was wichtig ist, Aussagen unabhängig prüfen und Verantwortung für den Umgang mit anderen übernehmen.</p><span class="date">7. Sept. 2026 <span class="obs">· Obs. 004</span></span></a></li><li class="card2 has-ai has-community"><a href="/de/research/wer-haelt-den-faden/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-003-800.avif 800w, /assets/home/normalised/research-obs-003.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-003-800.webp" srcset="/assets/home/normalised/research-obs-003-800.webp 800w, /assets/home/normalised/research-obs-003.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Wer setzt die Grenzen, wenn KI und Teams mehr leisten können?</h3><p>Zwei Gespräche über KI und eines über Developer Relations zeigen eine gemeinsame Herausforderung: entscheiden, was passieren soll, was nicht und wann ein Eingreifen nötig ist.</p><span class="date">4. Sept. 2026 <span class="obs">· Obs. 003</span></span></a></li><li class="card2 has-community has-games"><a href="/de/research/wo-partizipation-tatsaechlich-stattfindet/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-002-800.avif 800w, /assets/home/normalised/research-obs-002.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-002-800.webp" srcset="/assets/home/normalised/research-obs-002-800.webp 800w, /assets/home/normalised/research-obs-002.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Community, Developer Relations und Partnerschaften: Wo überschneidet sich die Arbeit?</h3><p>Sechs Gamescom-Gespräche bieten unterschiedliche Erklärungen für Arbeit über Teamgrenzen hinweg, von Entwicklerunterstützung bis zu Kontakten zwischen Spielestudios und öffentlichen Einrichtungen.</p><span class="date">2. Sept. 2026 <span class="obs">· Obs. 002</span></span></a></li><li class="card2 has-community"><a href="/de/research/wo-teilhabe-heute-stattfindet/"><span class="img"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-obs-001-800.avif 800w, /assets/home/normalised/research-obs-001.avif 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="/assets/home/normalised/research-obs-001-800.webp" srcset="/assets/home/normalised/research-obs-001-800.webp 800w, /assets/home/normalised/research-obs-001.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span>
+      <h3>Wie Glide Community und Partnerschaften verbindet</h3><p>Andy Claremont von Glide erklärt, wie Kunden, Kreative und unterschiedliche Partner zu einem größeren Netzwerk rund um das Unternehmen gehören.</p><span class="date">25. Aug. 2026 <span class="obs">· Obs. 001</span></span></a></li></ul>
+  </div>
+</section>
+<section class="cta" id="contact" aria-labelledby="ct-t">
+  <div class="wrap">
+    <h2 class="h2" id="ct-t">Erzählen Sie uns, was Sie bauen.</h2>
+    <div class="acts"><a class="btn btn-fill" href="https://cal.com/communitygeeks/30min" target="_blank" rel="noopener">Gespräch buchen</a><a class="tl" href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+  </div>
+</section>
+</main>
+<footer class="cg-foot" lang="en"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span><span><a href="/research/articles/" lang="en" hreflang="en">EN</a> · <a href="/de/research/articles/" lang="de" hreflang="de" aria-current="true">DE</a></span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+</body>
+</html>

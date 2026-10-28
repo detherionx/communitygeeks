@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/research/games/">
+<title>Gaming research: what still makes players stay · Communitygeeks</title>
+<meta name="description" content="What changes when anyone can build, copy or remix a game: how players find games, how studios respond to AI clones, and what we are testing next.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+.rs-hero{position:relative;background:var(--ink);overflow:hidden;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.rs-hero .wrap{position:relative;z-index:2;display:grid;gap:16px;justify-items:start;align-content:start;min-height:clamp(560px,46vw,700px);padding-top:clamp(36px,5vw,64px);padding-bottom:48px}
+.rs-hero.ov .wrap{min-height:0;padding-bottom:clamp(48px,6vw,80px)}
+.rs-hero h1{max-width:13ch;font:var(--t-h1);}
+.rs-hero figure{position:absolute;right:0;bottom:0;width:min(72%,1300px);aspect-ratio:2200/992;margin:0;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 16%);mask-image:linear-gradient(90deg,transparent,var(--ink) 16%)}
+.rs-hero figure img{width:100%;height:100%;object-fit:cover}
+.rs{background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.rs section+section{margin-top:clamp(72px,8vw,112px)}
+.rs h2{text-wrap:balance;font:var(--t-h2);}
+.rs h3{text-wrap:balance;font:var(--t-body);font-weight:var(--w-bold)}
+.rs p{color:var(--muted)}
+.rs .lab{color:var(--muted)}
+.rs-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px;margin-bottom:28px}
+.rs-head>div{display:grid;gap:10px}
+.basis{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px 48px;align-items:start;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.basis .big{color:var(--ink);font:var(--t-body)}
+.basis>div{display:grid;gap:16px;max-width:62ch;align-content:start}
+.rs-cta .lede{margin:14px auto 0;color:var(--muted-on-ink)}
+@media (max-width:900px){
+  .rs-hero .wrap{min-height:0;padding-bottom:0}
+  .rs-hero figure{position:relative;height:auto;aspect-ratio:1180/532;margin:8px calc(-1*var(--g)) 0}
+  .rs-hero figure{width:auto;-webkit-mask-image:none;mask-image:none}
+}
+
+.rs .ed p,.rs .sum p{color:var(--charcoal)}
+.sums{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px)}
+.sum{display:grid;gap:16px;align-content:start}
+.sum picture.sc>img{width:100%;height:auto;aspect-ratio:8/5}
+.sum h2{max-width:20ch}
+.sum .tl{justify-self:start;margin-top:4px}
+.ed{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px 48px;align-items:start;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.ed>div{display:grid;gap:18px;max-width:62ch}
+.ed .decision{margin-top:8px;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.reads{border-top:1px solid var(--line)}
+.reads a{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.reads .t{font:var(--t-body);font-weight:var(--w-bold)}
+.reads .s{display:block;margin-top:6px;color:var(--muted);font:var(--t-body)}
+.reads a:hover .t{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.theses-intro{max-width:62ch;margin:-8px 0 32px;color:var(--charcoal)}
+.theses{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.theses li{display:flex;flex-direction:column;gap:14px;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.theses h3{font:var(--t-body);font-weight:var(--w-bold)}
+.rs .theses p{color:var(--charcoal)}
+.rs .theses .imp{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);color:var(--ink)}
+.rs .theses .src{color:var(--muted);font:var(--t-small)}
+.theses .src a{color:var(--link)}
+.qual{max-width:62ch;margin-top:40px;color:var(--charcoal)}
+@media (max-width:900px){.sums,.ed,.theses,.basis{grid-template-columns:1fr}.reads a{grid-template-columns:1fr}.sum picture.sc>img{max-width:440px}}
+@media (max-width:640px){.theses li{padding:22px}}
+
+.rs-hero.trk .wrap{min-height:clamp(500px,40vw,600px)}
+.rs-hero.trk h1{max-width:14ch;font:var(--t-h1);}
+.rs-hero.trk figure{right:max(var(--g),calc((100vw - 1320px) / 2));bottom:clamp(16px,2vw,32px);height:clamp(300px,31vw,450px);width:auto;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 11%,var(--ink) 89%,transparent),linear-gradient(180deg,transparent,var(--ink) 22%,var(--ink) 89%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,var(--ink) 11%,var(--ink) 89%,transparent),linear-gradient(180deg,transparent,var(--ink) 22%,var(--ink) 89%,transparent);mask-composite:intersect}
+.rs-hero .aud{color:var(--muted-on-ink);font:var(--t-small)}
+.rs-hero .down{margin-top:8px}
+.basis-line{margin-top:clamp(56px,6vw,80px);max-width:70ch}
+.onward{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;margin-top:28px}
+.trk-cta .lede{margin:14px auto 0;color:var(--muted-on-ink)}
+.trk-cta .more{margin-top:22px;color:var(--muted-on-ink)}
+.trk-cta .acts{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+@media (max-width:900px){
+  .rs-hero.trk figure{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,520px);margin:8px auto 0;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 9%,var(--ink) 91%,transparent),linear-gradient(180deg,transparent,var(--ink) 18%,var(--ink) 90%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,var(--ink) 9%,var(--ink) 91%,transparent),linear-gradient(180deg,transparent,var(--ink) 18%,var(--ink) 90%,transparent);mask-composite:intersect}
+}
+/* Normalised scenes are transparent with their own margins: no edge fade */
+.rs-hero.trk figure{-webkit-mask-image:none;mask-image:none}
+
+.g-sec+.g-sec{margin-top:clamp(64px,7vw,96px)}
+.g-sec>h2{margin-bottom:28px}
+.g-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g-cards>li{display:flex;flex-direction:column;gap:14px;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.g-cards h3{font:var(--t-body);font-weight:var(--w-bold)}
+.rs .g-cards p{color:var(--charcoal)}
+.rs .g-src{margin-top:auto;padding-top:12px;color:var(--muted);font:var(--t-small)}
+.g-src a{color:var(--link)}
+.g-cards .u-bars{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.g-cards .u-bars li{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) 3.5rem;gap:12px;align-items:center}
+.g-cards .u-bars .lb{color:var(--ink);font:var(--t-small)}
+.g-cards .u-bars .tr{height:10px;border-radius:5px;background:var(--line)}
+.g-cards .u-bars .tr i{display:block;width:var(--v);height:100%;border-radius:5px;background:var(--ink)}
+.g-cards .u-bars .val{color:var(--ink);text-align:right;font:var(--t-small);font-weight:var(--w-bold)}
+.g-tab{width:100%;border-collapse:collapse;font:var(--t-small)}
+.g-tab th,.g-tab td{padding:9px 0;border-top:1px solid var(--line);text-align:left;vertical-align:top;color:var(--charcoal)}
+.g-tab thead th{border-top:0;padding-top:0;color:var(--muted);font-weight:var(--w-regular)}
+.g-tab tbody th{padding-right:16px;color:var(--ink);font-weight:var(--w-bold);white-space:nowrap}
+.g-hyp{display:grid;gap:10px;max-width:40ch;margin-top:48px}
+.rs .g-hyp .lb{color:var(--muted);font:var(--t-small)}
+.rs .g-hyp .st{color:var(--ink);font:var(--t-h2)}
+.g-list{border-top:1px solid var(--line)}
+.g-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px 32px;padding:20px 0;border-bottom:1px solid var(--line)}
+.rs .g-list p{max-width:62ch;color:var(--ink);font:var(--t-body)}
+.g-chip{flex:none;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font:var(--t-small)}
+.rs .g-after{margin-top:16px;color:var(--muted);font:var(--t-small)}
+.g-exits{background:var(--paper);padding:0 0 clamp(64px,7vw,96px);--link:var(--action);--focus:var(--action)}
+.g-exits ul{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.g-exits li{display:grid;gap:10px;align-content:start;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink)}
+.g-exits h2{font:var(--t-h2)}
+.g-exits a{justify-self:start;color:var(--link);font:var(--t-body);font-weight:var(--w-bold)}
+@media (max-width:900px){.g-cards,.g-exits ul{grid-template-columns:1fr}}
+@media (max-width:640px){.g-cards>li,.g-exits li{padding:22px}.g-list li{flex-direction:column;gap:10px}.g-cards .u-bars li{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}.g-cards .u-bars .tr{grid-column:1/-1;grid-row:2}}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="Gaming research: what still makes players stay">
+<meta property="og:description" content="What changes when anyone can build, copy or remix a game: how players find games, how studios respond to AI clones, and what we are testing next.">
+<meta property="og:url" content="https://communitygeeks.ai/research/games/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gaming research: what still makes players stay">
+<meta name="twitter:description" content="What changes when anyone can build, copy or remix a game: how players find games, how studios respond to AI clones, and what we are testing next.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
+            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For AI and AI-infrastructure product teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig is-current" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <a href="/about/">About</a>
+    
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<section class="rs-hero trk trk-games" aria-labelledby="h1">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/research/">Research</a><span aria-hidden="true">›</span><span aria-current="page">Gaming</span></nav>
+    <h1 id="h1">Making games got easier. Making one that matters didn’t.</h1>
+    <p class="lede">We track what changes when anyone can build, copy or remix a game, and what still makes players stay.</p>
+  </div>
+  <figure style="aspect-ratio:1600/1000"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-gaming-800.avif 800w, /assets/home/normalised/research-gaming.avif 1600w" sizes="(max-width: 900px) 100vw, 720px"><img src="/assets/home/normalised/research-gaming-800.webp" srcset="/assets/home/normalised/research-gaming-800.webp 800w, /assets/home/normalised/research-gaming.webp 1600w" sizes="(max-width: 900px) 100vw, 720px" width="1600" height="1000" alt="Two astronauts playtest a red handheld game together, with a notebook for feedback." fetchpriority="high" decoding="async"></picture></figure>
+</section>
+<div class="band rs">
+  <div class="wrap">
+    <section class="g-sec" id="research" aria-labelledby="see-t">
+      <h2 id="see-t">What we’re seeing</h2>
+      <ul class="g-cards">
+        <li><h3>Players find games through people.</h3><p>How 16,152 Steam players most often find new games. Several answers allowed; the sample leans towards dedicated players.</p>
+          <ul class="u-bars"><li><span class="lb">Long-form YouTube</span><span class="tr" aria-hidden="true"><i style="--v:57%"></i></span><span class="val">57%</span></li><li><span class="lb">Steam</span><span class="tr" aria-hidden="true"><i style="--v:55.8%"></i></span><span class="val">55.8%</span></li><li><span class="lb">Word of mouth</span><span class="tr" aria-hidden="true"><i style="--v:44.9%"></i></span><span class="val">44.9%</span></li><li><span class="lb">Discord</span><span class="tr" aria-hidden="true"><i style="--v:17.9%"></i></span><span class="val">17.9%</span></li></ul><p class="sr">Each bar uses the same 0 to 100% scale. The answers overlap and do not add up to 100%.</p><p class="g-src">Source: <a href="https://newsletter.gamediscover.co/p/the-one-game-discovery-by-player" rel="noopener">GameDiscoverCo Steam Fan Snapshot, September 2026</a></p></li>
+        <li><h3>Copying got cheap, so studios stopped showing.</h3><p>Digital Sun moved ReVamp’s first playtest from Steam to its Discord. Alliance Arts kept its Next Fest demo to closed sessions. Both cited cloning fears.</p><p class="g-src">Source: <a href="https://kotaku.com/revamp-public-playtest-cancelled-digital-sun-claude-ai-clones-2000747558" rel="noopener">Kotaku, 19 Oct 2026</a> · <a href="https://arstechnica.com/gaming/2026/10/ai-game-clones-are-making-indie-developers-afraid-to-show-their-work/" rel="noopener">Ars Technica, 19 Oct 2026</a></p></li>
+        <li><h3>One capability, five responses.</h3><p>AI tools now help outsiders rebuild existing games to run in a browser. Five ways the industry answered:</p>
+          <table class="g-tab"><thead><tr><th scope="col">Who</th><th scope="col">What they did</th></tr></thead><tbody><tr><th scope="row">Outsiders</th><td>Unofficial browser ports of big games, Halo among them</td></tr><tr><th scope="row">Activision</th><td>Reportedly sent DMCA takedowns for AI-built Black Ops 2 browser ports</td></tr><tr><th scope="row">Xbox Labs</th><td>Set up to learn from it and “measure success by whether more people are playing and creating”</td></tr><tr><th scope="row">Indie studios</th><td>Moved playtests to Discord and closed sessions</td></tr><tr><th scope="row">Wonder Interactive</th><td>Strata turns Unreal games into browser links for demos and playtests</td></tr></tbody></table><p class="g-src">Source: <a href="https://www.theverge.com/news/1010406/xbox-labs-game-decompiling-emulation-exploration" rel="noopener">The Verge, 13 Oct 2026</a> · <a href="https://www.tweaktown.com/news/114029/activision-takes-down-ai-made-black-ops-2-browser-ports/index.html" rel="noopener">TweakTown, from the developer’s own post</a> · <a href="https://news.xbox.com/en-us/2026/10/13/introducing-xbox-labs/" rel="noopener">Xbox Wire, 13 Oct 2026</a> · <a href="https://gamesbeat.com/wonder-interactives-strata-uses-ai-to-take-unreal-engine-games-to-browsers-using-webassembly-and-webgpu/" rel="noopener">GamesBeat, 22 Oct 2026</a></p></li>
+        <li><h3>Platforms point the same way.</h3><p>Valve: community is the first defence against clones, but not enough alone. Keep growing it your way. Visibility follows how many people buy and play.</p>
+          <p class="g-src">Source: Valve at Steam Indie Connect Busan, 27 Oct 2026, as reported by <a href="https://www.invenglobal.com/articles/27761/valve-responds-directly-to-developers-fearful-of-ai-slop-and-game-cloning" rel="noopener">Inven Global</a></p></li>
+      </ul>
+      <div class="g-hyp"><p class="lb">Our working hypothesis</p><p class="st">A clone copies a build. It can’t copy the players who shaped it, or the studio they trust.</p></div>
+    </section>
+    <section class="g-sec" aria-labelledby="test-t">
+      <h2 id="test-t">What we’re testing</h2>
+      <ul class="g-list"><li><p>When does player participation actually help a game, and when is it the wrong strategy?</p><span class="g-chip">Open</span></li><li><p>When a game can be rebuilt in days, what makes players choose the original and stay?</p><span class="g-chip">Open</span></li><li><p>When anyone can make the playable version, who captures the value: studios, players, platforms or tool vendors?</p><span class="g-chip">Open</span></li></ul>
+      <p class="g-after">Including the cases that would prove us wrong.</p>
+    </section>
+    <section class="g-sec" aria-labelledby="next-t">
+      <h2 id="next-t">Coming next</h2>
+      <ul class="g-list"><li><p>Show it or hide it? 7 ways to share your indie game when clones take a day</p><span class="g-chip">In research</span></li><li><p>Vampire Survivors was copied. Why didn’t that stop it?</p><span class="g-chip">In research</span></li></ul>
+    </section>
+  </div>
+</div>
+<section class="g-exits" id="contact" aria-label="Work with us">
+  <div class="wrap"><ul>
+    <li><h2>Indie studio?</h2><a href="/uncopyable/">Find your first players before launch</a></li>
+    <li><h2>Platform, publisher or association?</h2><a href="mailto:carmelito@communitygeeks.de">Compare notes with us</a></li>
+  </ul></div>
+</section>
+</main>
+<footer class="cg-foot"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* Lisbon hub (28 Oct 2026, approved harbour mockup). Scoped to .lx-page: centred 1120px wrap, ink hero with the harbour scene
+   overlapping the paper content, then article teaser, case and talk pair, contribution. Tokens only; leaf colours live in tokens.css. */
+.lx-page{margin:0;background:var(--paper);color:var(--ink);font:var(--t-body)}
+.lx-page main{display:block}
+.lx-page h1,.lx-page h2,.lx-page p{margin:0}
+.lx-page h1{font:var(--t-h1)}
+.lx-page h2{font:var(--t-h2)}
+.lx-page img{display:block;max-width:100%;height:auto}
+.lx-page :focus-visible{outline:3px solid var(--focus);outline-offset:5px}
+.lx-wrap{width:min(1120px,calc(100% - 2 * var(--gutter)));margin-inline:auto}
+
+.lx-hero{position:relative;isolation:isolate;padding:54px 0 0;background:var(--ink);color:var(--paper);text-align:center;
+  --link:var(--action-on-ink);--focus:var(--action-on-ink)}
+.lx-hero:after{content:'';position:absolute;inset:auto 0 0;height:100px;background:var(--paper);z-index:-1}
+.lx-hero-copy p{margin:20px auto 0;color:var(--muted-on-ink)}
+.lx-scene{position:relative;width:min(870px,calc(100% - 32px));margin:24px auto 0;overflow:hidden}
+.lx-scene img{width:100%;position:relative;z-index:1}
+.lx-motion{position:absolute;right:12px;top:12px;z-index:4;display:grid;place-items:center;width:36px;height:36px;padding:0;
+  border:1px solid var(--line-on-ink);border-radius:50%;background:var(--ink);color:var(--muted-on-ink);cursor:pointer}
+.lx-motion:hover{color:var(--paper)}
+.lx-motion svg{width:16px;height:16px;fill:currentColor}
+.lx-motion .lx-play,.lx-paused-user .lx-motion .lx-pause{display:none}
+.lx-paused-user .lx-motion .lx-play{display:block}
+.lx-leaf{position:absolute;z-index:2;width:13px;height:22px;border-radius:80% 0 80% 0;background:var(--leaf-1);opacity:0;pointer-events:none;
+  animation:lx-drift 8.5s ease-in-out infinite}
+.lx-leaf:after{content:'';position:absolute;left:50%;top:15%;width:1px;height:90%;background:var(--leaf-vein);transform:rotate(22deg)}
+.lx-leaf:nth-of-type(1){left:16%;top:13%;animation-delay:-1s}
+.lx-leaf:nth-of-type(2){left:84%;top:29%;animation-delay:-3.2s;background:var(--leaf-2)}
+.lx-leaf:nth-of-type(3){left:91%;top:32%;animation-delay:-5.4s;background:var(--leaf-3)}
+.lx-leaf:nth-of-type(4){left:24%;top:20%;animation-delay:-7.4s;background:var(--leaf-2)}
+.lx-paused .lx-leaf{animation-play-state:paused}
+@keyframes lx-drift{0%{opacity:0;transform:translate(0,-10px) rotate(0)}12%,65%{opacity:.8}85%,100%{opacity:0;transform:translate(-38px,210px) rotate(145deg)}}
+
+.lx-content{padding:48px 0 72px;background:var(--paper);--link:var(--action);--focus:var(--action)}
+.lx-page a{color:var(--link);text-underline-offset:5px;text-decoration-thickness:1.5px}
+.lx-page a:hover{text-decoration-thickness:2.5px}
+.lx-link{display:inline-block;margin-top:24px;font-weight:var(--w-bold)}
+.lx-content p{max-width:60ch;color:var(--charcoal)}
+/* Resources as three cards (28 Oct 2026): surface cards on paper, one border and radius, no shadows. The article card leads; the case and
+   the talk are compact rows. Card headings: the article uses h2 size, the compact cards the small card-title style (body bold). */
+.lx-cards{display:grid;gap:28px}
+.lx-card{padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.lx-card h2{margin:0 0 12px}
+.lx-card .lx-link{margin-top:20px}
+.lx-lead{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:48px;padding:40px}
+.lx-lead h2{max-width:18ch;margin-bottom:16px;text-wrap:balance}
+.lx-lead img{width:100%}
+.lx-case{display:grid;grid-template-columns:minmax(160px,25%) 1fr;align-items:center;gap:32px;padding-block:52px}
+.lx-case-art{display:flex;justify-content:center}
+.lx-case-art img{width:180px;max-width:100%;object-fit:contain}
+.lx-case h2,.lx-talk h2{margin-bottom:8px;font:var(--t-body);font-weight:var(--w-bold)}
+.lx-talk{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:48px}
+.lx-availability{margin:0 0 12px;padding:0}
+.lx-availability div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.lx-availability div:last-child{border-bottom:1px solid var(--line)}
+.lx-availability dt{font-weight:var(--w-bold)}
+.lx-availability dd{margin:0;color:var(--muted)}
+.lx-content .lx-note{font:var(--t-small);color:var(--muted)}
+.lx-contribute{display:flex;justify-content:space-between;align-items:center;gap:40px;padding-top:72px}
+.lx-contribute h2{max-width:25ch;margin-bottom:14px}
+.lx-contribute>a{margin:0;white-space:nowrap}
+
+@media (max-width:760px){
+  .lx-hero{padding-top:40px}
+  .lx-hero-copy p{margin-top:18px}
+  .lx-hero:after{height:52px}
+  .lx-scene{width:100%;margin-top:30px}
+  .lx-motion{width:32px;height:32px}
+  .lx-leaf{width:9px;height:16px}
+  .lx-content{padding:32px 0 48px}
+  .lx-cards{gap:24px}
+  .lx-card,.lx-lead,.lx-case{padding:22px}
+  .lx-lead,.lx-case,.lx-talk{grid-template-columns:1fr;gap:20px}
+  .lx-lead picture img{width:min(440px,100%);margin:auto}
+  .lx-case-art{justify-content:flex-start}
+  .lx-case-art img{width:140px}
+  .lx-contribute{display:block;padding-top:48px}
+  .lx-contribute>a{margin-top:22px}
+}
+@media (prefers-reduced-motion:reduce){.lx-leaf,.lx-motion{display:none;animation:none}}

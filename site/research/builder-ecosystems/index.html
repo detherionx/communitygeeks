@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/research/builder-ecosystems/">
+<title>AI research: what helps builders make your technology useful · Communitygeeks</title>
+<meta name="description" content="Four working theses for AI and AI infrastructure companies on builder access, contribution routes, fitting support to builders and the responsibilities useful work creates.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+.rs-hero{position:relative;background:var(--ink);overflow:hidden;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.rs-hero .wrap{position:relative;z-index:2;display:grid;gap:16px;justify-items:start;align-content:start;min-height:clamp(560px,46vw,700px);padding-top:clamp(36px,5vw,64px);padding-bottom:48px}
+.rs-hero.ov .wrap{min-height:0;padding-bottom:clamp(48px,6vw,80px)}
+.rs-hero h1{max-width:13ch;font:var(--t-h1);}
+.rs-hero figure{position:absolute;right:0;bottom:0;width:min(72%,1300px);aspect-ratio:2200/992;margin:0;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 16%);mask-image:linear-gradient(90deg,transparent,var(--ink) 16%)}
+.rs-hero figure img{width:100%;height:100%;object-fit:cover}
+.rs{background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.rs section+section{margin-top:clamp(72px,8vw,112px)}
+.rs h2{text-wrap:balance;font:var(--t-h2);}
+.rs h3{text-wrap:balance;font:var(--t-body);font-weight:var(--w-bold)}
+.rs p{color:var(--muted)}
+.rs .lab{color:var(--muted)}
+.rs-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px;margin-bottom:28px}
+.rs-head>div{display:grid;gap:10px}
+.basis{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px 48px;align-items:start;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.basis .big{color:var(--ink);font:var(--t-body)}
+.basis>div{display:grid;gap:16px;max-width:62ch;align-content:start}
+.rs-cta .lede{margin:14px auto 0;color:var(--muted-on-ink)}
+@media (max-width:900px){
+  .rs-hero .wrap{min-height:0;padding-bottom:0}
+  .rs-hero figure{position:relative;height:auto;aspect-ratio:1180/532;margin:8px calc(-1*var(--g)) 0}
+  .rs-hero figure{width:auto;-webkit-mask-image:none;mask-image:none}
+}
+
+.rs .ed p,.rs .sum p{color:var(--charcoal)}
+.sums{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px)}
+.sum{display:grid;gap:16px;align-content:start}
+.sum picture.sc>img{width:100%;height:auto;aspect-ratio:8/5}
+.sum h2{max-width:20ch}
+.sum .tl{justify-self:start;margin-top:4px}
+.ed{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px 48px;align-items:start;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.ed>div{display:grid;gap:18px;max-width:62ch}
+.ed .decision{margin-top:8px;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.reads{border-top:1px solid var(--line)}
+.reads a{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.reads .t{font:var(--t-body);font-weight:var(--w-bold)}
+.reads .s{display:block;margin-top:6px;color:var(--muted);font:var(--t-body)}
+.reads a:hover .t{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.theses-intro{max-width:62ch;margin:-8px 0 32px;color:var(--charcoal)}
+.theses{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.theses li{display:flex;flex-direction:column;gap:14px;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.theses h3{font:var(--t-body);font-weight:var(--w-bold)}
+.rs .theses p{color:var(--charcoal)}
+.rs .theses .imp{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);color:var(--ink)}
+.rs .theses .src{color:var(--muted);font:var(--t-small)}
+.theses .src a{color:var(--link)}
+.qual{max-width:62ch;margin-top:40px;color:var(--charcoal)}
+@media (max-width:900px){.sums,.ed,.theses,.basis{grid-template-columns:1fr}.reads a{grid-template-columns:1fr}.sum picture.sc>img{max-width:440px}}
+@media (max-width:640px){.theses li{padding:22px}}
+
+.rs-hero.trk .wrap{min-height:clamp(500px,40vw,600px)}
+.rs-hero.trk h1{max-width:14ch;font:var(--t-h1);}
+.rs-hero.trk figure{right:max(var(--g),calc((100vw - 1320px) / 2));bottom:clamp(16px,2vw,32px);height:clamp(300px,31vw,450px);width:auto;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 11%,var(--ink) 89%,transparent),linear-gradient(180deg,transparent,var(--ink) 22%,var(--ink) 89%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,var(--ink) 11%,var(--ink) 89%,transparent),linear-gradient(180deg,transparent,var(--ink) 22%,var(--ink) 89%,transparent);mask-composite:intersect}
+.rs-hero .aud{color:var(--muted-on-ink);font:var(--t-small)}
+.rs-hero .down{margin-top:8px}
+.basis-line{margin-top:clamp(56px,6vw,80px);max-width:70ch}
+.onward{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;margin-top:28px}
+.trk-cta .lede{margin:14px auto 0;color:var(--muted-on-ink)}
+.trk-cta .more{margin-top:22px;color:var(--muted-on-ink)}
+.trk-cta .acts{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+@media (max-width:900px){
+  .rs-hero.trk figure{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,520px);margin:8px auto 0;-webkit-mask-image:linear-gradient(90deg,transparent,var(--ink) 9%,var(--ink) 91%,transparent),linear-gradient(180deg,transparent,var(--ink) 18%,var(--ink) 90%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,var(--ink) 9%,var(--ink) 91%,transparent),linear-gradient(180deg,transparent,var(--ink) 18%,var(--ink) 90%,transparent);mask-composite:intersect}
+}
+/* Normalised scenes are transparent with their own margins: no edge fade */
+.rs-hero.trk figure{-webkit-mask-image:none;mask-image:none}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="AI research: what helps builders make your technology useful">
+<meta property="og:description" content="Four working theses for AI and AI infrastructure companies on builder access, contribution routes, fitting support to builders and the responsibilities useful work creates.">
+<meta property="og:url" content="https://communitygeeks.ai/research/builder-ecosystems/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI research: what helps builders make your technology useful">
+<meta name="twitter:description" content="Four working theses for AI and AI infrastructure companies on builder access, contribution routes, fitting support to builders and the responsibilities useful work creates.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
+            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For AI and AI-infrastructure product teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig is-current" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <a href="/about/">About</a>
+    
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<section class="rs-hero trk trk-ai" aria-labelledby="h1">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/research/">Research</a><span aria-hidden="true">›</span><span aria-current="page">AI &amp; AI infrastructure</span></nav>
+    <h1 id="h1">What helps builders make your technology useful?</h1>
+    <p class="lede">Developers turn models and infrastructure into applications, integrations and working systems. We study the support, relationships and responsibilities around that work.</p>
+    <a class="tl down" href="#research">Read the four theses</a>
+  </div>
+  <figure style="aspect-ratio:1600/1000"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-ai-builders-800.avif 800w, /assets/home/normalised/research-ai-builders.avif 1600w" sizes="(max-width: 900px) 100vw, 720px"><img src="/assets/home/normalised/research-ai-builders-800.webp" srcset="/assets/home/normalised/research-ai-builders-800.webp 800w, /assets/home/normalised/research-ai-builders.webp 1600w" sizes="(max-width: 900px) 100vw, 720px" width="1600" height="1000" alt="Two astronauts align and connect white software modules with matching blue plugs and sockets at a grey workbench." fetchpriority="high" decoding="async"></picture></figure>
+</section>
+<div class="band rs">
+  <div class="wrap">
+    <section id="research" aria-labelledby="th-t">
+      <div class="rs-head"><div><h2 id="th-t">Four working theses</h2></div></div>
+      <p class="theses-intro">Working theses from comparative research, practitioner conversations and public evidence. Each pairs an argument and an example with the decision it points to for a product, developer relations or partnerships team.</p>
+      <ul class="theses"><li><h3>Access needs a route to a working project.</h3><p>Credits and API access create an entry point. Between a first call and a working project, builders hit different obstacles, and working examples, technical help and other builders address different ones. Nebius’s free AI Builder Program combines partner credits and discounts, office hours, cookbooks and community events. What it offers is documented; which part helps is not.</p><p class="imp">Find where builders get stuck between first access and a useful implementation, and support that step.</p><p class="src"><a href="https://nebius.com/blog/posts/introducing-the-nebius-ai-builder-program" rel=noopener>Nebius AI Builder Program (Nebius, September 2026)</a></p></li><li><h3>Contributions need a route into use.</h3><p>Integrations, guides and fixes become useful when people can find, review and use them. Fireworks lists partner integrations in its documentation after its developer relations team reviews them. Zed’s 12-week Guild paired 33 active contributors with its engineers; Zed reports 148 merged pull requests from the first cohort. Both make the route into the product explicit.</p><p class="imp">Decide who reviews, responds to and maintains contributions before you invite more of them.</p><p class="src"><a href="https://docs.fireworks.ai/ecosystem/integrations_process" rel=noopener>Fireworks developer partner process</a> · <a href="https://zed.dev/blog/zed-guild-retrospective" rel=noopener>Zed Guild retrospective (Zed, June 2026)</a></p></li><li><h3>Support should fit what builders want to do.</h3><p>A startup shipping an application, a maintainer fixing an integration and an organiser teaching peers need different things: credits and technical help, review and recognition, event funding and materials. Anthropic’s Claude Community Ambassadors support local organisers with event funding, content and API credits. One ambassador programme or Discord server does not cover every relationship.</p><p class="imp">Choose the participants and the work you will support before choosing a programme format.</p><p class="src"><a href="https://claude.com/community/ambassadors" rel=noopener>Claude Community Ambassadors (Anthropic)</a> · <a href="https://nebius.com/fellows" rel=noopener>Nebius Fellows (Nebius)</a></p></li><li><h3>Useful work creates ongoing responsibilities.</h3><p>An integration may need maintenance, an answer may need documentation and a contributor may need to step back. Ultimate PDF, a community-built OutSystems component, shows other components and projects depending on work its creator and community keep running, with support described as best-effort. The case sets out who builds, reuses and supports it, and what is still unknown.</p><p class="imp">Agree support boundaries, ownership and continuity, and check whether useful work stays usable over time.</p><p class="src"><a href="/research/builder-ecosystems/ultimate-pdf/">Ultimate PDF case study</a></p></li></ul>
+      <p class="qual">Builder support does not replace community management. It extends the work across community, developer relations, partnerships and product, and it holds up when each team knows which part it owns.</p>
+    </section>
+    <section aria-labelledby="rd-t">
+      <div class="rs-head"><div><h2 id="rd-t">Readings</h2></div><a class="tl" href="/research/articles/">All articles</a></div>
+      <ul class="reads"><li><a href="/research/the-end-of-the-line/"><span class="lab">15 Oct 2026</span><span><span class="t">The End of the Line</span><span class="s">Builder ecosystems at AI companies show how community management is moving beyond engagement metrics.</span></span></a></li><li><a href="/research/rethinking-where-participation-happens/"><span class="lab">25 Aug 2026</span><span><span class="t">How Glide connects community and partnerships</span><span class="s">Glide’s Andy Claremont explains how customers, creators and different kinds of partners fit into a wider network around the company.</span></span></a></li></ul>
+    </section>
+    <p class="basis-line">This track draws on comparative company and programme research, practitioner conversations and original experiments. <a class="tl" href="/research/#basis">How the research works</a></p>
+    <nav class="onward" aria-label="More research"><a class="tl" href="/research/">Research overview</a><a class="tl" href="/research/games/">Gaming research</a></nav>
+  </div>
+</div>
+<section class="cta trk-cta" id="contact" aria-labelledby="ct-t">
+  <div class="wrap">
+    <h2 class="h2" id="ct-t">Planning a builder programme?</h2><p class="lede">Builder programmes help you decide who to support, what they need and how their work becomes useful to others.</p>
+    <div class="acts"><a class="btn btn-fill" href="/services/builder-programmes/">Explore Builder programmes</a><a class="tl" href="https://cal.com/communitygeeks/30min" target="_blank" rel="noopener">Book a conversation</a></div>
+  </div>
+</section>
+</main>
+<footer class="cg-foot"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+</body>
+</html>

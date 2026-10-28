@@ -1,0 +1,37 @@
+/* Lisbon pages on the site theme (27 Oct 2026). Loaded after theme.css on /lisbon/, /lisbon/article/ and /lisbon/talk/. */
+
+/* Hub: no generated night-sky backdrop, no numbered section labels, headlines in the one family. */
+.sky,.skyline,.sky-shade,#motion{display:none!important}
+.field-notes .hub-label,.paired-stories .hub-label,.contribute .hub-label{display:none!important}
+.hub-label{text-transform:none!important;font:var(--t-small)}
+.arrival h1,.lead-story h2,.paired-stories h2,.contribute h2,.reading h1{font-weight:var(--w-bold)}
+
+/* Article: the speaker questions read as strong text, not tinted boxes with a coloured rule. */
+
+/* Talk deck: no italic accent words, no tracked uppercase labels, no "motion study" counter. */
+.study{display:none!important}
+h1 em,h2 em,h3 em{color:inherit!important}
+.eyebrow,.dashboard-top,.dashboard-bottom{text-transform:none!important}
+.lead-story:after{display:none!important}
+
+/* Mono only for data: Lisbon labels, slide eyebrows, deck header and dashboard captions are sans; the slide counter is data. */
+.hub-label,.eyebrow,.aside,header,footer,#dashboard,.dashboard-top,.dashboard-bottom{font-family:var(--font)!important;text-transform:none!important}
+#count{font-family:var(--font)!important}
+/* Blue only where you can act: the talk dashboard bars are decoration, so they use the neutral on-ink grey. */
+.chart i{background:linear-gradient(var(--muted-on-ink),color-mix(in srgb,var(--muted-on-ink) 27%,transparent))!important}
+/* Type scale: accent words keep the heading weight; deck labels are neutral (blue only on links). */
+h1 em,h2 em,h3 em{font-weight:inherit!important}
+.eyebrow,.dashboard-top span{color:var(--muted-on-ink)!important}
+header:not(.cg-hdr) a{font-weight:var(--w-regular)!important}  /* the talk deck header, not the site header */
+.reading-sources summary{font-weight:var(--w-regular)!important}  /* small role: one weight */
+
+/* Folded article label (28 Oct 2026): author line under the title, article meta style */
+.reading .byline{margin-top:12px;color:var(--muted);font:var(--t-small)}
+
+/* Approved Lisbon article images (28 Oct 2026): autumn lead image (opaque, 16:9) and the transparent game-night scene after Terra's question */
+.reading-figure{margin:36px 0}
+.reading-figure img{display:block;width:100%;height:auto}
+.reading-figure.lead img{border-radius:12px}
+.reading-figure.inline{max-width:640px;margin-left:auto;margin-right:auto}
+.lead-story .lead-art{display:block;margin:18px 0 24px}
+.lead-story .lead-art img{display:block;width:100%;height:auto;border-radius:12px}

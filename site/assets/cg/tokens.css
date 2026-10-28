@@ -1,0 +1,70 @@
+/* Communitygeeks design tokens (27 Oct 2026). The only file allowed to hold literal colour and font values.
+   Type (28 Oct 2026): one family, Atkinson Hyperlegible Next, SIL OFL 1.1 (/assets/fonts/LICENSE-OFL-atkinson.txt). No monospace anywhere;
+   data (prices, dates, counts) uses the same family with tabular figures. The family lives in ONE token, --font, so it can be swapped in one line.
+   Self-hosted variable WOFF2, wght 200-800, subset to Latin + Latin Extended-A/B, typographic quotes, dashes, middot and euro. */
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/atkinson/AtkinsonHyperlegibleNext-VF.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:italic;font-weight:200 800;font-display:swap;src:url(/assets/fonts/atkinson/AtkinsonHyperlegibleNext-Italic-VF.woff2) format("woff2")}
+
+/* Editorial questions only (28 Oct 2026): Fraunces regular italic, SIL OFL 1.1 (/assets/fonts/LICENSE-OFL-fraunces.txt), the same files as the live site.
+   Used through --t-question for the author's questions in articles and article endings; never for headings, UI or running text. */
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:300 400;font-display:swap;src:url(/assets/fonts/fraunces/Fraunces-Italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:300 400;font-display:swap;src:url(/assets/fonts/fraunces/Fraunces-Italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --gutter:clamp(16px,4vw,40px);   /* page gutter (layout) */
+  --font:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-editorial:"Fraunces",Georgia,serif;   /* editorial questions only, via --t-question */
+}
+
+/* Colour: direction B on the dark ground (approved 27 Oct 2026). Ink carries header, hero, footer and dark sections; paper carries
+   content. Blue is the only UI accent and means "you can act here". Red belongs to the art only; the UI never uses it.
+   Every colour on the site comes from these tokens; components never hold literal values. */
+:root{
+  --ink:#0D1013;          /* header, hero, footer, dark sections; body text on light */
+  --ink-2:#1B1E23;        /* raised surfaces on ink (cards, menus on dark) */
+  --paper:#F4F6F8;        /* content sections */
+  --surface:#FFFFFF;      /* cards and menus on light */
+  --muted:#5F646A;        /* secondary text on light */
+  --charcoal:#343A40;     /* long-form reading text on light (About track cards, 28 Oct 2026) */
+  --muted-on-ink:#B3B8BE; /* secondary text on ink */
+  --line:#DCDEE1;         /* rules and borders on light */
+  --line-on-ink:#2A2E33;  /* rules and borders on ink */
+  --action:#3957C5;--action-hover:#2D46AC;                 /* buttons (white text), links and focus rings on light */
+  --action-on-ink:#9CB5F8;--action-on-ink-hover:#B4C9FF;   /* buttons (ink text), links and focus rings on ink */
+
+  /* Illustration only: the falling leaves over the Lisbon harbour scene (28 Oct 2026). Never UI. */
+  --leaf-1:#B16C35;--leaf-2:#A95136;--leaf-3:#C48C39;--leaf-vein:#754624;
+
+  --scrim:color-mix(in srgb,var(--ink) 55%,transparent);   /* shadows, derived from ink */
+
+  /* Context: the body is ink, so the default is the on-ink set. Every light section switches to the light set via its own rule. */
+  --link:var(--action-on-ink);--focus:var(--action-on-ink);
+  --btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover);
+}
+
+/* Type scale (28 Oct 2026): four sizes, plus the hero subtitle size below. Weights 400 and 700 only.
+   h1: one per page (page title or hero statement). h2: every section heading, including the closing CTA.
+   body: all running text; card, step and tier titles, nav, buttons and prices use it at 700. small: captions, footer, legal, article meta. */
+:root{
+  --w-regular:400;--w-bold:700;
+  --t-h1-size:clamp(2.5rem,1.6rem + 3vw,3.5rem);--t-h1-lh:1.05;
+  --t-h2-size:clamp(1.75rem,1.4rem + 1.2vw,2.25rem);--t-h2-lh:1.15;
+  --t-body-size:1.125rem;--t-body-lh:1.5;
+  --t-small-size:0.875rem;--t-small-lh:1.45;
+  /* Hero subtitle (28 Oct 2026, editorial review): the sentence under a page's h1 explains the offer, so it sits between h2 and body.
+     24/34 on desktop, 20/29 on mobile, regular weight. Hero subtitles only; running text stays at --t-body. */
+  --t-lede-size:1.5rem;--t-lede-lh:1.4167;
+  /* Editorial question (28 Oct 2026): the author's questions in articles and the closing question of every article ending. 26px desktop, 22px mobile. */
+  --t-question-size:1.625rem;--t-question-lh:1.45;
+  --t-h1:var(--w-bold) var(--t-h1-size)/var(--t-h1-lh) var(--font);
+  --t-h2:var(--w-bold) var(--t-h2-size)/var(--t-h2-lh) var(--font);
+  --t-body:var(--w-regular) var(--t-body-size)/var(--t-body-lh) var(--font);
+  --t-small:var(--w-regular) var(--t-small-size)/var(--t-small-lh) var(--font);
+  --t-lede:var(--w-regular) var(--t-lede-size)/var(--t-lede-lh) var(--font);
+  --t-question:italic var(--w-regular) var(--t-question-size)/var(--t-question-lh) var(--font-editorial);
+  /* Spacing (8px base) */
+  --space-8:8px;--space-16:16px;--space-20:20px;--space-32:32px;
+  /* Hero rhythm, 8px base */
+  --hero-gap-crumb:var(--space-8);--hero-gap-meta:var(--space-8);--hero-gap-headline:var(--space-32);--hero-gap-lead:var(--space-16);--hero-gap-actions:var(--space-32);
+}
+@media (max-width:760px){:root{--t-lede-size:1.25rem;--t-lede-lh:1.45;--t-question-size:1.375rem}}

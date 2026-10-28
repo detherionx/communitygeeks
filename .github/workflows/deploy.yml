@@ -1,32 +1,21 @@
 name: Deploy to Hetzner
 
+# Since the 28 Oct 2026 cutover the site is static: site/ holds the finished pages, built locally by the site-v3
+# build (python _build/build.py --production) and committed here. Nothing is built in CI; a push to main uploads site/.
+# Files on the server that are not in site/ (the previous site, api/ config) are left in place; .htaccess redirects
+# the retired routes.
+
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: '0 6 * * *' # daily 06:00 UTC: publishes pieces whose frontmatter date has arrived
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Build
-        run: npm run build
 
       - name: Deploy over SFTP
         uses: wangyucode/sftp-upload-action@v2.0.4
@@ -35,5 +24,5 @@ jobs:
           port: 22
           username: ${{ secrets.HETZNER_USERNAME }}
           password: ${{ secrets.HETZNER_PASSWORD }}
-          localDir: '_site'
+          localDir: 'site'
           remoteDir: '/${{ secrets.HETZNER_REMOTE_PATH }}'
