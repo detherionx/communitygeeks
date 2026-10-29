@@ -17,7 +17,7 @@
 }
 
 /* Colour: direction B on the dark ground (approved 27 Oct 2026). Ink carries header, hero, footer and dark sections; paper carries
-   content. Blue is the only UI accent and means "you can act here". Red belongs to the art only; the UI never uses it.
+   content. Blue is the only UI accent and means "you can act here". Red belongs to the art; its one UI use is the homepage hero button for the gaming programme.
    Every colour on the site comes from these tokens; components never hold literal values. */
 :root{
   --ink:#0D1013;          /* header, hero, footer, dark sections; body text on light */
@@ -31,6 +31,10 @@
   --line-on-ink:#2A2E33;  /* rules and borders on ink */
   --action:#3957C5;--action-hover:#2D46AC;                 /* buttons (white text), links and focus rings on light */
   --action-on-ink:#9CB5F8;--action-on-ink-hover:#B4C9FF;   /* buttons (ink text), links and focus rings on ink */
+
+  /* Track colours of the art (locked 28 Oct 2026). UI use only on the homepage hero's two programme buttons, each paired
+     with its district (founder request, 29 Oct 2026): borders and underlines, never text colour (red 3.9:1, blue 2.8:1 on ink). */
+  --track-gaming:#D03736;--track-ai:#2236FF;
 
   /* Illustration only: the falling leaves over the Lisbon harbour scene (28 Oct 2026). Never UI. */
   --leaf-1:#B16C35;--leaf-2:#A95136;--leaf-3:#C48C39;--leaf-vein:#754624;

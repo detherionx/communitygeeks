@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://communitygeeks.ai/">
-<title>Communitygeeks · Community, developer and partner programmes for gaming and AI companies</title>
+<title>Communitygeeks · Consulting and programmes for players, developers and partners</title>
 <script>document.documentElement.classList.add('js')</script>
-<meta name="description" content="We design and launch community, developer and partner programmes for gaming and AI companies.">
+<meta name="description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for AI teams.">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-1180.avif" imagesrcset="/assets/home/normalised/homepage-world-final-1180.avif 1180w, /assets/home/normalised/homepage-world-final-1600.avif 1600w, /assets/home/normalised/homepage-world-final-2200.avif 2200w" imagesizes="(max-width: 760px) 100vw, (max-width: 1230px) calc(100vw - 48px), 1180px" type="image/avif" media="(min-width:761px)">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-mobile.avif" type="image/avif" media="(max-width:760px)">
-<link rel="stylesheet" href="/assets/cg/tokens.css?v=3ec09b89">
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=78d3ecea">
 <link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
 <style>
 /* Approved CI tokens (src/assets/css/visual-system.css) in Heaven Media's band structure */
@@ -85,22 +85,30 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 .hero{background:var(--ink);text-align:center;padding-top:clamp(28px,5vh,56px);padding-bottom:32px;overflow:hidden;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
 .hero-copy{position:relative;z-index:2;display:grid;gap:14px;justify-items:center;padding:0 var(--g)}
 .hero h1{max-width:24ch;text-wrap:balance;font:var(--t-h1);}
-.hero .btn{margin-top:6px}
+/* One subtitle. Phones add the two programmes to it as links, underlined in their district colours; wider screens use the buttons above the art. */
+.hero .sub-now{display:none}
+.hero .sub .sub-now a:is(.ln-g,.ln-a){color:inherit;text-decoration:underline 2px var(--u);text-underline-offset:4px}   /* outranks the sitewide p a link colour */
+.hero .sub .sub-now a:is(.ln-g,.ln-a):hover{text-decoration-thickness:3px}
+.hero .sub .ln-g{--u:var(--track-gaming)}
+.hero .sub .ln-a{--u:var(--track-ai)}
 /* Final A world (28 Oct 2026): whole scene, 2:1 on desktop and its own 1:1 composition on phones; track chips sit in a row above their districts */
 .hero-art{width:min(1180px,calc(100% - 48px));margin:30px auto 0;display:flex;flex-direction:column;gap:12px}
 .hero-art picture{display:block;aspect-ratio:2/1}
 .hero-art img{display:block;width:100%;height:100%;object-fit:contain}
 .hero-art .chips{order:-1;display:flex;justify-content:space-between;gap:24px}
-.track-chip{display:grid;gap:2px;padding:11px 14px 12px;border-radius:12px;background:color-mix(in srgb,var(--ink) 88%,transparent);border:1px solid var(--line-on-ink);text-align:left;text-decoration:none;transition:translate .2s,border-color .2s}
-.track-chip:hover{translate:0 -3px;border-color:currentColor}
-.track-chip b{font:var(--t-body);font-weight:var(--w-bold)}
-.track-chip span{color:var(--muted-on-ink);font:var(--t-small)}
-/* Mobile only: the two audience routes sit above the illustration */
-.routes{display:none}
-.route{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;padding:12px 16px;border-radius:12px;background:var(--ink);border:1px solid var(--line-on-ink);text-decoration:none;text-align:left;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
-.route b{font:var(--t-body);font-weight:var(--w-bold)}
-.route span{color:var(--muted-on-ink);font:var(--t-small)}
-.route:hover{border-color:currentColor}
+/* Programme buttons (29 Oct 2026): each sits above its district and carries that district's colour as a 2px border. White text on the
+   dark fill keeps AA contrast; quieter than the filled "Let's talk" button. */
+.hero-route{--route:var(--line-on-ink);display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(300px,calc(50% - 12px));min-height:68px;padding:12px 18px 12px 20px;border:2px solid var(--route);border-radius:14px;background:var(--ink);color:var(--paper);text-align:left;text-decoration:none;transition:background-color .2s,translate .2s}
+.hero-route.route-g{--route:var(--track-gaming)}
+.hero-route.route-a{--route:var(--track-ai)}
+.hero-route>span{display:grid;gap:2px}
+.hero-route b{font:var(--t-body);font-weight:var(--w-bold)}
+.hero-route span span{color:var(--muted-on-ink);font:var(--t-small)}
+.hero-route svg{flex:none;width:20px;height:20px;transition:translate .2s}
+.hero-route:hover{background:color-mix(in srgb,var(--route) 22%,var(--ink));translate:0 -2px}
+.hero-route:hover svg{translate:3px 0}
+.hero-route:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.hero-route,.hero-route svg{transition:none}.hero-route:hover,.hero-route:hover svg{translate:none}}
 
 /* 2 · References */
 .names{background:var(--paper);color:var(--ink);padding:26px 0 28px;--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
@@ -126,6 +134,13 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 .panel .out{color:var(--ink);font:var(--t-body);font-style:normal}
 .panel p.desc{color:var(--muted);max-width:46ch}
 .panel .btn{justify-self:start;margin-top:8px}
+/* Side by side, the two cards share one set of rows (icon, title, line 1, line 2, line 3, button), so each line starts at the same
+   height in both and the buttons sit on one line at the bottom. Stacked cards keep their natural height. */
+@media (min-width:901px){@supports (grid-template-rows:subgrid){
+  .tg{grid-template-rows:repeat(5,auto) 1fr auto}
+  .panel{grid-row:span 7;grid-template-rows:subgrid}
+  .panel .btn{grid-row:7}
+}}
 /* Programme icons (28 Oct 2026): bespoke art above each title, in equal 112px slots, optically matched (controller 128px, robot 104px:
    different silhouettes); transparent margins may overflow the slot, never cropped. 16px to the title (slot margin + panel gap). */
 .panel .p-ico{display:flex;align-items:center;height:112px;margin-bottom:2px}
@@ -206,8 +221,7 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
   .hero-art{width:100%;margin-top:18px;gap:0}
   .hero-art picture{aspect-ratio:1}
   .hero-art .chips{display:none}
-  .chips,.hero-explore{display:none}
-  .routes{display:grid;gap:10px;width:100%;margin-top:6px}
+  .hero .sub-now{display:inline}
   .panel{padding:26px 20px 28px}
   .panel .p-ico{height:88px}.panel-g .p-ico img{width:100px;height:100px}.panel-a .p-ico img{width:82px;height:82px}
   .founder .wrap{grid-template-columns:1fr;gap:36px}.f-pic{max-width:280px}
@@ -223,13 +237,13 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Communitygeeks">
-<meta property="og:title" content="Communitygeeks · Community, developer and partner programmes for gaming and AI companies">
-<meta property="og:description" content="We design and launch community, developer and partner programmes for gaming and AI companies.">
+<meta property="og:title" content="Communitygeeks · Consulting and programmes for players, developers and partners">
+<meta property="og:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for AI teams.">
 <meta property="og:url" content="https://communitygeeks.ai/">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Communitygeeks · Community, developer and partner programmes for gaming and AI companies">
-<meta name="twitter:description" content="We design and launch community, developer and partner programmes for gaming and AI companies.">
+<meta name="twitter:title" content="Communitygeeks · Consulting and programmes for players, developers and partners">
+<meta name="twitter:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for AI teams.">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
 <script defer src="/assets/cg/analytics.js"></script>
 </head>
@@ -279,12 +293,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
   <section class="hero" aria-labelledby="h1">
     <div class="hero-copy">
       <h1 id="h1">Build with the people around your product.</h1>
-      <p class="sub">We design and launch community, developer and partner programmes for gaming and AI companies.</p>
-      <a class="btn btn-fill hero-explore" href="#tracks">Explore programmes</a>
-      <nav class="routes" aria-label="Choose your programme">
-        <a class="route" href="/uncopyable/"><b>For indie studios</b><span>Uncopyable</span></a>
-        <a class="route" href="/services/builder-programmes/"><b>For AI teams</b><span>Builder programmes</span></a>
-      </nav>
+      <p class="sub">Consulting and hands-on programmes for your players, developers and partners.<span class="sub-now"> Right now: <a class="ln-g" href="/uncopyable/">Uncopyable</a> for indie game studios, <a class="ln-a" href="/services/builder-programmes/">Builder programmes</a> for AI teams.</span></p>
     </div>
     <div class="hero-art">
       <picture>
@@ -294,10 +303,10 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
         <img src="/assets/home/normalised/homepage-world-final-1180.webp" srcset="/assets/home/normalised/homepage-world-final-1180.webp 1180w, /assets/home/normalised/homepage-world-final-1600.webp 1600w, /assets/home/normalised/homepage-world-final-2200.webp 2200w" sizes="(max-width: 760px) 100vw, (max-width: 1230px) calc(100vw - 48px), 1180px" width="1180" height="590" fetchpriority="high" decoding="async"
              alt="Astronauts share an isometric world: red arcade play and game-level building on the left, blue software integration and a rocket launch on the right.">
       </picture>
-      <div class="chips">
-        <a class="track-chip chip-g" href="/uncopyable/"><b>Gaming</b><span>For indie game studios</span></a>
-        <a class="track-chip chip-a" href="/services/builder-programmes/"><b>AI &amp; AI infrastructure</b><span>For product teams</span></a>
-      </div>
+      <nav class="chips" aria-label="Programmes">
+        <a class="hero-route route-g" href="/uncopyable/"><span><b>For indie studios</b><span>Uncopyable</span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="hero-route route-a" href="/services/builder-programmes/"><span><b>For AI teams</b><span>Builder programmes</span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </nav>
     </div>
   </section>
 
@@ -325,13 +334,15 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
           <h3 id="g-t">Uncopyable</h3>
           <p class="out">For indie game studios: find your first players before launch.</p>
           <p class="desc">A practical programme for building early player communities, running playtests and working with small creators.</p>
+          <p class="desc">Running an association or accelerator? <a href="/uncopyable/#programmes">Sponsor a cohort</a> of up to 10 studios, from €2,500.</p>
           <a class="btn btn-fill" href="/uncopyable/">Explore Uncopyable</a>
         </article>
         <article class="panel panel-a" id="ai" aria-labelledby="a-t">
           <span class="p-ico"><img src="/assets/home/normalised/programme-robot-isometric-104.webp" srcset="/assets/home/normalised/programme-robot-isometric-104.webp 1x, /assets/home/normalised/programme-robot-isometric-208.webp 2x" width="104" height="104" alt="" loading="lazy" decoding="async"></span>
           <h3 id="a-t">Builder programmes</h3>
-          <p class="out">For AI and AI-infrastructure product teams: grow the builder ecosystem around your product.</p>
-          <p class="desc">We help your team design and launch developer, contributor and partner programmes, from first-project support to builder cohorts.</p>
+          <p class="out">For AI teams: grow the builder ecosystem around your product.</p>
+          <p class="desc">We design and launch developer, contributor and partner programmes, from first-project support to builder cohorts.</p>
+          <p class="desc">Already running one? We review what works and plan the next stage, from relaunching ambassadors to keeping support answers findable.</p>
           <a class="btn btn-fill" href="/services/builder-programmes/">Explore Builder programmes</a>
         </article>
       </div>
@@ -352,7 +363,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
       <div class="f-copy">
         <h2 class="h2" id="fo-t">Carmelito Bauer</h2>
         <p class="role">Founder, Communitygeeks</p>
-        <p>Carmelito has spent more than a decade building community, developer and advocacy programmes across SaaS, AI, gaming and education. <strong>He works with your team from the first decision through launch and handover.</strong></p>
+        <p>Carmelito has spent more than a decade building community, developer and advocacy programmes across SaaS, AI, gaming and education.</p>
         <a class="tl" href="/about/">About the work</a>
       </div>
     </div>
@@ -380,7 +391,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 <footer class="cg-foot"><div class="cg-w">
   <div class="cg-fgrid">
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
-    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">Gaming: Uncopyable</a></li><li><a href="/services/builder-programmes/">AI &amp; AI infrastructure: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/builder-programmes/">For AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
     <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
