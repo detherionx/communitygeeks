@@ -2,7 +2,7 @@
    overlapping the paper content, then article teaser, case and talk pair, contribution. Tokens only; leaf colours live in tokens.css. */
 .lx-page{margin:0;background:var(--paper);color:var(--ink);font:var(--t-body)}
 .lx-page main{display:block}
-.lx-page h1,.lx-page h2,.lx-page p{margin:0}
+.lx-page h1,.lx-page h2,.lx-page h3,.lx-page p{margin:0}
 .lx-page h1{font:var(--t-h1)}
 .lx-page h2{font:var(--t-h2)}
 .lx-page img{display:block;max-width:100%;height:auto}
@@ -40,16 +40,37 @@
    the talk are compact rows. Card headings: the article uses h2 size, the compact cards the small card-title style (body bold). */
 .lx-cards{display:grid;gap:28px}
 .lx-card{padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
-.lx-card h2{margin:0 0 12px}
+/* One card-title style for every card on the page (30 Oct 2026): body size, bold */
+.lx-card h3{margin:0 0 8px;font:var(--t-body);font-weight:var(--w-bold);text-wrap:balance}
 .lx-card .lx-link{margin-top:20px}
-.lx-lead{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:48px;padding:40px}
-.lx-lead h2{max-width:18ch;margin-bottom:16px;text-wrap:balance}
+.lx-lead,.lx-media{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:48px;padding:40px}
+/* Media cards (30 Oct 2026): the case and the Mentors Corner card take the article card's grid and its 16:9 image box, so all three
+   illustrations carry the same weight. Art that is not 16:9 is padded inside the box (contain), never cropped or stretched. */
+.lx-media-art{aspect-ratio:16/9}
+.lx-media-art picture{display:block;height:100%}
+.lx-media-art img{width:100%;height:100%;object-fit:contain}
+/* Dark art (the talk's tombstone, from the deck) sits in a black box; lighten maps its near-black onto the box exactly */
+.lx-media-dark{border-radius:12px;background:var(--ink)}
+.lx-media-dark img{mix-blend-mode:lighten}
+.lx-media .lx-availability{margin-top:20px}
+/* Featured talk (30 Oct 2026): the whole card is ink, so the deck's tombstone sits flush on it; larger title; white rows with faint
+   dividers; small light-grey notes; lavender links (AA on ink). */
+.lx-dark{border-color:var(--ink);background:var(--ink);color:var(--paper);--link:var(--action-on-ink);--focus:var(--action-on-ink)}
+.lx-content .lx-dark h3{margin-bottom:10px;font:var(--t-h2)}
+.lx-content .lx-dark p{color:var(--paper)}
+.lx-dark .lx-availability div,.lx-dark .lx-availability div:last-child{border-color:color-mix(in srgb,var(--paper) 18%,transparent)}
+.lx-dark .lx-availability dt,.lx-dark .lx-availability dd{color:var(--paper)}
+.lx-content .lx-dark .lx-note{color:var(--muted-on-ink)}
+.lx-dark{overflow:hidden}
+/* The tombstone fills the card's right half to the top, right and bottom edges (cover; only empty sky is cropped) */
+.lx-dark .lx-media-dark{align-self:stretch;aspect-ratio:auto;margin:-40px -40px -40px 0;border-radius:0}
+.lx-dark .lx-media-dark img{object-fit:cover;object-position:50% 80%}
+.lx-content .lx-dark .lx-tickets{margin-top:20px}
+/* Slim case card: a small thumbnail, the card-title size, one line and the link; clearly lighter than the article card */
+.lx-slim{display:grid;grid-template-columns:140px minmax(0,1fr);gap:28px;align-items:center;padding:20px 28px}
+.lx-slim-art img{width:140px}
+.lx-slim .lx-link{margin-top:8px}
 .lx-lead img{width:100%}
-.lx-case{display:grid;grid-template-columns:minmax(160px,25%) 1fr;align-items:center;gap:32px;padding-block:52px}
-.lx-case-art{display:flex;justify-content:center}
-.lx-case-art img{width:180px;max-width:100%;object-fit:contain}
-.lx-case h2,.lx-talk h2{margin-bottom:8px;font:var(--t-body);font-weight:var(--w-bold)}
-.lx-talk{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:48px}
 .lx-availability{margin:0 0 12px;padding:0}
 .lx-availability div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
 .lx-availability div:last-child{border-bottom:1px solid var(--line)}
@@ -59,6 +80,28 @@
 .lx-contribute{display:flex;justify-content:space-between;align-items:center;gap:40px;padding-top:72px}
 .lx-contribute h2{max-width:25ch;margin-bottom:14px}
 .lx-contribute>a{margin:0;white-space:nowrap}
+.lx-contribute .lx-contribute-g{margin-top:10px}
+/* Two tracks (30 Oct 2026): the hero's path buttons (shared .hero-route, theme.css) lead to two stacked sections, blue
+   Lisbon Community Week then red DevGAMM Lisbon. A short rule in the track colour sits above each heading: decorative, no text. */
+/* Hero routes (30 Oct 2026): 2 columns x 2 rows, same 616px as the old row; LCW spans both rows, the two games routes stack on the right.
+   Below 640px one column in date order (source order), equal heights. */
+.lx-paths{display:grid;grid-template-columns:repeat(2,300px);justify-content:center;gap:16px;margin-top:28px}
+.lx-paths .route-a{grid-row:span 2}
+@media (max-width:639px){.lx-paths{grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr}.lx-paths .route-a{grid-row:auto}}
+@media (prefers-reduced-motion:no-preference){html:has(.lx-page){scroll-behavior:smooth}}
+.lx-track{scroll-margin-top:96px}
+.lx-track+.lx-track{margin-top:72px}
+.lx-track-h::before{content:"";display:block;width:32px;height:4px;margin-bottom:16px;border-radius:2px;background:var(--rule)}
+.lx-track-a{--rule:var(--track-ai)}
+.lx-track-g{--rule:var(--track-gaming)}
+.lx-track .lx-track-h{margin-bottom:28px}   /* outranks the .lx-page heading margin reset */
+.lx-page .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}   /* screen-reader-only text; system.css is not loaded here */
+.lx-media .lx-note{margin-top:8px}
+.lx-track .lx-promo{margin:-14px 0 28px;color:var(--charcoal)}
+.lx-mini{padding:24px 32px}
+.lx-mentor dd a{color:var(--link);font-weight:var(--w-bold);white-space:nowrap}   /* games card: event rows, booking link on the right */
+.lx-games-more{margin-top:28px}   /* shared games cards after Lisboa Games Week: continue the red track, no heading */
+.lx-mini .lx-link{margin-top:10px}
 
 @media (max-width:760px){
   .lx-hero{padding-top:40px}
@@ -69,12 +112,18 @@
   .lx-leaf{width:9px;height:16px}
   .lx-content{padding:32px 0 48px}
   .lx-cards{gap:24px}
-  .lx-card,.lx-lead,.lx-case{padding:22px}
-  .lx-lead,.lx-case,.lx-talk{grid-template-columns:1fr;gap:20px}
+  .lx-card,.lx-lead,.lx-media{padding:22px}
+  .lx-lead,.lx-media{grid-template-columns:1fr;gap:20px}
+  .lx-dark .lx-media-dark{aspect-ratio:1/1;margin:4px -22px -22px}
+  .lx-slim{grid-template-columns:96px minmax(0,1fr);gap:18px;padding:18px}
+  .lx-slim-art img{width:96px}
   .lx-lead picture img{width:min(440px,100%);margin:auto}
-  .lx-case-art{justify-content:flex-start}
-  .lx-case-art img{width:140px}
   .lx-contribute{display:block;padding-top:48px}
+  .lx-paths{margin-top:24px}
+  .lx-games-more{margin-top:24px}
+  .lx-mentor .lx-availability div{flex-direction:column;gap:2px}
+  .lx-track+.lx-track{margin-top:48px}
+  .lx-mini{padding:22px}
   .lx-contribute>a{margin-top:22px}
 }
 @media (prefers-reduced-motion:reduce){.lx-leaf,.lx-motion{display:none;animation:none}}

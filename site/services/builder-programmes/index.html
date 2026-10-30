@@ -8,9 +8,9 @@
 <title>Builder programmes for AI &amp; AI infrastructure teams · Communitygeeks</title>
 <meta name="description" content="Builder programmes for AI and AI infrastructure companies: we plan, launch and improve them with your team for the people who build products, workflows and businesses with your technology.">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="/assets/cg/tokens.css?v=78d3ecea">
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
 <link rel="preload" as="image" type="image/avif" imagesrcset="/assets/home/normalised/research-ai-builders-800.avif 800w, /assets/home/normalised/research-ai-builders.avif 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">
-<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=bbab33a2">
 <link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
 /* /uncopyable/ (28 Oct 2026): separate full-width bands, deep / paper / white, never two alike in a row.
    Page-scoped aliases map to existing tokens only. Red stays in the art: the accent roles use ink on light bands and paper on deep bands.
@@ -295,8 +295,12 @@
 }
 /* Figures (29 Oct 2026): this page sets numbers in the body font's proportional digits, no tabular figures, including in the shared step and offer rules */
 .u-steps .mk,.offer .price,.offer .price small,.offer .facts{font-variant-numeric:normal}
+/* Booking block (30 Oct 2026): one line, one large button to Cal.com, email underneath */
+.bp-book-lead{margin-top:12px;color:var(--muted-on-ink);font:var(--t-body)}
+.u-final .bp-book-btn{min-height:56px;padding:0 28px}
+.bp-book-mail{margin-top:20px;color:var(--muted-on-ink);font:var(--t-body)}
 </style>
-<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="stylesheet" href="/assets/cg/theme.css?v=1672c3d3">
 <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
@@ -346,6 +350,16 @@
       </div>
     </div>
     <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-events">Events<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-events" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair"><div class="cg-card cg-card-trip"><a href="/lisbon/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/lisbon-harbour-870.avif"><img src="/assets/home/normalised/lisbon-harbour-870.webp" width="870" height="489" alt="" loading="lazy" decoding="async"></picture></span><strong>Lisbon</strong></a><a class="d" href="/lisbon/#community-week">Lisbon Community Week · 13 Nov · Talk: The Death of Community Management</a><a class="d" href="/lisbon/#games">DevGAMM Lisbon · 17–18 Nov · Mentors Corner</a><a class="d" href="/lisbon/#games">Lisboa Games Week · 19–22 Nov · Loading Zone mentor</a></div><div class="cg-card cg-card-plain"><strong>Coming up</strong><span class="d">Bilbao International Games Conference · 11–12 Dec</span><span class="d">Taipei Game Show · 21–24 Jan 2027</span></div></div>
+          <a class="cg-all" href="/events/"><b>All events</b><span>Upcoming and past</span></a>
+        </div>
+      </div>
+    </div>
     <a href="/about/">About</a>
     
     <a class="cg-btn" href="#contact">Let’s talk</a>
@@ -360,7 +374,7 @@
       <h1 class="h1" id="h1">Grow the builder ecosystem around your product.</h1>
       <p class="lede">We plan, launch and improve programmes with your team for the people who build products, workflows and businesses with your technology.</p>
       
-      <div class="acts"><a class="btn btn-fill" href="#options">See the three ways to work</a><a class="btn btn-line" href="https://cal.com/communitygeeks/30min">Book a conversation</a></div>
+      <div class="acts"><a class="btn btn-fill" href="#options">See the three ways to work</a><a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata[source]=builder-programmes">Book a conversation</a></div>
     </div>
     <figure class="phero-art sc-hero"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-ai-builders-800.avif 800w, /assets/home/normalised/research-ai-builders.avif 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="/assets/home/normalised/research-ai-builders-800.webp" srcset="/assets/home/normalised/research-ai-builders-800.webp 800w, /assets/home/normalised/research-ai-builders.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1000" alt="Two astronauts align and connect white software modules with matching blue plugs and sockets at a grey workbench." fetchpriority="high" decoding="async"></picture></figure>
   </div>
@@ -456,7 +470,9 @@
   <div class="wrap u-fgrid">
     <div class="u-fmain">
     <h2 id="ct-t">Tell us what you’re building.</h2>
-    <div class="acts"><a class="btn btn-fill" href="https://cal.com/communitygeeks/30min" target="_blank" rel="noopener">Book a conversation</a><a class="tl" href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <p class="bp-book-lead">Pick a time for a 30-minute conversation.</p>
+    <div class="acts"><a class="btn btn-fill bp-book-btn" href="https://cal.com/communitygeeks/30min?metadata[source]=builder-programmes">Book a 30-minute conversation</a></div>
+    <p class="bp-book-mail">Prefer email? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
     </div>
     <picture class="u-fart"><source type="image/avif" srcset="/assets/home/normalised/research-ai-builders-800.avif 800w, /assets/home/normalised/research-ai-builders.avif 1600w" sizes="(max-width: 900px) 280px, 40vw"><img src="/assets/home/normalised/research-ai-builders-800.webp" srcset="/assets/home/normalised/research-ai-builders-800.webp 800w, /assets/home/normalised/research-ai-builders.webp 1600w" sizes="(max-width: 900px) 280px, 40vw" width="1600" height="1000" alt="Two astronauts align and connect white software modules with matching blue plugs and sockets at a grey workbench." loading="lazy" decoding="async"></picture>
     <div class="u-fmeta"><div class="founder"><img src="/assets/home/founder.webp" width="720" height="900" alt="" loading="lazy"><p><b>Carmelito Bauer</b>, founder of Communitygeeks. His experience includes DeepL, the European Commission’s EU Academy, and gaming communities for Tencent, through ZAM.</p></div></div>
@@ -469,11 +485,11 @@
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
     <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/builder-programmes/">For AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
-    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">13 & 17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
   </div>
   <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
 </div></footer>
-<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+<script src="/assets/cg/site.js?v=c6130093" defer></script>
 </body>
 </html>

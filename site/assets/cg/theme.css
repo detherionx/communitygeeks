@@ -99,3 +99,42 @@ picture.sc>img{object-fit:contain}
 .reading .art-end-role,.reading .art-end-links{margin:0;color:var(--muted);font:var(--t-small)}
 .reading .art-end-bio{margin:6px 0 0;color:var(--charcoal);font:var(--t-body)}
 .reading .art-end .art-end-links{margin-top:8px}
+
+/* Programme path buttons (homepage hero 29 Oct, /lisbon/ 30 Oct 2026): each sits above or leads to its track and carries that district's colour as a 2px border. White text on the
+   dark fill keeps AA contrast; quieter than the filled "Let's talk" button. */
+a.hero-route{--route:var(--line-on-ink);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:12px 18px 12px 20px;border:2px solid var(--route);border-radius:14px;background:var(--ink);color:var(--paper);text-align:left;text-decoration:none;transition:background-color .2s,translate .2s}
+.hero-route.route-g{--route:var(--track-gaming)}
+.hero-route.route-a{--route:var(--track-ai)}
+.hero-route>span{display:grid;gap:2px}
+.hero-route b{font:var(--t-body);font-weight:var(--w-bold)}
+.hero-route span span{color:var(--muted-on-ink);font:var(--t-small)}
+.hero-route svg{flex:none;width:20px;height:20px;transition:translate .2s}
+.hero-route:hover{background:color-mix(in srgb,var(--route) 22%,var(--ink));translate:0 -2px}
+.hero-route:hover svg{translate:3px 0}
+.hero-route:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.hero-route,.hero-route svg{transition:none}.hero-route:hover,.hero-route:hover svg{translate:none}}
+.hero-route.is-down svg{rotate:90deg}
+.hero-route.is-down:hover svg{translate:0 3px}
+@media (prefers-reduced-motion:reduce){.hero-route.is-down:hover svg{translate:none}}
+
+/* Download card (30 Oct 2026, _build/downloads.py): an A4 page preview that reads as paper, title, one line, a button and file facts.
+   The track sets the button colour (gaming red, AI blue); white on either passes AA (4.9:1, 6.9:1). Reused on /lisbon/ now,
+   /research/games/ and Uncopyable later. */
+.dl-card{box-sizing:border-box;display:grid;grid-template-columns:180px 1fr;gap:32px;align-items:center;padding:32px 40px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);--dl:var(--track-gaming)}
+.dl-card.dl-ai{--dl:var(--track-ai)}
+.dl-thumb{position:relative;display:block}
+.dl-thumb.dl-multi{padding:0 14px 14px 0}   /* room for the next page, offset behind the first */
+.dl-page{display:block;aspect-ratio:210/297;border:1px solid var(--line);background:var(--surface);box-shadow:0 10px 24px -14px var(--scrim)}
+.dl-page img{display:block;width:100%;height:100%;object-fit:cover}
+.dl-front{position:relative}
+.dl-back{position:absolute;inset:14px 0 0 14px}
+.dl-body{display:grid;gap:10px;justify-items:start}
+.dl-body h3{margin:0;font:var(--t-body);font-weight:var(--w-bold)}
+.dl-body p{margin:0;max-width:52ch;color:var(--charcoal);font:var(--t-body)}
+a.dl-btn{display:inline-flex;align-items:center;min-height:48px;margin-top:8px;padding:0 22px;border-radius:999px;background:var(--dl);color:var(--surface);text-decoration:none;font:var(--t-body);font-weight:var(--w-bold);transition:translate .2s}
+a.dl-btn:hover{translate:0 -2px}
+a.dl-btn:focus-visible{outline:3px solid var(--action);outline-offset:3px}
+.dl-body .dl-meta{color:var(--muted);font:var(--t-small)}
+@media (max-width:760px){.dl-card{grid-template-columns:140px 1fr;gap:20px;padding:22px}}
+@media (max-width:420px){.dl-card{grid-template-columns:1fr}.dl-thumb{width:154px}}
+@media (prefers-reduced-motion:reduce){a.dl-btn{transition:none}a.dl-btn:hover{translate:none}}

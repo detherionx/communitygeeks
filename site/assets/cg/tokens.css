@@ -33,7 +33,8 @@
   --action-on-ink:#9CB5F8;--action-on-ink-hover:#B4C9FF;   /* buttons (ink text), links and focus rings on ink */
 
   /* Track colours of the art (locked 28 Oct 2026). UI use only on the homepage hero's two programme buttons, each paired
-     with its district (founder request, 29 Oct 2026): borders and underlines, never text colour (red 3.9:1, blue 2.8:1 on ink). */
+     with its district (founder request, 29 Oct 2026): borders and underlines, never text colour on ink (red 3.9:1, blue 2.8:1).
+     Also the short rules above the /lisbon/ track headings and the track squares in the Events menu (30 Oct 2026). */
   --track-gaming:#D03736;--track-ai:#2236FF;
 
   /* Illustration only: the falling leaves over the Lisbon harbour scene (28 Oct 2026). Never UI. */

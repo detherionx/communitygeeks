@@ -26,6 +26,4 @@
     const t = trigs.find(t => t.getAttribute('aria-expanded') === 'true');
     if (t) close(true); else if (nav.classList.contains('open')) { closeAll(); tog.focus(); }
   });
-  // Event links expire after BIG Bilbao (12 Dec 2026), in the visitor's local time.
-  if (new Date() >= new Date(2026, 11, 13)) document.querySelectorAll('[data-event]').forEach(el => el.remove());
 })();

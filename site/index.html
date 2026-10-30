@@ -10,8 +10,8 @@
 <meta name="description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for AI teams.">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-1180.avif" imagesrcset="/assets/home/normalised/homepage-world-final-1180.avif 1180w, /assets/home/normalised/homepage-world-final-1600.avif 1600w, /assets/home/normalised/homepage-world-final-2200.avif 2200w" imagesizes="(max-width: 760px) 100vw, (max-width: 1230px) calc(100vw - 48px), 1180px" type="image/avif" media="(min-width:761px)">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-mobile.avif" type="image/avif" media="(max-width:760px)">
-<link rel="stylesheet" href="/assets/cg/tokens.css?v=78d3ecea">
-<link rel="stylesheet" href="/assets/cg/chrome.css?v=75cf821c">
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=bbab33a2">
 <style>
 /* Approved CI tokens (src/assets/css/visual-system.css) in Heaven Media's band structure */
 :root{
@@ -96,19 +96,8 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 .hero-art picture{display:block;aspect-ratio:2/1}
 .hero-art img{display:block;width:100%;height:100%;object-fit:contain}
 .hero-art .chips{order:-1;display:flex;justify-content:space-between;gap:24px}
-/* Programme buttons (29 Oct 2026): each sits above its district and carries that district's colour as a 2px border. White text on the
-   dark fill keeps AA contrast; quieter than the filled "Let's talk" button. */
-.hero-route{--route:var(--line-on-ink);display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(300px,calc(50% - 12px));min-height:68px;padding:12px 18px 12px 20px;border:2px solid var(--route);border-radius:14px;background:var(--ink);color:var(--paper);text-align:left;text-decoration:none;transition:background-color .2s,translate .2s}
-.hero-route.route-g{--route:var(--track-gaming)}
-.hero-route.route-a{--route:var(--track-ai)}
-.hero-route>span{display:grid;gap:2px}
-.hero-route b{font:var(--t-body);font-weight:var(--w-bold)}
-.hero-route span span{color:var(--muted-on-ink);font:var(--t-small)}
-.hero-route svg{flex:none;width:20px;height:20px;transition:translate .2s}
-.hero-route:hover{background:color-mix(in srgb,var(--route) 22%,var(--ink));translate:0 -2px}
-.hero-route:hover svg{translate:3px 0}
-.hero-route:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){.hero-route,.hero-route svg{transition:none}.hero-route:hover,.hero-route:hover svg{translate:none}}
+/* Programme buttons: the shared .hero-route component lives in assets/cg/theme.css; here only their width above the districts */
+.hero-art .hero-route{width:min(300px,calc(50% - 12px))}
 
 /* 2 · References */
 .names{background:var(--paper);color:var(--ink);padding:26px 0 28px;--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
@@ -231,7 +220,7 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object-fit:contain}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
-<link rel="stylesheet" href="/assets/cg/theme.css?v=203f37af">
+<link rel="stylesheet" href="/assets/cg/theme.css?v=1672c3d3">
 <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
@@ -281,6 +270,16 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
       </div>
     </div>
     <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-events">Events<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-events" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair"><div class="cg-card cg-card-trip"><a href="/lisbon/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/lisbon-harbour-870.avif"><img src="/assets/home/normalised/lisbon-harbour-870.webp" width="870" height="489" alt="" loading="lazy" decoding="async"></picture></span><strong>Lisbon</strong></a><a class="d" href="/lisbon/#community-week">Lisbon Community Week · 13 Nov · Talk: The Death of Community Management</a><a class="d" href="/lisbon/#games">DevGAMM Lisbon · 17–18 Nov · Mentors Corner</a><a class="d" href="/lisbon/#games">Lisboa Games Week · 19–22 Nov · Loading Zone mentor</a></div><div class="cg-card cg-card-plain"><strong>Coming up</strong><span class="d">Bilbao International Games Conference · 11–12 Dec</span><span class="d">Taipei Game Show · 21–24 Jan 2027</span></div></div>
+          <a class="cg-all" href="/events/"><b>All events</b><span>Upcoming and past</span></a>
+        </div>
+      </div>
+    </div>
     <a href="/about/">About</a>
     
     <a class="cg-btn" href="#contact">Let’s talk</a>
@@ -393,12 +392,12 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
     <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/builder-programmes/">For AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
-    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Events.</h2><ul><li data-event><a href="/lisbon/"><span class="cg-ev">13 Nov</span>Lisbon Community Week</a></li><li data-event><a href="/bilbao/"><span class="cg-ev">11–12 Dec</span>BIG Bilbao</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">13 & 17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
   </div>
   <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
 </div></footer>
-<script src="/assets/cg/site.js?v=87eff11d" defer></script>
+<script src="/assets/cg/site.js?v=c6130093" defer></script>
 
 </body>
 </html>
