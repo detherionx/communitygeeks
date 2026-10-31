@@ -12,6 +12,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      base:
+        description: "Upload everything changed since this commit (default: the commit recorded on the server)"
+        required: false
 
 concurrency:
   group: deploy-hetzner
@@ -36,4 +40,5 @@ jobs:
           SSHPASS: ${{ secrets.HETZNER_PASSWORD }}
           REMOTE: /${{ secrets.HETZNER_REMOTE_PATH }}
           BEFORE: ${{ github.event.before }}
+          BASE: ${{ inputs.base }}
         run: bash .github/scripts/deploy-changed.sh

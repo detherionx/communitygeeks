@@ -4,7 +4,7 @@
 # so a failed run is retried in full by the next one. Without a marker the base is the commit before this push
 # (BEFORE); without that either, everything is uploaded. Deleted files stay on the server, as before.
 #
-# Env: HOST USER SSHPASS REMOTE (absolute remote dir) BEFORE (optional). DRY_RUN=1 prints the sftp batch.
+# Env: HOST USER SSHPASS REMOTE (absolute remote dir) BEFORE (optional) BASE (optional, overrides the marker). DRY_RUN=1 prints the sftp batch.
 set -euo pipefail
 
 sftp_batch() {  # $1 = batch file, $2 = time limit in seconds
@@ -13,8 +13,8 @@ sftp_batch() {  # $1 = batch file, $2 = time limit in seconds
 }
 
 head_sha=$(git rev-parse HEAD)
-base=""
-if [ -z "${DRY_RUN:-}" ]; then
+base="${BASE:-}"
+if [ -z "$base" ] && [ -z "${DRY_RUN:-}" ]; then
   rm -f /tmp/marker
   printf -- '-get "%s/.deployed-sha" /tmp/marker\n' "$REMOTE" > /tmp/read.sftp
   sftp_batch /tmp/read.sftp 120
