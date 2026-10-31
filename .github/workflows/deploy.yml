@@ -26,14 +26,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Install sshpass
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
 
       - name: Upload changed files over SFTP
         env:
           HOST: ${{ secrets.HETZNER_HOST }}
           USER: ${{ secrets.HETZNER_USERNAME }}
-          LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
+          SSHPASS: ${{ secrets.HETZNER_PASSWORD }}
           REMOTE: /${{ secrets.HETZNER_REMOTE_PATH }}
           BEFORE: ${{ github.event.before }}
         run: bash .github/scripts/deploy-changed.sh
