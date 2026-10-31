@@ -1,6 +1,6 @@
 # Communitygeeks
 
-> Communitygeeks helps AI and gaming companies design and launch programmes for the people building around their products: players, developers, contributors and partners. Founded by Carmelito Bauer. Two services: Uncopyable for indie game studios, and Builder programmes for software and AI companies. The research covers two tracks, gaming and builder ecosystems at AI companies.
+> Communitygeeks helps companies build with the people around their products: players, developers and partners. Right now: Uncopyable for indie game studios and Builder programmes for software and AI teams. Founded by Carmelito Bauer. The research covers two tracks, gaming and builder ecosystems at AI and software companies.
 
 This file is a plain summary for AI systems, following the community llms.txt convention. See Communitygeeks OS → Public Source Pack → "Website Technical Decisions" for why it exists.
 
