@@ -4,11 +4,18 @@ name: Deploy to Hetzner
 # build (python _build/build.py --production) and committed here. Nothing is built in CI; a push to main uploads site/.
 # Files on the server that are not in site/ (the previous site, api/ config) are left in place; .htaccess redirects
 # the retired routes.
+#
+# Only files changed since the last successful deploy are uploaded (.github/scripts/deploy-changed.sh). One deploy runs
+# at a time; a newer push waits, and its diff starts from the commit the server last confirmed.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: deploy-hetzner
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -16,13 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Deploy over SFTP
-        uses: wangyucode/sftp-upload-action@v2.0.4
         with:
-          host: ${{ secrets.HETZNER_HOST }}
-          port: 22
-          username: ${{ secrets.HETZNER_USERNAME }}
-          password: ${{ secrets.HETZNER_PASSWORD }}
-          localDir: 'site'
-          remoteDir: '/${{ secrets.HETZNER_REMOTE_PATH }}'
+          fetch-depth: 0
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload changed files over SFTP
+        env:
+          HOST: ${{ secrets.HETZNER_HOST }}
+          USER: ${{ secrets.HETZNER_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
+          REMOTE: /${{ secrets.HETZNER_REMOTE_PATH }}
+          BEFORE: ${{ github.event.before }}
+        run: bash .github/scripts/deploy-changed.sh
