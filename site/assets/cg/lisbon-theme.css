@@ -33,5 +33,6 @@ header:not(.cg-hdr) a{font-weight:var(--w-regular)!important}  /* the talk deck 
 .reading-figure img{display:block;width:100%;height:auto}
 .reading-figure.lead img{border-radius:12px}
 .reading-figure.inline{max-width:640px;margin-left:auto;margin-right:auto}
+.reading-figure figcaption{margin-top:8px;color:var(--muted);font:var(--t-small)}  /* same as the site-wide caption (system.css) */
 .lead-story .lead-art{display:block;margin:18px 0 24px}
 .lead-story .lead-art img{display:block;width:100%;height:auto;border-radius:12px}
