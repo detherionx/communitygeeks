@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://communitygeeks.ai/services/player-programmes/">
+<title>Player programmes for studios with a live game · Communitygeeks</title>
+<meta name="description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
+<link rel="preload" as="image" type="image/avif" imagesrcset="/assets/home/normalised/research-player-contributions-800.avif 800w, /assets/home/normalised/research-player-contributions.avif 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=cf047903">
+<link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
+/* /uncopyable/ (28 Oct 2026): separate full-width bands, deep / paper / white, never two alike in a row.
+   Page-scoped aliases map to existing tokens only. Red stays in the art: the accent roles use ink on light bands and paper on deep bands.
+   Text colours are set with the text tokens directly (the brand check allows no other text colours). */
+.u-page{--u-deep:var(--ink);--u-deep-2:var(--ink-2);--u-line-deep:var(--line-on-ink);--u-muted-deep:var(--muted-on-ink);--u-accent:var(--ink);--u-accent-soft:color-mix(in srgb,var(--u-accent) 6%,transparent)}
+.u-band{padding:112px 0}
+.u-band .wrap{max-width:calc(1120px + 2*var(--g))}
+.u-paper{background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.u-white{background:var(--surface);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.u-deep{background:var(--u-deep);color:var(--paper);--u-accent:var(--paper);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+/* Section header: numbered label, title, one-sentence intro */
+.u-sh{display:grid;gap:12px;max-width:62ch;margin-bottom:48px}
+.u-sh h2{font:var(--t-h2);}
+.u-sh .intro{color:var(--muted);font:var(--t-body)}
+.u-deep .u-sh .intro{color:var(--muted-on-ink)}
+.u-note{color:var(--muted);font:var(--t-small)}
+.u-deep .u-note{color:var(--muted-on-ink)}
+.u-page .ic{width:24px;height:24px;color:var(--ink)}
+.u-deep .ic{color:var(--paper)}
+
+/* Hero */
+.u-hero{padding:0}
+.u-hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 40px;align-items:center;padding-top:clamp(28px,4vw,48px);padding-bottom:clamp(36px,4vw,64px)}
+.u-copy{display:grid;justify-items:start}
+.u-copy>*{margin:0}
+.u-wm{margin-top:var(--hero-gap-crumb);color:var(--paper);font:var(--t-h1);}
+.u-wm svg{display:block;height:calc(var(--t-h1-size) * .72);width:auto;max-width:100%}
+.u-meta{margin-top:var(--hero-gap-meta);color:var(--muted-on-ink);font:var(--t-body)}
+.u-hook{margin-top:var(--hero-gap-headline);max-width:22ch;color:var(--paper);font:var(--t-h2);}
+.u-hero .lede{margin-top:var(--hero-gap-lead);color:var(--paper)}
+.u-routes{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:var(--hero-gap-actions)}
+
+/* 01 Who it's for: three cards */
+.u-who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.u-who li{display:grid;gap:16px;align-content:start;padding:28px;border-radius:16px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font:var(--t-body)}
+.u-paper .u-scope{margin-top:24px}
+
+/* 02 How it works: 2x2 cards, the loop, the supply strip */
+.u-parts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.u-parts li{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;gap:12px 16px;padding:28px;border-radius:16px;background:var(--paper);border-top:3px solid var(--u-accent)}
+.u-parts .u-ic{grid-area:1/2/2/3;align-self:start;width:84px;height:84px;margin:-8px -8px 0 0}
+.u-parts .u-ic img{display:block;width:100%;height:100%;object-fit:contain}
+.u-parts h3{grid-area:1/1;align-self:center}
+.u-parts li>p{grid-column:1/-1}
+.u-parts h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-parts p{max-width:56ch;color:var(--muted);font:var(--t-body)}
+.u-parts .eg,.u-take .eg{padding:14px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.u-parts .eg b,.u-take .eg b{color:var(--ink)}
+.u-take .eg{display:grid;gap:4px;max-width:58ch;margin-top:12px}
+.u-take .eg p{color:var(--muted);font:var(--t-body)}
+/* The cycle: five numbered steps on one row, thin neutral connectors; a small repeat note instead of a return arc */
+.u-cycle{margin-top:96px}
+.u-cycle-h{display:grid;gap:8px;max-width:56ch;margin-bottom:40px}
+.u-cycle-h h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-cycle-h p{color:var(--muted);font:var(--t-body)}
+.u-steps{--gap:24px;--mk:36px;--cn:color-mix(in srgb,var(--muted) 45%,transparent);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 var(--gap)}
+.u-steps li{position:relative;display:grid;grid-template-rows:var(--mk) auto auto;gap:12px;align-content:start}
+.u-steps .mk{display:grid;place-items:center;width:var(--mk);height:var(--mk);border-radius:50%;background:var(--ink);color:var(--paper);font:var(--t-small);font-variant-numeric:tabular-nums}
+.u-steps h4{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-steps p{color:var(--muted);font:var(--t-body)}
+.u-steps li:not(:last-child)::after{content:"";position:absolute;top:calc(var(--mk) / 2);left:calc(var(--mk) + 10px);right:calc(10px - var(--gap));border-top:1px solid var(--cn)}
+.u-steps li:not(:last-child)::before{content:"";position:absolute;top:calc(var(--mk) / 2 - 3px);right:calc(11px - var(--gap));width:7px;height:7px;border-top:1px solid var(--cn);border-right:1px solid var(--cn);transform:rotate(45deg)}
+.u-repeat{display:flex;gap:10px;align-items:center;margin-top:32px;color:var(--ink);font:var(--t-body)}
+.u-repeat svg{flex:none;width:20px;height:20px;color:var(--muted)}
+/* Responsibilities: one paper panel, two lists */
+.u-resp{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:64px;padding:40px;border-radius:16px;background:var(--paper)}
+.u-resp h3{margin-bottom:12px;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-resp ul{display:grid;gap:8px;padding-left:1.2em;list-style:disc;color:var(--ink);font:var(--t-body)}
+.u-resp li::marker{color:var(--muted)}
+.u-resp .own{margin-top:16px;color:var(--muted);font:var(--t-body)}
+
+/* 03 Why it works: stats, quotes, closing line */
+/* 03 Evidence: discovery (bars) -> participation (quote + summary) -> relationships (takeaway) */
+.u-ev{padding-top:80px}
+.u-disc{display:grid;grid-template-columns:minmax(0,1fr);gap:24px 64px;align-items:center}
+.u-disc.has-art{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.u-chart{max-width:720px;margin:0}
+.u-chart h3{margin-bottom:20px;color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.u-bars{display:grid;gap:16px}
+.u-bars li{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) 3.5rem;gap:16px;align-items:center}
+.u-bars .lb{color:var(--paper);font:var(--t-body)}
+.u-bars .tr{height:12px;border-radius:6px;background:var(--u-line-deep)}
+.u-bars .tr i{display:block;width:var(--v);height:100%;border-radius:6px;background:var(--paper)}
+.u-bars .val{color:var(--paper);text-align:right;font:var(--t-body);font-weight:var(--w-bold)}
+.u-chart figcaption{margin-top:20px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-disc .u-evart{justify-self:end;width:100%;max-width:360px}
+.u-disc .u-evart img{display:block;width:100%;height:auto}
+/* Two evidence passages, one grammar: passage (lead, regular) then attribution (small) beneath, equal columns */
+.u-voices{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;align-items:start;margin-top:72px;padding-top:48px;border-top:1px solid var(--u-line-deep)}
+.u-voices figure{display:grid;gap:16px;margin:0}
+.u-voices blockquote,.u-voices .pass{margin:0;max-width:40ch;color:var(--paper);font:var(--t-body)}
+.u-voices .att{color:var(--muted-on-ink);font:var(--t-small)}
+.u-voices a{color:var(--link);text-decoration:underline 1px;text-underline-offset:3px}
+.u-voices a:hover{text-decoration-thickness:2px}
+/* Conclusion: one paper statement panel on the ink band */
+.u-take{display:grid;gap:12px;justify-items:start;margin-top:96px;padding:64px 56px;border-radius:16px;background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action)}
+.u-take .i{margin-top:12px;color:var(--ink);font:var(--t-body)}
+.u-take .h{max-width:14ch;color:var(--ink);font:var(--t-h2)}
+.u-take .x{max-width:52ch;margin-top:12px;color:var(--muted);font:var(--t-body)}
+/* Pull quote inside the panel: the same figure / blockquote / attribution component as the publisher quotes, in the panel's light colours */
+.u-take figure{display:grid;gap:16px;margin:24px 0 0}
+.u-take blockquote{margin:0;max-width:40ch;color:var(--ink);font:var(--t-body)}
+.u-take .att{color:var(--muted);font:var(--t-small)}
+.u-take .att a{color:var(--link);text-decoration:underline 1px;text-underline-offset:3px}
+.u-take .att a:hover{text-decoration-thickness:2px}
+
+/* 04 Ways to take part: audience switch (tabs once JS runs; without JS both panels show with their own headings) */
+.tp-tabs{display:inline-flex;gap:8px;margin-bottom:32px}
+.tp-tabs[hidden]{display:none}
+.tp-tabs button{min-height:44px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:none;color:var(--ink);cursor:pointer;font:var(--t-body);font-weight:var(--w-bold)}
+.tp-tabs button[aria-selected=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.tp-tabs button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+@media (max-width:480px){.tp-tabs{display:grid;width:100%}.tp-tabs button{width:100%}}
+.tp-panel{display:grid;gap:16px}
+.tp-panel[hidden]{display:none}
+.tp-panel+.tp-panel{margin-top:48px}
+.js-tabs .tp-panel+.tp-panel{margin-top:0}
+.tp-panel>h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-prices{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.u-price{position:relative;display:flex;flex-direction:column;gap:16px;padding:32px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.u-price.top{border:2px solid var(--ink)}
+.u-price h4{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-price .price{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold);font-variant-numeric:tabular-nums}
+.u-price .price small{display:block;margin-top:4px;color:var(--muted);font:var(--t-small)}
+.u-price p{color:var(--muted);font:var(--t-body)}
+.u-ticks{display:grid;gap:8px;align-content:start}
+.u-ticks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;color:var(--ink);font:var(--t-body)}
+.u-price .btn{margin-top:auto;align-self:flex-start}
+.u-cohort .btn{justify-self:start}
+.u-price .btn-line{color:var(--ink)}
+.u-cohort{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 48px;padding:40px;border-radius:16px;background:var(--u-deep);color:var(--paper);--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.u-cohort h4{color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.u-cohort .price{margin-top:12px;color:var(--paper);font:var(--t-body);font-weight:var(--w-bold);font-variant-numeric:tabular-nums}
+.u-cohort .price small{display:block;margin-top:4px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-cohort .body{display:grid;gap:20px;align-content:start}
+.u-cohort p{max-width:56ch;color:var(--muted-on-ink);font:var(--t-body)}
+.u-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.u-chips span{color:var(--muted-on-ink);font:var(--t-small)}
+.u-chips li{padding:6px 12px;border:1px solid var(--u-line-deep);border-radius:999px;color:var(--paper);font:var(--t-small)}
+.tp-foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-top:32px}
+/* One-pager preview (28 Oct 2026): the A4 itself, linked to the PDF from Canva */
+.u-pager{display:grid;grid-template-columns:280px minmax(0,1fr);gap:32px 56px;align-items:center;margin-top:48px;padding:40px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.u-pager-doc{display:block;border-radius:6px;box-shadow:0 18px 40px -20px var(--scrim);transition:transform .2s}
+.u-pager-doc:hover{transform:translateY(-3px)}
+.u-pager-doc img{display:block;width:100%;height:auto;border-radius:6px}
+.u-pager-txt{display:grid;gap:16px;justify-items:start;max-width:46ch}
+.u-pager h3{color:var(--ink);font:var(--t-h2)}
+.u-pager p{color:var(--muted);font:var(--t-body)}
+.u-pager .btn-line{color:var(--ink)}
+@media (max-width:760px){.u-pager{grid-template-columns:1fr;padding:24px;margin-top:32px}.u-pager-doc{width:min(100%,240px)}}
+@media (prefers-reduced-motion:reduce){.u-pager-doc{transition:none}.u-pager-doc:hover{transform:none}}
+.u-status{padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font:var(--t-small)}
+
+/* 05 Questions: one open at a time (details name), + turns into x */
+.u-faq{max-width:820px;border-top:1px solid var(--line)}
+.u-faq details{border-bottom:1px solid var(--line)}
+.u-faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;list-style:none;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.u-faq summary::-webkit-details-marker{display:none}
+.u-faq summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat;transition:transform .2s}
+.u-faq details[open] summary::after{transform:rotate(45deg)}
+.u-faq summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.u-faq details p{max-width:62ch;padding:0 0 24px;color:var(--muted);font:var(--t-body)}
+@media (prefers-reduced-motion:reduce){.u-faq summary::after{transition:none}}
+
+/* Final call to action: text and actions left, the welcome-back scene right (mobile: text, scene, founder) */
+.u-fgrid{display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,32vw,400px);gap:24px 64px;align-items:center}
+.u-fmain{grid-area:1/1}.u-fmeta{grid-area:2/1}.u-fart{grid-area:1/2/3/3}
+.u-final h2{max-width:22ch;color:var(--paper);font:var(--t-h2);}
+.u-final .acts{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:32px}
+.u-final .addr{margin-top:20px;color:var(--muted-on-ink);font:var(--t-small)}
+.u-fart img{display:block;width:100%;height:auto}
+.u-final .founder{display:flex;gap:14px;align-items:center}
+.u-final .founder img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.u-final .founder p{max-width:56ch;color:var(--muted-on-ink);font:var(--t-small)}
+.u-final .founder b{color:var(--paper)}
+.u-final .event{margin-top:32px;padding-top:20px;border-top:1px solid var(--u-line-deep);color:var(--muted-on-ink);font:var(--t-small)}
+
+/* The cycle becomes a vertical ordered list before five columns get cramped */
+@media (max-width:900px){
+  .u-steps{grid-template-columns:1fr;gap:24px}
+  .u-steps li{grid-template-columns:var(--mk) minmax(0,1fr);grid-template-rows:auto;column-gap:16px;row-gap:4px}
+  .u-steps .mk{grid-row:1/3}
+  .u-steps h4{grid-column:2;align-self:center}
+  .u-steps p{grid-column:2}
+  .u-steps li:not(:last-child)::after{top:calc(var(--mk) + 6px);bottom:-18px;left:calc(var(--mk) / 2);right:auto;border-top:0;border-left:1px solid var(--cn)}
+  .u-steps li:not(:last-child)::before{display:none}
+}
+@media (max-width:980px){.u-hero .wrap{grid-template-columns:1fr}.u-cohort{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .u-band{padding:72px 0}.u-sh{margin-bottom:32px}
+  .u-who,.u-parts,.u-resp,.u-prices,.u-disc.has-art,.u-voices{grid-template-columns:1fr}
+  .u-cycle{margin-top:72px}.u-resp{padding:24px;margin-top:48px}
+  .u-ev{padding-top:56px}.u-voices{margin-top:56px;padding-top:40px}.u-take{margin-top:64px;padding:40px 24px}
+  .u-bars li{grid-template-columns:minmax(0,1fr) auto;gap:8px 16px}.u-bars .tr{grid-column:1/-1;grid-row:2}
+  .u-disc .u-evart{justify-self:center;width:min(100%,280px)}
+  .u-price,.u-cohort{padding:24px}
+  .u-fgrid{grid-template-columns:1fr}.u-fmain,.u-fmeta,.u-fart{grid-area:auto}
+  .u-fart{justify-self:center;width:min(100%,280px)}
+  .u-parts .u-ic{width:64px;height:64px;margin:-4px -4px 0 0}
+}
+
+/* Builder programmes (28 Oct 2026): the Uncopyable grammar (u-band, u-sh, u-parts, u-steps, u-resp, u-take, u-faq, u-final) plus
+   two page parts: the step illustrations and the pricing timeline. Timeline colours are ink and neutral greys only. */
+/* 2: situation cards. The icon slot waits for Astra's four object icons (NOTES, 28 Oct). */
+.bp-parts li{grid-template-rows:auto auto 1fr}
+.bp-parts .sit{grid-area:1/1;color:var(--muted);font:var(--t-small)}
+.bp-parts h3{grid-area:2/1;align-self:start}
+.bp-parts .u-ic{grid-area:1/2/3/3;width:64px;height:64px;margin:0}
+.bp-parts li>p:not(.sit){grid-column:1/-1}
+/* 3: three numbered steps with an illustration above each node */
+.bp-steps{--art:150px;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 48px}
+.bp-steps li{grid-template-rows:var(--art) var(--mk) auto auto auto}
+.bp-steps li:not(:last-child)::after{top:calc(var(--art) + 12px + var(--mk) / 2);right:calc(10px - var(--gap))}
+.bp-steps li:not(:last-child)::before{top:calc(var(--art) + 12px + var(--mk) / 2 - 3px)}
+.bp-steps .art{width:100%;height:var(--art)}
+.bp-steps .art img{display:block;width:100%;height:100%;object-fit:contain}
+.bp-steps h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.bp-steps .chip{justify-self:start;padding:6px 12px;border-radius:999px;background:var(--paper);color:var(--ink);font:var(--t-small)}
+/* 4: pricing timeline (13 weeks + the 90-day review), then the three cards */
+.bp-tl{margin:0 0 40px;padding:28px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.bp-tl ol{display:grid;grid-template-columns:repeat(13,minmax(0,1fr)) minmax(0,3fr);row-gap:10px;list-style:none}
+.bp-tl li{grid-column:var(--s)/var(--e);color:var(--ink);font:var(--t-small)}
+.bp-tl .seg{grid-row:1;padding:12px 14px;border-radius:8px;font:var(--t-body);font-weight:var(--w-bold)}
+.bp-tl .rev{background:var(--ink);color:var(--paper)}
+.bp-tl .bld{position:relative;border:2px solid var(--ink);border-left-width:6px;background:var(--paper)}
+.bp-tl .ext{grid-row:1;align-self:center;margin-left:8px;padding:8px 12px;border:2px dashed var(--muted);border-radius:8px;color:var(--muted)}
+.bp-tl .mark{grid-row:2;padding-left:8px;border-left:2px solid var(--ink)}
+.bp-tl .mark.stop{grid-row:3}
+.bp-tl .mark.end{grid-row:3;justify-self:end;padding:0 8px 0 0;border:0;border-right:2px solid var(--ink)}
+.bp-tl .wk{grid-row:4;color:var(--muted)}
+.bp-tl .sup{grid-row:5;grid-column:1/-1;margin-top:8px;padding:12px 14px;border:2px dashed var(--muted);border-radius:8px;font:var(--t-body);font-weight:var(--w-bold)}
+.bp-tl figcaption{margin-top:14px;color:var(--muted);font:var(--t-small)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}   /* four cards since the Programme Check (31 Oct 2026): two by two */
+.marks{display:flex;flex-wrap:wrap;gap:8px}
+.marks span{padding:4px 10px;border:1px solid var(--ink);border-radius:999px;color:var(--ink);font:var(--t-small)}
+.bp-inc{border-top:1px solid var(--line)}
+.bp-inc summary{display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;cursor:pointer;list-style:none;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.bp-inc summary::-webkit-details-marker{display:none}
+.bp-inc summary::after{content:"";flex:none;width:12px;height:12px;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat}
+.bp-inc[open] summary::after{background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat}
+.bp-inc summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.bp-inc>*:not(summary){margin-top:12px}
+.gate{display:grid;gap:4px;padding:12px 14px;border-left:3px solid color-mix(in srgb,currentColor 30%,transparent);background:var(--paper);border-radius:0 10px 10px 0;font:var(--t-body)}
+.gate b{color:var(--ink)}
+.offer .btn-line{color:var(--ink)}
+#options .u-resp{background:var(--surface)}   /* the split box sits on the paper band here, so it takes the white surface */
+.bp-terms{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;margin-top:20px;color:var(--muted);font:var(--t-body)}
+/* 6: figures and the four public programmes */
+.bp-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:56px}
+.bp-stats li{display:grid;gap:6px;padding-top:20px;border-top:1px solid var(--u-line-deep)}
+.bp-stats b{color:var(--paper);font:var(--t-h2)}
+.bp-stats span{color:var(--muted-on-ink);font:var(--t-body)}
+.bp-cases-h{margin-bottom:20px;color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.bp-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}   /* five cases since Atlassian (31 Oct 2026): three, then two */
+.bp-cases li{display:grid;grid-template-rows:auto auto 1fr auto;gap:8px;padding:24px;border-radius:16px;background:var(--u-deep-2);border:1px solid var(--u-line-deep)}
+.bp-cases .org{color:var(--muted-on-ink);font:var(--t-small)}
+.bp-cases h4{color:var(--paper);font:var(--t-body);font-weight:var(--w-bold)}
+.bp-cases p{color:var(--muted-on-ink);font:var(--t-body)}
+.bp-cases a{justify-self:start;color:var(--link);font:var(--t-body);text-decoration:underline 1px;text-underline-offset:3px}
+.bp-ev-acts{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:40px}
+@media (max-width:1100px){.bp-cases{grid-template-columns:1fr 1fr}}
+@media (max-width:980px){.opts{grid-template-columns:1fr}}
+@media (max-width:900px){
+  .bp-parts .u-ic{width:56px;height:56px}
+  .bp-steps{grid-template-columns:1fr;gap:32px}
+  .bp-steps li{grid-template-columns:var(--mk) minmax(0,1fr);grid-template-rows:auto;column-gap:16px;row-gap:8px}
+  .bp-steps .art{grid-column:2;grid-row:1;height:auto;max-width:280px;aspect-ratio:8/5}
+  .bp-steps .mk{grid-row:2/4}
+  .bp-steps h3,.bp-steps p{grid-column:2}
+  .bp-steps li:not(:last-child)::after{top:auto;bottom:-26px;height:calc(100% - var(--mk) - 24px)}
+  .bp-stats{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:760px){
+  /* the timeline becomes a dated list: same facts, top to bottom */
+  .bp-tl{padding:20px}
+  .bp-tl ol{grid-template-columns:1fr;row-gap:8px}
+  .bp-tl li,.bp-tl .seg,.bp-tl .ext,.bp-tl .mark,.bp-tl .mark.stop,.bp-tl .mark.end,.bp-tl .wk,.bp-tl .sup{grid-column:1;grid-row:auto;justify-self:stretch;margin:0}
+  .bp-tl .wk{display:none}
+  .bp-tl .mark,.bp-tl .mark.end{padding:0 0 0 12px;border:0;border-left:2px solid var(--ink)}
+  .bp-tl .ord1{order:1}.bp-tl .ord2{order:2}.bp-tl .ord3{order:3}.bp-tl .ord4{order:4}.bp-tl .ord5{order:5}.bp-tl .ord6{order:6}.bp-tl .ord7{order:7}.bp-tl .ord8{order:8}
+  .bp-cases{grid-template-columns:1fr}
+}
+/* Figures (29 Oct 2026): this page sets numbers in the body font's proportional digits, no tabular figures, including in the shared step and offer rules */
+.u-steps .mk,.offer .price,.offer .price small,.offer .facts{font-variant-numeric:normal}
+/* Booking block (30 Oct 2026): one line, one large button to Cal.com, email underneath */
+.bp-book-lead{margin-top:12px;color:var(--muted-on-ink);font:var(--t-body)}
+.u-final .bp-book-btn{min-height:56px;padding:0 28px}
+.bp-book-mail{margin-top:20px;color:var(--muted-on-ink);font:var(--t-body)}
+
+/* Player programmes (6 Nov 2026): Builder programmes grammar; the evidence band pairs Valve's advice with the founder's live-game work */
+.pp-ev{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px;align-items:start}
+.pp-hyp{display:grid;gap:12px;align-content:start}
+.pp-hyp .h{color:var(--paper);font:var(--t-h2)}
+.pp-hyp p{color:var(--muted-on-ink);font:var(--t-body)}
+.pp-hyp p.src{font:var(--t-small)}
+@media (max-width:900px){.pp-ev{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/cg/theme.css?v=1672c3d3">
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Communitygeeks">
+<meta property="og:title" content="Player programmes for studios with a live game">
+<meta property="og:description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
+<meta property="og:url" content="https://communitygeeks.ai/services/player-programmes/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://communitygeeks.ai/assets/home/normalised/research-games-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Two astronauts playtest a red handheld game together, with a notebook for feedback.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Player programmes for studios with a live game">
+<meta name="twitter:description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
+<meta name="twitter:image" content="https://communitygeeks.ai/assets/home/normalised/research-games-og.jpg">
+<meta name="twitter:image:alt" content="Two astronauts playtest a red handheld game together, with a notebook for feedback.">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
+<script defer src="/assets/cg/analytics.js"></script>
+</head>
+<body>
+<a class="cg-skip" href="#main">Skip to content</a>
+<header class="cg-hdr"><div class="cg-w">
+  <a class="cg-brand" href="/"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</a>
+  <button class="cg-toggle" type="button" aria-expanded="false" aria-controls="cg-nav">Menu</button>
+  <nav class="cg-nav" id="cg-nav" aria-label="Primary">
+    <button class="cg-trig is-current" type="button" aria-expanded="false" aria-controls="cg-m-services">Services<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-services" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#gaming"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Gaming</strong></a><a class="d" href="/uncopyable/">Uncopyable: find your first players before launch</a><a class="d" href="/services/player-programmes/">Player programmes: give your players a real role in your live game</a></div>
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#ai"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>AI &amp; AI infrastructure</strong></a><a class="d" href="/services/builder-programmes/">Builder programmes: grow the builder ecosystem around your product</a></div>
+          </div>
+          <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-research">Research<span aria-hidden="true"></span></button>
+    <div class="cg-mega" id="cg-m-research" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair">
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, active communities and players as makers.</span></a>
+            <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
+          </div>
+          <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
+        </div>
+        <a class="cg-feature" href="/research/the-end-of-the-line/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/research-obs-009-800.avif 800w, /assets/home/normalised/research-obs-009.avif 1600w" sizes="420px"><img src="/assets/home/normalised/research-obs-009-800.webp" srcset="/assets/home/normalised/research-obs-009-800.webp 800w, /assets/home/normalised/research-obs-009.webp 1600w" sizes="420px" width="1600" height="1000" alt="" loading="lazy" decoding="async"></picture></span><strong>The End of the Line</strong><span class="d">How builder ecosystems at AI companies are replacing traditional community management.</span><span class="sc">Field note · 15 Oct 2026</span></a>
+      </div>
+    </div>
+    <a class="cg-nojs" href="/services/">Services</a><a class="cg-nojs" href="/research/">Research</a>
+    <button class="cg-trig" type="button" aria-expanded="false" aria-controls="cg-m-events">Events<span aria-hidden="true"></span></button>
+    <div class="cg-mega cg-mega-sm" id="cg-m-events" hidden>
+      <button class="cg-x" type="button">Close ×</button>
+      <div class="cg-mgrid">
+        <div class="cg-mlinks">
+          <div class="cg-pair"><div class="cg-card cg-card-trip"><a href="/lisbon/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/lisbon-harbour-870.avif"><img src="/assets/home/normalised/lisbon-harbour-870.webp" width="870" height="489" alt="" loading="lazy" decoding="async"></picture></span><strong>Lisbon</strong></a><a class="d" href="/lisbon/#community-week">Lisbon Community Week · 13 Nov · Talk: The Death of Community Management</a><a class="d" href="/lisbon/#games">DevGAMM Lisbon · 17–18 Nov · Mentors Corner</a><a class="d" href="/lisbon/#games">Lisboa Games Week · 19–22 Nov · Loading Zone mentor</a></div><div class="cg-card cg-card-plain"><strong>Coming up</strong><span class="d">Bilbao International Games Conference · 11–12 Dec</span><span class="d">Taipei Game Show · 21–24 Jan 2027</span></div></div>
+          <a class="cg-all" href="/events/"><b>All events</b><span>Upcoming and past</span></a>
+        </div>
+      </div>
+    </div>
+    <a href="/about/">About</a>
+    
+    <a class="cg-btn" href="#contact">Let’s talk</a>
+  </nav>
+</div></header>
+<main id="main">
+<div class="u-page">
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="phero-copy">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/services/">Services</a><span aria-hidden="true">›</span><span aria-current="page">Player programmes</span></nav>
+      <h1 class="h1" id="h1">Give your players a real role in your live game.</h1>
+      <p class="lede">Player councils, playtest panels, community leaders and moderators, player creations and the creators already in your community: we plan, launch and improve them with your team, so players can test, shape and build with you.</p>
+      
+      <div class="acts"><a class="btn btn-fill" href="#options">See the four ways to work</a><a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata[source]=player-programmes">Book a conversation</a></div>
+    </div>
+    <figure class="phero-art sc-hero"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-player-contributions-800.avif 800w, /assets/home/normalised/research-player-contributions.avif 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="/assets/home/normalised/research-player-contributions-800.webp" srcset="/assets/home/normalised/research-player-contributions-800.webp 800w, /assets/home/normalised/research-player-contributions.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1000" alt="Two astronauts extend a simple game level by joining white terrain tiles around a red checkpoint flag." fetchpriority="high" decoding="async"></picture></figure>
+  </div>
+</section>
+
+<section class="u-band u-paper" aria-labelledby="sit-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="sit-t">What we help you build.</h2><p class="intro">Already running a community, ambassador or creator programme? <a href="#review">We review what works</a> and plan the next stage.</p></div>
+    <ul class="u-parts bp-parts">
+      <li><span class="u-ic" aria-hidden="true"></span>
+        <p class="sit">Players who send detailed feedback</p><h3>Set up a player council or playtest panel</h3><p>A small group of committed players tests updates, explains what they see and hears back what changed. We run the first cycle with you, then hand it over.</p></li>
+      <li><span class="u-ic" aria-hidden="true"></span>
+        <p class="sit">Players who already run the community</p><h3>Give your community leaders a bigger role</h3><p>An ambassador or moderator programme with clear roles, real recognition and support from your team, or a fix for the one you run.</p></li>
+      <li><span class="u-ic" aria-hidden="true"></span>
+        <p class="sit">Players who make mods, maps or guides</p><h3>Launch a programme for player creations</h3><p>Clear rules for sharing work, a review process, and a place where other players can find what gets made.</p></li>
+      <li><span class="u-ic" aria-hidden="true"></span>
+        <p class="sit">Creators who already play your game</p><h3>Work with the creators in your community</h3><p>Grassroots and mid-sized creators who play your game get early access, a way to work with your team and credit for what they make.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="u-band u-white" aria-labelledby="how-t">
+  <div class="wrap bp-steps-wrap">
+    <div class="u-sh"><h2 id="how-t">From first conversation to a programme your team runs.</h2></div>
+    <ol class="u-steps bp-steps">
+      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/about-responses-normalised-512.avif 512w, /assets/home/normalised/about-responses-normalised.avif 1024w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/about-responses-normalised-512.webp" srcset="/assets/home/normalised/about-responses-normalised-512.webp 512w, /assets/home/normalised/about-responses-normalised.webp 1024w" sizes="(max-width: 900px) 280px, 360px" width="1024" height="1024" alt="A white feedback card with a blue speech bubble stands on a charcoal base." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">1</span><h3>Talk to your team and your players</h3><p>We interview your team and your players to learn what brings them back and what they already do for the game.</p><p class="chip">A clear picture of what players need.</p></li>
+      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/research-obs-004-800.avif 800w, /assets/home/normalised/research-obs-004.avif 1600w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/research-obs-004-800.webp" srcset="/assets/home/normalised/research-obs-004-800.webp 800w, /assets/home/normalised/research-obs-004.webp 1600w" sizes="(max-width: 900px) 280px, 360px" width="1600" height="1000" alt="An astronaut turns a blue dial to choose between two routes on a simple navigation desk." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">2</span><h3>Recommend the right programme</h3><p>We compare options on cost, likely effect and your team’s time, then recommend one. It may be a change to what you already run.</p><p class="chip">Costed options and one recommendation with a named owner.</p></li>
+      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/research-gaming-800.avif 800w, /assets/home/normalised/research-gaming.avif 1600w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/research-gaming-800.webp" srcset="/assets/home/normalised/research-gaming-800.webp 800w, /assets/home/normalised/research-gaming.webp 1600w" sizes="(max-width: 900px) 280px, 360px" width="1600" height="1000" alt="Two astronauts playtest a red handheld game together, with a notebook for feedback." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">3</span><h3>Launch it and hand it over</h3><p>We design the programme with the person who will run it and launch it together. We see it through its first weeks, adjust it once and hand it over.</p><p class="chip">A working programme your team can run.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="u-band u-paper" id="options" aria-labelledby="op-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="op-t">Plan it. Build it. Keep it running.</h2><p class="intro">One question first? Start with a <a href="#check">two-week Programme Check</a>.</p></div>
+    <figure class="bp-tl">
+      <ol aria-hidden="true"><li class="seg rev ord1" style="--s:1;--e:5">Decision Review · €14,000</li><li class="seg bld ord3" style="--s:5;--e:14">Build</li><li class="ext ord7" style="--s:14;--e:15">Progress review, 90 days after handover</li><li class="mark ord4" style="--s:5;--e:9">Week 5 · €14,000</li><li class="mark ord5" style="--s:10;--e:14">Week 10 · €14,000</li><li class="mark stop ord2" style="--s:5;--e:9">Stop gate after week 4</li><li class="mark end ord6" style="--s:11;--e:14">Handover · week 13</li><li class="wk ord9" style="--s:1;--e:2">Week 1</li><li class="wk ord9" style="--s:4;--e:5">4</li><li class="wk ord9" style="--s:13;--e:14">13</li><li class="sup ord8" style="--s:1;--e:15">Programme Support · monthly, agreed in writing</li></ol>
+      <div class="sr"><table><caption>Programme timeline</caption>
+        <tr><th scope="row">Weeks 1 to 4</th><td>Decision Review, €14,000</td></tr>
+        <tr><th scope="row">End of week 4</th><td>Stop gate: stop and keep the decision, or approve the build</td></tr>
+        <tr><th scope="row">Week 5</th><td>Build starts, €14,000 instalment</td></tr>
+        <tr><th scope="row">Week 10</th><td>€14,000 instalment</td></tr>
+        <tr><th scope="row">Week 13</th><td>Handover</td></tr>
+        <tr><th scope="row">90 days after handover</th><td>Progress review</td></tr>
+        <tr><th scope="row">Ongoing</th><td>Programme Support, monthly, agreed in writing</td></tr>
+      </table></div>
+    </figure>
+    <div class="opts">
+      <article class="offer" id="check"><h3 class="h3">Programme Check</h3><p class="price">€4,000<small>fixed fee</small></p><p class="facts"><span>2 weeks</span><span>3–4 interviews</span></p>
+        <p>For studios with one concrete question about their players or community, who want an outside view before committing to a programme.</p>
+        <details class="bp-inc"><summary>What’s included</summary>
+          <ul class="ticks"><li>We agree the one question with you in a kickoff call.</li><li>We interview 3–4 people from your team and your community, and review what you already run.</li><li>You get a short written map: what is happening, where help would matter, and what to do next, including stopping or doing it yourselves.</li><li>A 60-minute walkthrough with your team.</li></ul>
+          <p class="note">Continue to a Decision Review within 60 days and the €4,000 counts toward it.</p></details>
+        <span></span><a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata%5Bsource%5D=player-programme-check">Book a Programme Check</a></article>
+      <article class="offer" id="review"><h3 class="h3">Decision Review</h3><p class="price">€14,000<small>fixed fee</small></p><p class="facts"><span>4 weeks</span><span>8–10 interviews in total</span></p>
+        <p>For studios deciding which player or community programme to launch, change or stop, and who should run it.</p>
+        <p class="marks" aria-label="Possible outcomes"><span>● Go ahead</span><span>■ Change course</span><span>▲ Hold off</span></p>
+        <details class="bp-inc"><summary>What’s included</summary>
+          <ul class="ticks"><li>We interview 8–10 people from your team and your community, and review your data.</li><li>We show you what they need and what your team can realistically support.</li><li>You get costed options and one recommendation with a named owner, agreed with whoever approves the budget.</li></ul>
+          <p class="note">The Review is the first phase of the Programme Build. Continue with an agreed scope for a further €28,000.</p></details></article>
+      <article class="offer feature" id="build"><h3 class="h3">Programme Build</h3><p class="price">€42,000<small>fixed fee, one stop gate</small></p><p class="facts"><span>13 weeks</span><span>Includes the 4-week Review</span></p>
+        <p>For one programme you want running by a set date, such as a season or a major update, designed and launched with your team.</p>
+        <details class="bp-inc"><summary>What’s included</summary>
+          <ul class="ticks"><li><strong>€14,000 to start · weeks 1–4:</strong> the Decision Review.</li><li><strong>€28,000 to continue · weeks 5–13:</strong> two €14,000 instalments, at weeks 5 and 10. Design, launch, the first weeks of use, one adjustment and handover.</li></ul>
+          <p class="gate"><b>Stop gate after week 4</b>Stop here and keep the decision, or approve the build.</p>
+          <p class="note">Includes one progress review 90 days after handover, based on your team’s reports.</p></details></article>
+      <article class="offer" id="support" style="--bar:var(--muted-on-ink)"><h3 class="h3">Programme Support</h3><p class="price">from €4,000<small>per month, scoped to your programmes</small></p><p class="facts"><span>Ongoing</span><span>Monthly, agreed in writing</span></p>
+        <p>Ongoing specialist help for a programme you already run, working alongside your community team.</p>
+        <details class="bp-inc"><summary>What’s included</summary>
+          <ul class="ticks"><li>Hands-on help when you launch something new or change what runs.</li><li>Regular working sessions with the people who run the programme.</li><li>Priorities and progress reviewed with your sponsor.</li></ul></details>
+        <span></span><a class="btn btn-line" href="#contact">Discuss your programme</a></article>
+    </div>
+    <div class="u-resp">
+      <div><h3>We bring</h3><ul><li>Interviews with your team and your players</li><li>A review of your data</li><li>Costed options and one recommendation</li><li>Programme design with the person who will run it</li><li>Launch support through the first weeks</li><li>One adjustment</li><li>Handover</li><li>A progress review 90 days later</li></ul></div>
+      <div><h3>You bring</h3><ul><li>A sponsor who approves decisions</li><li>A community lead who runs the work</li><li>The budget for rewards, keys and creator fees</li></ul></div>
+    </div>
+    <p class="bp-terms"><a class="tl" href="/services/player-programmes/terms/">Scope, responsibilities and exclusions</a></p>
+  </div>
+</section>
+
+<section class="u-band u-deep" aria-labelledby="ev-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="ev-t">Built on research, not on a template.</h2><p class="intro">Player programmes draw on our gaming research and our work with indie studios.</p></div>
+    <div class="pp-ev">
+      <div class="pp-hyp"><p class="h">Community is the first defence against clones.</p><p>Valve’s advice to studios at Steam Indie Connect in October 2026 was to keep growing the game and its community in their own way. Player programmes give that work a structure your team can run.</p>
+        <p class="src">Source: Valve at Steam Indie Connect Busan, 27 Oct 2026, as reported by <a href="https://www.invenglobal.com/articles/27761/valve-responds-directly-to-developers-fearful-of-ai-slop-and-game-cloning" rel="noopener">Inven Global</a></p></div>
+      <div class="pp-hyp"><p class="h">Built on live-game community work.</p><p>Communitygeeks’ founder has run community work for live games, including gaming communities for Tencent through ZAM.</p></div>
+    </div>
+    <div class="bp-ev-acts"><a class="btn btn-line" href="/research/games/">Explore the gaming research</a><a class="tl" href="/research/#basis">How the research works</a></div>
+  </div>
+</section>
+
+<section class="u-band u-white" aria-labelledby="faq-t">
+  <div class="wrap">
+    <h2 class="sr" id="faq-t">Questions</h2>
+    <div class="u-faq"><details name="pp-faq"><summary>Do you replace our community team?</summary><p>We design programmes with your community team, launch them together and hand them over. Your team keeps the relationships.</p></details><details name="pp-faq"><summary>Do you work with big influencers?</summary><p>We work with grassroots and mid-sized creators who already play your game. Large influencer campaigns, paid media and media buying are outside our scope.</p></details><details name="pp-faq"><summary>Who pays for rewards, keys and creator fees?</summary><p>You do, directly. They sit in your budget and never in our fee.</p></details><details name="pp-faq"><summary>What happens at the stop gate?</summary><p>At the end of week 4 you decide: stop and keep the Decision Review, or approve the build.</p></details><details name="pp-faq"><summary>Our game isn’t out yet. Is this for us?</summary><p>Uncopyable is built for studios before launch. Player programmes start once a game has players to work with.</p></details></div>
+  </div>
+</section>
+
+<section class="u-band u-deep u-final" id="contact" aria-labelledby="ct-t">
+  <div class="wrap u-fgrid">
+    <div class="u-fmain">
+    <h2 id="ct-t">Tell us about your game and your players.</h2>
+    <p class="bp-book-lead">Pick a time for a 30-minute conversation.</p>
+    <div class="acts"><a class="btn btn-fill bp-book-btn" href="https://cal.com/communitygeeks/30min?metadata[source]=player-programmes">Book a 30-minute conversation</a></div>
+    <p class="bp-book-mail">Prefer email? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
+    </div>
+    <picture class="u-fart"><source type="image/avif" srcset="/assets/home/normalised/research-obs-002-800.avif 800w, /assets/home/normalised/research-obs-002.avif 1600w" sizes="(max-width: 900px) 280px, 40vw"><img src="/assets/home/normalised/research-obs-002-800.webp" srcset="/assets/home/normalised/research-obs-002-800.webp 800w, /assets/home/normalised/research-obs-002.webp 1600w" sizes="(max-width: 900px) 280px, 40vw" width="1600" height="1000" alt="Two astronauts shake hands across a table holding a red gaming console and a simple presentation display." loading="lazy" decoding="async"></picture>
+    <div class="u-fmeta"><div class="founder"><img src="/assets/home/founder.webp" width="720" height="900" alt="" loading="lazy"><p><b>Carmelito Bauer</b>, founder of Communitygeeks. His experience includes DeepL, the European Commission’s EU Academy, and gaming communities for Tencent, through ZAM.</p></div></div>
+  </div>
+</section>
+</div>
+ </main>
+<footer class="cg-foot"><div class="cg-w">
+  <div class="cg-fgrid">
+    <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/player-programmes/">For live games: Player programmes</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
+    <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">13 & 17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
+    <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
+  </div>
+  <div class="cg-legal"><span>© 2026 Communitygeeks · Liebe zur Freiheit LLC, 30 N Gould St Ste 24310, Sheridan, WY 82801</span></div>
+</div></footer>
+<script src="/assets/cg/site.js?v=c6130093" defer></script>
+</body>
+</html>

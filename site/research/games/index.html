@@ -9,7 +9,7 @@
 <meta name="description" content="What changes when anyone can build, copy or remix a game: how players find games, how studios respond to AI clones, and what we are testing next.">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
-<link rel="stylesheet" href="/assets/cg/chrome.css?v=bbab33a2">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=cf047903">
 <link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
 .rs-hero{position:relative;background:var(--ink);overflow:hidden;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
 .rs-hero .wrap{position:relative;z-index:2;display:grid;gap:16px;justify-items:start;align-content:start;min-height:clamp(560px,46vw,700px);padding-top:clamp(36px,5vw,64px);padding-bottom:48px}
@@ -80,6 +80,7 @@
 .g-sec+.g-sec{margin-top:clamp(64px,7vw,96px)}
 .g-sec>h2{margin-bottom:28px}
 .g-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g-cards>li.g-wide{grid-column:1/-1}
 .g-cards>li{display:flex;flex-direction:column;gap:14px;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
 .g-cards h3{font:var(--t-body);font-weight:var(--w-bold)}
 .rs .g-cards p{color:var(--charcoal)}
@@ -104,12 +105,18 @@
 .g-chip{flex:none;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font:var(--t-small)}
 .rs .g-after{margin-top:16px;color:var(--muted);font:var(--t-small)}
 .g-exits{background:var(--paper);padding:0 0 clamp(64px,7vw,96px);--link:var(--action);--focus:var(--action)}
-.g-exits ul{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
-.g-exits li{display:grid;gap:10px;align-content:start;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink)}
-.g-exits h2{font:var(--t-h2)}
-.g-exits a{justify-self:start;color:var(--link);font:var(--t-body);font-weight:var(--w-bold)}
-@media (max-width:900px){.g-cards,.g-exits ul{grid-template-columns:1fr}}
-@media (max-width:640px){.g-cards>li,.g-exits li{padding:22px}.g-list li{flex-direction:column;gap:10px}.g-cards .u-bars li{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}.g-cards .u-bars .tr{grid-column:1/-1;grid-row:2}}
+.g-exits .wrap{padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.g-lv-h{display:grid;gap:10px;max-width:62ch;margin-bottom:28px;scroll-margin-top:96px}
+.g-lv-h h2{color:var(--ink);font:var(--t-h2)}
+.g-lv-h p{color:var(--muted);font:var(--t-body)}
+.g-lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.g-lv li{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink)}
+.g-lv h3{font:var(--t-body);font-weight:var(--w-bold)}
+.g-lv p{color:var(--charcoal);font:var(--t-body)}
+.g-lv .g-tag{padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:var(--t-small)}
+.g-lv a{margin-top:auto;padding-top:8px;color:var(--link);font:var(--t-body);font-weight:var(--w-bold)}
+@media (max-width:900px){.g-cards,.g-lv{grid-template-columns:1fr}}
+@media (max-width:640px){.g-cards>li,.g-lv li{padding:22px}.g-list li{flex-direction:column;gap:10px}.g-cards .u-bars li{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}.g-cards .u-bars .tr{grid-column:1/-1;grid-row:2}}
 </style>
 <link rel="stylesheet" href="/assets/cg/theme.css?v=1672c3d3">
 <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -145,8 +152,9 @@
       <div class="cg-mgrid">
         <div class="cg-mlinks">
           <div class="cg-pair">
-            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
-            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For software and AI teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+            
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#gaming"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Gaming</strong></a><a class="d" href="/uncopyable/">Uncopyable: find your first players before launch</a><a class="d" href="/services/player-programmes/">Player programmes: give your players a real role in your live game</a></div>
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#ai"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>AI &amp; AI infrastructure</strong></a><a class="d" href="/services/builder-programmes/">Builder programmes: grow the builder ecosystem around your product</a></div>
           </div>
           <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
         </div>
@@ -158,7 +166,7 @@
       <div class="cg-mgrid">
         <div class="cg-mlinks">
           <div class="cg-pair">
-            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, active communities and players as makers.</span></a>
             <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
           </div>
           <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
@@ -196,6 +204,7 @@
     <section class="g-sec" id="research" aria-labelledby="see-t">
       <h2 id="see-t">What we’re seeing</h2>
       <ul class="g-cards">
+        <li class="g-wide"><h3>More games, the same number of players.</h3><p>Steam released 3,670 games in October, 80% more than a year earlier, and about half disclosed AI. AI-disclosing games made up 42% of last quarter’s launches and about 12% of its sales. In the record week to 1 November, 40% of more than 1,650 new releases had no reviews yet.</p><p class="g-src">Source: <a href="https://automaton-media.com/articles/newsjp/20261104-477386/" rel="noopener">SteamDB, as reported by AUTOMATON, 4 Nov 2026</a> · <a href="https://fragwyz.substack.com/p/half-of-new-steam-games-now-disclose" rel="noopener">Sulka Haro’s Steam census, 4 Nov 2026</a> · <a href="https://www.invenglobal.com/articles/28193/weekly-steam-releases-surpass-1656-more-than-doubling-previous-record" rel="noopener">ICO Partners, as reported by Inven Global, 4 Nov 2026</a></p></li>
         <li><h3>Players find games through people.</h3><p>How 16,152 Steam players most often find new games. Several answers allowed; the sample leans towards dedicated players.</p>
           <ul class="u-bars"><li><span class="lb">Long-form YouTube</span><span class="tr" aria-hidden="true"><i style="--v:57%"></i></span><span class="val">57%</span></li><li><span class="lb">Steam</span><span class="tr" aria-hidden="true"><i style="--v:55.8%"></i></span><span class="val">55.8%</span></li><li><span class="lb">Word of mouth</span><span class="tr" aria-hidden="true"><i style="--v:44.9%"></i></span><span class="val">44.9%</span></li><li><span class="lb">Discord</span><span class="tr" aria-hidden="true"><i style="--v:17.9%"></i></span><span class="val">17.9%</span></li></ul><p class="sr">Each bar uses the same 0 to 100% scale. The answers overlap and do not add up to 100%.</p><p class="g-src">Source: <a href="https://newsletter.gamediscover.co/p/the-one-game-discovery-by-player" rel="noopener">GameDiscoverCo Steam Fan Snapshot, September 2026</a></p></li>
         <li><h3>Copying got cheap, so studios stopped showing.</h3><p>Digital Sun moved ReVamp’s first playtest from Steam to its Discord. Alliance Arts kept its Next Fest demo to closed sessions. Both cited cloning fears.</p><p class="g-src">Source: <a href="https://kotaku.com/revamp-public-playtest-cancelled-digital-sun-claude-ai-clones-2000747558" rel="noopener">Kotaku, 19 Oct 2026</a> · <a href="https://arstechnica.com/gaming/2026/10/ai-game-clones-are-making-indie-developers-afraid-to-show-their-work/" rel="noopener">Ars Technica, 19 Oct 2026</a></p></li>
@@ -217,17 +226,17 @@
     </section>
   </div>
 </div>
-<section class="g-exits" id="contact" aria-label="Work with us">
-  <div class="wrap"><ul>
-    <li><h2>Indie studio?</h2><a href="/uncopyable/">Find your first players before launch</a></li>
-    <li><h2>Platform, publisher or association?</h2><a href="mailto:carmelito@communitygeeks.de">Compare notes with us</a></li>
-  </ul></div>
+<section class="g-exits" id="contact" aria-labelledby="lv-t">
+  <div class="wrap">
+    <div class="g-lv-h" id="levels"><h2 id="lv-t">Where players add value</h2><p>Three stages we study, from a game’s first players to the players who build on it.</p></div>
+    <ul class="g-lv"><li><h3>First players</h3><p>Before launch, a few strangers who play your build, tell you what confused them and tell their friends decide whether a game finds its audience.</p><a href="/uncopyable/">Indie studio? See Uncopyable</a></li><li><h3>Active community</h3><p>In a live game, players and creators make the clips, guides, events and feedback that keep it going. Studios decide which of that work to support.</p><a href="/services/player-programmes/">Live game? See Player programmes</a></li><li><h3>Players as makers</h3><p>Mods, user-generated content and AI tools let players build on the games they love. Which of that work helps a game, and who should support it, is still open.</p><p class="g-tag">Open research question</p><a href="mailto:carmelito@communitygeeks.de">Platform, publisher or association? Compare notes with us</a></li></ul>
+  </div>
 </section>
 </main>
 <footer class="cg-foot"><div class="cg-w">
   <div class="cg-fgrid">
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
-    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/player-programmes/">For live games: Player programmes</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
     <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">13 & 17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>

@@ -7,11 +7,11 @@
 <link rel="canonical" href="https://communitygeeks.ai/">
 <title>Communitygeeks · Consulting and programmes for players, developers and partners</title>
 <script>document.documentElement.classList.add('js')</script>
-<meta name="description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for software and AI teams.">
+<meta name="description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable and Player programmes for game studios, Builder programmes for software and AI teams.">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-1180.avif" imagesrcset="/assets/home/normalised/homepage-world-final-1180.avif 1180w, /assets/home/normalised/homepage-world-final-1600.avif 1600w, /assets/home/normalised/homepage-world-final-2200.avif 2200w" imagesizes="(max-width: 760px) 100vw, (max-width: 1230px) calc(100vw - 48px), 1180px" type="image/avif" media="(min-width:761px)">
 <link rel="preload" as="image" href="/assets/home/normalised/homepage-world-final-mobile.avif" type="image/avif" media="(max-width:760px)">
 <link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
-<link rel="stylesheet" href="/assets/cg/chrome.css?v=bbab33a2">
+<link rel="stylesheet" href="/assets/cg/chrome.css?v=cf047903">
 <style>
 /* Approved CI tokens (src/assets/css/visual-system.css) in Heaven Media's band structure */
 :root{
@@ -117,18 +117,32 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 .panel{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:14px;padding:32px 32px 34px;background:var(--surface);color:var(--ink);border-radius:18px;border-top:6px solid var(--bar);transition:translate .25s,box-shadow .25s;--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
 .panel:hover{translate:0 -4px;box-shadow:0 30px 50px -34px var(--scrim)}
 .panel-g{--bar:var(--line)}.panel-a{--bar:var(--muted-on-ink)}
-.panel .market{color:var(--muted);font:var(--t-small)}
-.panel .market b{color:var(--ink);font-weight:var(--w-bold)}
-.panel h3{font:var(--t-body);font-weight:var(--w-bold)}
+.panel h3{font:var(--t-h2);font-weight:var(--w-bold)}
 .panel .out{color:var(--ink);font:var(--t-body);font-style:normal}
-.panel p.desc{color:var(--muted);max-width:46ch}
 .panel .btn{justify-self:start;margin-top:8px}
-/* Side by side, the two cards share one set of rows (icon, title, line 1, line 2, line 3, button), so each line starts at the same
-   height in both and the buttons sit on one line at the bottom. Stacked cards keep their natural height. */
-@media (min-width:901px){@supports (grid-template-rows:subgrid){
-  .tg{grid-template-rows:repeat(5,auto) 1fr auto}
-  .panel{grid-row:span 7;grid-template-rows:subgrid}
-  .panel .btn{grid-row:7}
+/* Three tiers per card (6 Nov 2026): numbered markers joined by a thin line. Each tier's marker, title and line form one link;
+   a note (gaming tier 1) sits outside that link so links never nest. A dashed marker marks a tier that is still research. */
+.tiers{--mk:36px;--cn:color-mix(in srgb,var(--muted) 45%,transparent);display:grid;align-content:start;margin:8px 0 0;padding:0;list-style:none}
+.tiers li{position:relative;display:grid;align-content:start;gap:8px;padding-bottom:22px}
+.tiers li:last-child{padding-bottom:0}
+.tiers li:not(:last-child)::after{content:"";position:absolute;left:calc(var(--mk) / 2);top:calc(var(--mk) + 6px);bottom:6px;border-left:1px solid var(--cn)}
+.tiers li>a{display:grid;grid-template-columns:var(--mk) minmax(0,1fr);column-gap:16px;row-gap:4px;color:var(--ink);text-decoration:none;border-radius:6px}
+.tiers li>a:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.tiers li>a:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.tiers .mk{grid-row:1/3;display:grid;place-items:center;width:var(--mk);height:var(--mk);border-radius:50%;background:var(--ink);color:var(--paper);font:var(--t-small);font-variant-numeric:tabular-nums}
+.tiers .open .mk{background:var(--surface);color:var(--ink);border:1.5px dashed var(--muted)}
+.tiers .tt{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;min-height:var(--mk)}
+.tiers b{font:var(--t-body);font-weight:var(--w-bold)}
+.tiers .ln{grid-column:2;color:var(--muted);font:var(--t-body)}
+.tiers .chip{padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font:var(--t-small)}
+.tiers .note{margin-left:calc(var(--mk) + 16px);color:var(--muted);font:var(--t-small)}
+/* Side by side, the two cards share one set of rows (icon, title, intro, tier 1, tier 2, tier 3, gap, button), so tier N starts at
+   the same height in both and the buttons sit on one line at the bottom. Stacked cards (1100px and below) keep their natural height. */
+@media (min-width:1101px){@supports (grid-template-rows:subgrid){
+  .tg{grid-template-rows:repeat(6,auto) 1fr auto}
+  .panel{grid-row:span 8;grid-template-rows:subgrid}
+  .tiers{grid-row:4/span 3;grid-template-rows:subgrid;row-gap:0}
+  .panel .btn{grid-row:8}
 }}
 /* Programme icons (28 Oct 2026): bespoke art above each title, in equal 112px slots, optically matched (controller 128px, robot 104px:
    different silhouettes); transparent margins may overflow the slot, never cropped. 16px to the title (slot margin + panel gap). */
@@ -183,7 +197,8 @@ a.feature:hover strong{text-decoration:underline;text-underline-offset:4px}
 
 @media (max-width:1180px){.lang{display:none}.nav{gap:20px;font:var(--t-small)}}
 @media (max-width:980px){.foot-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.tg,.grid{grid-template-columns:1fr}}
+@media (max-width:1100px){.tg{grid-template-columns:1fr}}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
 @media (max-width:860px){
   .js .nav-toggle{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid var(--btn-bg);border-radius:999px;background:none;color:var(--paper);cursor:pointer;font:var(--t-body);font-weight:var(--w-bold)}
   .js .nav{display:none;position:fixed;inset:72px 0 0;z-index:39;flex-direction:column;align-items:stretch;gap:0;padding:12px var(--g) 32px;background:var(--ink);overflow:auto;--link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
@@ -227,7 +242,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Communitygeeks">
 <meta property="og:title" content="Communitygeeks · Consulting and programmes for players, developers and partners">
-<meta property="og:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for software and AI teams.">
+<meta property="og:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable and Player programmes for game studios, Builder programmes for software and AI teams.">
 <meta property="og:url" content="https://communitygeeks.ai/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://communitygeeks.ai/assets/home/normalised/home-og.jpg">
@@ -236,7 +251,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 <meta property="og:image:alt" content="Astronauts share an isometric world: red arcade play and game-level building on the left, blue software integration and a rocket launch on the right.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Communitygeeks · Consulting and programmes for players, developers and partners">
-<meta name="twitter:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable for indie game studios, Builder programmes for software and AI teams.">
+<meta name="twitter:description" content="Consulting and hands-on programmes for your players, developers and partners. Right now: Uncopyable and Player programmes for game studios, Builder programmes for software and AI teams.">
 <meta name="twitter:image" content="https://communitygeeks.ai/assets/home/normalised/home-og.jpg">
 <meta name="twitter:image:alt" content="Astronauts share an isometric world: red arcade play and game-level building on the left, blue software integration and a rocket launch on the right.">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
@@ -254,8 +269,9 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
       <div class="cg-mgrid">
         <div class="cg-mlinks">
           <div class="cg-pair">
-            <a class="cg-card" href="/uncopyable/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Uncopyable</strong><span class="d">For indie game studios. Find your first players before launch.</span><span class="sc">Self-paced kit · Live workshop · Sponsored cohort</span></a>
-            <a class="cg-card" href="/services/builder-programmes/"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Builder programmes</strong><span class="d">For software and AI teams. Grow the builder ecosystem around your product.</span><span class="sc">Decision Review · Programme Build · Programme Support</span></a>
+            
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#gaming"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Gaming</strong></a><a class="d" href="/uncopyable/">Uncopyable: find your first players before launch</a><a class="d" href="/services/player-programmes/">Player programmes: give your players a real role in your live game</a></div>
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#ai"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>AI &amp; AI infrastructure</strong></a><a class="d" href="/services/builder-programmes/">Builder programmes: grow the builder ecosystem around your product</a></div>
           </div>
           <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
         </div>
@@ -267,7 +283,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
       <div class="cg-mgrid">
         <div class="cg-mlinks">
           <div class="cg-pair">
-            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, participation and player ecosystems.</span></a>
+            <a class="cg-card" href="/research/games/"><strong>Gaming</strong><span class="d">Why players choose a game and stay: first players, active communities and players as makers.</span></a>
             <a class="cg-card" href="/research/builder-ecosystems/"><strong>AI &amp; AI infrastructure</strong><span class="d">What makes a builder ecosystem thrive, and the programmes that support it.</span></a>
           </div>
           <div class="cg-alls"><a class="cg-all" href="/research/"><b>Research overview</b><span>Both tracks and how the research works</span></a><a class="cg-all" href="/research/articles/"><b>All articles</b><span>Every field note, newest first</span></a></div>
@@ -298,7 +314,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
   <section class="hero" aria-labelledby="h1">
     <div class="hero-copy">
       <h1 id="h1">Build with the people around your product.</h1>
-      <p class="sub">Consulting and hands-on programmes for your players, developers and partners.<span class="sub-now"> Right now: <a class="ln-g" href="/uncopyable/">Uncopyable</a> for indie game studios, <a class="ln-a" href="/services/builder-programmes/">Builder programmes</a> for software and AI teams.</span></p>
+      <p class="sub">Consulting and hands-on programmes for your players, developers and partners.<span class="sub-now"> Right now: <a class="ln-g" href="/uncopyable/">Uncopyable</a> and <a class="ln-g" href="/services/player-programmes/">Player programmes</a> for game studios, <a class="ln-a" href="/services/builder-programmes/">Builder programmes</a> for software and AI teams.</span></p>
     </div>
     <div class="hero-art">
       <picture>
@@ -309,7 +325,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
              alt="Astronauts share an isometric world: red arcade play and game-level building on the left, blue software integration and a rocket launch on the right.">
       </picture>
       <nav class="chips" aria-label="Programmes">
-        <a class="hero-route route-g" href="/uncopyable/"><span><b>For indie studios</b><span>Uncopyable</span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="hero-route route-g" href="/services/#gaming"><span><b>For game studios</b><span>Uncopyable · Player programmes</span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="hero-route route-a" href="/services/builder-programmes/"><span><b>For software and AI teams</b><span>Builder programmes</span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </nav>
     </div>
@@ -336,18 +352,24 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
       <div class="tg">
         <article class="panel panel-g" id="gaming" aria-labelledby="g-t">
           <span class="p-ico"><img src="/assets/home/normalised/programme-gaming-isometric-128.webp" srcset="/assets/home/normalised/programme-gaming-isometric-128.webp 1x, /assets/home/normalised/programme-gaming-isometric-256.webp 2x" width="128" height="128" alt="" loading="lazy" decoding="async"></span>
-          <h3 id="g-t">Uncopyable</h3>
-          <p class="out">For indie game studios: find your first players before launch.</p>
-          <p class="desc">A practical programme for building early player communities, running playtests and working with small creators.</p>
-          <p class="desc">Running an association or accelerator? <a href="/uncopyable/#programmes">Sponsor a cohort</a> of up to 10 studios, from €2,500.</p>
-          <a class="btn btn-fill" href="/uncopyable/">Explore Uncopyable</a>
+          <h3 id="g-t">Gaming</h3>
+          <p class="out">For game studios: from first players to players who help build the game.</p>
+          <ol class="tiers">
+            <li><a href="/uncopyable/"><span class="mk" aria-hidden="true">1</span><span class="tt"><b>Uncopyable</b></span><span class="ln">Before launch: find your first players.</span></a><p class="note">Associations and accelerators can <a href="/uncopyable/#programmes">sponsor a cohort</a> of up to 10 studios, from €8,500.</p></li>
+            <li><a href="/services/player-programmes/"><span class="mk" aria-hidden="true">2</span><span class="tt"><b>Player programmes</b></span><span class="ln">For a live game: give your players a real role in testing, shaping and building it.</span></a></li>
+            <li class="open"><a href="/research/games/#levels"><span class="mk" aria-hidden="true">3</span><span class="tt"><b>Players as makers</b> <span class="chip">In research</span></span><span class="ln">Mods, user-generated content and AI tools let players build on games. Which of that work a studio should support is still open.</span></a></li>
+          </ol>
+          <a class="btn btn-fill" href="/services/#gaming">Explore gaming programmes</a>
         </article>
         <article class="panel panel-a" id="ai" aria-labelledby="a-t">
           <span class="p-ico"><img src="/assets/home/normalised/programme-robot-isometric-104.webp" srcset="/assets/home/normalised/programme-robot-isometric-104.webp 1x, /assets/home/normalised/programme-robot-isometric-208.webp 2x" width="104" height="104" alt="" loading="lazy" decoding="async"></span>
-          <h3 id="a-t">Builder programmes</h3>
-          <p class="out">For software and AI teams: grow the builder ecosystem around your product.</p>
-          <p class="desc">We design and launch developer, contributor and partner programmes, from first-project support to builder cohorts.</p>
-          <p class="desc">Already running one? We review what works and plan the next stage, from relaunching ambassadors to keeping support answers findable.</p>
+          <h3 id="a-t">AI &amp; AI infrastructure</h3>
+          <p class="out">Builder programmes for software and AI teams, from first projects to an ecosystem others build on.</p>
+          <ol class="tiers">
+            <li><a href="/services/builder-programmes/"><span class="mk" aria-hidden="true">1</span><span class="tt"><b>First builders</b></span><span class="ln">Help new developers ship their first project.</span></a></li>
+            <li><a href="/services/builder-programmes/"><span class="mk" aria-hidden="true">2</span><span class="tt"><b>Builder cohorts</b></span><span class="ln">Start a small cohort of your most active builders.</span></a></li>
+            <li><a href="/services/builder-programmes/"><span class="mk" aria-hidden="true">3</span><span class="tt"><b>Builder ecosystem</b></span><span class="ln">Programmes for integrations, add-ons and the people who teach others.</span></a></li>
+          </ol>
           <a class="btn btn-fill" href="/services/builder-programmes/">Explore Builder programmes</a>
         </article>
       </div>
@@ -356,7 +378,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 
   
   <section class="bridge" aria-label="Our approach">
-    <div class="wrap"><p>From first audience to active community to builder ecosystem. We help you decide what your product needs.</p></div>
+    <div class="wrap"><p>From first audience to active community to builder ecosystem. We help you decide what your product needs. <a href="/services/">Compare the programmes</a></p></div>
   </section>
 
   
@@ -396,7 +418,7 @@ picture.sc{display:contents}picture.sc>source{display:none}picture.sc>img{object
 <footer class="cg-foot"><div class="cg-w">
   <div class="cg-fgrid">
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
-    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/player-programmes/">For live games: Player programmes</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
     <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">13 & 17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>
