@@ -1,0 +1,88 @@
+/* Lens exhibit (10 Nov 2026): the Participation Lens as one ink exhibit inside an article; markup from lens_band() in _build/lens.py,
+   behaviour in lens-band.js. No eyebrows, numerals, chips or accent bars (cleanup 10 Nov 2026); the action colour marks only what you can act on. The article column is split around it (two .reading blocks), so the exhibit can run wider than the prose
+   (up to 1100px) with no 100vw breakout. Without JavaScript (no .js on <html>) it reads as a plain list: every question with its answer.
+   With it, the six questions are buttons (3 x 2, one column on phones) and every answer sits in one shared grid cell, so the cell is as
+   tall as the longest answer and switching questions never moves the page. */
+.reading:has(+ .lens-x){padding-bottom:0}
+.lens-x + .reading{padding-top:0}
+
+.lens-x{--pad:clamp(var(--space-20),4vw,calc(1.5 * var(--space-32)));box-sizing:border-box;width:min(1100px,100% - 2 * var(--space-16));margin:var(--space-32) auto;
+  padding:var(--pad);border:1px solid var(--line-on-ink);border-radius:16px;background:var(--ink);color:var(--paper);
+  --link:var(--action-on-ink);--focus:var(--action-on-ink);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.lens-x h2{position:relative;z-index:1;margin:0;color:var(--paper);font:var(--t-h2);text-wrap:balance}
+.lens-x-sub{position:relative;z-index:1;max-width:36ch;margin:var(--space-8) 0 0;color:var(--muted-on-ink);font:var(--t-lede)}
+
+/* The illustration runs to the exhibit's inner edges. Its dark margins (art content spans y 283 to 1123 of 1350, i.e. 11.8% and 9.5% of
+   the width above and below) match --ink, so the heading and the questions tuck into them; % margins are of the content width. */
+.lens-x-art{position:relative;margin:calc(var(--space-16) - .1 * (100% + 2 * var(--pad))) calc(-1 * var(--pad)) calc(-.08 * (100% + 2 * var(--pad)))}
+.lens-x-art a{display:block}
+.lens-x-art img{display:block;width:100%;height:auto}
+.lens-x-art a:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+/* The selected question's card on Astra's board: measured on the 2400 x 1350 art (cards 379 x 310 px at x 889 / 1288 / 1687, y 314 / 654). */
+.lens-x-board{position:absolute;inset:0;pointer-events:none}
+.lens-x-hl{position:absolute;left:var(--x);top:var(--y);width:15.79%;height:23.04%;border-radius:4px;box-shadow:0 0 0 3px var(--action-on-ink);opacity:0;transition:opacity .2s ease-out}
+.lens-x-hl.is-on{opacity:1}
+.lens-x-hl[data-n="1"],.lens-x-hl[data-n="4"]{--x:37.04%}
+.lens-x-hl[data-n="2"],.lens-x-hl[data-n="5"]{--x:53.67%}
+.lens-x-hl[data-n="3"],.lens-x-hl[data-n="6"]{--x:70.29%}
+.lens-x-hl[data-n="1"],.lens-x-hl[data-n="2"],.lens-x-hl[data-n="3"]{--y:23.26%}
+.lens-x-hl[data-n="4"],.lens-x-hl[data-n="5"],.lens-x-hl[data-n="6"]{--y:48.44%}
+
+/* Question panel (refined 10 Nov 2026): one charcoal surface below the art holds the six questions and the open answer.
+   Base (no JavaScript): a list of headed answers on that surface. */
+.lens-x-qs{position:relative;z-index:1;margin-top:var(--space-20);padding:var(--space-20);border-radius:12px;background:var(--ink-2)}
+.lens-x-h{margin:var(--space-16) 0 0;font:var(--t-body);font-weight:var(--w-bold)}
+.lens-x-h:first-child{margin-top:0}
+.lens-x-q{display:flex;width:100%;padding:0;border:0;background:none;color:var(--paper);font:inherit;text-align:left}
+.lens-x-a p{max-width:60ch;margin:var(--space-8) 0 0;color:var(--paper);font:var(--t-body)}
+
+/* With JavaScript: six flat buttons, a fine rule, then one shared answer cell. */
+.js .lens-x-qs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-8)}
+.js .lens-x-h{margin:0}
+.js .lens-x-q{box-sizing:border-box;height:100%;min-height:56px;align-items:center;padding:var(--space-8) var(--space-16);border:1px solid var(--line-on-ink);border-radius:8px;
+  background:none;cursor:pointer;transition:border-color .15s,background-color .15s}
+.js .lens-x-q:hover{border-color:var(--muted-on-ink)}
+.js .lens-x-q[aria-expanded="true"]{border-color:var(--action-on-ink);background:color-mix(in srgb,var(--action-on-ink) 12%,transparent)}
+.lens-x-q:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.js .lens-x-a{grid-row:3;grid-column:1 / -1;margin-top:var(--space-16);padding-top:var(--space-20);border-top:1px solid var(--line-on-ink);
+  align-self:start;visibility:hidden;opacity:0;translate:0 4px}
+.js .lens-x-a.is-on{visibility:visible;opacity:1;translate:0;transition:opacity .25s ease-out,translate .25s ease-out}
+.js .lens-x-a p{margin:0}
+
+/* Takeaway panel: the light end of the exhibit (paper, ink type, the light-context action blue), the same grammar as the download
+   card on /lisbon/. Lisbon pages don't load system.css, so its .btn rules are mirrored here, scoped to the exhibit. */
+.lens-x-dl{display:grid;grid-template-columns:168px minmax(0,1fr);gap:var(--space-32);align-items:center;margin:var(--space-32) 0 0;padding:var(--space-32);border-radius:12px;
+  background:var(--paper);color:var(--ink);--link:var(--action);--focus:var(--action);--btn-bg:var(--action);--btn-fg:var(--surface);--btn-bg-hover:var(--action-hover)}
+.lens-x-page{display:block;border:1px solid var(--line);background:var(--surface);box-shadow:0 10px 24px -14px var(--scrim);transition:translate .2s}   /* page one of the PDF */
+.lens-x-page img{display:block;width:100%;height:auto}
+.lens-x-page:hover{translate:0 -2px}
+.lens-x-dl-body{display:grid;justify-items:start;gap:var(--space-8)}
+.lens-x-dl-body h3{margin:0;color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.lens-x-dl-body p{max-width:48ch;margin:0;color:var(--charcoal);font:var(--t-body)}
+.lens-x-dl-body .btn{margin-top:var(--space-8)}
+.lens-x .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;text-decoration:none;text-align:center;transition:translate .2s,background-color .2s,box-shadow .2s;font:var(--t-body);font-weight:var(--w-bold)}
+.lens-x .btn:hover{translate:0 -2px}
+.lens-x .btn-fill{background:var(--btn-bg);color:var(--btn-fg)}
+.lens-x .btn-fill:hover{background:var(--btn-bg-hover)}
+.lens-x .btn:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.lens-x-dl-body .lens-x-meta{color:var(--muted);font:var(--t-small)}
+
+/* Entrance, once (lens-band.js adds .is-pre only when the exhibit starts below the fold and motion is allowed). */
+.lens-x :is(h2,.lens-x-sub,.lens-x-art,.lens-x-h){transition:opacity .3s ease-out,translate .3s ease-out}
+.lens-x-sub{transition-delay:60ms}.lens-x-art{transition-delay:120ms}
+.lens-x-h:nth-of-type(1){transition-delay:200ms}.lens-x-h:nth-of-type(2){transition-delay:240ms}.lens-x-h:nth-of-type(3){transition-delay:280ms}
+.lens-x-h:nth-of-type(4){transition-delay:320ms}.lens-x-h:nth-of-type(5){transition-delay:360ms}.lens-x-h:nth-of-type(6){transition-delay:400ms}
+.lens-x.is-pre :is(h2,.lens-x-sub,.lens-x-art,.lens-x-h){opacity:0;translate:0 12px}
+
+@media (max-width:640px){
+  /* Phones: one column of compact rows reads better than a 2 x 3 grid, where every question wraps onto three lines at 360px. */
+  .lens-x-qs{padding:var(--space-16)}
+  .js .lens-x-qs{grid-template-columns:minmax(0,1fr)}
+  .js .lens-x-a{grid-row:7}
+  .js .lens-x-q{min-height:52px}
+  .lens-x-hl{box-shadow:0 0 0 2px var(--action-on-ink)}
+  /* the takeaway stacks: page, then the words and the button */
+  .lens-x-dl{grid-template-columns:minmax(0,1fr);gap:var(--space-20);padding:var(--space-20)}
+  .lens-x-page{width:128px}
+}
+@media (prefers-reduced-motion:reduce){.lens-x,.lens-x *{transition:none!important}}
