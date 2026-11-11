@@ -134,3 +134,5 @@
 .lx-ask .cg-btn svg{width:20px;height:20px;flex:none}
 .lx-ask .lx-btn-line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--paper) 40%,transparent)}
 .lx-ask .lx-btn-line:hover{background:color-mix(in srgb,var(--paper) 12%,transparent)}
+/* Ticket lines in body size, not small (11 Nov 2026) */
+.lx-content .lx-tickets{font:var(--t-body)}
