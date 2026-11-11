@@ -127,3 +127,10 @@
   .lx-contribute>a{margin-top:22px}
 }
 @media (prefers-reduced-motion:reduce){.lx-leaf,.lx-motion{display:none;animation:none}}
+/* Talk card question buttons (11 Nov 2026) */
+.lx-ask{margin-top:var(--space-32);--btn-bg:var(--action-on-ink);--btn-fg:var(--ink);--btn-bg-hover:var(--action-on-ink-hover)}
+.lx-ask-btns{display:flex;flex-wrap:wrap;gap:var(--space-16);margin-top:var(--space-16)}
+.lx-ask .cg-btn{color:var(--btn-fg);gap:var(--space-8);min-height:48px;padding:0 22px}
+.lx-ask .cg-btn svg{width:20px;height:20px;flex:none}
+.lx-ask .lx-btn-line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--paper) 40%,transparent)}
+.lx-ask .lx-btn-line:hover{background:color-mix(in srgb,var(--paper) 12%,transparent)}
