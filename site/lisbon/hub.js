@@ -14,3 +14,15 @@
   });
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; apply(); }).observe(scene);
 })();
+// Deep links (15 Nov 2026): web fonts can reflow the page after the browser has jumped to a #hash (the talk's QR code opens
+// #community-week), so align the target again once fonts and images are in, unless the visitor has already scrolled.
+(() => {
+  const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (!target || !document.fonts) return;
+  let moved = false;
+  for (const t of ['wheel', 'touchstart', 'keydown', 'pointerdown']) addEventListener(t, () => { moved = true; }, { once: true, passive: true });
+  const loaded = document.readyState === 'complete' ? Promise.resolve() : new Promise(r => addEventListener('load', r, { once: true }));
+  Promise.all([document.fonts.ready, loaded]).then(() => requestAnimationFrame(() => {
+    if (!moved) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }));
+})();
