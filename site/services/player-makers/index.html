@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://communitygeeks.ai/services/player-programmes/">
-<title>Player programmes for studios with a live game · Communitygeeks</title>
-<meta name="description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
+<link rel="canonical" href="https://communitygeeks.ai/services/player-makers/">
+<title>Player Makers · Programmes for players who make things around your game · Communitygeeks</title>
+<meta name="description" content="Mods, maps, guides, tools and AI remixes. We find the players who already make things around your game, set the rules with your team and run the first cycle. Maker Scan €4,000, programme €42,000.">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="/assets/cg/tokens.css?v=5ec0782d">
-<link rel="preload" as="image" type="image/avif" imagesrcset="/assets/home/normalised/research-player-contributions-800.avif 800w, /assets/home/normalised/research-player-contributions.avif 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">
+<link rel="preload" as="image" type="image/avif" imagesrcset="/assets/home/normalised/player-makers-hero-800.avif 800w, /assets/home/normalised/player-makers-hero.avif 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">
 <link rel="stylesheet" href="/assets/cg/chrome.css?v=cf047903">
 <link rel="stylesheet" href="/assets/cg/system.css?v=bfb81b64"><style>
 /* /uncopyable/ (28 Oct 2026): separate full-width bands, deep / paper / white, never two alike in a row.
@@ -300,13 +300,35 @@
 .u-final .bp-book-btn{min-height:56px;padding:0 28px}
 .bp-book-mail{margin-top:20px;color:var(--muted-on-ink);font:var(--t-body)}
 
-/* Player programmes (6 Nov 2026): Builder programmes grammar; the evidence band pairs Valve's advice with the founder's live-game work */
-.pp-ev{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px;align-items:start}
-.pp-hyp{display:grid;gap:12px;align-content:start}
-.pp-hyp .h{color:var(--paper);font:var(--t-h2)}
-.pp-hyp p{color:var(--muted-on-ink);font:var(--t-body)}
-.pp-hyp p.src{font:var(--t-small)}
-@media (max-width:900px){.pp-ev{grid-template-columns:1fr}}
+/* Player Panel and Player Makers (15 Nov 2026): Builder programmes grammar plus three small parts */
+.pp-ev{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:40px 56px;align-items:start}
+.pp-hyp{display:grid;gap:12px;align-content:start;padding-top:20px;border-top:1px solid var(--u-line-deep)}
+.pp-hyp .f{color:var(--paper);font:var(--t-body)}
+.pp-hyp .src{color:var(--muted-on-ink);font:var(--t-small)}
+.pp-hyp .src a,.pp-close a{color:var(--link);text-decoration:underline 1px;text-underline-offset:3px}
+.pp-close{max-width:24ch;margin-top:64px;color:var(--paper);font:var(--t-h2)}
+.u-white .pp-close,.u-paper .pp-close{max-width:40ch;margin-top:32px;color:var(--ink)}
+@media (min-width:901px){.pp-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pp-steps .mk{font-variant-numeric:normal}
+.pp-steps h3{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.pp-line{max-width:62ch;margin-top:40px;color:var(--ink);font:var(--t-body)}
+.pp-one .offer,.pp-two .offer{grid-template-rows:none;align-content:start}
+.pp-one .offer{max-width:720px}
+.pp-two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.pp-two .offer .btn,.pp-one .offer .btn{justify-self:start;margin-top:8px}
+.offer .inc{color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.offer .bring{color:var(--muted);font:var(--t-body)}
+.offer .bring b{color:var(--ink)}
+.pp-pilot{max-width:62ch;margin-top:20px}
+.pp-make{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.pp-make li{display:grid;gap:14px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font:var(--t-body);font-weight:var(--w-bold)}
+.pp-make .u-ic{display:block;width:64px;height:64px}
+.pp-make .u-ic img{display:block;width:100%;height:100%}
+.pp-get .u-ic{grid-area:1/2/2/3;align-self:start;width:84px;height:84px;margin:-8px -8px 0 0}
+.pp-get .u-ic img{display:block;width:100%;height:100%;object-fit:contain}
+@media (max-width:1100px){.pp-make{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.pp-ev{grid-template-columns:1fr}.pp-two{grid-template-columns:1fr}}
+@media (max-width:760px){.pp-make{grid-template-columns:1fr 1fr;gap:12px}.pp-make li{padding:18px}.pp-make .u-ic{width:52px;height:52px}.pp-get .u-ic{width:64px;height:64px;margin:-4px -4px 0 0}.pp-close{margin-top:48px}}
 </style>
 <link rel="stylesheet" href="/assets/cg/theme.css?v=1672c3d3">
 <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -314,19 +336,19 @@
 <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Communitygeeks">
-<meta property="og:title" content="Player programmes for studios with a live game">
-<meta property="og:description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
-<meta property="og:url" content="https://communitygeeks.ai/services/player-programmes/">
+<meta property="og:title" content="Player Makers · Programmes for players who make things around your game">
+<meta property="og:description" content="Mods, maps, guides, tools and AI remixes. We find the players who already make things around your game, set the rules with your team and run the first cycle. Maker Scan €4,000, programme €42,000.">
+<meta property="og:url" content="https://communitygeeks.ai/services/player-makers/">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="https://communitygeeks.ai/assets/home/normalised/research-games-og.jpg">
+<meta property="og:image" content="https://communitygeeks.ai/assets/home/normalised/player-makers-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Two astronauts playtest a red handheld game together, with a notebook for feedback.">
+<meta property="og:image:alt" content="Three astronauts build a red arch together on a grey bench, one holding a sketch and one a wrench.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Player programmes for studios with a live game">
-<meta name="twitter:description" content="Player councils, playtest panels, community leader and player-creation programmes for game studios with a live game, planned and launched with your team so your players have a real role in the game.">
-<meta name="twitter:image" content="https://communitygeeks.ai/assets/home/normalised/research-games-og.jpg">
-<meta name="twitter:image:alt" content="Two astronauts playtest a red handheld game together, with a notebook for feedback.">
+<meta name="twitter:title" content="Player Makers · Programmes for players who make things around your game">
+<meta name="twitter:description" content="Mods, maps, guides, tools and AI remixes. We find the players who already make things around your game, set the rules with your team and run the first cycle. Maker Scan €4,000, programme €42,000.">
+<meta name="twitter:image" content="https://communitygeeks.ai/assets/home/normalised/player-makers-og.jpg">
+<meta name="twitter:image:alt" content="Three astronauts build a red arch together on a grey bench, one holding a sketch and one a wrench.">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="946e1838-6105-4e34-a6c0-e171c82e7efb" data-domains="communitygeeks.ai"></script>
 <script defer src="/assets/cg/analytics.js"></script>
 </head>
@@ -343,7 +365,7 @@
         <div class="cg-mlinks">
           <div class="cg-pair">
             
-            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#gaming"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Gaming</strong></a><a class="d" href="/uncopyable/">Uncopyable: find your first players before launch</a><a class="d" href="/services/player-programmes/">Player programmes: give your players a real role in your live game</a></div>
+            <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#gaming"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-uncopyable-1200.avif 1200w, /assets/home/normalised/menu-uncopyable-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-uncopyable-1200.webp" srcset="/assets/home/normalised/menu-uncopyable-1200.webp 1200w, /assets/home/normalised/menu-uncopyable-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>Gaming</strong></a><a class="d" href="/uncopyable/">Uncopyable: find your first players before launch</a><a class="d" href="/services/player-panel/">Player Panel: a standing group of 50 real players for your game</a><a class="d" href="/services/player-makers/">Player Makers: programmes for players who make things around your game</a></div>
             <div class="cg-card cg-card-trip cg-card-side"><a href="/services/#ai"><span class="cg-art"><picture><source type="image/avif" srcset="/assets/home/normalised/menu-builder-programmes-1200.avif 1200w, /assets/home/normalised/menu-builder-programmes-2400.avif 2400w" sizes="380px"><img src="/assets/home/normalised/menu-builder-programmes-1200.webp" srcset="/assets/home/normalised/menu-builder-programmes-1200.webp 1200w, /assets/home/normalised/menu-builder-programmes-2400.webp 2400w" sizes="380px" width="1200" height="800" alt="" loading="lazy" decoding="async"></picture></span><strong>AI &amp; AI infrastructure</strong></a><a class="d" href="/services/builder-programmes/">Builder programmes: grow the builder ecosystem around your product</a></div>
           </div>
           <a class="cg-all" href="/services/"><b>All programmes</b><span>Formats, timelines and prices</span></a>
@@ -385,119 +407,78 @@
 <section class="phero" aria-labelledby="h1">
   <div class="wrap">
     <div class="phero-copy">
-      <nav class="crumb" aria-label="Breadcrumb"><a href="/services/">Services</a><span aria-hidden="true">›</span><span aria-current="page">Player programmes</span></nav>
-      <h1 class="h1" id="h1">Give your players a real role in your live game.</h1>
-      <p class="lede">Player councils, playtest panels, community leaders and moderators, player creations and the creators already in your community: we plan, launch and improve them with your team, so players can test, shape and build with you.</p>
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/services/">Services</a><span aria-hidden="true">›</span><span aria-current="page">Player Makers</span></nav>
+      <h1 class="h1" id="h1">Your players are already making things around your game.</h1>
+      <p class="lede">Mods, maps, guides, tools, and now AI remixes. We help your team decide what to support, set the rules, and run the first cycle with the players who make them.</p>
       
-      <div class="acts"><a class="btn btn-fill" href="#options">See the four ways to work</a><a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata[source]=player-programmes">Book a conversation</a></div>
+      <div class="acts"><a class="btn btn-fill" href="https://cal.com/communitygeeks/30min?metadata[source]=player-makers">Book a conversation</a><a class="btn btn-line" href="#formats">See the two formats</a></div>
     </div>
-    <figure class="phero-art sc-hero"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/research-player-contributions-800.avif 800w, /assets/home/normalised/research-player-contributions.avif 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="/assets/home/normalised/research-player-contributions-800.webp" srcset="/assets/home/normalised/research-player-contributions-800.webp 800w, /assets/home/normalised/research-player-contributions.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1000" alt="Two astronauts extend a simple game level by joining white terrain tiles around a red checkpoint flag." fetchpriority="high" decoding="async"></picture></figure>
+    <figure class="phero-art sc-hero"><picture class="sc"><source type="image/avif" srcset="/assets/home/normalised/player-makers-hero-800.avif 800w, /assets/home/normalised/player-makers-hero.avif 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="/assets/home/normalised/player-makers-hero-800.webp" srcset="/assets/home/normalised/player-makers-hero-800.webp 800w, /assets/home/normalised/player-makers-hero.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1000" alt="Three astronauts build a red arch together on a grey bench, one holding a sketch and one a wrench." fetchpriority="high" decoding="async"></picture></figure>
   </div>
 </section>
 
-<section class="u-band u-paper" aria-labelledby="sit-t">
+<section class="u-band u-paper" aria-labelledby="mk-t">
   <div class="wrap">
-    <div class="u-sh"><h2 id="sit-t">What we help you build.</h2><p class="intro">Already running a community, ambassador or creator programme? <a href="#review">We review what works</a> and plan the next stage.</p></div>
-    <ul class="u-parts bp-parts">
-      <li><span class="u-ic" aria-hidden="true"></span>
-        <p class="sit">Players who send detailed feedback</p><h3>Set up a player council or playtest panel</h3><p>A small group of committed players tests updates, explains what they see and hears back what changed. We run the first cycle with you, then hand it over.</p></li>
-      <li><span class="u-ic" aria-hidden="true"></span>
-        <p class="sit">Players who already run the community</p><h3>Give your community leaders a bigger role</h3><p>An ambassador or moderator programme with clear roles, real recognition and support from your team, or a fix for the one you run.</p></li>
-      <li><span class="u-ic" aria-hidden="true"></span>
-        <p class="sit">Players who make mods, maps or guides</p><h3>Launch a programme for player creations</h3><p>Clear rules for sharing work, a review process, and a place where other players can find what gets made.</p></li>
-      <li><span class="u-ic" aria-hidden="true"></span>
-        <p class="sit">Creators who already play your game</p><h3>Work with the creators in your community</h3><p>Grassroots and mid-sized creators who play your game get early access, a way to work with your team and credit for what they make.</p></li>
-    </ul>
+    <div class="u-sh"><h2 id="mk-t">What players make.</h2></div>
+    <ul class="pp-make"><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/player-makers-icon-mods.avif"><img src="/assets/home/ink/player-makers-icon-mods.webp" width="256" height="256" alt="" loading="lazy"></picture><span>Mods</span></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/player-makers-icon-maps.avif"><img src="/assets/home/ink/player-makers-icon-maps.webp" width="256" height="256" alt="" loading="lazy"></picture><span>Maps and levels</span></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/player-makers-icon-guides.avif"><img src="/assets/home/ink/player-makers-icon-guides.webp" width="256" height="256" alt="" loading="lazy"></picture><span>Guides and wikis</span></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/player-makers-icon-tools.avif"><img src="/assets/home/ink/player-makers-icon-tools.webp" width="256" height="256" alt="" loading="lazy"></picture><span>Tools and overlays</span></li><li><picture class="u-ic"><source type="image/avif" srcset="/assets/home/ink/player-makers-icon-ai.avif"><img src="/assets/home/ink/player-makers-icon-ai.webp" width="256" height="256" alt="" loading="lazy"></picture><span>AI remixes and ports</span></li></ul>
   </div>
 </section>
 
-<section class="u-band u-white" aria-labelledby="how-t">
-  <div class="wrap bp-steps-wrap">
-    <div class="u-sh"><h2 id="how-t">From first conversation to a programme your team runs.</h2></div>
-    <ol class="u-steps bp-steps">
-      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/about-responses-normalised-512.avif 512w, /assets/home/normalised/about-responses-normalised.avif 1024w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/about-responses-normalised-512.webp" srcset="/assets/home/normalised/about-responses-normalised-512.webp 512w, /assets/home/normalised/about-responses-normalised.webp 1024w" sizes="(max-width: 900px) 280px, 360px" width="1024" height="1024" alt="A white feedback card with a blue speech bubble stands on a charcoal base." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">1</span><h3>Talk to your team and your players</h3><p>We interview your team and your players to learn what brings them back and what they already do for the game.</p><p class="chip">A clear picture of what players need.</p></li>
-      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/research-obs-004-800.avif 800w, /assets/home/normalised/research-obs-004.avif 1600w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/research-obs-004-800.webp" srcset="/assets/home/normalised/research-obs-004-800.webp 800w, /assets/home/normalised/research-obs-004.webp 1600w" sizes="(max-width: 900px) 280px, 360px" width="1600" height="1000" alt="An astronaut turns a blue dial to choose between two routes on a simple navigation desk." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">2</span><h3>Recommend the right programme</h3><p>We compare options on cost, likely effect and your team’s time, then recommend one. It may be a change to what you already run.</p><p class="chip">Costed options and one recommendation with a named owner.</p></li>
-      <li><picture class="art"><source type="image/avif" srcset="/assets/home/normalised/research-gaming-800.avif 800w, /assets/home/normalised/research-gaming.avif 1600w" sizes="(max-width: 900px) 280px, 360px"><img src="/assets/home/normalised/research-gaming-800.webp" srcset="/assets/home/normalised/research-gaming-800.webp 800w, /assets/home/normalised/research-gaming.webp 1600w" sizes="(max-width: 900px) 280px, 360px" width="1600" height="1000" alt="Two astronauts playtest a red handheld game together, with a notebook for feedback." loading="lazy" decoding="async"></picture><span class="mk" aria-hidden="true">3</span><h3>Launch it and hand it over</h3><p>We design the programme with the person who will run it and launch it together. We see it through its first weeks, adjust it once and hand it over.</p><p class="chip">A working programme your team can run.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="u-band u-paper" id="options" aria-labelledby="op-t">
+<section class="u-band u-white" aria-labelledby="q-t">
   <div class="wrap">
-    <div class="u-sh"><h2 id="op-t">Plan it. Build it. Keep it running.</h2><p class="intro">One question first? Start with a <a href="#check">two-week Programme Check</a>.</p></div>
-    <figure class="bp-tl">
-      <ol aria-hidden="true"><li class="seg rev ord1" style="--s:1;--e:5">Decision Review · €14,000</li><li class="seg bld ord3" style="--s:5;--e:14">Build</li><li class="ext ord7" style="--s:14;--e:15">Progress review, 90 days after handover</li><li class="mark ord4" style="--s:5;--e:9">Week 5 · €14,000</li><li class="mark ord5" style="--s:10;--e:14">Week 10 · €14,000</li><li class="mark stop ord2" style="--s:5;--e:9">Stop gate after week 4</li><li class="mark end ord6" style="--s:11;--e:14">Handover · week 13</li><li class="wk ord9" style="--s:1;--e:2">Week 1</li><li class="wk ord9" style="--s:4;--e:5">4</li><li class="wk ord9" style="--s:13;--e:14">13</li><li class="sup ord8" style="--s:1;--e:15">Programme Support · monthly, agreed in writing</li></ol>
-      <div class="sr"><table><caption>Programme timeline</caption>
-        <tr><th scope="row">Weeks 1 to 4</th><td>Decision Review, €14,000</td></tr>
-        <tr><th scope="row">End of week 4</th><td>Stop gate: stop and keep the decision, or approve the build</td></tr>
-        <tr><th scope="row">Week 5</th><td>Build starts, €14,000 instalment</td></tr>
-        <tr><th scope="row">Week 10</th><td>€14,000 instalment</td></tr>
-        <tr><th scope="row">Week 13</th><td>Handover</td></tr>
-        <tr><th scope="row">90 days after handover</th><td>Progress review</td></tr>
-        <tr><th scope="row">Ongoing</th><td>Programme Support, monthly, agreed in writing</td></tr>
-      </table></div>
-    </figure>
-    <div class="opts">
-      <article class="offer" id="check"><h3 class="h3">Programme Check</h3><p class="price">€4,000<small>fixed fee</small></p><p class="facts"><span>2 weeks</span><span>3–4 interviews</span></p>
-        <p>For studios with one concrete question about their players or community, who want an outside view before committing to a programme.</p>
-        <details class="bp-inc"><summary>What’s included</summary>
-          <ul class="ticks"><li>We agree the one question with you in a kickoff call.</li><li>We interview 3–4 people from your team and your community, and review what you already run.</li><li>You get a short written map: what is happening, where help would matter, and what to do next, including stopping or doing it yourselves.</li><li>A 60-minute walkthrough with your team.</li></ul>
-          <p class="note">Continue to a Decision Review within 60 days and the €4,000 counts toward it.</p></details>
-        <span></span><a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata%5Bsource%5D=player-programme-check">Book a Programme Check</a></article>
-      <article class="offer" id="review"><h3 class="h3">Decision Review</h3><p class="price">€14,000<small>fixed fee</small></p><p class="facts"><span>4 weeks</span><span>8–10 interviews in total</span></p>
-        <p>For studios deciding which player or community programme to launch, change or stop, and who should run it.</p>
-        <p class="marks" aria-label="Possible outcomes"><span>● Go ahead</span><span>■ Change course</span><span>▲ Hold off</span></p>
-        <details class="bp-inc"><summary>What’s included</summary>
-          <ul class="ticks"><li>We interview 8–10 people from your team and your community, and review your data.</li><li>We show you what they need and what your team can realistically support.</li><li>You get costed options and one recommendation with a named owner, agreed with whoever approves the budget.</li></ul>
-          <p class="note">The Review is the first phase of the Programme Build. Continue with an agreed scope for a further €28,000.</p></details></article>
-      <article class="offer feature" id="build"><h3 class="h3">Programme Build</h3><p class="price">€42,000<small>fixed fee, one stop gate</small></p><p class="facts"><span>13 weeks</span><span>Includes the 4-week Review</span></p>
-        <p>For one programme you want running by a set date, such as a season or a major update, designed and launched with your team.</p>
-        <details class="bp-inc"><summary>What’s included</summary>
-          <ul class="ticks"><li><strong>€14,000 to start · weeks 1–4:</strong> the Decision Review.</li><li><strong>€28,000 to continue · weeks 5–13:</strong> two €14,000 instalments, at weeks 5 and 10. Design, launch, the first weeks of use, one adjustment and handover.</li></ul>
-          <p class="gate"><b>Stop gate after week 4</b>Stop here and keep the decision, or approve the build.</p>
-          <p class="note">Includes one progress review 90 days after handover, based on your team’s reports.</p></details></article>
-      <article class="offer" id="support" style="--bar:var(--muted-on-ink)"><h3 class="h3">Programme Support</h3><p class="price">from €4,000<small>per month, scoped to your programmes</small></p><p class="facts"><span>Ongoing</span><span>Monthly, agreed in writing</span></p>
-        <p>Ongoing specialist help for a programme you already run, working alongside your community team.</p>
-        <details class="bp-inc"><summary>What’s included</summary>
-          <ul class="ticks"><li>Hands-on help when you launch something new or change what runs.</li><li>Regular working sessions with the people who run the programme.</li><li>Priorities and progress reviewed with your sponsor.</li></ul></details>
-        <span></span><a class="btn btn-line" href="#contact">Discuss your programme</a></article>
+    <div class="u-sh"><h2 id="q-t">The question every studio hits.</h2><p class="intro">When something players made takes off, who owns the next step: community, product, partnerships, legal? Often nobody. Then good work stalls, rules arrive late, or the studio ends up taking things down.</p></div>
+    <p class="pp-close">Player Makers gives that work an owner, rules and a first cycle.</p>
+  </div>
+</section>
+
+<section class="u-band u-paper" id="formats" aria-labelledby="fm-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="fm-t">Two formats.</h2></div>
+    <div class="pp-two">
+      <article class="offer" id="scan"><h3 class="h3">Maker Scan</h3><p class="price">€4,000<small>fixed fee</small></p><p class="facts"><span>2 weeks</span></p>
+        <ul class="u-ticks"><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>The 20 players who already make things around your game, named: what they make, who uses it, what breaks.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>One recommended track to support first, with what it would take.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>A 60-minute walkthrough with your team.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Credited in full toward the programme if you continue within 60 days.</span></li></ul>
+        <a class="btn btn-line" href="https://cal.com/communitygeeks/30min?metadata[source]=player-makers">Book a conversation</a></article>
+      <article class="offer feature" id="programme"><h3 class="h3">Player Makers programme</h3><p class="price">€42,000<small>fixed fee</small></p><p class="facts"><span>13 weeks</span><span>Stop gate after week 4</span></p>
+        <ul class="u-ticks"><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>One track chosen with your team: mods, maps, guides, tools or AI remixes.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Rules for credit, review and sharing, drafted for your legal team to approve.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>15 to 25 player makers through a first cycle, with your team.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>A place where other players find and use what they made.</span></li><li><svg class="ic" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5l6 6 12-13"/></svg><span>Handover to your team in week 13, and a count 90 days later: who is still making things and what they shipped.</span></li></ul>
+        <p class="gate"><b>Stop gate after week 4</b>Paid as €14,000 to start, then €14,000 in weeks 5 and 10. At the end of week 4 you can stop and keep the scan and plan.</p>
+        <a class="btn btn-fill" href="https://cal.com/communitygeeks/30min?metadata[source]=player-makers">Book a conversation</a></article>
     </div>
-    <div class="u-resp">
-      <div><h3>We bring</h3><ul><li>Interviews with your team and your players</li><li>A review of your data</li><li>Costed options and one recommendation</li><li>Programme design with the person who will run it</li><li>Launch support through the first weeks</li><li>One adjustment</li><li>Handover</li><li>A progress review 90 days later</li></ul></div>
-      <div><h3>You bring</h3><ul><li>A sponsor who approves decisions</li><li>A community lead who runs the work</li><li>The budget for rewards, keys and creator fees</li></ul></div>
-    </div>
-    <p class="bp-terms"><a class="tl" href="/services/player-programmes/terms/">Scope, responsibilities and exclusions</a></p>
+    <p class="bp-terms"><a class="tl" href="/services/player-makers/terms/">Scope, responsibilities and exclusions</a></p>
+  </div>
+</section>
+
+<section class="u-band u-white" aria-labelledby="who-t">
+  <div class="wrap">
+    <div class="u-sh"><h2 id="who-t">Who it’s for.</h2><p class="intro">Studios and platforms with a live game where players already make things, or that plan to open mod support or creation tools. Usually larger studios, publishers and platforms.</p></div>
   </div>
 </section>
 
 <section class="u-band u-deep" aria-labelledby="ev-t">
   <div class="wrap">
-    <div class="u-sh"><h2 id="ev-t">Built on research, not on a template.</h2><p class="intro">Player programmes draw on our gaming research and our work with indie studios.</p></div>
-    <div class="pp-ev">
-      <div class="pp-hyp"><p class="h">Community is the first defence against clones.</p><p>Valve’s advice to studios at Steam Indie Connect in October 2026 was to keep growing the game and its community in their own way. Player programmes give that work a structure your team can run.</p>
-        <p class="src">Source: Valve at Steam Indie Connect Busan, 27 Oct 2026, as reported by <a href="https://www.invenglobal.com/articles/27761/valve-responds-directly-to-developers-fearful-of-ai-slop-and-game-cloning" rel="noopener">Inven Global</a></p></div>
-      <div class="pp-hyp"><p class="h">Built on live-game community work.</p><p>Communitygeeks’ founder has run community work for live games, including gaming communities for Tencent through ZAM.</p></div>
+    <div class="u-sh"><h2 id="ev-t">Why now.</h2></div>
+    <div class="pp-ev" style="--n:3">
+      <div class="pp-hyp"><p class="f">Xbox announced Xbox Labs in October 2026 to “learn from what people do”; success means more people “playing and creating”.</p><p class="src">Source: <a href="https://news.xbox.com/en-us/2026/10/13/introducing-xbox-labs/" rel="noopener">Xbox Wire, 13 Oct 2026 <span aria-hidden="true"></span></a></p></div>
+      <div class="pp-hyp"><p class="f">On mod.io, BMX Streets’ share of paying users went from 5% to 15% after its Xbox marketplace opened (company-reported).</p><p class="src">Source: <a href="https://mod.io/blog/2026-half-year-update-marketplace-going-live" rel="noopener">mod.io, 10 Aug 2026 <span aria-hidden="true"></span></a></p></div>
+      <div class="pp-hyp"><p class="f">Overwolf reported in-game creator payouts of about $300 million in 2025.</p><p class="src">Source: <a href="https://www.forbes.com/sites/mattgardner1/2025/11/06/overwolfs-in-game-creator-payouts-jump-to-300-million-in-2025/" rel="noopener">Forbes, 6 Nov 2025 <span aria-hidden="true"></span></a></p></div>
     </div>
-    <div class="bp-ev-acts"><a class="btn btn-line" href="/research/games/">Explore the gaming research</a><a class="tl" href="/research/#basis">How the research works</a></div>
   </div>
 </section>
 
 <section class="u-band u-white" aria-labelledby="faq-t">
   <div class="wrap">
     <h2 class="sr" id="faq-t">Questions</h2>
-    <div class="u-faq"><details name="pp-faq"><summary>Do you replace our community team?</summary><p>We design programmes with your community team, launch them together and hand them over. Your team keeps the relationships.</p></details><details name="pp-faq"><summary>Do you work with big influencers?</summary><p>We work with grassroots and mid-sized creators who already play your game. Large influencer campaigns, paid media and media buying are outside our scope.</p></details><details name="pp-faq"><summary>Who pays for rewards, keys and creator fees?</summary><p>You do, directly. They sit in your budget and never in our fee.</p></details><details name="pp-faq"><summary>What happens at the stop gate?</summary><p>At the end of week 4 you decide: stop and keep the Decision Review, or approve the build.</p></details><details name="pp-faq"><summary>Our game isn’t out yet. Is this for us?</summary><p>Uncopyable is built for studios before launch. Player programmes start once a game has players to work with.</p></details></div>
+    <div class="u-faq"><details name="pm-faq"><summary>Do you build mod tools?</summary><p>No. Tools stay with your engineers or platforms like mod.io and Overwolf. We work on the people side: who makes what, the rules, the first cycle.</p></details><details name="pm-faq"><summary>What about rights and revenue share?</summary><p>We draft the rules with your team. Your legal team decides.</p></details><details name="pm-faq"><summary>What about AI remixes and ports?</summary><p>They’re already happening. The scan shows what exists, so your team can decide what to support, allow or stop.</p></details><details name="pm-faq"><summary>Our game is still in development.</summary><p>Start with a <a href="/services/player-panel/">Player Panel</a>.</p></details><details name="pm-faq"><summary>Is this research or a service?</summary><p>A service. The <a href="/research/games/#levels">research behind it</a> is public.</p></details></div>
   </div>
 </section>
 
 <section class="u-band u-deep u-final" id="contact" aria-labelledby="ct-t">
   <div class="wrap u-fgrid">
     <div class="u-fmain">
-    <h2 id="ct-t">Tell us about your game and your players.</h2>
-    <p class="bp-book-lead">Pick a time for a 30-minute conversation.</p>
-    <div class="acts"><a class="btn btn-fill bp-book-btn" href="https://cal.com/communitygeeks/30min?metadata[source]=player-programmes">Book a 30-minute conversation</a></div>
+    <h2 id="ct-t">Give the people who make things around your game an owner.</h2>
+    <div class="acts"><a class="btn btn-fill bp-book-btn" href="https://cal.com/communitygeeks/30min?metadata[source]=player-makers">Book a conversation</a></div>
     <p class="bp-book-mail">Prefer email? <a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></p>
     </div>
-    <picture class="u-fart"><source type="image/avif" srcset="/assets/home/normalised/research-obs-002-800.avif 800w, /assets/home/normalised/research-obs-002.avif 1600w" sizes="(max-width: 900px) 280px, 40vw"><img src="/assets/home/normalised/research-obs-002-800.webp" srcset="/assets/home/normalised/research-obs-002-800.webp 800w, /assets/home/normalised/research-obs-002.webp 1600w" sizes="(max-width: 900px) 280px, 40vw" width="1600" height="1000" alt="Two astronauts shake hands across a table holding a red gaming console and a simple presentation display." loading="lazy" decoding="async"></picture>
+    <picture class="u-fart"><source type="image/avif" srcset="/assets/home/normalised/player-makers-closing-800.avif 800w, /assets/home/normalised/player-makers-closing.avif 1600w" sizes="(max-width: 900px) 280px, 40vw"><img src="/assets/home/normalised/player-makers-closing-800.webp" srcset="/assets/home/normalised/player-makers-closing-800.webp 800w, /assets/home/normalised/player-makers-closing.webp 1600w" sizes="(max-width: 900px) 280px, 40vw" width="1600" height="1000" alt="Three astronauts sit on a grey bench while one plays a game on a console that shows the red arch they made." loading="lazy" decoding="async"></picture>
     <div class="u-fmeta"><div class="founder"><img src="/assets/home/founder.webp" width="720" height="900" alt="" loading="lazy"><p><b>Carmelito Bauer</b>, founder of Communitygeeks. His experience includes DeepL, the European Commission’s EU Academy, and gaming communities for Tencent, through ZAM.</p></div></div>
   </div>
 </section>
@@ -506,7 +487,7 @@
 <footer class="cg-foot"><div class="cg-w">
   <div class="cg-fgrid">
     <div class="cg-fabout"><p class="cg-brand"><img src="/assets/home/icon.webp" width="30" height="30" alt="">Communitygeeks</p><p>Communitygeeks: community and ecosystem strategy.</p><a href="mailto:carmelito@communitygeeks.de">carmelito@communitygeeks.de</a></div>
-    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/player-programmes/">For live games: Player programmes</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
+    <nav aria-labelledby="cg-f1"><h2 id="cg-f1">Services.</h2><ul><li><a href="/uncopyable/">For indie studios: Uncopyable</a></li><li><a href="/services/player-panel/">For studios of 10 to 150: Player Panel</a></li><li><a href="/services/player-makers/">For live games: Player Makers</a></li><li><a href="/services/builder-programmes/">For software and AI teams: Builder programmes</a></li><li><a href="/services/">All programmes</a></li></ul></nav>
     <nav aria-labelledby="cg-f2"><h2 id="cg-f2">Research.</h2><ul><li><a href="/research/">Overview</a></li><li><a href="/research/games/">Gaming</a></li><li><a href="/research/builder-ecosystems/">AI &amp; AI infrastructure</a></li><li><a href="/research/articles/">All articles</a></li></ul></nav>
     <nav aria-labelledby="cg-f3"><h2 id="cg-f3">Meet us.</h2><ul><li><a href="/lisbon/">Lisbon&nbsp;·&nbsp;<span class="cg-nw">17–22 Nov</span></a></li><li>Bilbao&nbsp;·&nbsp;<span class="cg-nw">11–12 Dec</span></li><li>Taipei&nbsp;·&nbsp;<span class="cg-nw">21–24 Jan 2027</span></li><li><a href="/events/">All events</a></li></ul></nav>
     <nav aria-labelledby="cg-f4"><h2 id="cg-f4">Company.</h2><ul><li><a href="/about/">About</a></li><li><a href="https://cal.com/communitygeeks/30min">Book a conversation</a></li><li><a href="mailto:carmelito@communitygeeks.de">Email</a></li></ul></nav>

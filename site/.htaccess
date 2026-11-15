@@ -55,6 +55,10 @@ RedirectMatch 301 ^/programmes/terms/?$ https://communitygeeks.ai/services/build
 RedirectMatch 301 ^/programmes/?$ https://communitygeeks.ai/services/builder-programmes/
 RedirectMatch 302 ^/bilbao/?$ https://communitygeeks.ai/uncopyable/?utm_source=big&utm_medium=event
 
+# Player programmes split into Player Panel and Player Makers (15 Nov 2026).
+RedirectMatch 301 ^/services/player-programmes/terms/?$ https://communitygeeks.ai/services/player-panel/terms/
+RedirectMatch 301 ^/services/player-programmes/?$ https://communitygeeks.ai/services/player-panel/
+
 # Legacy page routes that pointed at homepage chapters which no longer exist in the new design.
 RedirectMatch 301 ^/contact/?$ https://communitygeeks.ai/#contact
 RedirectMatch 301 ^/approach/?$ https://communitygeeks.ai/services/
