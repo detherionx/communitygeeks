@@ -1,0 +1,43 @@
+/* Lisbon talk page (15 Nov 2026): /lisbon/talk/. Reading page (portal.css, lisbon-theme.css) plus slide-and-text rows. Tokens only. */
+.talk-head{padding-bottom:40px}
+.talk-head h1{margin-bottom:12px}
+.talk-sub{margin:0 0 20px;font:var(--t-lede);color:var(--charcoal)}
+.talk-head .byline{margin:0 0 24px}
+.talk-dl{margin-top:28px}
+.talk-dl .cg-btn,.talk-ask .cg-btn{gap:var(--space-8);min-height:48px;padding:0 22px}
+.talk-dl .dl-meta{margin:10px 0 0;color:var(--muted);font:var(--t-small)}
+.talk-body{width:min(1120px,calc(100% - 2 * var(--gutter)));margin-inline:auto}
+.talk-sec{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start;padding:48px 0;border-top:1px solid var(--line)}
+.talk-slides{display:grid;gap:16px}
+.talk-slide{margin:0}
+.talk-slide img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}
+.talk-text{position:sticky;top:96px}   /* sections with several slides: the text stays beside them */
+.talk-text h2{margin:0 0 16px;font:var(--t-h2)}
+.talk-text p{max-width:60ch;margin:0 0 16px;font:var(--t-body)}
+.talk-def{max-width:790px;margin:0 auto;padding:56px 24px;border-top:1px solid var(--line)}
+.talk-def p{margin:0}
+.talk-def-term{font:var(--t-h1)}
+.talk-def-term dfn{font-style:normal}
+.talk-def-term span{font-weight:var(--w-regular);color:var(--muted)}
+.talk-def-text{margin-top:16px!important;font:var(--t-lede)}
+.talk-def-note{margin-top:20px!important;max-width:60ch;font:var(--t-body);color:var(--charcoal)}
+.talk-foot{padding-top:0}
+.talk-foot .reading-sources{margin-top:0}
+.talk-foot .reading-sources h2{margin:0 0 8px;font:var(--t-small);font-weight:var(--w-bold)}
+.talk-foot .reading-sources ul{margin:0;padding-left:20px}
+.talk-ask{margin-top:40px}
+.talk-ask>p{font-weight:var(--w-bold)}
+.talk-ask-btns{display:flex;flex-wrap:wrap;gap:var(--space-16);margin-top:var(--space-16)}
+.talk-ask .cg-btn svg{width:20px;height:20px;flex:none}
+.talk-ask .talk-btn-line{background:none;color:var(--action);box-shadow:inset 0 0 0 1.5px var(--action)}
+.talk-ask .talk-btn-line:hover{background:color-mix(in srgb,var(--action) 8%,transparent)}
+.talk-back{margin-top:40px}
+.talk-back a{font-weight:var(--w-bold);color:var(--link)}
+.reading-page a.cg-btn{color:var(--btn-fg);text-decoration:none}
+.reading-page .talk-ask a.talk-btn-line{color:var(--action)}
+.reading-page .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){
+  .talk-sec{grid-template-columns:minmax(0,1fr);gap:20px;padding:36px 0}
+  .talk-text{position:static}
+  .talk-def{padding:40px 0}
+}

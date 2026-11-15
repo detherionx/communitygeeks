@@ -86,8 +86,8 @@
 /* Hero routes (30 Oct 2026): 2 columns x 2 rows, same 616px as the old row; LCW spans both rows, the two games routes stack on the right.
    Below 640px one column in date order (source order), equal heights. */
 .lx-paths{display:grid;grid-template-columns:repeat(2,300px);justify-content:center;gap:16px;margin-top:28px}
-.lx-paths .route-a{grid-row:span 2}
-@media (max-width:639px){.lx-paths{grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr}.lx-paths .route-a{grid-row:auto}}
+.lx-paths .route-a{grid-column:1 / -1}   /* 15 Nov 2026: games routes first, the past Community Week route below across both columns */
+@media (max-width:639px){.lx-paths{grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr}.lx-paths .route-a{grid-column:auto}}
 @media (prefers-reduced-motion:no-preference){html:has(.lx-page){scroll-behavior:smooth}}
 .lx-track{scroll-margin-top:96px}
 .lx-track+.lx-track{margin-top:72px}
@@ -136,3 +136,12 @@
 .lx-ask .lx-btn-line:hover{background:color-mix(in srgb,var(--paper) 12%,transparent)}
 /* Ticket lines in body size, not small (11 Nov 2026) */
 .lx-content .lx-tickets{font:var(--t-body)}
+/* Earlier in Lisbon (15 Nov 2026): the past Community Week track sits last, after a full-width rule, on a muted band */
+.lx-past{margin-top:72px}
+.lx-divider{margin:0;border:0;border-top:1px solid var(--muted)}
+.lx-past{background:var(--line)}
+.lx-past>.lx-wrap{padding:56px 0 72px}
+.lx-past .lx-past-h{margin-bottom:40px}
+.lx-content .lx-def{margin-top:16px}
+.lx-talk dd a{font-weight:var(--w-bold)}
+@media (max-width:760px){.lx-past{margin-top:48px}.lx-past>.lx-wrap{padding:40px 0 48px}.lx-past .lx-past-h{margin-bottom:28px}}
