@@ -136,12 +136,8 @@
 .lx-ask .lx-btn-line:hover{background:color-mix(in srgb,var(--paper) 12%,transparent)}
 /* Ticket lines in body size, not small (11 Nov 2026) */
 .lx-content .lx-tickets{font:var(--t-body)}
-/* Earlier in Lisbon (15 Nov 2026): the past Community Week track sits last, after a full-width rule, on a muted band */
-.lx-past{margin-top:72px}
-.lx-divider{margin:0;border:0;border-top:1px solid var(--muted)}
-.lx-past{background:var(--line)}
-.lx-past>.lx-wrap{padding:56px 0 72px}
-.lx-past .lx-past-h{margin-bottom:40px}
+/* City archive (21 Nov 2026): each visit is one section, its H2 then its tracks in date order (the 15 Nov "Earlier" band is gone) */
+.lx-visit-h{margin-bottom:40px}
 .lx-content .lx-def{margin-top:16px}
-.lx-talk dd a{font-weight:var(--w-bold)}
-@media (max-width:760px){.lx-past{margin-top:48px}.lx-past>.lx-wrap{padding:40px 0 48px}.lx-past .lx-past-h{margin-bottom:28px}}
+.lx-dark dd a{font-weight:var(--w-bold)}
+@media (max-width:760px){.lx-visit-h{margin-bottom:28px}}

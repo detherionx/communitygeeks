@@ -31,6 +31,10 @@
 .talk-ask .cg-btn svg{width:20px;height:20px;flex:none}
 .talk-ask .talk-btn-line{background:none;color:var(--action);box-shadow:inset 0 0 0 1.5px var(--action)}
 .talk-ask .talk-btn-line:hover{background:color-mix(in srgb,var(--action) 8%,transparent)}
+/* Loading Zone slides (21 Nov 2026): /lisbon/loading-zone/. Stage photo under the intro, then the slides in one column, no text. */
+.talk-photo{max-width:480px;margin:40px 0 0}
+.talk-photo img{display:block;width:100%;height:auto;border-radius:8px}
+.talk-deck{display:grid;gap:24px;max-width:960px;padding:48px 0;border-top:1px solid var(--line)}
 .talk-back{margin-top:40px}
 .talk-back a{font-weight:var(--w-bold);color:var(--link)}
 .reading-page a.cg-btn{color:var(--btn-fg);text-decoration:none}
